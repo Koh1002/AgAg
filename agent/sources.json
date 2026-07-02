@@ -1,0 +1,46 @@
+{
+  "$comment": "エージェントが監視する情報源。エージェント自身が有用なソースを発見したら追加してよい(scripts/validate.mjs の検証を通ること)。",
+  "keywords": [
+    "ai agent",
+    "llm agent",
+    "agentic",
+    "autonomous agent",
+    "multi-agent",
+    "mcp",
+    "AIエージェント",
+    "エージェント"
+  ],
+  "hackernews": {
+    "enabled": true,
+    "queries": ["AI agent", "LLM agent", "agentic", "MCP"],
+    "hitsPerQuery": 20,
+    "lookbackHours": 36
+  },
+  "reddit": {
+    "enabled": true,
+    "subreddits": ["AI_Agents", "LocalLLaMA", "ClaudeAI", "LLMDevs"],
+    "listing": "top",
+    "t": "day",
+    "limit": 15
+  },
+  "arxiv": {
+    "enabled": true,
+    "query": "cat:cs.MA OR (cat:cs.AI AND (abs:\"agent\" OR abs:\"agentic\")) OR (cat:cs.CL AND abs:\"agent\")",
+    "maxResults": 25,
+    "lookbackHours": 72
+  },
+  "github": {
+    "enabled": true,
+    "queries": ["ai-agent", "llm-agent", "agentic"],
+    "perQuery": 10,
+    "createdWithinDays": 14
+  },
+  "rss": [
+    { "name": "Simon Willison", "url": "https://simonwillison.net/atom/everything/", "lang": "en" },
+    { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "lang": "en" },
+    { "name": "LangChain Blog", "url": "https://blog.langchain.dev/rss/", "lang": "en" },
+    { "name": "Zenn - AIエージェント", "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false },
+    { "name": "Qiita - AIエージェント", "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false }
+  ],
+  "rssLookbackHours": 72
+}

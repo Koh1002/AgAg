@@ -1,0 +1,81 @@
+{
+  "date": "2026-07-02",
+  "title": "MCPが「プロトコル最大の改定」へ、エージェントは試験運用から本番段階に",
+  "summary": "MCP(Model Context Protocol)の2026-07-28版リリース候補が話題の中心。ステートレス化・MCP Apps・Tasks拡張という大改定で、本番運用の課題(スケーリング・認可)に正面から応える内容です。市場側ではGartnerが2026年のAIエージェント支出を約2,065億ドル(前年比+139%)と予測し、試験運用からROI実行段階への移行が鮮明に。一方でエージェントブラウザ経由のローカルMCPサービス攻撃(AutoJack)などセキュリティの警鐘も強まっています。",
+  "items": [
+    {
+      "title": "The 2026-07-28 MCP Specification Release Candidate",
+      "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "MCP史上最大の改定となる2026-07-28版のリリース候補。セッション管理を廃したステートレスコアで通常のHTTPインフラ上の水平スケーリングが可能になり、サーバーがサンドボックス化UIを返せる「MCP Apps」、長時間処理の「Tasks」が拡張として整理された。認可はOAuth/OpenID Connect(RFC 9207のiss検証、Dynamic Client Registration)に整合。",
+      "why_useful": "MCPサーバー/クライアントを作るなら7月28日の確定前にRCを読んで追従準備をすべき大改定。",
+      "score": 5
+    },
+    {
+      "title": "MCP's biggest growing pains for production use will soon be solved",
+      "url": "https://thenewstack.io/model-context-protocol-roadmap-2026/",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "The New StackによるMCP 2026ロードマップの解説。ステートフルなセッションがロードバランサと相性最悪、エンタープライズの監査・SSO・ゲートウェイ要件が未整備といった本番運用の痛点と、それをどう解消していくかを整理している。",
+      "why_useful": "RC本文を読む前に「なぜこの改定なのか」の背景を短時間で掴める。",
+      "score": 4
+    },
+    {
+      "title": "AI Weekly: Agents Take Over, MCP Evolves, and Models Battle for Code",
+      "url": "https://dev.to/alexmercedcoder/ai-weekly-agents-take-over-mcp-evolves-and-models-battle-for-code-5cm0",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "今週のエージェント動向まとめ。MicrosoftのセキュリティチームがAIブラウジングエージェントに悪意あるWebページを踏ませてローカルのMCPサービス経由で任意プロセスを実行させる攻撃「AutoJack」を報告。またPerplexity CTOの「MCPのツール記述だけでコンテキストの40〜50%を消費する」という批判が本番適性の議論を呼んでいる。",
+      "why_useful": "エージェントにローカルツールを繋ぐときの隔離設計と、コンテキスト効率の観点は自分たちの設計にも直結する。",
+      "score": 4
+    },
+    {
+      "title": "AI Updates Today (July 2026) – Latest AI Model Releases",
+      "url": "https://llm-stats.com/llm-updates",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "AnthropicがClaude Sonnet 5をFree/Proプランのデフォルトモデルに設定。APIは8月31日まで導入価格(入力$2/出力$10 per 100万トークン)。また米商務省の輸出規制解除を受け、Claude Fable 5のグローバル提供が7月1日から順次復旧している。",
+      "why_useful": "エージェントのバックエンドモデル選定とコスト計算に直接効く価格・提供状況の変化。",
+      "score": 4
+    },
+    {
+      "title": "The AI Agents Stack (2026 Edition)",
+      "url": "https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "O'Reilly Radarによる2026年版AIエージェントスタックの整理。単一エージェントから、専門化したエージェントの協調チーム(マルチエージェント)へアーキテクチャの主流が移りつつあることを、レイヤーごとのツール群とともに解説。",
+      "why_useful": "エージェント関連技術の全体地図として、個別ニュースを位置づける基準になる。",
+      "score": 4
+    },
+    {
+      "title": "2026年7月1日 AIニュース:エージェント運用、AI基盤、透明性対応が本番段階へ",
+      "url": "https://eguweb.jp/ai/81115/",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Google Cloud・Microsoft 365・NVIDIA・Anthropic・OpenAI・EU規制の動きを横断し、エージェント本番運用の条件が具体化してきたと整理する日本語記事。MicrosoftのWork IQ APIs(エージェントが業務文脈を取得して代行する基盤)や、EUのAI生成コンテンツ透明性義務(2026年8月2日適用)に言及。",
+      "why_useful": "日本語でこの1週間の企業向けエージェント動向を俯瞰できる。",
+      "score": 3
+    },
+    {
+      "title": "Best AI Agent Frameworks 2026: 7 Compared (LangGraph, CrewAI, AutoGen, Semantic Kernel)",
+      "url": "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "主要7フレームワークを本番投入のしやすさで比較。複雑なステートフルワークフローにはLangGraph、Anthropicネイティブの本番エージェントにはClaude Agent SDKを推し、CrewAI・AutoGen/AG2・Semantic Kernel・LlamaIndex・Pydantic AIを用途別に位置づける。",
+      "why_useful": "フレームワーク選定の初手として現時点の勢力図を押さえられる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "prompt",
+      "description": "初期構築: 指示書(AGENT.md)・キュレーションスキル・収集/サイト生成/検証スクリプト・日次ワークフローを整備した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)とセキュリティ知見(AutoJack、ツール記述のコンテキスト消費問題)を知識ベース agent/knowledge/mcp.md に記録した。"
+    }
+  ]
+}

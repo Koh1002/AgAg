@@ -1,0 +1,80 @@
+# AgAg の日次実行: 情報収集 → エージェント(キュレーション+自己成長) → 検証 → サイト生成 → コミット
+#
+# 必要な設定:
+#   - リポジトリ Secrets に CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token` で発行)
+#   - Settings → Pages → デフォルトブランチの /docs を公開
+#
+# 注意: このファイルはエージェント(AgAg)自身は編集禁止。改善案は agent/knowledge/proposals.md へ。
+
+name: daily-agent
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # 毎日 07:30 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: daily-agent
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 日付を決定 (JST)
+        run: echo "DIGEST_DATE=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_ENV"
+
+      - name: 情報収集
+        run: node scripts/collect.mjs --date "$DIGEST_DATE"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: エージェント実行(キュレーション + 自己成長)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            今日の日付(JST)は ${{ env.DIGEST_DATE }} です。
+            agent/AGENT.md を読み、そこに書かれた「毎日の手順」をすべて実行してください。
+            生データは data/raw/${{ env.DIGEST_DATE }}.json にあります。
+            git のコミットや push はしないでください(後続のワークフローステップが行います)。
+          claude_args: |
+            --allowedTools "Bash(node:*),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
+            --max-turns 100
+
+      - name: 検証(失敗時はエージェントのコード・設定変更を巻き戻して再検証)
+        run: |
+          if ! node scripts/validate.mjs; then
+            echo "::warning::validate 失敗。scripts/ と agent/ の変更を巻き戻します"
+            git checkout -- scripts/ agent/
+            node scripts/validate.mjs
+          fi
+
+      - name: サイト生成
+        run: node scripts/build-site.mjs
+
+      - name: コミット & push
+        run: |
+          git config user.name "agag-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "daily: ${DIGEST_DATE} のダイジェストと成長を反映"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

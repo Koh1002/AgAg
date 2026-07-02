@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-07-02",
+    "type": "prompt",
+    "description": "初期構築: エージェントの指示書(AGENT.md)、キュレーションスキル、収集・サイト生成・検証スクリプト、日次ワークフローを整備した。",
+    "files": ["agent/AGENT.md", "agent/skills/curation.md", "agent/sources.json", "scripts/collect.mjs", "scripts/build-site.mjs", "scripts/validate.mjs"]
+  },
+  {
+    "date": "2026-07-02",
+    "type": "knowledge",
+    "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)と、エージェントのセキュリティ知見(AutoJack攻撃、MCPツール記述のコンテキスト消費問題)を知識ベースに記録した。",
+    "files": ["agent/knowledge/mcp.md"]
+  }
+]
