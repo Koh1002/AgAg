@@ -1,6 +1,11 @@
-# docs/ を GitHub Pages にデプロイする(手動実行 or docs/ を直接編集して push したとき用)。
+# サイト(リポジトリルートに生成)を GitHub Pages にデプロイする。
 # 日次の自動更新では daily-agent.yml が自分でデプロイまで行う
 # (GITHUB_TOKEN による push は他のワークフローをトリガーしないため)。
+#
+# 注意: Pages が「ブランチ配信」設定の場合、GitHub 側の "pages build and deployment" と
+# 同一コミットのデプロイを取り合って片方が失敗する。ブランチ配信でもサイトはルートに
+# 生成されるため配信内容は同じ。そのためデプロイ失敗はワークフロー失敗にしない
+# (continue-on-error)。Settings → Pages → Source を "GitHub Actions" にすると競合は消える。
 
 name: deploy-pages
 
@@ -8,7 +13,15 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["docs/**", ".github/workflows/deploy-pages.yml"]
+    paths:
+      - "index.html"
+      - "archive.html"
+      - "growth.html"
+      - "404.html"
+      - "style.css"
+      - "feed.xml"
+      - "archive/**"
+      - ".github/workflows/deploy-pages.yml"
 
 permissions:
   contents: read
@@ -47,8 +60,9 @@ jobs:
       - name: サイトをアップロード
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: .
 
-      - name: デプロイ
+      - name: デプロイ(ブランチ配信との競合失敗は許容)
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// data/digests/ と data/growth-log.json から docs/ に静的サイトと Atom フィードを生成する。
+// data/digests/ と data/growth-log.json からリポジトリのルートに静的サイトと Atom フィードを生成する。
+// (GitHub Pages のブランチ配信(main / ルート)でもルート URL で UI が表示されるようにするため。
+//  .nojekyll を置くので README の Jekyll レンダリングは行われない)
 // 依存パッケージなし。使い方: node scripts/build-site.mjs
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from "node:fs";
@@ -9,7 +11,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE_URL = process.env.SITE_URL || "https://koh1002.github.io/AgAg";
 const SITE_TITLE = "AgAg — AIエージェント・デイリーウォッチ";
-const DOCS = join(ROOT, "docs");
+const DOCS = ROOT; // サイト生成先(リポジトリルート)
 
 // ---------- ユーティリティ ----------
 
@@ -310,7 +312,7 @@ function main() {
   buildGrowth(growthLog);
   build404();
   buildFeed(digests);
-  console.log(`[build-site] ${digests.length} digests, ${growthLog.length} growth entries -> docs/`);
+  console.log(`[build-site] ${digests.length} digests, ${growthLog.length} growth entries -> リポジトリルート`);
 }
 
 main();

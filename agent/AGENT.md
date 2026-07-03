@@ -62,7 +62,7 @@
 - **skill**: 新しい能力・手順を `agent/skills/*.md` に文書化(例: 特定分野の評価方法、新しい調査テクニック)
 - **source**: 有用な情報源を発見したら `agent/sources.json` に追加。恒常的に死んでいるソースは `enabled: false` にするか削除
 - **prompt**: この `AGENT.md` 自体の改善(キュレーション基準の精緻化、手順の改善)。ただし「安全境界」「スキーマ」のセクションは変更しない
-- **script**: `scripts/` の改善(収集ソースの追加実装、サイトの改善など)。**変更後に必ず `node scripts/validate.mjs` と `node scripts/build-site.mjs` が成功することを確認**。失敗したら変更を取り消す
+- **script**: `scripts/` の改善(収集ソースの追加実装、サイトの改善など)。**変更後に必ず `node scripts/validate.mjs` と `node scripts/build-site.mjs` が成功することを確認**。失敗したら変更を取り消す。サイトの見た目を変えたいときは `scripts/build-site.mjs` を編集する(ルートに生成される `index.html` などの生成物は直接編集しない)
 
 すべての成長アクションは `data/growth-log.json` に追記する:
 
