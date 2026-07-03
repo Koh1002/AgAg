@@ -83,8 +83,11 @@ jobs:
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
-      # GITHUB_TOKEN の push は deploy-pages.yml をトリガーしないため、ここで自前デプロイする
-      - name: 配信方式を GitHub Actions に切り替え(すでに workflow なら no-op)
+      # GITHUB_TOKEN の push は deploy-pages.yml をトリガーしないため、ここで自前デプロイする。
+      # Pages がブランチ配信設定の場合は GitHub 側のビルドと競合して失敗しうるが、
+      # サイトはリポジトリルートに生成済みで配信内容は同じため失敗は許容する。
+      - name: 配信方式を GitHub Actions に切り替え(権限がなければ no-op)
+        continue-on-error: true
         run: |
           curl -sS -X PUT \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
@@ -94,15 +97,18 @@ jobs:
             -w "HTTP %{http_code}\n" || true
 
       - name: Pages を設定(未有効なら自動で有効化)
+        continue-on-error: true
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
       - name: サイトをアップロード
+        continue-on-error: true
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: .
 
-      - name: デプロイ
+      - name: デプロイ(ブランチ配信との競合失敗は許容)
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4
