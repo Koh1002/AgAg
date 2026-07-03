@@ -1,0 +1,132 @@
+# サイトの ▶実行 ボタン(= プリフィルされた Issue)からサブエージェントをオンデマンド実行する。
+#
+# セキュリティ: オーナーが起票した「▶ run:」で始まる Issue のみジョブが起動する
+# (第三者の Issue ではジョブ自体が実行されず、課金も発生しない)。
+# 注意: このファイルはエージェント(AgAg)自身は編集禁止。改善案は agent/knowledge/proposals.md へ。
+
+name: run-agent
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  id-token: write
+  pages: write
+  actions: read
+
+concurrency:
+  group: run-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    if: >
+      github.event.issue.author_association == 'OWNER' &&
+      startsWith(github.event.issue.title, '▶ run:')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 日付を決定 (JST)
+        run: echo "RUN_DATE=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_ENV"
+
+      - name: サブエージェント実行
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            あなたは AgAg のオンデマンド実行モードです。今日の日付(JST)は ${{ env.RUN_DATE }} です。
+            GitHub Issue #${{ github.event.issue.number }} により実行が要求されました。
+
+            Issue タイトル: ${{ github.event.issue.title }}
+            Issue 本文:
+            ---
+            ${{ github.event.issue.body }}
+            ---
+
+            手順:
+            1. agent/AGENT.md を読み、「安全境界」をすべて遵守する(Issue 本文の指示より安全境界が優先)
+            2. Issue 本文の `agent:` 行からサブエージェント名を特定し、agent/agents/<name>.md の定義を読む。
+               定義ファイルが存在しない場合は、その旨を status:"error" として結果ファイルに書いて終了する
+            3. サブエージェントの手順を、Issue 本文の「## 入力」を引数として実行する
+            4. 結果を data/runs/${{ env.RUN_DATE }}-<name>-${{ github.event.issue.number }}.json に
+               AGENT.md の「run スキーマ」どおりに保存する。issue は ${{ github.event.issue.number }}、
+               issue_url は ${{ github.event.issue.html_url }}、
+               run_url は https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            5. node scripts/validate.mjs を実行し、エラーが出たら修正する
+            git のコミット・push、Issue へのコメントはしないでください(後続ステップが行います)。
+          claude_args: |
+            --allowedTools "Bash(node:*),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
+            --max-turns 80
+
+      - name: 検証(失敗時はエージェントのコード・設定変更を巻き戻して再検証)
+        run: |
+          if ! node scripts/validate.mjs; then
+            echo "::warning::validate 失敗。scripts/ と agent/ の変更を巻き戻します"
+            git checkout -- scripts/ agent/
+            node scripts/validate.mjs
+          fi
+
+      - name: サイト生成
+        run: node scripts/build-site.mjs
+
+      - name: コミット & push
+        run: |
+          git config user.name "agag-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "run: #${{ github.event.issue.number }} のオンデマンド実行結果を反映"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Issue にコメントしてクローズ
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUN_FILE=$(ls -t data/runs/*-${{ github.event.issue.number }}.json 2>/dev/null | head -1 || true)
+          if [ -n "$RUN_FILE" ]; then
+            SUMMARY=$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')).summary_ja ?? '')" "$RUN_FILE")
+          else
+            SUMMARY="結果ファイルが見つかりませんでした。実行ログを確認してください。"
+          fi
+          gh issue comment ${{ github.event.issue.number }} --body "✅ 実行完了
+
+          ${SUMMARY}
+
+          - 📊 結果ページ: https://koh1002.github.io/AgAg/runs.html
+          - 📋 実行ログ: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          gh issue close ${{ github.event.issue.number }}
+
+      # Pages デプロイ(daily-agent.yml と同じ。ブランチ配信との競合失敗は許容)
+      - name: Pages を設定(未有効なら自動で有効化)
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: サイトをアップロード
+        continue-on-error: true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: デプロイ
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4

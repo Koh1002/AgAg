@@ -1,0 +1,205 @@
+/* AgAg グラフページ(ダーク宇宙風)。生成物ではなく手書きソース。 */
+
+body.graph-page {
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 20%, #12142e 0%, #0a0b1c 55%, #05060f 100%);
+  color: #dfe4f2;
+}
+
+/* ヘッダーを透過オーバーレイ化 */
+body.graph-page .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-width: none;
+  background: linear-gradient(to bottom, rgba(5, 6, 15, 0.85), transparent);
+  border: none;
+}
+body.graph-page .brand { color: #f2f4fb; }
+body.graph-page .site-header nav a { color: #9aa3c0; }
+body.graph-page .site-header nav a:hover { color: #ffffff; }
+
+#graph-root {
+  position: fixed;
+  inset: 0;
+}
+#graph {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.stars circle { fill: #cdd6f4; }
+
+/* エッジ */
+.link {
+  stroke: rgba(140, 160, 255, 0.22);
+}
+.link-owns { stroke: rgba(200, 210, 255, 0.3); }
+.link-fed { stroke: rgba(240, 163, 90, 0.28); }
+.link-grew { stroke: rgba(200, 230, 90, 0.3); }
+.link-changed { stroke: rgba(200, 230, 90, 0.35); stroke-dasharray: 4 3; }
+.link-ran { stroke: rgba(240, 122, 184, 0.35); }
+.link.dim { stroke-opacity: 0.15; }
+
+/* ノード */
+.node .dot {
+  stroke: rgba(8, 10, 24, 0.9);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(120, 140, 255, 0.25));
+}
+.node-agent .dot { filter: drop-shadow(0 0 14px rgba(255, 215, 106, 0.55)); }
+.node.dim { opacity: 0.18; }
+.node .label {
+  fill: #c3cbe4;
+  font-size: 11px;
+  paint-order: stroke;
+  stroke: rgba(5, 6, 15, 0.85);
+  stroke-width: 3px;
+  pointer-events: none;
+  user-select: none;
+}
+.node-agent .label { font-size: 14px; font-weight: 700; fill: #ffe9ad; }
+
+/* ラベルのズーム出し分け */
+.label-zoom { opacity: 0; transition: opacity 0.25s; }
+body.zoomed-in .label-zoom { opacity: 1; }
+
+/* 最近成長したノードの脈動ハロー */
+.node .halo {
+  stroke-width: 2;
+  opacity: 0.8;
+  animation: pulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(1.45); }
+}
+
+/* 凡例 */
+#graph-legend {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  max-width: 60vw;
+  font-size: 11.5px;
+  color: #9aa3c0;
+}
+.legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.legend-item i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.legend-fresh {
+  background: transparent !important;
+  border: 2px solid #c8e65a;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* 操作ヒント */
+#graph-hint {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 12px;
+  color: #8891b0;
+  background: rgba(10, 12, 30, 0.6);
+  padding: 4px 14px;
+  border-radius: 999px;
+  transition: opacity 1.2s;
+  pointer-events: none;
+}
+#graph-hint.fade { opacity: 0; }
+
+/* サイドパネル */
+#side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 340px;
+  z-index: 30;
+  overflow-y: auto;
+  padding: 26px 22px 20px;
+  background: rgba(13, 15, 34, 0.97);
+  backdrop-filter: blur(8px);
+  border-left: 1px solid rgba(140, 160, 255, 0.2);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.45);
+}
+#side-panel h2 { font-size: 1.15rem; line-height: 1.5; margin: 0.6rem 0; color: #f2f4fb; }
+#side-panel h3 { font-size: 0.85rem; color: #9aa3c0; margin: 1.1rem 0 0.3rem; }
+#side-panel p { font-size: 0.9rem; line-height: 1.7; }
+#side-panel .badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-right: 6px;
+}
+#side-panel .badge-fresh { background: rgba(200, 230, 90, 0.15); color: #c8e65a; }
+.panel-meta { color: #8891b0; font-size: 0.78rem !important; }
+.panel-list { padding-left: 1.1rem; font-size: 0.85rem; line-height: 1.6; }
+.panel-list li { margin: 0.35rem 0; }
+.panel-links a { display: inline-block; margin-right: 12px; font-size: 0.85rem; }
+#side-panel a { color: #8fb0f5; }
+#panel-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #9aa3c0;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+#panel-close:hover { color: #fff; }
+#side-panel .run-btn {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  background: #7aa2e8;
+  color: #0a0b1c !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+/* モバイル: サイドパネルをボトムシート化 */
+@media (max-width: 720px) {
+  body.graph-page .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 8px 12px;
+  }
+  body.graph-page .site-header nav a { margin: 0 10px 0 0; font-size: .85rem; }
+  #graph-hint { top: 92px; width: max-content; max-width: 92vw; text-align: center; }
+  #side-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 58vh;
+    border-left: none;
+    border-top: 1px solid rgba(140, 160, 255, 0.25);
+    border-radius: 16px 16px 0 0;
+  }
+  #graph-legend { max-width: 90vw; font-size: 10.5px; }
+}

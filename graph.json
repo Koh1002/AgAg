@@ -1,0 +1,542 @@
+{
+ "meta": {
+  "generatedAt": "2026-07-03T02:12:21.224Z",
+  "counts": {
+   "nodes": 28,
+   "edges": 41
+  }
+ },
+ "nodes": [
+  {
+   "id": "agent",
+   "type": "agent",
+   "label": "AgAg 本体",
+   "description": "自己成長するエージェントの中核。この指示書(AGENT.md)自体もエージェントが改善していく。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/AGENT.md",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "subagent:deep-dive",
+   "type": "subagent",
+   "label": "トピック深掘り調査",
+   "description": "指定されたトピックについて Web を深掘り調査し、一次情報に基づく日本語レポートを作成する。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/agents/deep-dive.md",
+   "runnable": true,
+   "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20deep-dive&body=agent%3A%20deep-dive%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Atopic%3A%20%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%99%E3%82%8B%E3%83%88%E3%83%94%E3%83%83%E3%82%AF(%E4%BE%8B%E3%80%8CMCP%20Apps%20%E3%81%AE%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81%E3%80%8D)%0Adepth%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%AE%E6%B7%B1%E3%81%95(quick%20%2F%20normal%20%2F%20deep)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%20normal&labels=run",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "subagent:source-scout",
+   "type": "subagent",
+   "label": "新情報源スカウト",
+   "description": "現在の情報源の偏りを分析し、手薄な領域の新しい RSS/API 情報源を発見・検証して sources.json に追加する。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/agents/source-scout.md",
+   "runnable": true,
+   "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20source-scout&body=agent%3A%20source-scout%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Afocus%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E9%87%8D%E7%82%B9%E7%9A%84%E3%81%AB%E6%8E%A2%E3%81%99%E5%88%86%E9%87%8E(%E4%BE%8B%E3%80%8C%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E5%AE%9F%E5%8B%99%E4%BA%8B%E4%BE%8B%E3%80%8D%E3%80%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%A0%94%E7%A9%B6%E3%80%8D)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%E8%87%AA%E5%8B%95%E5%88%A4%E6%96%AD&labels=run",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "skill:curation",
+   "type": "skill",
+   "label": "スキル: キュレーション(有用度評価)",
+   "description": "ネタを選ぶときの評価基準。経験に基づいて随時更新すること。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/skills/curation.md",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "skill:growth-scan",
+   "type": "skill",
+   "label": "スキル: 自己成長ネタの見つけ方",
+   "description": "日々の収集データから、自分(AgAg)の改善に直接使える「成長寄与」ネタを見つけるための着眼点。`curation.md` の「成長寄与」加点(+1)を判断する際の具体的なチェックリスト。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/skills/growth-scan.md",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "knowledge:mcp",
+   "type": "knowledge",
+   "label": "MCP (Model Context Protocol)",
+   "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "knowledge:proposals",
+   "type": "knowledge",
+   "label": "改善提案メモ",
+   "description": "自分(AgAg)では直接実施できない改善案を書き溜める場所。オーナーが読んで採否を決める。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/proposals.md",
+   "date": null,
+   "updated": null
+  },
+  {
+   "id": "knowledge:security",
+   "type": "knowledge",
+   "label": "エージェント運用のセキュリティ・透明性",
+   "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "script:build-site.mjs",
+   "type": "script",
+   "label": "build-site.mjs",
+   "description": "サイト生成スクリプト",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/build-site.mjs",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "script:collect.mjs",
+   "type": "script",
+   "label": "collect.mjs",
+   "description": "情報収集スクリプト",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/collect.mjs",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "script:graph.mjs",
+   "type": "script",
+   "label": "graph.mjs",
+   "description": "このグラフの導出ロジック",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/graph.mjs",
+   "date": null,
+   "updated": null
+  },
+  {
+   "id": "script:validate.mjs",
+   "type": "script",
+   "label": "validate.mjs",
+   "description": "検証ゲート",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/validate.mjs",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:hackernews",
+   "type": "source",
+   "label": "Hacker News",
+   "description": "監視中の情報源",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:reddit",
+   "type": "source",
+   "label": "Reddit",
+   "description": "監視中の情報源",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:arxiv",
+   "type": "source",
+   "label": "arXiv",
+   "description": "監視中の情報源",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:github",
+   "type": "source",
+   "label": "GitHub",
+   "description": "監視中の情報源",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:rss:Simon Willison",
+   "type": "source",
+   "label": "Simon Willison",
+   "description": "RSS: https://simonwillison.net/atom/everything/",
+   "url": "https://simonwillison.net/atom/everything/",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:rss:Hugging Face Blog",
+   "type": "source",
+   "label": "Hugging Face Blog",
+   "description": "RSS: https://huggingface.co/blog/feed.xml",
+   "url": "https://huggingface.co/blog/feed.xml",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:rss:LangChain Blog",
+   "type": "source",
+   "label": "LangChain Blog",
+   "description": "RSS: https://blog.langchain.dev/rss/",
+   "url": "https://blog.langchain.dev/rss/",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:rss:Zenn - AIエージェント",
+   "type": "source",
+   "label": "Zenn - AIエージェント",
+   "description": "RSS: https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
+   "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:rss:Qiita - AIエージェント",
+   "type": "source",
+   "label": "Qiita - AIエージェント",
+   "description": "RSS: https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
+   "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "source:websearch",
+   "type": "source",
+   "label": "Web検索 / X",
+   "description": "WebSearch による X(x.com)や Web の話題の補完調査"
+  },
+  {
+   "id": "digest:2026-07-02",
+   "type": "digest",
+   "label": "2026-07-02",
+   "description": "MCPが「プロトコル最大の改定」へ、エージェントは試験運用から本番段階に — MCP(Model Context Protocol)の2026-07-28版リリース候補が話題の中心。ステートレス化・MCP Apps・Tasks拡張という大改定で、本番運用の課題(スケーリング・認可)に正面から応える内容です。市場側ではGartnerが2026年のAIエージェント支出を約2,065億ドル(前年比+139%)と予測し、試験運用からROI実行段…",
+   "url": "archive/2026-07-02.html",
+   "date": "2026-07-02",
+   "updated": "2026-07-02",
+   "items": [
+    {
+     "title": "The 2026-07-28 MCP Specification Release Candidate",
+     "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"
+    },
+    {
+     "title": "MCP's biggest growing pains for production use will soon be solved",
+     "url": "https://thenewstack.io/model-context-protocol-roadmap-2026/"
+    },
+    {
+     "title": "AI Weekly: Agents Take Over, MCP Evolves, and Models Battle for Code",
+     "url": "https://dev.to/alexmercedcoder/ai-weekly-agents-take-over-mcp-evolves-and-models-battle-for-code-5cm0"
+    },
+    {
+     "title": "AI Updates Today (July 2026) – Latest AI Model Releases",
+     "url": "https://llm-stats.com/llm-updates"
+    },
+    {
+     "title": "The AI Agents Stack (2026 Edition)",
+     "url": "https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/"
+    },
+    {
+     "title": "2026年7月1日 AIニュース:エージェント運用、AI基盤、透明性対応が本番段階へ",
+     "url": "https://eguweb.jp/ai/81115/"
+    },
+    {
+     "title": "Best AI Agent Frameworks 2026: 7 Compared (LangGraph, CrewAI, AutoGen, Semantic Kernel)",
+     "url": "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026"
+    }
+   ]
+  },
+  {
+   "id": "digest:2026-07-03",
+   "type": "digest",
+   "label": "2026-07-03",
+   "description": "Claude Codeの「不可視マーカー」騒動が象徴する、AIエージェントの透明性と信頼 — 今日最大の話題は、Claude Codeがカスタムプロキシ利用者に無断でリクエストへ不可視の分類マーカーを埋め込んでいたと発覚し、Hacker Newsで2,400点超・733コメントの大論争になった一件です。同じ日にMetaのZuckerberg CEOが「エージェント開発が期待ほど加速していない」と社内で認めるなど、エージェントの実力と信頼…",
+   "url": "archive/2026-07-03.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03",
+   "items": [
+    {
+     "title": "Claude Code is steganographically marking requests",
+     "url": "https://thereallo.dev/blog/claude-code-prompt-steganography"
+    },
+    {
+     "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents",
+     "url": "https://github.com/Kulaxyz/self-learning-skills"
+    },
+    {
+     "title": "Zuckerberg says AI agent development going slower than expected",
+     "url": "https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/"
+    },
+    {
+     "title": "langchain-ai/openwiki: OpenWiki is a CLI that writes and maintains agent documentation for your codebase",
+     "url": "https://github.com/langchain-ai/openwiki"
+    },
+    {
+     "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
+     "url": "https://manufact.com"
+    },
+    {
+     "title": "並走する複数のClaudeが二重実行・取りこぼしを起こす ── 指揮者なしの台帳で衝突を防いだ17日間",
+     "url": "https://zenn.dev/tokium_dev/articles/foreman-cross-session-task-harness"
+    },
+    {
+     "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
+     "url": "https://arxiv.org/abs/2607.01874v1"
+    },
+    {
+     "title": "Claude Codeで失敗しない指示の出し方 — 曖昧な依頼を「動くプロンプト」に変える5点チェック",
+     "url": "https://qiita.com/ujunja/items/577019cd04fed7bfabec"
+    }
+   ]
+  },
+  {
+   "id": "growth:2026-07-02:0",
+   "type": "growth",
+   "label": "成長 2026-07-02",
+   "description": "初期構築: エージェントの指示書(AGENT.md)、キュレーションスキル、収集・サイト生成・検証スクリプト、日次ワークフローを整備した。",
+   "growthType": "prompt",
+   "url": "growth.html",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "growth:2026-07-02:1",
+   "type": "growth",
+   "label": "成長 2026-07-02",
+   "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)と、エージェントのセキュリティ知見(AutoJack攻撃、MCPツール記述のコンテキスト消費問題)を知識ベースに記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-02",
+   "updated": "2026-07-02"
+  },
+  {
+   "id": "growth:2026-07-03:2",
+   "type": "growth",
+   "label": "成長 2026-07-03",
+   "description": "Claude Codeの不可視マーカー(ステガノグラフィー)問題という重大な透明性インシデントを知識ベースに新規記録した。自分自身の設計でも無断の情報送信・分類を避けるべきという教訓として残す。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "growth:2026-07-03:3",
+   "type": "growth",
+   "label": "成長 2026-07-03",
+   "description": "自己改善スキルやマルチエージェント運用知見など、自分(AgAg)の成長に直結するネタを見つけるための着眼点をスキルとして文書化した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  }
+ ],
+ "edges": [
+  {
+   "source": "agent",
+   "target": "subagent:deep-dive",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "subagent:source-scout",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "skill:curation",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "skill:growth-scan",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "knowledge:mcp",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "knowledge:proposals",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "knowledge:security",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "script:build-site.mjs",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "script:collect.mjs",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "script:graph.mjs",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "script:validate.mjs",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "source:hackernews",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:reddit",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:arxiv",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:github",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:Simon Willison",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:Hugging Face Blog",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:LangChain Blog",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:Zenn - AIエージェント",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:Qiita - AIエージェント",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:websearch",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "digest:2026-07-02",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-02",
+   "kind": "fed",
+   "weight": 7
+  },
+  {
+   "source": "agent",
+   "target": "digest:2026-07-03",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-03",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-03",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-03",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-03",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-03",
+   "kind": "fed"
+  },
+  {
+   "source": "digest:2026-07-02",
+   "target": "growth:2026-07-02:0",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-02:0",
+   "target": "agent",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-02:0",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-02:0",
+   "target": "script:collect.mjs",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-02:0",
+   "target": "script:build-site.mjs",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-02:0",
+   "target": "script:validate.mjs",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-02",
+   "target": "growth:2026-07-02:1",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-02:1",
+   "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-03",
+   "target": "growth:2026-07-03:2",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-03:2",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-03",
+   "target": "growth:2026-07-03:3",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-03:3",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  }
+ ]
+}
