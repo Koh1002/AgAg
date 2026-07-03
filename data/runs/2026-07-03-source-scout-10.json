@@ -1,0 +1,32 @@
+{
+  "date": "2026-07-03",
+  "agent": "source-scout",
+  "issue": 10,
+  "issue_url": "https://github.com/Koh1002/AgAg/issues/10",
+  "run_url": "https://github.com/Koh1002/AgAg/actions/runs/28635837306",
+  "input": { "focus": "Fable5使い方" },
+  "title": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zenn・Qiita)を新規追加",
+  "summary_ja": "focus「Fable5使い方」を受け、既存のZenn/Qiita「AIエージェント」タグは汎用的すぎ、Claude CodeやFable 5など具体的なツールのセットアップ・運用ノウハウ記事を拾いにくい偏りがあることを確認した。Zennの「claude」トピックとQiitaの「claudecode」タグのRSSをWebFetchで検証したところ、いずれも1日に複数件のペースでClaude Code/Fable 5関連の実践記事が流れていたため、sources.jsonに追加した。Anthropic公式ニュースのRSSは今回も存在を確認できず見送った。",
+  "sections": [
+    {
+      "heading": "現状分析",
+      "body_md": "- `agent/sources.json` の既存 rss は Simon Willison、Hugging Face Blog、LangChain Blog、OpenAI News、Google DeepMind Blog(英語5件)と、Zenn/Qiitaの「AIエージェント」タグ(日本語2件)の計7件。\n- 直近2日分の digests(2026-07-02, 2026-07-03)の `items[].source` 分布は `{web:7}` / `{hackernews:3, github:2, rss:Zenn - AIエージェント:1, arxiv:1, rss:Qiita - AIエージェント:1}` で、いずれもClaude Code / Fable 5固有の使い方・運用ノウハウ記事は拾えていなかった。\n- focus「Fable5使い方」は、2026-06-09公開・2026-07-01に再展開されたAnthropicのMythos級モデルClaude Fable 5の実務活用法を指す。日本語圏では公式発表直後からZenn/Qiitaで導入ガイドや実践記事が多数投稿されているが、既存の「AIエージェント」タグはトピックが広すぎ、Claude固有の記事が埋もれやすい。この手薄な領域を重点分野とした。"
+    },
+    {
+      "heading": "候補と評価",
+      "body_md": "WebSearchで「Fable5 使い方」関連の一次情報・解説記事を探索した後、日本語圏で継続更新が見込めるRSSフィード候補をWebFetchで検証した(2026-07-03時点)。\n\n| 候補 | URL | 生存 | Claude/Fable 5関連記事 | 更新頻度 | 判定 |\n|---|---|---|---|---|---|\n| Zenn - claudeトピック | https://zenn.dev/topics/claude/feed | ○(最終更新 2026-07-02 19:03) | ○ 「AIエージェントのコスト削減」「ハーネスエンジニアリング完全ガイド」等Claude Code運用記事が多数 | 1日複数件 | **合格・採用** |\n| Qiita - claudecodeタグ | https://qiita.com/tags/claudecode/feed | ○(最終更新 2026-07-03 11:16) | ○ 「Claude Code CLIセットアップ」「launchdジョブでClaude Code自動移行」等、導入〜運用まで幅広く | 1日複数件 | **合格・採用** |\n| Anthropic公式ニュース | https://www.anthropic.com/news (RSS未提供、`/news/rss.xml`は404) | フィードなし | - | - | RSS/Atomフィードのリンクが見当たらず、`/news/rss.xml`も404だったため不採用(Issue #8時点と状況変わらず)。 |\n\n両採用候補はトピック特化フィード(Claude/Claude Codeに限定)のため `filter: false` を付与し、既存キーワードフィルタを通さず全件取り込む設定にした(既存のZenn/Qiita「AIエージェント」タグと同様の扱い)。"
+    },
+    {
+      "heading": "追加した情報源",
+      "body_md": "`agent/sources.json` の `rss` に以下を追加した(`node scripts/validate.mjs` 通過済み):\n\n```json\n{ \"name\": \"Zenn - Claude\", \"url\": \"https://zenn.dev/topics/claude/feed\", \"lang\": \"ja\", \"filter\": false },\n{ \"name\": \"Qiita - ClaudeCode\", \"url\": \"https://qiita.com/tags/claudecode/feed\", \"lang\": \"ja\", \"filter\": false }\n```\n\nAnthropic公式のRSSは引き続き未提供のため見送り。将来公開された場合は再度候補として検討する。"
+    }
+  ],
+  "links": [
+    { "title": "Zenn - claudeトピックフィード", "url": "https://zenn.dev/topics/claude/feed" },
+    { "title": "Qiita - claudecodeタグフィード", "url": "https://qiita.com/tags/claudecode/feed" },
+    { "title": "Claude Fable 5 & Mythos 5 (Anthropic公式発表)", "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5" },
+    { "title": "Redeploying Claude Fable 5 (Anthropic公式)", "url": "https://www.anthropic.com/news/redeploying-fable-5" }
+  ],
+  "status": "success",
+  "outputs": ["agent/sources.json", "data/growth-log.json"]
+}
