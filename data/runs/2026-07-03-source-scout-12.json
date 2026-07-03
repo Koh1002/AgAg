@@ -1,0 +1,32 @@
+{
+  "date": "2026-07-03",
+  "agent": "source-scout",
+  "issue": 12,
+  "issue_url": "https://github.com/Koh1002/AgAg/issues/12",
+  "run_url": "https://github.com/Koh1002/AgAg/actions/runs/28636529109",
+  "input": { "focus": "Claude Fable5の有効な使い方" },
+  "title": "情報源スカウト: Fable 5実践ノウハウの英語圏補完(DEV Community)を新規追加",
+  "summary_ja": "focus「Claude Fable5の有効な使い方」は、同日の Issue #10(focus: 「Fable5使い方」)とほぼ同一の重点分野だった。Issue #10 の時点で Zenn「claude」トピックと Qiita「claudecode」タグ(いずれも日本語)は既に sources.json に追加済みのため、今回はその重複を避け、まだカバーされていない英語圏の実践ノウハウ記事(プロンプト設計・エフォート設定・サブアジェント活用などの具体的な使い方)を補う情報源を探索した。DEV Community の「claude」タグ RSS が日次で Fable 5 の実践記事(トークン最適化、リポジトリ監査比較など)を配信していることを WebFetch で確認し、sources.json に追加した。Medium の「claude-ai」タグも候補として合格したが、本日 3 件目の sources.json 変更となるため「変更は小さく保つ」方針に従い 1 件のみの追加に留めた。",
+  "sections": [
+    {
+      "heading": "現状分析",
+      "body_md": "- `agent/sources.json` の rss は本Issue開始時点で9件: Simon Willison / Hugging Face Blog / LangChain Blog / OpenAI News / Google DeepMind Blog(英語5件、Issue #8で2件追加)、Zenn - AIエージェント / Qiita - AIエージェント / Zenn - Claude / Qiita - ClaudeCode(日本語4件、うち後半2件はIssue #10で追加)。\n- `data/runs/2026-07-03-source-scout-10.json` を確認したところ、focus「Fable5使い方」で既にZenn「claude」トピックとQiita「claudecode」タグを追加済みであり、本Issueのfocus「Claude Fable5の有効な使い方」とテーマがほぼ重複していることが判明した。\n- 重複領域(日本語の実践記事)は既にカバー済みのため、本Issueでは**英語圏でのFable 5実践ノウハウ**(プロンプト設計・effortレベル調整・サブエージェント活用など)を手薄な補完領域として選定した。既存の英語rssソース(Simon Willison個人ブログ、HF/LangChain/OpenAI/DeepMindの公式ブログ)はいずれもFable 5固有の使い方Tips系記事を継続的には拾えない。"
+    },
+    {
+      "heading": "候補と評価",
+      "body_md": "WebSearchで「Claude Fable 5 effective usage tips」「prompting guide best practices」を調査し、継続更新が見込めるRSS候補をWebFetchで検証した(2026-07-03時点)。\n\n| 候補 | URL | 生存 | Fable5/エージェント関連記事 | 更新頻度 | 判定 |\n|---|---|---|---|---|---|\n| DEV Community - claudeタグ | https://dev.to/feed/tag/claude | ○(最終更新 2026-07-03) | ○ 「We Gave Five Claude Models the Same Repo Audit」(Fable5比較)、「You Are Wasting Too Many Tokens on Claude」(トークン最適化・CLAUDE.md活用)等、開発者向け実践記事が中心 | 1日複数件 | **合格・採用** |\n| Medium - claude-aiタグ | https://medium.com/feed/tag/claude-ai | ○(最終更新 2026-07-02) | ○ 「Claude Fable 5 Is Back. These 10 Prompts Turn Hours of Work Into Seconds」「Anthropic's Fable 5 Is Back: What Changed After the 18-Day Shutdown」等、直球でFable5関連 | 1日複数件 | 内容は合格だが、「$1000稼ぐ方法」等の宣伝色が強い記事も混在し品質がDEV Communityよりばらつく。かつ本日3件目のsources.json変更となるため、今回は見送り(将来DEV Communityの質が不十分と分かった場合の代替候補としてknowledgeではなくここに記録)。|\n| Anthropic公式 platform docs (Prompting Claude Fable 5) | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 | ○ | ◎ 公式一次情報そのもの(effort設定・長時間実行・メモリ設計・サブエージェント活用など) | 静的ドキュメント(更新頻度不定・RSS提供なし) | RSSフィードではなく単発ページのためsources.json追加は不可。有用な一次情報としてlinksに記録した。|\n\nDEV Community の claude タグはトピック特化(Claude限定)のため `filter: false` を付与し、既存の Zenn - Claude と同様の扱いとした。"
+    },
+    {
+      "heading": "追加した情報源",
+      "body_md": "`agent/sources.json` の `rss` に以下を追加した(`node scripts/validate.mjs` 通過済み):\n\n```json\n{ \"name\": \"DEV Community - Claude\", \"url\": \"https://dev.to/feed/tag/claude\", \"lang\": \"en\", \"filter\": false }\n```\n\nMedium の claude-ai タグは有用な候補だが、本日の変更量を抑えるため今回は追加を見送った。今後 DEV Community フィードの実運用で記事の質・量が不足すると分かった場合の追加候補として、この run のレポートに記録しておく。"
+    }
+  ],
+  "links": [
+    { "title": "DEV Community - claudeタグフィード", "url": "https://dev.to/feed/tag/claude" },
+    { "title": "Prompting Claude Fable 5(Anthropic公式ガイド)", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5" },
+    { "title": "Redeploying Claude Fable 5(Anthropic公式)", "url": "https://www.anthropic.com/news/redeploying-fable-5" },
+    { "title": "Medium claude-aiタグフィード(候補・今回は不採用)", "url": "https://medium.com/feed/tag/claude-ai" }
+  ],
+  "status": "success",
+  "outputs": ["agent/sources.json", "data/growth-log.json"]
+}

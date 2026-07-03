@@ -44,7 +44,8 @@
     { "name": "Zenn - AIエージェント", "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false },
     { "name": "Qiita - AIエージェント", "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false },
     { "name": "Zenn - Claude", "url": "https://zenn.dev/topics/claude/feed", "lang": "ja", "filter": false },
-    { "name": "Qiita - ClaudeCode", "url": "https://qiita.com/tags/claudecode/feed", "lang": "ja", "filter": false }
+    { "name": "Qiita - ClaudeCode", "url": "https://qiita.com/tags/claudecode/feed", "lang": "ja", "filter": false },
+    { "name": "DEV Community - Claude", "url": "https://dev.to/feed/tag/claude", "lang": "en", "filter": false }
   ],
   "rssLookbackHours": 72
 }

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-03T03:16:06.448Z",
+  "generatedAt": "2026-07-03T03:35:30.761Z",
   "counts": {
-   "nodes": 36,
-   "edges": 49
+   "nodes": 39,
+   "edges": 52
   }
  },
  "nodes": [
@@ -294,6 +294,15 @@
    "updated": "2026-07-03"
   },
   {
+   "id": "source:rss:DEV Community - Claude",
+   "type": "source",
+   "label": "DEV Community - Claude",
+   "description": "RSS: https://dev.to/feed/tag/claude",
+   "url": "https://dev.to/feed/tag/claude",
+   "date": "2026-07-02",
+   "updated": "2026-07-03"
+  },
+  {
    "id": "source:websearch",
    "type": "source",
    "label": "Web検索 / X",
@@ -442,10 +451,30 @@
    "updated": "2026-07-03"
   },
   {
+   "id": "growth:2026-07-03:6",
+   "type": "growth",
+   "label": "成長 2026-07-03",
+   "description": "source-scout実行(Issue #12、focus: Claude Fable5の有効な使い方)。Issue #10とほぼ同一focusで日本語ソースは既に追加済みだったため、未カバーだった英語圏の実践ノウハウ記事を調査。DEV Community「claude」タグのRSSがFable 5のプロンプト設計・サブエージェント活用・トークン最適化など実践記事を日次で配信していることを確認し追加した。1日3件目のsources.j…",
+   "growthType": "source",
+   "url": "growth.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
    "id": "run:2026-07-03-source-scout-10",
    "type": "run",
    "label": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zen…",
    "description": "focus「Fable5使い方」を受け、既存のZenn/Qiita「AIエージェント」タグは汎用的すぎ、Claude CodeやFable 5など具体的なツールのセットアップ・運用ノウハウ記事を拾いにくい偏りがあることを確認した。Zennの「claude」トピックとQiitaの「claudecode」タグのRSSをWebFetchで検証したところ、いずれも1日に複数件のペースでClaude Code/Fable 5関連の実践記事が流れて…",
+   "url": "runs.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03",
+   "status": "success"
+  },
+  {
+   "id": "run:2026-07-03-source-scout-12",
+   "type": "run",
+   "label": "情報源スカウト: Fable 5実践ノウハウの英語圏補完(DEV Communi…",
+   "description": "focus「Claude Fable5の有効な使い方」は、同日の Issue #10(focus: 「Fable5使い方」)とほぼ同一の重点分野だった。Issue #10 の時点で Zenn「claude」トピックと Qiita「claudecode」タグ(いずれも日本語)は既に sources.json に追加済みのため、今回はその重複を避け、まだカバーされていない英語圏の実践ノウハウ記事(プロンプト設計・エフォート設定・サブアジェン…",
    "url": "runs.html",
    "date": "2026-07-03",
    "updated": "2026-07-03",
@@ -585,6 +614,11 @@
   },
   {
    "source": "agent",
+   "target": "source:rss:DEV Community - Claude",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
    "target": "source:websearch",
    "kind": "watches"
   },
@@ -702,8 +736,18 @@
    "kind": "grew"
   },
   {
+   "source": "digest:2026-07-03",
+   "target": "growth:2026-07-03:6",
+   "kind": "grew"
+  },
+  {
    "source": "subagent:source-scout",
    "target": "run:2026-07-03-source-scout-10",
+   "kind": "ran"
+  },
+  {
+   "source": "subagent:source-scout",
+   "target": "run:2026-07-03-source-scout-12",
    "kind": "ran"
   },
   {
