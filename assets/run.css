@@ -107,7 +107,38 @@
   word-break: break-word;
 }
 
+/* フローティングチップ(実行中/未読の実行への入口) */
+#agag-run-chip {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  border: 1px solid rgba(140, 160, 255, 0.35);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #14162e;
+  color: #e6e9f5;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+}
+#agag-run-chip.running { border-color: rgba(240, 192, 90, 0.55); animation: agag-chip-pulse 2.2s ease-in-out infinite; }
+#agag-run-chip.done { border-color: rgba(143, 214, 165, 0.6); }
+#agag-run-chip.failed { border-color: rgba(242, 160, 160, 0.6); }
+#agag-run-chip:hover { background: #1c1f3d; }
+.agag-chip-num { color: #8891b0; font-weight: 400; }
+@keyframes agag-chip-pulse {
+  0%, 100% { box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(240, 192, 90, 0.35); }
+  50% { box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45), 0 0 0 8px rgba(240, 192, 90, 0); }
+}
+
+/* runs.html のライブ実行履歴カード */
+.live-run { cursor: pointer; }
+.live-run:hover { border-color: var(--accent, #7aa2e8); }
+
 @media (max-width: 720px) {
   #agag-run-overlay { align-items: flex-end; padding: 0; }
   #agag-run-modal { width: 100%; max-height: 88vh; border-radius: 16px 16px 0 0; }
+  #agag-run-chip { right: 10px; bottom: 10px; max-width: 80vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
