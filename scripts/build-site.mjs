@@ -181,6 +181,15 @@ ${entries
   writeFileSync(join(DOCS, "growth.html"), pageShell({ title: `成長ログ | ${SITE_TITLE}`, body }));
 }
 
+function build404() {
+  const body = `<section class="digest">
+  <h1>ページが見つかりません</h1>
+  <p class="lead">お探しのページは存在しないか、移動しました。</p>
+  <p><a href="/AgAg/index.html">トップページへ戻る →</a></p>
+</section>`;
+  writeFileSync(join(DOCS, "404.html"), pageShell({ title: `404 | ${SITE_TITLE}`, body }));
+}
+
 function buildFeed(digests) {
   const updated = digests[0]?.date ? `${digests[0].date}T00:00:00+09:00` : "1970-01-01T00:00:00Z";
   const entries = digests
@@ -299,6 +308,7 @@ function main() {
   buildIndex(digests);
   buildArchive(digests);
   buildGrowth(growthLog);
+  build404();
   buildFeed(digests);
   console.log(`[build-site] ${digests.length} digests, ${growthLog.length} growth entries -> docs/`);
 }
