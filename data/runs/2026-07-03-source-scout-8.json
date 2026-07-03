@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-03",
+  "agent": "source-scout",
+  "issue": 8,
+  "issue_url": "https://github.com/Koh1002/AgAg/issues/8",
+  "run_url": "https://github.com/Koh1002/AgAg/actions/runs/28635102122",
+  "input": { "focus": null },
+  "title": "情報源スカウト: 公式ラボブログ(OpenAI・Google DeepMind)を新規追加",
+  "summary_ja": "focus指定なしのため現状分析から重点分野を自動選定した。直近2日分のダイジェスト(2026-07-02, 2026-07-03)を見ると「新モデル・新製品」カテゴリが各日1件のみと最も手薄で、Anthropic/OpenAI/Google等の公式ラボブログが情報源に一件も含まれていなかった。この欠落を埋めるべく候補フィードを調査し、OpenAI News と Google DeepMind Blog の公式RSSが生存・関連性・更新頻度のすべてで合格したため sources.json に追加した。Anthropicは公式RSSが存在せず、確認できたのは非公式ミラー(GitHub Pagesホスティング)のみだったため、信頼性の懸念から今回は見送った。",
+  "sections": [
+    {
+      "heading": "現状分析",
+      "body_md": "- `agent/sources.json` の既存 rss は Simon Willison(個人ブログ)、Hugging Face Blog、LangChain Blog(いずれも英語)、Zenn/Qiita の AIエージェントタグ(日本語)の5件のみで、hackernews・reddit・arxiv・github ソースはあるが、**AI開発ラボの公式一次情報源(Anthropic/OpenAI/Google DeepMind等)が皆無**だった。\n- 直近2日分の digests を集計:\n  - 2026-07-02: items 7件、source内訳 `{web:7}`(全て補完調査のweb由来)、category内訳 `{フレームワーク・ツール:2, 議論・意見:2, 新モデル・新製品:1, 事例・ノウハウ:2}`\n  - 2026-07-03: items 8件、source内訳 `{hackernews:3, github:2, rss:Zenn:1, arxiv:1, rss:Qiita:1}`、category内訳 `{議論・意見:2, フレームワーク・ツール:3, 事例・ノウハウ:2, 研究:1}`\n  - 両日とも **「新モデル・新製品」カテゴリが最も手薄**(合計1〜2件)で、モデル発表・製品リリースを一次情報として拾えていないことが分かった。\n- focus未指定のため、この「公式ラボの新モデル・新製品情報の欠落」を重点分野として自動選定した。"
+    },
+    {
+      "heading": "候補と評価",
+      "body_md": "WebSearchで候補を探索し、WebFetchで生存確認・内容確認を行った(2026-07-03時点)。\n\n| 候補 | URL | 生存 | エージェント関連記事 | 更新頻度 | 判定 |\n|---|---|---|---|---|---|\n| OpenAI News(公式) | https://openai.com/news/rss.xml | ○(最終更新 2026-07-03) | ○ 「How agents are transforming work」等、Codex/エージェント関連が多数 | 週数回 | **合格・採用** |\n| Google DeepMind Blog(公式) | https://deepmind.google/blog/rss.xml | ○(最終更新 2026-06-30) | ○ 「Securing the future of AI agents」「Introducing computer use in Gemini 3.5 Flash」等 | 週数回 | **合格・採用** |\n| Anthropic(非公式ミラー) | https://tim-hilde.github.io/anthropic-rss/rss.xml | ○(最終更新 2026-07-02) | ○ 「Building effective human-agent teams」「Agent identity in Claude Tag」等、内容は非常に良質 | 週数回 | 内容面は合格だが、**Anthropicは公式RSSを提供しておらず個人運営のGitHub Pagesミラーに依存するため不採用**。継続性リスクをknowledgeに記録し、公式フィードが将来公開された場合に再検討する。 |\n\n両採用候補とも一般ブログ(AIエージェント専門ではない)のため `filter` は既定(true)のままとし、既存の keywords によるキーワードフィルタを適用する設定にした。"
+    },
+    {
+      "heading": "追加した情報源",
+      "body_md": "`agent/sources.json` の `rss` に以下を追加した(`node scripts/validate.mjs` 通過済み):\n\n```json\n{ \"name\": \"OpenAI News\", \"url\": \"https://openai.com/news/rss.xml\", \"lang\": \"en\" },\n{ \"name\": \"Google DeepMind Blog\", \"url\": \"https://deepmind.google/blog/rss.xml\", \"lang\": \"en\" }\n```\n\nAnthropicについては公式RSSが存在しないため見送り。今後 Anthropic が公式フィードを公開した場合、または既存の非公式ミラーの継続性がさらに確認できた場合は再度候補として検討する。"
+    }
+  ],
+  "links": [
+    { "title": "OpenAI News RSS", "url": "https://openai.com/news/rss.xml" },
+    { "title": "Google DeepMind Blog RSS", "url": "https://deepmind.google/blog/rss.xml" },
+    { "title": "Anthropic 非公式RSSミラー(不採用・参考)", "url": "https://tim-hilde.github.io/anthropic-rss/rss.xml" }
+  ],
+  "status": "success",
+  "outputs": ["agent/sources.json", "data/growth-log.json"]
+}

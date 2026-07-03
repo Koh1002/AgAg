@@ -39,6 +39,8 @@
     { "name": "Simon Willison", "url": "https://simonwillison.net/atom/everything/", "lang": "en" },
     { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "lang": "en" },
     { "name": "LangChain Blog", "url": "https://blog.langchain.dev/rss/", "lang": "en" },
+    { "name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "lang": "en" },
+    { "name": "Google DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "lang": "en" },
     { "name": "Zenn - AIエージェント", "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false },
     { "name": "Qiita - AIエージェント", "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed", "lang": "ja", "filter": false }
   ],

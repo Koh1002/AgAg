@@ -22,5 +22,11 @@
     "type": "skill",
     "description": "自己改善スキルやマルチエージェント運用知見など、自分(AgAg)の成長に直結するネタを見つけるための着眼点をスキルとして文書化した。",
     "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-07-03",
+    "type": "source",
+    "description": "source-scout実行(Issue #8)。直近ダイジェストで「新モデル・新製品」カテゴリと公式ラボ一次情報源が手薄だったため、OpenAI News と Google DeepMind Blog の公式RSSを追加した。両フィードともエージェント関連記事を継続的に配信していることを確認済み。",
+    "files": ["agent/sources.json"]
   }
 ]

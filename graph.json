@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-03T02:37:17.328Z",
+  "generatedAt": "2026-07-03T02:50:58.457Z",
   "counts": {
-   "nodes": 28,
-   "edges": 41
+   "nodes": 32,
+   "edges": 45
   }
  },
  "nodes": [
@@ -130,7 +130,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:reddit",
@@ -139,7 +139,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:arxiv",
@@ -148,7 +148,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:github",
@@ -157,7 +157,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:rss:Simon Willison",
@@ -166,7 +166,7 @@
    "description": "RSS: https://simonwillison.net/atom/everything/",
    "url": "https://simonwillison.net/atom/everything/",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:rss:Hugging Face Blog",
@@ -175,7 +175,7 @@
    "description": "RSS: https://huggingface.co/blog/feed.xml",
    "url": "https://huggingface.co/blog/feed.xml",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:rss:LangChain Blog",
@@ -184,7 +184,25 @@
    "description": "RSS: https://blog.langchain.dev/rss/",
    "url": "https://blog.langchain.dev/rss/",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "source:rss:OpenAI News",
+   "type": "source",
+   "label": "OpenAI News",
+   "description": "RSS: https://openai.com/news/rss.xml",
+   "url": "https://openai.com/news/rss.xml",
+   "date": "2026-07-02",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "source:rss:Google DeepMind Blog",
+   "type": "source",
+   "label": "Google DeepMind Blog",
+   "description": "RSS: https://deepmind.google/blog/rss.xml",
+   "url": "https://deepmind.google/blog/rss.xml",
+   "date": "2026-07-02",
+   "updated": "2026-07-03"
   },
   {
    "id": "source:rss:Zenn - AIエージェント",
@@ -193,7 +211,7 @@
    "description": "RSS: https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:rss:Qiita - AIエージェント",
@@ -202,7 +220,7 @@
    "description": "RSS: https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-03"
   },
   {
    "id": "source:websearch",
@@ -331,6 +349,26 @@
    "url": "growth.html",
    "date": "2026-07-03",
    "updated": "2026-07-03"
+  },
+  {
+   "id": "growth:2026-07-03:4",
+   "type": "growth",
+   "label": "成長 2026-07-03",
+   "description": "source-scout実行(Issue #8)。直近ダイジェストで「新モデル・新製品」カテゴリと公式ラボ一次情報源が手薄だったため、OpenAI News と Google DeepMind Blog の公式RSSを追加した。両フィードともエージェント関連記事を継続的に配信していることを確認済み。",
+   "growthType": "source",
+   "url": "growth.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03"
+  },
+  {
+   "id": "run:2026-07-03-source-scout-8",
+   "type": "run",
+   "label": "情報源スカウト: 公式ラボブログ(OpenAI・Google DeepMind)…",
+   "description": "focus指定なしのため現状分析から重点分野を自動選定した。直近2日分のダイジェスト(2026-07-02, 2026-07-03)を見ると「新モデル・新製品」カテゴリが各日1件のみと最も手薄で、Anthropic/OpenAI/Google等の公式ラボブログが情報源に一件も含まれていなかった。この欠落を埋めるべく候補フィードを調査し、OpenAI News と Google DeepMind Blog の公式RSSが生存・関連性・更新…",
+   "url": "runs.html",
+   "date": "2026-07-03",
+   "updated": "2026-07-03",
+   "status": "success"
   }
  ],
  "edges": [
@@ -422,6 +460,16 @@
   {
    "source": "agent",
    "target": "source:rss:LangChain Blog",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:OpenAI News",
+   "kind": "watches"
+  },
+  {
+   "source": "agent",
+   "target": "source:rss:Google DeepMind Blog",
    "kind": "watches"
   },
   {
@@ -541,6 +589,16 @@
    "source": "growth:2026-07-03:3",
    "target": "skill:growth-scan",
    "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-03",
+   "target": "growth:2026-07-03:4",
+   "kind": "grew"
+  },
+  {
+   "source": "subagent:source-scout",
+   "target": "run:2026-07-03-source-scout-8",
+   "kind": "ran"
   }
  ]
 }
