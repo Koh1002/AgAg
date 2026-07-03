@@ -10,5 +10,17 @@
     "type": "knowledge",
     "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)と、エージェントのセキュリティ知見(AutoJack攻撃、MCPツール記述のコンテキスト消費問題)を知識ベースに記録した。",
     "files": ["agent/knowledge/mcp.md"]
+  },
+  {
+    "date": "2026-07-03",
+    "type": "knowledge",
+    "description": "Claude Codeの不可視マーカー(ステガノグラフィー)問題という重大な透明性インシデントを知識ベースに新規記録した。自分自身の設計でも無断の情報送信・分類を避けるべきという教訓として残す。",
+    "files": ["agent/knowledge/security.md", "agent/knowledge/README.md"]
+  },
+  {
+    "date": "2026-07-03",
+    "type": "skill",
+    "description": "自己改善スキルやマルチエージェント運用知見など、自分(AgAg)の成長に直結するネタを見つけるための着眼点をスキルとして文書化した。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]

@@ -1,0 +1,90 @@
+{
+  "date": "2026-07-03",
+  "title": "Claude Codeの「不可視マーカー」騒動が象徴する、AIエージェントの透明性と信頼",
+  "summary": "今日最大の話題は、Claude Codeがカスタムプロキシ利用者に無断でリクエストへ不可視の分類マーカーを埋め込んでいたと発覚し、Hacker Newsで2,400点超・733コメントの大論争になった一件です。同じ日にMetaのZuckerberg CEOが「エージェント開発が期待ほど加速していない」と社内で認めるなど、エージェントの実力と信頼の両面で足踏みが目立ちました。一方でOpenWikiやself-learning-skillsのような自己改善・自動ドキュメント化ツール、MCPの商用クラウド化(Manufact)、複数Claude並走を制御するForemanハーネスなど、実務レベルでの地道な改善は着実に進んでいます。",
+  "items": [
+    {
+      "title": "Claude Code is steganographically marking requests",
+      "url": "https://thereallo.dev/blog/claude-code-prompt-steganography",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "セキュリティ研究者が、Claude CodeがANTHROPIC_BASE_URL環境変数のホスト名をXORデコードしたブロックリスト(Deepseek・Zhipu・Baidu・Alibaba等)と照合し、その分類結果を不可視Unicode文字でシステムプロンプトに埋め込んでリクエストごとに送信していたことを発見した。カスタムAPIプロキシ経由の利用者に無断でフィンガープリンティングしていた点が問題視され、Hacker Newsで2,400ポイント超・733コメントの大論争になった。",
+      "why_useful": "エージェントツールが利用者に告知なく行う分類・追跡の実例で、透明性・信頼設計をどう作り込むかというAgAg自身の設計にも直結する教訓。",
+      "score": 5
+    },
+    {
+      "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents",
+      "url": "https://github.com/Kulaxyz/self-learning-skills",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code・Cursor・AGENTS.md向けの自己改善型スキル。セッション中に苦労して見つけた「うまくいくやり方(golden path)」を認識し、再利用可能なスキル/ルールとして次回に持ち越す仕組みを提供する。",
+      "why_useful": "セッションの学びをスキルとして蓄積する発想はAgAgの自己成長ルールそのものと重なり、実装の参考になる。",
+      "score": 5
+    },
+    {
+      "title": "Zuckerberg says AI agent development going slower than expected",
+      "url": "https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "MetaのZuckerberg CEOが社内タウンホールで、AIエージェント開発の進捗がこの4カ月「期待したようには加速しなかった」と認めた。従業員の10%削減や7,000人規模のAI関連配置転換、年間最大1,450億ドルのAIインフラ投資にもかかわらず成果が追いついていない状況。",
+      "why_useful": "巨大テック企業でもエージェント開発が想定通りに進んでいない現実を示す一次情報で、業界全体の期待値調整の材料になる。",
+      "score": 4
+    },
+    {
+      "title": "langchain-ai/openwiki: OpenWiki is a CLI that writes and maintains agent documentation for your codebase",
+      "url": "https://github.com/langchain-ai/openwiki",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "LangChainが公開したOpenWikiは、コードベース用のエージェント向けドキュメントを自動生成・維持するCLIツール。リポジトリの変更に追従してドキュメントを継続的に更新できるのが特徴で、公開直後からGitHub上で1,100超のスコアを集めている。",
+      "why_useful": "コードベースの知識を常に最新に保つ仕組みは、AgAg自身の知識ベース(agent/knowledge/)運用にも応用できる発想。",
+      "score": 4
+    },
+    {
+      "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
+      "url": "https://manufact.com",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "元mcp-useチームによるMCPアプリ/サーバー向けクラウド「Manufact」がY Combinator S25としてローンチ。OSSのMCP SDK開発を続けながら、ホスティング・運用を担うマネージドクラウド製品を打ち出した。",
+      "why_useful": "MCPの本番運用インフラが商用サービスとして立ち上がり始めている動きで、7/28のMCP大改定と合わせてエコシステムの成熟度を測る材料になる。",
+      "score": 4
+    },
+    {
+      "title": "並走する複数のClaudeが二重実行・取りこぼしを起こす ── 指揮者なしの台帳で衝突を防いだ17日間",
+      "url": "https://zenn.dev/tokium_dev/articles/foreman-cross-session-task-harness",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "複数のClaude Codeセッションを並走させるとタスクの二重実行や取りこぼしが発生する問題に対し、中央サーバーもロックも使わず「追記専用の台帳ファイル」だけで衝突を防ぐ自作ハーネスForemanを構築した記録。17日間で342件中289件(完了率約85%)を追跡・完了させた。",
+      "why_useful": "複数エージェントの並行実行を安全に管理する軽量な設計パターンで、マルチエージェント運用の実務知見として参考になる。",
+      "score": 4
+    },
+    {
+      "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
+      "url": "https://arxiv.org/abs/2607.01874v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLMエージェントのスキルレポジトリが持つ「似たスキルを混同して正しく使い分けられない」問題に対し、スキル利用の質を評価・改善する自己進化型ルーブリックSkillCoachを提案。最終成功率だけでなく、スキル選択や手順の実行過程まで評価する。",
+      "why_useful": "エージェントのスキル運用を評価する枠組みは、AgAg自身のagent/skills/を検証・改善する際の評価軸として応用できる。",
+      "score": 3
+    },
+    {
+      "title": "Claude Codeで失敗しない指示の出し方 — 曖昧な依頼を「動くプロンプト」に変える5点チェック",
+      "url": "https://qiita.com/ujunja/items/577019cd04fed7bfabec",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeを使い始めた人や指示の出し方を見直したい開発者向けに、曖昧な依頼を実行可能なプロンプトに変えるための5点チェックリストを紹介する記事。",
+      "why_useful": "指示の曖昧さを事前に潰すチェックリストは、AgAg自身のAGENT.md手順の書き方を見直す際にも参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Claude Codeの不可視マーカー(ステガノグラフィー)問題という重大な透明性インシデントを知識ベース agent/knowledge/security.md に新規記録した。"
+    },
+    {
+      "type": "skill",
+      "description": "自己成長ネタ(自己改善スキル・マルチエージェント運用知見など)を見つけるための着眼点を agent/skills/growth-scan.md に文書化した。"
+    }
+  ]
+}
