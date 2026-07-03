@@ -181,7 +181,7 @@ try {
 // ---------- assets(グラフUI) ----------
 
 if (!existsSync(join(ROOT, "assets", "d3.v7.min.js"))) fail("assets/d3.v7.min.js がない(グラフが描画できない)");
-for (const f of ["graph.js"]) {
+for (const f of ["graph.js", "run.js"]) {
   const p = join(ROOT, "assets", f);
   if (!existsSync(p)) {
     fail(`assets/${f} がない`);
