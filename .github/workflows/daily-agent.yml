@@ -17,6 +17,7 @@ permissions:
   contents: write
   id-token: write
   actions: read
+  pages: write
 
 concurrency:
   group: daily-agent
@@ -26,6 +27,9 @@ jobs:
   daily:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -78,3 +82,18 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
+
+      # GITHUB_TOKEN の push は deploy-pages.yml をトリガーしないため、ここで自前デプロイする
+      - name: Pages を設定(未有効なら自動で有効化)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: サイトをアップロード
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: デプロイ
+        id: deployment
+        uses: actions/deploy-pages@v4
