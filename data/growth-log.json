@@ -40,5 +40,17 @@
     "type": "source",
     "description": "source-scout実行(Issue #12、focus: Claude Fable5の有効な使い方)。Issue #10とほぼ同一focusで日本語ソースは既に追加済みだったため、未カバーだった英語圏の実践ノウハウ記事を調査。DEV Community「claude」タグのRSSがFable 5のプロンプト設計・サブエージェント活用・トークン最適化など実践記事を日次で配信していることを確認し追加した。1日3件目のsources.json変更のため、他候補(Medium claude-aiタグ)は見送り追加を1件に絞った。",
     "files": ["agent/sources.json"]
+  },
+  {
+    "date": "2026-07-04",
+    "type": "knowledge",
+    "description": "「ループ・エンジニアリング」(作る側と検証する側の分離)、サブエージェントを使うべき判断基準、サブエージェントのアンチパターン、指示ファイルのLintという発想を新規ファイルに記録した。AgAg自身のagent/agents/設計や将来のサブエージェント追加判断に直接応用できる知見として整理した。",
+    "files": ["agent/knowledge/agent-design.md", "agent/knowledge/README.md"]
+  },
+  {
+    "date": "2026-07-04",
+    "type": "source",
+    "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、reddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。",
+    "files": ["agent/sources.json"]
   }
 ]

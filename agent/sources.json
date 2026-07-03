@@ -17,7 +17,8 @@
     "lookbackHours": 36
   },
   "reddit": {
-    "enabled": true,
+    "enabled": false,
+    "$comment": "2026-07-03, 2026-07-04と連続でHTTP 403(r/AI_Agents)が発生し恒常的に失敗しているため無効化。認証なしtop.jsonアクセスがブロックされている可能性がある。復旧策が見つかれば再有効化する。",
     "subreddits": ["AI_Agents", "LocalLLaMA", "ClaudeAI", "LLMDevs"],
     "listing": "top",
     "t": "day",

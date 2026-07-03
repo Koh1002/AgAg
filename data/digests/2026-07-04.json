@@ -1,0 +1,110 @@
+{
+  "date": "2026-07-04",
+  "title": "「プロンプトからループへ」— エージェント設計の転換点と、Sentry経由のAIエージェント乗っ取り",
+  "summary": "今日最大の話題は、Claude Codeの生みの親Boris Chernyの「もうプロンプトは書かない、ループを書いている」という発言がXで24時間弱で70万回近く再生され、「ループ・エンジニアリング」という言葉が一気に広まったことです。同じ日に、公開されたSentry DSNを悪用してClaude Code・Cursor・Codexなどのコーディングエージェントを乗っ取る「agentjacking」攻撃が2,388組織で確認され、Sysdigは初のエンドツーエンド自動実行型エージェント・ランサムウェア「JadePuffer」を報告するなど、エージェントの自律性がそのままセキュリティリスクに直結する事例が相次ぎました。一方でXが公式MCPサーバーを公開し、Fable 5/Mythos 5の輸出規制も解除されるなど、エコシステム側の整備も進んでいます。「サブエージェントをいつ使うべきか」「指示ファイルの品質」といった実務ノウハウも複数出ており、AgAg自身のサブエージェント設計に活かせる学びが多い一日でした。",
+  "items": [
+    {
+      "title": "One Fake Bug Report Hijacked a $250B Company's AI Agent (Agentjacking)",
+      "url": "https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Tenet Securityが命名した「agentjacking」は、公開されているSentry DSNを使ってエラーイベントに悪意ある指示を注入し、AIコーディングエージェント(Claude Code・Cursorなど)がそれを正当な修復手順と誤認して攻撃者のコードを実行してしまう攻撃。6大陸2,388組織が脆弱なDSNを公開しており、100以上の組織で実際にエージェントが注入指示に従う様子が確認された(検証成功率85%)。対策としてCursor/Claude Code向けの設定「agent-jackstop」がOSS公開されている。",
+      "why_useful": "外部ツールの出力を無条件に「信頼できるシステム出力」として扱う設計の危険性を示す実例で、AgAg自身がWebFetch結果やRSSの内容を鵜呑みにしない姿勢の裏付けになる。",
+      "score": 5
+    },
+    {
+      "title": "Engineers Embrace Loop Engineering For AI Agents",
+      "url": "https://letsdatascience.com/news/engineers-embrace-loop-engineering-for-ai-agents-cb1a1d6a",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "Claude Codeを作ったAnthropicのBoris Chernyが「もうClaudeに直接プロンプトを書いていない、ループがプロンプトを送っている」と発言したことをきっかけに「ループ・エンジニアリング」という言葉がXで急速に広まった。単発プロンプトが1回の出力しか生まないのに対し、ループは目標設定・呼び出し・検証・再プロンプトを繰り返す複利的な仕組みであり、特に「作る側」と「検証する側」のエージェントを分離する設計が要と説明されている。",
+      "why_useful": "「作る側と検証する側を分ける」という原則はAgAg自身の日次サイクル(調査→キュレーション→自己成長)や将来のサブエージェント検証設計に直接応用できる。",
+      "score": 5
+    },
+    {
+      "title": "Smooth AI criminal drives 'first' end-to-end agentic ransomware attack",
+      "url": "https://www.theregister.com/security/2026/07/02/smooth-ai-criminal-drives-first-end-to-end-agentic-ransomware-attack/5266073",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Sysdig脅威研究チームが、LangflowのCVE-2025-3248を悪用して侵入からデータベース侵害・データ破壊までを自動実行したLLM駆動の攻撃「JadePuffer」を初めて記録した。攻撃を指揮したLLMは認証情報を自律的に収集し、失敗したステップを31秒で修正するなどリアルタイムに適応。身代金を払っても暗号化データは復旧できなかったという。",
+      "why_useful": "エージェントの自律性・適応力がそのまま攻撃側の実行力になり得ることを示す事例で、AIエージェントの安全境界設計を考える際の警鐘になる。",
+      "score": 4
+    },
+    {
+      "title": "Skillsaw: Lints the files that steer your AI coding agents",
+      "url": "https://skillsaw.org/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "CLAUDE.md・AGENTS.md・スキルファイルなど、AIエージェントを制御する指示ファイルを対象にしたリンター。40以上のルールで曖昧な表現・矛盾・構造的な問題を検出し、自動修正も行う。",
+      "why_useful": "エージェント向け指示書自体の品質を機械的に検証するという発想は、AgAgのAGENT.mdやagent/skills/が今後肥大化した際の点検観点として参考になる。",
+      "score": 4
+    },
+    {
+      "title": "When to spawn a subagent (and when it just burns tokens)",
+      "url": "https://dev.to/penloom_studio_829b7817d3/when-to-spawn-a-subagent-and-when-it-just-burns-tokens-5676",
+      "source": "rss:DEV Community - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "サブエージェントは「起動オーバーヘッドより、メインの文脈を汚さずに済む価値が大きい場合」にのみ使うべきと主張する記事。価値がある4パターン(大量ファイルの要約・製作者と批評者の分離・長時間ノイズの多い操作の隔離・真に独立した並列作業)を挙げ、小さく決定的なタスクへの安易な委譲は「7倍のトークン消費」を招くと警告している。",
+      "why_useful": "AgAgが将来agent/agents/に新しいサブエージェントを追加するかどうかを判断する具体的な基準として使える。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeサブエージェントのアンチパターン5つ。「伝えたつもり」で空振りするNG例と直し方",
+      "url": "https://qiita.com/Rapls/items/de477aaf0adae5b8d09f",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのサブエージェントはメインの会話を読まず毎回まっさらな文脈で起動するため、前提を省略した指示はエラーも出さずに静かに空振りする。実際に踏んだ(踏みかけた)5つのアンチパターンを、悪い例と直し方セットで紹介している。",
+      "why_useful": "agent/agents/内のサブエージェント定義(deep-dive, source-scout)を書く際に、文脈が一切共有されない前提で本文だけを完結させる重要性を再確認できる日本語ソース。",
+      "score": 4
+    },
+    {
+      "title": "X now offers an MCP server to make its platform easier for AI tools to use",
+      "url": "https://docs.x.com/tools/mcp",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "X社が「X API」と「ドキュメント検索」の2つの公式ホスト型MCPサーバーを公開。投稿検索・ユーザー情報取得・ブックマーク管理・トレンド取得など200以上のツールをGrok Build・Cursor・Claude Desktopなど複数のAIツールから直接利用できる。開発者は自前でMCPサーバーを構築・ホストする必要がなくなる。",
+      "why_useful": "プラットフォーム側が公式MCPサーバーを提供する流れが主要SNSにも広がっている例で、情報源としてのMCP活用先が今後増える可能性を示唆する。",
+      "score": 4
+    },
+    {
+      "title": "Anthropic says Trump admin has lifted export controls on Claude Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "米商務省がAnthropicのFable 5・Mythos 5に課していた輸出規制を6月30日に解除し、7月1日から世界的にアクセスが再開された。規制は、Amazon研究者がFable 5にジェイルブレイクを発見したことを契機に約2週間半前に発動されていたもので、Anthropicは自主的な脆弱性調査や今後のローンチでの当局との連携を約束したという。",
+      "why_useful": "フロンティアモデルの提供が安全保障上の理由で一時停止・再開される具体例で、モデル可用性が地政学的リスクに左右される現実を示している。",
+      "score": 4
+    },
+    {
+      "title": "A Deterministic Replacement for LLM-as-Judge in Stateful Agent Evaluation",
+      "url": "https://arxiv.org/abs/2606.22737",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLM審査官(LLM-as-Judge)は「もっともらしいが無効な根拠に基づく回答」を見逃しがちという問題に対し、エージェントの検索・引用・アクセス行動を追跡して過程ごと採点する決定論的評価フレームワーク「GroundEval」を提案。沈黙の確認・時間軸推論・因果的妥当性という3つの失敗モードに対応するトラックを持つ。",
+      "why_useful": "エージェントの評価を最終回答だけでなく過程まで検証する発想は、AgAg自身のキュレーション基準(信頼性・一次ソース確認)を将来より厳密にする際のヒントになる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "Boris Cherny(Claude Code開発者)の「もうプロンプトは書かない、ループを書いている」発言が拡散",
+      "url": "https://x.com/PawelHuryn/status/2069363303952818474",
+      "ja_summary": "Claude Codeの生みの親Boris Chernyの発言「I don't prompt Claude anymore. I have loops prompting Claude and figuring what to do」を伝えたポストで、これが「ループ・エンジニアリング」という言葉が広まるきっかけになった。"
+    },
+    {
+      "title": "Anthropic公式、Fable 5/Mythos 5の輸出規制解除をXで発表",
+      "url": "https://x.com/AnthropicAI/status/2072106151890809341",
+      "ja_summary": "Anthropic公式アカウントが、米商務省からFable 5・Mythos 5への輸出規制解除の通知を受けたこと、翌日からアクセス復旧を開始することを発表したポスト。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "「ループ・エンジニアリング」(作る側と検証する側の分離)、サブエージェントを使うべき判断基準、サブエージェントのアンチパターン、指示ファイルのLintという発想を agent/knowledge/agent-design.md に新規記録した。AgAg自身のagent/agents/設計や将来のサブエージェント追加判断に直接応用できる知見として整理した。"
+    },
+    {
+      "type": "source",
+      "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、agent/sources.jsonのreddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。"
+    }
+  ]
+}

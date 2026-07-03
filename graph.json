@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-03T03:35:30.761Z",
+  "generatedAt": "2026-07-03T23:43:41.856Z",
   "counts": {
-   "nodes": 39,
-   "edges": 52
+   "nodes": 42,
+   "edges": 61
   }
  },
  "nodes": [
@@ -114,6 +114,15 @@
    "updated": "2026-07-03"
   },
   {
+   "id": "knowledge:agent-design",
+   "type": "knowledge",
+   "label": "エージェント設計パターン",
+   "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
+   "date": "2026-07-04",
+   "updated": "2026-07-04"
+  },
+  {
    "id": "knowledge:mcp",
    "type": "knowledge",
    "label": "MCP (Model Context Protocol)",
@@ -183,16 +192,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
-  },
-  {
-   "id": "source:reddit",
-   "type": "source",
-   "label": "Reddit",
-   "description": "監視中の情報源",
-   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
-   "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:arxiv",
@@ -201,7 +201,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:github",
@@ -210,7 +210,7 @@
    "description": "監視中の情報源",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/sources.json",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Simon Willison",
@@ -219,7 +219,7 @@
    "description": "RSS: https://simonwillison.net/atom/everything/",
    "url": "https://simonwillison.net/atom/everything/",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Hugging Face Blog",
@@ -228,7 +228,7 @@
    "description": "RSS: https://huggingface.co/blog/feed.xml",
    "url": "https://huggingface.co/blog/feed.xml",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:LangChain Blog",
@@ -237,7 +237,7 @@
    "description": "RSS: https://blog.langchain.dev/rss/",
    "url": "https://blog.langchain.dev/rss/",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:OpenAI News",
@@ -246,7 +246,7 @@
    "description": "RSS: https://openai.com/news/rss.xml",
    "url": "https://openai.com/news/rss.xml",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Google DeepMind Blog",
@@ -255,7 +255,7 @@
    "description": "RSS: https://deepmind.google/blog/rss.xml",
    "url": "https://deepmind.google/blog/rss.xml",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Zenn - AIエージェント",
@@ -264,7 +264,7 @@
    "description": "RSS: https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "url": "https://zenn.dev/topics/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Qiita - AIエージェント",
@@ -273,7 +273,7 @@
    "description": "RSS: https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "url": "https://qiita.com/tags/ai%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Zenn - Claude",
@@ -282,7 +282,7 @@
    "description": "RSS: https://zenn.dev/topics/claude/feed",
    "url": "https://zenn.dev/topics/claude/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:Qiita - ClaudeCode",
@@ -291,7 +291,7 @@
    "description": "RSS: https://qiita.com/tags/claudecode/feed",
    "url": "https://qiita.com/tags/claudecode/feed",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:rss:DEV Community - Claude",
@@ -300,7 +300,7 @@
    "description": "RSS: https://dev.to/feed/tag/claude",
    "url": "https://dev.to/feed/tag/claude",
    "date": "2026-07-02",
-   "updated": "2026-07-03"
+   "updated": "2026-07-04"
   },
   {
    "id": "source:websearch",
@@ -391,6 +391,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-04",
+   "type": "digest",
+   "label": "2026-07-04",
+   "description": "「プロンプトからループへ」— エージェント設計の転換点と、Sentry経由のAIエージェント乗っ取り — 今日最大の話題は、Claude Codeの生みの親Boris Chernyの「もうプロンプトは書かない、ループを書いている」という発言がXで24時間弱で70万回近く再生され、「ループ・エンジニアリング」という言葉が一気に広まったことです。同じ日に、公開されたSentry DSNを悪用してClaude Code・Cursor・Code…",
+   "url": "archive/2026-07-04.html",
+   "date": "2026-07-04",
+   "updated": "2026-07-04",
+   "items": [
+    {
+     "title": "One Fake Bug Report Hijacked a $250B Company's AI Agent (Agentjacking)",
+     "url": "https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/"
+    },
+    {
+     "title": "Engineers Embrace Loop Engineering For AI Agents",
+     "url": "https://letsdatascience.com/news/engineers-embrace-loop-engineering-for-ai-agents-cb1a1d6a"
+    },
+    {
+     "title": "Smooth AI criminal drives 'first' end-to-end agentic ransomware attack",
+     "url": "https://www.theregister.com/security/2026/07/02/smooth-ai-criminal-drives-first-end-to-end-agentic-ransomware-attack/5266073"
+    },
+    {
+     "title": "Skillsaw: Lints the files that steer your AI coding agents",
+     "url": "https://skillsaw.org/"
+    },
+    {
+     "title": "When to spawn a subagent (and when it just burns tokens)",
+     "url": "https://dev.to/penloom_studio_829b7817d3/when-to-spawn-a-subagent-and-when-it-just-burns-tokens-5676"
+    },
+    {
+     "title": "Claude Codeサブエージェントのアンチパターン5つ。「伝えたつもり」で空振りするNG例と直し方",
+     "url": "https://qiita.com/Rapls/items/de477aaf0adae5b8d09f"
+    },
+    {
+     "title": "X now offers an MCP server to make its platform easier for AI tools to use",
+     "url": "https://docs.x.com/tools/mcp"
+    },
+    {
+     "title": "Anthropic says Trump admin has lifted export controls on Claude Fable 5 and Mythos 5",
+     "url": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+     "title": "A Deterministic Replacement for LLM-as-Judge in Stateful Agent Evaluation",
+     "url": "https://arxiv.org/abs/2606.22737"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -461,6 +508,26 @@
    "updated": "2026-07-03"
   },
   {
+   "id": "growth:2026-07-04:7",
+   "type": "growth",
+   "label": "成長 2026-07-04",
+   "description": "「ループ・エンジニアリング」(作る側と検証する側の分離)、サブエージェントを使うべき判断基準、サブエージェントのアンチパターン、指示ファイルのLintという発想を新規ファイルに記録した。AgAg自身のagent/agents/設計や将来のサブエージェント追加判断に直接応用できる知見として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-04",
+   "updated": "2026-07-04"
+  },
+  {
+   "id": "growth:2026-07-04:8",
+   "type": "growth",
+   "label": "成長 2026-07-04",
+   "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、reddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。",
+   "growthType": "source",
+   "url": "growth.html",
+   "date": "2026-07-04",
+   "updated": "2026-07-04"
+  },
+  {
    "id": "run:2026-07-03-source-scout-10",
    "type": "run",
    "label": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zen…",
@@ -514,6 +581,11 @@
   },
   {
    "source": "agent",
+   "target": "knowledge:agent-design",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
    "target": "knowledge:mcp",
    "kind": "owns"
   },
@@ -550,11 +622,6 @@
   {
    "source": "agent",
    "target": "source:hackernews",
-   "kind": "watches"
-  },
-  {
-   "source": "agent",
-   "target": "source:reddit",
    "kind": "watches"
   },
   {
@@ -666,6 +733,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-04",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-04",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-04",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-04",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-04",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-04",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -738,6 +837,21 @@
   {
    "source": "digest:2026-07-03",
    "target": "growth:2026-07-03:6",
+   "kind": "grew"
+  },
+  {
+   "source": "digest:2026-07-04",
+   "target": "growth:2026-07-04:7",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-04:7",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-04",
+   "target": "growth:2026-07-04:8",
    "kind": "grew"
   },
   {
