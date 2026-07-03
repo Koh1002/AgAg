@@ -56,7 +56,7 @@ function coerce(v) {
 }
 
 // Markdown からタイトル(最初の # 見出し)と説明(最初の段落)を抜く
-function mdSummary(md) {
+export function mdSummary(md) {
   const body = md.replace(/^---\n[\s\S]*?\n---/, "");
   const title = body.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? null;
   const para = body
@@ -162,13 +162,23 @@ export function buildGraphData(ROOT) {
       if (f === "README.md") continue;
       const md = readFileSync(join(ROOT, "agent", dir, f), "utf8");
       const { title, description } = mdSummary(md);
-      const id = `${type}:${basename(f, ".md")}`;
+      const name = basename(f, ".md");
+      const id = `${type}:${name}`;
+      // スキルは「skill:<name>」指定で Issue 経由のオンデマンド実行ができる
+      const runnable = type === "skill";
       addNode({
         id,
         type,
-        label: title ?? basename(f, ".md"),
+        label: title ?? name,
         description,
         repoUrl: `${REPO_URL}/blob/main/agent/${dir}/${f}`,
+        ...(runnable && {
+          runnable: true,
+          runUrl: runIssueUrl({
+            name: `skill:${name}`,
+            inputs: [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }],
+          }),
+        }),
         ...datesOf(`agent/${dir}/${f}`),
       });
       addEdge("agent", id, "owns");
