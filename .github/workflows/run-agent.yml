@@ -130,3 +130,12 @@ jobs:
         id: deployment
         continue-on-error: true
         uses: actions/deploy-pages@v4
+
+      - name: 再試行前に待機
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 20
+
+      # 1回目が一時的エラーで失敗した場合の再試行。ここで失敗したら赤く落とす(失敗を隠さない)
+      - name: デプロイ(再試行)
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
