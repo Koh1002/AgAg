@@ -126,7 +126,8 @@
     .attr("transform", (d) => `translate(${radius(d) * 0.85},${-radius(d) * 0.85})`)
     .on("click", (ev, d) => {
       ev.stopPropagation();
-      window.open(d.runUrl, "_blank", "noopener");
+      if (window.AgAgRun && d.run) window.AgAgRun.open(d.run);
+      else window.open(d.runUrl, "_blank", "noopener");
     });
   runBadge.append("circle").attr("r", 9);
   runBadge.append("text").attr("dy", 3.5).attr("dx", 0.5).attr("text-anchor", "middle").text("▶");
@@ -217,7 +218,7 @@
       <h2>${escHtml(d.label)}</h2>
       ${d.description ? `<p>${escHtml(d.description)}</p>` : ""}
       ${d.date ? `<p class="panel-meta">誕生: ${escHtml(d.date)}${d.updated && d.updated !== d.date ? ` · 最終成長: ${escHtml(d.updated)}` : ""}</p>` : ""}
-      ${d.runUrl ? `<p><a class="run-btn" href="${escHtml(d.runUrl)}" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>` : ""}
+      ${d.run ? `<p><button class="run-btn" data-run="${escHtml(JSON.stringify(d.run))}">▶ 実行</button></p>` : ""}
       ${items ? `<h3>収録記事</h3><ul class="panel-list">${items}</ul>` : ""}
       ${growthNbs.length ? `<h3>関連する成長</h3><ul class="panel-list">${growthNbs.map((nb) => `<li>${escHtml(nb.node.date ?? "")} — ${escHtml(nb.node.description)}</li>`).join("")}</ul>` : ""}
       <p class="panel-links">

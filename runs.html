@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="alternate" type="application/atom+xml" title="AgAg — AIエージェント・デイリーウォッチ" href="feed.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
-
+<link rel="stylesheet" href="assets/run.css">
 </head>
 <body>
 <header class="site-header">
@@ -23,7 +23,7 @@
 </header>
 <main>
 <h1>実行</h1>
-<p class="lead">サブエージェントをページから実行できます(GitHub の Issue 作成画面が開き、発行すると GitHub Actions 上で実行されます。オーナーの Issue のみ実行されます)。</p>
+<p class="lead">▶ を押すとこのページ内で入力→実行→結果表示まで完結します(初回のみ GitHub トークンの設定が必要 / 実体は GitHub Actions 上で動き、オーナーのリクエストのみ実行されます)。 <a href="#" data-agag-settings>⚙ トークン設定</a></p>
 <div id="live-status"></div>
 <h2>サブエージェント</h2>
 <div class="cards">
@@ -32,14 +32,14 @@
   <h3>トピック深掘り調査 <code class="agent-name">deep-dive</code></h3>
   <p>指定されたトピックについて Web を深掘り調査し、一次情報に基づく日本語レポートを作成する。</p>
   <p class="muted">入力: <code>topic</code>(必須) <code>depth</code></p>
-  <p><a class="run-btn" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20deep-dive&amp;body=agent%3A%20deep-dive%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Atopic%3A%20%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%99%E3%82%8B%E3%83%88%E3%83%94%E3%83%83%E3%82%AF(%E4%BE%8B%E3%80%8CMCP%20Apps%20%E3%81%AE%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81%E3%80%8D)%0Adepth%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%AE%E6%B7%B1%E3%81%95(quick%20%2F%20normal%20%2F%20deep)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%20normal&amp;labels=run" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+  <p><button class="run-btn" data-run="{&quot;name&quot;:&quot;deep-dive&quot;,&quot;title&quot;:&quot;トピック深掘り調査&quot;,&quot;inputs&quot;:[{&quot;name&quot;:&quot;topic&quot;,&quot;description&quot;:&quot;調査するトピック(例「MCP Apps の実装状況」)&quot;,&quot;required&quot;:true},{&quot;name&quot;:&quot;depth&quot;,&quot;description&quot;:&quot;調査の深さ(quick / normal / deep)。省略時は normal&quot;,&quot;required&quot;:false}],&quot;runUrl&quot;:&quot;https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20deep-dive&amp;body=agent%3A%20deep-dive%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Atopic%3A%20%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%99%E3%82%8B%E3%83%88%E3%83%94%E3%83%83%E3%82%AF(%E4%BE%8B%E3%80%8CMCP%20Apps%20%E3%81%AE%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81%E3%80%8D)%0Adepth%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%AE%E6%B7%B1%E3%81%95(quick%20%2F%20normal%20%2F%20deep)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%20normal&amp;labels=run&quot;}">▶ 実行</button> <a class="muted run-fallback" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20deep-dive&amp;body=agent%3A%20deep-dive%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Atopic%3A%20%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%99%E3%82%8B%E3%83%88%E3%83%94%E3%83%83%E3%82%AF(%E4%BE%8B%E3%80%8CMCP%20Apps%20%E3%81%AE%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81%E3%80%8D)%0Adepth%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E8%AA%BF%E6%9F%BB%E3%81%AE%E6%B7%B1%E3%81%95(quick%20%2F%20normal%20%2F%20deep)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%20normal&amp;labels=run" target="_blank" rel="noopener">GitHubで実行</a></p>
 </article>
 <article class="card">
   <div class="card-meta"><span class="badge badge-subagent">サブエージェント</span></div>
   <h3>新情報源スカウト <code class="agent-name">source-scout</code></h3>
   <p>現在の情報源の偏りを分析し、手薄な領域の新しい RSS/API 情報源を発見・検証して sources.json に追加する。</p>
   <p class="muted">入力: <code>focus</code></p>
-  <p><a class="run-btn" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20source-scout&amp;body=agent%3A%20source-scout%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Afocus%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E9%87%8D%E7%82%B9%E7%9A%84%E3%81%AB%E6%8E%A2%E3%81%99%E5%88%86%E9%87%8E(%E4%BE%8B%E3%80%8C%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E5%AE%9F%E5%8B%99%E4%BA%8B%E4%BE%8B%E3%80%8D%E3%80%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%A0%94%E7%A9%B6%E3%80%8D)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%E8%87%AA%E5%8B%95%E5%88%A4%E6%96%AD&amp;labels=run" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+  <p><button class="run-btn" data-run="{&quot;name&quot;:&quot;source-scout&quot;,&quot;title&quot;:&quot;新情報源スカウト&quot;,&quot;inputs&quot;:[{&quot;name&quot;:&quot;focus&quot;,&quot;description&quot;:&quot;重点的に探す分野(例「日本語の実務事例」「マルチエージェント研究」)。省略時は自動判断&quot;,&quot;required&quot;:false}],&quot;runUrl&quot;:&quot;https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20source-scout&amp;body=agent%3A%20source-scout%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Afocus%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E9%87%8D%E7%82%B9%E7%9A%84%E3%81%AB%E6%8E%A2%E3%81%99%E5%88%86%E9%87%8E(%E4%BE%8B%E3%80%8C%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E5%AE%9F%E5%8B%99%E4%BA%8B%E4%BE%8B%E3%80%8D%E3%80%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%A0%94%E7%A9%B6%E3%80%8D)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%E8%87%AA%E5%8B%95%E5%88%A4%E6%96%AD&amp;labels=run&quot;}">▶ 実行</button> <a class="muted run-fallback" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20source-scout&amp;body=agent%3A%20source-scout%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Afocus%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E9%87%8D%E7%82%B9%E7%9A%84%E3%81%AB%E6%8E%A2%E3%81%99%E5%88%86%E9%87%8E(%E4%BE%8B%E3%80%8C%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E5%AE%9F%E5%8B%99%E4%BA%8B%E4%BE%8B%E3%80%8D%E3%80%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%A0%94%E7%A9%B6%E3%80%8D)%E3%80%82%E7%9C%81%E7%95%A5%E6%99%82%E3%81%AF%E8%87%AA%E5%8B%95%E5%88%A4%E6%96%AD&amp;labels=run" target="_blank" rel="noopener">GitHubで実行</a></p>
 </article>
 </div>
 <h2>スキル</h2>
@@ -48,13 +48,13 @@
   <div class="card-meta"><span class="badge">スキル</span></div>
   <h3>スキル: キュレーション(有用度評価) <code class="agent-name">skill:curation</code></h3>
   <p>ネタを選ぶときの評価基準。経験に基づいて随時更新すること。</p>
-  <p><a class="run-btn" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&amp;body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+  <p><button class="run-btn" data-run="{&quot;name&quot;:&quot;skill:curation&quot;,&quot;title&quot;:&quot;スキル: キュレーション(有用度評価)&quot;,&quot;inputs&quot;:[{&quot;name&quot;:&quot;input&quot;,&quot;description&quot;:&quot;このスキルを何に適用するか(自由記述)&quot;,&quot;required&quot;:false}],&quot;runUrl&quot;:&quot;https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&amp;body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run&quot;}">▶ 実行</button> <a class="muted run-fallback" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&amp;body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run" target="_blank" rel="noopener">GitHubで実行</a></p>
 </article>
 <article class="card">
   <div class="card-meta"><span class="badge">スキル</span></div>
   <h3>スキル: 自己成長ネタの見つけ方 <code class="agent-name">skill:growth-scan</code></h3>
   <p>日々の収集データから、自分(AgAg)の改善に直接使える「成長寄与」ネタを見つけるための着眼点。`curation.md` の「成長寄与」加点(+1)を判断する際の具体的なチェックリスト。</p>
-  <p><a class="run-btn" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&amp;body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+  <p><button class="run-btn" data-run="{&quot;name&quot;:&quot;skill:growth-scan&quot;,&quot;title&quot;:&quot;スキル: 自己成長ネタの見つけ方&quot;,&quot;inputs&quot;:[{&quot;name&quot;:&quot;input&quot;,&quot;description&quot;:&quot;このスキルを何に適用するか(自由記述)&quot;,&quot;required&quot;:false}],&quot;runUrl&quot;:&quot;https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&amp;body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run&quot;}">▶ 実行</button> <a class="muted run-fallback" href="https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&amp;body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&amp;labels=run" target="_blank" rel="noopener">GitHubで実行</a></p>
 </article>
 </div>
 <h2>オンデマンド実行履歴</h2>
@@ -95,6 +95,7 @@ fetch("https://api.github.com/repos/Koh1002/AgAg/actions/runs?per_page=5")
   })
   .catch(() => {});
 </script>
+<script src="assets/run.js"></script>
 </main>
 <footer class="site-footer">
   <p>毎朝 7:30 (JST) に自動更新。AIエージェントの動向を調査し、自分自身も成長するエージェント <a href="https://github.com/Koh1002/AgAg">AgAg</a> が生成しています。</p>

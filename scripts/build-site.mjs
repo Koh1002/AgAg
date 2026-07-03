@@ -185,6 +185,7 @@ function buildGraphPage() {
   <aside id="side-panel" hidden></aside>
 </div>
 <script src="assets/d3.v7.min.js"></script>
+<script src="assets/run.js"></script>
 <script src="assets/graph.js"></script>`;
   writeFileSync(
     join(DOCS, "index.html"),
@@ -192,7 +193,7 @@ function buildGraphPage() {
       title: SITE_TITLE,
       body,
       bodyClass: "graph-page",
-      extraHead: `<link rel="stylesheet" href="assets/graph.css">`,
+      extraHead: `<link rel="stylesheet" href="assets/graph.css">\n<link rel="stylesheet" href="assets/run.css">`,
       fullBleed: true,
     })
   );
@@ -213,30 +214,33 @@ function buildDigest(digests) {
 
 // 実行ページ: サブエージェント/スキル一覧(▶実行) + オンデマンド実行履歴 + 日次実行サマリー
 function buildRuns(runs, digests, agents, skills) {
+  const runButton = (run) =>
+    `<p><button class="run-btn" data-run="${esc(JSON.stringify(run))}">▶ 実行</button> <a class="muted run-fallback" href="${esc(run.runUrl)}" target="_blank" rel="noopener">GitHubで実行</a></p>`;
+
   const skillCards = skills
     .map((s) => {
-      const url = runIssueUrl({
-        name: `skill:${s.name}`,
-        inputs: [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }],
-      });
+      const name = `skill:${s.name}`;
+      const inputs = [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }];
+      const run = { name, title: s.title ?? s.name, inputs, runUrl: runIssueUrl({ name, inputs }) };
       return `<article class="card">
   <div class="card-meta"><span class="badge">スキル</span></div>
   <h3>${esc(s.title ?? s.name)} <code class="agent-name">skill:${esc(s.name)}</code></h3>
   <p>${esc(s.description ?? "")}</p>
-  <p><a class="run-btn" href="${esc(url)}" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+  ${runButton(run)}
 </article>`;
     })
     .join("\n");
   const agentCards = agents
-    .map(
-      (a) => `<article class="card">
+    .map((a) => {
+      const run = { name: a.name, title: a.title ?? a.name, inputs: a.inputs ?? [], runUrl: runIssueUrl(a) };
+      return `<article class="card">
   <div class="card-meta"><span class="badge badge-subagent">サブエージェント</span></div>
   <h3>${esc(a.title ?? a.name)} <code class="agent-name">${esc(a.name)}</code></h3>
   <p>${esc(a.description ?? "")}</p>
   ${(a.inputs ?? []).length ? `<p class="muted">入力: ${a.inputs.map((i) => `<code>${esc(i.name)}</code>${i.required === true ? "(必須)" : ""}`).join(" ")}</p>` : ""}
-  <p><a class="run-btn" href="${esc(runIssueUrl(a))}" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
-</article>`
-    )
+  ${runButton(run)}
+</article>`;
+    })
     .join("\n");
 
   const runRows = runs.length
@@ -266,7 +270,7 @@ function buildRuns(runs, digests, agents, skills) {
     .join("\n");
 
   const body = `<h1>実行</h1>
-<p class="lead">サブエージェントをページから実行できます(GitHub の Issue 作成画面が開き、発行すると GitHub Actions 上で実行されます。オーナーの Issue のみ実行されます)。</p>
+<p class="lead">▶ を押すとこのページ内で入力→実行→結果表示まで完結します(初回のみ GitHub トークンの設定が必要 / 実体は GitHub Actions 上で動き、オーナーのリクエストのみ実行されます)。 <a href="#" data-agag-settings>⚙ トークン設定</a></p>
 <div id="live-status"></div>
 <h2>サブエージェント</h2>
 <div class="cards">
@@ -300,8 +304,12 @@ fetch("https://api.github.com/repos/Koh1002/AgAg/actions/runs?per_page=5")
     }
   })
   .catch(() => {});
-</script>`;
-  writeFileSync(join(DOCS, "runs.html"), pageShell({ title: `実行 | ${SITE_TITLE}`, body }));
+</script>
+<script src="assets/run.js"></script>`;
+  writeFileSync(
+    join(DOCS, "runs.html"),
+    pageShell({ title: `実行 | ${SITE_TITLE}`, body, extraHead: `<link rel="stylesheet" href="assets/run.css">` })
+  );
 }
 
 function buildGraph() {
@@ -438,9 +446,10 @@ h2 { font-size: 1.25rem; margin-top: 2.5rem; }
   .badge-error { background: #442525; color: #ee9d9d; }
 }
 .run-btn {
-  display: inline-block; padding: .35rem .9rem; border-radius: 8px;
+  display: inline-block; padding: .35rem .9rem; border-radius: 8px; border: none; cursor: pointer;
   background: var(--accent); color: #fff !important; font-weight: 600; font-size: .9rem;
 }
+.run-fallback { font-size: .78rem; margin-left: .5rem; }
 .run-btn:hover { text-decoration: none; opacity: .9; }
 .agent-name { font-size: .75rem; background: var(--accent-soft); color: var(--accent); padding: .1rem .4rem; border-radius: 6px; }
 .run-body { white-space: normal; }

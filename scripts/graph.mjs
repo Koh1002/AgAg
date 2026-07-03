@@ -150,6 +150,7 @@ export function buildGraphData(ROOT) {
       repoUrl: `${REPO_URL}/blob/main/agent/agents/${f}`,
       runnable: true,
       runUrl: runIssueUrl({ name, inputs: fm.inputs ?? [] }),
+      run: { name, title: fm.title ?? name, inputs: fm.inputs ?? [], runUrl: runIssueUrl({ name, inputs: fm.inputs ?? [] }) },
       date: fm.created ?? datesOf(`agent/agents/${f}`).date,
       updated: datesOf(`agent/agents/${f}`).updated ?? fm.created ?? null,
     });
@@ -172,13 +173,12 @@ export function buildGraphData(ROOT) {
         label: title ?? name,
         description,
         repoUrl: `${REPO_URL}/blob/main/agent/${dir}/${f}`,
-        ...(runnable && {
-          runnable: true,
-          runUrl: runIssueUrl({
-            name: `skill:${name}`,
-            inputs: [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }],
-          }),
-        }),
+        ...(runnable && (() => {
+          const runName = `skill:${name}`;
+          const inputs = [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }];
+          const url = runIssueUrl({ name: runName, inputs });
+          return { runnable: true, runUrl: url, run: { name: runName, title: title ?? name, inputs, runUrl: url } };
+        })()),
         ...datesOf(`agent/${dir}/${f}`),
       });
       addEdge("agent", id, "owns");
