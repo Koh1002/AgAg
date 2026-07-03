@@ -5,8 +5,9 @@
 // 依存パッケージなし。使い方: node scripts/build-site.mjs
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { dirname, join, basename } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildGraphData, parseFrontmatter, runIssueUrl, REPO_URL } from "./graph.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE_URL = process.env.SITE_URL || "https://koh1002.github.io/AgAg";
@@ -37,6 +38,28 @@ function loadGrowthLog() {
   return JSON.parse(readFileSync(p, "utf8"));
 }
 
+function loadRuns() {
+  const dir = join(ROOT, "data", "runs");
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .reverse()
+    .map((f) => ({ file: f, ...JSON.parse(readFileSync(join(dir, f), "utf8")) }));
+}
+
+function loadAgents() {
+  const dir = join(ROOT, "agent", "agents");
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && f !== "README.md")
+    .sort()
+    .map((f) => {
+      const fm = parseFrontmatter(readFileSync(join(dir, f), "utf8")) ?? {};
+      return { file: f, name: fm.name ?? basename(f, ".md"), ...fm };
+    });
+}
+
 const CATEGORY_CLASS = {
   "新モデル・新製品": "cat-product",
   "フレームワーク・ツール": "cat-tool",
@@ -51,12 +74,19 @@ const GROWTH_TYPE_LABEL = {
   source: "情報源",
   prompt: "指示書",
   script: "コード",
+  agent: "エージェント",
 };
 
 // ---------- HTML パーツ ----------
 
-function pageShell({ title, body, depth = 0 }) {
+function pageShell({ title, body, depth = 0, bodyClass = "", extraHead = "", fullBleed = false }) {
   const base = "../".repeat(depth);
+  const main = fullBleed ? body : `<main>\n${body}\n</main>`;
+  const footer = fullBleed
+    ? ""
+    : `<footer class="site-footer">
+  <p>毎朝 7:30 (JST) に自動更新。AIエージェントの動向を調査し、自分自身も成長するエージェント <a href="${REPO_URL}">AgAg</a> が生成しています。</p>
+</footer>`;
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -65,23 +95,23 @@ function pageShell({ title, body, depth = 0 }) {
 <title>${esc(title)}</title>
 <link rel="stylesheet" href="${base}style.css">
 <link rel="alternate" type="application/atom+xml" title="${esc(SITE_TITLE)}" href="${base}feed.xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+${extraHead}
 </head>
-<body>
+<body${bodyClass ? ` class="${bodyClass}"` : ""}>
 <header class="site-header">
   <a class="brand" href="${base}index.html">🤖 AgAg</a>
   <nav>
-    <a href="${base}index.html">今日</a>
+    <a href="${base}index.html">グラフ</a>
+    <a href="${base}digest.html">今日</a>
     <a href="${base}archive.html">アーカイブ</a>
     <a href="${base}growth.html">成長ログ</a>
+    <a href="${base}runs.html">実行</a>
     <a href="${base}feed.xml" title="RSSフィードを購読">RSS</a>
   </nav>
 </header>
-<main>
-${body}
-</main>
-<footer class="site-footer">
-  <p>毎朝 7:30 (JST) に自動更新。AIエージェントの動向を調査し、自分自身も成長するエージェント <a href="https://github.com/Koh1002/AgAg">AgAg</a> が生成しています。</p>
-</footer>
+${main}
+${footer}
 </body>
 </html>
 `;
@@ -134,7 +164,29 @@ ${ga}
 
 // ---------- ページ生成 ----------
 
-function buildIndex(digests) {
+// トップページ = エージェントの「脳」を表示する全画面グラフ(Obsidian のグラフビュー風)
+function buildGraphPage() {
+  const body = `<div id="graph-root">
+  <svg id="graph" aria-label="AgAg のエージェント・スキル・知識のネットワーク図"></svg>
+  <div id="graph-legend"></div>
+  <div id="graph-hint">ノードをクリックで詳細 · ドラッグで移動 · スクロール/ピンチでズーム</div>
+  <aside id="side-panel" hidden></aside>
+</div>
+<script src="assets/d3.v7.min.js"></script>
+<script src="assets/graph.js"></script>`;
+  writeFileSync(
+    join(DOCS, "index.html"),
+    pageShell({
+      title: SITE_TITLE,
+      body,
+      bodyClass: "graph-page",
+      extraHead: `<link rel="stylesheet" href="assets/graph.css">`,
+      fullBleed: true,
+    })
+  );
+}
+
+function buildDigest(digests) {
   const body = digests.length
     ? digestSection(digests[0], { heading: "h1" }) +
       (digests.length > 1
@@ -144,7 +196,88 @@ function buildIndex(digests) {
             .join("")}</ul><p><a href="archive.html">すべて見る →</a></p></section>`
         : "")
     : `<section class="digest"><h1>まだダイジェストがありません</h1><p class="lead">最初の実行をお待ちください。</p></section>`;
-  writeFileSync(join(DOCS, "index.html"), pageShell({ title: SITE_TITLE, body }));
+  writeFileSync(join(DOCS, "digest.html"), pageShell({ title: `今日のダイジェスト | ${SITE_TITLE}`, body }));
+}
+
+// 実行ページ: サブエージェント一覧(▶実行) + オンデマンド実行履歴 + 日次実行サマリー
+function buildRuns(runs, digests, agents) {
+  const agentCards = agents
+    .map(
+      (a) => `<article class="card">
+  <div class="card-meta"><span class="badge badge-subagent">サブエージェント</span></div>
+  <h3>${esc(a.title ?? a.name)} <code class="agent-name">${esc(a.name)}</code></h3>
+  <p>${esc(a.description ?? "")}</p>
+  ${(a.inputs ?? []).length ? `<p class="muted">入力: ${a.inputs.map((i) => `<code>${esc(i.name)}</code>${i.required === true ? "(必須)" : ""}`).join(" ")}</p>` : ""}
+  <p><a class="run-btn" href="${esc(runIssueUrl(a))}" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+</article>`
+    )
+    .join("\n");
+
+  const runRows = runs.length
+    ? runs
+        .map(
+          (r) => `<article class="card">
+  <div class="card-meta">
+    <span class="badge ${r.status === "success" ? "badge-growth" : "badge-error"}">${esc(r.status ?? "?")}</span>
+    <span class="muted">${esc(r.date)} · ${esc(r.agent)}</span>
+  </div>
+  <h3>${esc(r.title ?? "")}</h3>
+  <p>${esc(r.summary_ja ?? "")}</p>
+  ${(r.sections ?? [])
+    .map((s) => `<details><summary>${esc(s.heading)}</summary><p class="run-body">${esc(s.body_md ?? "").replace(/\n/g, "<br>")}</p></details>`)
+    .join("\n")}
+  ${(r.links ?? []).length ? `<p class="muted">リンク: ${r.links.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.title)}</a>`).join(" · ")}</p>` : ""}
+  <p class="muted"><a href="${esc(r.issue_url ?? "#")}" target="_blank" rel="noopener">Issue #${esc(r.issue)}</a>${r.run_url ? ` · <a href="${esc(r.run_url)}" target="_blank" rel="noopener">実行ログ</a>` : ""}</p>
+</article>`
+        )
+        .join("\n")
+    : `<p class="muted">まだオンデマンド実行はありません。上の ▶ 実行ボタンから試せます。</p>`;
+
+  const dailyRows = digests
+    .map(
+      (d) => `  <li><a href="archive/${d.date}.html">${esc(d.date)}</a> — ${esc(d.title)} <span class="muted">(記事${(d.items ?? []).length}件 / 成長${(d.growth_actions ?? []).length}件)</span></li>`
+    )
+    .join("\n");
+
+  const body = `<h1>実行</h1>
+<p class="lead">サブエージェントをページから実行できます(GitHub の Issue 作成画面が開き、発行すると GitHub Actions 上で実行されます。オーナーの Issue のみ実行されます)。</p>
+<div id="live-status"></div>
+<h2>サブエージェント</h2>
+<div class="cards">
+${agentCards || `<p class="muted">まだサブエージェントがいません。</p>`}
+</div>
+<h2>オンデマンド実行履歴</h2>
+<div class="cards">
+${runRows}
+</div>
+<h2>日次実行(毎朝 7:30 JST)</h2>
+<ul class="archive-list">
+${dailyRows}
+</ul>
+<p class="muted"><a href="${REPO_URL}/actions" target="_blank" rel="noopener">GitHub Actions で全実行ログを見る →</a></p>
+<script>
+// 直近のワークフロー実行状態をライブ表示(未認証の公開API。失敗時は黙って非表示)
+fetch("https://api.github.com/repos/Koh1002/AgAg/actions/runs?per_page=5")
+  .then((r) => (r.ok ? r.json() : Promise.reject()))
+  .then((d) => {
+    const runs = (d.workflow_runs || []).map((r) => {
+      const icon = r.status !== "completed" ? "⏳" : r.conclusion === "success" ? "✅" : "❌";
+      return \`<a href="\${r.html_url}" target="_blank" rel="noopener">\${icon} \${r.name}</a>\`;
+    });
+    if (runs.length) {
+      document.getElementById("live-status").innerHTML =
+        '<p class="muted">直近の実行: ' + runs.join(" · ") + "</p>";
+    }
+  })
+  .catch(() => {});
+</script>`;
+  writeFileSync(join(DOCS, "runs.html"), pageShell({ title: `実行 | ${SITE_TITLE}`, body }));
+}
+
+function buildGraph() {
+  const graph = buildGraphData(ROOT);
+  writeFileSync(join(DOCS, "graph.json"), JSON.stringify(graph, null, 1) + "\n");
+  return graph;
 }
 
 function buildArchive(digests) {
@@ -268,6 +401,19 @@ h2 { font-size: 1.25rem; margin-top: 2.5rem; }
   background: var(--accent-soft); color: var(--accent); font-size: .75rem; font-weight: 600;
 }
 .badge-growth { background: var(--growth-soft); color: var(--growth); }
+.badge-subagent { background: #efe6fb; color: #7a3fbf; }
+.badge-error { background: #fbe6e6; color: #bf3f3f; }
+@media (prefers-color-scheme: dark) {
+  .badge-subagent { background: #322544; color: #c5a2ee; }
+  .badge-error { background: #442525; color: #ee9d9d; }
+}
+.run-btn {
+  display: inline-block; padding: .35rem .9rem; border-radius: 8px;
+  background: var(--accent); color: #fff !important; font-weight: 600; font-size: .9rem;
+}
+.run-btn:hover { text-decoration: none; opacity: .9; }
+.agent-name { font-size: .75rem; background: var(--accent-soft); color: var(--accent); padding: .1rem .4rem; border-radius: 6px; }
+.run-body { white-space: normal; }
 .score { color: #d9a406; letter-spacing: .1em; }
 .source { color: var(--muted); }
 .why { color: var(--muted); font-size: .9rem; }
@@ -304,15 +450,22 @@ h2 { font-size: 1.25rem; margin-top: 2.5rem; }
 function main() {
   const digests = loadDigests();
   const growthLog = loadGrowthLog();
+  const runs = loadRuns();
+  const agents = loadAgents();
   mkdirSync(DOCS, { recursive: true });
   writeFileSync(join(DOCS, ".nojekyll"), "");
   writeFileSync(join(DOCS, "style.css"), STYLE);
-  buildIndex(digests);
+  const graph = buildGraph();
+  buildGraphPage();
+  buildDigest(digests);
   buildArchive(digests);
   buildGrowth(growthLog);
+  buildRuns(runs, digests, agents);
   build404();
   buildFeed(digests);
-  console.log(`[build-site] ${digests.length} digests, ${growthLog.length} growth entries -> リポジトリルート`);
+  console.log(
+    `[build-site] ${digests.length} digests, ${growthLog.length} growth entries, ${agents.length} subagents, ${runs.length} runs, graph ${graph.meta.counts.nodes}n/${graph.meta.counts.edges}e -> リポジトリルート`
+  );
 }
 
 main();

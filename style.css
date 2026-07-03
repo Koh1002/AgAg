@@ -42,6 +42,19 @@ h2 { font-size: 1.25rem; margin-top: 2.5rem; }
   background: var(--accent-soft); color: var(--accent); font-size: .75rem; font-weight: 600;
 }
 .badge-growth { background: var(--growth-soft); color: var(--growth); }
+.badge-subagent { background: #efe6fb; color: #7a3fbf; }
+.badge-error { background: #fbe6e6; color: #bf3f3f; }
+@media (prefers-color-scheme: dark) {
+  .badge-subagent { background: #322544; color: #c5a2ee; }
+  .badge-error { background: #442525; color: #ee9d9d; }
+}
+.run-btn {
+  display: inline-block; padding: .35rem .9rem; border-radius: 8px;
+  background: var(--accent); color: #fff !important; font-weight: 600; font-size: .9rem;
+}
+.run-btn:hover { text-decoration: none; opacity: .9; }
+.agent-name { font-size: .75rem; background: var(--accent-soft); color: var(--accent); padding: .1rem .4rem; border-radius: 6px; }
+.run-body { white-space: normal; }
 .score { color: #d9a406; letter-spacing: .1em; }
 .source { color: var(--muted); }
 .why { color: var(--muted); font-size: .9rem; }

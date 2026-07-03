@@ -15,12 +15,16 @@ on:
     branches: [main]
     paths:
       - "index.html"
+      - "digest.html"
       - "archive.html"
       - "growth.html"
+      - "runs.html"
       - "404.html"
       - "style.css"
       - "feed.xml"
+      - "graph.json"
       - "archive/**"
+      - "assets/**"
       - ".github/workflows/deploy-pages.yml"
 
 permissions:

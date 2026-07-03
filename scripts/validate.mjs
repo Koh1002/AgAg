@@ -68,7 +68,7 @@ if (sources) {
 // ---------- data/digests/*.json ----------
 
 const CATEGORIES = new Set(["新モデル・新製品", "フレームワーク・ツール", "研究", "事例・ノウハウ", "議論・意見"]);
-const GROWTH_TYPES = new Set(["knowledge", "skill", "source", "prompt", "script"]);
+const GROWTH_TYPES = new Set(["knowledge", "skill", "source", "prompt", "script", "agent"]);
 const digestsDir = join(ROOT, "data", "digests");
 
 if (existsSync(digestsDir)) {
@@ -110,6 +110,80 @@ if (growth) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(g.date ?? "")) fail(`growth-log.json[${i}]: date が不正`);
     if (!GROWTH_TYPES.has(g.type)) fail(`growth-log.json[${i}]: type が不正 (${g.type})`);
     if (!g.description) fail(`growth-log.json[${i}]: description がない`);
+  }
+}
+
+// ---------- agent/agents/*.md(サブエージェント定義) ----------
+
+const agentsDir = join(ROOT, "agent", "agents");
+const knownAgents = new Set();
+if (existsSync(agentsDir)) {
+  try {
+    const { parseFrontmatter } = await import(pathToFileURL(join(ROOT, "scripts", "graph.mjs")).href);
+    for (const f of readdirSync(agentsDir).filter((f) => f.endsWith(".md") && f !== "README.md")) {
+      const rel = `agent/agents/${f}`;
+      const fm = parseFrontmatter(readFileSync(join(agentsDir, f), "utf8"));
+      if (!fm) {
+        fail(`${rel}: frontmatter がない`);
+        continue;
+      }
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(fm.name ?? "")) fail(`${rel}: name が kebab-case でない (${fm.name})`);
+      if (fm.name && fm.name !== f.replace(/\.md$/, "")) fail(`${rel}: name とファイル名が不一致`);
+      if (!fm.title) fail(`${rel}: title がない`);
+      if (!fm.description) fail(`${rel}: description がない`);
+      for (const [i, inp] of (fm.inputs ?? []).entries()) {
+        if (!inp.name || !inp.description) fail(`${rel}: inputs[${i}] に name/description がない`);
+      }
+      knownAgents.add(fm.name);
+    }
+  } catch (e) {
+    fail(`agents 検証に失敗 (${e.message})`);
+  }
+}
+
+// ---------- data/runs/*.json(オンデマンド実行結果) ----------
+
+const runsDir = join(ROOT, "data", "runs");
+if (existsSync(runsDir)) {
+  for (const f of readdirSync(runsDir).filter((f) => f.endsWith(".json"))) {
+    const rel = `data/runs/${f}`;
+    if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+-\d+\.json$/.test(f)) fail(`${rel}: ファイル名が YYYY-MM-DD-<agent>-<issue>.json でない`);
+    const r = readJson(rel);
+    if (!r) continue;
+    for (const key of ["date", "agent", "title", "summary_ja", "status"]) {
+      if (!r[key]) fail(`${rel}: ${key} がない`);
+    }
+    if (!["success", "error"].includes(r.status)) fail(`${rel}: status が success/error でない (${r.status})`);
+    if (r.agent && knownAgents.size && !knownAgents.has(r.agent)) {
+      console.warn(`[validate] warning: ${rel} の agent "${r.agent}" は agent/agents/ に存在しない`);
+    }
+  }
+}
+
+// ---------- グラフ導出の整合性 ----------
+
+try {
+  const { buildGraphData } = await import(pathToFileURL(join(ROOT, "scripts", "graph.mjs")).href);
+  const g = buildGraphData(ROOT);
+  if (!g.nodes.some((n) => n.id === "agent")) fail("graph: agent ノードが存在しない");
+  const ids = new Set(g.nodes.map((n) => n.id));
+  for (const e of g.edges) {
+    if (!ids.has(e.source) || !ids.has(e.target)) fail(`graph: 不正なエッジ ${e.source} -> ${e.target}`);
+  }
+} catch (e) {
+  fail(`graph.mjs の実行に失敗 (${e.message})`);
+}
+
+// ---------- assets(グラフUI) ----------
+
+if (!existsSync(join(ROOT, "assets", "d3.v7.min.js"))) fail("assets/d3.v7.min.js がない(グラフが描画できない)");
+for (const f of ["graph.js"]) {
+  const p = join(ROOT, "assets", f);
+  if (!existsSync(p)) {
+    fail(`assets/${f} がない`);
+  } else {
+    const r = spawnSync(process.execPath, ["--check", p], { encoding: "utf8" });
+    if (r.status !== 0) fail(`assets/${f}: 構文エラー\n${r.stderr}`);
   }
 }
 
