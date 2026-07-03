@@ -97,6 +97,7 @@ Issue 経由のオンデマンド実行の結果は次の形式で保存する:
 
 - `status` は `success` または `error`(失敗時も必ずこのファイルを書いて状況を `summary_ja` に記す)
 - `outputs` には実行が生成・変更した他ファイルのパスを列挙(なければ空配列)
+- **スキルの実行**: Issue の `agent:` が `skill:<name>` の場合は `agent/skills/<name>.md` の内容を「## 入力」に適用する。結果ファイル名は `skill-<name>`、run JSON の `agent` は `skill:<name>` とする
 
 ## 安全境界(変更禁止のルール)
 

@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from "node:fs";
 import { dirname, join, basename } from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildGraphData, parseFrontmatter, runIssueUrl, REPO_URL } from "./graph.mjs";
+import { buildGraphData, parseFrontmatter, mdSummary, runIssueUrl, REPO_URL } from "./graph.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE_URL = process.env.SITE_URL || "https://koh1002.github.io/AgAg";
@@ -57,6 +57,18 @@ function loadAgents() {
     .map((f) => {
       const fm = parseFrontmatter(readFileSync(join(dir, f), "utf8")) ?? {};
       return { file: f, name: fm.name ?? basename(f, ".md"), ...fm };
+    });
+}
+
+function loadSkills() {
+  const dir = join(ROOT, "agent", "skills");
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && f !== "README.md")
+    .sort()
+    .map((f) => {
+      const { title, description } = mdSummary(readFileSync(join(dir, f), "utf8"));
+      return { file: f, name: basename(f, ".md"), title, description };
     });
 }
 
@@ -199,8 +211,22 @@ function buildDigest(digests) {
   writeFileSync(join(DOCS, "digest.html"), pageShell({ title: `今日のダイジェスト | ${SITE_TITLE}`, body }));
 }
 
-// 実行ページ: サブエージェント一覧(▶実行) + オンデマンド実行履歴 + 日次実行サマリー
-function buildRuns(runs, digests, agents) {
+// 実行ページ: サブエージェント/スキル一覧(▶実行) + オンデマンド実行履歴 + 日次実行サマリー
+function buildRuns(runs, digests, agents, skills) {
+  const skillCards = skills
+    .map((s) => {
+      const url = runIssueUrl({
+        name: `skill:${s.name}`,
+        inputs: [{ name: "input", description: "このスキルを何に適用するか(自由記述)", required: false }],
+      });
+      return `<article class="card">
+  <div class="card-meta"><span class="badge">スキル</span></div>
+  <h3>${esc(s.title ?? s.name)} <code class="agent-name">skill:${esc(s.name)}</code></h3>
+  <p>${esc(s.description ?? "")}</p>
+  <p><a class="run-btn" href="${esc(url)}" target="_blank" rel="noopener">▶ 実行(Issue を作成)</a></p>
+</article>`;
+    })
+    .join("\n");
   const agentCards = agents
     .map(
       (a) => `<article class="card">
@@ -245,6 +271,10 @@ function buildRuns(runs, digests, agents) {
 <h2>サブエージェント</h2>
 <div class="cards">
 ${agentCards || `<p class="muted">まだサブエージェントがいません。</p>`}
+</div>
+<h2>スキル</h2>
+<div class="cards">
+${skillCards || `<p class="muted">まだスキルがありません。</p>`}
 </div>
 <h2>オンデマンド実行履歴</h2>
 <div class="cards">
@@ -452,6 +482,7 @@ function main() {
   const growthLog = loadGrowthLog();
   const runs = loadRuns();
   const agents = loadAgents();
+  const skills = loadSkills();
   mkdirSync(DOCS, { recursive: true });
   writeFileSync(join(DOCS, ".nojekyll"), "");
   writeFileSync(join(DOCS, "style.css"), STYLE);
@@ -460,7 +491,7 @@ function main() {
   buildDigest(digests);
   buildArchive(digests);
   buildGrowth(growthLog);
-  buildRuns(runs, digests, agents);
+  buildRuns(runs, digests, agents, skills);
   build404();
   buildFeed(digests);
   console.log(

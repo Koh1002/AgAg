@@ -154,8 +154,12 @@ if (existsSync(runsDir)) {
       if (!r[key]) fail(`${rel}: ${key} がない`);
     }
     if (!["success", "error"].includes(r.status)) fail(`${rel}: status が success/error でない (${r.status})`);
-    if (r.agent && knownAgents.size && !knownAgents.has(r.agent)) {
-      console.warn(`[validate] warning: ${rel} の agent "${r.agent}" は agent/agents/ に存在しない`);
+    if (r.agent && knownAgents.size) {
+      const skillMatch = String(r.agent).match(/^skill:(.+)$/);
+      const known = skillMatch
+        ? existsSync(join(ROOT, "agent", "skills", `${skillMatch[1]}.md`))
+        : knownAgents.has(r.agent);
+      if (!known) console.warn(`[validate] warning: ${rel} の agent "${r.agent}" の定義が見つからない`);
     }
   }
 }

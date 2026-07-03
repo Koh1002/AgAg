@@ -34,10 +34,11 @@
     script: "コード",
     archive: "アーカイブ",
   };
-  const BASE_R = { agent: 22, subagent: 12, skill: 10, knowledge: 10, source: 8, digest: 9, growth: 7, run: 9, script: 7, archive: 9 };
+  // 主役はサブエージェント/スキル(実行できるもの)。情報源・日次活動は控えめに
+  const BASE_R = { agent: 22, subagent: 17, skill: 14, knowledge: 10, source: 6, digest: 8, growth: 6, run: 9, script: 6, archive: 8 };
   // 常時ラベルを出す種別(それ以外はズームインで表示)
-  const ALWAYS_LABEL = new Set(["agent", "subagent", "skill", "knowledge", "source"]);
-  const LINK_DIST = { owns: 115, watches: 145, fed: 55, grew: 50, changed: 60, ran: 65 };
+  const ALWAYS_LABEL = new Set(["agent", "subagent", "skill", "knowledge"]);
+  const LINK_DIST = { owns: 115, watches: 175, fed: 55, grew: 50, changed: 60, ran: 65 };
 
   // 次数・隣接マップ
   const degree = new Map();
@@ -117,6 +118,20 @@
     .attr("text-anchor", "middle")
     .text((d) => (d.label.length > 24 ? d.label.slice(0, 24) + "…" : d.label));
 
+  // 実行可能ノード(サブエージェント/スキル)には ▶ バッジ。ワンクリックで Issue 作成画面へ
+  const runBadge = node
+    .filter((d) => d.runnable && d.runUrl)
+    .append("g")
+    .attr("class", "run-badge")
+    .attr("transform", (d) => `translate(${radius(d) * 0.85},${-radius(d) * 0.85})`)
+    .on("click", (ev, d) => {
+      ev.stopPropagation();
+      window.open(d.runUrl, "_blank", "noopener");
+    });
+  runBadge.append("circle").attr("r", 9);
+  runBadge.append("text").attr("dy", 3.5).attr("dx", 0.5).attr("text-anchor", "middle").text("▶");
+  runBadge.append("title").text((d) => `${d.label} を実行(Issue を作成)`);
+
   // ---------- 物理シミュレーション ----------
   const agentNode = nodes.find((n) => n.id === "agent");
   if (agentNode) {
@@ -170,12 +185,17 @@
       })
   );
 
-  // ---------- 凡例 ----------
+  // ---------- 凡例 & 実行フォーカストグル ----------
   const typesPresent = [...new Set(nodes.map((n) => n.type))];
   document.getElementById("graph-legend").innerHTML =
+    `<label class="legend-item legend-toggle"><input type="checkbox" id="run-focus-toggle"> ▶ 実行できるものを強調</label>` +
     typesPresent
       .map((t) => `<span class="legend-item"><i style="background:${COLOR[t]}"></i>${TYPE_LABEL[t] ?? t}</span>`)
       .join("") + `<span class="legend-item"><i class="legend-fresh"></i>最近7日の成長</span>`;
+  document.getElementById("run-focus-toggle").addEventListener("change", (ev) => {
+    document.body.classList.toggle("run-focus", ev.target.checked);
+  });
+  node.classed("runnable", (d) => Boolean(d.runnable && d.runUrl) || d.type === "agent");
 
   // ---------- サイドパネル ----------
   const panel = document.getElementById("side-panel");
