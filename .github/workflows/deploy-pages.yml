@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["docs/**"]
+    paths: ["docs/**", ".github/workflows/deploy-pages.yml"]
 
 permissions:
   contents: read
@@ -27,6 +27,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      # ブランチ配信(legacy Jekyll)で有効化されていると Actions 配信と競合するため、
+      # 配信方式を workflow (GitHub Actions) に切り替える。すでに workflow なら no-op。
+      - name: 配信方式を GitHub Actions に切り替え
+        run: |
+          curl -sS -X PUT \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages" \
+            -d '{"build_type":"workflow"}' \
+            -w "HTTP %{http_code}\n" || echo "::warning::切り替えAPIが失敗(Settings → Pages → Source: GitHub Actions を手動で選択してください)"
 
       - name: Pages を設定(未有効なら自動で有効化)
         uses: actions/configure-pages@v5
