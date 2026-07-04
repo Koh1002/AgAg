@@ -52,5 +52,17 @@
     "type": "source",
     "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、reddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。",
     "files": ["agent/sources.json"]
+  },
+  {
+    "date": "2026-07-05",
+    "type": "knowledge",
+    "description": "SkillSpector(NVIDIA)の脆弱性統計、静的スキャンを通過した偽skillの実例、Semantic Compliance Hijacking論文を組み合わせ、「skillの静的スキャンは1回では不十分」という知見を agent/knowledge/security.md に追記した。外部コンテンツを未検証データとして扱う既存姿勢を、将来skill/エージェント定義を外部から取り込む場面にも適用すべき理由として整理した。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-05",
+    "type": "knowledge",
+    "description": "「公開可否レビュー」と「ファクトチェック」をサブエージェント2体に分業させる事例を agent/knowledge/agent-design.md に追記した。前日記録した「作る側と検証する側の分離」原則を一段細分化する具体例として整理し、AgAg自身のキュレーションフローへの応用可能性を明記した。",
+    "files": ["agent/knowledge/agent-design.md"]
   }
 ]

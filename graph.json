@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-03T23:43:41.856Z",
+  "generatedAt": "2026-07-04T23:34:21.011Z",
   "counts": {
-   "nodes": 42,
-   "edges": 61
+   "nodes": 45,
+   "edges": 71
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-04"
+   "updated": "2026-07-05"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-03"
+   "updated": "2026-07-05"
   },
   {
    "id": "script:build-site.mjs",
@@ -438,6 +438,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-05",
+   "type": "digest",
+   "label": "2026-07-05",
+   "description": "AIエージェントの「skill」が新しいソフトウェア・サプライチェーンになった日 — 今日最大の話題は、AIエージェント向けskill(Claude Code・Codex・Gemini CLIなどが読み込む拡張定義)がそのまま攻撃対象になり得るという指摘です。NVIDIAの調査ではマーケットプレイスのskill 42,447件中26.1%に脆弱性、5.2%に悪意ある意図が見つかり、同社はOSSスキャナ「SkillSpector」を公開し…",
+   "url": "archive/2026-07-05.html",
+   "date": "2026-07-05",
+   "updated": "2026-07-05",
+   "items": [
+    {
+     "title": "NVIDIA/SkillSpector: Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, and security risks.",
+     "url": "https://github.com/nvidia/skillspector"
+    },
+    {
+     "title": "Fake AI Agent Skill Slipped Past Every Scanner",
+     "url": "https://www.csoonline.com/article/4188840/how-a-malicious-ai-agent-skill-passed-security-checks-and-reached-26000-users.html"
+    },
+    {
+     "title": "Exploiting LLM Agent Supply Chains via Payload-Less Skills",
+     "url": "https://arxiv.org/abs/2605.14460"
+    },
+    {
+     "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a session and harvest it into a reusable skill/rule for next time.",
+     "url": "https://github.com/Kulaxyz/self-learning-skills"
+    },
+    {
+     "title": "langchain-ai/openwiki: OpenWiki is a CLI that writes and maintains agent documentation for your codebase.",
+     "url": "https://github.com/langchain-ai/openwiki"
+    },
+    {
+     "title": "ブログ公開前にサブエージェント2体を通す ― 「公開可否レビュー」と「ファクトチェック」をAIに分業させる設計",
+     "url": "https://zenn.dev/tmiyachi/articles/a6c77df6496fee"
+    },
+    {
+     "title": "「Opusに単純作業をさせない」── フックでモデルを自動ルーティングするClaude Code運用と、その実測コスト",
+     "url": "https://zenn.dev/oppo2357/articles/0d2babf96a207a"
+    },
+    {
+     "title": "Reasoning effort, not tool access, buys first-try reliability in agentic code generation: an observational study",
+     "url": "https://arxiv.org/abs/2607.02436v1"
+    },
+    {
+     "title": "AIエージェントのルールは、READMEではなくhookとbranch保護に書かれる",
+     "url": "https://zenn.dev/heftykoo/articles/f8da0aef2f2e38"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -526,6 +573,26 @@
    "url": "growth.html",
    "date": "2026-07-04",
    "updated": "2026-07-04"
+  },
+  {
+   "id": "growth:2026-07-05:9",
+   "type": "growth",
+   "label": "成長 2026-07-05",
+   "description": "SkillSpector(NVIDIA)の脆弱性統計、静的スキャンを通過した偽skillの実例、Semantic Compliance Hijacking論文を組み合わせ、「skillの静的スキャンは1回では不十分」という知見を agent/knowledge/security.md に追記した。外部コンテンツを未検証データとして扱う既存姿勢を、将来skill/エージェント定義を外部から取り込む場面にも適用すべき理由として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-05",
+   "updated": "2026-07-05"
+  },
+  {
+   "id": "growth:2026-07-05:10",
+   "type": "growth",
+   "label": "成長 2026-07-05",
+   "description": "「公開可否レビュー」と「ファクトチェック」をサブエージェント2体に分業させる事例を agent/knowledge/agent-design.md に追記した。前日記録した「作る側と検証する側の分離」原則を一段細分化する具体例として整理し、AgAg自身のキュレーションフローへの応用可能性を明記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-05",
+   "updated": "2026-07-05"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -765,6 +832,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-05",
+   "kind": "owns"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-05",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-05",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-05",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-05",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-05",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -853,6 +953,26 @@
    "source": "digest:2026-07-04",
    "target": "growth:2026-07-04:8",
    "kind": "grew"
+  },
+  {
+   "source": "digest:2026-07-05",
+   "target": "growth:2026-07-05:9",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-05:9",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-05",
+   "target": "growth:2026-07-05:10",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-05:10",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
   },
   {
    "source": "subagent:source-scout",
