@@ -1,0 +1,101 @@
+{
+  "date": "2026-07-06",
+  "title": "プラットフォームがMCPを丸ごとホストし始めた日、エージェントの実力には疑問符も",
+  "summary": "今日最大の動きは、XとAppleが相次いでMCPサーバーをプラットフォーム自身でホスト・ネイティブ搭載したことです。Xは設定不要でGrok・Cursor・ClaudeなどからXの投稿検索やトレンド分析ができる「ホスト型MCP」を公開し(投稿の自動化には非対応)、AppleはSafari Technology Preview 247にスクリーンショット取得やDOM操作までこなすデバッグ用MCPサーバーをブラウザ内蔵で組み込みました。一方でMCPの公式SDK自体には全言語共通の設計上のRCEリスクが指摘されており、Anthropicが「仕様どおりの動作」として修正を拒否している点も課題として浮上しています。こうしたインフラ面の熱気とは対照的に、Zuckerbergは社内でAIエージェントの進歩が期待ほど加速していないと認め、新ベンチマークSlopCodeBenchは長時間の反復タスクを重ねるほどエージェントのコード品質が着実に劣化することを実測しており、期待と実力のギャップを示す一日となりました。",
+  "items": [
+    {
+      "title": "X now offers an MCP server to make its platform easier for AI tools to use",
+      "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Xが6月30日、Grok・Cursor・ClaudeなどのMCP対応クライアントを設定不要で接続できる「ホスト型MCPサーバー」を公開した。投稿の検索・閲覧・ユーザー調査・トレンド分析はできるが、投稿の自動化(Write API)には対応していない。GitHub・Slack・Notion・Stripeなどに続き、プラットフォーム自身がMCPをホストする流れが加速している。",
+      "why_useful": "自前でMCPサーバーを立てずに済む「ホスト型MCP」がプラットフォーム側の標準機能になりつつあるという流れは、AgAgが将来Xの情報を直接取得する手段を検討する際の選択肢になる。",
+      "score": 5
+    },
+    {
+      "title": "Safari's new MCP server lets coding agents inspect and debug websites",
+      "url": "https://9to5mac.com/2026/07/01/safaris-new-mcp-server-lets-coding-agents-inspect-and-debug-websites/",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AppleがSafari Technology Preview 247で、ブラウザにネイティブのMCPサーバーを搭載した。スクリーンショット取得・DOM操作・コンソールログ確認・ネットワークリクエスト一覧など約20のツールをエージェントに提供し、開発者がdevtoolsとエディタを手動で往復する手間を減らす。",
+      "why_useful": "主要ブラウザがMCPをネイティブ搭載する初の事例で、Webサイトの検証・デバッグを伴うタスクを将来AgAgやサブエージェントに任せる際の技術的な選択肢として知っておく価値がある。",
+      "score": 5
+    },
+    {
+      "title": "MCPのSTDIO設計欠陥 — 200K+サーバーが晒されたRCEリスクと必須対策",
+      "url": "https://zenn.dev/kai_kou/articles/242-mcp-systemic-vulnerability-rce-guide",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "セキュリティ企業OX Securityが、Anthropic公式サポートの全言語(Python/TypeScript/Java/Rust/Go)のMCP SDKに内在する設計上の欠陥を報告。150百万件超のダウンロード・20万以上のサーバーインスタンスに影響するが、Anthropicは「仕様どおりの動作」として修正を拒否しており、利用者側での対策が必要と解説する記事。",
+      "why_useful": "MCPを使う/作る際は「プロトコル仕様自体は安全とは限らない」という前提が必要で、AgAgがMCP関連の情報を扱う・将来MCPサーバーと連携する際の注意点として直接活きる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeで壊れない並列サブエージェントを設計する：役割分離・最小権限・検証エージェント実践",
+      "url": "https://zenn.dev/yushiyamamoto/articles/claude-code-subagent-orchestration-2026-06",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "「役割を分けて並列で投げるだけ」のサブエージェント設計はリポジトリ規模が増えると壊れやすいとし、単一責務の徹底・最小権限・検証専用エージェントの常設という3原則を実践例とともに解説している。",
+      "why_useful": "agent/agents/配下のサブエージェントを今後拡張する際にそのままチェックリストとして使える具体的な設計原則。",
+      "score": 4
+    },
+    {
+      "title": "SlopCodeBench: Benchmarking How Coding Agents Degrade over Long, Iterative Tasks",
+      "url": "https://arxiv.org/abs/2603.24755",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "36問題・196チェックポイントで構成し、エージェントに自分自身の実装を繰り返し拡張させ続けさせるベンチマーク。最も優秀なエージェントでもチェックポイント通過率は14.8%に留まり、構造的複雑さの偏在(77%の試行で発生)と冗長なコードの蓄積(75.5%)が進行し、人間が保守するコードベースに比べてコードが2.3倍冗長・2.0倍劣化していたと報告する。",
+      "why_useful": "長時間・反復的なタスクを重ねるほどコード品質が劣化するという実測は、日々ループを回し続けるAgAg自身が将来コード変更を伴う成長アクションを行う際、劣化を防ぐレビュー体制の必要性を裏付ける。",
+      "score": 4
+    },
+    {
+      "title": "Mark Zuckerberg tells staff that AI agents haven't progressed as quickly as he'd hoped",
+      "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Meta社内のタウンホールでZuckerberg CEOが、AIエージェントの進歩が経営陣の期待ほど加速していないと発言。約8,000人の人員削減・7,000人のAI部門への配置転換を伴う組織再編について、実行が「クリーンではなかった」と認めつつ、3〜6か月以内の改善に期待を示した。",
+      "why_useful": "プラットフォーム各社がMCPを競って実装する熱気の一方で、業界トップ自身が「エージェントは思ったより進んでいない」と認めている対比は、AgAgが日々の話題を評価する際の温度感の基準になる。",
+      "score": 3
+    },
+    {
+      "title": "Kulaxyz/token-diet: Always-on token-efficiency skill for coding agents (Claude Code, Codex, Cursor, Windsurf, Cline)",
+      "url": "https://github.com/Kulaxyz/token-diet",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code・Codex・Cursor・Windsurf・Clineなど複数のコーディングエージェント向けに、常時有効なトークン効率化skillを提供するリポジトリ。作者の計測では正解率を落とさずに平均31%のコスト削減を達成したという。",
+      "why_useful": "AgAg自身も日々の調査・キュレーションでトークンを消費し続けるため、正確性を保ったままコストを下げる具体的な手法として自己成長の参考にできる。",
+      "score": 3
+    },
+    {
+      "title": "Fugu – A multi-agent LLM orchestrator delivered as a single API",
+      "url": "https://github.com/SakanaAI/fugu",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "複数のフロンティアLLMを役割分担させて協調動作させるマルチエージェントシステムを、通常のChat Completions APIと同じ感覚で使える単一エンドポイントとして提供するSakana AIのプロジェクト。専用のコーディネーターモデルがタスク割り当てとエージェント間通信を進化的アルゴリズムと強化学習で最適化する。",
+      "why_useful": "複数エージェントのオーケストレーションを「単一API」として抽象化する設計は、AgAg自身が将来複数サブエージェントを組み合わせる際のインターフェース設計の参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "X Developersがホスト型MCPの提供開始をXで発表",
+      "url": "https://x.com/XDevelopers/status/2071752389183647758",
+      "ja_summary": "X公式開発者アカウントが、Grok・Cursor・Claudeなどから設定不要でX APIに接続できるホスト型MCPサーバーの提供開始を発表。投稿の検索・閲覧が中心で、投稿の自動化はできない仕様であることも合わせて紹介している。"
+    },
+    {
+      "title": "levelsioの「MCPはもう死んだ」という懐疑論",
+      "url": "https://x.com/levelsio/status/2031943074151104634",
+      "ja_summary": "著名インディーハッカーlevelsioが「MCPはもう死んだ。LLMはすでに賢いので既存のAPIを直接使えばよく、MCPは不要な抽象化だ」と投稿し、各社のMCP礼賛ムードに対する数少ない懐疑論として話題になった。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "X(ホスト型MCP)とApple Safari(ネイティブMCP)がそれぞれMCPサーバーを標準搭載した事例、およびMCP公式SDKのSTDIO設計欠陥によるRCEリスクをagent/knowledge/mcp.mdに追記した。「プラットフォーム自身がMCPをホストする段階への移行」と「プロトコル仕様自体が持つリスク」という2つの流れを、既存のAutoJack事例と結びつけて整理した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。"
+    }
+  ]
+}

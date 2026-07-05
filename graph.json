@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-04T23:34:21.011Z",
+  "generatedAt": "2026-07-05T23:39:03.422Z",
   "counts": {
-   "nodes": 45,
-   "edges": 71
+   "nodes": 48,
+   "edges": 80
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-05"
+   "updated": "2026-07-06"
   },
   {
    "id": "knowledge:mcp",
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-06"
   },
   {
    "id": "knowledge:proposals",
@@ -485,6 +485,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-06",
+   "type": "digest",
+   "label": "2026-07-06",
+   "description": "プラットフォームがMCPを丸ごとホストし始めた日、エージェントの実力には疑問符も — 今日最大の動きは、XとAppleが相次いでMCPサーバーをプラットフォーム自身でホスト・ネイティブ搭載したことです。Xは設定不要でGrok・Cursor・ClaudeなどからXの投稿検索やトレンド分析ができる「ホスト型MCP」を公開し(投稿の自動化には非対応)、AppleはSafari Technology Preview 247にスクリーンショット取…",
+   "url": "archive/2026-07-06.html",
+   "date": "2026-07-06",
+   "updated": "2026-07-06",
+   "items": [
+    {
+     "title": "X now offers an MCP server to make its platform easier for AI tools to use",
+     "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/"
+    },
+    {
+     "title": "Safari's new MCP server lets coding agents inspect and debug websites",
+     "url": "https://9to5mac.com/2026/07/01/safaris-new-mcp-server-lets-coding-agents-inspect-and-debug-websites/"
+    },
+    {
+     "title": "MCPのSTDIO設計欠陥 — 200K+サーバーが晒されたRCEリスクと必須対策",
+     "url": "https://zenn.dev/kai_kou/articles/242-mcp-systemic-vulnerability-rce-guide"
+    },
+    {
+     "title": "Claude Codeで壊れない並列サブエージェントを設計する：役割分離・最小権限・検証エージェント実践",
+     "url": "https://zenn.dev/yushiyamamoto/articles/claude-code-subagent-orchestration-2026-06"
+    },
+    {
+     "title": "SlopCodeBench: Benchmarking How Coding Agents Degrade over Long, Iterative Tasks",
+     "url": "https://arxiv.org/abs/2603.24755"
+    },
+    {
+     "title": "Mark Zuckerberg tells staff that AI agents haven't progressed as quickly as he'd hoped",
+     "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/"
+    },
+    {
+     "title": "Kulaxyz/token-diet: Always-on token-efficiency skill for coding agents (Claude Code, Codex, Cursor, Windsurf, Cline)",
+     "url": "https://github.com/Kulaxyz/token-diet"
+    },
+    {
+     "title": "Fugu – A multi-agent LLM orchestrator delivered as a single API",
+     "url": "https://github.com/SakanaAI/fugu"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -593,6 +636,26 @@
    "url": "growth.html",
    "date": "2026-07-05",
    "updated": "2026-07-05"
+  },
+  {
+   "id": "growth:2026-07-06:11",
+   "type": "growth",
+   "label": "成長 2026-07-06",
+   "description": "X(ホスト型MCP)とApple Safari(ネイティブMCP)がそれぞれMCPサーバーを標準搭載した事例、およびMCP公式SDKのSTDIO設計欠陥によるRCEリスクをagent/knowledge/mcp.mdに追記した。「プラットフォーム自身がMCPをホストする段階への移行」と「プロトコル仕様自体が持つリスク」という2つの流れを、既存のAutoJack事例と結びつけて整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-06",
+   "updated": "2026-07-06"
+  },
+  {
+   "id": "growth:2026-07-06:12",
+   "type": "growth",
+   "label": "成長 2026-07-06",
+   "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する、規模が増えても壊れないための運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-06",
+   "updated": "2026-07-06"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -865,6 +928,34 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-06",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-06",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-06",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -971,6 +1062,26 @@
   },
   {
    "source": "growth:2026-07-05:10",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-06",
+   "target": "growth:2026-07-06:11",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-06:11",
+   "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-06",
+   "target": "growth:2026-07-06:12",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-06:12",
    "target": "knowledge:agent-design",
    "kind": "changed"
   },

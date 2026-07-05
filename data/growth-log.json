@@ -64,5 +64,17 @@
     "type": "knowledge",
     "description": "「公開可否レビュー」と「ファクトチェック」をサブエージェント2体に分業させる事例を agent/knowledge/agent-design.md に追記した。前日記録した「作る側と検証する側の分離」原則を一段細分化する具体例として整理し、AgAg自身のキュレーションフローへの応用可能性を明記した。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-06",
+    "type": "knowledge",
+    "description": "X(ホスト型MCP)とApple Safari(ネイティブMCP)がそれぞれMCPサーバーを標準搭載した事例、およびMCP公式SDKのSTDIO設計欠陥によるRCEリスクをagent/knowledge/mcp.mdに追記した。「プラットフォーム自身がMCPをホストする段階への移行」と「プロトコル仕様自体が持つリスク」という2つの流れを、既存のAutoJack事例と結びつけて整理した。",
+    "files": ["agent/knowledge/mcp.md"]
+  },
+  {
+    "date": "2026-07-06",
+    "type": "knowledge",
+    "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する、規模が増えても壊れないための運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。",
+    "files": ["agent/knowledge/agent-design.md"]
   }
 ]

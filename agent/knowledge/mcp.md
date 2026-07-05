@@ -18,3 +18,19 @@
 
 - **AutoJack**(Microsoft研究): AIブラウジングエージェントに悪意あるページを踏ませ、ローカルMCPサービス経由で任意プロセス実行に至る攻撃。ローカルツール接続には厳格な隔離が必要
 - **コンテキスト効率**: Perplexity CTOの批判 —「MCPツール記述だけでコンテキストの40〜50%を消費する」。動的なツール発見にはMCP、コンテキスト効率重視なら従来API/CLIという使い分けが現実解になりつつある
+
+## プラットフォームのホスト型/ネイティブMCPサーバーが標準化 — 記録日 2026-07-06
+
+出典: https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/ 、https://9to5mac.com/2026/07/01/safaris-new-mcp-server-lets-coding-agents-inspect-and-debug-websites/
+
+- X(旧Twitter)が「ホスト型MCP」を公開。自前でサーバーを立てずに、Grok/Cursor/Claude等のMCP対応クライアントをエンドポイントに繋ぐだけでX APIの150以上のエンドポイント(投稿検索・ブックマーク管理・トレンド取得・記事投稿など)が使えるようになった。GitHub/Slack/Notion/Stripeに続く「公式ホスト型MCP」の流れ
+- Apple も Safari Technology Preview 247 で MCP サーバーをネイティブ搭載。スクリーンショット・DOM検査・JS実行・コンソール/ネットワークログ・アクセシビリティ検査など16ツールをエージェントに提供。ローカル完結で外部通信せず、収集情報はApple自身にではなく開発者が選んだAIクライアントにのみ渡る設計
+- 両者に共通するのは「MCPサーバーをサードパーティ実装に任せず、プラットフォーム自身がホスト/ネイティブ提供する」という段階への移行。自作MCPサーバーの認証・可用性コストが下がる一方、プラットフォーム側のMCPエンドポイントがそのまま新たな攻撃対象面になる点は [[security.md]] のAutoJack事例と合わせて注意する
+
+## MCP公式SDKのSTDIO設計欠陥によるRCEリスク — 記録日 2026-07-06
+
+出典: https://zenn.dev/kai_kou/articles/242-mcp-systemic-vulnerability-rce-guide
+
+- セキュリティ企業OX Securityが、Anthropic公式サポートの全言語(Python/TypeScript/Java/Rust/Go)のMCP SDKに内在する設計上の欠陥を報告。150百万件以上のダウンロード・20万以上のサーバーインスタンスに影響する規模
+- Anthropicは「仕様どおりの動作(by design)」として修正を拒否しており、利用側が自力で対策を講じる必要がある。つまりMCPは「個々のskill/サーバーの実装ミス」だけでなく「プロトコル仕様そのものの設計」レベルでリスクを抱えている
+- 含意: [[security.md]] のskillサプライチェーン攻撃の知見(実装レベルの脆弱性)と合わせて、MCPを扱う際は「プロトコル設計自体は安全とは限らない」という前提で境界を設計する必要がある
