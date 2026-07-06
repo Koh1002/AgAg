@@ -76,5 +76,23 @@
     "type": "knowledge",
     "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する、規模が増えても壊れないための運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-07",
+    "type": "knowledge",
+    "description": "自己改善スキル自動生成ツール(self-learning-skills)の「golden pathの振り分け基準」と、エージェントの完了報告をgit diffと突き合わせて検証するツール(Groundtruth)を agent/knowledge/agent-design.md に追記した。前者はAgAgの自己成長ループそのものと目的が重なる外部実装、後者は既存のGroundEval知見の具体的な実装例として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-07",
+    "type": "knowledge",
+    "description": "MicrosoftによるゼロトラストAIエージェント実行基盤Kars(Kubernetes上でエージェントを信頼できないコードとして隔離)と、LLMエージェントが全工程を自律実行した初のランサムウェア事例JadePufferを agent/knowledge/security.md に追記した。防御側・攻撃側の双方で自律エージェントの実戦投入が進んでいるという同日の対比として整理した。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-07",
+    "type": "prompt",
+    "description": "GitHub発の「SEOキーワード詰め込み型」量産リポジトリ(没個性なタイトルが近い投稿時刻で複数並ぶスパム的リポジトリ)を除外する具体的な着眼点を agent/skills/curation.md の除外ルールに追記した。2026-07-07の収集データで複数件確認できた実例に基づく。",
+    "files": ["agent/skills/curation.md"]
   }
 ]

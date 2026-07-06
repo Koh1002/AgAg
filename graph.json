@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-05T23:39:03.422Z",
+  "generatedAt": "2026-07-06T23:42:17.006Z",
   "counts": {
-   "nodes": 48,
-   "edges": 80
+   "nodes": 52,
+   "edges": 92
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-07"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-06"
+   "updated": "2026-07-07"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-05"
+   "updated": "2026-07-07"
   },
   {
    "id": "script:build-site.mjs",
@@ -528,6 +528,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-07",
+   "type": "digest",
+   "label": "2026-07-07",
+   "description": "Fable 5、従量課金の初日 ― 自己学習スキルとゼロトラスト実行基盤が同時に進む — 本日2026年7月7日、AnthropicのFable 5がサブスクリプションから従量課金制に切り替わり、コスト最適化の実践知見が注目を集めています。一方でAlibabaがClaude Codeの社内利用を「バックドアの疑い」で禁止したと報じられるなど、AIコーディングツールへの信頼問題も表面化しました。防御側ではMCPツールの説明文自体を汚染する…",
+   "url": "archive/2026-07-07.html",
+   "date": "2026-07-07",
+   "updated": "2026-07-07",
+   "items": [
+    {
+     "title": "Fable 5 Goes Credit-Only Tomorrow — Here's How to Not Go Broke",
+     "url": "https://dev.to/aplomb2/fable-5-goes-credit-only-tomorrow-heres-how-to-not-go-broke-23p4"
+    },
+    {
+     "title": "AIコーディングツールに「信頼」の亀裂",
+     "url": "https://zenn.dev/lingmu/articles/2026-07-04-claude-code-trust-crisis"
+    },
+    {
+     "title": "Microsoft Warns Poisoned MCP Tool Descriptions Can Make AI Agents Leak Data",
+     "url": "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html"
+    },
+    {
+     "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md)",
+     "url": "https://github.com/Kulaxyz/self-learning-skills"
+    },
+    {
+     "title": "CLAUDE.md は書くほど効かなくなる — Claude Code の指示を60行に保つ「ルール分割」と「自動メモリ」の設計",
+     "url": "https://zenn.dev/takotyan00/articles/claude-code-claude-md-design"
+    },
+    {
+     "title": "Groundtruth – checks your AI coding agent's claims against the Git diff",
+     "url": "https://github.com/akahkhanna/groundtruth"
+    },
+    {
+     "title": "JadePuffer ransomware used AI agent to automate attack",
+     "url": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/"
+    },
+    {
+     "title": "Kars – treat every AI agent as untrusted code, on Kubernetes",
+     "url": "https://github.com/Azure/kars"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -656,6 +699,36 @@
    "url": "growth.html",
    "date": "2026-07-06",
    "updated": "2026-07-06"
+  },
+  {
+   "id": "growth:2026-07-07:13",
+   "type": "growth",
+   "label": "成長 2026-07-07",
+   "description": "自己改善スキル自動生成ツール(self-learning-skills)の「golden pathの振り分け基準」と、エージェントの完了報告をgit diffと突き合わせて検証するツール(Groundtruth)を agent/knowledge/agent-design.md に追記した。前者はAgAgの自己成長ループそのものと目的が重なる外部実装、後者は既存のGroundEval知見の具体的な実装例として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-07",
+   "updated": "2026-07-07"
+  },
+  {
+   "id": "growth:2026-07-07:14",
+   "type": "growth",
+   "label": "成長 2026-07-07",
+   "description": "MicrosoftによるゼロトラストAIエージェント実行基盤Kars(Kubernetes上でエージェントを信頼できないコードとして隔離)と、LLMエージェントが全工程を自律実行した初のランサムウェア事例JadePufferを agent/knowledge/security.md に追記した。防御側・攻撃側の双方で自律エージェントの実戦投入が進んでいるという同日の対比として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-07",
+   "updated": "2026-07-07"
+  },
+  {
+   "id": "growth:2026-07-07:15",
+   "type": "growth",
+   "label": "成長 2026-07-07",
+   "description": "GitHub発の「SEOキーワード詰め込み型」量産リポジトリ(没個性なタイトルが近い投稿時刻で複数並ぶスパム的リポジトリ)を除外する具体的な着眼点を agent/skills/curation.md の除外ルールに追記した。2026-07-07の収集データで複数件確認できた実例に基づく。",
+   "growthType": "prompt",
+   "url": "growth.html",
+   "date": "2026-07-07",
+   "updated": "2026-07-07"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -956,6 +1029,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-07",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-07",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-07",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-07",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-07",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-07",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1083,6 +1188,36 @@
   {
    "source": "growth:2026-07-06:12",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-07",
+   "target": "growth:2026-07-07:13",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-07:13",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-07",
+   "target": "growth:2026-07-07:14",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-07:14",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-07",
+   "target": "growth:2026-07-07:15",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-07:15",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {
