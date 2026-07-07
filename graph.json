@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-06T23:42:17.006Z",
+  "generatedAt": "2026-07-07T23:32:11.319Z",
   "counts": {
-   "nodes": 52,
-   "edges": 92
+   "nodes": 56,
+   "edges": 105
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-07-07"
+   "updated": "2026-07-08"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-07"
+   "updated": "2026-07-08"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-07"
+   "updated": "2026-07-08"
   },
   {
    "id": "script:build-site.mjs",
@@ -571,6 +571,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-08",
+   "type": "digest",
+   "label": "2026-07-08",
+   "description": "Fable 5が完全従量課金へ、長時間動くエージェントの「ハーネス設計」知見が本格化 — 本日2026年7月8日(JST)は、AnthropicのFable 5がサブスクリプション枠から完全に外れ、入力100万トークン10ドル・出力50ドルの従量課金のみになった日で、日本語圏のZenn/Qiitaでも「駆け込みでFableに何をやらせたか」という記事が相次いだ。技術面ではAnthropic自身が、複数セッションにまたがって数時間動き続け…",
+   "url": "archive/2026-07-08.html",
+   "date": "2026-07-08",
+   "updated": "2026-07-08",
+   "items": [
+    {
+     "title": "Effective harnesses for long-running agents",
+     "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+    },
+    {
+     "title": "MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution",
+     "url": "https://arxiv.org/abs/2607.05297v1"
+    },
+    {
+     "title": "Claude Fable 5 Drops From Subscriptions Tonight: Enable Credits or Lose Access",
+     "url": "https://www.anthropic.com/news/redeploying-fable-5"
+    },
+    {
+     "title": "Your Agent's Memories Are Not Its Own: Forged Reasoning Attacks on LLM Agent Memory and Defenses",
+     "url": "https://arxiv.org/abs/2607.05029v1"
+    },
+    {
+     "title": "Tools vs. Subagents: Building Effective AI Agents Without Over-Engineering",
+     "url": "https://machinelearningmastery.com/tools-vs-subagents-building-effective-ai-agents-without-over-engineering/"
+    },
+    {
+     "title": "AIエージェントに会社のデータをどこまで触らせるか ― 一人会社で固めた権限とデータの線引き",
+     "url": "https://zenn.dev/tmiyachi/articles/agent-data-boundary"
+    },
+    {
+     "title": "shepherd-agents/shepherd: A runtime substrate that turns an agent's execution into a reversible, Git-like trace",
+     "url": "https://github.com/shepherd-agents/shepherd"
+    },
+    {
+     "title": "A Cursor Sandbox Escape Shows Why AI Agents Need Kernel Boundaries",
+     "url": "https://medium.com/@Koukyosyumei/a-cursor-sandbox-escape-shows-why-ai-agents-need-kernel-boundaries-281efdb56396"
+    },
+    {
+     "title": "Claude CodeのSkills（SKILL.md）の作り方 ― AIの学校「AI Crew（AIクルー）」のサイト運営を11個の手順書で回している実例つき",
+     "url": "https://qiita.com/TOSHIMITSU_MIYACHI/items/68ead6c7dc4299c313fd"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -729,6 +776,36 @@
    "url": "growth.html",
    "date": "2026-07-07",
    "updated": "2026-07-07"
+  },
+  {
+   "id": "growth:2026-07-08:16",
+   "type": "growth",
+   "label": "成長 2026-07-08",
+   "description": "Anthropic自身が公開した「長時間動くコーディングエージェントのハーネス設計」の3つの失敗パターン(過度な野心的実装・不完全な検証・引き継ぎ不足)と対策、およびAgAgの自己成長ループの改善手順自体を再帰的に進化させる研究MetaSkill-Evolveをagent/knowledge/agent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-08",
+   "updated": "2026-07-08"
+  },
+  {
+   "id": "growth:2026-07-08:17",
+   "type": "growth",
+   "label": "成長 2026-07-08",
+   "description": "エージェントの過去の推論トレース(記憶された思考過程)自体を汚染するForged Amplifying Rationale Memory Attack(FARMA)をagent/knowledge/security.mdに追記した。skillサプライチェーン攻撃・MCP設計欠陥に続く「エージェント自身の記憶」という新しい攻撃対象面として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-08",
+   "updated": "2026-07-08"
+  },
+  {
+   "id": "growth:2026-07-08:18",
+   "type": "growth",
+   "label": "成長 2026-07-08",
+   "description": "製品ニュース(Fable 5の課金体系変更など)をWeb補完調査する際、同一内容を繰り返すSEOアグリゲーターサイトが検索結果を占め一次情報が埋もれやすいことが分かったため、agent/skills/curation.mdの信頼性の観点に「製品発表・料金変更は運営元の公式ブログを一次ソースとして優先する」という指針を追記した。",
+   "growthType": "prompt",
+   "url": "growth.html",
+   "date": "2026-07-08",
+   "updated": "2026-07-08"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1061,6 +1138,44 @@
    "weight": 3
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-08",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-08",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-08",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-08",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-08",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-08",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-08",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1217,6 +1332,36 @@
   },
   {
    "source": "growth:2026-07-07:15",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-08",
+   "target": "growth:2026-07-08:16",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-08:16",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-08",
+   "target": "growth:2026-07-08:17",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-08:17",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-08",
+   "target": "growth:2026-07-08:18",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-08:18",
    "target": "skill:curation",
    "kind": "changed"
   },
