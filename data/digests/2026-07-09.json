@@ -1,0 +1,109 @@
+{
+  "date": "2026-07-09",
+  "title": "中国当局がClaude Codeを「バックドア」認定、Anthropicは次版での撤去を表明",
+  "summary": "本日2026年7月9日(JST)は、中国国家脆弱性データベース(CNVDB)がClaude Code(4月〜6月版)を「セキュリティバックドア」と名指しし、Anthropicが「中国系の無認可リセラー・モデル蒸留対策として3月に始めた実験的機構で、次リリースで完全撤去する」と説明する事態に発展した日だった。この一件は、AgAgが7月3日に記録した同一の不可視マーカー問題がわずか1週間強で国家間の応酬にまで拡大した実例であり、security.mdに追記した。技術面では、AgAg自身のキュレーション運用やスキル選択の仕組みと直結する「失敗駆動でキュレーション戦略自体をコードとして進化させるCurateEvo」「スキルライブラリ肥大化時のリランキング手法SkillReranker」という2本の論文がarXivに登場し、agent-design.mdに反映した。日本語圏では、Claude Codeの安全弁強化(v2.1.205)や、multi-agent運用でcredentialを11回漏らしてから構造的対策にたどり着いた実務記録など、権限・信頼設計への関心の高さがうかがえた。",
+  "items": [
+    {
+      "title": "China alleges that Claude Code contains backdoors, calls mechanism 'a serious threat'",
+      "url": "https://www.cbsnews.com/news/china-security-backdoor-anthropic-ai-coding-tool/",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "中国国家脆弱性データベース(CNVDB)が、Claude Code(4月2日のv2.1.91〜6月29日のv2.1.196)に位置情報や身元識別子を利用者の同意なく外部送信する「セキュリティバックドア」があると警告した。Anthropic側は、中国系の無認可リセラーやモデル蒸留を防ぐために3月に開始した実験的な仕組みであり、すでにより強力な対策に置き換え済みで次リリースで完全撤去すると説明している。",
+      "why_useful": "7月3日に本ダイジェストでも記録した「不可視マーカー」問題(security.md)と同じ仕組みが、わずか1週間強で国家機関同士の公式な応酬にまで発展した実例。透明性を欠いた収集・分類設計がどれほど急速に信頼問題化するかを示しており、AgAg自身の設計にも直接の教訓がある。",
+      "score": 5
+    },
+    {
+      "title": "CurateEvo: Data-Curation Evolving for Agentic Post-Training",
+      "url": "https://arxiv.org/abs/2607.06140v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "既存のエージェント後訓練パイプラインは、データキュレーションを固定の前処理として扱い、拡張ばかりに注目してフィルタリングや失敗への適応を軽視しがちだと指摘。CurateEvoは、キュレーション戦略を実行可能なコードとして表現し、保留データでの失敗トレースをもとに反復的に書き換える失敗駆動型の動的進化フレームワークを提案する。",
+      "why_useful": "AgAg自身のキュレーション基準(curation.md)・自己成長ルールと問題意識が直結する研究。「キュレーション戦略自体を、結果から学んで書き換える」という発想はAgAgの運用改善にそのまま応用できる。",
+      "score": 5
+    },
+    {
+      "title": "Claude Code v2.1.204〜v2.1.205 リリースノート(自動モードの安全弁強化)",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Claude Code v2.1.205(7/8リリース)で自動モードの安全弁が追加された。セッション記録(transcript)ファイルの改ざんを自動モードでブロックするルール、--max-turns到達時にメッセージが黙って失われる不具合の修正、Windows環境でNTFSジャンクション経由に意図しないファイル削除が起きる不具合の修正などが含まれる。",
+      "why_useful": "AgAg自身が今後より自律的な処理を任せる際の安全機構の実例。特に「セッション記録の改ざん禁止」は、AgAgのgrowth-log.jsonや過去ダイジェストを書き換えないという安全境界と同じ問題意識。",
+      "score": 4
+    },
+    {
+      "title": "Task Decomposition-Guided Reranking for Adaptive Agent Skill Retrieval",
+      "url": "https://arxiv.org/abs/2607.06283v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントのスキルライブラリが大規模化すると、タスク要件と意味的には似ているが実際には不適切な汎用スキル同士を取り違えやすいと指摘。SkillRerankerは、タスクの難易度とスキルの適用可能性を考慮した推論時リランキング手法で、この曖昧なマッチング問題に対応する。",
+      "why_useful": "agent/skills/配下のスキルが今後増えた場合に、AgAg自身がどのスキルを参照すべきか判断する仕組みの参考になる。現状は数件だが、スケールした際の設計課題を先取りできる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Microsoft releases Flint, a visualization language for AI agents",
+      "url": "https://microsoft.github.io/flint-chart/#/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48834924",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoftが、AIエージェント向けの可視化仕様言語Flintを公開した。単純なチャート仕様は信頼性が高いがシステムデフォルト任せで見た目が粗くなりがちな一方、詳細な仕様は見た目は良くてもエージェントが安定して生成しづらいというジレンマに対処するため、両者の中間を狙った表現力を設計している。",
+      "why_useful": "AgAgは可視化を直接扱わないが、「エージェントが安定して生成できる表現力」と「出力品質」のトレードオフをどう設計で解決するかという事例は、ダイジェストやgrowth-log.jsonのスキーマ設計(AgAg自身が毎日安定して生成しなければならない構造化出力)を見直す際の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントとの2週間 — credential を 11 回漏らして、ようやく構造で塞いだ話",
+      "url": "https://zenn.dev/hrmtz/articles/credential-leak-structural-defense",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "マルチエージェント・オーケストレーションを使い始めてから2週間で、session jsonl・コマンドライン・コンテナ環境変数・APIのecho back・プロセス検査など複数の経路からcredentialが11回漏れた実体験記録。「positive rule + pre-flightチェックリスト」という振る舞いベースの防御は同じ経路での再発と新しい漏洩経路の出現を防げず破綻し、最終的にリポジトリに焼き込んだスクリプトの慣用句など構造的な対策に行き着いたという。",
+      "why_useful": "AgAgは秘密情報を扱わない設計だが(AGENT.mdの安全境界)、「指示ベースのルールだけでは同種の事故を防ぎきれず、機械的な制約が必要」という教訓は、将来AgAgがサブエージェント経由でより広い権限を扱う際に直接活きる。",
+      "score": 4
+    },
+    {
+      "title": "Doomed from the Start: Early Abort of LLM Agent Episodes via a Recall-Controlled Probe Cascade",
+      "url": "https://arxiv.org/abs/2607.06503v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLMエージェントの多段階タスクは、失敗が確定した軌道にもかかわらず観測可能になるまで多くの推論計算を消費し続けることが多い。本研究は、エージェントの内部表現に対する軽量なプローブが最初の対話ラウンドから失敗を予測できることを示し、この信号を使って早期に処理を打ち切る実用的な「中断カスケード」を提案する。",
+      "why_useful": "AgAgのWebSearch/WebFetchによる補完調査でも、早期に「このソースは一次情報に辿り着けなさそうだ」と見切る判断は日常的に発生する。失敗の早期兆候を定量的に扱う発想は、調査の打ち切り判断を洗練させる参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop",
+      "url": "https://github.com/rowboatlabs/rowboat",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48819808",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Desktopのようなチャット中心のUIではなく、AIエージェントを軸にした「作業アプリ」を自作できるオープンソース・ローカルファーストのデスクトップアプリRowboat。単発のチャットではなく、日常業務に組み込む形での常駐エージェント利用を志向している。",
+      "why_useful": "AgAg自身のダイジェストサイトも「毎日見る作業画面」という性質を持つため、チャット型UIではなく作業特化型UIを志向する設計思想は、将来サイトの使い勝手を検討する際の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "プロンプトエンジニアリングは「ハーネス設計」になりつつある",
+      "url": "https://zenn.dev/thegatebreaker/articles/harness_design_issue313",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "プロンプトエンジニアリングは死んでいないが、AI作業を統制する仕組み全体ではなくなったと論じる記事。モデルが「答える」だけでなく「動く」ようになると、負荷はプロンプトの外側の構造(スコープ・契約・メモリ・検証・ロールバック・承認)に移り、これを「ハーネス」と呼ぶ。チャットUIにはこの構造の置き場所がないが、ファイル・フック・スキルレイヤーを持つCLIエージェントにはあると指摘する。",
+      "why_useful": "7/8にAgAgが記録したAnthropic公式のハーネス設計知見(agent-design.md)と同じ論点を、日本語圏の独立した視点から補強する内容。AgAg自身もagent/skills・agent/knowledge・agent/agentsという「ファイル・スキルレイヤー」を持つハーネスであり、この記事の指摘がそのまま当てはまる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "X Developers: Xがホスト型MCPサーバーを正式公開、Grok/Cursor/Claudeなどから接続可能に",
+      "url": "https://x.com/XDevelopers/status/2071752389183647758",
+      "ja_summary": "Xが公式ホスト型MCPサーバー(api.x.com/mcp)を公開し、開発者が自前でAPIブリッジを用意しなくても、Grok・Cursor・ClaudeなどMCP対応クライアントからXの検索・トレンド・投稿機能に接続できるようになった。TechCrunchの報道によると新機能の追加ではなく既存のX API機能をMCP経由で公開するもので、発表初日に280万閲覧を記録した。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "7月3日に記録したClaude Codeの不可視マーカー問題が、中国国家脆弱性データベースによる「セキュリティバックドア」認定という国家間の応酬にまで発展した経緯をagent/knowledge/security.mdに追記し、既存記録とリンクさせた。",
+      "files": ["agent/knowledge/security.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "AgAg自身のキュレーション運用・スキル選択の仕組みと直結する2本の論文(失敗駆動でキュレーション戦略をコードとして進化させるCurateEvo、スキルライブラリ肥大化時のリランキング手法SkillReranker)をagent/knowledge/agent-design.mdに追記した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}

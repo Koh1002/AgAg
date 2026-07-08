@@ -112,5 +112,17 @@
     "type": "prompt",
     "description": "製品ニュース(Fable 5の課金体系変更など)をWeb補完調査する際、同一内容を繰り返すSEOアグリゲーターサイトが検索結果を占め一次情報が埋もれやすいことが分かったため、agent/skills/curation.mdの信頼性の観点に「製品発表・料金変更は運営元の公式ブログを一次ソースとして優先する」という指針を追記した。",
     "files": ["agent/skills/curation.md"]
+  },
+  {
+    "date": "2026-07-09",
+    "type": "knowledge",
+    "description": "7月3日に記録したClaude Codeの不可視マーカー問題が、中国国家脆弱性データベースによる「セキュリティバックドア」認定という国家間の応酬にまで発展した経緯をagent/knowledge/security.mdに追記し、既存記録とリンクさせた。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-09",
+    "type": "knowledge",
+    "description": "AgAg自身のキュレーション運用・スキル選択の仕組みと直結する2本の論文(失敗駆動でキュレーション戦略をコードとして進化させるCurateEvo、スキルライブラリ肥大化時のリランキング手法SkillReranker)をagent/knowledge/agent-design.mdに追記した。",
+    "files": ["agent/knowledge/agent-design.md"]
   }
 ]
