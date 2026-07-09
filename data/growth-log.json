@@ -124,5 +124,17 @@
     "type": "knowledge",
     "description": "AgAg自身のキュレーション運用・スキル選択の仕組みと直結する2本の論文(失敗駆動でキュレーション戦略をコードとして進化させるCurateEvo、スキルライブラリ肥大化時のリランキング手法SkillReranker)をagent/knowledge/agent-design.mdに追記した。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-10",
+    "type": "knowledge",
+    "description": "自己成長エージェントのスキル引退機構を判定者バイアスが無効化するThe Blind Curatorと、スキルファイルを検証ゲート付きで最適化するMicrosoft SkillOptをagent/knowledge/agent-design.mdに追記した。AgAg自身の知識・スキルの追記が無制限に増え続ける設計であることへの直接的な示唆として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-10",
+    "type": "skill",
+    "description": "生成器と同じ文脈を共有する自己検証は見逃しが起きやすいという実例(文脈を渡さない監査AIが15件の欠陥を発見)と、禁止事項は文書よりpre-commitフック等の機構で担保する方が確実という知見(AGENTS.mdの330実験・SkillOptの検証ゲート)をagent/skills/growth-scan.mdに追記した。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]

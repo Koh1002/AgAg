@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-08T23:41:12.966Z",
+  "generatedAt": "2026-07-09T23:50:14.835Z",
   "counts": {
-   "nodes": 59,
-   "edges": 115
+   "nodes": 62,
+   "edges": 126
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-03"
+   "updated": "2026-07-10"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-09"
+   "updated": "2026-07-10"
   },
   {
    "id": "knowledge:mcp",
@@ -665,6 +665,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-10",
+   "type": "digest",
+   "label": "2026-07-10",
+   "description": "GPT-5.6・Grok 4.5・Muse Spark 1.1が同日GA、agentic機能競争が加速 — 本日2026年7月10日(JST)にまとめた昨日7/9は、OpenAIのGPT-5.6(Sol/Terra/Luna)がGrok 4.5・Muse Spark 1.1と同日にAPI一般提供され、フロンティアモデルAPI市場が5系統に増えた節目の日だった。GPT-5.6は「Programmatic Tool Calling」(ツール…",
+   "url": "archive/2026-07-10.html",
+   "date": "2026-07-10",
+   "updated": "2026-07-10",
+   "items": [
+    {
+     "title": "Previewing GPT-5.6 Sol: a next-generation model",
+     "url": "https://openai.com/index/previewing-gpt-5-6-sol/"
+    },
+    {
+     "title": "The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents",
+     "url": "https://arxiv.org/abs/2607.07436v1"
+    },
+    {
+     "title": "SkillOpt: Agent skills as trainable parameters",
+     "url": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/"
+    },
+    {
+     "title": "AIに本を書かせたら、自己検証を素通りした欠陥が15件出てきた——「文脈を渡さない監査AI」の実測記録",
+     "url": "https://zenn.dev/ai_kirishima/articles/86c340264ec34d"
+    },
+    {
+     "title": "AIエージェントの引き継ぎ台帳をJSONLで作る：作業中断と再開に強い最小スキーマ",
+     "url": "https://zenn.dev/agentmemories/articles/agent-handoff-ledger-schema"
+    },
+    {
+     "title": "AGENTS.mdには何を書くべき？その2 〜4モデル×330実験で検証〜",
+     "url": "https://qiita.com/rummy_p/items/b5cf4c9c40268cf75c4a"
+    },
+    {
+     "title": "Show HN: CodeAlmanac – Self-updating wiki for your coding agent (local, Apache)",
+     "url": "https://github.com/AlmanacCode/codealmanac"
+    },
+    {
+     "title": "Ben Bernanke appointed to Anthropic's Long-Term Benefit Trust",
+     "url": "https://www.anthropic.com/news/ben-bernanke"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -873,6 +916,26 @@
    "url": "growth.html",
    "date": "2026-07-09",
    "updated": "2026-07-09"
+  },
+  {
+   "id": "growth:2026-07-10:21",
+   "type": "growth",
+   "label": "成長 2026-07-10",
+   "description": "自己成長エージェントのスキル引退機構を判定者バイアスが無効化するThe Blind Curatorと、スキルファイルを検証ゲート付きで最適化するMicrosoft SkillOptをagent/knowledge/agent-design.mdに追記した。AgAg自身の知識・スキルの追記が無制限に増え続ける設計であることへの直接的な示唆として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-10",
+   "updated": "2026-07-10"
+  },
+  {
+   "id": "growth:2026-07-10:22",
+   "type": "growth",
+   "label": "成長 2026-07-10",
+   "description": "生成器と同じ文脈を共有する自己検証は見逃しが起きやすいという実例(文脈を渡さない監査AIが15件の欠陥を発見)と、禁止事項は文書よりpre-commitフック等の機構で担保する方が確実という知見(AGENTS.mdの330実験・SkillOptの検証ゲート)をagent/skills/growth-scan.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-10",
+   "updated": "2026-07-10"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1276,6 +1339,42 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-10",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-10",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-10",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1483,6 +1582,26 @@
   {
    "source": "growth:2026-07-09:20",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-10",
+   "target": "growth:2026-07-10:21",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-10:21",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-10",
+   "target": "growth:2026-07-10:22",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-10:22",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {

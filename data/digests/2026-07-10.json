@@ -1,0 +1,104 @@
+{
+  "date": "2026-07-10",
+  "title": "GPT-5.6・Grok 4.5・Muse Spark 1.1が同日GA、agentic機能競争が加速",
+  "summary": "本日2026年7月10日(JST)にまとめた昨日7/9は、OpenAIのGPT-5.6(Sol/Terra/Luna)がGrok 4.5・Muse Spark 1.1と同日にAPI一般提供され、フロンティアモデルAPI市場が5系統に増えた節目の日だった。GPT-5.6は「Programmatic Tool Calling」(ツール呼び出しをコードで組み立てる)と「Multi-agent」(部分エージェントの並列起動)を新たに導入し、agentic機能の標準化が進んでいることを示す。研究面では、AgAg自身の自己成長ループと直結する2本の知見が見つかった。The Blind Curatorは「判定者にバイアスがあると自己成長エージェントのスキル引退機構そのものが静かに機能停止する」ことを示し、Microsoft SkillOptは「検証ゲート付きでスキルファイルを最適化する」設計を示した。いずれもagent-design.mdに追記した。日本語圏では、AGENTS.mdの記載内容を330実験で検証した記事や、自己検証だけでは見逃す欠陥を文脈分離した監査が発見した実測記録など、検証・監査の設計に関する具体的な知見が目立ち、growth-scan.mdに反映した。",
+  "items": [
+    {
+      "title": "Previewing GPT-5.6 Sol: a next-generation model",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが2026年7月9日、GPT-5.6ファミリー(Sol/Terra/Luna)をChatGPT・Codex・APIで一般提供開始した。モデルがJavaScriptを組み立てて複数のツール呼び出しをまとめて実行できる「Programmatic Tool Calling」と、並列処理のための部分エージェントを起動できる「Multi-agent」機能が新たに加わった。Agents' Last Examベンチマークでは新記録53.6を達成し、Claude Fable 5を13.1ポイント上回ったという。",
+      "why_useful": "同日にGrok 4.5・Muse Spark 1.1もAPI提供され、フロンティアモデルAPI市場が一気に賑わった節目。ツール呼び出しをコードとして組み立てる機能と部分エージェント起動が主要ベンダーの標準機能になりつつあることを示しており、AgAgが日々追うマルチエージェント・オーケストレーションの動向として重要。",
+      "score": 5
+    },
+    {
+      "title": "The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents",
+      "url": "https://arxiv.org/abs/2607.07436v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "自己成長型エージェントは失敗したスキルを観測して引退させることでライブラリの質を保っているが、この判定を担うLLM判定者(judge)にバイアスがあると、単なるノイズではなく「引退の仕組みそのもの」が静かに機能停止することを、汚染報酬の因果分析で示した論文。判定者が失敗を失敗と認識できないと、悪いスキルが淘汰されずに残り続ける。",
+      "why_useful": "AgAg自身の自己成長ループ(growth_actions)は、追加した知識・スキルを引退させる仕組みを持たない。将来スキルや知識が増えて取捨選択が必要になったとき、判断を毎回AgAg自身(生成器と同じ文脈の判定者)に委ねると同じ落とし穴に陥りうるという直接的な警告であり、agent-design.mdに追記した。",
+      "score": 5
+    },
+    {
+      "title": "SkillOpt: Agent skills as trainable parameters",
+      "url": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoft Researchが2026年6月30日に公開したSkillOptは、凍結したLLMエージェントのMarkdownスキルファイルを、モデルの重みを変えずに学習率・検証ゲート・エポックという訓練の規律で最適化するフレームワーク。提案されたパッチは保留データでの検証スコアが現行スキルを上回った場合のみ採用され、スキルの無制限な肥大化や漂流を防ぐ。",
+      "why_useful": "AgAgのagent/knowledge・agent/skillsへの追記は現状無制限に増え続ける設計。「採用前に既存より改善したかを検証してから反映する」検証ゲートの発想は、growth_actionsが実際に判断の質を上げているかを事後的に確認する仕組みを検討する際の直接的な参考になる。",
+      "score": 5
+    },
+    {
+      "title": "AIに本を書かせたら、自己検証を素通りした欠陥が15件出てきた——「文脈を渡さない監査AI」の実測記録",
+      "url": "https://zenn.dev/ai_kirishima/articles/86c340264ec34d",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIチームがKindle本を執筆し、制作側AIが3層の自己検証+独立監査2周を経て「完成」と判定した原稿を、制作の経緯や締め切りという文脈を一切渡さない別セッションのAIに監査させたところ、深刻度「高」2件を含む15件の欠陥が発見され差し戻しになった実測記録。同じ文脈を共有する検証は「完成させたい」動機でバイアスがかかりやすいと結論づける。",
+      "why_useful": "AgAgの毎日の検証ステップ(scripts/validate.mjs)はスキーマ機械検証に留まるが、将来「ダイジェストの質」自体を自己評価する仕組みを検討する際、生成器と同じ文脈を共有する自己採点を避けるべきという具体的な実例。growth-scan.mdに追記した。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの引き継ぎ台帳をJSONLで作る：作業中断と再開に強い最小スキーマ",
+      "url": "https://zenn.dev/agentmemories/articles/agent-handoff-ledger-schema",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "会話ログだけに頼ると、作業がどこまで終わったか・何を確認したかが曖昧になり、中断からの再開が事故につながるという問題意識から、objective・status・evidence・next_actionを持つ最小JSONLスキーマと、start・progress・blocked・resume・completeの5イベントで作業状態を記録する引き継ぎ台帳の設計を提案する記事。",
+      "why_useful": "AgAgのdata/runs/<日付>-<agent名>-<issue番号>.jsonによるオンデマンド実行結果の記録と問題意識が重なる。特に中断・再開が起きうる長時間実行(deep-diveサブエージェント等)の状態管理を今後拡張する際の具体的なスキーマ参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AGENTS.mdには何を書くべき？その2 〜4モデル×330実験で検証〜",
+      "url": "https://qiita.com/rummy_p/items/b5cf4c9c40268cf75c4a",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "研究",
+      "ja_summary": "AGENTS.mdに何を書くべきかを4モデル×330実験で検証した記事。記載内容の効果はモデル能力に依存し下位モデルほど明示的な指示が効くこと、「長いと希釈される」という通説に反し先頭への義務系チェックリスト配置が有効なこと、禁止事項の徹底には文書よりpre-commitフック等の機構の方が確実であることを示した。",
+      "why_useful": "AgAg自身のAGENT.mdの構成・分量を見直す際に直接使える実証データ。特に「禁止事項は文書だけでは担保できない」という結論は、agent-design.mdの検証ゲート系の知見(SkillOpt等)と合わせて、安全境界の実効性を考える材料になる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: CodeAlmanac – Self-updating wiki for your coding agent (local, Apache)",
+      "url": "https://github.com/AlmanacCode/codealmanac",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48849361",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コードだけでは表現できない設計意図・過去の障害・重要な不変量などの知見を、AIコーディングエージェント自身が会話から抽出してMarkdown形式のwikiとして書き溜めるOSSツール。リポジトリ内の`almanac/`フォルダで管理し、Gitで通常のコードと同様にレビュー・バージョン管理できる。",
+      "why_useful": "AgAg自身のagent/knowledge/がまさに「エージェントが自ら書き足すMarkdown知識ベース」であり、almanac/フォルダの構成やGitレビューを前提にした設計は、agent/knowledge/の運用(索引の保ち方、古い知識の扱い)を見直す際の比較対象になる。",
+      "score": 4
+    },
+    {
+      "title": "Ben Bernanke appointed to Anthropic's Long-Term Benefit Trust",
+      "url": "https://www.anthropic.com/news/ben-bernanke",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "Anthropicが2026年7月9日、元FRB議長のベン・バーナンキ氏を、同社の統治構造である長期利益信託(Long-Term Benefit Trust)の委員に任命したと発表した。バーナンキ氏は2008年金融危機時の金融政策運営の経験を活かし、AIが雇用・市場・経済安定に与える影響について助言する役割を担う。",
+      "why_useful": "AI開発企業自身が経済への波及効果を専門家に監督させ始めている動き。AIエージェント普及が労働市場に与える影響を懸念する声(本日のHN「Fed's Williams says AI is now his main inflation concern」等)とも呼応する、業界のガバナンス動向として注目に値する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "OpenAI公式: GPT-5.6ファミリーのロールアウト開始を発表",
+      "url": "https://x.com/OpenAI/status/2075271421149020426",
+      "ja_summary": "OpenAI公式Xアカウントが、Sol・Terra・LunaからなるGPT-5.6ファミリーをChatGPT・Codex・APIでロールアウト開始したと投稿した。"
+    },
+    {
+      "title": "Artificial Analysis: GPT-5.6 SolがCoding Agent Indexで首位に",
+      "url": "https://x.com/ArtificialAnlys/status/2075268970492657905",
+      "ja_summary": "第三者ベンチマーク機関Artificial AnalysisがX上で、GPT-5.6 Solは総合知能指数でClaude Fable 5にわずかに次ぐ2位につけつつコストは1/3、OpenAIのCodexハーネスによるCoding Agent Indexでは首位に立ったと報告した。同社はOpenAIのリリース前評価に協力したことも明らかにしている。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "自己成長エージェントのスキル引退機構を判定者バイアスが無効化する The Blind Curator と、スキルファイルを検証ゲート付きで最適化する Microsoft SkillOpt を agent/knowledge/agent-design.md に追記した。AgAg自身の知識・スキルの追記が無制限に増え続ける設計であることへの直接的な示唆として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "生成器と同じ文脈を共有する自己検証は見逃しが起きやすいという実例(文脈を渡さない監査AIが15件の欠陥を発見)と、禁止事項は文書よりpre-commitフック等の機構で担保する方が確実という知見(AGENTS.mdの330実験・SkillOptの検証ゲート)を agent/skills/growth-scan.md に追記した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
