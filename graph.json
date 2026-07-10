@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-09T23:50:14.835Z",
+  "generatedAt": "2026-07-10T23:31:56.942Z",
   "counts": {
-   "nodes": 62,
-   "edges": 126
+   "nodes": 65,
+   "edges": 136
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-10"
+   "updated": "2026-07-11"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-09"
+   "updated": "2026-07-11"
   },
   {
    "id": "script:build-site.mjs",
@@ -708,6 +708,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-11",
+   "type": "digest",
+   "label": "2026-07-11",
+   "description": "Metaがagentic特化のMuse Spark 1.1を公開、自己成長エージェントの「スキル引退」実装例も相次ぐ — 2026年7月10日、MetaがAPI一般提供付きの新モデルMuse Spark 1.1を発表し、GPT-5.6・Grok 4.5に続いてフロンティアモデル競争にもう1社が加わった。ツール呼び出し・コンピュータ操作・並列サブエージェント委譲を強化しており、agentic機能がベンダー間の標準装備になりつつある流れが続…",
+   "url": "archive/2026-07-11.html",
+   "date": "2026-07-11",
+   "updated": "2026-07-11",
+   "items": [
+    {
+     "title": "Introducing Muse Spark 1.1",
+     "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+    },
+    {
+     "title": "Teaching Claude Code to Write and Grow Its Own Skills: A Self-Replicating Agent Environment",
+     "url": "https://dev.to/bokuwalily/teaching-claude-code-to-write-and-grow-its-own-skills-a-self-replicating-agent-environment-20eb"
+    },
+    {
+     "title": "Prismata: Confining cross-site prompt injection in web agents",
+     "url": "https://arxiv.org/abs/2607.08147"
+    },
+    {
+     "title": "「劇団型」マルチエージェントに形骸化を見た。プロダクションで勝つための「決定論的組み込みエージェント（DEA）」思想",
+     "url": "https://zenn.dev/tanuki_chan/articles/682755588003fc"
+    },
+    {
+     "title": "AIが、もう1体のAIの指示を断った日——2体運用で最初に決めるべきは「止まり方」だった",
+     "url": "https://zenn.dev/smallworkslab/articles/codex-refused-claude-instruction"
+    },
+    {
+     "title": "【AIエージェント】Claude Code vs Antigravity CLI！一晩で200ドル溶かさないための「自律ループ制御」超入門（第14回）",
+     "url": "https://qiita.com/0903osa/items/42593b9a995a118e886b"
+    },
+    {
+     "title": "oomol-lab/open-connector: Open-source auth gateway connecting 1000+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.",
+     "url": "https://github.com/oomol-lab/open-connector"
+    },
+    {
+     "title": "Launch HN: Context.dev (YC S26) – API to get structured data from any website",
+     "url": "https://www.context.dev"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -936,6 +979,26 @@
    "url": "growth.html",
    "date": "2026-07-10",
    "updated": "2026-07-10"
+  },
+  {
+   "id": "growth:2026-07-11:23",
+   "type": "growth",
+   "label": "成長 2026-07-11",
+   "description": "「Claude Codeが自分のスキルを書き足して成長する」実践記事(dev.to)から、生成したスキルを30日で降格・90日でアーカイブし自動削除はしないという具体的な引退ポリシーをagent/knowledge/agent-design.mdに追記した。7/10記録のThe Blind Curator・SkillOptが指摘した「AgAgの知識・スキル追記に引退機構がない」という課題への直接的な実装解として位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-11",
+   "updated": "2026-07-11"
+  },
+  {
+   "id": "growth:2026-07-11:24",
+   "type": "growth",
+   "label": "成長 2026-07-11",
+   "description": "外部コンテンツの信頼度を構造的に自動判定し誤判定は必ず権限を落とす方向にのみ働かせるPrismata(クロスサイト・プロンプトインジェクション対策)をagent/knowledge/security.mdに追記した。AgAgがWebFetch/RSSで外部コンテンツを未検証データとして扱う既存方針を補強する具体策として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-11",
+   "updated": "2026-07-11"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1375,6 +1438,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-11",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-11",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-11",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1602,6 +1698,26 @@
   {
    "source": "growth:2026-07-10:22",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-11",
+   "target": "growth:2026-07-11:23",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-11:23",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-11",
+   "target": "growth:2026-07-11:24",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-11:24",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

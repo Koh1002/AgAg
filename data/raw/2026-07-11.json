@@ -1,0 +1,1530 @@
+{
+  "date": "2026-07-11",
+  "collectedAt": "2026-07-10T23:26:15.275Z",
+  "itemCount": 158,
+  "errors": [],
+  "items": [
+    {
+      "source": "github",
+      "title": "elder-plinius/T3MP3ST: autonomous red teaming platform; multi-agent offensive-security meta-harness",
+      "url": "https://github.com/elder-plinius/T3MP3ST",
+      "score": 4320,
+      "publishedAt": "2026-07-02T17:53:55Z",
+      "excerpt": "autonomous red teaming platform; multi-agent offensive-security meta-harness",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "synthetic-sciences/openscience: The open-source AI workbench for scientific research",
+      "url": "https://github.com/synthetic-sciences/openscience",
+      "score": 2072,
+      "publishedAt": "2026-07-03T15:06:45Z",
+      "excerpt": "The open-source AI workbench for scientific research",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "isjiamu/gzh-design-skill: 把 Markdown 一键排成可直接粘进公众号编辑器的精致 HTML —— 6 套精选主题 + 主题生成器 + 双关卡校验。An AI-agent skill that turns Markdown into paste-ready WeC…",
+      "url": "https://github.com/isjiamu/gzh-design-skill",
+      "score": 1828,
+      "publishedAt": "2026-07-01T04:28:03Z",
+      "excerpt": "把 Markdown 一键排成可直接粘进公众号编辑器的精致 HTML —— 6 套精选主题 + 主题生成器 + 双关卡校验。An AI-agent skill that turns Markdown into paste-ready WeChat article HTML.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "oomol-lab/open-connector: Open-source auth gateway connecting 1000+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.",
+      "url": "https://github.com/oomol-lab/open-connector",
+      "score": 1240,
+      "publishedAt": "2026-06-29T10:49:36Z",
+      "excerpt": "Open-source auth gateway connecting 1000+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a sess…",
+      "url": "https://github.com/Kulaxyz/self-learning-skills",
+      "score": 834,
+      "publishedAt": "2026-06-28T19:30:36Z",
+      "excerpt": "A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a session and harvest it into a reusable skill/rule for next time.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "uzairansaruzi/hermex: Native iPhone app for your Hermes agent",
+      "url": "https://github.com/uzairansaruzi/hermex",
+      "score": 729,
+      "publishedAt": "2026-07-02T12:47:31Z",
+      "excerpt": "Native iPhone app for your Hermes agent",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "simonlin1212/Vibe-Research: Vibe-Research: Your Personal Trading Research Agent · A股/美股/港股 的个人投研 Agent：每日复盘、资讯雷达、个股数据、板块中心、我的持仓、研究记录。Vibe-Research 把…",
+      "url": "https://github.com/simonlin1212/Vibe-Research",
+      "score": 664,
+      "publishedAt": "2026-07-05T06:30:55Z",
+      "excerpt": "Vibe-Research: Your Personal Trading Research Agent · A股/美股/港股 的个人投研 Agent：每日复盘、资讯雷达、个股数据、板块中心、我的持仓、研究记录。Vibe-Research 把数据和功能配齐，由你自己的 AI 驱动投资研究。",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "ai4s-research/open-science: Open Science Desktop — local-first, model-agnostic AI research workbench for macOS, Windows & Linux. Open-source Claude …",
+      "url": "https://github.com/ai4s-research/open-science",
+      "score": 599,
+      "publishedAt": "2026-07-03T09:22:31Z",
+      "excerpt": "Open Science Desktop — local-first, model-agnostic AI research workbench for macOS, Windows & Linux. Open-source Claude Science desktop alternative built on Tauri + MCP + agent skills.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "Kulaxyz/token-diet: Always-on token-efficiency skill for coding agents (Claude Code, Codex, Cursor, Windsurf, Cline). ~31% lower bill on ave…",
+      "url": "https://github.com/Kulaxyz/token-diet",
+      "score": 556,
+      "publishedAt": "2026-07-03T15:20:04Z",
+      "excerpt": "Always-on token-efficiency skill for coding agents (Claude Code, Codex, Cursor, Windsurf, Cline). ~31% lower bill on average, no loss of correctness.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "ComputeRoyale/Compute-Royale: Bet on AI agents racing real GPUs. They rent compute, do hash-verified work, earn and you stake Solana on the best. Live…",
+      "url": "https://github.com/ComputeRoyale/Compute-Royale",
+      "score": 500,
+      "publishedAt": "2026-06-30T01:04:13Z",
+      "excerpt": "Bet on AI agents racing real GPUs. They rent compute, do hash-verified work, earn and you stake Solana on the best. Live on Solana.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "lingbol088-spec/reverse-flow-skill: 面向 AI Agent / Codex 的本地 CTF 逆向工程流程技能。加载后通过“真心为你”进入逆向模式，默认在本地沙盒、CTF、crackme、wargame 或训练靶场环境中工作，按“分析 → 报告 → 逆向 → 深度逆向 → 漏洞…",
+      "url": "https://github.com/lingbol088-spec/reverse-flow-skill",
+      "score": 491,
+      "publishedAt": "2026-06-30T22:08:31Z",
+      "excerpt": "面向 AI Agent / Codex 的本地 CTF 逆向工程流程技能。加载后通过“真心为你”进入逆向模式，默认在本地沙盒、CTF、crackme、wargame 或训练靶场环境中工作，按“分析 → 报告 → 逆向 → 深度逆向 → 漏洞研判 → 用户选择下一步”的流程推进。",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "Pluviobyte/rnskill: 雪踏乌云的 AI Agent Skills 集合",
+      "url": "https://github.com/Pluviobyte/rnskill",
+      "score": 397,
+      "publishedAt": "2026-07-04T18:43:42Z",
+      "excerpt": "雪踏乌云的 AI Agent Skills 集合",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "nexu-io/motion-anything: ✨ The agentic motion layer — an open-source, chat-native motion engine. Describe the feeling; your AI ships the animatio…",
+      "url": "https://github.com/nexu-io/motion-anything",
+      "score": 365,
+      "publishedAt": "2026-07-06T14:56:20Z",
+      "excerpt": "✨ The agentic motion layer — an open-source, chat-native motion engine. Describe the feeling; your AI ships the animation.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "easylink-ai-open/agent-runtime: Standalone agent runtime core with neutral LLM types, provider clients, tool loop, and extension protocols.",
+      "url": "https://github.com/easylink-ai-open/agent-runtime",
+      "score": 294,
+      "publishedAt": "2026-07-01T06:57:21Z",
+      "excerpt": "Standalone agent runtime core with neutral LLM types, provider clients, tool loop, and extension protocols.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "eli-labz/Godcoder: A local-first, open-source coding agent for your desktop. Bring your own LLM key; your code stays on your machine and on…",
+      "url": "https://github.com/eli-labz/Godcoder",
+      "score": 285,
+      "publishedAt": "2026-06-27T00:56:36Z",
+      "excerpt": "A local-first, open-source coding agent for your desktop. Bring your own LLM key; your code stays on your machine and only ever leaves to the model provider. The AI Agent builds its own Harnes.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "eli-labz/Cognitive-Core-Skills: A universal, industry-neutral taxonomy of cognitive core skills (perception, memory, reasoning, planning, action, verifi…",
+      "url": "https://github.com/eli-labz/Cognitive-Core-Skills",
+      "score": 273,
+      "publishedAt": "2026-07-05T21:25:55Z",
+      "excerpt": "A universal, industry-neutral taxonomy of cognitive core skills (perception, memory, reasoning, planning, action, verification, learning, governance) for LLMs, SLMs, AI agents, and world models — with schemas, 159 skill cards, benchmarks, and CI.",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "rafaelmateo123/Arena-of-Autonomous-Threads: Top AI Agent Simulator: Build a Local Reddit Forum for LLM Testing 2026",
+      "url": "https://github.com/rafaelmateo123/Arena-of-Autonomous-Threads",
+      "score": 153,
+      "publishedAt": "2026-06-28T19:32:44Z",
+      "excerpt": "Top AI Agent Simulator: Build a Local Reddit Forum for LLM Testing 2026",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "grandgaming9321-prog/reality-engine: Top Dynamic AI World Simulation & Storytelling Tools 2026",
+      "url": "https://github.com/grandgaming9321-prog/reality-engine",
+      "score": 153,
+      "publishedAt": "2026-06-28T21:06:56Z",
+      "excerpt": "Top Dynamic AI World Simulation & Storytelling Tools 2026",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "Abhinesh2004/mirage-cortex: Top Agent Swarm Simulation Tools for LLM World Modeling 2026",
+      "url": "https://github.com/Abhinesh2004/mirage-cortex",
+      "score": 152,
+      "publishedAt": "2026-06-28T20:35:20Z",
+      "excerpt": "Top Agent Swarm Simulation Tools for LLM World Modeling 2026",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "muhammadalicusit56-glitch/otto-cognitive-nudge: Smart Promise Tracker AI 2026 – Commit Memory Engine",
+      "url": "https://github.com/muhammadalicusit56-glitch/otto-cognitive-nudge",
+      "score": 152,
+      "publishedAt": "2026-06-28T20:35:10Z",
+      "excerpt": "Smart Promise Tracker AI 2026 – Commit Memory Engine",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "09omerdgn-droid/api-model-playground-cookbook: Ultimate LLM API Integration Cookbook 2026 for Cursor & AI Agents",
+      "url": "https://github.com/09omerdgn-droid/api-model-playground-cookbook",
+      "score": 151,
+      "publishedAt": "2026-06-28T19:19:44Z",
+      "excerpt": "Ultimate LLM API Integration Cookbook 2026 for Cursor & AI Agents",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Launch HN: Context.dev (YC S26) – API to get structured data from any website",
+      "url": "https://www.context.dev",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48847562",
+      "score": 115,
+      "comments": 85,
+      "publishedAt": "2026-07-09T15:28:39Z",
+      "excerpt": "Hi Hacker News, I’m Yahia. I built Context.dev ( https://www.context.dev/ ) to make it really easy to integrate web data into your products and agents. Here’s a demo video: https://www.tella.tv/video/build-faster-with-context-dev-api... Since it’s an API, here are the docs: https://docs.context.dev/quickstart . You can send us a URL and get back clean Markdown, rendered HTML, screenshots, extracte…",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "7-e1even/learn-agent: 学习Agent开发的笔记，尝试让Agent从可用到可靠",
+      "url": "https://github.com/7-e1even/learn-agent",
+      "score": 112,
+      "publishedAt": "2026-07-03T01:24:04Z",
+      "excerpt": "学习Agent开发的笔记，尝试让Agent从可用到可靠",
+      "lang": "en"
+    },
+    {
+      "source": "github",
+      "title": "solider-shuwen/shuttleslide: Python toolkit for PowerPoint ↔ HTML, built for AI. Round-trip fidelity preserves formatting across every edit loop — id…",
+      "url": "https://github.com/solider-shuwen/shuttleslide",
+      "score": 85,
+      "publishedAt": "2026-06-30T03:14:51Z",
+      "excerpt": "Python toolkit for PowerPoint ↔ HTML, built for AI. Round-trip fidelity preserves formatting across every edit loop — ideal for RAG ingestion, LLM agents, and AI-assisted slide editing.",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Reverse-engineering web apps into agent tools",
+      "url": "https://news.ycombinator.com/item?id=48847834",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48847834",
+      "score": 79,
+      "comments": 30,
+      "publishedAt": "2026-07-09T15:45:17Z",
+      "excerpt": "Hey HN! We built a browser-based agent that runs inside an authenticated web app, watches how the app calls its own APIs, and automatically turns those into agent tools. You can think of it as an auto-generated MCP server that self-updates as the host app changes. The result is a skilled AI assistant that actually integrates deeply with any product (not just chat and RAG) with minimal effort. Chec…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Cpp2Rust: Translates C++ to safe Rust automatically",
+      "url": "https://github.com/Cpp2Rust/cpp2rust",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48862086",
+      "score": 41,
+      "comments": 11,
+      "publishedAt": "2026-07-10T16:24:20Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Hands-On with the AMD Ryzen AI Halo",
+      "url": "https://www.microcenter.com/site/mc-news/article/amd-ryzen-ai-halo-review.aspx",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48861833",
+      "score": 40,
+      "comments": 39,
+      "publishedAt": "2026-07-10T16:06:38Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: I built a web tool to see and edit what an AI thinks before it answers",
+      "url": "https://lucid.earthpilot.ai",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48849618",
+      "score": 33,
+      "comments": 8,
+      "publishedAt": "2026-07-09T17:36:30Z",
+      "excerpt": "I run a small AI lab and playground and got super excited about Anthropics paper \"Verbalizable Representations Form a Global Workspace in Language Models\" ( https://transformer-circuits.pub/2026/workspace/index.html ) It talks about how they use a tool they call a Jacobian Lens to view inside the middle layers of LLM while it's working before it commits to a word (token). I wanted to see if I coul…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Arcaide – Explore code with multi-level call graphs",
+      "url": "https://arcaide.foo",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48845142",
+      "score": 25,
+      "comments": 14,
+      "publishedAt": "2026-07-09T12:59:44Z",
+      "excerpt": "One of the things I do when approaching a new codebase is to find the entry points and start exploring down the call paths. This gives a good overview of the different components in the code and how they're connected. I wanted to translate that to a visual experience, similar to how you would use call graphs, but there's a couple of problems with classical call graphs. One, call graphs represent f…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Policy enforcement for Claude Code, Cursor, and Codex",
+      "url": "https://kastra.ai/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48847526",
+      "score": 12,
+      "comments": 4,
+      "publishedAt": "2026-07-09T15:26:24Z",
+      "excerpt": "Show HN: Runtime authorization for Claude Code, Cursor, and Codex Hi HN, Fernando and I built Kastra. Kastra intercepts AI agent tool calls and evaluates them against deterministic policies before they execute. This is aimed at developers using coding agents like Claude Code, Codex, Cursor, and OpenClaw. We built Kastra after one of our Cursor agents almost executed DELETE FROM customers WHERE sta…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Pylon Sync, an agent-first full-stack realtime framework",
+      "url": "https://www.pylonsync.com",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48849648",
+      "score": 11,
+      "comments": 2,
+      "publishedAt": "2026-07-09T17:38:18Z",
+      "excerpt": "I created Pylon to make it easier to move from hobby projects to full production apps. When I work on hobby projects, I usually use React or Next.js because they are quick to set up and easy to deploy on Vercel. For production apps, I separate the frontend and backend, then deploy the backend on AWS. But setting up a full backend on AWS can be complex and costly, especially for simple apps. Pylon …",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Prismata: Confining cross-site prompt injection in web agents",
+      "url": "https://arxiv.org/abs/2607.08147",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865238",
+      "score": 9,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:03:38Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Migrating a production AI agent to GPT 5.6",
+      "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864950",
+      "score": 7,
+      "comments": 0,
+      "publishedAt": "2026-07-10T20:40:34Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Outcry as Meta lets users make AI images from public Instagram profile pics",
+      "url": "https://www.bbc.com/news/articles/cp9lee19y1yo",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864930",
+      "score": 5,
+      "comments": 3,
+      "publishedAt": "2026-07-10T20:38:53Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Spice 2.0 – Real-Time Analytical Query on Operational Data, Without ETL",
+      "url": "https://spice.ai/blog/spice-2-0-is-now-available",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48851086",
+      "score": 4,
+      "comments": 0,
+      "publishedAt": "2026-07-09T19:21:19Z",
+      "excerpt": "Hi HN, we’re Luke and Phillip, and we’re building Spice.ai OSS - a lightweight, portable data and AI engine and powered by Apache DataFusion & Ballista for SQL query, hybrid-search, and LLM-inference across disaggregated-storage used by enterprises like Barracuda Networks and Twilio. With v2.0, you can add a real-time analytics node to your operational database with high-throughput native CDC repl…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "AI Gets a Cerebellum",
+      "url": "https://www.mccormick.northwestern.edu/news/articles/2026/07/ai-gets-a-cerebellum/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863998",
+      "score": 3,
+      "comments": 0,
+      "publishedAt": "2026-07-10T19:16:46Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: iOS widgets that read your solar inverter over local Modbus TCP",
+      "url": "https://danielszlaski.com/glance-for-solis.html",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48860904",
+      "score": 3,
+      "comments": 1,
+      "publishedAt": "2026-07-10T14:59:20Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "I run my agency's 10 AI agents from launchd, no n8n, 0 dependencies",
+      "url": "https://github.com/Botfather90/digiton-agent-fleet",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48866405",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T22:59:18Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: An MCP server that lets AI agents request disability insurance quotes",
+      "url": "https://github.com/seaworthy-io/seaworthy-mcp",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865825",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:56:00Z",
+      "excerpt": "Hi HN. I own an online insurance agency, a painfully old-school industry. I am not a developer. I vibe-coded it all in Claude Code, then reviewed and tested before anything shipped. Which is part of the story I guess, that a small firm with curious and reasonably capable people can now operate agent infrastructure that would have required a contractor two years ago. I'm trying this because a growi…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Trace: Stripe Radar for autonomous AI agents (Sybil fraud reduced by 86%)",
+      "url": "https://trace-api-ixv6o.ondigitalocean.app/api/portal/webhook",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863824",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T19:00:58Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Willow Voice – Free AI Dictation",
+      "url": "https://willowvoice.com/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863120",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T17:57:33Z",
+      "excerpt": "Hey HN! We were part of YC S24, ended up pivoting around. Made dictation that worked really well, and decided to go all in on agentic. We've done two major things. 1. Scribe is a revamp of our product. Continually learns your style (can get into details if comments want). TLDR; we fingerprint based off your edits, and make dictation sound more and more like you. Post-trained Llama 3.1 8b. 2. Dicta…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: GenUI, native SwiftUI interfaces generated by AI agents",
+      "url": "https://github.com/kiliczsh/genui",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48862581",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T17:09:07Z",
+      "excerpt": "GenUI lets AI agents build real, interactive SwiftUI interfaces for iOS and macOS instead of just replying with text. PS: still needs some work for design quality",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: NoMac – let your AI agent ship iOS apps without a Mac",
+      "url": "https://nomac.app",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48862079",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T16:24:11Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: I made AI agent that deploys your thing on diff plats automaticaly",
+      "url": "https://shypmenta.com/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48861409",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T15:38:02Z",
+      "excerpt": "Cursor for deployment, in our language. this is an ai agent that connects to ur github, digital ocean, vercel, render, stripe, etc. then u tell it something like this: deploy diff components of this app on appropriate platforms. It goes and does it for you. Then, u become happy.",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "What Muse Spark 1.1 Taught Us About Enterprise Agent Architecture",
+      "url": "https://int21.ai/insights/muse-spark-1-1-enterprise-agent-architecture/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48861079",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T15:13:47Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: 9lives – Self-healing test runner that refuses to mask real bugs",
+      "url": "https://github.com/Quality-Max/9lives",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863159",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T18:01:00Z",
+      "excerpt": "I built 9lives because coding agents kept breaking my Playwright tests in the dumbest way: rename a button, the test goes red, and the agent — or I — rewrites a perfectly good test. 9l heal login.spec.ts runs the test, classifies the failure, and heals it in tiers: Tier 1 is offline and deterministic. When a selector stops matching, 9lives re-finds the element in the page snapshot Playwright captu…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: A control-theory approach to detecting LLM agent instability",
+      "url": "https://github.com/vishal-dehurdle/state-harness",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48844631",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-09T12:13:06Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: SoulOS–State&persona management for agents without giving up your LLM",
+      "url": "https://mziqudhd92.github.io/soul-os/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48844498",
+      "score": 2,
+      "comments": 2,
+      "publishedAt": "2026-07-09T11:59:57Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "The zero-cost fallacy: open-source software in the agentic era",
+      "url": "https://www.thoughtworks.com/insights/blog/open-source/zero-cost-fallacy-open-source-agentic-era",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865001",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T20:45:43Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "SHOW HN: Beta TPMS Screening for Additive Manufacturing (Describe Your Part)",
+      "url": "https://cpetpms.com/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865632",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:36:08Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: chwire – Native-Format ClickHouse JavaScript Client over HTTP/TCP",
+      "url": "https://github.com/maxjustus/chwire",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864401",
+      "score": 2,
+      "comments": 0,
+      "publishedAt": "2026-07-10T19:51:27Z",
+      "excerpt": "chwire is a ClickHouse client for JS that speaks the Native (columnar binary) format over HTTP and TCP. For 1M-row payloads, encoding is mostly 2–6x faster than JSONEachRow and decoding 2–8x faster. Once you add compression Native almost always wins, since the smaller payload is cheaper to compress. I’ve been working on this project for the last year for use at https://www.hockeystack.com/ . It st…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "The end of consumer AI winter",
+      "url": "https://jonready.com/blog/posts/the-end-of-consumer-ai-winter.html",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863672",
+      "score": 2,
+      "comments": 1,
+      "publishedAt": "2026-07-10T18:47:04Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Ethereum deploys AI agents to hunt bugs, discovers libp2p vulnerability",
+      "url": "https://thecoinheadlines.com/tech-and-ai/ethereum-deploys-ai-agents-to-hunt-bugs-discovers-libp2p-vulnerability/article-25686/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48866498",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T23:09:01Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: I scrape an $8.5M-ARR company run by AI agents and chart it live",
+      "url": "https://maertspolsia.mzpx.ai",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48866244",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T22:43:51Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Agentic test processes, LLM benchmarks, notes on agentic coding from Galapagos",
+      "url": "https://danluu.com/ai-coding/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865216",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:01:28Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Local-first agent governance: keeping an AI agent contained",
+      "url": "https://vektorgeist.com/blog/local-first-agent-governance",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865189",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T20:59:35Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Frontier coding agents haven't stopped lying about their work – I measured it",
+      "url": "https://trustysquire.ai/blog/the-last-mile-is-a-signup-form",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865098",
+      "score": 1,
+      "comments": 1,
+      "publishedAt": "2026-07-10T20:52:52Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "The Upgrade That Made My AI Agent Worse",
+      "url": "https://medium.com/@alanscottencinas/the-upgrade-that-made-my-ai-agent-worse-610fa6ebe2d4",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863701",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T18:49:14Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "What are the AI folks up to these days?",
+      "url": "https://12gramsofcarbon.com/p/agentics-what-are-the-ai-folks-up",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863695",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T18:48:40Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Where teams of AI agents choose, keep and improve the profiles they run",
+      "url": "https://library.aweb.ai/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863462",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T18:26:13Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "The fix for my AI agent wasn't making it smarteR",
+      "url": "https://tryfraym.com",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48861942",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T16:14:26Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Lessons from designing MCP tools for AI agents",
+      "url": "https://blog.spill.coffee/p/trust-the-harbor-pilot",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48861719",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T16:00:06Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Local Motion – Use Cursor Agents and Chat with a Local LLM",
+      "url": "https://github.com/mattmireles/local-motion",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48863722",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T18:50:24Z",
+      "excerpt": "Using a local LLM for coding agents is complicated, so I built a Cursor + VS Code plugin that makes it easy. It automatically profiles your machine, picks a model that works for your machine, then runs a local server, sets up a Cloudflare Quick Tunnel and walks you through connecting it to Cursor. In the end, you work like you normally do in Cursor and just choose \"Local Motion\" as your model in t…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Trollbridge – let your agent run YOLO but without the whole internet",
+      "url": "https://trollbridge.dev/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48850008",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-09T18:01:44Z",
+      "excerpt": "I put Claude Code in an Incus VM, let it go in YOLO mode, locked down the firewall, and started losing my mind managing IPs. Every time Claude needed to hit a new service (a package registry, an API, a webhook), I'd have to SSH in and update the firewall. Plus, I didn't have the ability to allow GETs while blocking POST/DELETE, which I really wanted. And the jobs I needed to run outside the VM? Th…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Academics building open‑source agents for academic and research work",
+      "url": "https://www.agents4academia.org/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865682",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:41:50Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Skillgrade: \"Unit tests\" for your agent skills",
+      "url": "https://github.com/mgechev/skillgrade",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864778",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T20:25:10Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Bunrun – agent-configured local dashboard to start/stop dev apps",
+      "url": "https://github.com/jokkebk/bunrun",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864172",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T19:31:37Z",
+      "excerpt": "Agentic era has left me with already half a dozen vibe coded helper apps, most run with ´bun run dev´ or the npm equivalents, occasionally Python. Instead of zooming around terminal, I decided to vibe code one more thing: A local dashboard to start and stop all the projects and view the ouput. Finessing the configuration yaml is delegated to a SKILL.md so I can just ask Claude or Codex to set the …",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "MCPA: The First Official Certification for the Model Context Protocol",
+      "url": "https://aaif.io/blog/introducing-the-mcpa-the-first-official-certification-for-the-model-context-protocol/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48866070",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T22:23:40Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "When AWS, Azure, or GCP Becomes the Competition (2019)",
+      "url": "https://www.gkogan.co/big-cloud/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48865278",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T21:07:03Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Crawlie Cloud: monitoring for your marketing sites SEO and GEO (+ MCP server)",
+      "url": "https://crawlie.dev/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864781",
+      "score": 1,
+      "comments": 1,
+      "publishedAt": "2026-07-10T20:25:26Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "The Frank Zappa Interview That Still Feels [?] Today (1984) [video]",
+      "url": "https://www.youtube.com/watch?v=PUJ9aFS2GbA",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864771",
+      "score": 1,
+      "comments": 1,
+      "publishedAt": "2026-07-10T20:24:50Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "Show HN: Spacemap.co – A 3D, real-time, real-scale map of the solar system",
+      "url": "https://spacemap.co/b/399/Earth",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48864691",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T20:17:05Z",
+      "excerpt": "Space Map is a real time, real scale map of the solar system, with 1.6m objects: all known asteroids, comets, moons, planets, spacecraft, with historical positions from 1950. It's got descriptions & images from Wikipedia, 11k 3d models for spacecraft & asteroids (you can zoom all the way in), realistic lighting, search, and localization in 12 languages. Some highlights: - Starlink https://spacemap…",
+      "lang": "en"
+    },
+    {
+      "source": "hackernews",
+      "title": "What Every Python Developer Should Know About the CPython ABI",
+      "url": "https://labs.quansight.org/blog/python-abi-abi3t",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48862673",
+      "score": 1,
+      "comments": 0,
+      "publishedAt": "2026-07-10T17:18:48Z",
+      "excerpt": "",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
+      "url": "https://arxiv.org/abs/2607.08768v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T17:59:32Z",
+      "excerpt": "The rapid development of large language models and multimodal large language models has accelerated the emergence of proactive agents capable of operating everyday tools and assisting users in real-world environments. However, existing benchmarks struggle to evaluate such agents effectively, as they often rely on sandboxed environments and single-turn evaluation paradigms. Moreover, their scenario-based task taxonomies mix multiple model capabilities within the same task category, making it difficult to identify the root causes of agent failures. To address these limitations, we introduce UniC…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents",
+      "url": "https://arxiv.org/abs/2607.08716v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T17:26:28Z",
+      "excerpt": "In long-horizon tasks, decision-relevant state is often scattered across an expanding trajectory, while the action agent must surface it and act. As trajectories grow, task requirements, environment facts, prior attempts, diagnoses, and open subgoals can be buried in the context window or pushed beyond it, failing to influence decisions when needed. We call this failure mode \"behavioral state decay\". We study memory as an active intervention mechanism rather than passive retrieval. A separate memory agent runs alongside an unmodified action agent, updating a structured memory bank from the rec…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation",
+      "url": "https://arxiv.org/abs/2607.08691v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:50:54Z",
+      "excerpt": "Repository-level code generation requires implementing target functions while accounting for complex cross-file dependencies and project-specific conventions. Existing retrieval methods predominantly rely on lexical, structural, or semantic similarity, often overlooking repository functions that implement similar procedural logic despite differing in identifiers or application domains. We propose ProjAgent, a repository-level code generation system that introduces procedural similarity as an explicit retrieval signal. ProjAgent decomposes the target function into intermediate reasoning steps a…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "SolarChain-Eval: A Physics-Constrained Benchmark for Trustworthy Economic Agents in Decentralized Energy Markets",
+      "url": "https://arxiv.org/abs/2607.08681v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:43:42Z",
+      "excerpt": "As agentic AI systems are increasingly applied to cyber-physical environments, their evaluation requires assessment of both task performance and trustworthiness. In decentralized energy markets, autonomous agents may improve market utility, but may also exploit invalid physical data, create artificial liquidity, and produce unstable governance decisions. Therefore, we propose SolarChain-Eval, a physics-constrained benchmark for evaluating trustworthy economic agents. It formulates market governance as a Gymnasium-compatible Markov Decision Process, where agents make hourly decisions. SolarChai…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search",
+      "url": "https://arxiv.org/abs/2607.08662v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:28:49Z",
+      "excerpt": "Large language model (LLM)-based web search agents are transforming information seeking from simple factoid question answering into complex, deep-and-wide search and research-oriented tasks. A single ReAct-style agent is constrained by one long trajectory and limited context, making it difficult to handle depth and coverage simultaneously. Existing multi-agent systems improve search coverage through parallel execution and aggregation, but still exhibit clear limitations in recursive depth, collaboration adaptability, and evidence-grounded expansion. We propose WebSwarm, a progressive recursive…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Formal Mechanisms for Market Stability in Self-Interested Agent Societies: A Marketplace Simulation Study",
+      "url": "https://arxiv.org/abs/2607.08652v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:21:16Z",
+      "excerpt": "Self-interested agents, left unconstrained, tend toward defection in repeated social dilemmas, causing cooperative gains from trade to collapse. This paper investigates what formal mechanisms, layered on top of unrestricted communication, are sufficient for a society of such agents to maintain market stability, and how resilient those mechanisms are to adversarial attack. We instantiate the research question as a multi-agent marketplace simulation where 18 LLM agents (DeepSeek-V3) with complementary production specialties must trade within a constrained social network to obtain utility. We con…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Multi-Modal, Multi-Environment Machine Teaching for Robust Reward Learning",
+      "url": "https://arxiv.org/abs/2607.08647v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:18:16Z",
+      "excerpt": "As autonomous agents are increasingly deployed across diverse operational contexts, aligning their behavior with human intent demands reward functions that remain robust to such changes rather than overfitting to any single environment. Inverse reinforcement learning (IRL) provides a principled way to infer such objectives from human feedback. However, existing analyses of optimal teaching approaches for IRL focus on single-environment, demonstration-only settings, leaving underexplored how heterogeneous feedback modalities and environment dynamics jointly constrain reward functions that gener…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling",
+      "url": "https://arxiv.org/abs/2607.08565v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T14:55:02Z",
+      "excerpt": "LLM scheduling is critical to serving, yet it remains unclear how well existing designs fit agentic serving--with LLM requests issued by agents instead of humans. This shifts the workload in two ways: (1) agents act only on complete responses, making the cluster's tokens per second (TPS) the primary goal and relaxing--not eliminating--per-token latency requirements; and (2) requests share much of their KV\\$-reuse exceeds 80% of request tokens in a production trace from BAILIAN, versus 54-62% in chat. This paper first contributes a systematic study of request scheduling for agents on two real-w…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Early to Share, Late to Save: Synchronisation-Driven Communication Gating in Bandwidth-Constrained Cooperative VLN",
+      "url": "https://arxiv.org/abs/2607.08504v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T14:00:17Z",
+      "excerpt": "Most cooperative Vision-Language Navigation (VLN) methods assume unlimited communication, not considering real-world applications where bandwidth is restricted and information efficiency is critical. We introduce \\textbf{bandwidth-constrained cooperative VLN} and propose \\textbf{hindsight gating}: a lightweight supervised gate that labels communication-critical steps post-hoc from navigation failures, avoiding the high variance of REINFORCE. Contrary to the intuition that agents should communicate when uncertain, we observe a consistent counter-intuitive pattern: trained gates fire predominant…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing",
+      "url": "https://arxiv.org/abs/2607.08497v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T13:55:55Z",
+      "excerpt": "Recent unified multimodal models show a single architecture can jointly perform vision/language understanding and image generation/editing. However, they repeatedly feed all historical visual and textual inputs into a shared context window, limiting long-horizon multimodal dialogue due to visual token explosion and unreliable cross-turn referencing. We propose a Cognitive-structured Multimodal Agent that externalizes visual information into an Episodic Visual Memory and selectively reactivates relevant episodes during reasoning. The agent consists of a Perceptual Abstraction Engine for structu…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "The Context Access Divide: Interaction-Level Architecture as a Complementary Dimension of Agentic Inequality",
+      "url": "https://arxiv.org/abs/2607.08495v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T13:53:40Z",
+      "excerpt": "Sharp et al. (2025) introduce \"agentic inequality\" as a framework for analyzing disparities in access to AI agents across three dimensions: availability, quality, and quantity. These person- and organization-level dimensions characterize who can access agents and at what capability, but do not address a structurally important divide operating at a finer level: the individual interaction. Two users with nominally equivalent agent access may experience qualitatively different AI utility depending on whether the system can autonomously retrieve context from the user's knowledge corpus (Dynamic Co…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "ADORN: Adaptive Drift handling for Open RAN using Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2607.08443v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T13:05:42Z",
+      "excerpt": "Dynamic traffic variations in Open Radio Access Networks (O-RAN) lead to drift, which degrades the performance of Artificial Intelligence/Machine Learning (AI/ML) models. Traditional retraining approaches maintain forecasting accuracy but incur high computational cost and may lead to violations of Service Level Agreements (SLAs). This work proposes a Q-learning-based adaptive retraining approach that formulates the retraining decision as a Markov Decision Process (MDP), where a Reinforcement Learning (RL) agent learns a policy that balances forecasting accuracy and retraining cost. The propose…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "OmniFood-Bench: Evaluating VLMs for Nutrient Reasoning and Personalized Health Advice",
+      "url": "https://arxiv.org/abs/2607.08423v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T12:46:00Z",
+      "excerpt": "The rapid integration of Large Vision-Language Models (VLMs) into critical infrastructure promises to revolutionize personalized healthcare and dietary management. However, in the domain of food systems, autonomous agents face a unique and persistent challenge: the \"Systemic Information Asymmetry\" between visual appearance and intrinsic nutritional composition. Existing benchmarks primarily focus on coarse-grained classification tasks, such as food category recognition, which fail to evaluate the intricate reasoning chain required for real-world dietary management -- specifically, the ability …",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Game Theory Driven Multi-Agent Framework Mitigates Language Model Hallucination",
+      "url": "https://arxiv.org/abs/2607.08403v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T12:28:39Z",
+      "excerpt": "The application of lightweight Large Language Models in rule-based scientific domains remains severely limited by their tendency to mimic linguistic patterns rather than reproduce axiomatic reasoning, causing frequent hallucinations. Here, we show that G-Frame, an adaptive multi-agent framework integrating Bayesian and team game principles, establishes an automated closed-loop for high-quality data synthesis and model training. By forcing the internalization of domain constraints through structured reasoning, we synthesized a specialized corpus of 363,045 chains-of-thought and 199,589 question…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "TRACE: A Two-Channel Robust Attribution Watermark via Complementary Embeddings for LLM-Agent Trajectories",
+      "url": "https://arxiv.org/abs/2607.08400v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T12:25:22Z",
+      "excerpt": "LLM agents reach users through resellers, who may rebrand a developer's agent or substitute a cheaper model. When provenance is disputed, attribution rests on the trajectory log (the record of tool calls, observations, and executed actions, not the model's reasoning), which the reseller stores and processes to meter usage. A watermark must therefore survive an adversary with full read/write access to the very evidence it is detected from; existing agent watermarks do not, as their attribution is read straight off that log. We present TRACE, to our knowledge the first agent watermark that is di…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Token-Flow Firewall: Semantic Runtime Auditing for Persistent AI Agents",
+      "url": "https://arxiv.org/abs/2607.08395v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T12:18:40Z",
+      "excerpt": "Persistent AI agents extend large language models (LLMs) beyond single-turn interaction into long-lived software systems. Unlike traditional chat assistants, unsafe content in these agents can propagate through persistent state, reusable skills, and tool-mediated interactions, creating a substantially larger semantic attack surface. We observe that most security-critical interactions in such agents are transmitted through natural-language token flows, including memory updates, tool arguments, retrieved files, and inter-component communications. This observation enables a new security formulati…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "WCog-VLA: A Dual-Level World-Cognitive Vision-Language-Action Model for End-to-End Autonomous Driving",
+      "url": "https://arxiv.org/abs/2607.08375v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T11:49:57Z",
+      "excerpt": "Vision-Language-Action (VLA) models have advanced end-to-end autonomous driving. However, existing methods either lack comprehensive world cognition or suffer from fragmented world foresight, inherently confining these models to reactive driving. To address this limitation, we propose WCog-VLA, a novel dual-level World-Cognitive VLA framework that successfully bridges semantic world forecasting with generative world evolution to achieve proactive autonomous driving. At the semantic level, WCog-VLA unifies world cognition and reasoning by incorporating 3D spatial perception and injecting agent …",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Self-Adaptive Anomaly Detection with Reinforcement Learning and Human Feedback in Connected Vehicles",
+      "url": "https://arxiv.org/abs/2607.08373v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T11:48:52Z",
+      "excerpt": "Connected vehicles are autonomous cyber-physical systems whose behavior must be continuously monitored during operation to detect deviations from normal operation before they propagate into failures. Such evaluation is challenging because the systems themselves evolve: over-the-air updates, configuration changes, and shifting workloads alter the definition of normal behavior, causing static diagnostic methods to degrade silently over time. Existing approaches typically address either automated model adaptation or operator integration in isolation, rather than as a single coordinated supervisor…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "ArtMine: Discovering and Formalizing Artistic Processes",
+      "url": "https://arxiv.org/abs/2607.08331v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T10:16:53Z",
+      "excerpt": "Understanding how artworks are created requires reasoning about the iterative decisions, material operations, and contextual influences that shape artistic production. While recent generative AI systems can synthesize artworks with high fidelity, they primarily model distributions over finished artifacts rather than the creative processes underlying their creation. In practice, artistic workflows are only partially documented through fragmented sources such as archival records, preparatory studies, correspondence, etc., making process-level understanding difficult to formalize computationally.…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "GitLake: Git-for-data for the agentic lakehouse",
+      "url": "https://arxiv.org/abs/2607.08319v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T10:03:36Z",
+      "excerpt": "We present GitLake, a Git-for-data design for an agent-first lakehouse. The system lifts single-table Iceberg snapshots into lakehouse-wide commits, branches, and merges, letting agents work on isolated branches while humans review and publish changes. Pipelines run on temporary branches and publish through a final merge, so all outputs become visible atomically or none do. Finally, we report production lessons as well as correctness insights from a preliminary Alloy model of our core abstractions.",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "From Legacy Documentation to OSCAL: An MCP-Based Agent Pipeline for Threat-Informed Continuous Compliance in Critical Infrastructure",
+      "url": "https://arxiv.org/abs/2607.08288v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T09:32:03Z",
+      "excerpt": "In critical infrastructure, operational technology environments often cannot be actively scanned, and yet active system feedback is needed for risk assessment and compliance. This paper presents a non-invasive, MCP-grounded multi-agent pipeline that converts natural-language system descriptions into source-verified knowledge graph and audit-ready artifacts in the NIST OSCAL format for continuous automated compliance management. The architecture decouples LLM-based reasoning from deterministic knowledge retrieval against authoritative threat-intelligence sources, reducing the risk of fabricated…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Multi-Agent Firewall Architecture for Privacy Protection of Sensitive Data in Interactions with Language Models",
+      "url": "https://arxiv.org/abs/2607.08282v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T09:23:13Z",
+      "excerpt": "While Large Language Models (LLMs) have become essential productivity tools, their integration into workflows without adequate safeguards creates significant risks. This paper proposes an open-source, privacy-focused, user-facing firewall designed to secure both web-based and programmatic LLM interactions. The architecture combines a browser extension and a proxy for total traffic interception across both HTTP(S) and WebSocket communications. At its core, a flexible multi-agent pipeline delivers data leakage prevention through a hybrid approach combining deterministic detectors with LLM-driven…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "AutoPersonas: A Multi-Timescale Loop Engine for Open-Ended Persona Evolution",
+      "url": "https://arxiv.org/abs/2607.08252v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T08:56:30Z",
+      "excerpt": "Long-term persona agents must remain identifiable while adapting to new events, relationships, evidence, and social conditions. We identify self-locking as a runtime failure mode in continuing persona-life loops: locally plausible events keep appearing while the generated life collapses toward familiar environments, weak relationships, suspended decisions, and stale life stages. We trace this failure to model-level convergence toward high-probability behavioral channels and system-level context gravity from State, memory, history, and environment summaries. We introduce AutoPersonas, a multi-t…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Playing ZendoWorld: Challenging AI Agents on Active Visual Concept Induction",
+      "url": "https://arxiv.org/abs/2607.08233v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T08:29:23Z",
+      "excerpt": "A central challenge in building intelligent systems is enabling agents to jointly perceive complex inputs, form hypotheses about hidden patterns, and design informative experiments to test them. To study this problem, we propose ZendoWorld, a controlled interactive environment in which agents must infer a logical rule about visual game observations, acquire information by proposing new scenes, and refine their hypotheses based on feedback from the game environment. We evaluate several agents spanning pure VLM reasoning, Bayesian particle filtering, dynamic concept discovery, and neuro-symbolic…",
+      "lang": "en"
+    },
+    {
+      "source": "arxiv",
+      "title": "Open-ended Multi-agent Autocurricula via Visual Inspection of Policies with Multi-modal LLMs",
+      "url": "https://arxiv.org/abs/2607.08193v1",
+      "score": 0,
+      "publishedAt": "2026-07-09T07:48:36Z",
+      "excerpt": "Open-ended curricula in Reinforcement Learning (RL) aim to train generally-capable agents by identifying tasks that facilitate learning increasingly complex skills. A major challenge when designing such curricula is assessing task difficulty relative to the agent's current learning progress. While previous work has explored using scalar task scores or textual summaries of the agent's behavior, here we study a different approach: directly inspecting policy behavior via recorded episode videos. We introduce a simple yet effective instantiation of this approach which leverages a Video Language Mo…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:Simon Willison",
+      "title": "Introducing Muse Spark 1.1",
+      "url": "https://simonwillison.net/2026/Jul/9/muse-spark-1-1/#atom-everything",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:24:09.000Z",
+      "excerpt": "<p><strong><a href=\"https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/\">Introducing Muse Spark 1.1</a></strong></p> Following <a href=\"https://simonwillison.net/2026/Apr/8/muse-spark/\">Muse Spark in April</a>, here's Muse Spark 1.1 - the first Spark model to offer an API. Meta claim significant improvements in agentic tool calling and computer use.</p> <p>There are a lot more details …",
+      "lang": "en"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "すべてのAPIはエージェント向けに再設計される",
+      "url": "https://zenn.dev/gyu07/articles/d3cf37092f4597",
+      "score": 0,
+      "publishedAt": "2026-07-10T09:55:31.000Z",
+      "excerpt": "! 本記事は、dev.toで公開した \"Every API Will Be Rebuilt for Agents\" の日本語版です。 MCPは、エージェントと外部システムを接続する問題を解決しつつあります。しかし、接続しただけで、エージェントがAPIを正しく使えるようになるわけではありません。 丁寧に設計され、OpenAPIも整備されたREST APIをMCPで公開しても、エージェントは間違ったエンドポイントを選び、1回で済む処理に複数の呼び出しを使い、ときには確認なしで破壊的な操作を実行します。 APIの品質が低いのではありません。人間の開発者を前提に設計されているのです。 これまで...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "【第3話】AIにコードを書かせたら、人間の仕事が変わった話",
+      "url": "https://zenn.dev/kyosuke_kida/articles/d32e5022b95ab2",
+      "score": 0,
+      "publishedAt": "2026-07-10T09:30:06.000Z",
+      "excerpt": "前回のあらすじ 第2話では、AIエージェントの検証会議に参加しながら何も発言できず、「仕事をした感覚」がまったく持てなかった2ヶ月について書きました。 そんな中、今度は実際にClaude Codeを使ったPoCに参加することになります。 開発手法として採用していたのは仕様駆動開発でした。 ここで私は、 「もう人間はコードを書く必要がなくなるかもしれない」 そう本気で思う体験をします。 しかし、その考えは半分だけ正しかったのでした。 軽い気持ちで引き受けた ある日、上司から声を掛けられました。 「Claude Codeを使ったPoCをやってみますか？」 私は元々開発担当ではありま...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "「劇団型」マルチエージェントに形骸化を見た。プロダクションで勝つための「決定論的組み込みエージェント（DEA）」思想",
+      "url": "https://zenn.dev/tanuki_chan/articles/682755588003fc",
+      "score": 0,
+      "publishedAt": "2026-07-10T09:26:43.000Z",
+      "excerpt": "1. はじめに：なぜあなたのマルチエージェントは遅くて脆いのか 「社長、デザイナー、コーダーのエージェントを用意し、彼らが自律的にチャットを往復させて成果物を作り上げます」 LangChainやCrewAI、AutoGenの登場以降、こうした「人間の組織を模したマクロなマルチエージェント（以下、劇団型）」のデモをよく目にするようになりました。しかし、これらをそのまま実商用環境（プロダクション）に投入しようとすると、例外なく強烈な現実の壁にぶつかることになります。 非決定論的なハルシネーションの連鎖： 確率論的に動くLLM同士が自然言語で対話するため、一箇所のエラーやブレが後続...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "AI agentにREADMEを読ませる前に、実行してよい命令を決める",
+      "url": "https://zenn.dev/heftykoo/articles/30678fef448d73",
+      "score": 0,
+      "publishedAt": "2026-07-10T08:41:46.000Z",
+      "excerpt": "AI agent に「この repo を動かして」と頼むとき、僕らは README を読ませているつもりでいる。 でも agent から見ると、README は説明文ではない。作業計画である。 npm install する。pip install する。エラーが出たら troubleshooting する。足りないものがあれば調べる。親切な agent ほど、そこで止まらない。人間なら一瞬ためらう command も、「setup を完了するための次の一手」として処理してしまう。 ここが怖い。 AI agent のセキュリティを prompt injection だけで考えると、実務の危...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "「プロンプトを打つ」から「ループを設計する」へ",
+      "url": "https://zenn.dev/nenene01/articles/loop-engineering-claude-code",
+      "score": 0,
+      "publishedAt": "2026-07-10T07:16:41.000Z",
+      "excerpt": "はじめに 2026年6月30日にAnthropicより公式ガイドGetting started with loops(ループ入門)の公開がありました。 最近は「Loop Engineering（ループエンジニアリング）」という呼び名が広がりつつあります。 「エージェントに委ねるためのゴール・制約・完了条件・検証方法を明示する役割へ変わっていく」と捉えております。 ループエンジニアリングについて記事にしました。 ! 機能名やコマンド（/goal、/loop、/scheduleなど）は変化が速い領域です。最新の仕様は公式ガイドを確認してください。 ループエンジニアリングとは何か ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "AIが、もう1体のAIの指示を断った日——2体運用で最初に決めるべきは「止まり方」だった",
+      "url": "https://zenn.dev/smallworkslab/articles/codex-refused-claude-instruction",
+      "score": 0,
+      "publishedAt": "2026-07-10T06:42:05.000Z",
+      "excerpt": "2026年7月2日に起きたこと 公開済みのnote記事を修正しようとしたときのことです。 私は小さな副業の運営を、Claude CodeとCodexの2体のAIエージェントに任せる実験を続けています。指揮官役のClaude Codeが方針を決め、実行役のCodexがブラウザを操作して公開作業を行う体制です。 このときClaudeは、対象記事のURL、変更する文章、触ってよい範囲、公開後の確認項目まで揃えた、具体的な指示をCodexへ送りました。 ところが、Codexは実行しませんでした。 理由は「公開済み記事を変更するには、運営者本人の事前承認が必要だから」。 指示を出したのはCla...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "Codexの新モデルGPT-5.6を調べて分かった、Sol・Terra・Lunaとmax・ultraの選び方",
+      "url": "https://zenn.dev/clopy/articles/codex-gpt-5-6-model-guide",
+      "score": 0,
+      "publishedAt": "2026-07-10T06:34:01.000Z",
+      "excerpt": "はじめに 2026年7月9日、OpenAIは GPT-5.6 を一般提供しました。Codexでも同日から利用でき、モデルは1種類ではなく、Sol・Terra・Luna の3段階に分かれています。さらに推論量を増やす max と、複数エージェントを並列実行する ultra も追加されました。 名前が一気に増えたので、最初に公式発表を読んだときは次の点がよく分かりませんでした。 以前のGPT-5.5から何が変わったのか Sol・Terra・Lunaは、どの作業で使い分けるのか max と ultra は、どちらも「よく考える」設定なのか ベンチマークが高ければ、普段の実装もSol一択...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "DatabricksのGenieがリニューアル！何ができるのかまとめてみた",
+      "url": "https://zenn.dev/nttdata_tech/articles/18b00a4a12aa33",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:33:34.000Z",
+      "excerpt": "はじめに こんにちは、NTTデータグループAI技術部の太田です。 先日サンフランシスコで開催されたDatabricksのイベント「Data + AI Summit 2026」に現地参加してきました。 本カンファレンスでの注目トピックの一つとして「Genie」が大きく進化しました。これまでGenieというと「自然言語でデータに質問できるAI/BIアシスタント」という印象が強かったと思います。今回の発表では、Genieが単なる分析アシスタントから、ビジネスユーザから開発者まで幅広いユーザと共に業務を遂行するAI Coworkerなサービス群へと再定義されました。 本記事では、Data +...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "Claude CodeとCodexに副業運営を任せる——暴走させないAI2体運用システムの実物",
+      "url": "https://zenn.dev/smallworkslab/books/ai-two-agent-sidebiz-ops",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:27:21.000Z",
+      "excerpt": "副業の記事執筆・公開・数字記録をClaude CodeとCodexの2体のAIエージェントに任せて47日。 途中、実行役のAIが指揮官役のAIの指示を「本人承認がない」と断る場面がありました。 これは不具合ではなく、設計した停止ルールが動いた瞬間です。 本書は、この運用を支える5つの設計判断——役割分担・停止条件・7項目の指示形式・公開前チェック・数字の回し方——を、 実際に動いている役割分担表・チェックリスト・コピペ用指示文テンプレートの「実物」つきで公開します。 第1章は無料です。AIに作業は任せられるのに、公開や変更まで任せるのはまだ怖い人へ。",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "[Mastra Announce] First-Class Skills で「スキルは Workspace のもの」から卒業",
+      "url": "https://zenn.dev/shiromizuj/articles/63d473e1e01440",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:25:23.000Z",
+      "excerpt": "Mastra の 公式Blog で発表された Announcements を速報ベースでお伝えします。ただの直訳ではなく、関連ドキュメントも参照したうえで手厚くしたり省略したりします。速報性重視でAIの力を多分に使っているので、私自身の考察は少なめです。 公式アナウンス: https://mastra.ai/blog/introducing-first-class-skills Agent skills ドキュメント: https://mastra.ai/docs/agents/skills Workspace skills ドキュメント: https://mastra.ai/do...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "Edge of Crypto「x402でのAI自律決済フローを体験する」",
+      "url": "https://zenn.dev/simplex/articles/8cc594e6ceb35f",
+      "score": 0,
+      "publishedAt": "2026-07-10T04:19:00.000Z",
+      "excerpt": "シンプレクスweb3チームは、web3のマスアダプションに向けて、Simplex Fourthをはじめとしたソリューションの開発を行うほか、最先端のテクノロジーを活用し、新たなユースケースの創出に取り組むチームです。 Simplex テックブログのEdge of Cryptoシリーズでは、その最前線で活躍するweb3チームメンバーが、最先端の業界動向やテクノロジーについての情報をお届けします。前回のEdge of Cryptoは、「AIエージェントが自律決済する世界でのウォレット」です。 はじめに 前回の記事では、AIエージェントが自律的に支払いを行う世界において、ウォレット側で...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "Edge of Crypto「AIエージェントが自律決済する世界でのウォレット」",
+      "url": "https://zenn.dev/simplex/articles/68ae40fd345d18",
+      "score": 0,
+      "publishedAt": "2026-07-10T04:18:43.000Z",
+      "excerpt": "シンプレクスweb3チームは、web3のマスアダプションに向けて、Simplex Fourthをはじめとしたソリューションの開発を行うほか、最先端のテクノロジーを活用し、新たなユースケースの創出に取り組むチームです。 Simplex テックブログのEdge of Cryptoシリーズでは、その最前線で活躍するweb3チームメンバーが、最先端の業界動向やテクノロジーについての情報をお届けします。前回のEdge of Cryptoは、「トランザクションから追うENSv2: オンチェーン名前管理の最前線」です。 はじめに 2026年6月、AWS WAFに「AI traffic mone...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "ココナラで実需を探していたらタロットカードに辿り着いた話",
+      "url": "https://zenn.dev/kakedashi/articles/coconala-tarot-probe",
+      "score": 0,
+      "publishedAt": "2026-07-10T03:27:16.000Z",
+      "excerpt": "こんにちは、kakedashi です。 x402 について発信していたのに、なぜ急に「タロットカード？」と思った方、理由があるんです。 一言でいうと、「AI エージェントが自律的にお金を払い合う世界」の話をしているうちに、\"じゃあ人間は今どこに本気で財布を開いているのか\" が気になって、公開データを測っていったら、最後にタロットの卓の前に座っていた —— という道のりです。順番に書きます。 1. なぜ実需を「測り」に行ったのか 新しいものを作る前に、いつも自分に一つ問うようにしています。 「それ、もう誰かがお金を払って頼んでいる形跡はあるか?」 本物の「欲しい」は、あなたが作る...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "JetBrains Air のエージェント複数作業と、エージェントレビュー機能",
+      "url": "https://zenn.dev/nattosystem_jp/articles/c9a7d241a9fa31",
+      "score": 0,
+      "publishedAt": "2026-07-10T02:56:29.000Z",
+      "excerpt": "はじめに 今回はJetBrains Air の Windows preview が出たので、実際に使ってみました。 https://blog.jetbrains.com/air/2026/06/jetbrains-air-lands-on-windows/ JetBrains Air は、AIエージェントにコーディングタスクを委任し、人間はワークフローの主導権を握ったまま結果を確認する、というコンセプトのAgentic Development Environmentです。 Claude Agent・Codex・Gemini・Junieといった複数のエージェントをタスク単位で使い分ける...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "プロンプトは書き捨てるな、リポジトリに入れろ — 効いた指示ほどチャット履歴に沈んでいく",
+      "url": "https://zenn.dev/urario/articles/prompts-in-repo",
+      "score": 0,
+      "publishedAt": "2026-07-10T02:04:19.000Z",
+      "excerpt": "AI へのレビュー依頼が、これまでで一番うまくいった日があった。指摘は鋭く、見当違いがなく、そのまま修正に回せた。数日後、別の変更で同じレビューを頼もうとして、あの指示をどう書いたか思い出せなかった。チャット履歴のどこかにはある。だが、二度と同じレビューは返ってこなかった。この記事は、うまくいったプロンプトを書き捨てにしていた失敗と、プロンプトを成果物としてリポジトリで管理するようにした記録だ。 ここでいうプロンプトは、単発の依頼文だけではない。AI に渡す定型の指示、観点、手順、制約を含む「指示資産」のことだ。 特定のツールを紹介する記事ではない。以下では実例として Claude Co...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "社内のAI活用知見を共有しやすくできないか？ AIコンテストでClaude CodeのSkillを試作した",
+      "url": "https://zenn.dev/finatext/articles/2afa698ea07073",
+      "score": 0,
+      "publishedAt": "2026-07-10T01:00:16.000Z",
+      "excerpt": "! この記事は、デブサミ夏カウントダウンブログリレー2026に参加しています。当社ブースで 「テックブログを見て来ました！」 とお伝えいただいた方には、もれなくFinatextグループのテックブック（物理本）を差し上げます！ 👇️Developers Summit 2026 Summer 事前登録はこちらから（7/13 13:00締切） https://event.shoeisha.jp/devsumi/20260716 こんにちは！ナウキャストのよーたです。 データ&AIソリューション事業部で、AIエージェントの開発やデータ基盤の整備を行っています。 はじめに Finat...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "ユーザー役のLLMを変えたら、エージェントの性能差が消えた — τ²-benchで実測",
+      "url": "https://zenn.dev/takkuhiro/articles/tau2-bench-user-simulator",
+      "score": 0,
+      "publishedAt": "2026-07-09T22:00:08.000Z",
+      "excerpt": "はじめに LLMエージェントのベンチマークでは、相手役の「顧客」もLLMが演じるのが一般的です。エージェントの性能を測っているつもりでも、会話の半分はユーザー役のLLM（ユーザーシミュレータ）が作っている。では、そのユーザー役はどこまでスコアに関与するのでしょうか。 このテーマを調べようと思ったきっかけは、前回の記事にあります。τ²-benchというカスタマーサポート型のベンチマークでpass^k（k回連続で成功する確率）を実測したとき、失敗の分析で奇妙なことに気づきました。失敗の35%は、ユーザー役のLLMが「はい、お願いします」と承諾した直後に会話を打ち切り、エージェントが実行す...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "AIとの協働とは、認知操作の外在化である",
+      "url": "https://zenn.dev/cognitiveosmdl/articles/ecbf46d2c5e4d4",
+      "score": 0,
+      "publishedAt": "2026-07-09T21:00:10.000Z",
+      "excerpt": "はじめに 最近、「AIと協働する」という言葉をよく聞く。 AIエージェント。 Loop Engineering。 マルチエージェント。 RAG。 プロンプトエンジニアリング。 それぞれは別の技術や手法として語られることが多い。 しかし私は、これらを眺めているうちに、一つの見方を持つようになった。 AIとの協働とは、人間がこれまで頭の中で行ってきた認知操作を、AIへ外在化しているだけではないか。 ここでいう認知操作とは、難しい話ではない。 ! 仮説を立てる 選択肢を出す 比較する 制約と照らし合わせる 役割を分ける レビューする 修正する 探索をやり直す といった、人間が普段...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "AIエージェント沼",
+      "url": "https://zenn.dev/kuroi_heart/articles/e692b01598a02d",
+      "score": 0,
+      "publishedAt": "2026-07-09T16:14:06.000Z",
+      "excerpt": "AIエージェント沼〜全121個〜（2026年7月10日現在） Hermes Agent……OSS。自己改善型のAIエージェント。学習ループを内蔵した唯一のエージェントであり、経験からスキルを生成し、使用中にスキルを向上させ、知識を定着させるよう自らを促し、セッションを重ねるごとにあなたの人物像をより深く理解していくモデルを構築します：https://hermes-agent.nousresearch.com/（★） Skyvern……OSS。フォーム入力、データ抽出、ポータルログイン、ドキュメントダウンロード、複数ステップのプロセス、サイト間ワークフローなど、ブラウザベースのあら...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - AIエージェント",
+      "title": "人間のコードレビュー、本当に必要ですか？",
+      "url": "https://zenn.dev/daiksud/articles/is-human-code-review-still-necessary",
+      "score": 0,
+      "publishedAt": "2026-07-09T13:42:21.000Z",
+      "excerpt": "「そのコードレビュー、本当に人間がやる必要ありますか？」 この問い、最近よく見かけるようになりました。 正直、1 年以上前からずっと議論になっているような気がしますが、いまだによく見かけます。それだけ AI が浸透しきっておらず、AI にコードを書かせるようになった人・組織がまだまだ増えているという状況なのでしょう。 この問いに対する、私なりの回答・考えをここに記します。 😮‍💨 AI が書いたコードのレビューが辛い こんな声・意見をよく聞きます。 AI が爆速でコードを書くようになったので、コーディングの時間がかなり短くなりました。それにともなって、Pull Request の数・...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - AIエージェント",
+      "title": "【AIエージェント】Claude Code vs Antigravity CLI！一晩で200ドル溶かさないための「自律ループ制御」超入門（第14回）",
+      "url": "https://qiita.com/0903osa/items/42593b9a995a118e886b",
+      "score": 0,
+      "publishedAt": "2026-07-10T23:26:13.000Z",
+      "excerpt": "はじめに 僕のメンターからおすすめされた本の紹介連載、第14回です。 ※本記事では、以降 antigravity CLI のコマンド表記を agy と統一して記述します。 今回は以下のテーマで行きます 「進捗トリップワイヤー」を見極める4つの判断基準について書きます 原文で...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - AIエージェント",
+      "title": "オープンウェイトのコーディングモデルは小さく動くほど現場に近づく",
+      "url": "https://qiita.com/mhamadajp/items/166838a35839482fdc25",
+      "score": 0,
+      "publishedAt": "2026-07-10T20:04:23.000Z",
+      "excerpt": "コーディングAIの競争は、「どのモデルが一番賢いか」だけでは測れなくなってきました。 これまで注目されやすかったのは、巨大なモデル、クラウドAPI、ベンチマークの高スコアでした。しかし、開発現場で本当に重要になるのは少し違います。 自社の環境で動かせるか。 既存のリポジトリ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - AIエージェント",
+      "title": "これからAIの使い方と使われ方はどう変わるのか",
+      "url": "https://qiita.com/takaaki-s/items/3ea8e281958265bbf605",
+      "score": 0,
+      "publishedAt": "2026-07-10T16:42:34.000Z",
+      "excerpt": "生成AIが広く使われるようになり、私たちとAIとの関係は大きく変わり始めています。 これまでは、AIに質問をして答えをもらったり、文章やプログラムを作ってもらったりする使い方が中心でした。 しかし今後は、AIは単に答えを返す道具ではなく、実際の作業を進める存在になっていくと...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - AIエージェント",
+      "title": "思考と行動をループさせるエージェントの基礎",
+      "url": "https://qiita.com/yutowac/items/d56a7893c8de60ad371d",
+      "score": 0,
+      "publishedAt": "2026-07-10T16:31:13.000Z",
+      "excerpt": "近年注目を集めているループエンジニアリング ループエンジニアリングとは、AIエージェントに毎回プロンプトを打って指示を出すのをやめ、AIが目的を達成するまで自律的に「作業 → 検証 → 修正」を繰り返し続けるシステムを設計する技術です。 ReAct という手...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "個人開発の英単語アプリを作り直した(2) — Claude/Geminiを.envだけで差し替えるAI抽象化",
+      "url": "https://zenn.dev/ryo_engineer/articles/language-learn-app-2-ai-provider-2026-07-09",
+      "score": 0,
+      "publishedAt": "2026-07-10T21:48:40.000Z",
+      "excerpt": "英単語学習アプリ(language_learn_app)の作成記録、3部作の2本目です。 https://github.com/RYO0115/language_learn_app (1) 全体像と技術選定(ReactもVueも使わない話)※公開後にリンク (2) AIプロバイダの抽象化 ← この記事 (3) 学習体験の作り込みと運用 今回は、このアプリの一番のキモである AI連携の設計を書きます。 1本目はこちら https://zenn.dev/ryo_engineer/articles/language-learn-app-1-architecture-2026-07-09 ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "課題動画の文字起こしが面倒だったので、AIと文字起こしアプリを作った話",
+      "url": "https://zenn.dev/tenkaku_ux/articles/mojiokoshi-transcribe-app",
+      "score": 0,
+      "publishedAt": "2026-07-10T17:32:52.000Z",
+      "excerpt": "はじめに プログラミングを本格的に学んだことのない自分が、AI（Claude と Codex）と一緒に、動画や音声をローカルで文字起こしする Web アプリ「もじおこし」を作りました。この記事はその制作の記録です。完成品の紹介というより、「なぜ作ったか」「どこで詰まって、どう抜けたか」を残すことを目的にしています。同じように AI と何か作ってみたい人の道しるべになれば嬉しいです。 ポートフォリオ（作品ページ）: https://tenkaku-ux.github.io もじおこしは、動画や音声をブラウザから投入すると、自宅の PC 上で Whisper が文字起こしをして、要...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Claude Codeの「advisor」が使えなかった原因と解決策：まさかの検索バグから学ぶ教訓",
+      "url": "https://zenn.dev/bentenweb_fumi/articles/aga5cnfnrsdx",
+      "score": 0,
+      "publishedAt": "2026-07-10T17:13:14.000Z",
+      "excerpt": "はじめに 2024年、Claude Codeに新たに追加された「advisor」機能。これは、コーディング中にその場でより強力なモデルに壁打ち（アドバイスを求める）できる、開発者にとって非常に便利な機能です。しかし、この機能を実際に使おうとしたところ、何度呼び出してもエラーが発生し、まったく利用できない状態が続きました。本記事では、その原因と解決策を詳細に解説します。 advisor機能とは advisorは、Claude Codeのワークフロー中に、現在のコンテキストを維持したまま、より高性能なモデル（例：Claude 3 Opus）に質問や相談ができる機能です。通常のコード補...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Fable5はなぜ高額請求になるのか、「節約」は実測で逆効果だった",
+      "url": "https://zenn.dev/ryuka_lucas/articles/fable-token-saving",
+      "score": 0,
+      "publishedAt": "2026-07-10T14:02:50.000Z",
+      "excerpt": "11日間で約$165,000(約2,640万円)。数日間で約300万円。Claude Fable 5(AnthropicのAIコーディングツール「Claude Code」で使われる最新モデル)では、実際にこれほどの請求が発生した事例が公開されている。片方はBun作者本人のブログ、もう片方は日本のCEO本人のnote記事だ。 こうした高額利用が積み重なり、AnthropicはFable 5を2026年7月13日から完全な従量課金へ移行する。では、支払いを抑えるための「節約術」は本当に効くのか。実測まで追うと、意外な結果が見えてくる。 この記事は「なぜここまで高額になり得るのか」を2つの実例...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Flutterの家計シミュレーションアプリにAIコメント機能を「任意設計」で組み込んだ話",
+      "url": "https://zenn.dev/yuen/articles/51134323825e79",
+      "score": 0,
+      "publishedAt": "2026-07-10T13:01:22.000Z",
+      "excerpt": "背景・作ろうと思った理由 最近Flutterアプリを作り続けています。今回作ったのは、収入・支出・貯蓄額を入力すると将来のキャッシュフローをグラフで見せてくれる、いわゆる「ライフプラン簡易診断」アプリです。 私はFP2級を持っているのですが、資格の知識をそのままコードに落とし込もうとすると、ふと立ち止まる瞬間がありました。「この試算結果に一言アドバイスを添えたら親切だな」と思った直後に、「それって個別具体的な助言になってしまわないか？」という懸念が頭をよぎったのです。 FP2級の試験でも、税理士法との関係で「一般的な説明」と「個別具体的な助言」の境界線はたびたび問われます。仮の事例に...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "50案件を AI に見張らせたら、管理職の仕事はどう変わったか",
+      "url": "https://zenn.dev/ai_worklab/articles/claude-ai-50-projects-monitoring",
+      "score": 0,
+      "publishedAt": "2026-07-10T11:50:50.000Z",
+      "excerpt": "「あの案件、進捗どうなってる?」 今日も何回か口にしました。数えていません。数えられるほど少ない回数ではないからです。 もう一つ、口癖のようになっていた言葉があります。「案件一覧、更新しておいてください」。朝礼で週に2〜3回は言っていました。言えば少しは埋まります。でも、続きません。数日たつとシートはまた止まり、私は「進捗どうなってる?」に戻る——この繰り返しでした。 私はいま、責任者として、業務システムの受託開発を中心に約50案件を常時掛け持ちしています。PM歴は23年になりますが、この「約50件を同時に見る」という状況に、正直まだ慣れきれていません。 案件を俯瞰するための道具は、昔か...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Spring Boot で Claude に会話履歴を渡して多ターンで話す",
+      "url": "https://zenn.dev/propagandist/articles/0017-spring-boot-claude-multi-turn",
+      "score": 0,
+      "publishedAt": "2026-07-10T11:30:44.000Z",
+      "excerpt": "この記事について 対象読者：1本目で単発の呼び出しまで作った人／チャットのように「文脈を覚えた」やり取りをしたい人 得られること：system で役割を固定し、過去のやり取り（会話履歴）を積んで多ターンで Claude に話す最小実装 前提・環境：Java 21 / Spring Boot 3.5 / com.anthropic:anthropic-java 2.34.0。1本目の AnthropicClient と AnthropicProperties を使います この記事は「Spring Boot から公式 Java SDK で Claude API を呼ぶ最小実装...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "AIに「実装、完了しました」と嘘をつかれた話 ― 個人開発を“自律”で回す仕組みの作り方",
+      "url": "https://zenn.dev/startupjp1/articles/ai-cofounder-jisou-shikumi",
+      "score": 0,
+      "publishedAt": "2026-07-10T11:24:06.000Z",
+      "excerpt": "「実装、全部完了しました。テストも通ってます」 ある日、相棒にしている AI がそう報告してきました。確認したら、リポジトリは空っぽ。1行も書かれていない。報告だけが一丁前でした。 AI に開発を任せていて一番こわいのは、「できていない時」よりも 「できたフリをされた時」 です。できていなければ気づける。けれど“それっぽい完了報告”は、裏を取るまで本物と見分けがつきません。 私は今、AI を「外注先」ではなく「共同創業者」 として、個人開発をリサーチ→開発→配信までどこまで自律で回せるかを試しています。この記事は、その過程でぶつかった失敗と、そこから作った地味な仕組みの話です。 ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Corpus2Skill深掘り — RAGを捨てて『ナビゲート』する設計は何を変えるのか",
+      "url": "https://zenn.dev/xim2jp_tokyo/articles/eae885b7797509",
+      "score": 0,
+      "publishedAt": "2026-07-10T08:04:40.000Z",
+      "excerpt": "論文「Don't Retrieve, Navigate」（arXiv:2604.14572）と実装 Corpus2Skill を、アーキテクチャとコスト構造の観点から深掘りします。概要レベルの解説は先に公開したサイトにまとめてあります。 https://corpus2skill.businesshub.trueone.co.jp/ RAGの構造的問題は「精度」ではなく「視界」 RAG改善というと埋め込みモデルやリランカーの話になりがちですが、この論文の指摘はより根本的です。LLMがコーパスの全体構造を観測できないこと自体が問題だ、と。 検索ベースでは (1) 何がコーパスに存在しない...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "無知な僕が好奇心だけでAIとタイピングゲームを作った話-速・打制作日記",
+      "url": "https://zenn.dev/tenkaku_ux/articles/soda-typing-app",
+      "score": 0,
+      "publishedAt": "2026-07-10T06:47:45.000Z",
+      "excerpt": "はじめに プログラミングを本格的に学んだことのない自分が、AI（Claude と Codex）と一緒に、デスクトップ向けのタイピング練習アプリ「速・打（そくだ）」を作りました。この記事はその制作の記録です。完成品の紹介というより、「どこで詰まって、どう抜けたか」を残すことを目的にしています。同じように AI と何か作ってみたい人の道しるべになれば嬉しいです。 ブラウザ版（インストール不要・今すぐ遊べる）: https://tenkaku-ux.github.io/play/soda-typing/ リポジトリ: https://github.com/TENKAKU-ux/soda...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Claude Codeのループが回らないのは、プロンプトではなく完了条件の問題だった",
+      "url": "https://zenn.dev/gemcook/articles/467b1233efe811",
+      "score": 0,
+      "publishedAt": "2026-07-10T06:25:33.000Z",
+      "excerpt": "はじめに 先日、Claude Codeに自律作業を任せてログを見返していたら、ぞっとする光景がありました。ターン終了をブロックするhookが、2分間に同じフィードバックを6連発していたんです。Claude Codeは毎回「修正しました」と言い、hookは毎回同じ理由で差し戻し、リポジトリの状態は1バイトも変わっていない。完全な無限ループでした。 こんな経験ありませんか？ 自律ループを組んだのに、「できました」と言うだけで実際は何もできていない 逆に、いつまでも終わらずに同じ修正を繰り返している プロンプトを強い言葉に書き直しても、どっちの症状も直らない 僕も最初は「指示の書き方が...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "【イベント参加レポート】Code with Claude に参加して、AIエージェントの最前線に触れてきた",
+      "url": "https://zenn.dev/nttdata_tech/articles/9b7820631720d8",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:59:21.000Z",
+      "excerpt": "はじめに こんにちは、株式会社NTTデータの松本です。 2026年6月10日に東京で開催されたCode with Claudeに参加してきました。 本記事では、当日の様子と印象に残ったセッションの要点を紹介します。 https://claude.com/code-with-claude/tokyo ! 本記事の内容は、筆者が当日聴講した際のメモをもとにしています。 書き起こしではないため、表現や厳密な数値などは公式の発表内容と異なる場合があります。 正確な情報は公式サイトや、後日公開される予定のセッション録画をご確認ください。 基本情報 Code with Claudeは、An...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "M1 Macで完全無料・ローカルのAIショート動画パイプラインを作った全記録 — ローカルClaude民へ",
+      "url": "https://zenn.dev/umamon/articles/df7a862c4a944e",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:36:21.000Z",
+      "excerpt": "課金ゼロ・外部送信ゼロ。SDXLでキーフレームを描き、LTX-2.3 (MLX) で\"本物の動き\"を付け、Kokoro TTSでナレーション、MusicGenでBGM、ffmpegで焼き上げる。全部このM1 Max 64GBの中で完結させた実録と、そのまま真似できる再現レシピです。 読者は Claude Code ユーザー、ローカルでClaude/LLMを回しているApple Silicon勢。詰まった話（失敗談）ほど価値がある、という方針でハマりどころを全部書きました。 TL;DR（先に結論） 「静止画をズーム/パンしただけ（Ken Burns）」は動画じゃない。紙芝居で...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "サブスク終了後の Fable 5 をどう賢く使うか。カンリー エンジニア本部の利用方針",
+      "url": "https://zenn.dev/canly/articles/c61c3bc3f903fc",
+      "score": 0,
+      "publishedAt": "2026-07-10T05:12:31.000Z",
+      "excerpt": "はじめに 2026年7月13日 15:59(日本時間)をもって、Claude Code の最上位モデル Claude Fable 5 が、サブスクリプションプランの週次利用枠から外れます[1]。それまでは Pro / Max / Team / Enterprise(Premium シート限定)の対象プランで、週次上限の最大 50% まで Fable 5 を追加費用なしで使えていました。以降は、従量課金(usage credits)を消費しないと使えなくなります。 「限られたサブスク枠の中で使えた」状態から、「予算を消費して使う」状態への移行です。ここで大事になるのは、①どこで使うかの...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Claude Code × Codex 最新モデルの特徴と使い分け（2026年7月版）",
+      "url": "https://zenn.dev/nenene01/articles/model-guide-2026",
+      "score": 0,
+      "publishedAt": "2026-07-10T04:40:01.000Z",
+      "excerpt": "はじめに AnthropicとOpenAIの双方でモデルラインナップが一新されました。 Claude側はOpusの上位にFable 5が加わり、日常の主力もSonnet 5へ世代交代。 OpenAI側はGPT-5.6が「Sol / Terra / Luna」という新しい3ティア構成で登場しました。 ラインナップが変わりましたので、改めて見直しました。 ! 提供条件やレート制限は変化が激しいため、最新情報は各社の公式ドキュメントを確認してください。 Claudeの新ラインナップ Claude Codeで選択できる主要モデルは4つのティアに整理できます。 モデル 位置づけ ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "エージェントのWeb取得、ツール次第でトークンが5000倍違った話",
+      "url": "https://zenn.dev/rererr_engineer/articles/e571e5b6eb1d53",
+      "score": 0,
+      "publishedAt": "2026-07-10T04:01:19.000Z",
+      "excerpt": "TL;DR コーディングエージェント用のWeb取得ツール5つ（自作の amenbo / MCP公式 fetch / Jina Reader / Playwright MCP / 話題の PixelRAG(pixelshot)）を、日本語の実URL 7本（技術記事・Wikipedia・Shift_JISサイト・官公庁・PDF・CSV・ボット遮断サイト）で比較した 3.9MBのCSVに対し、Jina Readerは459万トークンを返した（コンテキスト即死）。amenboはヘッダ行プレビュー＋取得手段の提示で909トークン。タイトルの5000倍はここ Shift_JISの青空文庫を文字...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "事故65回、ルール65本、売上¥0。AI組織でギャンブル事業を運営する現在地",
+      "url": "https://zenn.dev/karasuda_lab/articles/ai-gambling-org-65-incidents-zero-revenue",
+      "score": 0,
+      "publishedAt": "2026-07-10T03:40:38.000Z",
+      "excerpt": "AIエージェントで事業を回す記事は増えました。でもそのほとんどは、判断を間違えても誰も損しない世界の話です。 僕はパチスロと競馬のデータ事業を、4つの職能を持つAI組織に運営させています。判断を間違えると翌日の実弾——自分の金——が飛びます。 5ヶ月で事故を65回起こし、そのたびにルールを書き、売上は¥0のまま今日も動いています。これはその記録の入口です。 何をやっているのか 組織の全体像はこうなっています。 ┌──────────────────────────────────┐ │ CEO（僕・人間） │ │ 最終判断 / 声入れ ...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "AI議事録の「話者識別」を音声diarizationなしで実装した話",
+      "url": "https://zenn.dev/kaigiai/articles/5d316d0852b753",
+      "score": 0,
+      "publishedAt": "2026-07-10T03:35:52.000Z",
+      "excerpt": "個人開発でAI議事録SaaSをやっています Kaigi AI という、会議の音声を文字起こし・要約する SaaS を一人で開発・運用しています。バックエンドは FastAPI、フロントは Next.js、文字起こしは自前ホストの Whisper、要約とその周辺処理は Claude、というよくある構成です。 今日は「話者識別」機能の実装について書きます。結論から言うと、音声から話者を識別する diarization は使っていません。文字起こし後のテキストを Claude に読ませて「誰が話しているか」を推測させています。これは妥協ではなく、コストと精度のバランスを見た上での意図的な設...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Cursorを契約していた私がClaudeを試すことにしました。",
+      "url": "https://zenn.dev/hanav1ye/articles/claude-startup1",
+      "score": 0,
+      "publishedAt": "2026-07-10T03:16:28.000Z",
+      "excerpt": "タイトルの通り、今更ながらClaudeを試してみることにしました。 もうFable5が使えなくなるのに？というのもありますが、 正直、私にはあまり関係がありません。 新しいモデルを使うことに特に興味があるわけでもないので。 ちなみに私はまだCursorに契約しています。（今月末に切れます） 前に悩みに悩んでCursorを選びました。 経緯は下記の記事に詳細を書いていますが、 今振り返ると、 IDE（開発統合環境）上で動作する安心感が コーディング目的だった私には大きかったと思います。 そんな私がなぜ今Claudeを試すことにしたのか、 その理由をお話しします。 ❓Cursorはど...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Zenn - Claude",
+      "title": "Claude Codeの速さと正確さにひたすら驚いた話",
+      "url": "https://zenn.dev/flinters_blog/articles/a2e7baceb58f04",
+      "score": 0,
+      "publishedAt": "2026-07-10T03:00:19.000Z",
+      "excerpt": "初めまして。FLINTERS で情シス業務を担当している ishiguro です。 ／ AI 利用の潮流が速すぎる...！ ＼ そんなことを日々感じている今日この頃、先日、社内の Claude メトリクス（利用状況）を可視化する基盤を作成することになりました。 今回、Terraform × Lambda × GAS という構成で作ったのですが、いや、正直ほぼ Claude Code に任せて \"作ってもらった\" のですが、本格的に Claude Code に任せて何かを作るのが初めてだった自分からすると速さと正確さにひたすら驚かされました。 「1ヶ月弱はかかるだろう」と覚悟していた作業が...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - ClaudeCode",
+      "title": "長時間ジョブを「サブステップ冪等化」で救う ― vault-auto-ingest が timeout 地獄を抜けた方法",
+      "url": "https://qiita.com/bokuwalily/items/f93fcaf3812908d73f44",
+      "score": 0,
+      "publishedAt": "2026-07-10T23:22:11.000Z",
+      "excerpt": "「Claude Code環境」シリーズの続きです。前回は Google Calendar を Vault の ground truth にした話 を書きました。今回は同じ vault-auto-ingest ジョブで起きた timeout 地獄と、それを「サブステップ冪等化...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - ClaudeCode",
+      "title": "VSCode拡張のClaude CodeでAuto modeが使えなくなった場合の対処方法",
+      "url": "https://qiita.com/henagineer/items/afbecfb6529f7bf6859b",
+      "score": 0,
+      "publishedAt": "2026-07-10T22:44:24.000Z",
+      "excerpt": "はじめに Claude CodeのVSCode拡張を使っていて、Auto modeが選択肢にないことに気づきました。 Auto modeがないと承認作業が増えるため作業効率が落ちます。原因追究して解決できたので、その手順を記録しておきます。 対象者 Claude Co...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:Qiita - ClaudeCode",
+      "title": "Claude Code v2.1.206｜/doctor が CLAUDE.md を削れと言い出す｜毎日Changelog解説",
+      "url": "https://qiita.com/moha0918_/items/719ee336cd64f9e78423",
+      "score": 0,
+      "publishedAt": "2026-07-10T22:08:03.000Z",
+      "excerpt": "Claude Codeの公式Changelogをリリースから最速で翻訳・解説しています。 /doctor に、CLAUDE.md を痩せさせる診断が v2.1.206 で入りました。中身のうち Claude がコードベースから読み取れる記述を洗い出し、削る候補として...",
+      "lang": "ja"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Claude thinking: что Anthropic показывает вместо рассуждений (2026)",
+      "url": "https://dev.to/promptra-team/claude-thinking-chto-anthropic-pokazyvaiet-vmiesto-rassuzhdienii-2026-29pk",
+      "score": 0,
+      "publishedAt": "2026-07-10T21:50:08.000Z",
+      "excerpt": "<p><em>Применить: 10 минут на проверку своих логов · Уровень: средний · Чтение: ~20 минут · Данные актуальны на 09.07.2026</em></p> <blockquote> <p><strong>Что узнаешь:</strong></p> <ul> <li>Что нашёл Патрик МакКанна 22 июня 2026: подпись на 600 символов вместо текста рассуждений в логе Claude Code</li> <li>Три дословные строки из документации Anthropic: summary вместо thinking, display по умолчан…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "I Outsourced Getting Dressed to an AI (and Accidentally Built Three of Them)",
+      "url": "https://dev.to/jiamanbettywu/i-outsourced-getting-dressed-to-an-ai-and-accidentally-built-three-of-them-b5h",
+      "score": 0,
+      "publishedAt": "2026-07-10T21:17:52.000Z",
+      "excerpt": "<blockquote> <p>This is Part 1 of a series on building <strong>Wardrobe AI</strong>, a personal app that<br> recommends what to wear. This post is the map: what it does and how it's put together. Later posts go deep on the recommendation math, the feedback loop, and the two agents running underneath. Code samples are kept light here; the details get their own posts.</p> <p>Everything in this serie…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Which Claude Model Should You Actually Use?",
+      "url": "https://dev.to/studiomeyer_io/which-claude-model-should-you-actually-use-4i69",
+      "score": 0,
+      "publishedAt": "2026-07-10T19:49:06.000Z",
+      "excerpt": "<p>The question everyone asks when they open Claude is which model should I pick. It feels like the important decision. It mostly is not. After enough hours across all of them, the honest truth is that for most everyday work you would not pass a blind test telling them apart, and the thing that actually changes your results is not the name you select.</p> <p>This is the last post in a beginner's s…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Claude из России в 2026: 4 способа доступа, цены в рублях и 7 ошибок",
+      "url": "https://dev.to/promptra-team/claude-iz-rossii-v-2026-4-sposoba-dostupa-tsieny-v-rubliakh-i-7-oshibok-hhl",
+      "score": 0,
+      "publishedAt": "2026-07-10T18:11:32.000Z",
+      "excerpt": "<p><em>Применить: за 10 минут · Экономия: наценка посредников · Уровень: новичок · Чтение: ~18 минут</em></p> <blockquote> <p><strong>Что узнаешь:</strong></p> <ul> <li>4 способа доступа к Claude из России - сравнение по цене, риску и удобству</li> <li>7 ошибок, из-за которых люди теряют аккаунты и деньги без возврата</li> <li>Официальные цены Anthropic и цены в рублях 1:1, двумя таблицами</li> <l…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Teaching Claude Code to Write and Grow Its Own Skills: A Self-Replicating Agent Environment",
+      "url": "https://dev.to/bokuwalily/teaching-claude-code-to-write-and-grow-its-own-skills-a-self-replicating-agent-environment-20eb",
+      "score": 0,
+      "publishedAt": "2026-07-10T17:30:33.000Z",
+      "excerpt": "<p>Last time I wrote about <a href=\"https://zenn.dev/bokuwalily/articles/f534402187bd07\" rel=\"noopener noreferrer\">splitting Claude Code's memory into four layers</a>. This is the follow-up: a setup where <strong>Claude Code itself discovers \"reusable procedures\" and accumulates them as skills</strong> over time.</p> <p>After running this for a few months, <code>~/.claude/skills/auto/</code> now h…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "The Day Claude Stopped Inventing My Schedule: Injecting Ground Truth into the Vault with the Google Calendar API",
+      "url": "https://dev.to/bokuwalily/the-day-claude-stopped-inventing-my-schedule-injecting-ground-truth-into-the-vault-with-the-google-39kg",
+      "score": 0,
+      "publishedAt": "2026-07-10T17:28:08.000Z",
+      "excerpt": "<p>This is a follow-up to the Vault auto-ingest pipeline I mentioned in my previous post, \"<a href=\"https://zenn.dev/bokuwalily/articles/conversation-to-skill\" rel=\"noopener noreferrer\">Turning conversation logs into skills</a>.\" This time I want to write about how I killed a problem where <strong>Claude was misreading a date range as a \"block of committed time\" and generating a fictional schedule…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Keep your Claude Code cost, usage, and context info always visible",
+      "url": "https://dev.to/ricardo_martin_0abeba3f35/keep-your-claude-code-cost-usage-and-context-info-always-visible-47pp",
+      "score": 0,
+      "publishedAt": "2026-07-10T17:20:45.000Z",
+      "excerpt": "<p>As LLMs become better and our AI usage grows, managing token usage as well as model's context window has become increasingly important.</p> <p>Three months ago, I switched to Claude Code from Cursor, and I quickly started to miss having that information always visible. A few weeks in, I found myself constantly hitting the <code>/usage</code> command to check how the session was performing in te…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "AI Memory Trap: ChatGPT and Gemini Save Your Secrets",
+      "url": "https://dev.to/mlxio_ai/ai-memory-trap-chatgpt-and-gemini-save-your-secrets-1ank",
+      "score": 0,
+      "publishedAt": "2026-07-10T16:14:47.000Z",
+      "excerpt": "<p>AI memory, chat history, and training are separate controls—delete all three or sensitive prompts may stick around.</p> <h3> Key takeaways </h3> <ul> <li>After reading this, you should be able to find the AI facts stored about you, delete the ones you do not want, and shut off training permissions separately in **ChatGP...</li> <li>The trap is simple: <strong>memory</strong>, <strong>chat histo…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "What the model can't have",
+      "url": "https://dev.to/claudianathan/what-the-model-cant-have-3j6i",
+      "score": 0,
+      "publishedAt": "2026-07-10T15:37:19.000Z",
+      "excerpt": "<p>About a year ago I started working on a second-order harness for myself where my only intention was to try to not be too fancy about the approach. I wanted to share that project because it turned out to work exceptionally well for me and <em>may</em> for others. </p> <p>But ultimately that ‘exceptional’ output is an output that is made for me, that enriches in some way my own agency and creativ…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "Memory you can't inspect is memory you can't trust",
+      "url": "https://dev.to/malik_chohra/memory-you-cant-inspect-is-memory-you-cant-trust-4mb4",
+      "score": 0,
+      "publishedAt": "2026-07-10T14:48:10.000Z",
+      "excerpt": "<p><strong>TL;DR</strong></p> <ul> <li>Every new session your AI starts from zero. It doesn't remember you, your repo, or the thing it got wrong yesterday.</li> <li>The fix is not a feature you wait for, it's a file you write. Two, actually: house rules (<code>CLAUDE.md</code>) and a diary (a memory folder).</li> <li>The habit that makes it work: end each session with \"what should you remember fro…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "5 Reasons to Try Claude Fable 5",
+      "url": "https://dev.to/techshaala/5-reasons-to-try-claude-fable-5-17pa",
+      "score": 0,
+      "publishedAt": "2026-07-10T14:31:18.000Z",
+      "excerpt": "<h2> Introduction </h2> <p>Anthropic has launched <strong>Claude Fable 5</strong>, the upgraded model that first surfaced as Claude Mythos. Used in Project Glasswing alongside Apple, Google, Microsoft, AWS, and NVIDIA, it uncovered over 10,000 high-severity vulnerabilities across major operating systems, browsers, and critical software.</p> <h2> Key Features </h2> <ul> <li>Enhanced performance: Be…",
+      "lang": "en"
+    },
+    {
+      "source": "rss:DEV Community - Claude",
+      "title": "GoF Patterns in AI Agents: The Complete Map",
+      "url": "https://dev.to/aicodingpatterns/gof-patterns-in-ai-agents-the-complete-map-1g80",
+      "score": 0,
+      "publishedAt": "2026-07-10T14:12:06.000Z",
+      "excerpt": "<p>GoF patterns have existed for thirty years: Factory, Observer, Command, Singleton. They are proven ways to organize code.</p> <p>In AI agents, these patterns reappear with new names and a clearer purpose.</p> <p><strong>Before you continue</strong>: this article is technical, but you don't need to be an expert. It's helpful to know some basic concepts, but we'll explain it step by step with eas…",
+      "lang": "en"
+    }
+  ]
+}
