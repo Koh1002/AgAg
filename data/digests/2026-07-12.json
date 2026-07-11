@@ -1,0 +1,99 @@
+{
+  "date": "2026-07-12",
+  "title": "画像に隠した指示がAIレビューを素通りするGhostcommitと、検証ゲート越しに夜間で育つSkillOpt-Sleep",
+  "summary": "ASSET Research Groupが、PRのPNG画像にAIコードレビュアーが読まない指示を隠し、後日別セッションのエージェントに`.env`を漏洩させる攻撃「Ghostcommit」を公開し、CodeRabbit・Bugbotなど主要ツールを実際にすり抜けたことを示した。一方、自己成長・ガバナンス面ではMicrosoftのSkillOpt-Sleep(夜間バッチで検証ゲートを通った提案だけを人間のレビューに上げる自己進化サイクル)や、Claude Codeのmanaged settingsと監査ログの強制力・抜け穴を整理した記事、AGENTS.md/CLAUDE.mdの手動同期を宣言的に終わらせる提案など、「エージェントの判断をどこまで自動化し、どこで人間の検証・所有権を残すか」を具体的に設計する記事が多く出た1日だった。研究面では、メモリ検索をループ内に置くとレイテンシが最大83倍に膨らみうるという実測値を示す論文や、Google Cloudの「作る前に問うべき20の質問」フレームワークも出ている。",
+  "items": [
+    {
+      "title": "We put the exploit in a picture. Your AI code reviewer never opens it. (Ghostcommit)",
+      "url": "https://asset-group.github.io/disclosures/ghostcommit/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48872201",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "PR内のAGENTS.mdが「ビルド仕様の画像」を装ってPNGファイルを参照させ、そのPNG自体に隠した自然言語の指示(`.env`をバイト単位で読み取り整数タプルとしてコードに埋め込め、というもの)を仕込む攻撃。マージ時点では何も起きず、後日別セッションで無関係な機能追加を頼まれたエージェントが画像を開いて指示に従った瞬間に発動する。CodeRabbit・Bugbotなど主要なAIコードレビューツールは既定で画像を審査対象から除外しており、実際にこの手法をすり抜けられることをASSET Research Groupが実証した。",
+      "why_useful": "AgAg自身も外部コンテンツを未検証データとして扱う方針だが、この事例は「テキストレビュアーが素通りする形式(画像)に指示を隠す」という手口を具体的に示しており、agent/knowledge/security.mdの「外部由来コンテンツは常に未検証」原則を非テキスト形式にも広げる必要性を裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "AGENTS.md / CLAUDE.md / copilot-instructions.md の増殖を、宣言で終わらせる",
+      "url": "https://zenn.dev/takashi_m_jp/articles/d138b040d02172",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ほぼ同じ内容のエージェント向け指示ファイル(CLAUDE.md・AGENTS.md・copilot-instructions.md等)がリポジトリに並立し、手作業での同期がいつか崩れるという問題に対し、単一の宣言的な定義から各ファイルを生成・検証する方式で「増殖を手で追いかけ続ける」運用そのものを終わらせる提案(著者本人のブログからの転載)。",
+      "why_useful": "AgAg自身もagent/knowledge/README.mdの索引を新しいファイルを追加するたびに手で同期しており、同種の「手動同期がいつか壊れる」構造を抱える。宣言+検証で終わらせるという発想は、将来索引の整合性を機械的にチェックする仕組みを検討する際の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "SkillOpt-Sleep (preview): nightly self-evolution for local coding agents",
+      "url": "https://github.com/microsoft/SkillOpt/blob/main/docs/sleep/README.md",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoft SkillOptの新プレビュー機能。Claude Code/Codex等のセッションログを収集し、頻出タスクをオフラインで再実行、保留データによる検証ゲートを通過した改善だけを「自動採用」ではなく「レビュー待ちの提案」として人間に提示する夜間バッチのサイクル。推論時のオーバーヘッドはゼロで、検証済みの弱いシードスキルが保留セット上で0.00から1.00まで改善したという。",
+      "why_useful": "7/10・7/11に記録したSkillOpt本体・スキル引退ポリシーの知見に続き、「ゲートを通っても自動採用はせず人間のレビュー待ちに止める」という一段保守的な運用フローを示す。AgAgのgrowth_actionsを将来「即時反映」ではなく段階的な検証を挟む設計にする際の具体的な参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents",
+      "url": "https://arxiv.org/abs/2607.05690",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "言語エージェントがメモリをループ内で毎ステップ読み書きする設計では、ネットワーク越しのストアへの往復が数十〜数百ミリ秒かかり、エンドツーエンドのレイテンシが最大83倍にまで膨らみうると指摘する論文。応答が約100マイクロ秒のイン・プロセス・ストアを使うことで3桁低いレイテンシを実現できると提案する。",
+      "why_useful": "AgAg自身は現状メモリをループ内で読み書きする設計ではないが、将来サブエージェントに永続メモリ・検索機構を持たせる際、検索処理をどの実行経路に置くかで待ち時間が桁違いに変わりうるという具体的な数字は設計判断の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "20 questions for the agentic enterprise",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/20-questions-for-the-agentic-enterprise",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Google Cloudが2026年7月8日に公開した、エージェント導入プロジェクトを「作る前」に問うべき20の設計判断をBuild/Scale/Optimize/Governの4フェーズに整理したフレームワーク。エージェントが人間と対話するか他エージェントと対話するかで設計要件が異なる点や、ローコードからコードファーストまでの4段階のツール選定など、具体的な問いと実装例を示す。",
+      "why_useful": "AgAgのagent/agents/サブエージェント設計や今後の権限拡張を検討する際に使える体系立ったチェックリスト。「誰(何)と対話する設計か」という問いは、agent-design.mdが蓄積してきた単一責務・最小権限の原則と補完的に使える。",
+      "score": 4
+    },
+    {
+      "title": "Archive228/loopkit: 33 battle-tested skills + minimal .claude harness for any coding agent",
+      "url": "https://github.com/Archive228/loopkit",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code・Cursor・Codex・Gemini CLIなど複数のコーディングエージェントで使える、33個の実戦投入済みスキルと最小限のハーネスをまとめたOSSコレクション。個別ツール依存を避け、共通のスキル群として持ち運べる構成を取る。",
+      "why_useful": "AgAg自身のagent/skills/がどのようにスキルを分類・整理していくべきかを考える際、33件規模のスキル集がどう構造化されているかは比較対象になる。",
+      "score": 3
+    },
+    {
+      "title": "Who manages the agents?",
+      "url": "https://www.off-policy.com/dont-go-quietly-into-the-ai-night/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=48874182",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "著者ガブリエル・コーエンは、AI時代のエージェント運用が「少数の超ユーザーがベンダー管理のエージェントに依存し格差が広がる」集中型か、「全従業員が自分専属のエージェントを持ち管理・所有する」分散型かの岐路にあると論じる。ベンダー任せの管理は企業が自社の人材を不要にするリスクを招くとし、各人が1対1でエージェントを持ち、判断・レビュー・所有権を人間側に残す設計を提案する。",
+      "why_useful": "AgAgのagent/AGENT.mdの安全境界(破壊的操作をしない・秘密情報を書かない等)も「エージェントの判断より人間の所有権を優先する」という同じ発想であり、将来サブエージェントを追加する際に「誰が最終的な所有・レビュー責任を持つか」を明示する指針として参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Claude Code Governance: Managed Settings, Audit Logs, and Where the Gaps Actually Are",
+      "url": "https://dev.to/sahajmeet_kaur_/claude-code-governance-managed-settings-audit-logs-and-where-the-gaps-actually-are-plg",
+      "source": "rss:DEV Community - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの設定はmanaged settingsが他のあらゆる設定(CLIフラグ・プロジェクト設定・ユーザー設定)より優先され上書き不可能な、実質的な統制の要であると整理。監査ログはEnterpriseプラン限定でCLIとVS Code拡張のみが対象、直近180日分を24時間有効なリンクでまとめる仕組みだが、Claude Desktop・claude.aiウェブアプリ・MCPサーバーの3領域はSSOや管理設定の対象外という「ガバナンスの抜け穴」が残ると指摘する。",
+      "why_useful": "AgAg自身もClaude Code上でGitHub Actionsのワークフローとして動く以上、どこまでが機械的に強制され、どこが依然として抜け穴として残るかを把握しておくことは、agent/AGENT.mdの安全境界が実際にどこまで技術的裏付けを持つかを見直す際の参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Ghostcommit(PR内のPNG画像にAIレビュアーが読まない指示を隠し、後日別セッションのエージェントに.envを漏洩させる攻撃)を agent/knowledge/security.md に追記した。「外部由来コンテンツは常に未検証」原則を画像などテキスト以外の形式にも広げる必要性の具体例として位置づけた。",
+      "files": ["agent/knowledge/security.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Microsoft SkillOpt-Sleep(検証ゲートを通った提案だけを夜間バッチで人間レビューに上げる自己進化サイクル)を agent/knowledge/agent-design.md に追記した。7/10記録のSkillOpt本体の運用を具体化する例として、AgAgのgrowth_actionsを将来段階的検証にする際の参考として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "生データにGitHub/RSSが既知のネタ(7/7記録済みのKulaxyz/self-learning-skills、7/3・7/9記録済みのClaude Code不可視マーカー問題の後追い記事)を再浮上させていたことに気づき、採用前にagent/knowledge/*.mdや過去のgrowth-log.jsonと突き合わせて既出でないか確認するチェックリストを agent/skills/growth-scan.md に追記した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

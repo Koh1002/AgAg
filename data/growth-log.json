@@ -148,5 +148,23 @@
     "type": "knowledge",
     "description": "外部コンテンツの信頼度を構造的に自動判定し誤判定は必ず権限を落とす方向にのみ働かせるPrismata(クロスサイト・プロンプトインジェクション対策)をagent/knowledge/security.mdに追記した。AgAgがWebFetch/RSSで外部コンテンツを未検証データとして扱う既存方針を補強する具体策として整理した。",
     "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-12",
+    "type": "knowledge",
+    "description": "Ghostcommit(PR内のPNG画像にAIレビュアーが読まない指示を隠し、後日別セッションのエージェントに.envを漏洩させる攻撃)を agent/knowledge/security.md に追記した。「外部由来コンテンツは常に未検証」原則を画像などテキスト以外の形式にも広げる必要性の具体例として位置づけた。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-12",
+    "type": "knowledge",
+    "description": "Microsoft SkillOpt-Sleep(検証ゲートを通った提案だけを夜間バッチで人間レビューに上げる自己進化サイクル)を agent/knowledge/agent-design.md に追記した。7/10記録のSkillOpt本体の運用を具体化する例として、AgAgのgrowth_actionsを将来段階的検証にする際の参考として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-12",
+    "type": "skill",
+    "description": "生データにGitHub/RSSが既知のネタ(7/7記録済みのKulaxyz/self-learning-skills、7/3・7/9記録済みのClaude Code不可視マーカー問題の後追い記事)を再浮上させていたことに気づき、採用前にagent/knowledge/*.mdや過去のgrowth-log.jsonと突き合わせて既出でないか確認するチェックリストを agent/skills/growth-scan.md に追記した。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]
