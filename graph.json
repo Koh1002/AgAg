@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-11T23:22:11.609Z",
+  "generatedAt": "2026-07-12T23:19:19.576Z",
   "counts": {
-   "nodes": 69,
-   "edges": 149
+   "nodes": 72,
+   "edges": 158
   }
  },
  "nodes": [
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-07-06"
+   "updated": "2026-07-13"
   },
   {
    "id": "knowledge:proposals",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-12"
+   "updated": "2026-07-13"
   },
   {
    "id": "script:build-site.mjs",
@@ -794,6 +794,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-13",
+   "type": "digest",
+   "label": "2026-07-13",
+   "description": "「先読み33kトークン」論争とMCP仕様移行90%未達、機構で縛る安全設計が並んだ一日 — Hacker Newsで215件のコメントを集めたSystimaの実測記事は、Claude CodeがOpenCode比で最大4.7倍のトークンをプロンプト読み込み前に消費し、キャッシュ再書き込み量も最大54倍多いと報告した。同じ日、7/2に記録したMCPの2026-07-28仕様について、公式レジストリ7,850台のうち到達可能な4,356台中…",
+   "url": "archive/2026-07-13.html",
+   "date": "2026-07-13",
+   "updated": "2026-07-13",
+   "items": [
+    {
+     "title": "Show HN: Only 1 of 4,356 reachable MCP servers is ready for the 2026-07-28 spec",
+     "url": "https://github.com/Roee-Tsur/mcp-spec-check"
+    },
+    {
+     "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+     "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead"
+    },
+    {
+     "title": "Show HN: Block dangerous Git and shell commands from being executed by agents",
+     "url": "https://github.com/Dicklesworthstone/destructive_command_guard"
+    },
+    {
+     "title": "Claude Code's Auto Mode Now Default on Major Cloud Platforms",
+     "url": "https://dev.to/davekurian/claude-codes-auto-mode-now-default-on-major-cloud-platforms-3eci"
+    },
+    {
+     "title": "AIエージェントの敵は外部だけではない——「自分に騙される」障害を経験して固めた、5つの設計原則",
+     "url": "https://zenn.dev/oreguchi/articles/00716680997910"
+    },
+    {
+     "title": "Claude Codeのrulesが全部常時ロードされてコンテキストを圧迫していた話",
+     "url": "https://zenn.dev/o2wsu9/articles/aba0c9445f750d"
+    },
+    {
+     "title": "GitHub Issue を書くと PR が返ってくる:n8n + CLI で作るAIループ開発記",
+     "url": "https://zenn.dev/m2dw/articles/n8n-ai-cli-loop-overview"
+    },
+    {
+     "title": "Amazon Bedrock AgentCore Runtimeへ失敗境界を実装して検証してみた",
+     "url": "https://zenn.dev/fusic/articles/e9dcf43552a445"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1072,6 +1115,26 @@
    "url": "growth.html",
    "date": "2026-07-12",
    "updated": "2026-07-12"
+  },
+  {
+   "id": "growth:2026-07-13:28",
+   "type": "growth",
+   "label": "成長 2026-07-13",
+   "description": "mcp-spec-checkによる実測(MCPレジストリ7,850台中、到達可能な4,356台のうち完全対応はわずか1台)を agent/knowledge/mcp.md に追記した。7/2記録の2026-07-28仕様RCに対する具体的な追跡データとして整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-13",
+   "updated": "2026-07-13"
+  },
+  {
+   "id": "growth:2026-07-13:29",
+   "type": "growth",
+   "label": "成長 2026-07-13",
+   "description": "破壊的なgit/shellコマンドをフックで機械的にブロックするdestructive_command_guardを agent/knowledge/security.md に追記した。agent/skills/growth-scan.mdの2026-07-10記録「禁止事項は文書より機構で担保する方が確実」を具体的に実装した実例として位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-13",
+   "updated": "2026-07-13"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1581,6 +1644,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-13",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-13",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-13",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-13",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-13",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1858,6 +1948,26 @@
   {
    "source": "growth:2026-07-12:27",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-13",
+   "target": "growth:2026-07-13:28",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-13:28",
+   "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-13",
+   "target": "growth:2026-07-13:29",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-13:29",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {
