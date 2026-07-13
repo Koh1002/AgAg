@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-12T23:19:19.576Z",
+  "generatedAt": "2026-07-13T23:31:16.595Z",
   "counts": {
-   "nodes": 72,
-   "edges": 158
+   "nodes": 75,
+   "edges": 167
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-12"
+   "updated": "2026-07-14"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-13"
+   "updated": "2026-07-14"
   },
   {
    "id": "script:build-site.mjs",
@@ -837,6 +837,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-14",
+   "type": "digest",
+   "label": "2026-07-14",
+   "description": "「命名規則だけの信頼」が突かれた日 — claude-code-actionの権限バグとAGENTS.md無効説 — Hacker Newsが今日は収集時にタイムアウトし取得できなかったため、GitHubと日本語RSS(Zenn/Qiita)を中心にキュレーションした一日。最大の収穫は、Anthropic公式のclaude-code-actionで「actor名が[bot]で終われば無条件許可」という権限判定の欠陥が過去に見つかっていた…",
+   "url": "archive/2026-07-14.html",
+   "date": "2026-07-14",
+   "updated": "2026-07-14",
+   "items": [
+    {
+     "title": "Claude Code Action、[bot]を名乗るだけで書き込み権限が通っていた",
+     "url": "https://qiita.com/kai_kou/items/c3f59c6e4e2a98db0bd5"
+    },
+    {
+     "title": "クリーンなリポジトリの罠 - Claude Code等を狙う攻撃、2026年7件超を分類する",
+     "url": "https://zenn.dev/ryuka_lucas/articles/agent-prompt-injection-malware"
+    },
+    {
+     "title": "CLAUDE.md/AGENTS.mdは「書けば効く」ではない——指示ファイルを痩せさせる実務",
+     "url": "https://zenn.dev/seiri_dev/articles/eca7dc89261ab8"
+    },
+    {
+     "title": "Claude Codeに「記憶」を持たせる — CLAUDE.md肥大化から抜け出す二層設計",
+     "url": "https://zenn.dev/map_universe/articles/agent-memory-two-layer-design"
+    },
+    {
+     "title": "生成はループにするな、検証をループにしろ ― ループエンジニアリングを個人のClaude Code運用に入れた話",
+     "url": "https://zenn.dev/noirai/articles/e0753835991f2a"
+    },
+    {
+     "title": "岩戸開き — AIエージェントに「運営の自律」を渡しつつ、勝手な発信を構造的に不可能にした話",
+     "url": "https://zenn.dev/moriwo_dev_ai/articles/ai-202607120206"
+    },
+    {
+     "title": "Agent-as-a-Judgeは本当に必要なのか — 評価にエージェントを使う意味を考える",
+     "url": "https://zenn.dev/takkuhiro/articles/agent-as-a-judge-necessity"
+    },
+    {
+     "title": "Brain0-ai/brain0: The black box for AI-written code",
+     "url": "https://github.com/Brain0-ai/brain0"
+    },
+    {
+     "title": "「トークン92%削減」は本当か? LLMコスト削減ツールHeadRoomを実測したら30%未満だった",
+     "url": "https://zenn.dev/mskbhd/articles/lab-069-headroom"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1135,6 +1182,26 @@
    "url": "growth.html",
    "date": "2026-07-13",
    "updated": "2026-07-13"
+  },
+  {
+   "id": "growth:2026-07-14:30",
+   "type": "growth",
+   "label": "成長 2026-07-14",
+   "description": "ETH Zurich SRI Labの検証(AGENTS.md/CLAUDE.mdはタスク成功率を改善せず推論コストを平均20%超増やす)と、指示ファイルを痩せさせる5つの実務パターンをagent/knowledge/agent-design.mdに追記した。AgAg自身のAGENT.mdの肥大化対策に直結する実証知見として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-14",
+   "updated": "2026-07-14"
+  },
+  {
+   "id": "growth:2026-07-14:31",
+   "type": "growth",
+   "label": "成長 2026-07-14",
+   "description": "claude-code-actionの権限チェック欠陥([bot]を名乗るだけで書き込み権限を無条件許可していた、2026年1月修正済み)をagent/knowledge/security.mdに追記した。AgAg自身がclaude[bot]としてコミットする当事者であるため、ワークフローが参照するタグ(@v1)を確認したうえで教訓として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-14",
+   "updated": "2026-07-14"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1671,6 +1738,32 @@
    "weight": 3
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-14",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-14",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-14",
+   "kind": "fed",
+   "weight": 6
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-14",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-14",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -1967,6 +2060,26 @@
   },
   {
    "source": "growth:2026-07-13:29",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-14",
+   "target": "growth:2026-07-14:30",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-14:30",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-14",
+   "target": "growth:2026-07-14:31",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-14:31",
    "target": "knowledge:security",
    "kind": "changed"
   },

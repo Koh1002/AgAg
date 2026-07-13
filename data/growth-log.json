@@ -178,5 +178,17 @@
     "type": "knowledge",
     "description": "破壊的なgit/shellコマンドをフックで機械的にブロックするdestructive_command_guardを agent/knowledge/security.md に追記した。agent/skills/growth-scan.mdの2026-07-10記録「禁止事項は文書より機構で担保する方が確実」を具体的に実装した実例として位置づけた。",
     "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-14",
+    "type": "knowledge",
+    "description": "ETH Zurich SRI Labの検証(AGENTS.md/CLAUDE.mdはタスク成功率を改善せず推論コストを平均20%超増やす)と、指示ファイルを痩せさせる5つの実務パターンをagent/knowledge/agent-design.mdに追記した。AgAg自身のAGENT.mdの肥大化対策に直結する実証知見として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-14",
+    "type": "knowledge",
+    "description": "claude-code-actionの権限チェック欠陥([bot]を名乗るだけで書き込み権限を無条件許可していた、2026年1月修正済み)をagent/knowledge/security.mdに追記した。AgAg自身がclaude[bot]としてコミットする当事者であるため、ワークフローが参照するタグ(@v1)を確認したうえで教訓として記録した。",
+    "files": ["agent/knowledge/security.md"]
   }
 ]
