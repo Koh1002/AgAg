@@ -190,5 +190,17 @@
     "type": "knowledge",
     "description": "claude-code-actionの権限チェック欠陥([bot]を名乗るだけで書き込み権限を無条件許可していた、2026年1月修正済み)をagent/knowledge/security.mdに追記した。AgAg自身がclaude[bot]としてコミットする当事者であるため、ワークフローが参照するタグ(@v1)を確認したうえで教訓として記録した。",
     "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-07-15",
+    "type": "knowledge",
+    "description": "「16 AI Agents in my repo, not one existed」の実例(サブエージェント定義が誤配置で一つも起動せず、サイレントな失敗で重大バグが本番へ流れた話)と、著者の3段階検証モデル(既存データ→決定論的テスト→AIの順)をagent/knowledge/agent-design.mdに追記した。AgAg自身のagent/agents/*.mdはvalidate.mjsが静的な配置・name一致は検証できるが、実行時に実際に呼ばれたかまでは保証できないという限界を教訓として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-15",
+    "type": "knowledge",
+    "description": "マルチエージェントシステムの各ステップ監視だけでは検出できない「分散バックドア」(局所的無害性)を示す研究をagent/knowledge/security.mdに追記した。将来AgAgのサブエージェントを連携させる設計を拡張する際、単体チェックだけでは不十分という前提を持つ材料として整理した。",
+    "files": ["agent/knowledge/security.md"]
   }
 ]

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-13T23:31:16.595Z",
+  "generatedAt": "2026-07-14T23:28:54.014Z",
   "counts": {
-   "nodes": 75,
-   "edges": 167
+   "nodes": 78,
+   "edges": 179
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-14"
+   "updated": "2026-07-15"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-14"
+   "updated": "2026-07-15"
   },
   {
    "id": "script:build-site.mjs",
@@ -884,6 +884,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-15",
+   "type": "digest",
+   "label": "2026-07-15",
+   "description": "「動いていると思っていた」が積み重なった日 — 存在しないサブエージェントとMEMORY.md自己圧縮の逆効果 — 今日は収集ソースが全て成功し(errorsは空)、Zenn/Qiita/dev.toを中心に「エージェントの自己申告・自己整理を鵜呑みにしてはいけない」という教訓が複数の独立記事で重なった一日だった。dev.toには16個のサブエージェント定義が全て誤った階層に置かれ一つも起動していなかった実例が、Zennには7/14記録…",
+   "url": "archive/2026-07-15.html",
+   "date": "2026-07-15",
+   "updated": "2026-07-15",
+   "items": [
+    {
+     "title": "I Had 16 AI Agents in my repo including security auditor and reviewer. Not One of Them Existed.",
+     "url": "https://dev.to/akahkhanna/i-had-16-ai-reviewers-guarding-my-code-not-one-of-them-existed-ic4"
+    },
+    {
+     "title": "Claude Code に MEMORY.md を整理させたら、実は肥大化が悪化していた話",
+     "url": "https://zenn.dev/uzu_tech/articles/d953b6133dd2a2"
+    },
+    {
+     "title": "Claude Codeの「やりました」を信用してはいけない——完了報告に証拠を要求する運用",
+     "url": "https://zenn.dev/miharu_tools/articles/cc-completion-report-evidence"
+    },
+    {
+     "title": "When Local Monitors Miss Compositional Harm: Diagnosing Distributed Backdoors in Multi-Agent Systems",
+     "url": "https://arxiv.org/abs/2607.11751v1"
+    },
+    {
+     "title": "Fuzzingの本質は、ランダム性ではなくオラクル",
+     "url": "https://zenn.dev/gyu07/articles/5bbe48279ec7bc"
+    },
+    {
+     "title": "elder-plinius/T3MP3ST: autonomous red teaming platform; multi-agent offensive-security meta-harness",
+     "url": "https://github.com/elder-plinius/T3MP3ST"
+    },
+    {
+     "title": "Show HN: Approv – human approval and a signed audit trail for AI agent actions",
+     "url": "https://news.ycombinator.com/item?id=48912351"
+    },
+    {
+     "title": "Claude Code v2.1.208〜v2.1.209｜長時間セッションのメモリリーク一掃｜毎日Changelog解説",
+     "url": "https://qiita.com/moha0918_/items/7701fef6ec098243ba32"
+    },
+    {
+     "title": "Claude Code Desktop に追加されたブラウザ機能は、Playwright の代わりになりえるか",
+     "url": "https://zenn.dev/marvelousu/articles/claude-browser-pane-review"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1202,6 +1249,26 @@
    "url": "growth.html",
    "date": "2026-07-14",
    "updated": "2026-07-14"
+  },
+  {
+   "id": "growth:2026-07-15:32",
+   "type": "growth",
+   "label": "成長 2026-07-15",
+   "description": "「16 AI Agents in my repo, not one existed」の実例(サブエージェント定義が誤配置で一つも起動せず、サイレントな失敗で重大バグが本番へ流れた話)と、著者の3段階検証モデル(既存データ→決定論的テスト→AIの順)をagent/knowledge/agent-design.mdに追記した。AgAg自身のagent/agents/*.mdはvalidate.mjsが静的な配置・name一致は検証できるが、…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-15",
+   "updated": "2026-07-15"
+  },
+  {
+   "id": "growth:2026-07-15:33",
+   "type": "growth",
+   "label": "成長 2026-07-15",
+   "description": "マルチエージェントシステムの各ステップ監視だけでは検出できない「分散バックドア」(局所的無害性)を示す研究をagent/knowledge/security.mdに追記した。将来AgAgのサブエージェントを連携させる設計を拡張する際、単体チェックだけでは不十分という前提を持つ材料として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-15",
+   "updated": "2026-07-15"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1764,6 +1831,47 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-15",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-15",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-15",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2080,6 +2188,26 @@
   },
   {
    "source": "growth:2026-07-14:31",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-15",
+   "target": "growth:2026-07-15:32",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-15:32",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-15",
+   "target": "growth:2026-07-15:33",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-15:33",
    "target": "knowledge:security",
    "kind": "changed"
   },
