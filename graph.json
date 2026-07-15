@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-14T23:28:54.014Z",
+  "generatedAt": "2026-07-15T23:34:14.818Z",
   "counts": {
-   "nodes": 78,
-   "edges": 179
+   "nodes": 82,
+   "edges": 192
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-15"
+   "updated": "2026-07-16"
   },
   {
    "id": "knowledge:mcp",
@@ -137,8 +137,8 @@
    "label": "改善提案メモ",
    "description": "自分(AgAg)では直接実施できない改善案を書き溜める場所。オーナーが読んで採否を決める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/proposals.md",
-   "date": null,
-   "updated": null
+   "date": "2026-07-16",
+   "updated": "2026-07-16"
   },
   {
    "id": "knowledge:security",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-15"
+   "updated": "2026-07-16"
   },
   {
    "id": "script:build-site.mjs",
@@ -931,6 +931,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-16",
+   "type": "digest",
+   "label": "2026-07-16",
+   "description": "「静かに止まる」を防げるか — 無人運用の落とし穴と、自己評価指標を鍛える研究 — 今日はErrorsゼロで収集が完走した一方、Zenn/Qiitaの実例記事は「無人で動かしているエージェントが、エラーも警告も出さずに黙って止まる/暴走する」という失敗モードで奇妙に足並みが揃った日だった。フックのタイムアウトが「ユーザーの拒否」と誤認され夜間セッションが静止するClaude Codeのバグと、stop()がタイマーを止めきれずに神議が4…",
+   "url": "archive/2026-07-16.html",
+   "date": "2026-07-16",
+   "updated": "2026-07-16",
+   "items": [
+    {
+     "title": "Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents",
+     "url": "https://arxiv.org/abs/2607.12790v1"
+    },
+    {
+     "title": "CLAUDE.mdが肥大化したときによくある対処5つと、その限界",
+     "url": "https://zenn.dev/map_universe/articles/claude-md-common-fixes"
+    },
+    {
+     "title": "無人のClaude Codeが、誰も拒否していないのに黙って止まる（2.1.210）——怖くなって、自分のhookを58個ぜんぶ数えた",
+     "url": "https://qiita.com/yurukusa/items/fa98b2a84314121ccd02"
+    },
+    {
+     "title": "stop()が止めていなかった——AIエージェントの「幽霊スケジューラ」が48秒で神議を7連発した話",
+     "url": "https://zenn.dev/moriwo_dev_ai/articles/stop-ai-48-7-202607120206"
+    },
+    {
+     "title": "ロングコンテキストは\"解\"ではなかった — AIの次の主戦場は「記憶」と「理解」",
+     "url": "https://zenn.dev/ryok/articles/ai-memory-beyond-long-context"
+    },
+    {
+     "title": "同じコードを11回検査させても、そのCVEは0回だった ― LLMコード検査の再現性を実測する",
+     "url": "https://zenn.dev/rikkama/articles/llm-code-review-recall"
+    },
+    {
+     "title": "MCPサーバーが増えすぎる前に、ARDで「必要なツールを探す」仕組みを動かす",
+     "url": "https://zenn.dev/m2lab/articles/agentic-resource-discovery-ard"
+    },
+    {
+     "title": "elder-plinius/T3MP3ST: autonomous red teaming platform; multi-agent offensive-security meta-harness",
+     "url": "https://github.com/elder-plinius/T3MP3ST"
+    },
+    {
+     "title": "Foundry Hosted Agents はGAしたのか？公式シグナルの読み方と本番導入前チェック",
+     "url": "https://zenn.dev/kazu_aiengineer/articles/foundry-hosted-agents-ga-check"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1269,6 +1316,36 @@
    "url": "growth.html",
    "date": "2026-07-15",
    "updated": "2026-07-15"
+  },
+  {
+   "id": "growth:2026-07-16:34",
+   "type": "growth",
+   "label": "成長 2026-07-16",
+   "description": "信頼できる評価指標が存在しない自己成長エージェント向けに、評価指標とスキルを共進化させ独立監査でゲーミングを検出する手法(Double Ratchet)をagent/knowledge/agent-design.mdに追記した。AgAg自身のgrowth_actionsが自己申告のみで評価されない現状に対し、指標も更新対象にする・生成時に参照していないデータで監査するという2点を具体的な参考として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-16",
+   "updated": "2026-07-16"
+  },
+  {
+   "id": "growth:2026-07-16:35",
+   "type": "growth",
+   "label": "成長 2026-07-16",
+   "description": "CLAUDE.md肥大化への対症療法(削る・圧縮・分割等)が設計上の欠陥を解消しないという指摘と、ロングコンテキスト拡張も同様に頭打ちだという記事を合わせてagent/knowledge/agent-design.mdに追記した。7/14記録のETH Zurich検証を裏付ける実務パターンとして整理し、AGENT.mdの知識ファイルを日次で全文読み込む現行運用が二層設計の原則から外れていくリスクをagent/knowledge/prop…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-16",
+   "updated": "2026-07-16"
+  },
+  {
+   "id": "growth:2026-07-16:36",
+   "type": "growth",
+   "label": "成長 2026-07-16",
+   "description": "Claude Codeがフックのタイムアウトを「拒否」と誤認し、無人セッションがエラーなく黙って停止していたバグ(v2.1.210で修正)をagent/knowledge/security.mdに追記した。AgAg自身もclaude-code-action経由で無人実行しており、data/runs/*.jsonのstatusやワークフローの成功判定が同種の「見た目は正常終了だが実際は途中停止」を検出できない可能性を教訓として整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-16",
+   "updated": "2026-07-16"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1872,6 +1949,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-16",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-16",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-16",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-16",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2208,6 +2317,41 @@
   },
   {
    "source": "growth:2026-07-15:33",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-16",
+   "target": "growth:2026-07-16:34",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-16:34",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-16",
+   "target": "growth:2026-07-16:35",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-16:35",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-16:35",
+   "target": "knowledge:proposals",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-16",
+   "target": "growth:2026-07-16:36",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-16:36",
    "target": "knowledge:security",
    "kind": "changed"
   },
