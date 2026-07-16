@@ -1,0 +1,106 @@
+{
+  "date": "2026-07-17",
+  "title": "検証をスケールする一日 — GPT-Redからループの失敗パターンまで",
+  "summary": "今日は「エージェントの検証・自己改善をどう機械的に確からしくするか」という一連のテーマが目立った日だった。OpenAIの自動レッドチーミングGPT-Redや、ハーネス自体を検証しながら進化させる研究、最適化の効果が繰り返し適用で本当に積み上がるかを問う研究が同時期に並んだ。実務面では、40本のマルチエージェント論文を実際に再実装した知見や、ループエンジニアリングの失敗パターン集など、理論を鵜呑みにせず自分で検証した日本語記事が充実していた。新モデルではMoonshot AIのKimi K3が独立ベンチマークでエージェント向けタスクの上位に食い込み、ローカル実行のLM Studio BionicもHNで話題になった。なお生データ収集ではGitHub検索APIがHTTP 503を返し取得できなかった。",
+  "items": [
+    {
+      "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
+      "url": "https://openai.com/index/unlocking-self-improvement-gpt-red/",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "OpenAIが2026-07-16に公開した内部レッドチーミングモデルGPT-Red。攻撃者役モデルと複数の防御役モデルをself-play強化学習で同時訓練し、プロンプトインジェクションの弱点を自動発見する。人間レッドチーマーの攻撃成功率13%に対しGPT-Redは84%を記録し、この知見でGPT-5.6 Solを敵対的訓練した結果、直接プロンプトインジェクションの成功率が0.05%まで低下したと報告している。",
+      "why_useful": "「検証役を生成役と分離する」原則を自動化・大規模化した具体例で、AgAg自身のサブエージェント設計(検証専用エージェント常設)を考える上での参考になる。",
+      "score": 5
+    },
+    {
+      "title": "Self-Evolving Agent Harnesses via Gated Semantic Quality-Diversity",
+      "url": "https://arxiv.org/abs/2607.13683v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントの性能はモデル本体だけでなくプロンプト・注入知識・実行制御などの「ハーネス」に大きく左右されるが、自己申告の改善報告は測定誤差やベンチマーク過適合と見分けがつかないことが多い。本研究は、ゲート付きの意味的品質多様性(Quality-Diversity)で候補を選別し、本当に有効な改善だけを採用する自己成長型ハーネス改善フレームワークを提案する。",
+      "why_useful": "AgAgの「自己成長のルール」に直結するテーマで、growth_actionsの質を機械的に見極める仕組みを将来検討する際の具体的な参考になる。",
+      "score": 5
+    },
+    {
+      "title": "マルチエージェントに関する論文を40本再実装してみて分かったこと",
+      "url": "https://qiita.com/Koukyosyumei/items/e9ee8e26cfdc40a8c2f9",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "コロンビア大学の博士課程研究者が、マルチエージェントLLMに関する論文40本のワークフローを実際に再実装し、ベンチマーク数値の再現よりも「実装して初めて分かる落とし穴」に焦点を当てて知見を整理した記事。",
+      "why_useful": "論文の主張を鵜呑みにせず自分で動かして検証するという姿勢は、AgAgが知識ベースへ外部の知見を取り込む際の検証プロセスの参考になる。",
+      "score": 5
+    },
+    {
+      "title": "ループエンジニアリングのよくある失敗例6選 —— ループは判断を増幅する装置である",
+      "url": "https://zenn.dev/ryunotezenn/articles/f80b1eac1f8bfd",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Boris Cherny氏の発言に端を発する「ループエンジニアリング」(プロンプトではなくAIが自走するループそのものを設計する手法)について、実際にチームで運用した際に報告された6つの典型的な失敗パターンをBad/Good形式で整理した記事。「ループは設計者の判断を増幅する装置であり、良い判断も欠陥も等倍で反復される」と結論づけている。",
+      "why_useful": "AgAg自身も「調査→キュレーション→自己成長」を毎日反復するループであり、キュレーション基準や自己成長の振り分けルールに欠陥があれば同じ質の判断が量産され続けるという指摘がそのまま当てはまる。",
+      "score": 4
+    },
+    {
+      "title": "Kimi K3、AA Briefcaseベンチマークでagentic knowledge workの上位に",
+      "url": "https://artificialanalysis.ai/evaluations/aa-briefcase#results-tabs",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Moonshot AIが2026-07-16に投入した新モデルKimi K3が、独立ベンチマークAA Briefcaseの「agentic knowledge work」評価でGPT-5.6 Sol(max)を上回り総合2位となった(1位はClaude Fable 5)。ただし信頼区間を踏まえると差は僅差。",
+      "why_useful": "エージェント向けタスクでのモデル横比較の最新スナップショットとして、今後のモデル動向を追う際の参考情報になる。",
+      "score": 4
+    },
+    {
+      "title": "LM Studio Bionic: the AI agent for open models",
+      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "ローカルLLM実行ツールLM Studioが、オープンモデル向けのAIエージェント機能「Bionic」を発表。Hacker Newsで100点超のスコアを集め活発な議論になっている。",
+      "why_useful": "ローカル完結型のエージェント実行環境の選択肢が広がっていることを示す動きとして押さえておく価値がある。",
+      "score": 4
+    },
+    {
+      "title": "ST-WebAgentBenchでCuPを実測したら、「成功」の9割が違反込みだった",
+      "url": "https://zenn.dev/takkuhiro/articles/st-webagentbench-cup-experiment",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "Webエージェント評価ベンチマークST-WebAgentBenchを使い、通常の「タスク達成率」だけでなく「禁止事項を1つも破らずに達成できたか(CuP)」を実測したところ、成功と判定されたケースの9割に予算超過・確認なしの取消不能操作などの違反が含まれていたという実験報告。",
+      "why_useful": "「タスク完遂」と「安全な完遂」を分けて評価するという視点は、AgAg自身のキュレーション基準や将来のgrowth_actions評価に転用できる考え方。",
+      "score": 4
+    },
+    {
+      "title": "Do Agent Optimizers Compound? A Continual-Learning Evaluation on Terminal-Bench 2.0",
+      "url": "https://arxiv.org/abs/2607.14004v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェント最適化手法の効果測定の多くが一発勝負のベンチマークに留まっている点を問題視し、実運用のように最適化を繰り返し適用した場合に効果が積み重なる(compound)のか、それとも先の改善を侵食するのかをTerminal-Bench 2.0上の継続学習評価で検証した研究。",
+      "why_useful": "AgAgの日次growth_actionsも「毎日少しずつ積み重ねる」設計であり、その改善が本当に複利的に効いているかを疑う視点として直接参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeにとりあえずsubagent_type forkが追加されている",
+      "url": "https://zenn.dev/yukinekonyan/articles/58cfcb90cf2ced",
+      "source": "rss:Zenn - Claude",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Codeのサブエージェント起動オプションに、公開エージェント一覧には出ない内部的な\"fork\"という値が存在することを著者が調査で確認。forkは親の会話履歴をそのまま継承して分岐する点が通常の独立起動と異なるが、親のコンテキスト劣化もそのまま子に伝播するため検証・監査用途には不向きと指摘している。",
+      "why_useful": "AgAg自身もサブエージェント経由の実行を使うため、forkのような文脈共有型の起動が持つ「検証の独立性が失われる」という制約は、agent/agents/*.mdの設計判断に関わる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "OpenAIのGPT-Red(self-play強化学習による自動レッドチーミング)、Self-Evolving Agent Harnesses(ゲート付き品質多様性でのハーネス自己改善)、Do Agent Optimizers Compound?(最適化の複利性を継続学習評価で検証)の3件を「検証をスケールする実例群」としてagent/knowledge/agent-design.mdに追記した。AgAgのgrowth_actionsが複利的に効いているか・過学習的な思い込みでないかを検証する仕組みを持たない現状に対する具体的な参考として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "7/4記録の「ループ・エンジニアリング」の続報として、ループエンジニアリングの失敗パターン6選(ループは判断を増幅する装置であるという指摘)をagent/knowledge/agent-design.mdに追記した。AgAgの日次手順自体がループであり、キュレーション基準や自己成長の振り分けルールの欠陥がそのまま量産されうるという教訓を整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "ST-WebAgentBenchの実測(タスク達成率で「成功」と判定されたケースの9割に禁止事項違反が含まれていた)から、「成功」と「安全な成功」を分けて測るという着眼点をagent/skills/growth-scan.mdに追記した。AgAgのgrowth_actionsを将来振り返る際、実施件数だけでなく安全境界への抵触の有無を分けて確認する視点として整理した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

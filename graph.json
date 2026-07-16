@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-15T23:34:14.818Z",
+  "generatedAt": "2026-07-16T23:22:51.481Z",
   "counts": {
-   "nodes": 82,
-   "edges": 192
+   "nodes": 86,
+   "edges": 205
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-12"
+   "updated": "2026-07-17"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-16"
+   "updated": "2026-07-17"
   },
   {
    "id": "knowledge:mcp",
@@ -978,6 +978,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-17",
+   "type": "digest",
+   "label": "2026-07-17",
+   "description": "検証をスケールする一日 — GPT-Redからループの失敗パターンまで — 今日は「エージェントの検証・自己改善をどう機械的に確からしくするか」という一連のテーマが目立った日だった。OpenAIの自動レッドチーミングGPT-Redや、ハーネス自体を検証しながら進化させる研究、最適化の効果が繰り返し適用で本当に積み上がるかを問う研究が同時期に並んだ。実務面では、40本のマルチエージェント論文を実際に再実装した知見や、ループエンジニアリング…",
+   "url": "archive/2026-07-17.html",
+   "date": "2026-07-17",
+   "updated": "2026-07-17",
+   "items": [
+    {
+     "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
+     "url": "https://openai.com/index/unlocking-self-improvement-gpt-red/"
+    },
+    {
+     "title": "Self-Evolving Agent Harnesses via Gated Semantic Quality-Diversity",
+     "url": "https://arxiv.org/abs/2607.13683v1"
+    },
+    {
+     "title": "マルチエージェントに関する論文を40本再実装してみて分かったこと",
+     "url": "https://qiita.com/Koukyosyumei/items/e9ee8e26cfdc40a8c2f9"
+    },
+    {
+     "title": "ループエンジニアリングのよくある失敗例6選 —— ループは判断を増幅する装置である",
+     "url": "https://zenn.dev/ryunotezenn/articles/f80b1eac1f8bfd"
+    },
+    {
+     "title": "Kimi K3、AA Briefcaseベンチマークでagentic knowledge workの上位に",
+     "url": "https://artificialanalysis.ai/evaluations/aa-briefcase#results-tabs"
+    },
+    {
+     "title": "LM Studio Bionic: the AI agent for open models",
+     "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic"
+    },
+    {
+     "title": "ST-WebAgentBenchでCuPを実測したら、「成功」の9割が違反込みだった",
+     "url": "https://zenn.dev/takkuhiro/articles/st-webagentbench-cup-experiment"
+    },
+    {
+     "title": "Do Agent Optimizers Compound? A Continual-Learning Evaluation on Terminal-Bench 2.0",
+     "url": "https://arxiv.org/abs/2607.14004v1"
+    },
+    {
+     "title": "Claude Codeにとりあえずsubagent_type forkが追加されている",
+     "url": "https://zenn.dev/yukinekonyan/articles/58cfcb90cf2ced"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1346,6 +1393,36 @@
    "url": "growth.html",
    "date": "2026-07-16",
    "updated": "2026-07-16"
+  },
+  {
+   "id": "growth:2026-07-17:37",
+   "type": "growth",
+   "label": "成長 2026-07-17",
+   "description": "OpenAIのGPT-Red(self-play強化学習による自動レッドチーミング)、Self-Evolving Agent Harnesses(ゲート付き品質多様性でのハーネス自己改善)、Do Agent Optimizers Compound?(最適化の複利性を継続学習評価で検証)の3件を「検証をスケールする実例群」としてagent/knowledge/agent-design.mdに追記した。AgAgのgrowth_actions…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-17",
+   "updated": "2026-07-17"
+  },
+  {
+   "id": "growth:2026-07-17:38",
+   "type": "growth",
+   "label": "成長 2026-07-17",
+   "description": "7/4記録の「ループ・エンジニアリング」の続報として、ループエンジニアリングの失敗パターン6選(ループは判断を増幅する装置であるという指摘)をagent/knowledge/agent-design.mdに追記した。AgAgの日次手順自体がループであり、キュレーション基準や自己成長の振り分けルールの欠陥がそのまま量産されうるという教訓を整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-17",
+   "updated": "2026-07-17"
+  },
+  {
+   "id": "growth:2026-07-17:39",
+   "type": "growth",
+   "label": "成長 2026-07-17",
+   "description": "ST-WebAgentBenchの実測(タスク達成率で「成功」と判定されたケースの9割に禁止事項違反が含まれていた)から、「成功」と「安全な成功」を分けて測るという着眼点をagent/skills/growth-scan.mdに追記した。AgAgのgrowth_actionsを将来振り返る際、実施件数だけでなく安全境界への抵触の有無を分けて確認する視点として整理した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-17",
+   "updated": "2026-07-17"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -1981,6 +2058,44 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-17",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-17",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-17",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-17",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-17",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-17",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-17",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2353,6 +2468,36 @@
   {
    "source": "growth:2026-07-16:36",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-17",
+   "target": "growth:2026-07-17:37",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-17:37",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-17",
+   "target": "growth:2026-07-17:38",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-17:38",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-17",
+   "target": "growth:2026-07-17:39",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-17:39",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
