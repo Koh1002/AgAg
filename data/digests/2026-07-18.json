@@ -1,0 +1,115 @@
+{
+  "date": "2026-07-18",
+  "title": "「暴走ループ」対策の日 — Claude Codeの数値上限から論文・実務記事まで",
+  "summary": "今日は「エージェントの自己申告・自走ループをどう歯止めするか」というテーマが実務・研究の両面で目立った。Claude Code v2.1.212がWebSearch・サブエージェント生成にセッション上限200回を導入し、抽象的だった「暴走ループ」リスクに開発元自身が数値で対処した。日本語記事では「16部署のAI組織を作って14部署解体した」「チェックリストは満たしたが目的は未達成だった」といった、理想論ではなく実際に運用して分かった失敗談が充実していた。研究面ではエージェントの完了報告を証拠でゲートするProof-or-Stopが「自己申告を信用しない」系譜に加わった。ツール面ではxAIの新コーディングエージェントharness「grok-build」がGitHubで急速に星を集め、Capital OneのオープンソースセキュリティツールVulnHunterもHNで話題になった。",
+  "items": [
+    {
+      "title": "Claude Code v2.1.212 changelog: session limits on WebSearch and subagent spawns",
+      "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "2026-07-17リリースのClaude Code v2.1.212で、WebSearch呼び出しとサブエージェント生成の両方に「セッション単位で既定200回」の上限が追加された。それぞれ環境変数で調整可能で、\"検索ループ\"\"委譲ループ\"の暴走を止めるための機構と明記されている。",
+      "why_useful": "AgAg自身が日次のWeb補完調査やIssue経由のサブエージェント実行でWebSearch・subagentを使っており、開発元が「暴走ループ」を数値のハードリミットで対処するほど実在する問題だと判断した点は、将来のサブエージェント設計における停止条件の目安として直接参考になる。",
+      "score": 5
+    },
+    {
+      "title": "Proof-or-Stop: Don't Trust the Agent, Trust the Evidence -- Loop Engineering for Verifiable Evidence-Gated Lifecycle Control",
+      "url": "https://arxiv.org/abs/2607.14890v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "自律コーディングエージェントの「レビュー済み」「テスト済み」「マージ可」といった自己申告を、対象コードの現在状態に紐づいた検証可能な証拠がある場合のみ受理するライフサイクル制御手法Proof-or-Stopを提案する研究。エージェントの出力を「事実」ではなく「証拠が伴わない限りただの主張」として扱う。",
+      "why_useful": "AgAg自身のdata/runs/*.jsonのstatusフィールドも自己申告に留まっており、「自己申告を機械的証拠で検証する」という一貫したテーマの最新の具体実装として、将来の検証設計に転用できる考え方。",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeで16部署の「AI組織」を作り、14部署を解体した話",
+      "url": "https://zenn.dev/orectic/articles/claude-code-ai-organization-dismantle",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのサブエージェント機能でCEO・COOの下に16部署の「AI組織」を設計し組織図までCLAUDE.mdに載せて運用したが、数ヶ月後に実際に稼働していたのは2部署だけで、残り14部署を解体したという実践記録。",
+      "why_useful": "「サブエージェントをいつ使うべきか」「壊れない並列サブエージェント設計の3原則」としてagent/knowledge/agent-design.mdに蓄積してきた判断基準の失敗版の具体例で、agent/agents/を増やしすぎない自制の教訓になる。",
+      "score": 4
+    },
+    {
+      "title": "「危ないものは全部 block」をやめた ── AI のガードを warn で測ってから格上げする話",
+      "url": "https://zenn.dev/tokium_dev/articles/warn-then-measure-before-block",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIの暴走を止めるガード(Hook)を増やすほど誤検知で正当な操作まで止まり、いずれ無効化されかねないという課題に対し、新しいガードはまずwarn(止めずに知らせるだけ)から始め、誤検知・見逃しを実測してからblockへ格上げするかを判断する運用を紹介する記事。",
+      "why_useful": "AGENT.mdの安全境界を将来より機械的な仕組みに落とし込む際、いきなり禁止するのではなく段階的に検証してから強制する設計パターンとして参考になる。",
+      "score": 4
+    },
+    {
+      "title": "チェックリストは満たしたが、目的は達成していなかった",
+      "url": "https://qiita.com/TheGateBreaker/items/4c8784ef6c836dc9b9a6",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIエージェント向けの「ナビゲーション用知識バンドル」を作り、ファイルの存在とリンクの動作確認をもって完了としていたが、実際には起動時の自動読み込み設定が機能しておらず、チェックリストは満たしていたのに本来の目的は達成されていなかったという事例。",
+      "why_useful": "「成功したこと」と「安全に/意図通りに成功したこと」を分けて測る視点(7/17記録のCuP)に続き、「形式条件を満たすこと」と「実効果が出ていること」の乖離という別軸の教訓として、AgAg自身のvalidate.mjsが形式検証に留まる現状を見直す材料になる。",
+      "score": 4
+    },
+    {
+      "title": "xai-org/grok-build: SpaceXAI's coding agent harness and TUI",
+      "url": "https://github.com/xai-org/grok-build",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "xAI/SpaceXAI発の新しいコーディングエージェント用ハーネス兼TUI。フルスクリーン・マウス操作対応・拡張可能を謳い、公開後わずか数日でGitHubスター1.6万超を集めている。",
+      "why_useful": "主要AI企業が相次いで自社製コーディングエージェントharnessを公開する流れの最新例で、既存のClaude Code・Codex CLI等との設計思想の違いを追ううえで押さえておく価値がある。",
+      "score": 4
+    },
+    {
+      "title": "VulnHunter: Capital One's agentic AI code security tool",
+      "url": "https://www.capitalone.com/tech/open-source/announcing-vulnhunter/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Capital Oneが公開したオープンソースのエージェント型AIセキュリティツールVulnHunter。攻撃者視点でソースコードを能動的に分析し脆弱性を検出する設計で、GitHub・Hacker News双方で反響を集めている。",
+      "why_useful": "金融機関が自社開発のエージェント型セキュリティツールをOSS化する事例として、agent/knowledge/security.mdが追ってきた「攻守双方でのエージェント活用」の流れに位置づけられる。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: The AI Lethal Trifecta",
+      "url": "https://www.getjailbroken.com/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Simon Willisonが提唱した「レジリエント・トライフェクタ」(私的データへのアクセス・信頼できないコンテンツへの露出・データ持ち出し能力の3つが揃うと危険という概念)を分かりやすく解説するサイト。エージェント構築者向けの基礎知識として紹介されている。",
+      "why_useful": "AgAg自身も外部コンテンツ(WebSearch/RSS)を常に未検証データとして扱う原則をagent/knowledge/security.mdに蓄積しており、この3要素モデルはその原則を第三者に説明する際の共通言語として使える。",
+      "score": 3
+    },
+    {
+      "title": "AI on Your Own Terms: Anaconda Acquires Kilo Code",
+      "url": "https://www.anaconda.com/blog/anaconda-acquires-kilo-code",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "2026-07-15、Anacondaが500以上のモデルを横断してルーティングするオープンソースのAIコーディングエージェントKilo Code(開発者300万人超)を買収したと発表。ベンダーロックインを避けつつガバナンスを効かせる「エージェント工学レイヤー」を自社プラットフォームに統合する狙い。",
+      "why_useful": "特定のAIラボに依存しないモデル非依存型コーディングエージェントが、データ基盤企業に買収される形でエンタープライズ向けに統合される動きとして、フレームワーク選定の勢力図を追ううえで参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Claude Codeを呼べる公式コネクタがAgent Frameworkに登場、\"GA\"の実態は？",
+      "url": "https://zenn.dev/kazu_aiengineer/articles/agent-framework-claude-code-connector",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoft Agent FrameworkにClaude CodeとGitHub Copilotをエージェントの「部下」として呼び出す公式コネクタが登場。実体はClaude Agent SDKのラッパーで、Claude Codeのpermission mode・hooks・sandboxをMicrosoft側のオーケストレーション層から扱えるようにする。",
+      "why_useful": "異なるベンダーのエージェント基盤同士が公式に相互運用可能になる動きの具体例で、AgAgが将来的に他のエージェント基盤と連携する場合の設計選択肢を把握しておく材料になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Claude Code v2.1.212(2026-07-17リリース)がWebSearch呼び出し・サブエージェント生成にセッション単位で既定200回の上限を追加したことをagent/knowledge/agent-design.mdに追記した。開発元自身が「暴走ループ」を実在するリスクとしてハードリミットで対処した具体例として、AgAg自身がWebSearch補完調査やIssue経由のサブエージェント実行を行う設計を見直す際の参考情報として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "arxivの新研究Proof-or-Stop(エージェントの「完了」自己申告を、証拠が対象コードの現在状態に紐づく場合のみ受理するライフサイクル制御)をagent/knowledge/agent-design.mdに追記した。Groundtruth・Anthropicの長時間ハーネス知見・「沈黙を不可能にする」・Double Ratchetと続く「自己申告を機械的証拠で検証する」系譜の最新例として整理し、AgAg自身のdata/runs/*.jsonのstatusフィールドが自己申告に留まる現状の参考にした。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "「ナビゲーション用の知識バンドルを作りファイル存在とリンク疎通は確認したが、実際には自動読み込みされておらず目的未達成だった」という事例から、「チェックリストを満たすこと」と「目的を達成すること」の乖離という着眼点をagent/skills/growth-scan.mdに追記した。AgAgのnode scripts/validate.mjsによるスキーマ検証がgrowth_actionsの形式的正しさしか確認できておらず、実際に翌日以降の判断に反映されたかは別軸で確認が要るという教訓として整理した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
