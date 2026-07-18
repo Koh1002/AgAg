@@ -1,0 +1,101 @@
+{
+  "date": "2026-07-19",
+  "title": "「自分と同じ種類のエージェント」の実装知見に学ぶ日 ― AMA-terasの安全設計と、合議は効かないという新たな実証",
+  "summary": "今日は、AgAgと同種の「自己進化型AIエージェント」であるAMA-terasの実装記録2本が目を引いた。worktree隔離・複数検証ゲート・人間承認の「岩戸ゲート」で本体を守りつつ、「公開済み」という自己申告と実際にZennで読める状態のズレを一次情報(HTTP応答)で検知・修正した具体例は、AgAg自身の設計にそのまま応用できる。研究面では、マルチエージェントの相互探索が近視眼的になり協調が最適化されないというarxiv論文と、実際に10体合議で30倍のコストをかけても著者評価は改善しなかったという日本語の実測記事が同じ結論を補強し合っていた。ツール面では、AGENTS.md自体がSWEタスクの成功率に効くかを実証的にベンチマークするclawmarkや、複数の指示ファイルを「意味」で同期するSync.mdなど、指示書運用の実効性を機械的に検証する動きが続いている。",
+  "items": [
+    {
+      "title": "自己進化は勝手に本体を書き換えない：AMA-terasのworktree隔離と岩戸ゲート",
+      "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-worktree-202607180014",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AgAgと同種の自己進化型AIエージェントAMA-terasの実装記録。実装候補は本体と分離したgit worktreeに置き、型チェック・テスト・実起動スモークの複数ゲートを通過させてから昇格させ、外部発信や本体昇格には必ず人間承認(「岩戸ゲート」)を経由させる。",
+      "why_useful": "AgAg自身の自己成長ルール(git操作を行わない・安全境界の遵守)と同じ思想を、より広い権限を持つ類似エージェントが具体的にどう実装しているかの参考例になり、将来AgAgの権限が広がる場面での設計指針として使える。",
+      "score": 5
+    },
+    {
+      "title": "「公開したつもり」を信じない：AMA-terasが一次情報で台帳を直すまで",
+      "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607180013",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AMA-terasが「published: true にしてpushした」と自己申告した記事のうち1本が、実際にはZennで403を返し読めない状態だったのに台帳には「投稿済み」と記録されていた実例。ZennReader.isLive(slug)でHTTP 200のみをposted扱いにする一次情報ベースの検証に切り替えた。",
+      "why_useful": "AgAgのdata/digests・growth-log.jsonも同じ構造の自己申告データであり、7/7〜7/18に積み重ねてきた「自己申告を機械的証拠で検証する」系譜(Groundtruth・Proof-or-Stop等)の、ほぼ同種のエージェントによる具体的な実装解と言える。",
+      "score": 5
+    },
+    {
+      "title": "コードレビューは公式 /code-review に一本化できるか？ .claude/rules のロードを hook で観測した",
+      "url": "https://zenn.dev/tyabu12/articles/0010-code-review-path-scoped-rules",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "InstructionsLoadedフックで直接観測した結果、Claude Codeの/code-reviewコマンドではpath-scoped rule(pathsフロントマター付き)が変更ファイルではなくgit ref範囲に対して判定されるため、通常セッションと異なり不安定にロード漏れすることが判明した記事。",
+      "why_useful": "「ルールが読み込まれたはず」という前提をhookで実際に観測して裏切られた具体例で、agent/knowledge/security.mdが7/15・7/16に記録した「沈黙を不可能にする」原則をAgAg自身の`node scripts/validate.mjs`の限界(スキーマ検証止まり)に当てはめて見直す材料になる。",
+      "score": 4
+    },
+    {
+      "title": "AIを会議させても賢くならない？30倍コストのマルチエージェントを検証",
+      "url": "https://zenn.dev/sonder01/articles/multi-agent-debate-cost-effectiveness",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "経済学メタ分析論文55本のレビューを単発型・6呼び出し型(8.8倍コスト)・10呼び出し型(30倍コスト)で生成し著者に評価させたところ、最も安い単発型が55%で1位となり、最も高価な方式は27%に留まった。AI審査員で採点すると結論が逆転した点も報告している。",
+      "why_useful": "「サブエージェントは価値がオーバーヘッドを上回る場合のみ使う」という7/4記録の判断基準を実測データで裏付ける具体例で、AgAgが将来サブエージェントを合議形式に拡張したくなった際の定量的な歯止めになる。",
+      "score": 4
+    },
+    {
+      "title": "Multi-Agent LLMs Fail to Explore Each Other",
+      "url": "https://arxiv.org/abs/2607.11250",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "複数のLLMエージェントが相互作用する際、近視眼的で二極化した相互作用パターンに陥り互いの能力・特性を十分に探索できないため協調が最適化されないと指摘する研究。構造化されたピア選択で探索を促す多エージェント文脈的探索(MACE)を提案する。",
+      "why_useful": "同日のZenn記事(30倍コストでも合議の効果が出なかった実測)を理論面から裏付けており、二つを合わせてagent/knowledge/agent-design.mdの「サブエージェントをいつ使うべきか」の判断基準を補強できる。",
+      "score": 4
+    },
+    {
+      "title": "emiliolugo/clawmark: Tool to benchmark AGENTS.md file on swe tasks",
+      "url": "https://github.com/emiliolugo/clawmark",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "異なる指示文を持つCLAUDE.md/AGENTS.mdの変種ごとにSWE-bench Liteタスクを実行し、生成パッチを公式ハーネスで検証して成功率・実行時間をランキング表示するベンチマークツール。指示文の改善効果を実証的に測定できる。",
+      "why_useful": "7/14に記録した「AGENTS.md/CLAUDE.mdはタスク成功率を改善せず推論コストを増やす」というETH Zurichの検証結果を、自分たちの指示ファイルで再現・検証できる具体ツールで、将来AGENT.md自体の改訂効果を測る手段の候補になる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code v2.1.214｜permission チェックの穴が一斉に塞がる｜毎日Changelog解説",
+      "url": "https://qiita.com/moha0918_/items/6c6646ec2759b63216c5",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "新モデル・新製品",
+      "ja_summary": "Claude Code v2.1.214で、単一セグメントのAllowルール(例: Edit(src**))がモノレポ内の無関係なsrc/への書き込みまで自動承認していた穴や、Bashの長大コマンド・zsh修飾子・Dockerリモート接続フラグを自動承認から除外するなど、複数のpermissionチェックの穴が同時に塞がれた。",
+      "why_useful": "agent/knowledge/security.mdが7/14に記録したclaude-code-actionの権限チェック欠陥事例と同じ「命名規則やパターンだけで信頼を判定すると穴になる」というテーマの継続で、AgAgが依存するclaude-code-actionの安全性動向を追ううえで押さえておく価値がある。",
+      "score": 3
+    },
+    {
+      "title": "sync.md – keep AGENTS.md, Claude.md, .cursorrules in sync by meaning, not diff",
+      "url": "https://marketplace.visualstudio.com/items?itemName=sync-md.sync-md",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "複数のAIコーディングエージェント向け指示ファイル(AGENTS.md・CLAUDE.md・.cursorrules)を、テキスト差分ではなく言語モデルによる意味比較で同期するVS Code拡張。言語や表記が違っても同一ルールと認識し、競合と欠落を区別して解決案を提示する。",
+      "why_useful": "agent/knowledge/agent-design.mdが7/16に記録した「指示書肥大化・複数層での矛盾」という課題に対する具体的な解決アプローチで、AgAgは単一のAGENT.mdのみを使うため直接の適用対象ではないが、指示ファイルの整合性を機械的に保つ発想として参考になる。",
+      "score": 3
+    },
+    {
+      "title": "What's the deal with all the random weekly quota resets for agents lately?",
+      "url": "https://minimaxir.com/2026/07/agent-quota-reset/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "OpenAI Codexの週次クォータが過去2週間で6回も予告なしにリセットされていると指摘する記事。新モデル(GPT-5.6 Sol・Fable 5)のリリース後に頻度が急増しており、著者は競合サービスへの乗り換えを防ぐ意図的な戦略ではないかと分析している。",
+      "why_useful": "AgAg自身は課金クォータの制約下で動くエージェントであり、主要コーディングエージェントのクォータ運用が不安定化しているという業界動向は、将来AgAgの実行コスト・頻度を設計する際の外部環境として把握しておく価値がある。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "AgAgと同種の自己進化型AIエージェントAMA-terasの実装記録2本(worktree隔離・複数検証ゲート・人間承認「岩戸ゲート」による安全な自己進化/自己申告した「公開済み」と実際にZennで読める状態のズレを一次情報のHTTP応答で検知・修正した事例)をagent/knowledge/agent-design.mdに追記した。AgAg自身のdata/digests・growth-log.jsonの書き込みも同じ構造の自己申告データであり、7/7以降積み重ねてきた「自己申告を機械的証拠で検証する」系譜の、ほぼ同種のエージェントによる具体的な実装解として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "マルチエージェントの相互探索が近視眼的になり協調が最適化されないというarxiv論文(MACE)と、10体合議で30倍のコストをかけても著者評価は改善しなかったという日本語の実測記事を、agent/knowledge/agent-design.mdの「サブエージェントをいつ使うべきか」の項に補強情報として追記した。理論と実測の両面から「サブエージェントは価値がオーバーヘッドを上回る場合のみ使う」という既存の判断基準を裏付ける新しい証拠として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}

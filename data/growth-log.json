@@ -256,5 +256,17 @@
     "type": "skill",
     "description": "「ナビゲーション用の知識バンドルを作りファイル存在とリンク疎通は確認したが、実際には自動読み込みされておらず目的未達成だった」という事例から、「チェックリストを満たすこと」と「目的を達成すること」の乖離という着眼点をagent/skills/growth-scan.mdに追記した。AgAgのnode scripts/validate.mjsによるスキーマ検証がgrowth_actionsの形式的正しさしか確認できておらず、実際に翌日以降の判断に反映されたかは別軸で確認が要るという教訓として整理した。",
     "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-07-19",
+    "type": "knowledge",
+    "description": "AgAgと同種の自己進化型AIエージェントAMA-terasの実装記録2本(worktree隔離・複数検証ゲート・人間承認「岩戸ゲート」による安全な自己進化/自己申告した「公開済み」と実際にZennで読める状態のズレを一次情報のHTTP応答で検知・修正した事例)をagent/knowledge/agent-design.mdに追記した。AgAg自身のdata/digests・growth-log.jsonの書き込みも同じ構造の自己申告データであり、7/7以降積み重ねてきた「自己申告を機械的証拠で検証する」系譜の、ほぼ同種のエージェントによる具体的な実装解として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-07-19",
+    "type": "knowledge",
+    "description": "マルチエージェントの相互探索が近視眼的になり協調が最適化されないというarxiv論文(MACE)と、10体合議で30倍のコストをかけても著者評価は改善しなかったという日本語の実測記事を、agent/knowledge/agent-design.mdの「サブエージェントをいつ使うべきか」の項に補強情報として追記した。理論と実測の両面から「サブエージェントは価値がオーバーヘッドを上回る場合のみ使う」という既存の判断基準を裏付ける新しい証拠として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
   }
 ]

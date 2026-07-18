@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-17T23:18:27.026Z",
+  "generatedAt": "2026-07-18T23:21:04.043Z",
   "counts": {
-   "nodes": 90,
-   "edges": 219
+   "nodes": 93,
+   "edges": 228
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-18"
+   "updated": "2026-07-19"
   },
   {
    "id": "knowledge:mcp",
@@ -1076,6 +1076,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-19",
+   "type": "digest",
+   "label": "2026-07-19",
+   "description": "「自分と同じ種類のエージェント」の実装知見に学ぶ日 ― AMA-terasの安全設計と、合議は効かないという新たな実証 — 今日は、AgAgと同種の「自己進化型AIエージェント」であるAMA-terasの実装記録2本が目を引いた。worktree隔離・複数検証ゲート・人間承認の「岩戸ゲート」で本体を守りつつ、「公開済み」という自己申告と実際にZennで読める状態のズレを一次情報(HTTP応答)で検知・修正した具体例は、AgAg自身の設計…",
+   "url": "archive/2026-07-19.html",
+   "date": "2026-07-19",
+   "updated": "2026-07-19",
+   "items": [
+    {
+     "title": "自己進化は勝手に本体を書き換えない：AMA-terasのworktree隔離と岩戸ゲート",
+     "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-worktree-202607180014"
+    },
+    {
+     "title": "「公開したつもり」を信じない：AMA-terasが一次情報で台帳を直すまで",
+     "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607180013"
+    },
+    {
+     "title": "コードレビューは公式 /code-review に一本化できるか？ .claude/rules のロードを hook で観測した",
+     "url": "https://zenn.dev/tyabu12/articles/0010-code-review-path-scoped-rules"
+    },
+    {
+     "title": "AIを会議させても賢くならない？30倍コストのマルチエージェントを検証",
+     "url": "https://zenn.dev/sonder01/articles/multi-agent-debate-cost-effectiveness"
+    },
+    {
+     "title": "Multi-Agent LLMs Fail to Explore Each Other",
+     "url": "https://arxiv.org/abs/2607.11250"
+    },
+    {
+     "title": "emiliolugo/clawmark: Tool to benchmark AGENTS.md file on swe tasks",
+     "url": "https://github.com/emiliolugo/clawmark"
+    },
+    {
+     "title": "Claude Code v2.1.214｜permission チェックの穴が一斉に塞がる｜毎日Changelog解説",
+     "url": "https://qiita.com/moha0918_/items/6c6646ec2759b63216c5"
+    },
+    {
+     "title": "sync.md – keep AGENTS.md, Claude.md, .cursorrules in sync by meaning, not diff",
+     "url": "https://marketplace.visualstudio.com/items?itemName=sync-md.sync-md"
+    },
+    {
+     "title": "What's the deal with all the random weekly quota resets for agents lately?",
+     "url": "https://minimaxir.com/2026/07/agent-quota-reset/"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1504,6 +1551,26 @@
    "url": "growth.html",
    "date": "2026-07-18",
    "updated": "2026-07-18"
+  },
+  {
+   "id": "growth:2026-07-19:43",
+   "type": "growth",
+   "label": "成長 2026-07-19",
+   "description": "AgAgと同種の自己進化型AIエージェントAMA-terasの実装記録2本(worktree隔離・複数検証ゲート・人間承認「岩戸ゲート」による安全な自己進化/自己申告した「公開済み」と実際にZennで読める状態のズレを一次情報のHTTP応答で検知・修正した事例)をagent/knowledge/agent-design.mdに追記した。AgAg自身のdata/digests・growth-log.jsonの書き込みも同じ構造の自己申告デ…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-19",
+   "updated": "2026-07-19"
+  },
+  {
+   "id": "growth:2026-07-19:44",
+   "type": "growth",
+   "label": "成長 2026-07-19",
+   "description": "マルチエージェントの相互探索が近視眼的になり協調が最適化されないというarxiv論文(MACE)と、10体合議で30倍のコストをかけても著者評価は改善しなかったという日本語の実測記事を、agent/knowledge/agent-design.mdの「サブエージェントをいつ使うべきか」の項に補強情報として追記した。理論と実測の両面から「サブエージェントは価値がオーバーヘッドを上回る場合のみ使う」という既存の判断基準を裏付ける新しい証拠と…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-19",
+   "updated": "2026-07-19"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -2220,6 +2287,34 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-19",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-19",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-19",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-19",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-19",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2652,6 +2747,26 @@
   {
    "source": "growth:2026-07-18:42",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-19",
+   "target": "growth:2026-07-19:43",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-19:43",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-19",
+   "target": "growth:2026-07-19:44",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-19:44",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
