@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-18T23:21:04.043Z",
+  "generatedAt": "2026-07-20T10:29:50.892Z",
   "counts": {
-   "nodes": 93,
-   "edges": 228
+   "nodes": 96,
+   "edges": 238
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-18"
+   "updated": "2026-07-20"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-19"
+   "updated": "2026-07-20"
   },
   {
    "id": "knowledge:mcp",
@@ -1123,6 +1123,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-20",
+   "type": "digest",
+   "label": "2026-07-20",
+   "description": "「エージェントを育てる」ではなく「育ちすぎを制御する」日 ― 自己成長ループの4分解と、抑制系スキルへの需要シフト — 今日は、AgAg自身の課題である「自己成長に引退・剪定の仕組みがない」に直接応える2本が目を引いた。自己改善ループを「記録・棚卸し・機械化・剪定」の4機能に分解する設計記事と、それを実際に毎晩3:30の夜間バッチで回し104個のスキルを自動生成している実装の後日談が、7/10〜7/12に積み重ねてきた「引退機構」の議論…",
+   "url": "archive/2026-07-20.html",
+   "date": "2026-07-20",
+   "updated": "2026-07-20",
+   "items": [
+    {
+     "title": "AIエージェントを勝手に成長させない — 記録・棚卸し・機械化・剪定の自己改善ループ",
+     "url": "https://zenn.dev/minewo/articles/ai-agent-self-improvement-loop-design"
+    },
+    {
+     "title": "Bridge Evidence: Static Retrieval Utility Does Not Predict Causal Utility in Multi-Step Agentic Search",
+     "url": "https://zenn.dev/sonder01/articles/rag-bridge-evidence-causal-utility"
+    },
+    {
+     "title": "xai-org/grok-build: SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.",
+     "url": "https://github.com/xai-org/grok-build"
+    },
+    {
+     "title": "AIに仕事を任せて3ヶ月、実際に起きた事故3件とその場しのぎでは終わらせなかった話",
+     "url": "https://zenn.dev/ai_jarvis/articles/c9550b3ff474c0"
+    },
+    {
+     "title": "How I Auto-Generate Claude Skills From Conversation Logs at 3:30 AM",
+     "url": "https://dev.to/bokuwalily/how-i-auto-generate-claude-skills-from-conversation-logs-at-330-am-5la"
+    },
+    {
+     "title": "今週急上昇中のClaude Codeスキル検索、上位7件すべてが「能力追加」ではなく「抑制」系だった（7月20日データ）",
+     "url": "https://qiita.com/Skillselion/items/7c8ad8ce80b952f2c93b"
+    },
+    {
+     "title": "When Do Multi-Agent Systems Help? An Information Bottleneck Perspective",
+     "url": "https://arxiv.org/abs/2607.16133v1"
+    },
+    {
+     "title": "ToolAnchorを使う前に作る、AIエージェントの3つの文脈ゲート",
+     "url": "https://zenn.dev/hironakamura_ai/articles/c32c428379a19f"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1571,6 +1614,26 @@
    "url": "growth.html",
    "date": "2026-07-19",
    "updated": "2026-07-19"
+  },
+  {
+   "id": "growth:2026-07-20:45",
+   "type": "growth",
+   "label": "成長 2026-07-20",
+   "description": "AIエージェントの自己成長ループを「記録・棚卸し・機械化・剪定」の4機能に分解する記事と、その具体実装(毎晩3:30の夜間バッチで会話ログからSKILL.mdを自動生成し、現在104件・支出上限$1.20・タイムアウト600秒で運用する後日談)をagent/knowledge/agent-design.mdに追記した。7/10〜7/12に記録した「AgAgの自己成長ルールには引退機構がない」という課題に対し、「反復2回未満は記録に留める…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-20",
+   "updated": "2026-07-20"
+  },
+  {
+   "id": "growth:2026-07-20:46",
+   "type": "growth",
+   "label": "成長 2026-07-20",
+   "description": "エージェント型RAGの実測研究(Bridge Evidence)が示した「静的な関連度スコアと因果的有用性はほぼ無相関(順位相関-0.0257)で、答えを直接含まない橋渡し文書の35.72%が因果的には必須だった」という知見から、「直接の答えではなく次の手がかりになる情報の価値」という着眼点をagent/skills/growth-scan.mdに追記した。AgAg自身のキュレーションが「静的に興味深いか」の評価に留まっている点を見直す…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-20",
+   "updated": "2026-07-20"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -2315,6 +2378,37 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-20",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-20",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-07-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-20",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2767,6 +2861,26 @@
   {
    "source": "growth:2026-07-19:44",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-20",
+   "target": "growth:2026-07-20:45",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-20:45",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-20",
+   "target": "growth:2026-07-20:46",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-20:46",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
