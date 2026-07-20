@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-20T10:29:50.892Z",
+  "generatedAt": "2026-07-20T23:34:43.365Z",
   "counts": {
-   "nodes": 96,
-   "edges": 238
+   "nodes": 99,
+   "edges": 250
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-20"
+   "updated": "2026-07-21"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-20"
+   "updated": "2026-07-21"
   },
   {
    "id": "knowledge:mcp",
@@ -183,7 +183,7 @@
    "description": "検証ゲート",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/validate.mjs",
    "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "updated": "2026-07-21"
   },
   {
    "id": "source:hackernews",
@@ -1166,6 +1166,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-21",
+   "type": "digest",
+   "label": "2026-07-21",
+   "description": "コンテキストは自然言語で渡すと壊れる ― Intuitの2度の作り直しと、参照で受け渡す設計への転換 — 今日の中心テーマは「エージェント間のコンテキストをどう受け渡すか」だった。Intuitが自社のAIエージェント基盤を4ヶ月で2度作り直した実例は、原因が自然言語でのハンドオフによる文脈の目減りにあったと明かしており、ほぼ同じ週に見つかったOSS「waggle」はまさにこの問題を軽量な参照トークンで解こうとしている。並行して、SKIL…",
+   "url": "archive/2026-07-21.html",
+   "date": "2026-07-21",
+   "updated": "2026-07-21",
+   "items": [
+    {
+     "title": "Intuit scrapped its own AI agent architecture twice in four months. At VB Transform 2026, its AI VP called that the fast path",
+     "url": "https://venturebeat.com/orchestration/intuit-scrapped-its-own-ai-agent-architecture-twice-in-four-months-at-vb-transform-2026-its-ai-vp-called-that-the-fast-path"
+    },
+    {
+     "title": "そのSKILL.md、別のスキルと発火が被ってない？ 衝突と壊れた参照をCIで落とすリンタを作った",
+     "url": "https://zenn.dev/maronsan/articles/skills-lint-collision-linter"
+    },
+    {
+     "title": "Inside the AI Index: 12 Takeaways from the 2026 Report",
+     "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report"
+    },
+    {
+     "title": "AIの能力が上がるほど、制御が難しくなる",
+     "url": "https://zenn.dev/lingmu/articles/2026-07-21-openai-gpt56-long-horizon-safety"
+    },
+    {
+     "title": "modiqo/waggle: Attributed, resolvable artifact references for agent handoffs",
+     "url": "https://github.com/modiqo/waggle"
+    },
+    {
+     "title": "Claude Code hooks: the guardrails I wish I'd set up on day one",
+     "url": "https://dev.to/techpotions/claude-code-hooks-the-guardrails-i-wish-id-set-up-on-day-one-4naf"
+    },
+    {
+     "title": "個人開発でAIエージェントを迷走させない、GitHub Issueを「作業正本」にする設計",
+     "url": "https://zenn.dev/nnku/articles/63f7312803008a"
+    },
+    {
+     "title": "AgentBaiting: Fake AI Skills and MCP Servers Delivered Malware",
+     "url": "https://www.island.io/blog/agentbaiting-how-800-fake-ai-skills-and-mcp-servers-delivered-malware"
+    },
+    {
+     "title": "Loop Engineering: How To Stop The \"You're Absolutely Right\" Sycophancy",
+     "url": "https://dev.to/reporails/loop-engineering-how-to-stop-the-youre-absolutely-right-sycophancy-2ond"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1634,6 +1681,26 @@
    "url": "growth.html",
    "date": "2026-07-20",
    "updated": "2026-07-20"
+  },
+  {
+   "id": "growth:2026-07-21:47",
+   "type": "growth",
+   "label": "成長 2026-07-21",
+   "description": "Intuitが自社のAIエージェントアーキテクチャを4ヶ月で2度作り直した事例(エージェント間の自然言語ハンドオフで文脈が失われ誤りが積み重なった)と、同じ問題に取り組むOSS「waggle」(自然言語の代わりに約30バイトの参照トークンでハンドオフする設計)をagent/knowledge/agent-design.mdに追記した。「コンテキストの量」を扱ってきた既存の記録(7/16 context rot等)に対し、「受け渡し方式(…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-21",
+   "updated": "2026-07-21"
+  },
+  {
+   "id": "growth:2026-07-21:48",
+   "type": "growth",
+   "label": "成長 2026-07-21",
+   "description": "SKILL.mdの参照腐り・発火の被りをCIで検出するリンタを作った事例(Zenn)から、AgAg自身のagent/knowledge・agent/skillsが多用する[[相対パス]]形式の参照リンクが壊れていないかを機械的に確認するチェックをscripts/validate.mjsに追加した。node scripts/validate.mjsで動作確認済み。着眼点をagent/skills/growth-scan.mdに記録するだけ…",
+   "growthType": "script",
+   "url": "growth.html",
+   "date": "2026-07-21",
+   "updated": "2026-07-21"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -2409,6 +2476,44 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-21",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-21",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-21",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-21",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-21",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -2880,6 +2985,31 @@
   },
   {
    "source": "growth:2026-07-20:46",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-21",
+   "target": "growth:2026-07-21:47",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-21:47",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-21",
+   "target": "growth:2026-07-21:48",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-21:48",
+   "target": "script:validate.mjs",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-21:48",
    "target": "skill:growth-scan",
    "kind": "changed"
   },

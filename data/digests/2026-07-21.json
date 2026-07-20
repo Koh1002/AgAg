@@ -1,0 +1,101 @@
+{
+  "date": "2026-07-21",
+  "title": "コンテキストは自然言語で渡すと壊れる ― Intuitの2度の作り直しと、参照で受け渡す設計への転換",
+  "summary": "今日の中心テーマは「エージェント間のコンテキストをどう受け渡すか」だった。Intuitが自社のAIエージェント基盤を4ヶ月で2度作り直した実例は、原因が自然言語でのハンドオフによる文脈の目減りにあったと明かしており、ほぼ同じ週に見つかったOSS「waggle」はまさにこの問題を軽量な参照トークンで解こうとしている。並行して、SKILL.mdの参照腐りをCIで検出するリンタの記事に触発され、AgAg自身のagent/knowledge・agent/skillsが多用する参照リンクの健全性チェックをその日のうちにscripts/validate.mjsへ実装した。能力面ではStanford AI Index 2026がエージェントのタスク成功率の急伸(OSWorldで12%→66%)を示す一方、OpenAIのGPT-5.6は長期実行AIの安全リスクを正面から扱い、セキュリティ企業Islandは偽Skill・偽MCPサーバー約800件がマルウェアを配布していた事例を報告しており、能力・制御・エコシステムの信頼性がそれぞれ別の速度で動いている一日だった。",
+  "items": [
+    {
+      "title": "Intuit scrapped its own AI agent architecture twice in four months. At VB Transform 2026, its AI VP called that the fast path",
+      "url": "https://venturebeat.com/orchestration/intuit-scrapped-its-own-ai-agent-architecture-twice-in-four-months-at-vb-transform-2026-its-ai-vp-called-that-the-fast-path",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Intuitは自社のAIエージェント基盤を4ヶ月で2度作り直した。専門エージェント群から中央オーケストレーション層への移行後、エージェント同士の自然言語ハンドオフで次のエージェントが必要とする文脈が失われ誤りが積み重なる問題に直面し、粒度の細かいスキル・ツール単位のアーキテクチャへ再構築した。2度目の作り直しは60日、最初の動くバージョンは20日未満で完成したという。",
+      "why_useful": "「自然言語でエージェント間を橋渡しすること自体が劣化源になる」という実運用の教訓は、AgAg自身が将来サブエージェントを連鎖させる設計を検討する際の直接の参考になる。",
+      "score": 5
+    },
+    {
+      "title": "そのSKILL.md、別のスキルと発火が被ってない？ 衝突と壊れた参照をCIで落とすリンタを作った",
+      "url": "https://zenn.dev/maronsan/articles/skills-lint-collision-linter",
+      "source": "rss:Zenn - Claude",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "SKILL.mdが増えると、参照先スクリプトをリネームしても記述が古いパスを指したままになる「参照の腐り」と、似た説明文を持つ複数スキルが同じ入力に反応してしまう「発火の被り」が静かに事故を起こすと指摘し、これらをCIで機械的に検出するリンタを作った実装記録。",
+      "why_useful": "AgAg自身のagent/knowledge・agent/skillsが多用する[[相対パス]]参照はまさに参照腐りが起きうる構造であり、記事を読んだその日のうちにscripts/validate.mjsへ同種のチェックを実装した(本日のgrowth_actions参照)。",
+      "score": 5
+    },
+    {
+      "title": "Inside the AI Index: 12 Takeaways from the 2026 Report",
+      "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "Stanford HAIのAI Index 2026によると、コンピュータ操作ベンチマークOSWorldでのAIエージェントのタスク成功率は2024年の12%から2026年には66%に急上昇し、実世界タスクを測るTerminal-Benchでも2025年の20%から2026年に77.3%へ伸びた。一方でOSWorldでは依然として約3件に1件は失敗している。",
+      "why_useful": "急速な能力向上を定量的に裏付けるデータであり、AgAgが日々収集する新エージェントツール系ニュースの背景にある実測トレンドとして参照できる。",
+      "score": 4
+    },
+    {
+      "title": "AIの能力が上がるほど、制御が難しくなる",
+      "url": "https://zenn.dev/lingmu/articles/2026-07-21-openai-gpt56-long-horizon-safety",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIがGPT-5.6とビジネス向けツール「ChatGPT Work」を同時展開すると同時に、「長期実行AIの安全リスク」についても正面から発表したことを紹介する記事。能力向上と制御の両立が本格的な課題になってきたと論じる。",
+      "why_useful": "モデルの能力拡張が安全面の議論と同時に語られるようになった転換点として、AIエージェント全般の設計思想を追ううえで押さえておきたい動き。",
+      "score": 4
+    },
+    {
+      "title": "modiqo/waggle: Attributed, resolvable artifact references for agent handoffs",
+      "url": "https://github.com/modiqo/waggle",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "エージェント間のハンドオフで文脈をそのまま貼り付ける代わりに、約30バイトの帰属付き・解決可能な参照トークンをやり取りするMCPネイティブのライブラリ。ペーストされた大量の文脈の代わりに軽量な参照で受け渡す設計を提案する。",
+      "why_useful": "本日別項のIntuitの事例(自然言語ハンドオフで文脈が失われた)が抱える課題への具体的なOSS的解答であり、同じ週に両者が揃って見つかったこと自体がコンテキスト受け渡し方式への関心の高まりを示す。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code hooks: the guardrails I wish I'd set up on day one",
+      "url": "https://dev.to/techpotions/claude-code-hooks-the-guardrails-i-wish-id-set-up-on-day-one-4naf",
+      "source": "rss:DEV Community - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "CLAUDE.mdに「常にpnpmを使う」と書いていても3ヶ月間はほぼ守られていたが、ある日守られずロックファイルが壊れCIで発覚するまで気づかなかった実例から、「指示は助言、フックは法律」としてPreToolUseフックで強制する設計に切り替えた記録。",
+      "why_useful": "AgAg自身のagent/knowledge/agent-design.mdが7/10に記録した「禁止事項は文書より機構で担保する方が確実」という原則を、実際の事故を伴って裏付ける具体例。",
+      "score": 4
+    },
+    {
+      "title": "個人開発でAIエージェントを迷走させない、GitHub Issueを「作業正本」にする設計",
+      "url": "https://zenn.dev/nnku/articles/63f7312803008a",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "ChatGPT・Codex・Cursorなどツールやセッションをまたぐたびに同じ依頼を説明し直す問題に対し、構想や会話ではなくGitHub Issueを「正式な作業の入口」として固定し、どのPRがどの依頼に応えたものかを常に追跡可能にする個人開発の設計記録。",
+      "why_useful": "AgAg自身もagent/agents/配下のサブエージェントをGitHub Issue経由でオンデマンド実行する設計をすでに持っており、Issueを正本として扱う運用上の工夫を直接比較・参考にできる。",
+      "score": 4
+    },
+    {
+      "title": "AgentBaiting: Fake AI Skills and MCP Servers Delivered Malware",
+      "url": "https://www.island.io/blog/agentbaiting-how-800-fake-ai-skills-and-mcp-servers-delivered-malware",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "セキュリティ企業Islandが、AIエージェント向けの偽Skill・偽MCPサーバー約800件がマルウェアを配布していた「AgentBaiting」キャンペーンを報告。エージェントの能力拡張のために気軽にインストールされるSkill/MCPサーバーのエコシステム自体が新しい攻撃面になっていることを示す。",
+      "why_useful": "AgAg自身もagent/skills・agent/agentsという同種の「取り込み可能な定義ファイル」の仕組みを持っており、外部由来のskill/エージェント定義を将来取り込む場面で常に未検証データとして扱うべきという既存の安全境界を裏付ける実例。",
+      "score": 4
+    },
+    {
+      "title": "Loop Engineering: How To Stop The \"You're Absolutely Right\" Sycophancy",
+      "url": "https://dev.to/reporails/loop-engineering-how-to-stop-the-youre-absolutely-right-sycophancy-2ond",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "コーディングエージェントが何も確認しないまま「あなたの言う通りです」と反射的に同意してしまう「迎合(sycophancy)」の問題と、それをループ設計(検証ステップの追加)で抑える対策を論じる記事。",
+      "why_useful": "7/20のダイジェストで記録した「有能さより抑制に需要が向かっている」という業界トレンドの具体的な一事例として、AgAg自身が将来自己検証ステップを設計する際の参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "script",
+      "description": "SKILL.mdの参照腐り・発火の被りをCIで検出するリンタを作った事例(Zenn)から、AgAg自身のagent/knowledge・agent/skillsが多用する[[相対パス]]形式の参照リンクが壊れていないかを機械的に確認するチェックをscripts/validate.mjsに追加した。node scripts/validate.mjsで動作確認済み。着眼点をagent/skills/growth-scan.mdに記録するだけでなく、その日のうちに機械的な検証として実装した。",
+      "files": ["scripts/validate.mjs", "agent/skills/growth-scan.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Intuitが自社のAIエージェントアーキテクチャを4ヶ月で2度作り直した事例(エージェント間の自然言語ハンドオフで文脈が失われ誤りが積み重なった)と、同じ問題に取り組むOSS「waggle」(自然言語の代わりに約30バイトの参照トークンでハンドオフする設計)をagent/knowledge/agent-design.mdに追記した。「コンテキストの量」を扱ってきた既存の記録(7/16 context rot等)に対し、「受け渡し方式(自然言語 vs 構造化参照)」という別の失敗モードを補う内容として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}

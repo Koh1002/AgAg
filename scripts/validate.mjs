@@ -141,6 +141,32 @@ if (existsSync(agentsDir)) {
   }
 }
 
+// ---------- agent/ 配下 Markdown の壊れた参照リンク([[...]]) ----------
+// [[#見出し]] のようなファイル内アンカーは対象外。[[相対パス]] 形式のファイル参照のみ、
+// 参照元ファイルからの相対パスとして実在するかを確認する。
+
+const linkCheckTargets = [
+  [join(ROOT, "agent"), ["AGENT.md"]],
+  [join(ROOT, "agent", "knowledge"), null],
+  [join(ROOT, "agent", "skills"), null],
+  [join(ROOT, "agent", "agents"), null],
+];
+
+for (const [dir, only] of linkCheckTargets) {
+  if (!existsSync(dir)) continue;
+  const files = only ?? readdirSync(dir).filter((f) => f.endsWith(".md"));
+  for (const f of files) {
+    const p = join(dir, f);
+    if (!existsSync(p)) continue;
+    const rel = p.slice(ROOT.length + 1);
+    const text = readFileSync(p, "utf8");
+    for (const m of text.matchAll(/\[\[([^\]#][^\]]*)\]\]/g)) {
+      const ref = m[1].trim();
+      if (!existsSync(join(dir, ref))) fail(`${rel}: 壊れた参照リンク [[${ref}]]`);
+    }
+  }
+}
+
 // ---------- data/runs/*.json(オンデマンド実行結果) ----------
 
 const runsDir = join(ROOT, "data", "runs");

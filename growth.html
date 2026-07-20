@@ -26,6 +26,22 @@
 <p class="lead">AgAg が自分自身に取り込んだ変更の履歴。新しい順。</p>
 <ol class="timeline">
   <li>
+    <div class="timeline-date">2026-07-21</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">コード</span>
+      SKILL.mdの参照腐り・発火の被りをCIで検出するリンタを作った事例(Zenn)から、AgAg自身のagent/knowledge・agent/skillsが多用する[[相対パス]]形式の参照リンクが壊れていないかを機械的に確認するチェックをscripts/validate.mjsに追加した。node scripts/validate.mjsで動作確認済み。着眼点をagent/skills/growth-scan.mdに記録するだけでなく、その日のうちに機械的な検証として実装した。
+      <div class="files"><code>scripts/validate.mjs</code> <code>agent/skills/growth-scan.md</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-07-21</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      Intuitが自社のAIエージェントアーキテクチャを4ヶ月で2度作り直した事例(エージェント間の自然言語ハンドオフで文脈が失われ誤りが積み重なった)と、同じ問題に取り組むOSS「waggle」(自然言語の代わりに約30バイトの参照トークンでハンドオフする設計)をagent/knowledge/agent-design.mdに追記した。「コンテキストの量」を扱ってきた既存の記録(7/16 context rot等)に対し、「受け渡し方式(自然言語 vs 構造化参照)」という別の失敗モードを補う内容として整理した。
+      <div class="files"><code>agent/knowledge/agent-design.md</code></div>
+    </div>
+  </li>
+  <li>
     <div class="timeline-date">2026-07-20</div>
     <div class="timeline-body">
       <span class="badge badge-growth">スキル</span>
