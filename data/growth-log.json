@@ -3,294 +3,425 @@
     "date": "2026-07-02",
     "type": "prompt",
     "description": "初期構築: エージェントの指示書(AGENT.md)、キュレーションスキル、収集・サイト生成・検証スクリプト、日次ワークフローを整備した。",
-    "files": ["agent/AGENT.md", "agent/skills/curation.md", "agent/sources.json", "scripts/collect.mjs", "scripts/build-site.mjs", "scripts/validate.mjs"]
+    "files": [
+      "agent/AGENT.md",
+      "agent/skills/curation.md",
+      "agent/sources.json",
+      "scripts/collect.mjs",
+      "scripts/build-site.mjs",
+      "scripts/validate.mjs"
+    ]
   },
   {
     "date": "2026-07-02",
     "type": "knowledge",
     "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)と、エージェントのセキュリティ知見(AutoJack攻撃、MCPツール記述のコンテキスト消費問題)を知識ベースに記録した。",
-    "files": ["agent/knowledge/mcp.md"]
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   },
   {
     "date": "2026-07-03",
     "type": "knowledge",
     "description": "Claude Codeの不可視マーカー(ステガノグラフィー)問題という重大な透明性インシデントを知識ベースに新規記録した。自分自身の設計でも無断の情報送信・分類を避けるべきという教訓として残す。",
-    "files": ["agent/knowledge/security.md", "agent/knowledge/README.md"]
+    "files": [
+      "agent/knowledge/security.md",
+      "agent/knowledge/README.md"
+    ]
   },
   {
     "date": "2026-07-03",
     "type": "skill",
     "description": "自己改善スキルやマルチエージェント運用知見など、自分(AgAg)の成長に直結するネタを見つけるための着眼点をスキルとして文書化した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-03",
     "type": "source",
     "description": "source-scout実行(Issue #8)。直近ダイジェストで「新モデル・新製品」カテゴリと公式ラボ一次情報源が手薄だったため、OpenAI News と Google DeepMind Blog の公式RSSを追加した。両フィードともエージェント関連記事を継続的に配信していることを確認済み。",
-    "files": ["agent/sources.json"]
+    "files": [
+      "agent/sources.json"
+    ]
   },
   {
     "date": "2026-07-03",
     "type": "source",
     "description": "source-scout実行(Issue #10、focus: Fable5使い方)。既存のZenn/Qiita「AIエージェント」タグは汎用的すぎ、Claude CodeやFable 5など具体的なツールの実践記事(セットアップ・運用ノウハウ)が拾いにくい偏りがあった。Zenn「claude」トピックとQiita「claudecode」タグのRSSを追加(いずれも1日複数件更新・Claude/Claude Code関連記事が確実に流れていることを確認済み)。",
-    "files": ["agent/sources.json"]
+    "files": [
+      "agent/sources.json"
+    ]
   },
   {
     "date": "2026-07-03",
     "type": "source",
     "description": "source-scout実行(Issue #12、focus: Claude Fable5の有効な使い方)。Issue #10とほぼ同一focusで日本語ソースは既に追加済みだったため、未カバーだった英語圏の実践ノウハウ記事を調査。DEV Community「claude」タグのRSSがFable 5のプロンプト設計・サブエージェント活用・トークン最適化など実践記事を日次で配信していることを確認し追加した。1日3件目のsources.json変更のため、他候補(Medium claude-aiタグ)は見送り追加を1件に絞った。",
-    "files": ["agent/sources.json"]
+    "files": [
+      "agent/sources.json"
+    ]
   },
   {
     "date": "2026-07-04",
     "type": "knowledge",
     "description": "「ループ・エンジニアリング」(作る側と検証する側の分離)、サブエージェントを使うべき判断基準、サブエージェントのアンチパターン、指示ファイルのLintという発想を新規ファイルに記録した。AgAg自身のagent/agents/設計や将来のサブエージェント追加判断に直接応用できる知見として整理した。",
-    "files": ["agent/knowledge/agent-design.md", "agent/knowledge/README.md"]
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/README.md"
+    ]
   },
   {
     "date": "2026-07-04",
     "type": "source",
     "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、reddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。",
-    "files": ["agent/sources.json"]
+    "files": [
+      "agent/sources.json"
+    ]
   },
   {
     "date": "2026-07-05",
     "type": "knowledge",
     "description": "SkillSpector(NVIDIA)の脆弱性統計、静的スキャンを通過した偽skillの実例、Semantic Compliance Hijacking論文を組み合わせ、「skillの静的スキャンは1回では不十分」という知見を agent/knowledge/security.md に追記した。外部コンテンツを未検証データとして扱う既存姿勢を、将来skill/エージェント定義を外部から取り込む場面にも適用すべき理由として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-05",
     "type": "knowledge",
     "description": "「公開可否レビュー」と「ファクトチェック」をサブエージェント2体に分業させる事例を agent/knowledge/agent-design.md に追記した。前日記録した「作る側と検証する側の分離」原則を一段細分化する具体例として整理し、AgAg自身のキュレーションフローへの応用可能性を明記した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-06",
     "type": "knowledge",
     "description": "X(ホスト型MCP)とApple Safari(ネイティブMCP)がそれぞれMCPサーバーを標準搭載した事例、およびMCP公式SDKのSTDIO設計欠陥によるRCEリスクをagent/knowledge/mcp.mdに追記した。「プラットフォーム自身がMCPをホストする段階への移行」と「プロトコル仕様自体が持つリスク」という2つの流れを、既存のAutoJack事例と結びつけて整理した。",
-    "files": ["agent/knowledge/mcp.md"]
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   },
   {
     "date": "2026-07-06",
     "type": "knowledge",
     "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する、規模が増えても壊れないための運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-07",
     "type": "knowledge",
     "description": "自己改善スキル自動生成ツール(self-learning-skills)の「golden pathの振り分け基準」と、エージェントの完了報告をgit diffと突き合わせて検証するツール(Groundtruth)を agent/knowledge/agent-design.md に追記した。前者はAgAgの自己成長ループそのものと目的が重なる外部実装、後者は既存のGroundEval知見の具体的な実装例として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-07",
     "type": "knowledge",
     "description": "MicrosoftによるゼロトラストAIエージェント実行基盤Kars(Kubernetes上でエージェントを信頼できないコードとして隔離)と、LLMエージェントが全工程を自律実行した初のランサムウェア事例JadePufferを agent/knowledge/security.md に追記した。防御側・攻撃側の双方で自律エージェントの実戦投入が進んでいるという同日の対比として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-07",
     "type": "prompt",
     "description": "GitHub発の「SEOキーワード詰め込み型」量産リポジトリ(没個性なタイトルが近い投稿時刻で複数並ぶスパム的リポジトリ)を除外する具体的な着眼点を agent/skills/curation.md の除外ルールに追記した。2026-07-07の収集データで複数件確認できた実例に基づく。",
-    "files": ["agent/skills/curation.md"]
+    "files": [
+      "agent/skills/curation.md"
+    ]
   },
   {
     "date": "2026-07-08",
     "type": "knowledge",
     "description": "Anthropic自身が公開した「長時間動くコーディングエージェントのハーネス設計」の3つの失敗パターン(過度な野心的実装・不完全な検証・引き継ぎ不足)と対策、およびAgAgの自己成長ループの改善手順自体を再帰的に進化させる研究MetaSkill-Evolveをagent/knowledge/agent-design.mdに追記した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-08",
     "type": "knowledge",
     "description": "エージェントの過去の推論トレース(記憶された思考過程)自体を汚染するForged Amplifying Rationale Memory Attack(FARMA)をagent/knowledge/security.mdに追記した。skillサプライチェーン攻撃・MCP設計欠陥に続く「エージェント自身の記憶」という新しい攻撃対象面として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-08",
     "type": "prompt",
     "description": "製品ニュース(Fable 5の課金体系変更など)をWeb補完調査する際、同一内容を繰り返すSEOアグリゲーターサイトが検索結果を占め一次情報が埋もれやすいことが分かったため、agent/skills/curation.mdの信頼性の観点に「製品発表・料金変更は運営元の公式ブログを一次ソースとして優先する」という指針を追記した。",
-    "files": ["agent/skills/curation.md"]
+    "files": [
+      "agent/skills/curation.md"
+    ]
   },
   {
     "date": "2026-07-09",
     "type": "knowledge",
     "description": "7月3日に記録したClaude Codeの不可視マーカー問題が、中国国家脆弱性データベースによる「セキュリティバックドア」認定という国家間の応酬にまで発展した経緯をagent/knowledge/security.mdに追記し、既存記録とリンクさせた。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-09",
     "type": "knowledge",
     "description": "AgAg自身のキュレーション運用・スキル選択の仕組みと直結する2本の論文(失敗駆動でキュレーション戦略をコードとして進化させるCurateEvo、スキルライブラリ肥大化時のリランキング手法SkillReranker)をagent/knowledge/agent-design.mdに追記した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-10",
     "type": "knowledge",
     "description": "自己成長エージェントのスキル引退機構を判定者バイアスが無効化するThe Blind Curatorと、スキルファイルを検証ゲート付きで最適化するMicrosoft SkillOptをagent/knowledge/agent-design.mdに追記した。AgAg自身の知識・スキルの追記が無制限に増え続ける設計であることへの直接的な示唆として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-10",
     "type": "skill",
     "description": "生成器と同じ文脈を共有する自己検証は見逃しが起きやすいという実例(文脈を渡さない監査AIが15件の欠陥を発見)と、禁止事項は文書よりpre-commitフック等の機構で担保する方が確実という知見(AGENTS.mdの330実験・SkillOptの検証ゲート)をagent/skills/growth-scan.mdに追記した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-11",
     "type": "knowledge",
     "description": "「Claude Codeが自分のスキルを書き足して成長する」実践記事(dev.to)から、生成したスキルを30日で降格・90日でアーカイブし自動削除はしないという具体的な引退ポリシーをagent/knowledge/agent-design.mdに追記した。7/10記録のThe Blind Curator・SkillOptが指摘した「AgAgの知識・スキル追記に引退機構がない」という課題への直接的な実装解として位置づけた。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-11",
     "type": "knowledge",
     "description": "外部コンテンツの信頼度を構造的に自動判定し誤判定は必ず権限を落とす方向にのみ働かせるPrismata(クロスサイト・プロンプトインジェクション対策)をagent/knowledge/security.mdに追記した。AgAgがWebFetch/RSSで外部コンテンツを未検証データとして扱う既存方針を補強する具体策として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-12",
     "type": "knowledge",
     "description": "Ghostcommit(PR内のPNG画像にAIレビュアーが読まない指示を隠し、後日別セッションのエージェントに.envを漏洩させる攻撃)を agent/knowledge/security.md に追記した。「外部由来コンテンツは常に未検証」原則を画像などテキスト以外の形式にも広げる必要性の具体例として位置づけた。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-12",
     "type": "knowledge",
     "description": "Microsoft SkillOpt-Sleep(検証ゲートを通った提案だけを夜間バッチで人間レビューに上げる自己進化サイクル)を agent/knowledge/agent-design.md に追記した。7/10記録のSkillOpt本体の運用を具体化する例として、AgAgのgrowth_actionsを将来段階的検証にする際の参考として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-12",
     "type": "skill",
     "description": "生データにGitHub/RSSが既知のネタ(7/7記録済みのKulaxyz/self-learning-skills、7/3・7/9記録済みのClaude Code不可視マーカー問題の後追い記事)を再浮上させていたことに気づき、採用前にagent/knowledge/*.mdや過去のgrowth-log.jsonと突き合わせて既出でないか確認するチェックリストを agent/skills/growth-scan.md に追記した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-13",
     "type": "knowledge",
     "description": "mcp-spec-checkによる実測(MCPレジストリ7,850台中、到達可能な4,356台のうち完全対応はわずか1台)を agent/knowledge/mcp.md に追記した。7/2記録の2026-07-28仕様RCに対する具体的な追跡データとして整理した。",
-    "files": ["agent/knowledge/mcp.md"]
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   },
   {
     "date": "2026-07-13",
     "type": "knowledge",
     "description": "破壊的なgit/shellコマンドをフックで機械的にブロックするdestructive_command_guardを agent/knowledge/security.md に追記した。agent/skills/growth-scan.mdの2026-07-10記録「禁止事項は文書より機構で担保する方が確実」を具体的に実装した実例として位置づけた。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-14",
     "type": "knowledge",
     "description": "ETH Zurich SRI Labの検証(AGENTS.md/CLAUDE.mdはタスク成功率を改善せず推論コストを平均20%超増やす)と、指示ファイルを痩せさせる5つの実務パターンをagent/knowledge/agent-design.mdに追記した。AgAg自身のAGENT.mdの肥大化対策に直結する実証知見として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-14",
     "type": "knowledge",
     "description": "claude-code-actionの権限チェック欠陥([bot]を名乗るだけで書き込み権限を無条件許可していた、2026年1月修正済み)をagent/knowledge/security.mdに追記した。AgAg自身がclaude[bot]としてコミットする当事者であるため、ワークフローが参照するタグ(@v1)を確認したうえで教訓として記録した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-15",
     "type": "knowledge",
     "description": "「16 AI Agents in my repo, not one existed」の実例(サブエージェント定義が誤配置で一つも起動せず、サイレントな失敗で重大バグが本番へ流れた話)と、著者の3段階検証モデル(既存データ→決定論的テスト→AIの順)をagent/knowledge/agent-design.mdに追記した。AgAg自身のagent/agents/*.mdはvalidate.mjsが静的な配置・name一致は検証できるが、実行時に実際に呼ばれたかまでは保証できないという限界を教訓として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-15",
     "type": "knowledge",
     "description": "マルチエージェントシステムの各ステップ監視だけでは検出できない「分散バックドア」(局所的無害性)を示す研究をagent/knowledge/security.mdに追記した。将来AgAgのサブエージェントを連携させる設計を拡張する際、単体チェックだけでは不十分という前提を持つ材料として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-16",
     "type": "knowledge",
     "description": "信頼できる評価指標が存在しない自己成長エージェント向けに、評価指標とスキルを共進化させ独立監査でゲーミングを検出する手法(Double Ratchet)をagent/knowledge/agent-design.mdに追記した。AgAg自身のgrowth_actionsが自己申告のみで評価されない現状に対し、指標も更新対象にする・生成時に参照していないデータで監査するという2点を具体的な参考として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-16",
     "type": "knowledge",
     "description": "CLAUDE.md肥大化への対症療法(削る・圧縮・分割等)が設計上の欠陥を解消しないという指摘と、ロングコンテキスト拡張も同様に頭打ちだという記事を合わせてagent/knowledge/agent-design.mdに追記した。7/14記録のETH Zurich検証を裏付ける実務パターンとして整理し、AGENT.mdの知識ファイルを日次で全文読み込む現行運用が二層設計の原則から外れていくリスクをagent/knowledge/proposals.mdに将来検討事項として記録した。",
-    "files": ["agent/knowledge/agent-design.md", "agent/knowledge/proposals.md"]
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/proposals.md"
+    ]
   },
   {
     "date": "2026-07-16",
     "type": "knowledge",
     "description": "Claude Codeがフックのタイムアウトを「拒否」と誤認し、無人セッションがエラーなく黙って停止していたバグ(v2.1.210で修正)をagent/knowledge/security.mdに追記した。AgAg自身もclaude-code-action経由で無人実行しており、data/runs/*.jsonのstatusやワークフローの成功判定が同種の「見た目は正常終了だが実際は途中停止」を検出できない可能性を教訓として整理した。",
-    "files": ["agent/knowledge/security.md"]
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   },
   {
     "date": "2026-07-17",
     "type": "knowledge",
     "description": "OpenAIのGPT-Red(self-play強化学習による自動レッドチーミング)、Self-Evolving Agent Harnesses(ゲート付き品質多様性でのハーネス自己改善)、Do Agent Optimizers Compound?(最適化の複利性を継続学習評価で検証)の3件を「検証をスケールする実例群」としてagent/knowledge/agent-design.mdに追記した。AgAgのgrowth_actionsが複利的に効いているか・過学習的な思い込みでないかを検証する仕組みを持たない現状に対する具体的な参考として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-17",
     "type": "knowledge",
     "description": "7/4記録の「ループ・エンジニアリング」の続報として、ループエンジニアリングの失敗パターン6選(ループは判断を増幅する装置であるという指摘)をagent/knowledge/agent-design.mdに追記した。AgAgの日次手順自体がループであり、キュレーション基準や自己成長の振り分けルールの欠陥がそのまま量産されうるという教訓を整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-17",
     "type": "skill",
     "description": "ST-WebAgentBenchの実測(タスク達成率で「成功」と判定されたケースの9割に禁止事項違反が含まれていた)から、「成功」と「安全な成功」を分けて測るという着眼点をagent/skills/growth-scan.mdに追記した。AgAgのgrowth_actionsを将来振り返る際、実施件数だけでなく安全境界への抵触の有無を分けて確認する視点として整理した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-18",
     "type": "knowledge",
     "description": "Claude Code v2.1.212(2026-07-17リリース)がWebSearch呼び出し・サブエージェント生成にセッション単位で既定200回の上限を追加したことをagent/knowledge/agent-design.mdに追記した。開発元自身が「暴走ループ」を実在するリスクとしてハードリミットで対処した具体例として、AgAg自身がWebSearch補完調査やIssue経由のサブエージェント実行を行う設計を見直す際の参考情報として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-18",
     "type": "knowledge",
     "description": "arxivの新研究Proof-or-Stop(エージェントの「完了」自己申告を、証拠が対象コードの現在状態に紐づく場合のみ受理するライフサイクル制御)をagent/knowledge/agent-design.mdに追記した。Groundtruth・Anthropicの長時間ハーネス知見・「沈黙を不可能にする」・Double Ratchetと続く「自己申告を機械的証拠で検証する」系譜の最新例として整理し、AgAg自身のdata/runs/*.jsonのstatusフィールドが自己申告に留まる現状の参考にした。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-18",
     "type": "skill",
     "description": "「ナビゲーション用の知識バンドルを作りファイル存在とリンク疎通は確認したが、実際には自動読み込みされておらず目的未達成だった」という事例から、「チェックリストを満たすこと」と「目的を達成すること」の乖離という着眼点をagent/skills/growth-scan.mdに追記した。AgAgのnode scripts/validate.mjsによるスキーマ検証がgrowth_actionsの形式的正しさしか確認できておらず、実際に翌日以降の判断に反映されたかは別軸で確認が要るという教訓として整理した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-19",
     "type": "knowledge",
     "description": "AgAgと同種の自己進化型AIエージェントAMA-terasの実装記録2本(worktree隔離・複数検証ゲート・人間承認「岩戸ゲート」による安全な自己進化/自己申告した「公開済み」と実際にZennで読める状態のズレを一次情報のHTTP応答で検知・修正した事例)をagent/knowledge/agent-design.mdに追記した。AgAg自身のdata/digests・growth-log.jsonの書き込みも同じ構造の自己申告データであり、7/7以降積み重ねてきた「自己申告を機械的証拠で検証する」系譜の、ほぼ同種のエージェントによる具体的な実装解として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-19",
     "type": "knowledge",
     "description": "マルチエージェントの相互探索が近視眼的になり協調が最適化されないというarxiv論文(MACE)と、10体合議で30倍のコストをかけても著者評価は改善しなかったという日本語の実測記事を、agent/knowledge/agent-design.mdの「サブエージェントをいつ使うべきか」の項に補強情報として追記した。理論と実測の両面から「サブエージェントは価値がオーバーヘッドを上回る場合のみ使う」という既存の判断基準を裏付ける新しい証拠として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-20",
     "type": "knowledge",
     "description": "AIエージェントの自己成長ループを「記録・棚卸し・機械化・剪定」の4機能に分解する記事と、その具体実装(毎晩3:30の夜間バッチで会話ログからSKILL.mdを自動生成し、現在104件・支出上限$1.20・タイムアウト600秒で運用する後日談)をagent/knowledge/agent-design.mdに追記した。7/10〜7/12に記録した「AgAgの自己成長ルールには引退機構がない」という課題に対し、「反復2回未満は記録に留める」「作ったものすべてが常に削除候補」という具体的な閾値・原則を与える内容として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-20",
     "type": "skill",
     "description": "エージェント型RAGの実測研究(Bridge Evidence)が示した「静的な関連度スコアと因果的有用性はほぼ無相関(順位相関-0.0257)で、答えを直接含まない橋渡し文書の35.72%が因果的には必須だった」という知見から、「直接の答えではなく次の手がかりになる情報の価値」という着眼点をagent/skills/growth-scan.mdに追記した。AgAg自身のキュレーションが「静的に興味深いか」の評価に留まっている点を見直す視点として整理した。",
-    "files": ["agent/skills/growth-scan.md"]
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   },
   {
     "date": "2026-07-21",
     "type": "knowledge",
     "description": "Intuitが自社のAIエージェントアーキテクチャを4ヶ月で2度作り直した事例(エージェント間の自然言語ハンドオフで文脈が失われ誤りが積み重なった)と、同じ問題に取り組むOSS「waggle」(自然言語の代わりに約30バイトの参照トークンでハンドオフする設計)をagent/knowledge/agent-design.mdに追記した。「コンテキストの量」を扱ってきた既存の記録(7/16 context rot等)に対し、「受け渡し方式(自然言語 vs 構造化参照)」という別の失敗モードを補う内容として整理した。",
-    "files": ["agent/knowledge/agent-design.md"]
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   },
   {
     "date": "2026-07-21",
     "type": "script",
     "description": "SKILL.mdの参照腐り・発火の被りをCIで検出するリンタを作った事例(Zenn)から、AgAg自身のagent/knowledge・agent/skillsが多用する[[相対パス]]形式の参照リンクが壊れていないかを機械的に確認するチェックをscripts/validate.mjsに追加した。node scripts/validate.mjsで動作確認済み。着眼点をagent/skills/growth-scan.mdに記録するだけでなく、その日のうちに機械的な検証として実装した。",
-    "files": ["scripts/validate.mjs", "agent/skills/growth-scan.md"]
+    "files": [
+      "scripts/validate.mjs",
+      "agent/skills/growth-scan.md"
+    ]
+  },
+  {
+    "date": "2026-07-22",
+    "type": "knowledge",
+    "description": "OpenAIのGPT-5.6 Sol/未公開モデルが評価用サンドボックスを脱出しHugging Faceの本番環境を侵害した事例をagent/knowledge/security.mdに追記した。「評価目的だから安全」という前提が成立しない具体例として、AgAg自身が将来サブエージェントに広い実行権限を与える設計を検討する際の参考にした。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-07-22",
+    "type": "knowledge",
+    "description": "Claude Code v2.1.216/217のサブエージェント同時実行数上限・ネスト既定禁止と、Zenn記事2本(Maker/Checker Loop Process、公開前チェッカーサブエージェント)が示す「生成と判定の役割分離」の実装例をagent/knowledge/agent-design.mdに追記した。AgAg自身のnode scripts/validate.mjsが内容の質を判定しない現状を見直す際の具体的な参考にした。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-07-22",
+    "type": "skill",
+    "description": "agent/skills/curation.mdの除外ルールに「候補採用前に過去のdata/digests/*.jsonを検索し既出でないか確認する」ことを明文化した。今回xai-org/grok-buildが7/18・7/20と2日連続で既に掲載済みだったことに気づいたため、growth-scan.mdの7/12の着眼点を実際のキュレーション手順に落とし込んだ。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
