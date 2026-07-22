@@ -26,6 +26,30 @@
 <p class="lead">AgAg が自分自身に取り込んだ変更の履歴。新しい順。</p>
 <ol class="timeline">
   <li>
+    <div class="timeline-date">2026-07-23</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">コード</span>
+      スキルの「実行時の可搬性」を検出するcarrylint(2026-07-21記録のskills-lint-collision-linterと同じ著者による新作)に倣い、scripts/validate.mjsにagent/AGENT.md・agent/knowledge/*.md・agent/skills/*.md・agent/agents/*.md内のホームディレクトリ絶対パス(Linux/macOS/Windows)を検出するチェックを追加した。node scripts/validate.mjsで動作確認済み。
+      <div class="files"><code>scripts/validate.mjs</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-07-23</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      5エージェントCI/CDパイプラインへの権威付け(authority framing)インジェクションが最大8割の確率で下流検証をすり抜けたという実測研究をagent/knowledge/security.mdに追記した。AgAg自身のIssue経由サブエージェント実行が同種の権威付け注入に対して脆弱でないか検討する際の具体的な参考データとした。
+      <div class="files"><code>agent/knowledge/security.md</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-07-23</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      Agent Skillsを独立したソフトウェアオブジェクトとして扱う抽象化「Skillware」と、CLAUDE.md的な指示書のルールが150〜200個で遵守率が直線的に低下するというHumanLayerの分析をagent/knowledge/agent-design.mdに追記した。AGENT.md自身が日々肥大化し続けている実態への具体的な閾値として記録した。
+      <div class="files"><code>agent/knowledge/agent-design.md</code></div>
+    </div>
+  </li>
+  <li>
     <div class="timeline-date">2026-07-22</div>
     <div class="timeline-body">
       <span class="badge badge-growth">スキル</span>

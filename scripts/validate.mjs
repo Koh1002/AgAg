@@ -167,6 +167,31 @@ for (const [dir, only] of linkCheckTargets) {
   }
 }
 
+// ---------- agent/ 配下 Markdown の可搬性(個人環境に固有の絶対パス) ----------
+// 2026-07-23記録の carrylint (https://zenn.dev/maronsan/articles/carrylint-runtime-portability) に倣い、
+// 自分の環境でしか動かないハードコードされた絶対パスを検出する。
+
+const PORTABILITY_PATTERNS = [
+  { re: /\/home\/[a-zA-Z0-9_-]+\//g, label: "Linux ホームディレクトリの絶対パス" },
+  { re: /\/Users\/[a-zA-Z0-9_-]+\//g, label: "macOS ホームディレクトリの絶対パス" },
+  { re: /[A-Za-z]:\\\\?Users\\\\?[a-zA-Z0-9_-]+\\\\?/g, label: "Windows ホームディレクトリの絶対パス" },
+];
+
+for (const [dir, only] of linkCheckTargets) {
+  if (!existsSync(dir)) continue;
+  const files = only ?? readdirSync(dir).filter((f) => f.endsWith(".md"));
+  for (const f of files) {
+    const p = join(dir, f);
+    if (!existsSync(p)) continue;
+    const rel = p.slice(ROOT.length + 1);
+    const text = readFileSync(p, "utf8");
+    for (const { re, label } of PORTABILITY_PATTERNS) {
+      const m = text.match(re);
+      if (m) fail(`${rel}: ${label}が含まれている (${m[0]})`);
+    }
+  }
+}
+
 // ---------- data/runs/*.json(オンデマンド実行結果) ----------
 
 const runsDir = join(ROOT, "data", "runs");

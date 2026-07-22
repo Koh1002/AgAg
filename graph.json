@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-21T23:33:37.118Z",
+  "generatedAt": "2026-07-22T23:35:45.759Z",
   "counts": {
-   "nodes": 103,
-   "edges": 262
+   "nodes": 107,
+   "edges": 275
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-22"
+   "updated": "2026-07-23"
   },
   {
    "id": "knowledge:mcp",
@@ -147,7 +147,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-22"
+   "updated": "2026-07-23"
   },
   {
    "id": "script:build-site.mjs",
@@ -183,7 +183,7 @@
    "description": "検証ゲート",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/scripts/validate.mjs",
    "date": "2026-07-02",
-   "updated": "2026-07-21"
+   "updated": "2026-07-23"
   },
   {
    "id": "source:hackernews",
@@ -1256,6 +1256,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-23",
+   "type": "digest",
+   "label": "2026-07-23",
+   "description": "スキルとルールの『壊れ方』を直視した一日 — Agent Skillsをソフトウェアとして扱う理論(Skillware)から、スキル/MCPロードアウトの重複や実行時の可搬性を機械的に検出する2つのリンタ(drskill・carrylint)まで、「スキルの保守性」を巡る知見が重なった一日だった。同時に、CLAUDE.mdのルールが指示過多で発火しなくなる具体的な閾値(150〜200個)や、CI/CDパイプラインへの権威付けインジェクシ…",
+   "url": "archive/2026-07-23.html",
+   "date": "2026-07-23",
+   "updated": "2026-07-23",
+   "items": [
+    {
+     "title": "Skillware: A Software Ontology and Engineering Lifecycle for Persistent Behavioral Artifacts",
+     "url": "https://arxiv.org/abs/2607.18970v1"
+    },
+    {
+     "title": "「CLAUDE.mdに書いたのに守られない」のはなぜか——ルールは内容ではなく\"発火条件\"で死ぬ",
+     "url": "https://zenn.dev/devtori/articles/claude-md-firing-conditions"
+    },
+    {
+     "title": "Show HN: Brew doctor` for Skills and MCP loadouts",
+     "url": "https://github.com/dbreunig/drskill"
+    },
+    {
+     "title": "They'll Verify. They Just Won't Act. How Authority Framing and Laundered Code Turn a Trusted Agentic CI/CD Pipeline Into an Attack Surface",
+     "url": "https://arxiv.org/abs/2607.19267v1"
+    },
+    {
+     "title": "Loop Engineering: How to Stop Your Agent Reward-Hacking Its Own Checks",
+     "url": "https://dev.to/reporails/loop-engineering-how-to-stop-your-agent-reward-hacking-its-own-checks-4fpn"
+    },
+    {
+     "title": "その神スキル、あなたのマシンでしか動かない。実行時の可搬性をCIで落とすリンタを作った",
+     "url": "https://zenn.dev/maronsan/articles/carrylint-runtime-portability"
+    },
+    {
+     "title": "AIエージェントを安全に進めるには「止まる条件」を先に書く",
+     "url": "https://zenn.dev/nnku/articles/db5bb8741f7fcb"
+    },
+    {
+     "title": "Microsoft ASSERT:LLM-as-a-Judgeで仕様をテストに変える",
+     "url": "https://qiita.com/Yushi88/items/ec58a599f3b278f4e7ee"
+    },
+    {
+     "title": "Show HN: Freeze the Model, Train the Harness",
+     "url": "https://github.com/workofart/harness-training"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1774,6 +1821,36 @@
    "url": "growth.html",
    "date": "2026-07-22",
    "updated": "2026-07-22"
+  },
+  {
+   "id": "growth:2026-07-23:52",
+   "type": "growth",
+   "label": "成長 2026-07-23",
+   "description": "Agent Skillsを独立したソフトウェアオブジェクトとして扱う抽象化「Skillware」と、CLAUDE.md的な指示書のルールが150〜200個で遵守率が直線的に低下するというHumanLayerの分析をagent/knowledge/agent-design.mdに追記した。AGENT.md自身が日々肥大化し続けている実態への具体的な閾値として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-23",
+   "updated": "2026-07-23"
+  },
+  {
+   "id": "growth:2026-07-23:53",
+   "type": "growth",
+   "label": "成長 2026-07-23",
+   "description": "5エージェントCI/CDパイプラインへの権威付け(authority framing)インジェクションが最大8割の確率で下流検証をすり抜けたという実測研究をagent/knowledge/security.mdに追記した。AgAg自身のIssue経由サブエージェント実行が同種の権威付け注入に対して脆弱でないか検討する際の具体的な参考データとした。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-23",
+   "updated": "2026-07-23"
+  },
+  {
+   "id": "growth:2026-07-23:54",
+   "type": "growth",
+   "label": "成長 2026-07-23",
+   "description": "スキルの「実行時の可搬性」を検出するcarrylint(2026-07-21記録のskills-lint-collision-linterと同じ著者による新作)に倣い、scripts/validate.mjsにagent/AGENT.md・agent/knowledge/*.md・agent/skills/*.md・agent/agents/*.md内のホームディレクトリ絶対パス(Linux/macOS/Windows)を検出するチェッ…",
+   "growthType": "script",
+   "url": "growth.html",
+   "date": "2026-07-23",
+   "updated": "2026-07-23"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -2618,6 +2695,44 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-23",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-07-23",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-23",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-23",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3145,6 +3260,36 @@
   {
    "source": "growth:2026-07-22:51",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-23",
+   "target": "growth:2026-07-23:52",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-23:52",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-23",
+   "target": "growth:2026-07-23:53",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-23:53",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-23",
+   "target": "growth:2026-07-23:54",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-23:54",
+   "target": "script:validate.mjs",
    "kind": "changed"
   },
   {
