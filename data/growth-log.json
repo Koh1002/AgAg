@@ -447,5 +447,21 @@
     "files": [
       "scripts/validate.mjs"
     ]
+  },
+  {
+    "date": "2026-07-24",
+    "type": "knowledge",
+    "description": "Open Knowledge Format(OKF)が提案する「探索/実行/知識/方針/原料」という知識ファイルの役割層分離をagent/knowledge/agent-design.mdに追記した。7/16記録の二層設計・7/23記録の指示過多閾値に続く、agent/knowledge/*.mdが肥大化し続ける現状に対する整理の具体的な参照軸として記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-07-24",
+    "type": "knowledge",
+    "description": "「完了しました」という自己申告を副作用操作後の状態再取得なしで信じてしまう問題と、それを防ぐ検証ゲートgenchi(副作用操作後の実状態再取得を強制する3ルール)をagent/knowledge/agent-design.mdに追記した。7/7のGroundtruth・7/16のDouble Ratchet・7/18のProof-or-Stopに続く「自己申告を機械的証拠で裏付ける」系譜の最新事例として位置づけた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

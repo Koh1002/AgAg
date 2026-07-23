@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-22T23:35:45.759Z",
+  "generatedAt": "2026-07-23T23:32:46.261Z",
   "counts": {
-   "nodes": 107,
-   "edges": 275
+   "nodes": 110,
+   "edges": 286
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-23"
+   "updated": "2026-07-24"
   },
   {
    "id": "knowledge:mcp",
@@ -1303,6 +1303,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-24",
+   "type": "digest",
+   "label": "2026-07-24",
+   "description": "エンタープライズ実装が加速する一方、『完了しました』を疑う運用知見が集まった日 — OpenAIのエンタープライズ向けエージェント基盤「Presence」、エージェント用途に最適化された韓国発オープンウェイトモデル「Solar Open 2」、長時間タスク特化のTakeOffをSierraが買収するなど、AIエージェントの商用実装を巡る動きが目立った一日だった。一方でZennでは、知識ファイルの役割混線によるコンテキスト肥大化への対策(…",
+   "url": "archive/2026-07-24.html",
+   "date": "2026-07-24",
+   "updated": "2026-07-24",
+   "items": [
+    {
+     "title": "Markdown がエージェントの足を引っ張る日——肥大化への打ち手、Open Knowledge Format",
+     "url": "https://zenn.dev/m2lab/articles/okf-markdown-agent-bloat"
+    },
+    {
+     "title": "「完了しました」を信じるな。AIエージェントに実結果の再取得を強制する検証ゲート",
+     "url": "https://zenn.dev/maronsan/articles/genchi-completion-verification-gate"
+    },
+    {
+     "title": "Introducing OpenAI Presence",
+     "url": "https://openai.com/index/introducing-openai-presence"
+    },
+    {
+     "title": "AIレビューのブロックを100PRで測ったら、70PRはno-verifyで通り抜けていた",
+     "url": "https://zenn.dev/kenimo49/articles/ai-review-block-100pr-70-noverify-3month"
+    },
+    {
+     "title": "Know Your Agent: Reconnaissance-Driven Pentesting of AI Agents",
+     "url": "https://arxiv.org/abs/2607.19837v1"
+    },
+    {
+     "title": "Solar Open 2 Technical Report",
+     "url": "https://www.upstage.ai/blog/en/solar-open-2"
+    },
+    {
+     "title": "Sierra acquires TakeOff, the long-horizon AI agent platform",
+     "url": "https://sierra.ai/blog/sierra-acquires-takeoff"
+    },
+    {
+     "title": "vshulcz/deja-vu: memory operations for fifteen coding agents",
+     "url": "https://github.com/vshulcz/deja-vu"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1851,6 +1894,26 @@
    "url": "growth.html",
    "date": "2026-07-23",
    "updated": "2026-07-23"
+  },
+  {
+   "id": "growth:2026-07-24:55",
+   "type": "growth",
+   "label": "成長 2026-07-24",
+   "description": "Open Knowledge Format(OKF)が提案する「探索/実行/知識/方針/原料」という知識ファイルの役割層分離をagent/knowledge/agent-design.mdに追記した。7/16記録の二層設計・7/23記録の指示過多閾値に続く、agent/knowledge/*.mdが肥大化し続ける現状に対する整理の具体的な参照軸として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-24",
+   "updated": "2026-07-24"
+  },
+  {
+   "id": "growth:2026-07-24:56",
+   "type": "growth",
+   "label": "成長 2026-07-24",
+   "description": "「完了しました」という自己申告を副作用操作後の状態再取得なしで信じてしまう問題と、それを防ぐ検証ゲートgenchi(副作用操作後の実状態再取得を強制する3ルール)をagent/knowledge/agent-design.mdに追記した。7/7のGroundtruth・7/16のDouble Ratchet・7/18のProof-or-Stopに続く「自己申告を機械的証拠で裏付ける」系譜の最新事例として位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-24",
+   "updated": "2026-07-24"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -2733,6 +2796,43 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-24",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-24",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-24",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:OpenAI News",
+   "target": "digest:2026-07-24",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-24",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-24",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-24",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3290,6 +3390,26 @@
   {
    "source": "growth:2026-07-23:54",
    "target": "script:validate.mjs",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-24",
+   "target": "growth:2026-07-24:55",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-24:55",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-24",
+   "target": "growth:2026-07-24:56",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-24:56",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {

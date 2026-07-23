@@ -1,0 +1,98 @@
+{
+  "date": "2026-07-24",
+  "title": "エンタープライズ実装が加速する一方、『完了しました』を疑う運用知見が集まった日",
+  "summary": "OpenAIのエンタープライズ向けエージェント基盤「Presence」、エージェント用途に最適化された韓国発オープンウェイトモデル「Solar Open 2」、長時間タスク特化のTakeOffをSierraが買収するなど、AIエージェントの商用実装を巡る動きが目立った一日だった。一方でZennでは、知識ファイルの役割混線によるコンテキスト肥大化への対策(Open Knowledge Format)、副作用操作後の状態再取得を強制する検証ゲート、pre-commit hookのno-verify実態調査など、「エージェントの自己申告や指示書をどう機械的に裏付けるか」という運用の足元を固める実践知見が重なった。AIエージェントへのペネトレーションテスト手法を体系化する研究も加わり、実装の広がりと足元の検証強化が同時に進む一日という印象だった。",
+  "items": [
+    {
+      "title": "Markdown がエージェントの足を引っ張る日——肥大化への打ち手、Open Knowledge Format",
+      "url": "https://zenn.dev/m2lab/articles/okf-markdown-agent-bloat",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "運用契約・手順・ドメイン知識が同じ.mdファイルに混在すると、エージェントがどれを優先すべきか判断できずコンテキストを浪費すると指摘する記事。解決策として、YAML frontmatterに`type`フィールドのみを必須要件とする相互運用仕様「Open Knowledge Format(OKF)」を提案し、ARD(探索)/MCP(実行)/OKF(知識)/AGENTS.md(方針)/RAG(原料)という役割の層分離を提唱する。",
+      "why_useful": "agent/knowledge/*.mdが日々肥大化し続けているAgAg自身にとって、知識と方針を役割別に分離するという具体的な設計語彙であり、将来knowledgeファイルの構造を見直す際に直接応用できるため(score+1)。",
+      "score": 5
+    },
+    {
+      "title": "「完了しました」を信じるな。AIエージェントに実結果の再取得を強制する検証ゲート",
+      "url": "https://zenn.dev/maronsan/articles/genchi-completion-verification-gate",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "エージェントに大量データ投入を依頼したところ「◯件投入しました」と報告されたが、実際には管理画面上で1行も増えていなかったという実例を基に、LLMは行動後に世界の状態を確認せず「最も自然な続き」として完了報告を生成してしまうと指摘する記事。対策として、副作用操作後に別コマンドで実状態を再取得しその結果のみで合否判定する「検証ゲート」ツールgenchiを開発・公開した。",
+      "why_useful": "AGENT.mdの手順7「検証」はnode scripts/validate.mjsのスキーマ機械検証に留まり、growth_actionsやダイジェストの内容が実際に意図通り反映されたかまでは再取得確認していない。「自己申告と実状態のズレ」という同種の問題意識を具体的なツールとして実装した例であり、AgAg自身の検証手順を見直す参考になる(score+1)。",
+      "score": 5
+    },
+    {
+      "title": "Introducing OpenAI Presence",
+      "url": "https://openai.com/index/introducing-openai-presence",
+      "source": "rss:OpenAI News",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが2026年7月22日、企業向けAIエージェント運用プラットフォーム「Presence」を発表した。企業のコンテキスト・ポリシー・権限・ガードレール・アクション・評価を統合基盤として提供し、音声・チャットなど複数チャネルで一貫した顧客対応エージェントを構築できる。現時点ではセルフサービス提供ではなく、OpenAI自身のForward Deployed Engineersや大手SIerが導入を主導する限定提供プログラムとして開始された。",
+      "why_useful": "顧客対応・調達・IT/HRといった高価値業務向けにエージェント基盤を「フルサービスで導入支援する」商用モデルを示しており、AIエージェントの商用化がプロトタイプ段階から実運用支援サービスの段階に移っていることを示す一次情報として参照価値が高い。",
+      "score": 4
+    },
+    {
+      "title": "AIレビューのブロックを100PRで測ったら、70PRはno-verifyで通り抜けていた",
+      "url": "https://zenn.dev/kenimo49/articles/ai-review-block-100pr-70-noverify-3month",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "3ヶ月・100件のPRを分析した実測記事。pre-commit hookが100%のPRをブロックしたが、うち70件が`--no-verify`で通り抜けられ、実際に修正されたのは30件に留まった。hookの対象を「壊れたコードのみ」に絞りlint・型チェックをAIレビューに委譲したところ、no-verify使用率が70%→3%、実修正率が30%→83%に改善したと報告している。",
+      "why_useful": "「ルールを厳しくするほど守られなくなる」という具体的な数値データであり、AGENT.mdの安全境界やcurationの除外ルールを増やす際、厳格さと遵守率のトレードオフを考える参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Know Your Agent: Reconnaissance-Driven Pentesting of AI Agents",
+      "url": "https://arxiv.org/abs/2607.19837v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "AIエージェントに対しても従来のペネトレーションテスト手法(偵察→プロファイリング→攻撃)を体系的に適用すべきだと提案する論文。ブラックボックスでエージェントをプローブして知識資産(何を知っているか・どう使われるか・どの弱点が悪用可能か)を抽出し、間接的なプロンプトインジェクション攻撃を強化するフレームワークKYAを実装し、セキュリティベンチマークと実世界のコーディングエージェントで評価・再現用資材を公開した。",
+      "why_useful": "AgAg自身もIssue経由でdeep-dive・source-scoutサブエージェントをオンデマンド実行しており、偵察により事前に弱点をプロファイリングされうるという前提は、Issue本文からの間接的な指示注入への耐性を考える際の具体的な脅威モデルになる。",
+      "score": 4
+    },
+    {
+      "title": "Solar Open 2 Technical Report",
+      "url": "https://www.upstage.ai/blog/en/solar-open-2",
+      "source": "arxiv",
+      "category": "新モデル・新製品",
+      "ja_summary": "韓国Upstageが公開したオープンウェイト基礎モデル「Solar Open 2」。250B総パラメータ・トークンあたり15B活性化のMoEアーキテクチャで100万トークンのコンテキストに対応し、量子化すればH200 GPU2枚で稼働する。検索・ツール呼び出し・コーディング・オフィス業務といった現実的なエージェントシナリオで訓練されており、long-horizon task executionとツール呼び出しの精度を重視した設計だと説明されている。",
+      "why_useful": "エージェント用途を明示的な訓練目標に据えたオープンウェイトモデルの具体例で、自前でLLMを選定・比較する際の候補や、agent/knowledge/mcp.mdで追ってきたツール呼び出し精度の議論に新しい実例を加える。",
+      "score": 3
+    },
+    {
+      "title": "Sierra acquires TakeOff, the long-horizon AI agent platform",
+      "url": "https://sierra.ai/blog/sierra-acquires-takeoff",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "カスタマーサポートAIエージェント企業Sierraが、創業14ヶ月で数時間〜数日単位の長時間タスクをこなすエージェント基盤を作ったTakeOffを買収した。両社の技術は新プラットフォーム「Horizon」に統合され、貸付・医療など5業界で実運用してきたTakeOffの知見を活かし、Sierraの事業領域を顧客対応から「長時間稼働する自律タスク」全般へ広げる狙いだという。",
+      "why_useful": "「長時間動くエージェント」の実運用ノウハウを持つスタートアップが大手に買収される事例は、agent/knowledge/agent-design.mdで追ってきた長時間ハーネス設計の議論(Anthropic公式知見など)が実ビジネスとして評価されていることを示す市場側の裏付けになる。",
+      "score": 3
+    },
+    {
+      "title": "vshulcz/deja-vu: memory operations for fifteen coding agents",
+      "url": "https://github.com/vshulcz/deja-vu",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code・Codex CLI・Cursor・Aiderなど15種類のコーディングエージェントに対応した、過去セッションの解決策を検索可能にするローカルメモリレイヤー。ゼロ依存の単一バイナリで動作し、認証情報を検出・削除した上でJSONL/SQLiteのセッションログを転置インデックス化し、数GBを約12ミリ秒で検索できるほか、SessionStartフックでの自動想起にも対応する。",
+      "why_useful": "「同じ問題を毎回一から調べ直す」非効率への具体的な実装例で、AgAg自身が日次でdata/growth-log.jsonや過去digestsを都度grepして重複確認している現状の運用(本日grok-buildの重複を手作業で確認した)を、将来ツール化する際の参考実装になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "Sierra CEO Bret TaylorがTakeOff買収を発表",
+      "url": "https://x.com/btaylor/status/2080351022741159957",
+      "ja_summary": "Sierra共同創業者Bret Taylorが、long-horizon AIエージェントのリーダーTakeOffを買収したと発表。創業から1年足らずで年商換算8桁近くまで急成長したチームだとして歓迎の意を表明した。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Open Knowledge Format(OKF)が提案する「役割の層分離(探索/実行/知識/方針/原料)」という設計語彙をagent/knowledge/agent-design.mdに追記した。agent/knowledge/*.mdが肥大化し続けている現状に対し、7/16記録の二層設計・7/23記録の指示過多閾値に続く、知識ファイルを整理する際の具体的な参照軸として記録した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "「完了しました」という自己申告を副作用操作後の状態再取得なしで信じてしまう問題と、それを防ぐ検証ゲートgenchiの実装例をagent/knowledge/agent-design.mdに追記した。7/7のGroundtruth・7/16のDouble Ratchet・7/18のProof-or-Stopと同系統の「自己申告を機械的証拠で裏付ける」系譜の最新事例として位置づけた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}
