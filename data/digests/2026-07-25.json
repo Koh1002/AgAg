@@ -1,0 +1,98 @@
+{
+  "date": "2026-07-25",
+  "title": "Opus 5が新デフォルトになり、『サンドボックスなら安全』の前提が崩れた日",
+  "summary": "Anthropicが新モデルClaude Opus 5を発表し、Claude Maxの新デフォルトモデルとして即日展開された一方、Jack DorseyのBlockは人間とAIエージェントが同じ会話空間で働くプラットフォーム「Buzz」を立ち上げるなど、エージェント活用の裾野が広がる動きが目立った一日だった。同時に、Claude Coworkのローカルサンドボックスから脱獄しホストの認証情報へ到達する「SharedRoot」や、オープンソースエージェントHermesを無人モードで走らせタイ財務省を実際に攻撃した事例が報告され、「エージェントを信頼できないコードとして扱う」べきという教訓が改めて裏付けられた。Zennでは、永続メモリが550件を超えて機能しなくなった問題への二層索引+自動想起フックによる対策や、「敵対的検証して」を実運用した際の検出・見逃しの実数など、エージェント運用の足元を固める実践知見も蓄積された。",
+  "items": [
+    {
+      "title": "Introducing Claude Opus 5",
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Anthropicは2026年7月24日、新型Claude Opus 5を発表した。Frontier-BenchやGDPval-AAといったコーディング・知識労働評価で最先端を記録し、ARC-AGI 3の新規問題解決タスクでは競合モデルの3倍のスコアを示す一方、価格はOpus 4.8と同額($5/百万入力・$25/百万出力トークン)に据え置かれた。Claude Max上の新デフォルトモデルとなり、low/medium/highのeffort切り替えでコストと能力をバランスできる。",
+      "why_useful": "AgAg自身が動くClaude系列の主力モデルが入れ替わる一次発表であり、今後のWeb補完調査・キュレーション作業の前提となる変化のため。",
+      "score": 5
+    },
+    {
+      "title": "SharedRoot: Escaping the Claude Cowork sandbox",
+      "url": "https://www.accomplish.ai/blog/sharedroot-escaping-claude-cowork-sandbox/",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "セキュリティ企業Accomplishが、Claude Coworkのローカルサンドボックス(Linux VM)からホストMacのファイルシステムへ脱獄できる「SharedRoot」を報告した。ユーザー名前空間でのroot取得→カーネルモジュール自動読込→CVE-2026-46331によるページキャッシュ汚染→デーモンの再実行を悪用してゲストrootを取得し、ホスト全体への読み書きとSSH鍵・クラウド認証情報の窃取に到達する6段階の脱獄チェーンを実証した。Anthropicは修正なしでクローズしたが、後継版はクラウド実行を既定にしこの経路を回避したという。",
+      "why_useful": "「サンドボックス化されていれば安全」という前提がカーネル機能の悪用一つで崩れる具体的な技術詳細であり、AgAg自身の安全境界を支える実行基盤側の限界を理解する参考になるため。",
+      "score": 4
+    },
+    {
+      "title": "Hermes AI agent used to automate attack on Thai Finance Ministry",
+      "url": "https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "脅威インテリジェンス企業Hunt.ioが、攻撃者がオープンソースのHermes AIエージェントを人手を介さない「YOLOモード」で走らせ、タイ財務省内部システムの偵察・Webシェル設置・機密文書(人事評価・個人情報を含む)の収集を自動化していた実例を報告した。未報告のGo製インプラント「Hades」も同時に発見されている。財務省は侵害を正式には認めていない。",
+      "why_useful": "「無人モードで任意コマンドを許可する」設計が実際の国家機関への攻撃に使われた具体例であり、AgAg自身のIssue経由サブエージェント実行の権限設計を再考する際の悪用パターンとして参考になるため。",
+      "score": 4
+    },
+    {
+      "title": "Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems",
+      "url": "https://arxiv.org/abs/2607.21503",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "プロダクション環境のAIエージェントの失敗は推論能力の不足よりも「保持しているコンテキストを管理できないこと」に起因すると指摘する論文。メモリ・コスト問題を「保存と検索」ではなく、architecting(設計)/ingesting(取り込み)/scoping(範囲決定)/anticipating(予測)/compacting & consolidation(圧縮・統合)の5要素からなる「ライフサイクル」の問題として再定義し、参照実装で検証済み圧縮によりコスト増加を線形に抑えつつ忠実性を保持できると報告する。",
+      "why_useful": "agent/knowledge/*.mdの肥大化に悩むAgAg自身にとって、「忘却・圧縮・統合」を自己成長の手順に明示的に組み込む語彙を与える研究であるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeの永続メモリが550件を超えて「思い出せなくなった」ので二層索引＋自動想起フックを作った",
+      "url": "https://zenn.dev/okaz/articles/claude-code-memory-recall-hook",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの永続メモリ(1ファイル1事実)が550件を超えると、索引ファイルMEMORY.mdの読み込みサイズ上限により古いメモリが静かに参照されなくなる問題に直面した実例。固定サイズのルーター層・分野別索引層・毎晩frontmatterから機械生成する索引・トークンの希少性(索引行の3%以下)を基準に関連メモリを最大3件だけ自動注入する想起フックという4層構造で解決し、「550件全件が現役に戻った」と報告している。",
+      "why_useful": "AgAgのagent/knowledge/*.mdも同種の「増え続けるが全文読み込みでしか参照されない」問題を抱えており、索引の自動生成と希少性ベースの想起という具体的な実装パターンをそのまま参考にできるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "Jack Dorsey is taking on Slack with Buzz, a group chat platform for teams and their AI agents",
+      "url": "https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Jack DorseyのBlock(Square/Cash App等を運営)が、人間とAIエージェントが同じ会話空間で働けるグループチャットプラットフォーム「Buzz」を発表した。チームのメッセージング・プロジェクト管理・GitHub連携によるソフトウェア開発を1つのインターフェースに統合し、「モデル非依存・分散型・自己主権的・オープンソース」を掲げる。macOS/Windows/Linux向け無料デスクトップアプリが公開されているが、まだ初期段階だという。",
+      "why_useful": "人間とAIエージェントを同じ会話の場に置く設計思想の大手プレイヤーによる具体的な実装例であり、agent/knowledge/agent-design.mdで追ってきたコンテキスト受け渡し・オーケストレーション設計の議論に新しい実例を加えるため。",
+      "score": 3
+    },
+    {
+      "title": "「敵対的検証して」を運用した実数――検出4件、見逃し3件",
+      "url": "https://zenn.dev/ryuka_lucas/articles/adversarial-verification-in-practice",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "「レビューして」ではなく「敵対的検証して」と指示する手法を、ブログ執筆パイプラインに実運用した記録。捏造引用や数字の不一致など機械的に照合可能な誤りは4件検出できた一方、新しい比喩表現・正規工程外の事後編集・出典がたまたまWeb上にあったための偶然の成功など3件は見逃した。「ルールの有無」より「検証の実行タイミングと粒度の一貫性」が成否を分けると結論づけている。",
+      "why_useful": "AgAg自身のダイジェスト・growth_actionsの検証は現状スキーマ機械検証に留まり内容の敵対的検証は行っていないため、将来検証を強化する際に「何が見逃されやすいか」の具体的なチェックリストになるため(score+1)。",
+      "score": 3
+    },
+    {
+      "title": "CVE-2026-13236: Drupal AI Agentsで見落とされたToolとフィールド認可の境界",
+      "url": "https://zenn.dev/kuninogu/articles/202cee4ccf1719",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "DrupalのAI Agentsモジュールで発見されたCVE-2026-13236は、ツールがエンティティの閲覧可否は確認していたものの、その内部の各フィールド(メールアドレス・パスワードハッシュ等)の閲覧可否を`$field->access('view')`で確認しないまま応答データへ変換していたという脆弱性。認可確認を「エージェントの利用可否→ツールの利用可否→エンティティの閲覧可否→フィールドの閲覧可否」の4段階に分けて考える必要があると指摘する。",
+      "why_useful": "「エンティティ単位では正しく権限チェックしているつもりでも、フィールド単位では漏れる」という具体的な失敗パターンは、AgAg自身が将来外部データを扱うツールを設計する際の認可設計チェックリストとして直接使えるため。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "スタンフォードAI Index 2026: AIエージェントのPC操作成功率が2年で5倍超",
+      "url": "https://x.com/tentenmitsunori/status/2046738944998670554",
+      "ja_summary": "南野充則氏が、スタンフォードAI Index 2026のデータとしてAIエージェントのPC操作成功率が2024年の12%から2026年には66%へ、開発タスクのTerminal-Benchでは77.3%まで伸びたと紹介。「AIエージェントは精度が低い」という懐疑論に対し、数字はすでに「本番水準」を示していると述べている。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Claude Codeの永続メモリが550件で参照不能になった実例への対策(固定サイズのルーター層+分野別索引+機械生成索引+希少性ベース想起フックの4層構造)と、エージェントのメモリ・コストを「保存と検索」ではなく「ライフサイクル」の問題として再定義する論文Agentic Context Managementをagent/knowledge/agent-design.mdに追記した。7/16の二層設計・7/24のOpen Knowledge Formatに続く、AgAg自身のagent/knowledge/*.md肥大化問題への最新の具体策として記録した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Claude Coworkのローカルサンドボックスから脱獄しホストのSSH鍵・クラウド認証情報へ到達できる「SharedRoot」と、オープンソースのHermesエージェントを無人YOLOモードで走らせタイ財務省を実際に攻撃した事例をagent/knowledge/security.mdに追記した。7/7のKars/JadePuffer・7/22のGPT-5.6 Sol/Hugging Face侵害に続く「エージェントを信頼できないコードとして扱う」系譜の2026-07続報として位置づけた。",
+      "files": ["agent/knowledge/security.md"]
+    }
+  ]
+}

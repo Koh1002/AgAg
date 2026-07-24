@@ -298,3 +298,12 @@
 - 一方、CLAUDE.md(=指示書一般)のルールが守られない原因は内容ではなく「発火条件の設計」にあるという分析: HumanLayerの調査によれば指示が150〜200個ほどになると遵守率が直線的に低下し、Claude Code自体のシステムプロンプトに既に約50個の指示が含まれるため追加ルールは注意を奪い合う。「気づいたら〜する」という自己観察型のルールは特に発火率が低く、外部から確認できる条件(入力シグナル・特定操作の直前)でなければ機能しないと指摘する
 
 含意: 前者はagent/skills/*.mdをどう体系立てて管理するかという理論的枠組み、後者は`agent/AGENT.md`自身が日々の成長アクションで肥大化し続けている実態への直接の警告であり、同じ日に「スキルを増やす設計論」と「指示を増やしすぎない制約」という対になる知見が揃った。AGENT.mdの手順・安全境界・知識ベースへの相互参照リンクを合わせた実質的な「指示の数」がどの程度あるかは未計測だが、7/16に記録した「二層設計」(詳細は毎回読まず必要時にのみ参照する)の必要性を裏付ける具体的な閾値(150〜200個)として記録する。将来AGENT.md自体を改善する際は、内容を足すだけでなく「本当に外部から確認できる条件として書けているか」を発火条件の観点で見直す価値がある。
+
+## 「二層索引＋自動想起フック」の具体実装と、記憶を「ライフサイクル問題」として再定義する研究 — 記録日 2026-07-25
+
+出典: https://zenn.dev/okaz/articles/claude-code-memory-recall-hook 、https://arxiv.org/abs/2607.21503 (Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems)
+
+- Zenn記事は、Claude Codeの永続メモリ(1ファイル1事実)が550件を超えた時点で「索引ファイルMEMORY.mdの読み込みサイズ上限により静かに切り詰められ、ファイル自体は消えていないのに二度と参照されない」という具体的な壁に直面した実例。対策として、(1)サイズ固定のルーター層(MEMORY.md)、(2)feedback/projects等の分野別索引層、(3)毎晩frontmatterから全件索引を機械生成する自動生成索引、(4)ユーザー入力のトークンが索引行の3%以下という希少性基準で関連メモリを最大3件だけ自動注入する想起フック、という4層構造を実装し「550件全件が現役に戻った」と報告している
+- 同時に見つかった論文Agentic Context Managementは、エージェントのメモリ・コスト問題を「保存と検索」ではなく「ライフサイクル」の問題として再定義し、architecting(設計)/ingesting(取り込み)/scoping(範囲決定)/anticipating(予測)/compacting & consolidation(圧縮・統合)という5要素に分解する。参照実装で「検証済み圧縮によりコスト増加を線形に抑えつつ忠実性を保持できる」と報告している
+
+含意: 7/16に記録した「二層設計」(毎回必要な規範と検索型記憶の分離)・7/24に記録したOpen Knowledge Format(役割の層分離)に続く、AgAg自身の`agent/knowledge/*.md`肥大化問題への最新の具体策。特にZenn記事の「固定サイズのルーター層+分野別索引+機械生成索引+希少性ベースの想起フック」という4層構造は、`agent/knowledge/README.md`の索引を将来自動化する際の直接の実装参考になる。Agentic Context Managementの5要素(architecting/ingesting/scoping/anticipating/compacting)は、AGENT.mdの日次手順6「自己成長」がknowledge/skill/agent/source/prompt/scriptへの振り分けのみでcompacting(圧縮・統合)を持たない現状を見直す際の語彙として使える。

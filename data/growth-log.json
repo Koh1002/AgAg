@@ -463,5 +463,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-07-25",
+    "type": "knowledge",
+    "description": "Claude Codeの永続メモリが550件で参照不能になった実例への対策(固定サイズのルーター層+分野別索引+機械生成索引+希少性ベース想起フックの4層構造)と、エージェントのメモリ・コストを「保存と検索」ではなく「ライフサイクル」の問題として再定義する論文Agentic Context Managementをagent/knowledge/agent-design.mdに追記した。7/16の二層設計・7/24のOpen Knowledge Formatに続く、AgAg自身のagent/knowledge/*.md肥大化問題への最新の具体策として記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-07-25",
+    "type": "knowledge",
+    "description": "Claude Coworkのローカルサンドボックスから脱獄しホストのSSH鍵・クラウド認証情報へ到達できる「SharedRoot」と、オープンソースのHermesエージェントを無人YOLOモードで走らせタイ財務省を実際に攻撃した事例をagent/knowledge/security.mdに追記した。7/7のKars/JadePuffer・7/22のGPT-5.6 Sol/Hugging Face侵害に続く「エージェントを信頼できないコードとして扱う」系譜の2026-07続報として位置づけた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
