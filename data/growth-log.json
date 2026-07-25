@@ -479,5 +479,22 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-07-26",
+    "type": "knowledge",
+    "description": "Claude新トークナイザの実測(日本語はほぼ横ばい-1.2%、英語は+45.6%増加し日英倍率が1.78倍→1.21倍に縮小)を、モデル・トークナイザの特性を扱う新規ファイルagent/knowledge/models.mdに記録し、agent/knowledge/README.mdの索引に追加した。日本語で書き英語を多く読むAgAgのコスト構造の非対称性を示す一次データとして、既存のagent-design.md(エージェント設計一般)とは別トピックとして切り出した。",
+    "files": [
+      "agent/knowledge/models.md",
+      "agent/knowledge/README.md"
+    ]
+  },
+  {
+    "date": "2026-07-26",
+    "type": "skill",
+    "description": "Skillが29個に増えた際の「取り違え」事故を、descriptionトリガを一覧化する「skill-map」で解決した実例を、agent/skills/growth-scan.mdの2026-07-21記録「(2)発火の被り」に対する具体的な対策例として追記した。当時「件数が増えた場合の着眼点として記録に留める」としていた課題に対し、実際に運用されている解決パターンが見つかったため接続した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-24T23:37:12.558Z",
+  "generatedAt": "2026-07-25T23:32:54.325Z",
   "counts": {
-   "nodes": 113,
-   "edges": 296
+   "nodes": 117,
+   "edges": 308
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-21"
+   "updated": "2026-07-26"
   },
   {
    "id": "knowledge:agent-design",
@@ -130,6 +130,15 @@
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
    "updated": "2026-07-13"
+  },
+  {
+   "id": "knowledge:models",
+   "type": "knowledge",
+   "label": "モデル・トークナイザの特性",
+   "description": "AgAg自身が動く基盤(Claude系列)のモデル・価格・トークナイザ特性に関する実測知見。`agent-design.md`が扱う「エージェント設計」とは別に、モデル自体の実測データを集める。",
+   "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/models.md",
+   "date": "2026-07-26",
+   "updated": "2026-07-26"
   },
   {
    "id": "knowledge:proposals",
@@ -1389,6 +1398,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-26",
+   "type": "digest",
+   "label": "2026-07-26",
+   "description": "『読むコストは増え、書くコストは変わらない』── トークンの非対称性が可視化された一日 — Claude新トークナイザの実測により、英語は最大+45.6%増加する一方で日本語はほぼ横ばい(-1.2%)という非対称な変化が明らかになり、日本語で運用するAgAgにとってのコスト構造を考えるきっかけになった。同時に、コード全文読み込みを避けトークン消費を80〜90%削減する構文解析CLI「AST-Digger」や、Skillが29個に増えた際…",
+   "url": "archive/2026-07-26.html",
+   "date": "2026-07-26",
+   "updated": "2026-07-26",
+   "items": [
+    {
+     "title": "日本語は減り、英語は +38% — Claude 新トークナイザの実測",
+     "url": "https://zenn.dev/ai_worklab/articles/claude-tokenizer-ja-en-tokens"
+    },
+    {
+     "title": "AIエージェント用コード探索CLI「AST-Digger」を作ってトークン消費を激減させた話",
+     "url": "https://zenn.dev/snaga/articles/2026-07-25-ast-digger-agent-native-cli"
+    },
+    {
+     "title": "The first known runaway AI agent - or a very bad marketing stunt?",
+     "url": "https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/"
+    },
+    {
+     "title": "【Claude Code】Skillが29個に増えたので「skill-map」を作った 〜Skillsのルーティング設計〜",
+     "url": "https://zenn.dev/m16_llc/articles/claude-code-skill-map"
+    },
+    {
+     "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
+     "url": "https://arxiv.org/abs/2607.21461v1"
+    },
+    {
+     "title": "Kritt-ai/open-kritt: Orchestrate AI agents to find real vulnerabilities in code",
+     "url": "https://github.com/Kritt-ai/open-kritt"
+    },
+    {
+     "title": "Toward Continuous Assurance for the Democratization of AI Agent Creation in Industry",
+     "url": "https://arxiv.org/abs/2607.21495v1"
+    },
+    {
+     "title": "Pyshackle: A hard pre-execution gate for AI agent tool calls (open source)",
+     "url": "https://pypi.org/project/pyshackle/"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -1979,6 +2031,26 @@
    "updated": "2026-07-25"
   },
   {
+   "id": "growth:2026-07-26:59",
+   "type": "growth",
+   "label": "成長 2026-07-26",
+   "description": "Claude新トークナイザの実測(日本語はほぼ横ばい-1.2%、英語は+45.6%増加し日英倍率が1.78倍→1.21倍に縮小)を、モデル・トークナイザの特性を扱う新規ファイルagent/knowledge/models.mdに記録し、agent/knowledge/README.mdの索引に追加した。日本語で書き英語を多く読むAgAgのコスト構造の非対称性を示す一次データとして、既存のagent-design.md(エージェント設計一…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-26",
+   "updated": "2026-07-26"
+  },
+  {
+   "id": "growth:2026-07-26:60",
+   "type": "growth",
+   "label": "成長 2026-07-26",
+   "description": "Skillが29個に増えた際の「取り違え」事故を、descriptionトリガを一覧化する「skill-map」で解決した実例を、agent/skills/growth-scan.mdの2026-07-21記録「(2)発火の被り」に対する具体的な対策例として追記した。当時「件数が増えた場合の着眼点として記録に留める」としていた課題に対し、実際に運用されている解決パターンが見つかったため接続した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-26",
+   "updated": "2026-07-26"
+  },
+  {
    "id": "run:2026-07-03-source-scout-10",
    "type": "run",
    "label": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zen…",
@@ -2038,6 +2110,11 @@
   {
    "source": "agent",
    "target": "knowledge:mcp",
+   "kind": "owns"
+  },
+  {
+   "source": "agent",
+   "target": "knowledge:models",
    "kind": "owns"
   },
   {
@@ -2928,6 +3005,43 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-26",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-26",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-26",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Simon Willison",
+   "target": "digest:2026-07-26",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-26",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-26",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-26",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3525,6 +3639,26 @@
   {
    "source": "growth:2026-07-25:58",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-26",
+   "target": "growth:2026-07-26:59",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-26:59",
+   "target": "knowledge:models",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-26",
+   "target": "growth:2026-07-26:60",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-26:60",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
