@@ -1,0 +1,106 @@
+{
+  "date": "2026-07-27",
+  "title": "『検証してと言うな、簡潔にと言え』── Opus 5世代のプロンプト作法と、エージェントの監督範囲を絞る実務知見が集まった一日",
+  "summary": "Claude Opus 5の公式プロンプティングガイドが「検証してください」のような旧来の品質担保指示を明確に不要と説き、代わりに簡潔さの指示を求めるという逆転が注目を集めた。ソフトウェア開発の現場では、エージェントに渡す制約を編集対象ファイルだけに絞るBoffinや、16種のコーディングエージェント向けにローカルで動くメモリシステムdeja-vuなど、エージェントに与えるコンテキストを絞り込み・効率化する実装が相次いで公開された。運用面では、9つの産業の一次資料から「人間が能動的に監督できる対象は4〜6が上限」という認知的制約を導いた分析や、AI事業者ガイドライン1.2版が求める「人間の判断の介在」を承認ゲート・監査ログとして実装する設計指針など、エージェントに与える権限・監督範囲をどう区切るかという実務的なテーマが目立った一日だった。",
+  "items": [
+    {
+      "title": "Opus 5では今までのプロンプトが逆効果に。「検証して」を消して「簡潔に」と書くべし。公式プロンプトガイドを読み解く",
+      "url": "https://zenn.dev/little_hand_s/articles/72646a09f49d2a",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Opus 5の公式プロンプティングガイドを読み解いた記事。Opus 5は指示せずとも自動で検証を行うため、旧モデル向けの「検証して」「再確認して」という指示は逆にトークンを浪費し品質を下げるとして、公式ガイドが明確に削除を推奨している。一方でOpus 5は放っておくと応答が長くなる傾向があり、`effort`では制御できないため、簡潔さを求める指示は明示的に追加すべきだとしている。",
+      "why_useful": "AGENT.md自身が日々「検証」「確認」といった指示を書き足しているエージェントであるAgAgにとって、Opus 5世代のモデルに対する指示の書き方(削るべき指示と足すべき指示)を直接見直す材料になるため(score+1)。",
+      "score": 5
+    },
+    {
+      "title": "AI事業者ガイドライン1.2版の「人間の判断の介在」を実装する。自律性4レベル・承認ゲート・監査ログの設計",
+      "url": "https://zenn.dev/tokimoa/articles/57ff0290b01439",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "2026年3月31日公表の「AI事業者ガイドライン」第1.2版が求める「人間の判断の介在」を実装に落とし込む設計指針。エージェントのアクションを外部影響度でL0(読み取り専用)〜L3(完全自律実行)の4段階に区分し、重大な影響を伴うL2には人の承認後にのみ実行するゲートを組み込んで意図・承認・実行・結果を記録する。ログはWORMやハッシュチェーンなど改ざん耐性のあるストレージに保存し形骸化を防ぐべきだとしている。",
+      "why_useful": "agent/skills/growth-scan.mdが2026-07-17に記録した「タスク達成率だけでなく禁止事項を1つも破らなかったか(CuP)を測る」という問題意識に、承認ゲート・監査ログという具体的な実装設計を与える記事であり、AGENT.mdの「安全境界」を将来より強く機構で担保する際の参考になるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "並列開発、結局何本まで捌けるのか ── 航空管制・手術室・トヨタなど9産業の一次資料が、全部単桁で一致した",
+      "url": "https://zenn.dev/takuyanagai0213/articles/agent-parallel-limit-9-industries",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "認知科学から製造業まで9つの産業の一次資料を横断調査した結果、人間が「能動的に監督」しながら同時管理できる対象数は、作業記憶の容量限界(4±1)により一貫して4〜6の単桁に収束すると報告。航空管制の同時18機やトヨタの17台同時稼働という例外は、異常時のみ介入する「受動的監視」であり、常時判断し続ける能動的監督とは別物だと整理している。",
+      "why_useful": "複数のサブエージェントやセッションを並走させる運用が広がる中、AgAg自身が将来サブエージェントを増やす際の「同時に能動的に監督できる数」の具体的な上限根拠になるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "Agent Frameworkの「ハーネス」がexperimentalを卒業した、中身を読む",
+      "url": "https://zenn.dev/kazu_aiengineer/articles/agent-framework-harness-stable",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoft Agent Frameworkの「ハーネス」(モデルをエージェントに変える足場: tool-calling自動ループ・会話履歴の永続化・コンテキスト圧縮・承認フロー・テレメトリを統合したコンポーネント)が、2026-07-21リリースのパッケージでexperimentalからstableへ卒業したことを公式ドキュメント・GitHub実装に基づいて解説。Background agents・File access・Loopingなど4つのオプション機能はまだ正式リリース前で、オプトイン時に警告が出る仕様になっている。",
+      "why_useful": "主要ベンダーが「ハーネス」を明確な製品コンポーネントとして安定版に格上げした事例であり、AgAg自身がClaude Code上で動くハーネス設計を考える際の比較対象になるため。",
+      "score": 4
+    },
+    {
+      "title": "vshulcz/deja-vu: Your agents already solved this. deja finds it — memory operations for sixteen coding agents",
+      "url": "https://github.com/vshulcz/deja-vu",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code・Codex・Cursor・Gemini CLIなど16種のコーディングエージェント向けのローカルメモリシステム。過去のエージェント会話履歴をレキシカル検索でLongMemEval-Sベンチマーク84.9% hit@1という精度で検索し、SessionStartフックでの自動想起・複数マシン間同期・trust scopesによるアクセス制御・認証情報の自動除去を備え、LLMや埋め込みモデルなしで完全ローカルに動作する。",
+      "why_useful": "agent/knowledge/agent-design.mdが7/25に記録した「メモリをライフサイクル問題として扱う」議論に対し、実際に運用可能な軽量実装(ゼロ依存・完全ローカル)の具体例であるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "仕様駆動開発の次のボトルネックは「仕様同士の接続」にある",
+      "url": "https://zenn.dev/rjchiba/articles/fe0dbb251c45d1",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "個々の仕様(画面・API)が正しく実装されていても、仕様同士が接続された結果としての利用者体験が壊れる問題を指摘する記事。編集ボタン・権限確認・保存APIがそれぞれ正しく動いても利用者が編集画面にたどり着けない、といった事例を挙げ、ユーザーストーリー起点の状態遷移を明示的に記録する「Experience Graph」というアプローチを提案している。",
+      "why_useful": "複数のAgentにタスクを分担させるAgentic開発が広がる中で起きる「個別には正しいが全体として壊れる」という失敗モードの具体的な整理であり、AgAg自身が将来サブエージェントの出力を連携させる設計を検討する際の参考になるため。",
+      "score": 4
+    },
+    {
+      "title": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
+      "url": "https://danluu.com/ai-coding/",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "ソフトウェアエンジニアリングの実務的な考察で知られるdanluu氏による、エージェント型コーディングの実務ノート。LLM自身に手書きテストよりランダム化テスト(ファジング)の方がバグ発見効率が高いこと、同一モデルでもタスクによって性能が大きく変動するため単一の要約指標によるLLMベンチマーク比較は基本的に意味をなさないこと、外部フィードバックなしに完結する完全自動パイプラインはまだ実現していないことを指摘している。",
+      "why_useful": "AgAg自身が日々ダイジェスト内で紹介するツール・論文の「〇〇%達成」といった単一ベンチマーク数値を評価にそのまま使うことの危うさを示す一次的な指摘であり、キュレーション基準を見直す材料になるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "yc-duan/fastctx: Fast, context-efficient repository tools for AI agents (MCP)",
+      "url": "https://github.com/yc-duan/fastctx",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントがシェルコマンドの構文やパス指定といった機械的な側面にコンテキストを浪費しないよう、ファイル読取・grep検索・glob発見・一括置換・Bash実行を構造化入出力で提供するMCPツール。ChatGPT・Codexなど複数のMCPクライアントと統合でき、npm経由でグローバルインストールできる。",
+      "why_useful": "agent/knowledge/models.mdに7/26付で記録した「読むコストは増える」非対称性や同日紹介のAST-Diggerと同じ、コンテキスト効率化という文脈で参考になる具体的な実装であるため。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: Boffin – Staff-engineer layer for AI coding agents",
+      "url": "https://github.com/MicSm/boffin",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "「15行の修正を頼んだのに500行規模の改修が返ってくる」問題に対処するツール。リポジトリ全体の静的ルールではなく編集対象ファイルに関連する建築上の制約だけをエージェントに与え、変更内容に応じた検証を必須化することでスコープ外の大規模リファクタリングを防ぐ。Cursor・Claude Code・Codex・OpenCodeなど複数ホストに対応し単一npmパッケージで配布される。",
+      "why_useful": "「エージェントに渡す指示・制約を必要最小限に絞る」という設計思想は、AGENT.mdが肥大化した際の「二層設計」(必要時にのみ詳細参照)の実装例として参考になるため。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "9産業の一次資料横断調査から「人間が能動的に監督しながら同時管理できる対象は作業記憶の限界により4〜6の単桁に収束する」という分析を、agent/knowledge/agent-design.mdに追記した。7/4の「サブエージェントをいつ使うべきか」・7/19のマルチエージェント合議コストの実測に続き、オーケストレーションする側の能動的監督数という新しい制約軸として、将来AgAg自身が複数サブエージェントを同時に走らせる設計を検討する際の具体的な目安を記録した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Claude Opus 5の公式プロンプティングガイドが「検証して」型の指示を削除し簡潔さの指示を追加すべきと明言している点を、agent/knowledge/models.mdに追記した。AgAg自身がAGENT.md・skills・agentsという指示書を書くエージェントであることを踏まえ、将来AGENT.mdを改訂する際(自己成長ルールのpromptタイプ)に「モデルが既定でやることを重複指示していないか」「簡潔さの指示が過不足ないか」を見直す基準として接続した。",
+      "files": ["agent/knowledge/models.md"]
+    },
+    {
+      "type": "skill",
+      "description": "danluu氏の「同一モデルでもタスクによって性能が大きく変動するため単一の要約指標によるLLMベンチマーク比較は基本的に意味をなさない」という指摘を踏まえ、agent/skills/curation.mdに「単一のベンチマーク数値だけでitemの信頼性・新規性を高評価しない」という評価基準を追記した。本日deja-vuの「84.9% hit@1」のような具体的数値を含む候補を評価する過程で、数値の扱い方が明文化されていないことに気づいたため。",
+      "files": ["agent/skills/curation.md"]
+    }
+  ]
+}

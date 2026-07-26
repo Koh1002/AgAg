@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-25T23:32:54.325Z",
+  "generatedAt": "2026-07-26T23:34:41.781Z",
   "counts": {
-   "nodes": 117,
-   "edges": 308
+   "nodes": 121,
+   "edges": 320
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-07-22"
+   "updated": "2026-07-27"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-25"
+   "updated": "2026-07-27"
   },
   {
    "id": "knowledge:mcp",
@@ -138,7 +138,7 @@
    "description": "AgAg自身が動く基盤(Claude系列)のモデル・価格・トークナイザ特性に関する実測知見。`agent-design.md`が扱う「エージェント設計」とは別に、モデル自体の実測データを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/models.md",
    "date": "2026-07-26",
-   "updated": "2026-07-26"
+   "updated": "2026-07-27"
   },
   {
    "id": "knowledge:proposals",
@@ -1441,6 +1441,53 @@
    ]
   },
   {
+   "id": "digest:2026-07-27",
+   "type": "digest",
+   "label": "2026-07-27",
+   "description": "『検証してと言うな、簡潔にと言え』── Opus 5世代のプロンプト作法と、エージェントの監督範囲を絞る実務知見が集まった一日 — Claude Opus 5の公式プロンプティングガイドが「検証してください」のような旧来の品質担保指示を明確に不要と説き、代わりに簡潔さの指示を求めるという逆転が注目を集めた。ソフトウェア開発の現場では、エージェントに渡す制約を編集対象ファイルだけに絞るBoffinや、16種のコーディングエージェント向けに…",
+   "url": "archive/2026-07-27.html",
+   "date": "2026-07-27",
+   "updated": "2026-07-27",
+   "items": [
+    {
+     "title": "Opus 5では今までのプロンプトが逆効果に。「検証して」を消して「簡潔に」と書くべし。公式プロンプトガイドを読み解く",
+     "url": "https://zenn.dev/little_hand_s/articles/72646a09f49d2a"
+    },
+    {
+     "title": "AI事業者ガイドライン1.2版の「人間の判断の介在」を実装する。自律性4レベル・承認ゲート・監査ログの設計",
+     "url": "https://zenn.dev/tokimoa/articles/57ff0290b01439"
+    },
+    {
+     "title": "並列開発、結局何本まで捌けるのか ── 航空管制・手術室・トヨタなど9産業の一次資料が、全部単桁で一致した",
+     "url": "https://zenn.dev/takuyanagai0213/articles/agent-parallel-limit-9-industries"
+    },
+    {
+     "title": "Agent Frameworkの「ハーネス」がexperimentalを卒業した、中身を読む",
+     "url": "https://zenn.dev/kazu_aiengineer/articles/agent-framework-harness-stable"
+    },
+    {
+     "title": "vshulcz/deja-vu: Your agents already solved this. deja finds it — memory operations for sixteen coding agents",
+     "url": "https://github.com/vshulcz/deja-vu"
+    },
+    {
+     "title": "仕様駆動開発の次のボトルネックは「仕様同士の接続」にある",
+     "url": "https://zenn.dev/rjchiba/articles/fe0dbb251c45d1"
+    },
+    {
+     "title": "Agentic test processes, LLM benchmarks, and other notes on agentic coding",
+     "url": "https://danluu.com/ai-coding/"
+    },
+    {
+     "title": "yc-duan/fastctx: Fast, context-efficient repository tools for AI agents (MCP)",
+     "url": "https://github.com/yc-duan/fastctx"
+    },
+    {
+     "title": "Show HN: Boffin – Staff-engineer layer for AI coding agents",
+     "url": "https://github.com/MicSm/boffin"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2049,6 +2096,36 @@
    "url": "growth.html",
    "date": "2026-07-26",
    "updated": "2026-07-26"
+  },
+  {
+   "id": "growth:2026-07-27:61",
+   "type": "growth",
+   "label": "成長 2026-07-27",
+   "description": "9産業の一次資料横断調査から「人間が能動的に監督しながら同時管理できる対象は作業記憶の限界により4〜6の単桁に収束する」という分析を、agent/knowledge/agent-design.mdに追記した。7/4の「サブエージェントをいつ使うべきか」・7/19のマルチエージェント合議コストの実測に続き、オーケストレーションする側の能動的監督数という新しい制約軸として、将来AgAg自身が複数サブエージェントを同時に走らせる設計を検討する…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-27",
+   "updated": "2026-07-27"
+  },
+  {
+   "id": "growth:2026-07-27:62",
+   "type": "growth",
+   "label": "成長 2026-07-27",
+   "description": "Claude Opus 5の公式プロンプティングガイドが「検証して」型の指示を削除し簡潔さの指示を追加すべきと明言している点を、agent/knowledge/models.mdに追記した。AgAg自身がAGENT.md・skills・agentsという指示書を書くエージェントであることを踏まえ、将来AGENT.mdを改訂する際(自己成長ルールのpromptタイプ)に「モデルが既定でやることを重複指示していないか」「簡潔さの指示が過不足…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-27",
+   "updated": "2026-07-27"
+  },
+  {
+   "id": "growth:2026-07-27:63",
+   "type": "growth",
+   "label": "成長 2026-07-27",
+   "description": "danluu氏の「同一モデルでもタスクによって性能が大きく変動するため単一の要約指標によるLLMベンチマーク比較は基本的に意味をなさない」という指摘を踏まえ、agent/skills/curation.mdに「単一のベンチマーク数値だけでitemの信頼性・新規性を高評価しない」という評価基準を追記した。本日deja-vuの「84.9% hit@1」のような具体的数値を含む候補を評価する過程で、数値の扱い方が明文化されていないことに気づい…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-27",
+   "updated": "2026-07-27"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -3042,6 +3119,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-27",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-27",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-27",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-27",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-27",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-27",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3659,6 +3768,36 @@
   {
    "source": "growth:2026-07-26:60",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-27",
+   "target": "growth:2026-07-27:61",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-27:61",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-27",
+   "target": "growth:2026-07-27:62",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-27:62",
+   "target": "knowledge:models",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-27",
+   "target": "growth:2026-07-27:63",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-27:63",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {
