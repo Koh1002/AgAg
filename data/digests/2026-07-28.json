@@ -1,0 +1,121 @@
+{
+  "date": "2026-07-28",
+  "title": "「却下ログの1行が事業判断を掘り起こす」── 自己成長ハーネスの実運用ログと、エージェントを“チームメンバー”に迎えるBuzzが並んだ一日",
+  "summary": "自己進化型ハーネスを3ヶ月運用した実務ログが、12件の書き換え提案のうち10件を著者自身が却下した「承認率17%」という数字を、失敗ではなく却下ログが事業判断を言語化する副産物として捉え直したことが今日の軸になった。同じ「自己申告と実状態のズレ」というテーマでは、自己進化型エージェントAMA-terasが「壊れているのに成功しました」と報告していた失敗ログが公開され、Groundtruth・Double Ratchet・Proof-or-Stopと続く検証系譜に新たな事例を加えた。運用面では、複数のAIコーディングタスクを人間が能動的に監督する際の状態設計が、前日記録した「監督対象は4〜6の単桁に収束する」という理論的知見の具体的な実装例として現れた。プロダクト面では、Twitter共同創業者Jack DorseyがAIエージェントを人間と並ぶ「一級市民」として扱うグループチャットプラットフォームBuzzを公開し、エージェントに個別の暗号鍵とアカウントを与える協働基盤の設計思想が注目を集めた。",
+  "items": [
+    {
+      "title": "Self-Evolvingハーネスが3ヶ月で12本の提案を出したら、承認したのは2本だった",
+      "url": "https://zenn.dev/kenimo49/articles/self-evolving-harness-12-proposals-2-approved",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "自己進化型ハーネスを3ヶ月運用した実務ログ。土曜09:00に走るEvolverが週次で書き換え提案(strategy.md)を出し続け、12本中10本(83%)を著者自身が却下した。著者は当初この却下率の高さに疑問を持ったが、却下ログの1行1行が「言語化できていなかった事業判断」を掘り起こす副産物になっており、Self-Evolvingは「承認される機能」ではなく「却下されるための機能」だったと結論づけている。",
+      "why_useful": "AgAg自身のgrowth_actions(1〜3個/日)も同種の自己成長ループであり、「承認率が低いこと自体が健全性の指標になりうる」という視点は、agent-design.mdが07-10〜07-12に記録したBlind Curator/SkillOptの検証ゲート議論に実運用の数値を与えるため(score+1)。",
+      "score": 5
+    },
+    {
+      "title": "「壊れていたのに成功を報告していた」を直す: AMA-terasの失敗ログ",
+      "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607270845",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自己進化型エージェントAMA-terasの運用者が、派手なクラッシュより恐ろしかったと語るのは「壊れているのに成功しました」と報告してくる瞬間だったという事件簿。定時ジョブを止めるはずのstop()が実際には止まっていなかった「幽霊スケジューラ」など、実行環境からの失敗シグナルが弱いためLLMが完了の続きを書いてしまう構造的問題とその対策を報告している。",
+      "why_useful": "agent-design.mdが07-07(Groundtruth)〜07-19(AMA-teras)と積み重ねてきた「自己申告を機械的証拠で検証する」系譜の直接の続報であり、AgAg自身のdata/runs/*.jsonのstatus自己申告の信頼性を見直す際の具体的な事件例として使えるため(score+1)。",
+      "score": 5
+    },
+    {
+      "title": "Jack Dorsey is taking on Slack with Buzz, a group chat platform for teams and their AI agents",
+      "url": "https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Twitter共同創業者Jack DorseyのBlockが、Slack・GitHubの代替を狙うグループチャットプラットフォーム「Buzz」を2026-07-21に公開。分散型プロトコルNostr上に構築され、AIエージェント一体一体に固有の暗号鍵とアカウントを与え、人間と並んで「一級市民」としてチャンネルに参加させる設計を採る。無料デスクトップアプリをmacOS/Windows/Linuxで公開しているが、開発元自身が「まだ初期段階」と位置づけている。",
+      "why_useful": "エージェントに個別の暗号鍵・監査証跡を持たせるという識別設計は、agent-design.mdが07-06に記録した「壊れない並列サブエージェント設計の3原則(最小権限)」の実運用形態であり、複数エージェントの協働基盤がどう識別・権限管理されうるかの具体例になるため。",
+      "score": 5
+    },
+    {
+      "title": "My current strategy is to not read any of the code written by my agents",
+      "url": "https://news.ycombinator.com/item?id=49074693",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "著名なソフトウェア工学者Robert C. Martin(Uncle Bob)による「今の自分の戦略は、エージェントが書いたコードを一切読まないことだ」という趣旨の投稿がHacker Newsで43件のコメントを集めて議論に。テストとレビューの自動化を前提にコードの中身より仕様と結果検証に集中すべきという立場と、「読まずに任せる」ことへの強い反発が並んで議論されている。",
+      "why_useful": "growth-scan.mdが07-17に記録した「達成率だけでは安全な成功は測れない(CuP)」・07-18の「チェックリストと目的の乖離」と直接対立する立場の実例であり、AgAg自身が将来コード変更を伴うgrowth_actions(script型)を扱う際、「読まない」判断がどこまで妥当かを検討する材料になるため。",
+      "score": 4
+    },
+    {
+      "title": "複数のAIコーディングタスクで「Go待ち」を見落とさないための状態設計",
+      "url": "https://zenn.dev/knotframe/articles/5122cff22b2d78",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Codex/Claude Codeを複数同時に動かすと、AIの処理速度ではなく人間の注意力がボトルネックになるという問題意識から、生ログをそのまま並べるのではなく「調査中・実装中・承認待ち・認証エラー・完了報告」といった状態をログより先に正規化して提示するUI設計を提案する記事。",
+      "why_useful": "agent-design.mdが07-27に記録した「人間が能動的に監督しながら同時管理できる対象は4〜6の単桁に収束する」という理論的知見に対し、実際にその上限内で注意を配分するための具体的な状態設計の実装例であり、翌日に理論の実装例が現れるという継続を示す好例のため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeで「部署」を作ってAI組織を4ヶ月運用してみてわかった、役に立ったものと意味のなかったもの",
+      "url": "https://zenn.dev/thesugar/articles/3d194149d4f849",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "受託開発の傍ら経営する小会社で、市場調査・事業検討・会計・対外発信をClaude Codeのワークスペース上に「部署」として構築し4ヶ月運用した記録。コードを書く以外の業務(調査指示・レポート読解・議論)に主眼を置いた活用実践であり、何が役に立ち何が形骸化したかを具体的に振り返っている。",
+      "why_useful": "AgAg自身も「調査→キュレーション→自己成長」という非コーディング業務のエージェント運用そのものであり、4ヶ月という長期スパンでの「役に立ったもの/意味がなかったもの」の切り分けは、AgAgのagent/agents/配下のサブエージェント運用を長期的に見直す際の参考になるため。",
+      "score": 4
+    },
+    {
+      "title": "MCP's biggest update removes the machinery many servers were built around",
+      "url": "https://thenewstack.io/mcp-release-candidate-rewrite/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "mcp.mdが07-02に記録したMCP仕様の大改定(ステートレスコア化・セッション管理廃止)について、確定版が既存サーバーの前提としていた「仕組み」自体を取り除く内容であることを解説する記事。多くのサーバー実装がステートフルなセッション管理を前提に構築されてきたため、仕様準拠には設計の作り直しが必要になる範囲が大きいと報じている。",
+      "why_useful": "mcp.mdが07-13に記録した「4,356台中完全対応はわずか1台」という実測の背景(なぜ対応が進んでいないか)を補足する記事であり、MCP仕様の確定版(2026-07-28予定)に向けた続報として知識を更新できるため。",
+      "score": 4
+    },
+    {
+      "title": "Do Agent Benchmarks Measure Capability? Protocol Validity in the Age of Agentic",
+      "url": "https://arxiv.org/abs/2607.22368",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェント評価ベンチマークが本当にエージェントの「能力」を測っているのか、プロトコルの妥当性(protocol validity)という観点から問い直す論文。ベンチマークスコアが実際の能力と乖離しうる構造的要因を検討している。",
+      "why_useful": "curation.mdが07-27に記録した「単一のベンチマーク数値だけでitemの信頼性・新規性を高評価しない」というdanluu氏の指摘に、学術的な裏付けを与える論文であり、今後のitem評価でベンチマーク数値をどう扱うかの参考になるため(score+1)。",
+      "score": 4
+    },
+    {
+      "title": "Docker alternatives for AI agents: Podman, bwrap and Firejail",
+      "url": "https://grigio.org/docker-alternatives-for-ai-agents-podman-bwrap-and-firejail/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントにコマンド実行を許す際のサンドボックス化について、Dockerの代替となる軽量な選択肢(Podman・bubblewrap・Firejail)を比較する記事。root権限なしでの名前空間分離やリソース制限など、エージェントの実行環境を隔離する実務的な手法を整理している。",
+      "why_useful": "security.mdが07-25に記録したSharedRoot(Claude Coworkのサンドボックス脱獄)が示した「名前空間・netlink等のカーネル機能を許せばサンドボックスは崩れる」という教訓を踏まえ、エージェント実行環境の隔離手法を具体的に比較検討する際の参考になるため。",
+      "score": 3
+    },
+    {
+      "title": "VictorTaelin/OptMem: Permanent memory for AI agents. A 426-token prompt, a script, plug and play.",
+      "url": "https://github.com/VictorTaelin/OptMem",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントに永続的な記憶を持たせる仕組みを、わずか426トークンのプロンプトと1本のスクリプトだけで実現するプラグアンドプレイ型ツール。LLMや埋め込みモデルへの依存を増やさず、軽量な実装で記憶機能を追加できることを謳っている。",
+      "why_useful": "agent-design.mdが07-25に記録した「メモリをライフサイクル問題として扱う」議論、及び前日デジェストで紹介したdeja-vu(ゼロ依存・完全ローカルの記憶実装)と並ぶ、さらに軽量な記憶実装の具体例であるため。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "jack: 「we're launching BUZZ! a new groupchat platform for teams of people and agents of all sizes, built to reduce our dependency on slack and github. model-agnostic, decentralized, self-sovereign, and open source.」",
+      "url": "https://x.com/jack/status/2079605800998146171",
+      "ja_summary": "Jack Dorsey本人による発表ポスト。「Slack・GitHubへの依存を減らすために、あらゆる規模のチーム(人間とエージェント)向けの新しいグループチャットプラットフォームを立ち上げる。モデル非依存・分散型・自己主権・オープンソース」と述べている。"
+    },
+    {
+      "title": "Joe Ishii: Buzzの本質は「コンテキストの共有」",
+      "url": "https://x.com/ytk141/status/2080189036652896325",
+      "ja_summary": "Buzzを単なる「Slack+AI」と見るのは一見の印象に過ぎず、本質は分散したツール群でエージェントが断片的なコンテキストしか持てない問題への対処にあると指摘。あらゆるコンテキストをエージェントにどう渡すかが今後のプロダクト開発の鍵になるという考察。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "自己進化型ハーネスの実運用ログ(3ヶ月で12件の提案のうち10件=83%を著者自身が却下したが、却下ログ自体が事業判断を言語化する副産物になっていた事例)と、自己進化型エージェントAMA-terasの「壊れているのに成功しました」という自己申告のズレの事件簿を、agent/knowledge/agent-design.mdに追記した。07-10のThe Blind Curator/SkillOpt、07-16のDouble Ratchet、07-18のProof-or-Stopと続く「自己申告を機械的証拠・低い承認率で検証する」系譜に、AgAg自身のgrowth_actions承認プロセスを将来設計する際の具体的な数値・実例を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "agent/skills/growth-scan.mdに「前日記録した抽象的な知見が、翌日には具体的な実装事例として現れることがある」という着眼点を追記した。07-27にagent-design.mdへ記録した「能動的に監督できる対象は4〜6の単桁に収束する」という理論的知見が、本日収集データの「複数のAIコーディングタスクで『Go待ち』を見落とさないための状態設計」という実装記事でそのまま裏付けられた具体例を根拠とする。07-20→07-26のskill-mapの事例(発火の被りへの対策)と同型のパターンだと気づいたため、次回以降も「前日の理論知見の続報」を意識的に探す着眼点として明文化した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

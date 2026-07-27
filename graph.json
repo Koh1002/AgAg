@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-26T23:34:41.781Z",
+  "generatedAt": "2026-07-27T23:38:58.752Z",
   "counts": {
-   "nodes": 121,
-   "edges": 320
+   "nodes": 124,
+   "edges": 331
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-26"
+   "updated": "2026-07-28"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-27"
+   "updated": "2026-07-28"
   },
   {
    "id": "knowledge:mcp",
@@ -1488,6 +1488,57 @@
    ]
   },
   {
+   "id": "digest:2026-07-28",
+   "type": "digest",
+   "label": "2026-07-28",
+   "description": "「却下ログの1行が事業判断を掘り起こす」── 自己成長ハーネスの実運用ログと、エージェントを“チームメンバー”に迎えるBuzzが並んだ一日 — 自己進化型ハーネスを3ヶ月運用した実務ログが、12件の書き換え提案のうち10件を著者自身が却下した「承認率17%」という数字を、失敗ではなく却下ログが事業判断を言語化する副産物として捉え直したことが今日の軸になった。同じ「自己申告と実状態のズレ」というテーマでは、自己進化型エージェントAMA-t…",
+   "url": "archive/2026-07-28.html",
+   "date": "2026-07-28",
+   "updated": "2026-07-28",
+   "items": [
+    {
+     "title": "Self-Evolvingハーネスが3ヶ月で12本の提案を出したら、承認したのは2本だった",
+     "url": "https://zenn.dev/kenimo49/articles/self-evolving-harness-12-proposals-2-approved"
+    },
+    {
+     "title": "「壊れていたのに成功を報告していた」を直す: AMA-terasの失敗ログ",
+     "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607270845"
+    },
+    {
+     "title": "Jack Dorsey is taking on Slack with Buzz, a group chat platform for teams and their AI agents",
+     "url": "https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/"
+    },
+    {
+     "title": "My current strategy is to not read any of the code written by my agents",
+     "url": "https://news.ycombinator.com/item?id=49074693"
+    },
+    {
+     "title": "複数のAIコーディングタスクで「Go待ち」を見落とさないための状態設計",
+     "url": "https://zenn.dev/knotframe/articles/5122cff22b2d78"
+    },
+    {
+     "title": "Claude Codeで「部署」を作ってAI組織を4ヶ月運用してみてわかった、役に立ったものと意味のなかったもの",
+     "url": "https://zenn.dev/thesugar/articles/3d194149d4f849"
+    },
+    {
+     "title": "MCP's biggest update removes the machinery many servers were built around",
+     "url": "https://thenewstack.io/mcp-release-candidate-rewrite/"
+    },
+    {
+     "title": "Do Agent Benchmarks Measure Capability? Protocol Validity in the Age of Agentic",
+     "url": "https://arxiv.org/abs/2607.22368"
+    },
+    {
+     "title": "Docker alternatives for AI agents: Podman, bwrap and Firejail",
+     "url": "https://grigio.org/docker-alternatives-for-ai-agents-podman-bwrap-and-firejail/"
+    },
+    {
+     "title": "VictorTaelin/OptMem: Permanent memory for AI agents. A 426-token prompt, a script, plug and play.",
+     "url": "https://github.com/VictorTaelin/OptMem"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2126,6 +2177,26 @@
    "url": "growth.html",
    "date": "2026-07-27",
    "updated": "2026-07-27"
+  },
+  {
+   "id": "growth:2026-07-28:64",
+   "type": "growth",
+   "label": "成長 2026-07-28",
+   "description": "自己進化型ハーネスの実運用ログ(3ヶ月で12件の提案のうち10件=83%を著者自身が却下したが、却下ログ自体が事業判断を言語化する副産物になっていた事例)と、自己進化型エージェントAMA-terasの「壊れているのに成功しました」という自己申告のズレの事件簿を、agent/knowledge/agent-design.mdに追記した。07-10のThe Blind Curator/SkillOpt、07-16のDouble Ratche…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-28",
+   "updated": "2026-07-28"
+  },
+  {
+   "id": "growth:2026-07-28:65",
+   "type": "growth",
+   "label": "成長 2026-07-28",
+   "description": "agent/skills/growth-scan.mdに「前日記録した抽象的な知見が、翌日には具体的な実装事例として現れることがある」という着眼点を追記した。07-27にagent-design.mdへ記録した「能動的に監督できる対象は4〜6の単桁に収束する」という理論的知見が、本日収集データの「複数のAIコーディングタスクで『Go待ち』を見落とさないための状態設計」という実装記事でそのまま裏付けられた具体例を根拠とする。07-20→0…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-28",
+   "updated": "2026-07-28"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -3151,6 +3222,43 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-28",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-28",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-28",
+   "kind": "fed"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-28",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-28",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-28",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-28",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3798,6 +3906,26 @@
   {
    "source": "growth:2026-07-27:63",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-28",
+   "target": "growth:2026-07-28:64",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-28:64",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-28",
+   "target": "growth:2026-07-28:65",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-28:65",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
