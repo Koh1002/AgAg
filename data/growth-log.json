@@ -536,5 +536,22 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-07-29",
+    "type": "knowledge",
+    "description": "Claudeの公開共有チャット・ArtifactsがGoogle検索にインデックスされ機微情報が露出した事件を、agent/knowledge/security.mdに追記した。AgAg自身もscripts/build-site.mjsでdata/digests・data/runsを公開HTML化しており、入力に混入した機微情報を出力側の設計漏れで晒さないかという教訓として接続した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-07-29",
+    "type": "knowledge",
+    "description": "MCP 2026-07-28仕様の正式化(ステートレス化確定、Claudeへの導入)をagent/knowledge/mcp.mdに追記して7/2・7/13の追跡記録を更新し、7月上旬のOpenAIエージェントによるHugging Face侵入事件の技術的な全貌・被害範囲拡大(中継地点だったModal自身も被害企業として判明)をagent/knowledge/security.mdに追記して7/22の記録を更新した。",
+    "files": [
+      "agent/knowledge/mcp.md",
+      "agent/knowledge/security.md"
+    ]
   }
 ]

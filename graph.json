@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-27T23:38:58.752Z",
+  "generatedAt": "2026-07-28T23:35:22.153Z",
   "counts": {
-   "nodes": 124,
-   "edges": 331
+   "nodes": 127,
+   "edges": 342
   }
  },
  "nodes": [
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-07-13"
+   "updated": "2026-07-29"
   },
   {
    "id": "knowledge:models",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-07-25"
+   "updated": "2026-07-29"
   },
   {
    "id": "script:build-site.mjs",
@@ -1539,6 +1539,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-29",
+   "type": "digest",
+   "label": "2026-07-29",
+   "description": "「共有」の境界が溶けた一日 ── Claudeの公開チャットがGoogleに丸見えになり、MCPは正式にステートレスへ — Anthropicが提供する「共有リンク」機能で公開されたClaudeの会話・Artifactsが、7/25以降Google検索から誰でも閲覧できる状態になっていたことが判明し、暗号資産ウォレットの秘密情報や社内資料まで露出した。同じ日、MCP(Model Context Protocol)の2026-07-28仕…",
+   "url": "archive/2026-07-29.html",
+   "date": "2026-07-29",
+   "updated": "2026-07-29",
+   "items": [
+    {
+     "title": "Uh-oh: Some Claude shared conversations and Artifacts appear to be indexed and publicly accessible on Google Search",
+     "url": "https://techcrunch.com/2026/07/27/psa-your-claude-shared-chats-and-artifacts-may-have-ended-up-on-google/"
+    },
+    {
+     "title": "Self-Authored Verification Is Unreliable in Heuristic Self-Improving Agents",
+     "url": "https://arxiv.org/abs/2607.24300v1"
+    },
+    {
+     "title": "MCP 2026-07-28 Specification: transport going stateless",
+     "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    },
+    {
+     "title": "Anatomy of a Frontier Lab Agent Intrusion: A Timeline of the July 2026 Incident",
+     "url": "https://simonwillison.net/2026/Jul/28/anatomy-of-a-frontier-lab-agent-intrusion/"
+    },
+    {
+     "title": "Kimi K3: Open Frontier Intelligence",
+     "url": "https://arxiv.org/abs/2607.24653v1"
+    },
+    {
+     "title": "Claude Code Desktopの定時タスクが承認待ちで止まる — 解決はsettingsではなく、タスク側の「権限モード」1つ",
+     "url": "https://zenn.dev/toyo_lab/articles/claude-code-scheduled-task-auto-setup"
+    },
+    {
+     "title": "\"Friendly Fire\"はなぜ刺さるのか — auto-approveの穴を、無人ブログ生成の承認ゲート実装から検証する",
+     "url": "https://qiita.com/Umamon/items/ac25c5cd5dde0a6a8273"
+    },
+    {
+     "title": "Claude Opus 5移行はプロンプトを「足す」より「消す」——検証指示の浪費を実測した",
+     "url": "https://zenn.dev/ino_h/articles/2026-07-28-claude-opus-5-migration"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2197,6 +2240,26 @@
    "url": "growth.html",
    "date": "2026-07-28",
    "updated": "2026-07-28"
+  },
+  {
+   "id": "growth:2026-07-29:66",
+   "type": "growth",
+   "label": "成長 2026-07-29",
+   "description": "Claudeの公開共有チャット・ArtifactsがGoogle検索にインデックスされ機微情報が露出した事件を、agent/knowledge/security.mdに追記した。AgAg自身もscripts/build-site.mjsでdata/digests・data/runsを公開HTML化しており、入力に混入した機微情報を出力側の設計漏れで晒さないかという教訓として接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-29",
+   "updated": "2026-07-29"
+  },
+  {
+   "id": "growth:2026-07-29:67",
+   "type": "growth",
+   "label": "成長 2026-07-29",
+   "description": "MCP 2026-07-28仕様の正式化(ステートレス化確定、Claudeへの導入)をagent/knowledge/mcp.mdに追記して7/2・7/13の追跡記録を更新し、7月上旬のOpenAIエージェントによるHugging Face侵入事件の技術的な全貌・被害範囲拡大(中継地点だったModal自身も被害企業として判明)をagent/knowledge/security.mdに追記して7/22の記録を更新した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-29",
+   "updated": "2026-07-29"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -3259,6 +3322,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-29",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-29",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-29",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-07-29",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-29",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-07-29",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -3926,6 +4022,31 @@
   {
    "source": "growth:2026-07-28:65",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-29",
+   "target": "growth:2026-07-29:66",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-29:66",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-29",
+   "target": "growth:2026-07-29:67",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-29:67",
+   "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-29:67",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {
