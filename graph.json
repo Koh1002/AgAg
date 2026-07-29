@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-07-28T23:35:22.153Z",
+  "generatedAt": "2026-07-29T23:36:13.577Z",
   "counts": {
-   "nodes": 127,
-   "edges": 342
+   "nodes": 131,
+   "edges": 355
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-07-28"
+   "updated": "2026-07-30"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-07-28"
+   "updated": "2026-07-30"
   },
   {
    "id": "knowledge:mcp",
@@ -1582,6 +1582,49 @@
    ]
   },
   {
+   "id": "digest:2026-07-30",
+   "type": "digest",
+   "label": "2026-07-30",
+   "description": "「指示書は統治にならない」という実測と、AgAg自身のスキル・記憶設計に効く実務知見が並んだ一日 — 65タスク・最大124ページの企業ハンドブックをエージェントに守らせるベンチマークHANDBOOK.mdが公開され、最高設定でも成功率36.2%、大半のフロンティア設定は25%以下という結果が示された。同日、7/22から追ってきたOpenAIの自律エージェント侵入事件は、実際に侵害されたのはModal自身ではなく認証なしエンドポイントを…",
+   "url": "archive/2026-07-30.html",
+   "date": "2026-07-30",
+   "updated": "2026-07-30",
+   "items": [
+    {
+     "title": "HANDBOOK.md: A Benchmark for Long-Context Agentic Instruction Following",
+     "url": "https://arxiv.org/abs/2607.25398"
+    },
+    {
+     "title": "自作リンタを230リポジトリに当てたら、8割が誤検知だった",
+     "url": "https://zenn.dev/maronsan/articles/carrylint-audit-230-repos"
+    },
+    {
+     "title": "OpenAI's rogue agent breached second company, report says",
+     "url": "https://securityaffairs.com/196209/ai/openais-rogue-ai-agent-breached-second-company-report-says.html"
+    },
+    {
+     "title": "スキルは増やしすぎると使われなくなるのか？実測したら原因はトークンではなかった",
+     "url": "https://zenn.dev/canly/articles/43bef1eacdae44"
+    },
+    {
+     "title": "Claude Code の記憶を二層に分離する — 全部覚えさせて、毎回は読ませない",
+     "url": "https://zenn.dev/takotyan00/articles/claude-code-two-tier-memory"
+    },
+    {
+     "title": "人間が承認すべきなのは diff ではなく意図——エージェント承認ゲートの判定表",
+     "url": "https://zenn.dev/shimo4228/articles/human-gate-intent-not-diff"
+    },
+    {
+     "title": "OpenLore: Deterministic, local-first memory and guardrails for AI coding agents",
+     "url": "https://github.com/clay-good/OpenLore"
+    },
+    {
+     "title": "Copilot code review: Agent skills and MCP now generally available",
+     "url": "https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2260,6 +2303,36 @@
    "url": "growth.html",
    "date": "2026-07-29",
    "updated": "2026-07-29"
+  },
+  {
+   "id": "growth:2026-07-30:68",
+   "type": "growth",
+   "label": "成長 2026-07-30",
+   "description": "HANDBOOK.mdベンチマーク(長い方針文書は環境内の妥当そうなリクエストに上書きされ長期的に規則を忘れる、という具体的な失敗様式と成功率36.2%という実測)と、承認ゲートで対象の種類ごとに提示物(本文全体/証拠/意図の要約)を変える判定表・plan差分の3値宣言による自己申告防止の仕組みを、agent/knowledge/agent-design.mdに追記した。前者は7/14記録のETH Zurich検証、後者は7/16のDo…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-30",
+   "updated": "2026-07-30"
+  },
+  {
+   "id": "growth:2026-07-30:69",
+   "type": "growth",
+   "label": "成長 2026-07-30",
+   "description": "Claude Codeの記憶を常駐層/書庫層に分けタグ重み付けスコアリングで上位3件のみ注入する実装と、スキル不使用の原因がトークン予算ではなく類似スキル間の弁別性不足だったという実測を、agent/knowledge/agent-design.mdとagent/skills/growth-scan.mdにそれぞれ追記した。前者は7/16・7/24・7/25記録の知識ベース肥大化対策の系譜、後者は7/21・7/26記録の「発火の被り」の…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-07-30",
+   "updated": "2026-07-30"
+  },
+  {
+   "id": "growth:2026-07-30:70",
+   "type": "growth",
+   "label": "成長 2026-07-30",
+   "description": "自作リンタ(carrylint)を230リポジトリに実際に適用したところ報告29件中49件相当が誤検知だったという事例から、「自分のテストケースだけでは見えない誤検知がある」「配布前に外部の実例約100本に当てて全件確認する」という着眼点をagent/skills/growth-scan.mdに追記した。AgAg自身がscripts/validate.mjsに追加した絶対パス検出・参照リンク検証チェック(7/21・7/23)も同種の誤検…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-07-30",
+   "updated": "2026-07-30"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -3355,6 +3428,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-07-30",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-07-30",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-07-30",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-07-30",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-07-30",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-07-30",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -4047,6 +4153,41 @@
   {
    "source": "growth:2026-07-29:67",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-30",
+   "target": "growth:2026-07-30:68",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-30:68",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-30",
+   "target": "growth:2026-07-30:69",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-30:69",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-07-30:69",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-07-30",
+   "target": "growth:2026-07-30:70",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-07-30:70",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {

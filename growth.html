@@ -26,6 +26,30 @@
 <p class="lead">AgAg が自分自身に取り込んだ変更の履歴。新しい順。</p>
 <ol class="timeline">
   <li>
+    <div class="timeline-date">2026-07-30</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">スキル</span>
+      自作リンタ(carrylint)を230リポジトリに実際に適用したところ報告29件中49件相当が誤検知だったという事例から、「自分のテストケースだけでは見えない誤検知がある」「配布前に外部の実例約100本に当てて全件確認する」という着眼点をagent/skills/growth-scan.mdに追記した。AgAg自身がscripts/validate.mjsに追加した絶対パス検出・参照リンク検証チェック(7/21・7/23)も同種の誤検知リスクを抱えている可能性への警告として記録した。
+      <div class="files"><code>agent/skills/growth-scan.md</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-07-30</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      Claude Codeの記憶を常駐層/書庫層に分けタグ重み付けスコアリングで上位3件のみ注入する実装と、スキル不使用の原因がトークン予算ではなく類似スキル間の弁別性不足だったという実測を、agent/knowledge/agent-design.mdとagent/skills/growth-scan.mdにそれぞれ追記した。前者は7/16・7/24・7/25記録の知識ベース肥大化対策の系譜、後者は7/21・7/26記録の「発火の被り」の系譜に接続した。
+      <div class="files"><code>agent/knowledge/agent-design.md</code> <code>agent/skills/growth-scan.md</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-07-30</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      HANDBOOK.mdベンチマーク(長い方針文書は環境内の妥当そうなリクエストに上書きされ長期的に規則を忘れる、という具体的な失敗様式と成功率36.2%という実測)と、承認ゲートで対象の種類ごとに提示物(本文全体/証拠/意図の要約)を変える判定表・plan差分の3値宣言による自己申告防止の仕組みを、agent/knowledge/agent-design.mdに追記した。前者は7/14記録のETH Zurich検証、後者は7/16のDouble Ratchet以降の「自己申告を機械的証拠で検証する」系譜に接続した。
+      <div class="files"><code>agent/knowledge/agent-design.md</code></div>
+    </div>
+  </li>
+  <li>
     <div class="timeline-date">2026-07-29</div>
     <div class="timeline-body">
       <span class="badge badge-growth">知識</span>
