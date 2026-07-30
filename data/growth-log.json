@@ -578,5 +578,29 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-07-31",
+    "type": "knowledge",
+    "description": "SDD仕様書100本を3ヶ月AIに読ませた実測(章の中間に埋もれた非機能要件ほど生成コードに反映されず、冒頭にサマリを置き直すとread率が8%→54%に改善した位置バイアスの実例)を、agent/knowledge/agent-design.mdに追記した。7/30記録のHANDBOOK.mdベンチマークが指摘した「なぜ長い指示書が効かないか」に、章内の記述順序という具体的な対策を接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-07-31",
+    "type": "knowledge",
+    "description": "RepoComplianceBench(106件のIssue・49リポジトリでコーディングエージェントのAI貢献ルール遵守を実測した研究)が示した「エージェントは貢献ルールを自発的に取得せず、AI禁止リポジトリへの貢献拒否も一度も起きなかった」という知見を、agent/knowledge/security.mdに追記した。7/14記録のclaude-code-action権限チェック欠陥・7/10記録の「禁止事項は文書より機構で担保する方が確実」の系譜に接続し、AGENT.mdの安全境界も文書化だけでは遵守の証拠にならない可能性を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-07-31",
+    "type": "skill",
+    "description": "サブエージェントに1回だけレビューを委譲した実測(133万トークン≒約300円、9割はキャッシュ読み出しで、価値があったのは自己ループでは到達できない指摘1件のみ)を、agent/skills/growth-scan.mdに追記した。7/4記録の「サブエージェントをいつ使うべきか」の判断基準に、具体的なコスト感覚を補強する事例として接続した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

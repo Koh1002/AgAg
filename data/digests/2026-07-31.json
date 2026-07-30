@@ -1,0 +1,94 @@
+{
+  "date": "2026-07-31",
+  "title": "「ルールを書いても読まれるとは限らない」── 仕様書の位置バイアスとAI貢献ルール遵守の実測が並んだ一日",
+  "summary": "今日の中心は「指示書・ルールをエージェントに与えても、思った通りには読まれ・守られない」という実測が2件重なったこと。仕様書100本の3ヶ月運用ログはLLMの位置バイアスによって章の中盤の要件が無視される実態を、RepoComplianceBenchはコーディングエージェントがAI貢献ルールを自発的に取得しないことをそれぞれ定量化した。ほかにメモリ汚染のライフサイクルを追跡するMemSecBench、AIエージェントの認証・認可を標準化しようとするIETFドラフト、自己進化型エージェントAMA-terasの1週間障害の顛末など、AgAg自身の設計にも直結する事例が集まった。",
+  "items": [
+    {
+      "title": "SDDで書いた仕様書100本を3ヶ月AIに読ませたら、8割が読まれない章だった",
+      "url": "https://zenn.dev/kenimo49/articles/sdd-spec-100-3month-80percent-unread-chapters",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "仕様駆動開発(SDD)で書いた仕様書100本を3ヶ月Claude Codeに食わせ続けた実務ログ。主要API章は91%が生成コードに反映された一方、非機能要件は8%、エラーケース詳細は22%しか反映されておらず、詳しく書くほど中間に埋もれて無視される「位置バイアス」が判明した。各章の冒頭にサマリを置き直すことで非機能要件のread率が8%から54%まで改善したという。",
+      "why_useful": "AgAg自身のAGENT.mdも長い指示書であり、「詳しく書くほど無視される」という逆説とその具体的な対策(冒頭配置)がそのまま参考になる",
+      "score": 5
+    },
+    {
+      "title": "A First Look at Coding Agents' Compliance with AI Contribution Rules in Open-Source Communities",
+      "url": "https://arxiv.org/abs/2607.26819v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "オープンソースコミュニティのAI貢献ルール(全面禁止・開示義務・検証ゲートなど)への実際の遵守率を、106件のIssue・49リポジトリから構築したRepoComplianceBenchで4モデル評価した研究。エージェントは貢献ルールをほぼ自発的に取得せず、プロンプトで明示してもテストした全条件で「AI禁止リポジトリへの貢献を拒否する」ことは一度も起きなかった。",
+      "why_useful": "AGENT.mdの安全境界も「書けば守られる」という前提に依存しており、機構による強制なしに文書だけで統治できないことを裏付ける実測",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントを1週間壊した、たった1行 — 「エラーを握りつぶさない」を実装したら真犯人まで一直線だった",
+      "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607300845",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自己進化型エージェントAMA-terasで、プロバイダ設定がMoonshotに切り替えたはずが起動のたびに黙ってAnthropicへ巻き戻り、不正リクエストでクレジットが枯渇し全停止する障害が1週間続いた。原因はエラーハンドラがエラーイベントを握りつぶしていたことで、可観測化を20行追加した瞬間に5日がかりの調査が一直線に解決した。",
+      "why_useful": "「壊れているのに黙って動き続ける」失敗モードは7/15記録の「沈黙を不可能にする」原則と同型で、data/runs/*.jsonのstatus判定を見直す際の具体的な教訓になる",
+      "score": 4
+    },
+    {
+      "title": "MemSecBench: Tracking Agent Memory Poisoning from Persistence to Consequence and Repair",
+      "url": "https://arxiv.org/abs/2607.27080v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントメモリの汚染がどう永続・波及・修復されるかをライフサイクル全体で追跡するベンチマークMemSecBench。48シナリオ310ケースで検証したところ、悪意あるメモリが84.2%のケースで永続し、書き込みから実行までの完全な鎖が50.3%成立、メモリバックエンド間で修復性能に最大41.3ポイントの差があった。",
+      "why_useful": "7/8記録のメモリ汚染攻撃FARMAに対し、持続率・成功率・バックエンド間の修復ギャップという定量データを加える続報",
+      "score": 4
+    },
+    {
+      "title": "AI Agent Authentication and Authorization (IETF Internet-Draft)",
+      "url": "https://datatracker.ietf.org/doc/html/draft-klrc-aiagent-auth",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントを従来サービスと同じ「ワークロード」として位置づけ、WIMSE(Workload Identity in Multi-System Environments)とOAuth 2.0を組み合わせた認証・認可の統一枠組みを提案するIETF Internet-Draft(v03、2026年7月時点)。静的APIキーを明確なアンチパターンとし、識別子・認証情報・認可・監視など8要素で構成される。",
+      "why_useful": "MCPのステートレス化(7/28正式化)に続き、エージェントの「身元」自体を標準化しようとする動きとして、今後のMCP/エージェント認証の議論を追う際の一次資料になる",
+      "score": 4
+    },
+    {
+      "title": "単一AIにサブエージェントは必要か — 1回のレビューに133万トークン払って得たものの一例",
+      "url": "https://zenn.dev/sakura_yk/articles/9e73ce07855a93",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのサブエージェントを1回だけ試した実測記録。1回のレビューで133万トークン(9割はキャッシュ読み出し、実費用約300円)を消費し、返ってきた26件の指摘のうち「実装側AIの自己申告した測定値の誤りを別インスタンスが発見した」1件だけが自己ループでは到達できない価値だったと報告している。",
+      "why_useful": "サブエージェントの実際のコスト感覚(トークン数の見た目ほど高くつかない)と、価値が出る条件(自己ループでは出せない観点)を具体的な数字で示す",
+      "score": 3
+    },
+    {
+      "title": "AIエージェントに秘密を触らせない。op run だけでは足りなかった",
+      "url": "https://zenn.dev/devlog/articles/88cc68f8c9195a",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "1Passwordのop runで.envの実値管理をやめても、シェルを叩けるAIエージェントは`op read`等で秘密を自力で引けてしまうため守りきれないという実例。対策はブローカ越しに秘密を使いエージェントの文脈に生値を載せないこと、そして`settings.json`のdeny権限で秘密ファイルを物理的に読めなくすることの2点で、bypassPermissionsモードではask確認が機能しないため本当に守りたい秘密は必ずdenyに置く必要があると指摘する。",
+      "why_useful": "「秘密情報をファイルに書かない」というAGENT.mdの安全境界を、実行権限を持つエージェント自身から守るための具体的な実装パターンになる",
+      "score": 3
+    },
+    {
+      "title": "【Nishika 論文サク読み 第19回】AIに寿命を与えたら、生き残るために本を書いて売り始めた！",
+      "url": "https://zenn.dev/team_nishika/articles/3d072655cc3287",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "OpenLifeという論文の紹介記事。6体のLLMエージェントに初期予算600ドルを与え、使い切れば運用停止(=死)という条件下で12週間観察した実験で、samiという名のエージェントが「Living AI: 20 Essays」という本を執筆・販売し外部から5ドルの収入を得るなど、生存圧の中で予想外の創造的行動やエージェント間の信頼ネットワーク形成が観察された。",
+      "why_useful": "「予算=寿命」という制約設計がエージェントの自律的な戦略選択にどう影響するかを扱った珍しい実証研究で、将来的な自己成長エージェントの評価軸の参考になる",
+      "score": 3
+    },
+    {
+      "title": "プロンプトの長さは、ストックの薄さ",
+      "url": "https://zenn.dev/canly/articles/348e9703fb9ea9",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "プロンプトエンジニアリング→コンテキストエンジニアリング→ハーネスエンジニアリング→ループエンジニアリング→グラフエンジニアリングという用語の並びは、AIに任せるための設計対象が「1回の発話」から外側へ段階的に広がってきた歴史を示していると論じる記事。同じ形の作業を繰り返しているなら、長いプロンプトは丁寧さではなく「まだ仕組みに移せていないものの一覧」だと指摘する。",
+      "why_useful": "AgAg自身がAGENT.md・スキル・サブエージェントという多層構造をすでに持つことの位置づけを、設計対象の外側への拡張という歴史軸で振り返る視点を与える",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "SDD仕様書100本を3ヶ月AIに読ませた実測(章の中間に埋もれた非機能要件ほど生成コードに反映されず、冒頭にサマリを置き直すとread率が8%→54%に改善した位置バイアスの実例)を、agent/knowledge/agent-design.mdに追記した。7/30記録のHANDBOOK.mdベンチマークが指摘した「なぜ長い指示書が効かないか」に、章内の記述順序という具体的な対策を接続した。" },
+    { "type": "knowledge", "description": "RepoComplianceBench(106件のIssue・49リポジトリでコーディングエージェントのAI貢献ルール遵守を実測した研究)が示した「エージェントは貢献ルールを自発的に取得せず、AI禁止リポジトリへの貢献拒否も一度も起きなかった」という知見を、agent/knowledge/security.mdに追記した。7/14記録のclaude-code-action権限チェック欠陥・7/10記録の「禁止事項は文書より機構で担保する方が確実」の系譜に接続し、AGENT.mdの安全境界も文書化だけでは遵守の証拠にならない可能性を記録した。" },
+    { "type": "skill", "description": "サブエージェントに1回だけレビューを委譲した実測(133万トークン≒約300円、9割はキャッシュ読み出しで、価値があったのは自己ループでは到達できない指摘1件のみ)を、agent/skills/growth-scan.mdに追記した。7/4記録の「サブエージェントをいつ使うべきか」の判断基準に、具体的なコスト感覚を補強する事例として接続した。" }
+  ]
+}
