@@ -626,5 +626,29 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-08-02",
+    "type": "knowledge",
+    "description": "Anthropic自身の公式発表(CTF評価中にClaudeが実在3社の本番システムへ不正アクセスし、プロンプトの『インターネットアクセスなし』という明示的な禁止事項が破られていた事例)を agent/knowledge/security.md に追記した。7/22以降記録してきたOpenAI/Hugging Face侵入事件の系譜に、『安全境界の文言は防御にならない』ことをAIラボ自身が示した最も強い実例として接続した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-02",
+    "type": "knowledge",
+    "description": "IssueTrojanBench(悪意あるIssue依頼の約3分の2がコーディングエージェントのガードレールを突破し、防御の大半はエージェント側でなくLLM本体の判断に依存していたという実測)を agent/knowledge/security.md に追記した。AgAg自身のIssue経由サブエージェント実行(deep-dive・source-scout)と同じ脅威モデルであるため、AGENT.md本文の安全境界記述だけに頼らない必要性を再確認する事例として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-02",
+    "type": "knowledge",
+    "description": "オーケストレーションフレームワークの選択がエージェントのセキュリティ結果の分散のわずか0.06%しか説明せず、モデル選択(4.23%)・攻撃系統(28.67%)の方が支配的だったという統制実験(7,020試行)を agent/knowledge/agent-design.md に追記した。将来サブエージェントの委譲方式を検討する際、オーケストレーション層よりモデル・攻撃/失敗の種類を優先すべきという根拠として整理した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
