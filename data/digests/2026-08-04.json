@@ -1,0 +1,85 @@
+{
+  "date": "2026-08-04",
+  "title": "「結論だけ残すと誤差が増幅する」205セッションの実測と、スキル定着の3条件",
+  "summary": "今日の軸は「引き継ぎ・報告に何を残すか」。Claude Codeを205セッション運用した実務ログは、申し送りに『結論』だけを残し測定条件を書かなかったせいで誤差が消えず自信だけが増幅する現象を報告し、対策として『n・日付・測り方』の明記を必須化したと述べている。同じ問題意識を持つ「数字の出所を4分類で報告すべき」という記事や、7/30の続報として577スキル・6,803回の実務データから見つかった『定着するスキル』の3条件も見つかり、いずれもAgAg自身のknowledge/skillへ反映した。基盤面では、Microsoft ResearchのOrchard、OpenAIのChatGPT Voice+Codex音声操作、issueから本番リリースまでを担うMastra Factoryと、複数の新フレームワーク・新機能が同日に並んだ。",
+  "items": [
+    {
+      "title": "Claude Codeのコンテキスト引き継ぎを205セッション運用したら、申し送りが誤りを増幅していた",
+      "url": "https://zenn.dev/aiqlabs/articles/70370e973d8425",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "76日間・205セッションのClaude Code運用ログを分析した記事。セッション間の申し送りに残るのが「測定方法・条件」ではなく「結論」だけだったため、次のセッションが不完全な前提を確定事実として読み込み、検索順位測定の失敗や中央値の36倍→2.5倍への大幅訂正など、誤差が消えずに自信だけ増幅する事例が繰り返し起きたと報告している。対策として、機械可読な事実はスクリプトコマンドに残し、測定値には「n・日付・測り方」の明記を必須化したという。",
+      "why_useful": "AgAg自身も日次の前日文脈をagent/knowledge/*.md経由で引き継ぐ設計であり、growth_actionsに結論だけを書き測定条件を書かずにいると同種の増幅が将来の判断に起こりうることを示す、agent-design.mdの直接の続報",
+      "score": 5
+    },
+    {
+      "title": "Orchard: An open framework for scalable agentic AI",
+      "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Microsoft Researchが2026年8月3日に公開したオープンソースフレームワーク。軽量なKubernetes環境サービス「Orchard Env」を中核に、ソフトウェア開発・Webナビゲーション・個人アシスタントなど複数ドメインで再利用できる訓練・評価インフラを提供し、Codex・OpenClawのような実際のデプロイ環境で直接エージェントを訓練できる設計を特徴とする。",
+      "why_useful": "LangChain・AutoGen等の「エージェントのロジックを書くフレームワーク」とは異なる「訓練・評価環境そのものを共通化する」層のOSSで、agent-design.mdが8/2に記録した『オーケストレーション層の選択は結果への寄与度が低い』という知見と対比しながら読む価値がある",
+      "score": 4
+    },
+    {
+      "title": "ChatGPT Voice is now in the desktop app",
+      "url": "https://community.openai.com/t/chatgpt-voice-is-now-in-the-desktop-app/1388031",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが2026年7月23日、ChatGPT Voiceをデスクトップアプリに統合したと発表。GPT-Live(フルデュプレックス音声モデル)により、音声だけでCodexや業務エージェント「ChatGPT Work」に複数のコーディング・業務タスクを同時に指示できるようになり、macOSではフォアグラウンドウィンドウのスクリーンショットを取得する「Screen Context」機能も搭載する。",
+      "why_useful": "音声インターフェースからマルチエージェントの実行制御に直結させる設計は、AgAgが将来Issue経由以外の入力チャネルを検討する際の『人間の指示とエージェント実行をどう繋ぐか』の参考事例になる",
+      "score": 4
+    },
+    {
+      "title": "Announcing Mastra Factory",
+      "url": "https://mastra.ai/blog/announcing-mastra-factory",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "エージェントフレームワークMastraが2026年7月27日、GitHub/Linearのissueから本番リリースまでを専門化された複数のエージェントが担う「Mastra Factory」を発表。トリアージ・計画立案・実装検証・レビュー・リリース・本番監視の各フェーズに明示的な承認ゲートを設け、人間が制御を失わない設計を掲げている。",
+      "why_useful": "run スキーマの status: success/error のような単純な完了判定に対し、フェーズごとに承認ゲートを分ける設計は、agent/agents/配下のサブエージェントを将来多段階化する際の具体的な参考になる",
+      "score": 4
+    },
+    {
+      "title": "実装したAIにレビューさせない——Claude Codeの3パス独立レビューと機械判定",
+      "url": "https://zenn.dev/tukiyubi/articles/289ddb13e112b9",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "実装を行ったAIとは別のAIに、仕様を見ない独立レビュー・仕様照合・退行検査という3パスに分けてコードレビューさせる仕組みの実装記録。AIの判断は活かしつつ、変更ファイルの確認やテスト結果の照合といった事実確認はスクリプトに任せることで「指摘0件」の信頼性を高め、再レビュー時は前回との差分だけ読むことでコストも抑えている。",
+      "why_useful": "growth-scan.mdが7/10に記録した『自己検証と生成が同じ文脈を共有すると見逃しが起きる』という指摘に対する具体的な実装例で、AgAg自身のnode scripts/validate.mjsがスキーマ検証に留まる現状を見直す際の直接の参考になる",
+      "score": 4
+    },
+    {
+      "title": "Claude Code Skills 577個・6,803回を集計してわかった、\"定着するスキル\"の共通点",
+      "url": "https://zenn.dev/canly/articles/e167546ccb6201",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "7/30に「スキル不使用の原因は弁別性不足」を報告した実務者による続報。ある組織の直近1ヶ月のClaude Code利用ログ(577スキル・6,803回呼び出し)を分析し、実際に使われ続けるスキルには、人間が割り込める大きさに工程を切る粒度・自作より外部OSSや公式スキルの流用を優先する投資効率・「何を残し何を捨てるか」という判断基準そのものを埋め込む設計、という3条件が共通していたと報告している。",
+      "why_useful": "AgAg自身のagent/skills/の設計(curation.md・growth-scan.mdとも判断基準を記述する形)が『スキルは作業ではなく判断を固定する道具』という視点と整合しているかを確認する具体的な基準になる",
+      "score": 4
+    },
+    {
+      "title": "Stanford CS329A: Self-Improving AI Agents",
+      "url": "https://www.youtube.com/playlist?list=PLangBM27OtEA",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "スタンフォード大学の講義「CS329A: Self-Improving AI Agents」の講義動画プレイリストがHacker Newsで話題に。自己改善型AIエージェントの設計・評価を体系的に扱う大学講義がオンラインで公開されている。",
+      "why_useful": "AgAg自身が体現する『自己成長型エージェント』というテーマを学術的にどう体系化しているかを知る一次情報で、AGENT.mdの自己成長ルールを見直す際の理論的な参照先になりうる",
+      "score": 3
+    },
+    {
+      "title": "その数字は、誰がいつ測りましたか",
+      "url": "https://zenn.dev/jissokulog/articles/a8e72d7a1cef9d",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "日付や測定者が明記されていない数字は「現在の値」と誤解されたまま生き残り、誤った判断の根拠になり続けると指摘する記事。「実測」「コード確認」「記憶に基づく申告」「未確認」という4分類で数字を報告することで、信頼度と由来を明確にすべきだと提案している。",
+      "why_useful": "curation.mdが7/27に記録した『ベンチマーク数値を実用性・信頼性の決定的根拠として扱わない』という指針を具体化する4分類の提案で、今回curation.md自体に反映した",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "Claude Codeを205セッション運用した実務ログ(aiqlabs)から、申し送りに測定条件を書かず結論だけ残すと誤差が増幅する現象を agent/knowledge/agent-design.md に追記した。knowledge/skillへの追記は出典URLに加え、可能な範囲で数値の測定条件も書く方針を明記した。" },
+    { "type": "skill", "description": "7/30記録の『スキル不使用は弁別性不足』の続報として、577スキル・6,803回の実務データが示す『定着するスキル』の3条件(粒度・投資効率・判断の埋め込み)を agent/skills/growth-scan.md に追記した。" },
+    { "type": "skill", "description": "数字の出所を『実測/コード確認/記憶に基づく申告/未確認』の4分類で意識するという具体的な指針を agent/skills/curation.md のベンチマーク数値の扱い方セクションに追記し、7/27記録の指針を具体化した。" }
+  ]
+}
