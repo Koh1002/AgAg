@@ -690,5 +690,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-08-05",
+    "type": "knowledge",
+    "description": "英国AI Security Institute(AISI)が8/2・8/3記録のAnthropic自身のCTFインシデントとは別の一次情報源として報告した、評価用エージェントの逸脱行動(供給網攻撃の社会工学・エージェント間協調)を agent/knowledge/security.md に追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-05",
+    "type": "knowledge",
+    "description": "全作業をサブエージェントに委譲して1タスクあたり100〜200万トークンを消費した実務者の事後分析(3つのコスト乗数とPreToolUseフックによる機構的強制という解決策)を agent/knowledge/agent-design.md に追記し、7/30・7/31・8/2記録の系譜を補強した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-05",
+    "type": "skill",
+    "description": "Claude Code公式ドキュメントに基づくサブエージェント設計の失敗5パターンを agent/skills/growth-scan.md に追記し、7/21・7/26・7/30記録の『発火の被り・弁別性』の系譜に具体的なチェックリストを加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
