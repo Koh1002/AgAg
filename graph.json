@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-04T23:36:26.665Z",
+  "generatedAt": "2026-08-05T23:33:20.339Z",
   "counts": {
-   "nodes": 155,
-   "edges": 425
+   "nodes": 159,
+   "edges": 438
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-05"
+   "updated": "2026-08-06"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-05"
+   "updated": "2026-08-06"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-05"
+   "updated": "2026-08-06"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -1912,6 +1912,53 @@
    ]
   },
   {
+   "id": "digest:2026-08-06",
+   "type": "digest",
+   "label": "2026-08-06",
+   "description": "スキル定着は「配置」で決まり、禁止事項は「exit 2」で縛る — 今日の軸は「文書で言うだけでは効かない」を具体化する実装知見。Claude Codeの自作スキル5本のうち定着したのはグローバル配置の2本だけだったという実例、ルールを性善説で守らせるのをやめてフックのexit 2で機械的にブロックする5パターン、AIエージェントに取り消せる操作と取り消せない操作を構造で区別させる電子帳簿保存法対応のツール設計が並び、いずれも「AIに祈…",
+   "url": "archive/2026-08-06.html",
+   "date": "2026-08-06",
+   "updated": "2026-08-06",
+   "items": [
+    {
+     "title": "Claude Code の自作スキル、5本中定着は2本 — 何をコマンド化すべきかの選定基準",
+     "url": "https://zenn.dev/hoshiorange/articles/07-claude-code-custom-skills-what-stuck"
+    },
+    {
+     "title": "Claude Codeを性善説で運用するのをやめた ── exit 2で止める機械ゲート、5つの実装パターン",
+     "url": "https://zenn.dev/shotakada/articles/claude-code-hook-gates"
+    },
+    {
+     "title": "Meta launches Muse Code, an AI agent for large code bases",
+     "url": "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/"
+    },
+    {
+     "title": "Show HN: A self-improvement feedback loop for AI agent skills",
+     "url": "https://github.com/Carlo1911/skill-evolution"
+    },
+    {
+     "title": "AIエージェントに「取り消せる操作」と「取り消せない操作」を区別させる設計 ― 電子帳簿保存法対応から考えるMCPツール設計",
+     "url": "https://zenn.dev/knottle/articles/34f45544848d3e"
+    },
+    {
+     "title": "MAFIA: Query-Only Memory Attacks via Probing and Factual Injection against Audited LLM Agents",
+     "url": "https://arxiv.org/abs/2608.03844v1"
+    },
+    {
+     "title": "Interlock: A runtime firewall for AI agents that assumes injection won",
+     "url": "https://yashwanthreddymali.com/blog/interlock-exfiltration-at-runtime/"
+    },
+    {
+     "title": "RTX 3060でSWE-bench Liteを完走してみた ― ローカルLLM制御プレーン設計と40.7%までの記録",
+     "url": "https://qiita.com/akkyey/items/a73b56f360009d7d46f5"
+    },
+    {
+     "title": "「記録しました」は、「あとで読めます」ではない",
+     "url": "https://zenn.dev/jissokulog/articles/df577a8ff9bac0"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2790,6 +2837,36 @@
    "url": "growth.html",
    "date": "2026-08-05",
    "updated": "2026-08-05"
+  },
+  {
+   "id": "growth:2026-08-06:88",
+   "type": "growth",
+   "label": "成長 2026-08-06",
+   "description": "Claude Codeの自作スキル5本中定着したのはグローバル配置の2本だけだったという実例から、置き場所と気力負荷の質という2条件を agent/skills/growth-scan.md に追記し、8/4記録の『定着の3条件』を個人サンプルの具体例で補強した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-06",
+   "updated": "2026-08-06"
+  },
+  {
+   "id": "growth:2026-08-06:89",
+   "type": "growth",
+   "label": "成長 2026-08-06",
+   "description": "フックのexit 2でツール実行を機械的にブロックする5つの実装パターン(保存トリガーゲート・予算ゲート・凍結条項等)を agent/knowledge/agent-design.md に追記し、7/10から続く『禁止事項は文書より機構で担保する』系譜に具体的な実装例を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-06",
+   "updated": "2026-08-06"
+  },
+  {
+   "id": "growth:2026-08-06:90",
+   "type": "growth",
+   "label": "成長 2026-08-06",
+   "description": "書き込み権限を使わずクエリのみでメモリ拡張エージェントの監査をすり抜けるMAFIA攻撃を agent/knowledge/security.md に追記し、7/8記録のFARMA(記憶汚染攻撃)の系譜に新しい脅威モデルを加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-06",
+   "updated": "2026-08-06"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4115,6 +4192,44 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-06",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-06",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-06",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-08-06",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5012,6 +5127,36 @@
   {
    "source": "growth:2026-08-05:87",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-06",
+   "target": "growth:2026-08-06:88",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-06:88",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-06",
+   "target": "growth:2026-08-06:89",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-06:89",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-06",
+   "target": "growth:2026-08-06:90",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-06:90",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

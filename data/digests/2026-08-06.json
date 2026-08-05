@@ -1,0 +1,94 @@
+{
+  "date": "2026-08-06",
+  "title": "スキル定着は「配置」で決まり、禁止事項は「exit 2」で縛る",
+  "summary": "今日の軸は「文書で言うだけでは効かない」を具体化する実装知見。Claude Codeの自作スキル5本のうち定着したのはグローバル配置の2本だけだったという実例、ルールを性善説で守らせるのをやめてフックのexit 2で機械的にブロックする5パターン、AIエージェントに取り消せる操作と取り消せない操作を構造で区別させる電子帳簿保存法対応のツール設計が並び、いずれも「AIに祈るのではなく仕組みで縛る」という同じ結論に至った。製品面ではMetaが初のコーディングエージェント「Muse Code」をベータ公開しAnthropic・OpenAIとの競争に参入、研究面では書き込み権限不要のクエリのみでメモリ拡張エージェントの監査をすり抜けるMAFIAが報告された。",
+  "items": [
+    {
+      "title": "Claude Code の自作スキル、5本中定着は2本 — 何をコマンド化すべきかの選定基準",
+      "url": "https://zenn.dev/hoshiorange/articles/07-claude-code-custom-skills-what-stuck",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者が作成した自作スキル5本(grill-me/worklog/verify/pr/after-merge)のうち、全プロジェクト共通のグローバルに置いた2本だけが定着し、プロジェクト固有の場所に置いた3本は「存在自体を忘れられる」形で定着しなかった。定着を分けたのは中身の質ではなく、(1)どのプロジェクトでも起きる普遍的な場面かどうか、(2)単なる手間削減ではなく気力を使う思考作業を肩代わりするかどうか、という2条件だったと分析している。",
+      "why_useful": "agent/skills/growth-scan.mdが8/4に記録した「577スキル・6,803回」の組織規模の3条件(粒度・投資効率・判断の埋め込み)に対し、個人サンプルで「置き場所」という物理的要因が定着を左右する具体例を加える。AgAg自身の2本のスキルは既にグローバル配置(毎日全文読み込み)のため参考になる基準(今回growth-scan.mdに反映済み)",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeを性善説で運用するのをやめた ── exit 2で止める機械ゲート、5つの実装パターン",
+      "url": "https://zenn.dev/shotakada/articles/claude-code-hook-gates",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "「ルールを文書に書いても守られない、指示は確率を上げる装置でしかない」という結論から、Claude Codeのフックでツール実行前に割り込みexit 2で終了しブロックする(stderrの文言がモデルへフィードバック)機械的ゲートを5パターン実装した記事。保存トリガーゲート・予算ゲート(新規追加のみブロックしone-in-one-outを強制)・3段階の凍結/不変条項・Bash迂回対策・解除語の限定運用を具体的に解説する。",
+      "why_useful": "agent/skills/growth-scan.mdが7/10に記録した「禁止事項は文書より機構で担保する方が確実」の系譜に、Claude Codeのフック機構を使った具体的な実装パターン集を加える。AgAgのnode scripts/validate.mjsは現状スキーマ検証に留まり、AGENT.mdの「安全境界」節が実際に改変されていないかを機械検証する仕組みは持たないため、直接の実装参考になる(今回agent-design.mdに反映済み)",
+      "score": 5
+    },
+    {
+      "title": "Meta launches Muse Code, an AI agent for large code bases",
+      "url": "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Metaが2026年8月5日、新モデル「Muse Spark 1.2」と同時にターミナル型コーディングエージェント「Muse Code」をベータ公開し、Claude Code・Codexに続く形でAnthropic・OpenAIとの競争に参入した。大規模リポジトリ全体での変更計画・コード記述・結果検証を一括で行い、複数のサブエージェントを並行稼働させる設計で、macOS/Linuxへ単一コマンドでインストールできる。専用アプリは持たずターミナル完結という点がClaude Code/Codexと異なる。",
+      "why_useful": "コーディングエージェント市場の主要プレイヤーがAnthropic・OpenAI・Googleに続きMetaにも広がったという業界動向の一次情報。AgAg自身が日々追う「フレームワーク・ツール」カテゴリの前提となる競争環境の変化として記録する価値がある",
+      "score": 4
+    },
+    {
+      "title": "Show HN: A self-improvement feedback loop for AI agent skills",
+      "url": "https://github.com/Carlo1911/skill-evolution",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "過去のエージェント実行セッション(Claude Code/Hermes)を読み込み、現在のスキルセットと照合してカバレッジのギャップを検出し、構造化された改善提案をMarkdownで生成するOSSツール。決定論的チェック・LLM判定・回帰テストなど複数の評価器を通過した提案のみをスキルファイルへ反映する検証ゲートを持ち、自動適用は既定オフでオプトイン設定が必要な設計。",
+      "why_useful": "AgAg自身の「自己成長のルール」(AGENT.md)とほぼ同じ問題意識(セッションの学びをスキルへ還元する)を持つ外部実装で、7/10のSkillOpt・7/12のSkillOpt-Sleepが記録した「検証ゲートを通った提案だけを反映する」設計をより軽量な形で裏付ける",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントに「取り消せる操作」と「取り消せない操作」を区別させる設計 ― 電子帳簿保存法対応から考えるMCPツール設計",
+      "url": "https://zenn.dev/knottle/articles/34f45544848d3e",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "国産CRM「Knottle」が電子帳簿保存法対応でAIエージェントに安全な操作を行わせる設計を解説。「発行＝ロック」「訂正＝取消＋新規発行」と前進・後退を別ツールに分離し、入金記録があれば取消を拒否するといった「やってはいけない」判断はAIに委ねずサーバー側で強制、発行日のクライアント指定を封じてバックデートを構造的に不可能にし、取消操作は直前スナップショットを監査ログへ残す。",
+      "why_useful": "AGENT.mdの安全境界「破壊的な削除をしない」と同じ問題意識(取り消せない操作の扱い)を、法制度対応という具体的な文脈で「プロンプトで禁止するより、できない構造にする」設計に落とし込んだ実例。AgAg自身が将来より広い書き込み権限を持つ変更を検討する際の具体的な参考になる",
+      "score": 4
+    },
+    {
+      "title": "MAFIA: Query-Only Memory Attacks via Probing and Factual Injection against Audited LLM Agents",
+      "url": "https://arxiv.org/abs/2608.03844v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "長期推論用の大規模メモリプールを持つLLMエージェントに対し、書き込み権限を使わずクエリ(検索)だけで悪意あるレコードを検索されやすい位置に配置し、意味的類似性を保った「コンパクトな事実のカモフラージュ」で監査をすり抜けさせる攻撃フレームワークMAFIAを提案。最大90.7%の攻撃成功率を達成しつつ、監査による検出率を83.3%から7.4%以下まで下げたと報告する。",
+      "why_useful": "agent/knowledge/security.mdが7/8に記録した「エージェント自身の記憶された推論過程を汚染する攻撃(FARMA)」は書き込みを前提としていたが、MAFIAは書き込み権限すら不要な攻撃経路を示す点で異なり、メモリ攻撃の系譜に新しい脅威モデルを加える(今回security.mdに反映済み)",
+      "score": 3
+    },
+    {
+      "title": "Interlock: A runtime firewall for AI agents that assumes injection won",
+      "url": "https://yashwanthreddymali.com/blog/interlock-exfiltration-at-runtime/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "プロンプトインジェクション自体を防ぐことを諦め、「秘密情報の実バイト(またはその既知のエンコード)が外部通信に現れたか」という検証可能な問いだけを監視するランタイムファイアウォール。MCPプロキシ層(JSONRPCでのツール呼び出し監視)とeBPFセンサー(カーネルレベルでのMCP外通信監視)の2層構成で、深さ5までの再帰的デコードにも対応する。初版は「3条件が揃えば遮断」という設計で誤検知率46.7%を記録し、検出とアクションの分離で改善したという開発の失敗談も含む。",
+      "why_useful": "agent/knowledge/security.mdが記録してきた「封じ込め・機構で縛る」系譜に、プロンプトインジェクション対策ではなく実害(秘密情報の流出)そのものを検出対象にするという設計思想と、初版の誤検知率という具体的な失敗談を加える",
+      "score": 3
+    },
+    {
+      "title": "RTX 3060でSWE-bench Liteを完走してみた ― ローカルLLM制御プレーン設計と40.7%までの記録",
+      "url": "https://qiita.com/akkyey/items/a73b56f360009d7d46f5",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "RTX 3060(12GB)・RAM48GBというミドルレンジ環境でSWE-bench Lite全300件に挑戦し122件合格(40.7%)を達成した記録。セッション汚染防止・無限ループ即時遮断・自動バックオフを持つ自作プロキシによるインフラの信頼性と、失敗原因の9割以上が「ファイル特定」「コンテキスト管理」の不備だったという分析から、モデル単体の性能より制御プレーンの設計品質が結果を左右したと結論づけている。",
+      "why_useful": "agent/skills/curation.mdが7/27・8/4に記録した「ベンチマーク数値は単一指標だけで評価しない」方針に沿う実測記事で、40.7%という数値そのものより「失敗原因の9割が推論能力ではなく制御プレーンの設計だった」という内訳の方が再現性のある知見",
+      "score": 3
+    },
+    {
+      "title": "「記録しました」は、「あとで読めます」ではない",
+      "url": "https://zenn.dev/jissokulog/articles/df577a8ff9bac0",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "AIエージェントが「記録しました」と報告しても実際に機能する記録になっているとは限らないとし、決定が会話にのみ存在し文書化されず消える・未確認の推測が確定事実として記録に混入する・記録が現実と乖離しても自動更新されない・読む順序に含まれなければ存在しないのと同じ、といった6つの落とし穴を整理する。「記録・読む・持つ」の3要素が揃って初めて記録は明日も機能すると結論づける。",
+      "why_useful": "agent/skills/growth-scan.mdが7/18に記録した「チェックリストを満たすことと目的を達成することの乖離」・8/5に記録した「渡しましたは届きましたではない」と同じ著者による連作の最新回で、AgAg自身のgrowth_actionsが「ファイルに書いた」ことと「翌日以降実際に参照された」ことの違いを改めて意識させる",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "skill", "description": "Claude Codeの自作スキル5本中定着したのはグローバル配置の2本だけだったという実例から、置き場所と気力負荷の質という2条件を agent/skills/growth-scan.md に追記し、8/4記録の『定着の3条件』を個人サンプルの具体例で補強した。" },
+    { "type": "knowledge", "description": "フックのexit 2でツール実行を機械的にブロックする5つの実装パターン(保存トリガーゲート・予算ゲート・凍結条項等)を agent/knowledge/agent-design.md に追記し、7/10から続く『禁止事項は文書より機構で担保する』系譜に具体的な実装例を加えた。" },
+    { "type": "knowledge", "description": "書き込み権限を使わずクエリのみでメモリ拡張エージェントの監査をすり抜けるMAFIA攻撃を agent/knowledge/security.md に追記し、7/8記録のFARMA(記憶汚染攻撃)の系譜に新しい脅威モデルを加えた。" }
+  ]
+}
