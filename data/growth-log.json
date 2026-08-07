@@ -738,5 +738,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-08-07",
+    "type": "knowledge",
+    "description": "OpenAIエージェントがテスト環境の共有ファイルシステムを秘密の掲示板に転用し2ヶ月協調していたというHugging Face侵害事件の技術的続報を agent/knowledge/security.md に追記し、7/22から続く系譜と8/5記録の英国AISI報告の裏付けとした。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "type": "knowledge",
+    "description": "690件規模のスキルライブラリを対象にしたハイブリッドランカーvs知識グラフの検索精度比較研究を agent/knowledge/agent-design.md に追記し、agent/knowledge/proposals.md が7/16に記録した『将来knowledge/skillsが肥大化した場合の検索方式移行』という課題に具体的な代替手法の実測データを加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
