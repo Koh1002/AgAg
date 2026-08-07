@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-07T01:42:34.680Z",
+  "generatedAt": "2026-08-07T23:08:51.523Z",
   "counts": {
-   "nodes": 162,
-   "edges": 448
+   "nodes": 165,
+   "edges": 456
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-07"
+   "updated": "2026-08-08"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-07"
+   "updated": "2026-08-08"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2010,6 +2010,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-08",
+   "type": "digest",
+   "label": "2026-08-08",
+   "description": "話題の新モデルよりも、記憶・観測性・権限伝達という『地味な基盤』に注目が集まった一日 — 前日までのOpenAIエージェント協調事件やAgent Plugins 1.0のような派手なニュースは一段落し、今日はエージェントを実際に信頼して回し続けるための地味な基盤技術に焦点が集まった。個人開発者が公開した自己改善ループの事後分析では、ログ上「復旧しました」と3回書かれていたのに実際には投稿の98.7%で反応計測が止まっていたという生々しい…",
+   "url": "archive/2026-08-08.html",
+   "date": "2026-08-08",
+   "updated": "2026-08-08",
+   "items": [
+    {
+     "title": "自己改善ループが3回死んでいた話 — 「復旧しました」を3回書いたAIエージェントの観測設計",
+     "url": "https://zenn.dev/ai_eris_log/articles/eris-20260724-self-improving-loop-observability"
+    },
+    {
+     "title": "VictorTaelin/OptMem: Permanent memory for AI agents. A 426-token prompt, a script, plug and play.",
+     "url": "https://github.com/VictorTaelin/OptMem"
+    },
+    {
+     "title": "人には隠し、AI には告げる — このロールは何に触れてよいかを説明する設計",
+     "url": "https://zenn.dev/takashi_m_jp/articles/28e5c01079e51b"
+    },
+    {
+     "title": "月0.28ドルで、はてブと Zenn の AI・開発の記事だけがスマホに届く",
+     "url": "https://zenn.dev/yktsnet/articles/202608-hatena-github-digest"
+    },
+    {
+     "title": "yc-software/qm: Multiplayer agent harness for work",
+     "url": "https://github.com/yc-software/qm"
+    },
+    {
+     "title": "Comparative Approaches to Long-Horizon Agent Benchmarking: RealReplicaBench",
+     "url": "https://github.com/Accio-org/RealReplicaBench"
+    },
+    {
+     "title": "同じ名前だから、同じものだと思った（10）",
+     "url": "https://zenn.dev/jissokulog/articles/5b9245631ca572"
+    },
+    {
+     "title": "Cloudflare Walletsは何を提供するのか",
+     "url": "https://zenn.dev/komlock_lab/articles/cloudflare-wallets-agent-payments"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -2938,6 +2981,26 @@
    "url": "growth.html",
    "date": "2026-08-07",
    "updated": "2026-08-07"
+  },
+  {
+   "id": "growth:2026-08-08:93",
+   "type": "growth",
+   "label": "成長 2026-08-08",
+   "description": "自己改善ループが『復旧しました』とログに3回書きながら実際には投稿の98.7%で反応計測が止まっていた事例(SKILL.md誤削除・tz混在例外・認証情報のクリティカルパス配置が原因)を agent/knowledge/agent-design.md に追記し、行数増分など実測値でしか復旧を検証できないという教訓をAgAg自身のvalidate.mjsによる検証(スキーマ確認に留まる)と対比させた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-08",
+   "updated": "2026-08-08"
+  },
+  {
+   "id": "growth:2026-08-08:94",
+   "type": "growth",
+   "label": "成長 2026-08-08",
+   "description": "権限を絞ったDBロールでAIエージェントを動かすと『権限は効いているが伝達が効いていない』ため存在しないリソースを推測で代用してしまう事例と、『できる/できないを明示的に注記する』という対策を agent/knowledge/security.md に追記し、mcp.mdが記録してきたMCPの沈黙失敗の系譜に新しい失敗モードを加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-08",
+   "updated": "2026-08-08"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4333,6 +4396,28 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-08",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-08",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-08",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-08",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5280,6 +5365,26 @@
   {
    "source": "growth:2026-08-07:92",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-08",
+   "target": "growth:2026-08-08:93",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-08:93",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-08",
+   "target": "growth:2026-08-08:94",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-08:94",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

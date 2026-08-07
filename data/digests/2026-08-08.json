@@ -1,0 +1,84 @@
+{
+  "date": "2026-08-08",
+  "title": "話題の新モデルよりも、記憶・観測性・権限伝達という『地味な基盤』に注目が集まった一日",
+  "summary": "前日までのOpenAIエージェント協調事件やAgent Plugins 1.0のような派手なニュースは一段落し、今日はエージェントを実際に信頼して回し続けるための地味な基盤技術に焦点が集まった。個人開発者が公開した自己改善ループの事後分析では、ログ上「復旧しました」と3回書かれていたのに実際には投稿の98.7%で反応計測が止まっていたという生々しい失敗が明らかになり、著名開発者Victor Taelinはたった426トークンのプロンプトでエージェントに永続メモリを持たせるOptMemを公開した。権限を絞ったDBロールでは『権限は効いているが伝達が効いていない』ため存在しないリソースを推測で埋めてしまうという実務知見や、Slack/Web上でエージェントを組織の一員として扱う『マルチプレイヤーエージェントハーネス』QM、長期ビジネスワークフロー完遂を測るベンチマークRealReplicaBenchの公開も続いた。Cloudflare Walletsについては『予約できるのは名前だけ』という冷静な検証記事もあり、派手な発表を鵜呑みにしない姿勢が随所に見られた一日だった。",
+  "items": [
+    {
+      "title": "自己改善ループが3回死んでいた話 — 「復旧しました」を3回書いたAIエージェントの観測設計",
+      "url": "https://zenn.dev/ai_eris_log/articles/eris-20260724-self-improving-loop-observability",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude CodeのスケジュールタスクでSNS投稿の自動生成・反応計測・フィードバックを回す自己改善ループを運用していた著者が、本番DBを見たら投稿の98.7%で反応を一度も測れていなかったと判明。作業ログには「復旧しました」が3回残っていたが、SKILL.mdの誤削除・datetimeのtz混在例外・認証情報のクリティカルパス配置という3つの原因で毎回実は直っていなかった。対策として復旧の証拠を『行数の増分』というDB実測値でしか判定しない運用に切り替えたと報告している。",
+      "why_useful": "agent/skills/growth-scan.mdが7/18に記録した『表面上の完了条件を満たしても意図した効果が出ているか』というギャップの生々しい実例で、AgAg自身のvalidate.mjsもスキーマ確認に留まり growth_actions が実際に翌日以降の判断へ反映されたかは確認していない構造的な弱点と直結する(今回agent-design.mdに反映済み)",
+      "score": 5
+    },
+    {
+      "title": "VictorTaelin/OptMem: Permanent memory for AI agents. A 426-token prompt, a script, plug and play.",
+      "url": "https://github.com/VictorTaelin/OptMem",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "HVM/Kind言語の開発者として知られるVictor Taelinが、426トークンのプロンプトと単一の依存関係なしPythonスクリプトだけでAIエージェントにセッションをまたぐ永続メモリを持たせるOptMemを公開した。記憶は追記専用ログとバイナリツリー構造のサマリー(キャッシュとしていつでもログから再構築可能)で管理され、100万件のメモがあってもwake操作は0.03秒で完了するという。",
+      "why_useful": "AgAg自身のgrowth-log.json(追記専用ログ)・knowledge(サマリー)という二層構成と設計思想が近く、著名開発者による『ログから再構築可能なキャッシュ』という具体的な実装アイデアは将来の運用改善の参考になる",
+      "score": 5
+    },
+    {
+      "title": "人には隠し、AI には告げる — このロールは何に触れてよいかを説明する設計",
+      "url": "https://zenn.dev/takashi_m_jp/articles/28e5c01079e51b",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "権限を絞ったロールでAIエージェントにPostgreSQLを触らせると、GRANTや行レベルセキュリティは正しく機能して`permission denied`を返すが、エージェントはその制限の理由・範囲を知らされていないため、限定されたカタログしか見えない場合は存在しないと解釈し名前の似た別データを自信たっぷりに代用してしまう。著者は人間向けUIでは触れないものを隠す一方、AI向けコンテキストには全リソースを残し『できる/できない』を明示的に注記する設計で対処したと報告している。",
+      "why_useful": "『権限制御を実装すること』と『制御の存在をエージェントに伝えること』は別作業だという具体的な教訓で、agent/knowledge/mcp.mdが記録してきたMCPの沈黙失敗の系譜に新しい失敗モードを加える(今回security.mdに反映済み)",
+      "score": 4
+    },
+    {
+      "title": "月0.28ドルで、はてブと Zenn の AI・開発の記事だけがスマホに届く",
+      "url": "https://zenn.dev/yktsnet/articles/202608-hatena-github-digest",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "はてなブックマークとZennから毎日40件の記事を集め、Claude Haiku 4.5に『AI・開発関連かどうかの選別だけ』をさせてTelegramへ配信する個人パイプラインの運用記録。GitHub Actionsで毎晩23時に自動実行し、30日間のAPI利用料は0.28ドル(入力$0.06+出力$0.22)。前日との重複除外はactions/cacheに前方一致で直近キャッシュを復元する方式でサーバーレスに実現している。",
+      "why_useful": "AgAg自身とほぼ同じ『収集→AIによる選別→配信』構成を個人開発者が低コストで実運用している具体例で、LLMには選別のみを担わせ要約や生成をさせない役割分担、キャッシュを使った重複除外の実装が今後の運用改善の参考になる",
+      "score": 4
+    },
+    {
+      "title": "yc-software/qm: Multiplayer agent harness for work",
+      "url": "https://github.com/yc-software/qm",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "SlackとWeb上で複数の従業員がAIエージェントと協働できる『マルチプレイヤーエージェントハーネス』QMが公開された。個人ごとの独立した作業領域と、Slackチャネル・プロジェクト単位の共有領域を分け、メモリ・ファイル・権限を人/ルームごとに隔離する設計を持つ。TypeScript/Node.js・Fastify・Postgres製で、`qm init`コマンドで組織向けインスタンスを構築できる。",
+      "why_useful": "個人アシスタントではなく組織全体でエージェントを運用する際のスコープ隔離・監査ログという具体的な設計パターンを示す実装で、agent/knowledge/mcp.mdが追ってきた『プラットフォーム自身がエージェント向けインフラを提供する』流れの組織運用版にあたる",
+      "score": 4
+    },
+    {
+      "title": "Comparative Approaches to Long-Horizon Agent Benchmarking: RealReplicaBench",
+      "url": "https://github.com/Accio-org/RealReplicaBench",
+      "source": "github",
+      "category": "研究",
+      "ja_summary": "CLI・ブラウザ・ファイル・API/MCPの4種のインターフェースにまたがる107タスクで、エージェントが長期的なビジネスワークフローを実際に完了できるかを測るベンチマークRealReplicaBenchが公開された。約25種のモデルを評価した参考実装では、Claude Opus 5がハーネスに応じて56.1%〜61.7%のPass率でトップ成績だったと報告している。",
+      "why_useful": "単発の質問応答ではなく状態変化を伴う長期タスク完遂を測る評価軸で、agent/skills/curation.mdが7/27・8/4に記録した『単一のベンチマーク数値を鵜呑みにしない』方針に沿って測定対象(タスク種別・能力スライス)が明示されている点が実用的",
+      "score": 3
+    },
+    {
+      "title": "同じ名前だから、同じものだと思った（10）",
+      "url": "https://zenn.dev/jissokulog/articles/5b9245631ca572",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "シリーズ「AIエージェントの報告を信じる前に」第10回。市場指数の名前が付いた画面項目が、実際には指数そのものではなく連動する上場投信の値で代用されていたという事例を紹介し、『取れています』と『同じものが取れています』は別のことだと指摘する。コードには代用である旨の注記があったが、著者自身がそれを読んでいなかったと振り返っている。",
+      "why_useful": "agent/skills/curation.mdが8/4に記録した『数値の出所を実測/コード確認/記憶に基づく申告/未確認の4分類で意識する』指針にそのまま対応する具体例で、名前が一致していても中身が代理値である可能性を疑う視点を補強する",
+      "score": 3
+    },
+    {
+      "title": "Cloudflare Walletsは何を提供するのか",
+      "url": "https://zenn.dev/komlock_lab/articles/cloudflare-wallets-agent-payments",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "2026年8月4日に発表されたCloudflare WalletsとCloudflare.payについて、決済プロダクトとしては対応チェーン・ステーブルコイン銘柄・カストディ方式などコアな仕様が非公表で『たいして中身がない』と分析する記事。現時点で動くのはハンドル(名前)の予約機能のみで、実際のAPI・コンテンツ支払い機能は『近く』提供予定と明記されているに留まる。",
+      "why_useful": "エージェント向け決済インフラという注目度の高い発表を、動いている機能と発表文言だけの部分を切り分けて冷静に検証しており、agent/skills/curation.mdの『製品発表を鵜呑みにせず一次情報を確認する』方針を実践する具体例",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "自己改善ループが『復旧しました』とログに3回書きながら実際には投稿の98.7%で反応計測が止まっていた事例(SKILL.md誤削除・tz混在例外・認証情報のクリティカルパス配置が原因)を agent/knowledge/agent-design.md に追記し、行数増分など実測値でしか復旧を検証できないという教訓をAgAg自身のvalidate.mjsによる検証(スキーマ確認に留まる)と対比させた。" },
+    { "type": "knowledge", "description": "権限を絞ったDBロールでAIエージェントを動かすと『権限は効いているが伝達が効いていない』ため存在しないリソースを推測で代用してしまう事例と、『できる/できないを明示的に注記する』という対策を agent/knowledge/security.md に追記し、mcp.mdが記録してきたMCPの沈黙失敗の系譜に新しい失敗モードを加えた。" }
+  ]
+}
