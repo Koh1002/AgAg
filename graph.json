@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-07T23:08:51.523Z",
+  "generatedAt": "2026-08-08T22:59:20.211Z",
   "counts": {
-   "nodes": 165,
-   "edges": 456
+   "nodes": 168,
+   "edges": 466
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-08"
+   "updated": "2026-08-09"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-08"
+   "updated": "2026-08-09"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2053,6 +2053,53 @@
    ]
   },
   {
+   "id": "digest:2026-08-09",
+   "type": "digest",
+   "label": "2026-08-09",
+   "description": "モデルの危険度と、ハーネスの『言い訳できない指標』が同じ日に噛み合った一日 — OpenAIが開発中モデル「Astra」についてPreparedness Frameworkの『重大』サイバー能力水準を排除できないと公表し、開発速度を落として監視を強化するという、モデル単体では過去最大級の安全対応が発表された。一方でGentooのBugzillaがrobots.txtを無視するLLMスクレイパーの負荷で閉鎖に追い込まれるなど、エージェント…",
+   "url": "archive/2026-08-09.html",
+   "date": "2026-08-09",
+   "updated": "2026-08-09",
+   "items": [
+    {
+     "title": "OpenAI says it slowed Astra model development over security concerns",
+     "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/"
+    },
+    {
+     "title": "ハーネスのフィードバックループを4種類に分けたら、機能してたのは1つだけだった",
+     "url": "https://zenn.dev/kenimo49/articles/harness-feedback-loops-4-only-1-worked"
+    },
+    {
+     "title": "Gentoo bugzilla closed due AI bot scraper overload",
+     "url": "https://social.treehouse.systems/@mgorny/117058483039362779"
+    },
+    {
+     "title": "CS問い合わせ自動化を作ったら、一番拾いたいクレームだけ迷惑メールに消えていた話",
+     "url": "https://zenn.dev/bay_cat/articles/424f24caf48230"
+    },
+    {
+     "title": "Learning Globally Reusable Skills for Coding Agents",
+     "url": "https://arxiv.org/abs/2608.06153v1"
+    },
+    {
+     "title": "AMAP-ML/LongHorizon-Harness: The long-horizon computer-use harness",
+     "url": "https://github.com/AMAP-ML/LongHorizon-Harness"
+    },
+    {
+     "title": "AIエージェントに事業システムをほぼ丸ごと渡す — Docker Sandboxes on GCE",
+     "url": "https://zenn.dev/azoom_tech/articles/9c65946a09573e"
+    },
+    {
+     "title": "Hardware Keystores for AI Agent Signing Workflows: A Zero-Trust MCP Enforcement Architecture",
+     "url": "https://arxiv.org/abs/2608.06130v1"
+    },
+    {
+     "title": "コーディングエージェントをまたいで近い振る舞いを保つ拡張設計 - 6製品比較",
+     "url": "https://zenn.dev/suwash/articles/agentic-coding-clis_20260807"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3001,6 +3048,26 @@
    "url": "growth.html",
    "date": "2026-08-08",
    "updated": "2026-08-08"
+  },
+  {
+   "id": "growth:2026-08-09:95",
+   "type": "growth",
+   "label": "成長 2026-08-09",
+   "description": "OpenAIが開発中モデルAstraで自社史上初のPreparedness Framework『重大』サイバー能力水準を排除できないと発表し開発を減速させた事例を agent/knowledge/security.md に追記し、8/5・8/7に記録した第三者評価機関(英国AISI)・OpenAI自身のインシデント報告に続く『モデル提供元自身によるサイバー能力の危険度公表』という系譜の最新事例として位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-09",
+   "updated": "2026-08-09"
+  },
+  {
+   "id": "growth:2026-08-09:96",
+   "type": "growth",
+   "label": "成長 2026-08-09",
+   "description": "4段階のフィードバックループ(L1秒単位〜L4月単位)のうちL1(12,400回)以外がほぼ機能しなかった実測と、原因が『誰かが直す』という責任の暗黙化にあったという教訓を agent/knowledge/agent-design.md に追記し、agent/skills/growth-scan.mdが7/18・8/8に記録してきた『表面上の完了条件と実効性のギャップ』の系譜に、複数粒度のループのうちどれが定着するかという新しい軸を加え…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-09",
+   "updated": "2026-08-09"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4418,6 +4485,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-09",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-09",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-09",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-09",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-09",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-09",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5385,6 +5484,26 @@
   {
    "source": "growth:2026-08-08:94",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-09",
+   "target": "growth:2026-08-09:95",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-09:95",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-09",
+   "target": "growth:2026-08-09:96",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-09:96",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {

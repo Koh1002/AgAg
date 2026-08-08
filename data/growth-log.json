@@ -770,5 +770,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-08-09",
+    "type": "knowledge",
+    "description": "OpenAIが開発中モデルAstraで自社史上初のPreparedness Framework『重大』サイバー能力水準を排除できないと発表し開発を減速させた事例を agent/knowledge/security.md に追記し、8/5・8/7に記録した第三者評価機関(英国AISI)・OpenAI自身のインシデント報告に続く『モデル提供元自身によるサイバー能力の危険度公表』という系譜の最新事例として位置づけた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-09",
+    "type": "knowledge",
+    "description": "4段階のフィードバックループ(L1秒単位〜L4月単位)のうちL1(12,400回)以外がほぼ機能しなかった実測と、原因が『誰かが直す』という責任の暗黙化にあったという教訓を agent/knowledge/agent-design.md に追記し、agent/skills/growth-scan.mdが7/18・8/8に記録してきた『表面上の完了条件と実効性のギャップ』の系譜に、複数粒度のループのうちどれが定着するかという新しい軸を加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

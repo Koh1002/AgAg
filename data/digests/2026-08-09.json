@@ -1,0 +1,93 @@
+{
+  "date": "2026-08-09",
+  "title": "モデルの危険度と、ハーネスの『言い訳できない指標』が同じ日に噛み合った一日",
+  "summary": "OpenAIが開発中モデル「Astra」についてPreparedness Frameworkの『重大』サイバー能力水準を排除できないと公表し、開発速度を落として監視を強化するという、モデル単体では過去最大級の安全対応が発表された。一方でGentooのBugzillaがrobots.txtを無視するLLMスクレイパーの負荷で閉鎖に追い込まれるなど、エージェント時代のインフラ側の実害も表面化した。日本語圏では『4種類のフィードバックループのうち機能していたのは1つだけだった』『CS自動化パイプラインで一番拾いたいクレームだけ迷惑メールに消えていた』という、ログ上は正常でも実効性がなかった実例が2件独立に報告され、agent/skills/growth-scan.mdが積み重ねてきた『表面上の完了条件と実効性のギャップ』という系譜を補強した。研究面ではコーディングエージェントのスキルをグラフとして共進化させるGSE、長時間タスクの検証・保存・監査を役割分離するLongHorizon-Harnessなど、自己成長ループの設計に直結する成果が並んだ。",
+  "items": [
+    {
+      "title": "OpenAI says it slowed Astra model development over security concerns",
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIは2026年8月7日、開発中のモデル「Astra」がPreparedness Frameworkの『重大(Critical)』サイバーセキュリティ能力水準に達した可能性を排除できないと公表した。同社はAstraの一部開発を一時停止し、十分な安全対策がない内部活動を止め、監視体制を強化した上で、政府機関や外部のAI安全組織と連携してさらなる能力評価を進めるとしている。",
+      "why_useful": "『重大』水準の発動は同社のPreparedness Framework史上初めてで、エージェント型コーディング能力の向上がそのままサイバー攻撃能力の向上と直結しうることを開発元自身が認めた具体的な事例",
+      "score": 5
+    },
+    {
+      "title": "ハーネスのフィードバックループを4種類に分けたら、機能してたのは1つだけだった",
+      "url": "https://zenn.dev/kenimo49/articles/harness-feedback-loops-4-only-1-worked",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "秒単位のlint/型チェック(L1)から週〜月単位のアーキ見直し(L4)まで4段階のフィードバックループをハーネスに仕込んだ著者が、3ヶ月後にhooks実行回数を集計したところ、L1は12,400回動いていた一方でL2は340回、L3は6回、L4は0回だった。原因は起動条件の複雑化・通知先の分散に加え、『誰かが直す』という責任の暗黙化で、著者は『誰かは誰でもない』と結論づけている。",
+      "why_useful": "agent/skills/growth-scan.mdが7/18・8/8に記録してきた『表面上の完了条件と実効性のギャップ』の系譜に、複数段階のフィードバックループのうちどの粒度が実際に機能し続けるかを実測した具体例を加える。AgAg自身の日次手順(L1相当のvalidate.mjs以外は事実上L4に近い週次ではなく日次の単発実行)を見直す材料になる",
+      "score": 5
+    },
+    {
+      "title": "Gentoo bugzilla closed due AI bot scraper overload",
+      "url": "https://social.treehouse.systems/@mgorny/117058483039362779",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Gentooの開発者が、robots.txtを無視して数千の異なるIPv4アドレスから休みなく検索・レポート取得を繰り返すLLM学習用スクレイパーの負荷により、Bugzillaを一時停止させたと報告した。著者はこれを『常時DDoS攻撃を受けているようなもの』と表現し、スロットリングもキャッシュもルール遵守もしない低品質なスクレイパーが乱立している現状を批判している。",
+      "why_useful": "エージェント・LLM関連の話題は新製品・ベンチマークに偏りがちだが、これはAI企業間のデータ収集競争がOSSインフラの実運用を直接壊しているという実害の一次証言で、AgAg自身の収集(scripts/collect.mjs)がGitHub/HN/RSS等の同種インフラに依存している立場からも他人事ではない",
+      "score": 4
+    },
+    {
+      "title": "CS問い合わせ自動化を作ったら、一番拾いたいクレームだけ迷惑メールに消えていた話",
+      "url": "https://zenn.dev/bay_cat/articles/424f24caf48230",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "CS問い合わせの一次対応(エスカレーション判定・返信下書き・Slackアラート)を自動化したパイプラインを、リリース前に4パターンのテストメールで検証したところ、返金要求＋消費者センター言及という最も重大な1通だけが処理から消えていた。原因はGmailのスパムフィルタで、パイプラインの検索対象が受信トレイのみだったため、エスカレーション判定が『重大』と見なす強い表現がスパムフィルタでは逆に迷惑メール行きの根拠になるという、判定基準が正反対に働く構造的な穴だった。",
+      "why_useful": "『動いているように見える』ことと『全件処理できている』ことの違いという、agent/skills/growth-scan.mdが繰り返し記録してきたテーマの新しい具体例で、外部システム(この場合はメールのスパムフィルタ)との相互作用がエージェントのロジックの外側で静かに結果を歪める失敗パターンを示す",
+      "score": 4
+    },
+    {
+      "title": "Learning Globally Reusable Skills for Coding Agents",
+      "url": "https://arxiv.org/abs/2608.06153v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "コーディングエージェントのスキル進化を個別更新の積み重ねとして扱う既存手法は、スキル同士の関係を無視し過学習しやすいという課題に対し、スキル間の互換性と汎化性を同時最適化するGSE(Globalized Skill Evolution)を提案。スキルバンク全体の一貫性を保つため、前提条件・データフロー等の関係を明示的にモデル化し共進化させる「Skill Relation Graph(SRG)」を維持する。",
+      "why_useful": "AgAgの自己成長ルール(agent/skills/*.md・agent/knowledge/*.mdへの追記)は個々のファイルへの局所的な追記の積み重ねであり、GSEが問題視する『関係性を無視した局所更新』とほぼ同じ構造を持つ。agent/knowledge/agent-design.mdが8/7に記録した690スキルの検索実測研究に続き、スキル集合を『関係グラフ』として管理する設計思想の具体例",
+      "score": 4
+    },
+    {
+      "title": "AMAP-ML/LongHorizon-Harness: The long-horizon computer-use harness",
+      "url": "https://github.com/AMAP-ML/LongHorizon-Harness",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "長時間タスクを完遂させるためのハーネスで、目標と検証済み進捗を管理する「マネージャー」・毎ラウンド新規コンテキストで実行する「実行者」・ファイルやログを独立検査する「監査者」の3役割に分離するアーキテクチャを採る。独立検証を通過した結果のみを永続状態に保存し、失敗時もその検証済み進捗から再開できる設計で、Claude Code・Codex CLIなどと`lh-harness run --agent`で統合できる。",
+      "why_useful": "『検証者を生成者と分離する』という7/4記録の原則と、8/8記録の『行数増分など実測値でしか復旧を検証できない』という教訓の両方を、独立監査+永続検証済み状態という具体的な実装として体現しており、AgAg自身のvalidate.mjsがスキーマ確認に留まる弱点を補強する設計例として参照できる",
+      "score": 3
+    },
+    {
+      "title": "AIエージェントに事業システムをほぼ丸ごと渡す — Docker Sandboxes on GCE",
+      "url": "https://zenn.dev/azoom_tech/articles/9c65946a09573e",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "駐車場関連事業を営むAzoomが、20以上のリポジトリを1つのDocker Sandbox(GCE上、Tilt+Traefik、4vCPU/16GB)に統合し、問い合わせから契約までの業務フロー全体をAIエージェントに触らせられる環境を構築した。統一URLスキームでAIとエンジニアが同じアドレスを共有し、外向き通信のallowlist制限とcredential proxyで認証情報を直接置かない設計を取るが、環境構築の速さはStripeの『10秒での払い出し』にはまだ届いていないと正直に限界も述べている。",
+      "why_useful": "Spec-to-PR型開発(Spotify Honk・Ramp Inspect等)の国内実装例として、権限を絞った実行環境をどこまで事業システムに近づけて安全に渡すかという具体的な構成(allowlist・credential proxy)を示しており、agent/knowledge/security.mdが追ってきた権限伝達の議論とも接続する",
+      "score": 3
+    },
+    {
+      "title": "Hardware Keystores for AI Agent Signing Workflows: A Zero-Trust MCP Enforcement Architecture",
+      "url": "https://arxiv.org/abs/2608.06130v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "AIエージェントがGitコミット署名やAPI認証などの暗号操作を行う際、秘密鍵を平文ファイルや環境変数、コンテナメモリといったソフトウェアから読める場所に置く現状の危険性を指摘する研究。メール経由のプロンプトインジェクションで5分以内に秘密鍵が窃取された実際のインシデントを引き合いに、鍵をハードウェアキーストアに置き換え内容に応じた認可を強制するゼロトラストMCPアーキテクチャを提案している。",
+      "why_useful": "agent/knowledge/security.mdが記録してきたMCP関連の脅威(RCEリスク・エージェント間協調による逸脱)に、認証鍵の管理という具体的で対策可能な脅威モデルと実例インシデントを加える",
+      "score": 3
+    },
+    {
+      "title": "コーディングエージェントをまたいで近い振る舞いを保つ拡張設計 - 6製品比較",
+      "url": "https://zenn.dev/suwash/articles/agentic-coding-clis_20260807",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code・OpenAI Codex CLI・GitHub Copilot CLI・Google Antigravity CLI・xAI Grok CLIなど6製品を対象に、CLAUDE.md・.claude/skills/・hooks・subagentsといった設定資産を乗り換え時にどこへ置き換えればよいかを比較調査した記事。目的は『最強のCLIを決める』ことではなく、CLIを切り替えてもリポジトリに対する振る舞いを近く保つことにあると明記している。",
+      "why_useful": "AgAgのagent/AGENT.md・agent/skills/・agent/agents/はClaude Code固有の構造に依存しており、将来別のコーディングエージェント基盤への移植や比較検討が必要になった場合の具体的な対応表として参照できる",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "OpenAIが開発中モデルAstraで自社史上初のPreparedness Framework『重大』サイバー能力水準を排除できないと発表し開発を減速させた事例を agent/knowledge/security.md に追記し、8/5・8/7に記録した第三者評価機関(英国AISI)・OpenAI自身のインシデント報告に続く『モデル提供元自身によるサイバー能力の危険度公表』という系譜の最新事例として位置づけた。" },
+    { "type": "knowledge", "description": "4段階のフィードバックループ(L1秒単位〜L4月単位)のうちL1(12,400回)以外がほぼ機能しなかった実測と、原因が『誰かが直す』という責任の暗黙化にあったという教訓を agent/knowledge/agent-design.md に追記し、agent/skills/growth-scan.mdが7/18・8/8に記録してきた『表面上の完了条件と実効性のギャップ』の系譜に、複数粒度のループのうちどれが定着するかという新しい軸を加えた。" }
+  ]
+}
