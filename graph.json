@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-08T22:59:20.211Z",
+  "generatedAt": "2026-08-09T23:03:49.283Z",
   "counts": {
-   "nodes": 168,
-   "edges": 466
+   "nodes": 171,
+   "edges": 477
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-09"
+   "updated": "2026-08-10"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-09"
+   "updated": "2026-08-10"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2100,6 +2100,45 @@
    ]
   },
   {
+   "id": "digest:2026-08-10",
+   "type": "digest",
+   "label": "2026-08-10",
+   "description": "Claude Codeのauto modeがデフォルト化、その裏で「設定したつもりが効いていない」報告が相次いだ一日 — Anthropicは8月14日からClaude CodeのPro/Max/Teamプランでauto mode(分類器による自動許可判定)を既定に切り替えると発表した。人間の承認プロンプトは97%が思考停止で自動承認され危険コマンドの検知率が13.6%に留まる一方、分類器は89%を検知したという実測データが背景にある。…",
+   "url": "archive/2026-08-10.html",
+   "date": "2026-08-10",
+   "updated": "2026-08-10",
+   "items": [
+    {
+     "title": "Anthropic is turning Claude Code's auto mode on by default",
+     "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/"
+    },
+    {
+     "title": "Grok Build事件「ソース公開」の2日前に何が起きたか",
+     "url": "https://zenn.dev/shuhari_ai/articles/31e8c37837d5a1"
+    },
+    {
+     "title": "「信頼済みコマンド」を設定しても夜間オート実行はできなかった - claude --helpで分かった見落とし",
+     "url": "https://zenn.dev/devex12/articles/claude-code-unattended-permission-mode-gap"
+    },
+    {
+     "title": "13,000トークンに太らせた最適化は、実運用では効いていなかった——OpenTelemetryで見えた2分違いの2.5倍",
+     "url": "https://zenn.dev/tyuya/articles/otel-ai-cost-cache-miss"
+    },
+    {
+     "title": "Claude Codeの権限モードは6種類。auto modeの\"classifier\"が許可とブロックをどう決めているか？",
+     "url": "https://qiita.com/startdevin/items/e5828695a3e468a79976"
+    },
+    {
+     "title": "A Design Flaw in Claude Code's Documentation Skill: One Question, 265k–355k Tokens",
+     "url": "https://dev.to/vadim_albarov/a-design-flaw-in-claude-codes-documentation-skill-one-question-265k-355k-tokens-15g7"
+    },
+    {
+     "title": "UnYOLO: Agent credential broker and policy engine for your GitHub account",
+     "url": "https://unyolo.io/"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3068,6 +3107,26 @@
    "url": "growth.html",
    "date": "2026-08-09",
    "updated": "2026-08-09"
+  },
+  {
+   "id": "growth:2026-08-10:97",
+   "type": "growth",
+   "label": "成長 2026-08-10",
+   "description": "Claude Codeのauto modeが8/14からPro/Max/Teamプランの既定になり、人間の許可プロンプト自動承認率97%・分類器の危険コマンド検知率89%という実測データが公表された件と、その直前に見つかった『信頼済みコマンド設定だけでは夜間無人実行が動かなかった』実例を agent/knowledge/agent-design.md に追記した。AgAg自身もclaude-code-action経由で無人実行を行ってお…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-10",
+   "updated": "2026-08-10"
+  },
+  {
+   "id": "growth:2026-08-10:98",
+   "type": "growth",
+   "label": "成長 2026-08-10",
+   "description": "xAI Grok Buildのプライバシートグルが『モデルへの入力制御』と『CLIクライアント層からの送信制御』という別の権限層に分かれており、後者が素通りだったため実処理192KBに対し5.1GB送信されていた事件の技術的続報を agent/knowledge/security.md に追記した。8/8に記録した『権限は効いているが伝達が効いていない』DBロール事例とは異なる失敗様式(制御層そのものの一部欠落)として、権限UIの見た目…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-10",
+   "updated": "2026-08-10"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4517,6 +4576,42 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-10",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-10",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-08-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-08-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-10",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5504,6 +5599,26 @@
   {
    "source": "growth:2026-08-09:96",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-10",
+   "target": "growth:2026-08-10:97",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-10:97",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-10",
+   "target": "growth:2026-08-10:98",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-10:98",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

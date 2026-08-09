@@ -786,5 +786,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-10",
+    "type": "knowledge",
+    "description": "Claude Codeのauto modeが8/14からPro/Max/Teamプランの既定になり、人間の許可プロンプト自動承認率97%・分類器の危険コマンド検知率89%という実測データが公表された件と、その直前に見つかった『信頼済みコマンド設定だけでは夜間無人実行が動かなかった』実例を agent/knowledge/agent-design.md に追記した。AgAg自身もclaude-code-action経由で無人実行を行っており、『エージェント側の許可設定』と『実行基盤側の権限(ワークフローの書き込み権限)』は別レイヤーであり両方の確認が要るという教訓として、7/14記録のclaude-code-action権限チェック欠陥・8/6記録のフックによる機構的強制の系譜に接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-10",
+    "type": "knowledge",
+    "description": "xAI Grok Buildのプライバシートグルが『モデルへの入力制御』と『CLIクライアント層からの送信制御』という別の権限層に分かれており、後者が素通りだったため実処理192KBに対し5.1GB送信されていた事件の技術的続報を agent/knowledge/security.md に追記した。8/8に記録した『権限は効いているが伝達が効いていない』DBロール事例とは異なる失敗様式(制御層そのものの一部欠落)として、権限UIの見た目と実際の制御範囲の一致を確認する視点をセキュリティ系knowledgeの系譜に加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

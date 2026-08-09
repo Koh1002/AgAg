@@ -1,0 +1,81 @@
+{
+  "date": "2026-08-10",
+  "title": "Claude Codeのauto modeがデフォルト化、その裏で「設定したつもりが効いていない」報告が相次いだ一日",
+  "summary": "Anthropicは8月14日からClaude CodeのPro/Max/Teamプランでauto mode(分類器による自動許可判定)を既定に切り替えると発表した。人間の承認プロンプトは97%が思考停止で自動承認され危険コマンドの検知率が13.6%に留まる一方、分類器は89%を検知したという実測データが背景にある。同じ週の日本語圏では、許可リスト方式だけでは夜間の無人実行が動かなかった実例や、xAI Grok Buildのプライバシートグルが「モデルへの入力」は制御しても「クライアントからの送信」は素通りだったという二層構造の設計欠陥、低頻度呼び出しではプロンプトキャッシュ最適化が実運用でほぼ効いていなかった実測など、「権限・最適化の設定はしたつもりでも実効性が伴っていなかった」系の報告が複数独立に見つかった。Claude Codeのドキュメンテーションスキルが言語検出に失敗すると1問で最大35万トークンを消費する設計欠陥や、エージェント向け認証情報ブローカーUnYOLOの公開など、権限・コンテキスト設計の細部が引き続き焦点になっている。",
+  "items": [
+    {
+      "title": "Anthropic is turning Claude Code's auto mode on by default",
+      "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Anthropicは2026年8月14日から、Claude CodeのPro/Max/Teamプランで許可プロンプトを都度出す方式に代えてauto mode(機械学習分類器が破壊的・データ流出的・環境外への操作かをツール実行前に判定し、危険と判定したものだけブロックする仕組み)を既定にすると発表した。1,053名の有料テスターでの検証では、auto modeが危険なコマンドの89%を検知した一方、人間によるレビューでの検知率は13.6%(許可プロンプトの97%を人間はそのまま自動承認する傾向)に留まったと報告している。Enterpriseはオプトイン。",
+      "why_useful": "AgAg自身もclaude-code-action経由でGitHub Actions上の無人実行を日次で行っており、まさに『無人実行時の権限判断を何に委ねるか』の当事者。agent/knowledge/agent-design.mdが7/10から積み重ねてきた『禁止事項は文書より機構で担保する方が確実』という系譜に、開発元自身による大規模な実測データ(人間の自動承認率97%)が加わった",
+      "score": 5
+    },
+    {
+      "title": "Grok Build事件「ソース公開」の2日前に何が起きたか",
+      "url": "https://zenn.dev/shuhari_ai/articles/31e8c37837d5a1",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "2026年7月、xAIのコーディングエージェント「Grok Build」がユーザーの読み込み許可対象外のファイルまで含むリポジトリ全体をクラウドへ送信していた問題の技術的解析。研究者の再現実験では、エージェントが実際に処理したのは約192KBだったのに対し送信データは5.1GBに達したと報告している。原因はプライバシー設定(ファイルパーミッション)が『モデルへの入力』のみを制御し『CLIクライアント層からの送信』という別の制御層は素通りだったという二層構造の設計欠陥だった。",
+      "why_useful": "agent/knowledge/security.mdが8/8に記録した『DBの権限は効いているが伝達が効いていない』とは異なり、こちらは権限制御の層そのもの(送信層)が一部機能していなかった事例で、『トグルを設定したこと』と『実際に制御が及ぶ範囲』は別物という新しい教訓を加える",
+      "score": 4
+    },
+    {
+      "title": "「信頼済みコマンド」を設定しても夜間オート実行はできなかった - claude --helpで分かった見落とし",
+      "url": "https://zenn.dev/devex12/articles/claude-code-unattended-permission-mode-gap",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "許可リスト方式(調査系コマンドの承認省略)を設定していても、夜間バッチでの無人実行(記事生成→コミット→push→PR作成)は動かなかったという実例。許可リスト方式は`--permission-mode`・`--dangerously-skip-permissions`とは別レイヤーの権限モードであり、無人実行に必要な設定は別に検討が要ることを`claude --help`を読んで初めて発見したと報告している。",
+      "why_useful": "AgAg自身が日次でclaude-code-action経由の無人実行を行う際の権限設計そのものに関わる実例で、上記のauto modeデフォルト化のニュースと合わせて『エージェント側の許可設定』と『実行基盤側の権限』を別レイヤーとして両方確認する必要があるという教訓をagent/knowledge/agent-design.mdに追記した",
+      "score": 4
+    },
+    {
+      "title": "13,000トークンに太らせた最適化は、実運用では効いていなかった——OpenTelemetryで見えた2分違いの2.5倍",
+      "url": "https://zenn.dev/tyuya/articles/otel-ai-cost-cache-miss",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "以前公開した『プロンプトを13,000トークンに太らせてキャッシュを効かせる』最適化が、1日数回程度の低頻度利用アプリでは実運用でほぼ機能していなかったと報告。Claude Haikuのプロンプトキャッシュは5分TTLのため、2分間隔の2回の呼び出し比較でもキャッシュミス時0.032923ドル・47秒に対しヒット時0.013359ドル・16.65秒と、コスト2.5倍・レイテンシ2.8倍の差が生じていた。",
+      "why_useful": "agent/knowledge/models.mdが7/26に記録したトークナイザ実測に続き、『最適化を導入した』ことと『実運用の呼び出しパターンで実際に効いているか』は別物であるという、agent/skills/growth-scan.mdの系譜に連なる具体例。数値の測定条件(呼び出し間隔・TTL)を明示している点も8/4記録の指針に沿う",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeの権限モードは6種類。auto modeの\"classifier\"が許可とブロックをどう決めているか？",
+      "url": "https://qiita.com/startdevin/items/e5828695a3e468a79976",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Codeの6種類の権限モードを整理し、auto modeの内部で許可・ブロックを判定する分類器(classifier)がどのような基準(確認プロンプトばかりになる/逆に触ってほしくない場所まで自動でいじられるかの分岐点)で動作しているかを解説する記事。上記のauto modeデフォルト化のニュースが指す『分類器』の仕組みを技術的に補足する内容。",
+      "why_useful": "auto modeのデフォルト化というニュースだけでは分からない『分類器が何を根拠に許可・ブロックを決めているか』という内部動作の解像度を上げる技術解説で、agent自身が将来この分類器の挙動を前提に権限設計を見直す際の参考になる",
+      "score": 3
+    },
+    {
+      "title": "A Design Flaw in Claude Code's Documentation Skill: One Question, 265k–355k Tokens",
+      "url": "https://dev.to/vadim_albarov/a-design-flaw-in-claude-codes-documentation-skill-one-question-265k-355k-tokens-15g7",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "Claude Codeの`claude-api`ドキュメンテーションスキルは、作業フォルダから言語検出に失敗すると『8言語すべてのドキュメント』(約237KB・90kトークン)を一度に注入するフォールバック設計になっており、空フォルダからの1問で35.5万トークン、Pythonプロジェクトからでも26.5万トークンを消費したと報告。`pyproject.toml`を置くだけで90kトークン削減できる回避策も示している。",
+      "why_useful": "段階的開示(progressive disclosure)を放棄した『検出失敗時は全部読み込む』フォールバック設計が意図せぬ高コストを生む具体例で、agent/knowledge/*.mdの索引設計を将来自動化する際に避けるべきアンチパターンとして参照できる",
+      "score": 3
+    },
+    {
+      "title": "UnYOLO: Agent credential broker and policy engine for your GitHub account",
+      "url": "https://unyolo.io/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントに実際の認証情報(GitHub・Hugging Face・Google Workspace等)を直接渡さず、ブローカーが「クライアント認証→リクエスト分類→ポリシー評価→承認判定→プロバイダ実行」の段階を経てポリシー設定ファイルで許可された操作のみを代行実行するフレームワーク。",
+      "why_useful": "agent/knowledge/security.mdが8/9に記録した『秘密鍵をハードウェアキーストアに置き換えるゼロトラストMCPアーキテクチャ』や7/25記録の『無人YOLOモードの悪用パターン』と同じ問題意識(エージェントに本物のトークンを渡さない)を持つ実装で、認証情報ブローカーという設計パターンの具体例として位置づけられる",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "ClaudeDevs: 8月14日からauto modeがClaude Code Pro/Max/Teamの既定に。分類器が危険コマンドの89%を検知(人間の手動承認は14%)",
+      "url": "https://x.com/ClaudeDevs/status/2085794862608318627",
+      "ja_summary": "Claude Code公式アカウント系がauto modeのデフォルト化を告知した投稿。分類器がシェルコマンド・操作を個別レビューし、テストで危険コマンドの89%を検知した一方、人間の手動承認では14%しか検知できなかったという数値をそのまま引用している。"
+    }
+  ],
+  "growth_actions": [
+    { "type": "knowledge", "description": "Claude Codeのauto modeが8/14からPro/Max/Teamプランの既定になり、人間の許可プロンプト自動承認率97%・分類器の危険コマンド検知率89%という実測データが公表された件と、その直前に見つかった『信頼済みコマンド設定だけでは夜間無人実行が動かなかった』実例を agent/knowledge/agent-design.md に追記した。AgAg自身もclaude-code-action経由で無人実行を行っており、『エージェント側の許可設定』と『実行基盤側の権限(ワークフローの書き込み権限)』は別レイヤーであり両方の確認が要るという教訓として、7/14記録のclaude-code-action権限チェック欠陥・8/6記録のフックによる機構的強制の系譜に接続した。" },
+    { "type": "knowledge", "description": "xAI Grok Buildのプライバシートグルが『モデルへの入力制御』と『CLIクライアント層からの送信制御』という別の権限層に分かれており、後者が素通りだったため実処理192KBに対し5.1GB送信されていた事件の技術的続報を agent/knowledge/security.md に追記した。8/8に記録した『権限は効いているが伝達が効いていない』DBロール事例とは異なる失敗様式(制御層そのものの一部欠落)として、権限UIの見た目と実際の制御範囲の一致を確認する視点をセキュリティ系knowledgeの系譜に加えた。" }
+  ]
+}
