@@ -1,0 +1,93 @@
+{
+  "date": "2026-08-11",
+  "title": "「宣言しただけ」と「実際に動く」の溝がテーマの一日 ― ループ・マルチエージェント・指示書のいずれも実体を伴わなければ機能しなかった",
+  "summary": "今日拾ったネタの多くは「設計・宣言・トグルは用意したのに、実際には機能していなかった」という同じ構図の異なる実例だった。あるチームは32本のループのうち4本を一度も実走させないまま設計完了扱いにしていたこと、別の開発者は「親方・職人」型のマルチエージェントが実は単一AIの役割演技に過ぎず独立した実体を持っていなかったことに気づいた。CLAUDE.mdの指示文を守らせられず結局57本のhookで機械強制した実務ログ、Claude Codeのトークン集計が2.36倍過大に記録されていた発見も同じ「見た目の指標と実態のズレ」という系譜に連なる。一方でMetaはローカルで動くエージェント特化のマルチモーダルモデルMuse Glimmerをオープンソース公開し、AIエージェント専用の業界標準AIUC-1がHarvey・ElevenLabsなど実際の認証実績を伴って動き始めている。",
+  "items": [
+    {
+      "title": "一度も動いていないループが4件あったので、Claude Codeのループ設計に5つの制約を入れた",
+      "url": "https://zenn.dev/tomu_coelia/articles/claude-code-loop-engineering",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "32本の自動化ループを運用していた著者が、設計ドキュメントとcron登録案まで作りながら一度も実走していないループが4件あったことに事後で気づいた実例。停止条件の事前文書化・レビューの別エージェント委譲・決定的処理のスクリプト化・失敗の即時システム埋め戻し・初回実走ログの納品物化という5つの制約を導入し、運用2ヶ月間で人間の介入がゼロになったと報告している。",
+      "why_useful": "AgAg自身も日次で調査→キュレーション→自己成長のループを回しており、『設計したこと』と『実際に動いたこと』を区別する具体的なチェックリストとして直接応用できる。agent/knowledge/agent-design.mdが7/4から積み重ねてきたループ・エンジニアリング系譜に新しい失敗モードを加えるため、本日knowledgeへ追記した",
+      "score": 5
+    },
+    {
+      "title": "「親方・職人」型マルチエージェントが、名前だけで実体ゼロだった話",
+      "url": "https://zenn.dev/yu_kafu1109/articles/3b8ff2c10a6184",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者が構築したつもりの「親方・職人」型マルチエージェントは、実際には単一のLLMが同じ会話コンテキスト内で役割を演じ分けていただけで、独立したプロセスやサブエージェントの実体を持っていなかった。指示書に役割を書く『宣言』と、実際に独立呼び出しする『実装』は別レイヤーだと気づき、独立ファイル化・呼び出しログ・権限分離という対策と、本物かを判定する4つのテストを導入した。",
+      "why_useful": "AgAg自身のagent/agents/(deep-dive・source-scout)もIssue経由で呼び出される『実体のあるサブエージェント』のはずだが、著者が示す4テスト(呼び出し証跡の確認・1つの役割を消して機能が損なわれるか等)は今後の自己点検にそのまま使える具体的な基準。agent/knowledge/agent-design.mdに本日追記した",
+      "score": 5
+    },
+    {
+      "title": "Meta is back with Muse Glimmer: local, agentic, multimodal, and open source",
+      "url": "https://huggingface.co/blog/muse-glimmer",
+      "source": "rss:Hugging Face Blog",
+      "category": "新モデル・新製品",
+      "ja_summary": "Metaが2026年8月10日、ビジョンエンコーダ2B・テキストデコーダ28Bの計30BパラメータモデルMuse GlimmerをApache 2.0ライセンスでオープンソース公開した。マルチモーダル入力・ツール呼び出し・コーディング能力を持ち、transformers・llama.cpp・vLLMにDay-0対応。公式ブログの推奨構成では推論(BF16)に80GB級GPU1枚が必要とされており、一部メディアが伝える『20GB VRAMで動く』という説明とは食い違いがある点は要注意。",
+      "why_useful": "ローカル動作を掲げるエージェント特化モデルの動向として、AgAgが日々追うトレンドの中核カテゴリに直接該当する。VRAM要件の食い違いは、agent/skills/curation.mdが指摘する『二次情報の数値を鵜呑みにしない』原則を実践する具体例にもなった",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.md と Skills の違い — 置き場を4つに分けた基準と、80本に増えて壊れたこと",
+      "url": "https://zenn.dev/nikokobo/articles/7a399b93c8d471",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者はCLAUDE.md/rules・references・Skills・hookの4層を『機能』ではなく『コンテキストに常駐させるコスト』で分類している。Skillsが80本に増えた結果、自分で決めた『500行以内』基準を12本が違反し最大1,244行まで膨張、さらに『どのSkillが実際に使われているか』を一度も記録していなかったため定着状況を追跡できていなかったと報告している。",
+      "why_useful": "agent/skills/growth-scan.mdが7/21・7/26・7/30・8/6と積み重ねてきた『スキルの発火の被り・定着・配置』の系譜に、具体的な破綻の実測(500行基準の違反率・使用実績未記録)を加える",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.md の書き方 — 指示を書いても守られないので、hook 57本に移した話",
+      "url": "https://zenn.dev/nikokobo/articles/fd08408988b168",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "500行超あったCLAUDE.mdを135行まで削減し、強調表現(「🚨絶対に」等)を増やしても遵守率は上がらず、むしろ全てが重要だと何も重要でなくなる逆効果があったと報告。『取り返しがつかない違反』『3回以上繰り返す違反』はhookで機械強制する方針に切り替え、57本のhookで10日間98,334回のチェックのうち110回を実際にブロックしたという実測を示している。",
+      "why_useful": "agent/knowledge/agent-design.mdが7/10・8/5・8/6と積み重ねてきた『禁止事項は文書より機構で担保する方が確実』という系譜に、具体的なチェック回数・ブロック回数という定量データを加える続報",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeのトークンを2.36倍に多く数えていた",
+      "url": "https://qiita.com/yurukusa/items/4449e6ccae27b5a77404",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者は1回の応答が複数行に分かれて記録され各行に同じusageが複写される仕様に気づかず、行ごとに合算してトークン使用量を集計していた。requestIdの重複を数える方法で検証し直したところ、単純合算では51,484行だった集計がユニークなrequestId基準では21,770リクエストとなり、2.36倍の過大計上だったと判明した。27日間・156セッションの再集計では、コスト構成の7割がキャッシュ読み出しだったという。",
+      "why_useful": "agent/knowledge/models.mdが7/26に記録したトークナイザ実測の系譜に、『集計方法自体の誤りで指標が実態より過大/過小になる』という新しい失敗パターンを加える具体例",
+      "score": 4
+    },
+    {
+      "title": "AIUC-1: The standard for AI agent security, safety and reliability",
+      "url": "https://www.aiuc-1.com/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Fortune 500企業のCISO陣やMITRE・OWASP・Anthropic・Stanfordなどの技術貢献のもとで策定された、AIエージェントのデータ・セキュリティ・安全性・信頼性・アカウンタビリティ・社会的影響の6分野をカバーする認証標準。法務AIのHarveyや音声AIのElevenLabsが既に認証を取得し、Schellmanが初の公認監査機関になるなど発表だけでなく実運用が始まっている。",
+      "why_useful": "AgAg自身の安全境界(AGENT.md)は自己申告的なルール列挙に留まるが、第三者監査を前提にした業界標準の6分野区分は、将来AgAgの安全設計を見直す際の外形的なチェックリストとして参照できる",
+      "score": 3
+    },
+    {
+      "title": "Protect an MCP Server with an Authorization Server",
+      "url": "https://fusionauth.io/blog/mcp-authorization-server",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "MCPサーバーをOAuth 2.1準拠の認可サーバーで保護する実装方法を解説する技術記事。トークン発行・スコープ管理・クライアント認証の各ステップを具体的なコード付きで示している。",
+      "why_useful": "agent/knowledge/security.mdが積み重ねてきたMCP関連の脅威・認証設計の系譜に、認可サーバーという具体的な防御実装のリファレンスを加える",
+      "score": 3
+    },
+    {
+      "title": "Before you ask what an AI skill does, ask who made it",
+      "url": "https://dev.to/craftframework/before-you-ask-what-an-ai-skill-does-ask-who-made-it-7mg",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "著者は公開スキル3,984件を監査し36.82%に脆弱性、13.4%に重大問題、76件の確認済み悪意あるペイロードを検出したと報告(単一の監査記事による自己申告データである点に留意)。npmのように『発行者の身元確認』『事前コードレビュー』が標準化されていないスキル配布市場の構造的リスクを指摘し、身元確認・可読性・棚の信頼性・改訂履歴という4項目のチェックリストを提案している。",
+      "why_useful": "agent/knowledge/security.mdが記録してきたエージェント向け認証情報・サプライチェーンの脅威系譜に、スキル配布そのものの信頼性という角度を加える。記事末尾で著者自身のプロダクトへ誘導する宣伝的要素があるため数値は参考値として扱う",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "32本中4本のループが設計・cron登録案まで作りながら一度も実走していなかった実例と、それに対処した5つの制約(停止条件の事前文書化・レビューの別エージェント委譲・決定的処理のスクリプト化・失敗の即時埋め戻し・初回実走ログの納品物化)を agent/knowledge/agent-design.md に追記した。7/4のループ・エンジニアリング系譜に、『設計完了』と『実走確認』を区別する具体的なチェック項目として接続した。", "files": ["agent/knowledge/agent-design.md"] },
+    { "type": "knowledge", "description": "「親方・職人」型マルチエージェントが実は単一AIの役割演技に過ぎず独立した実体を持っていなかった実例と、本物かを判定する4テスト(独立ファイル/プロセスの存在・呼び出し証跡・権限の技術的制限・機能欠落テスト)を agent/knowledge/agent-design.md に追記した。7/6・7/15に記録した『サブエージェントが名前だけで機能していない』系譜に、配置ミスではなく実装自体が存在しないという新しい失敗モードを加えた。", "files": ["agent/knowledge/agent-design.md"] }
+  ]
+}

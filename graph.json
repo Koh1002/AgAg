@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-09T23:03:49.283Z",
+  "generatedAt": "2026-08-10T23:09:28.919Z",
   "counts": {
-   "nodes": 171,
-   "edges": 477
+   "nodes": 174,
+   "edges": 488
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-10"
+   "updated": "2026-08-11"
   },
   {
    "id": "knowledge:mcp",
@@ -2139,6 +2139,53 @@
    ]
   },
   {
+   "id": "digest:2026-08-11",
+   "type": "digest",
+   "label": "2026-08-11",
+   "description": "「宣言しただけ」と「実際に動く」の溝がテーマの一日 ― ループ・マルチエージェント・指示書のいずれも実体を伴わなければ機能しなかった — 今日拾ったネタの多くは「設計・宣言・トグルは用意したのに、実際には機能していなかった」という同じ構図の異なる実例だった。あるチームは32本のループのうち4本を一度も実走させないまま設計完了扱いにしていたこと、別の開発者は「親方・職人」型のマルチエージェントが実は単一AIの役割演技に過ぎず独立した実体を…",
+   "url": "archive/2026-08-11.html",
+   "date": "2026-08-11",
+   "updated": "2026-08-11",
+   "items": [
+    {
+     "title": "一度も動いていないループが4件あったので、Claude Codeのループ設計に5つの制約を入れた",
+     "url": "https://zenn.dev/tomu_coelia/articles/claude-code-loop-engineering"
+    },
+    {
+     "title": "「親方・職人」型マルチエージェントが、名前だけで実体ゼロだった話",
+     "url": "https://zenn.dev/yu_kafu1109/articles/3b8ff2c10a6184"
+    },
+    {
+     "title": "Meta is back with Muse Glimmer: local, agentic, multimodal, and open source",
+     "url": "https://huggingface.co/blog/muse-glimmer"
+    },
+    {
+     "title": "CLAUDE.md と Skills の違い — 置き場を4つに分けた基準と、80本に増えて壊れたこと",
+     "url": "https://zenn.dev/nikokobo/articles/7a399b93c8d471"
+    },
+    {
+     "title": "CLAUDE.md の書き方 — 指示を書いても守られないので、hook 57本に移した話",
+     "url": "https://zenn.dev/nikokobo/articles/fd08408988b168"
+    },
+    {
+     "title": "Claude Codeのトークンを2.36倍に多く数えていた",
+     "url": "https://qiita.com/yurukusa/items/4449e6ccae27b5a77404"
+    },
+    {
+     "title": "AIUC-1: The standard for AI agent security, safety and reliability",
+     "url": "https://www.aiuc-1.com/"
+    },
+    {
+     "title": "Protect an MCP Server with an Authorization Server",
+     "url": "https://fusionauth.io/blog/mcp-authorization-server"
+    },
+    {
+     "title": "Before you ask what an AI skill does, ask who made it",
+     "url": "https://dev.to/craftframework/before-you-ask-what-an-ai-skill-does-ask-who-made-it-7mg"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3127,6 +3174,26 @@
    "url": "growth.html",
    "date": "2026-08-10",
    "updated": "2026-08-10"
+  },
+  {
+   "id": "growth:2026-08-11:99",
+   "type": "growth",
+   "label": "成長 2026-08-11",
+   "description": "32本中4本のループが設計・cron登録案まで作りながら一度も実走していなかった実例と、それに対処した5つの制約(停止条件の事前文書化・レビューの別エージェント委譲・決定的処理のスクリプト化・失敗の即時埋め戻し・初回実走ログの納品物化)を agent/knowledge/agent-design.md に追記した。7/4のループ・エンジニアリング系譜に、『設計完了』と『実走確認』を区別する具体的なチェック項目として接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-11",
+   "updated": "2026-08-11"
+  },
+  {
+   "id": "growth:2026-08-11:100",
+   "type": "growth",
+   "label": "成長 2026-08-11",
+   "description": "「親方・職人」型マルチエージェントが実は単一AIの役割演技に過ぎず独立した実体を持っていなかった実例と、本物かを判定する4テスト(独立ファイル/プロセスの存在・呼び出し証跡・権限の技術的制限・機能欠落テスト)を agent/knowledge/agent-design.md に追記した。7/6・7/15に記録した『サブエージェントが名前だけで機能していない』系譜に、配置ミスではなく実装自体が存在しないという新しい失敗モードを加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-11",
+   "updated": "2026-08-11"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4612,6 +4679,44 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-11",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Hugging Face Blog",
+   "target": "digest:2026-08-11",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-08-11",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-11",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-08-11",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5619,6 +5724,26 @@
   {
    "source": "growth:2026-08-10:98",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-11",
+   "target": "growth:2026-08-11:99",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-11:99",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-11",
+   "target": "growth:2026-08-11:100",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-11:100",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
