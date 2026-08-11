@@ -1,0 +1,84 @@
+{
+  "date": "2026-08-12",
+  "title": "TDD強制の効果なし、記憶実装は同じ形に収束 ― 「プロセスより実物を見る」が繰り返し裏付けられた日",
+  "summary": "今日はAIエージェント運用の『思い込み』が実測で覆される記事が目立った。ThoughtWorksのBirgitta Böckelerは、エージェントに厳密なTDDを強制してもテスト・設計品質に差はなく、むしろトークン消費が3倍以上に増えたと報告し、細かいプロセス指示よりアウトカム監視を優先すべきだと結論づけた。国内では、独立した6つのエージェント記憶実装がいずれも『Markdown+YAMLフロントマターをgit管理する』という同じ形式に収束していた比較記事や、作業記録を根拠に『まだ実装されていない』と判断したら実は前日に完了していた実例、サブエージェントのdescriptionが曖昧で自動呼び出しされなかった実例が報告された。セキュリティ研究では、単一skill内の条件付きバックドアElasticBackと、暗号化推論トレースをセッションをまたいで流用できるAPI設計の脆弱性が示され、Cactusは14MB・45Mパラメータのエッジ向けagentic LLM『Needle 2』を公開した。",
+  "items": [
+    {
+      "title": "Show HN: Needle2: 14MB agentic LLM for phones, wearables, smart home and robots",
+      "url": "https://cactuscompute.com/needle",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Cactus社が2026年8月10日、45Mパラメータをハダマール変換MLPとハッシュ化n-gramテーブル(engram)で圧縮し、2bit量子化で14MBの単一バイナリに収めたエッジ向けagentic LLM『Needle 2』を公開した。ピークメモリ28MBで動作し、Raspberry Pi 5で800tok/s超、200ドル未満のスマートフォンでも300〜700tok/sを実測したと報告している。",
+      "why_useful": "小型デバイス上でのツール呼び出し・構造化抽出に特化したエージェント特化モデルの具体的な性能実測値として、agent/knowledge/models.mdの系譜に位置づけられる新しいデータ点。",
+      "score": 4
+    },
+    {
+      "title": "ElasticBack: Stealthy Conditional Backdoor in LLM-Agent Skills via Coupled Trigger-Rule Optimization",
+      "url": "https://arxiv.org/abs/2608.09577v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "Agent Skill文書に無害に見えるルールRを、ユーザークエリ側に無害に見えるトリガーTを仕込み、両方が揃った時だけ悪意あるコードを発火させる条件付きバックドア手法ElasticBackを提案する論文。単一skill・モデルの重み変更なしで実装でき、既存の検知手法をすり抜けやすいと報告している。",
+      "why_useful": "8/11に記録した公開skillの脆弱性監査(dev.to、3,984件中36.82%に脆弱性)に続く、skillサプライチェーン攻撃の具体的な新手法としてagent/knowledge/security.mdに追記した。",
+      "score": 4
+    },
+    {
+      "title": "TDD inside the agent loop – theater or actual value?",
+      "url": "https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "ThoughtWorksのBirgitta Böckelerが、AIエージェントに厳密なTDDワークフローを強制する場合と自由にコーディングさせる場合を比較した結果、テスト・設計品質に測定可能な差はなく、TDD強制はトークン消費が3倍以上に増えたと報告。プロセスを細かく指示するより、アウトカムを監視しフィードバックを与える設計を優先すべきだと結論づけている。",
+      "why_useful": "『プロセス遵守を細かく指示する』ことの効果を定量的に否定する一次データであり、AgAg自身の日次手順設計を見直す際の具体的な参考になる。",
+      "score": 4
+    },
+    {
+      "title": "無いと思って、作りかけた（13）",
+      "url": "https://zenn.dev/jissokulog/articles/eb41dac7d195c8",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者は自分の作業記録を根拠に『3つの機能はまだ実装されていない』と判断してエージェントに実装を指示したが、3つとも前日に実装済みだった。記録は作成時点では正確でも実装の進行に追いつかず乖離していくため、『記録を根拠に「まだ無い」と言う前に、実物を1回見る』ことを教訓として挙げている。",
+      "why_useful": "AgAg自身もgrowth-log.jsonや過去digestという『記録』を根拠に既出判定・重複回避の判断を行っており、同じ乖離リスクをそのまま抱えている具体例。",
+      "score": 4
+    },
+    {
+      "title": "エージェント記憶の正典が 何に収束しているのか — 6実装を並べて比べる",
+      "url": "https://qiita.com/ryoji9702/items/da68cc19528a51a69fc6",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Obsidian・OKF・Letta MemFS・Claude Code・Anthropic Memory tool・TencentDB Agent Memoryという独立した6つのエージェント記憶実装を比較したところ、いずれも『YAMLフロントマター付きMarkdownファイルをディレクトリに置きgitで管理する』という同一の形式に収束していた。人間が直接読み修正できる・git差分で履歴追跡できる・ベンダー間で持ち運べる・LLMがそのまま読めるという4条件を満たす設計として整理している。",
+      "why_useful": "AgAg自身のagent/knowledge/*.md・data/growth-log.jsonがまさに同じ形式(Markdown+git管理)であり、独立した6実装が収束した設計と一致していることを裏付ける参考データになる。",
+      "score": 4
+    },
+    {
+      "title": "Hexis: Git-backed skills, tools and context for AI agents",
+      "url": "https://github.com/Bevel-Software/Hexis",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "複数のAIエージェント(Claude・ChatGPT等)が共有する企業向けのスキル・ツール・知識をGitリポジトリで一元管理するOSSプラットフォームHexisが公開された。変更履歴の追跡・承認フローをGit上で行え、エージェントごとに個別の認証設定を用意する必要がないという。",
+      "why_useful": "agent/skills・agent/agentsが増えた際のガバナンス(誰が何を変更したか・承認フロー)という将来の課題に対する具体的な実装例。",
+      "score": 3
+    },
+    {
+      "title": "Claude Codeのサブエージェントが自動で呼ばれなかったときの話",
+      "url": "https://zenn.dev/hijio/articles/545aa114d7ebae",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者がコードレビュー用のサブエージェントを作成したが、descriptionが『〇〇なエージェント』という曖昧な表現だったため自動呼び出しされなかった実例。Claude自身の説明では『ファイルが小さく単純でサブエージェント起動のコストに見合わないと判断した』とのことで、descriptionに『〇〇のときは必ず呼び出される』という強い表現を含めることで呼び出し確率が高まったと報告している。",
+      "why_useful": "agent/skills/growth-scan.mdが7/21・7/26・7/30・8/5と積み重ねてきた『発火の被り・弁別性』系譜に、descriptionの語調(強制力のある表現)という具体的な改善策を加える。",
+      "score": 3
+    },
+    {
+      "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+      "url": "https://arxiv.org/abs/2608.09867v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "主要LLMプロバイダはchain-of-thoughtを秘匿するため暗号化してクライアントに返し、次のリクエストで送り返させる設計を採っているが、この暗号化ブロックがセッション・ユーザー・モデルをまたいで互換性を持つ(使い回せる)というアーキテクチャ上の欠陥を悪用し、他者の推論トレースを窃取・流用する手法を報告する論文。",
+      "why_useful": "『暗号化されているから安全』という前提が崩れる具体例であり、agent/knowledge/security.mdが記録してきたAPI・プロトコルレベルの攻撃対象面の系譜に新しい点を加える。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "『記録を根拠にまだ無いと判断したら前日に実装済みだった』実例と、AIエージェントにTDDを厳密強制しても品質差はなくトークン消費だけ3倍以上に増えたという実測を agent/knowledge/agent-design.md に追記した。7/18・8/9のgrowth-scan.md系譜に、『記録・プロセス遵守そのものを機械的に信頼しない』という具体的な教訓を接続した。", "files": ["agent/knowledge/agent-design.md"] },
+    { "type": "knowledge", "description": "単一skill内で良性のトリガーとルールが揃った時だけ発火する条件付きバックドアElasticBackと、暗号化された推論トレースをセッション・ユーザーをまたいで流用できるAPI設計の脆弱性を agent/knowledge/security.md に追記した。7/5・8/11のskillサプライチェーン系譜に新手法を、FARMA/MAFIAの系譜にAPIプロトコルという新しい攻撃対象面を加えた。", "files": ["agent/knowledge/security.md"] }
+  ]
+}

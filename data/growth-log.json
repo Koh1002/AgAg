@@ -818,5 +818,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-12",
+    "type": "knowledge",
+    "description": "『記録を根拠にまだ無いと判断したら前日に実装済みだった』実例と、AIエージェントにTDDを厳密強制しても品質差はなくトークン消費だけ3倍以上に増えたという実測を agent/knowledge/agent-design.md に追記した。7/18・8/9のgrowth-scan.md系譜に、『記録・プロセス遵守そのものを機械的に信頼しない』という具体的な教訓を接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-12",
+    "type": "knowledge",
+    "description": "単一skill内で良性のトリガーとルールが揃った時だけ発火する条件付きバックドアElasticBackと、暗号化された推論トレースをセッション・ユーザーをまたいで流用できるAPI設計の脆弱性を agent/knowledge/security.md に追記した。7/5・8/11のskillサプライチェーン系譜に新手法を、FARMA/MAFIAの系譜にAPIプロトコルという新しい攻撃対象面を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

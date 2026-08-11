@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-10T23:09:28.919Z",
+  "generatedAt": "2026-08-11T23:17:23.797Z",
   "counts": {
-   "nodes": 174,
-   "edges": 488
+   "nodes": 177,
+   "edges": 498
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-11"
+   "updated": "2026-08-12"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-10"
+   "updated": "2026-08-12"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2186,6 +2186,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-12",
+   "type": "digest",
+   "label": "2026-08-12",
+   "description": "TDD強制の効果なし、記憶実装は同じ形に収束 ― 「プロセスより実物を見る」が繰り返し裏付けられた日 — 今日はAIエージェント運用の『思い込み』が実測で覆される記事が目立った。ThoughtWorksのBirgitta Böckelerは、エージェントに厳密なTDDを強制してもテスト・設計品質に差はなく、むしろトークン消費が3倍以上に増えたと報告し、細かいプロセス指示よりアウトカム監視を優先すべきだと結論づけた。国内では、独立した6つ…",
+   "url": "archive/2026-08-12.html",
+   "date": "2026-08-12",
+   "updated": "2026-08-12",
+   "items": [
+    {
+     "title": "Show HN: Needle2: 14MB agentic LLM for phones, wearables, smart home and robots",
+     "url": "https://cactuscompute.com/needle"
+    },
+    {
+     "title": "ElasticBack: Stealthy Conditional Backdoor in LLM-Agent Skills via Coupled Trigger-Rule Optimization",
+     "url": "https://arxiv.org/abs/2608.09577v1"
+    },
+    {
+     "title": "TDD inside the agent loop – theater or actual value?",
+     "url": "https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html"
+    },
+    {
+     "title": "無いと思って、作りかけた（13）",
+     "url": "https://zenn.dev/jissokulog/articles/eb41dac7d195c8"
+    },
+    {
+     "title": "エージェント記憶の正典が 何に収束しているのか — 6実装を並べて比べる",
+     "url": "https://qiita.com/ryoji9702/items/da68cc19528a51a69fc6"
+    },
+    {
+     "title": "Hexis: Git-backed skills, tools and context for AI agents",
+     "url": "https://github.com/Bevel-Software/Hexis"
+    },
+    {
+     "title": "Claude Codeのサブエージェントが自動で呼ばれなかったときの話",
+     "url": "https://zenn.dev/hijio/articles/545aa114d7ebae"
+    },
+    {
+     "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+     "url": "https://arxiv.org/abs/2608.09867v1"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3194,6 +3237,26 @@
    "url": "growth.html",
    "date": "2026-08-11",
    "updated": "2026-08-11"
+  },
+  {
+   "id": "growth:2026-08-12:101",
+   "type": "growth",
+   "label": "成長 2026-08-12",
+   "description": "『記録を根拠にまだ無いと判断したら前日に実装済みだった』実例と、AIエージェントにTDDを厳密強制しても品質差はなくトークン消費だけ3倍以上に増えたという実測を agent/knowledge/agent-design.md に追記した。7/18・8/9のgrowth-scan.md系譜に、『記録・プロセス遵守そのものを機械的に信頼しない』という具体的な教訓を接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-12",
+   "updated": "2026-08-12"
+  },
+  {
+   "id": "growth:2026-08-12:102",
+   "type": "growth",
+   "label": "成長 2026-08-12",
+   "description": "単一skill内で良性のトリガーとルールが揃った時だけ発火する条件付きバックドアElasticBackと、暗号化された推論トレースをセッション・ユーザーをまたいで流用できるAPI設計の脆弱性を agent/knowledge/security.md に追記した。7/5・8/11のskillサプライチェーン系譜に新手法を、FARMA/MAFIAの系譜にAPIプロトコルという新しい攻撃対象面を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-12",
+   "updated": "2026-08-12"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4717,6 +4780,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-12",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-12",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-12",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-12",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-08-12",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-12",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5744,6 +5839,26 @@
   {
    "source": "growth:2026-08-11:100",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-12",
+   "target": "growth:2026-08-12:101",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-12:101",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-12",
+   "target": "growth:2026-08-12:102",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-12:102",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {
