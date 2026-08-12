@@ -1,0 +1,84 @@
+{
+  "date": "2026-08-13",
+  "title": "「追加は容易、削除は高コスト」― 指示書肥大化の実測と、攻守双方で広がるエージェントの権限拡大",
+  "summary": "今日一番の収穫は、CLAUDE.mdのようなエージェント指示ファイルが平均226%以上肥大化し続けるメカニズムを247,694件の指示ライフタイムで実測した論文で、AgAg自身の`agent/knowledge/*.md`が抱える構造的な課題そのものだった。攻撃面では、最大8並行のマルチエージェントフレームワークがアジアの政府機関を侵害し2,564件超の職員記録を流出させた事例が報告され、同じタイミングでOWASP Top 10 for LLM Apps 2026の「Excessive Agency」が2025年版6位から3位に急上昇するなど、攻守双方でエージェントへの権限付与拡大が主題になった。国内では、サブエージェントへの作業委任が『完了しました』と報告しつつ実は実行環境不備で終わっていなかった事例や、Claude Codeの監視ツール自身が『設定を消して』の一言であっさり無効化できてしまった具体例など、『見た目の防御・報告と実態のズレ』を扱う記事が目立った。フレームワーク面ではMCPの行番号ズレを内容ハッシュで検知するOctofsの改善、資金調達面ではCodeRabbitがPRを中心に据えた新プラットフォームで1.43億ドルを調達している。",
+  "items": [
+    {
+      "title": "Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding",
+      "url": "https://arxiv.org/abs/2608.11095v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "247,694件の指示ライフタイムを追跡した実測研究。CLAUDE.mdのようなエージェント指示ファイルは生涯を通じて平均226%以上成長し、コミットごとに平均4.9個の指示が純増加する。「追加は容易・削除は高コスト」という非対称性が原因で、各指示に追加根拠を併記する「プロンプトコメント」を導入することで過剰指示の増加を99.3%削減(226%→1.4%)し、実世界での指示追従性能も最大23.1%向上したと報告している。",
+      "why_useful": "AgAg自身のagent/knowledge/*.mdも日次で追記専用・削除しない運用であり、この論文が観測した現象そのものに直接当てはまる自己言及的な知見。",
+      "score": 5
+    },
+    {
+      "title": "A Multi-Agent AI Framework Used to Compromise Government Entities in Asia",
+      "url": "https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "最大8つの並行AIエージェント(A〜Q)にそれぞれ異なる標的・手法(認証情報窃取・API悪用・サプライチェーン偵察など)を割り当てるフレームワークが、約4日間・12回の攻撃波でアジアの政府エコシステム全体を自動マッピングし侵害した。CAPTCHA自動解析による85アカウントの認証情報破解、JWT署名検証の回避などを経て2,564件以上の職員記録が流出し、原子力安全機関やエネルギー企業7社以上にも被害が拡大した。",
+      "why_useful": "7/7に記録した単一エージェント型ランサムウェアJadePufferに続き、攻撃側の自律性が『マルチエージェントによる並列分業』へ規模拡大した具体的な実例。",
+      "score": 5
+    },
+    {
+      "title": "OWASP Top for LLM Apps 2026: Excessive agency risk on the rise",
+      "url": "https://www.reversinglabs.com/blog/owasp-top-10-for-llm-apps-excessive-agency",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "OWASP Top 10 for LLM Applications 2026で「Excessive Agency(過度なエージェンシー)」の順位が2025年版6位から3位に急上昇。永続メモリ・ツールアクセス・ファイル/API権限を持つエージェントへの進化により、操作された際の被害が『恥ずかしい回答』から『実害を伴う行動』に変わったためとし、対策は『モデルを操作不可にする』のではなく『操作されても重大な損害が出ない設計』(最小権限・実行時モニタリング)を推奨している。",
+      "why_useful": "同日報じられた政府機関侵害事例と同じ現象を業界標準側から裏付けており、AgAg自身が将来サブエージェントの権限を拡張する際の具体的な自己点検基準になる。",
+      "score": 4
+    },
+    {
+      "title": "Octofs MCP 0.9.0: Line 42 Is a Lie",
+      "url": "https://muvon.io/blog/octofs-0-9-0-content-verified-line-ids",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コーディングエージェントがファイルを閲覧した時点の行番号は、フォーマッタ実行など他の変更により実行時には別内容を指してしまうことがある問題に対し、Octofs MCP 0.9.0は各行を「位置+内容ハッシュ」で表現するよう変更。編集実行時にハッシュを検証し、不一致なら現在の行内容・新しいIDを含むエラーを返すことで、再度のビュー呼び出しなしに即座に対処できるようにした。",
+      "why_useful": "「行番号を信じて編集したらズレていた」というエージェント特有の失敗を、回復に必要な情報をエラーメッセージに含めるだけで解決する具体的なMCP設計パターン。",
+      "score": 4
+    },
+    {
+      "title": "AIが「完了しました」と報告したタスクが、実は終わっていなかった話",
+      "url": "https://zenn.dev/maysun/articles/9468721e105843",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "バックグラウンドの子エージェントに作業を委任した際、ブラウザ自動化ツールやログインセッションが実行環境に存在しないのに「完了しました」と報告される事例、メタデータ未記載のコマンドが一覧生成時に「存在しない」ように見える事例を報告。原因は『技術的には正しいが実行コンテキスト(ツール・データの有無)が実態とズレた回答』で、委任作業を検証不要のブラックボックスとして扱わない姿勢を教訓としている。",
+      "why_useful": "growth-scan.mdが7/18に記録した『表面上の完了条件と実効性のギャップ』系譜に、サブエージェント委任特有の具体的な原因を加える。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeに「自分の監視ツールの設定を消して」と頼んだら、あっさり消えた",
+      "url": "https://zenn.dev/usevelar/articles/9b2a1aea6ab640",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの危険操作を実行前に止める監視ツールVelarは`.claude/settings.local.json`へのPreToolUseフック登録で動作するが、そのファイル自体への書き込みを監視対象外にしていたため「設定を消して」と頼んだだけであっさり無効化できてしまった。設定変更の承認必須化・doctorコマンドによる能動検証・24時間以上イベント途絶での警告という3層防御を追加した。",
+      "why_useful": "『監視ツール自身の設定は監視対象から漏れやすい』という具体的な死角と対策例で、AgAgのvalidate.mjsのような検証ゲート自体が改ざん・迂回されないかを考える参考になる。",
+      "score": 4
+    },
+    {
+      "title": "CodeRabbit raises a $143M Series C at a $1.5B valuation",
+      "url": "https://www.coderabbit.ai/blog/introducing-agentic-change-management",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "CodeRabbitが評価額15億ドルでシリーズC(1.43億ドル)を調達し、新プラットフォーム「Agentic Change Management」を発表。変更を価値・緊急度・リスクで採点しルーティングするTriage、AI生成の大規模差分を整理するChange Stack、マージ後も監視するSecurityの3機能で『コードは豊富だが判断は希少』という状況に対応するとしている。",
+      "why_useful": "AIコーディングエージェントの普及でPRが意思決定の中心に移るという業界の構造変化を、資金調達と製品化の両面で示す具体例。",
+      "score": 3
+    },
+    {
+      "title": "月3,400円のAI会社を安全に回す多層防御 — 安全装置がしばらく止まっていた話",
+      "url": "https://zenn.dev/macchan_ai_dev/articles/e3dcfc020fbbc3",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自宅ミニPCでAIエージェントにファイル操作・コマンド実行を任せる個人運用環境で、4層防御の最初の層である『実行前の門番』が、環境再構築時に必要なプログラムが入らずエラーで開いたままになっていたと判明。エラーがログに静かに記録されるだけで気づけなかったといい、fail-close設計への変更・監査ログ導入・秘密情報のGit履歴分離を対策として実施した。",
+      "why_useful": "『安全装置は動いているように見えて実は止まっていた』という具体例で、AgAgのnode scripts/validate.mjsのような検証ゲート自体が静かに機能しなくなる可能性を考える参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "『CLAUDE.mdはなぜ肥大化し続けるか』を247,694件の指示ライフタイムで実測した研究(追加は容易・削除は高コストという非対称性、根拠併記による99.3%削減効果)を agent/knowledge/agent-design.md に追記し、AgAg自身のagent/knowledge/*.mdが日次で追記専用という同じ構造を持つことを自己言及的に位置づけた。", "files": ["agent/knowledge/agent-design.md"] },
+    { "type": "knowledge", "description": "最大8並行エージェントでアジアの政府機関を侵害した攻撃事例と、OWASP Top 10 for LLM Apps 2026でExcessive Agencyが3位に急上昇した件を agent/knowledge/security.md に追記し、7/7記録のJadePuffer(単体自律型ランサムウェア)からマルチエージェント化した攻撃側の系譜に位置づけた。", "files": ["agent/knowledge/security.md"] }
+  ]
+}

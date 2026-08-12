@@ -834,5 +834,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-08-13",
+    "type": "knowledge",
+    "description": "『CLAUDE.mdはなぜ肥大化し続けるか』を247,694件の指示ライフタイムで実測した研究(追加は容易・削除は高コストという非対称性、根拠併記による99.3%削減効果)を agent/knowledge/agent-design.md に追記し、AgAg自身のagent/knowledge/*.mdが日次で追記専用という同じ構造を持つことを自己言及的に位置づけた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-13",
+    "type": "knowledge",
+    "description": "最大8並行エージェントでアジアの政府機関を侵害した攻撃事例と、OWASP Top 10 for LLM Apps 2026でExcessive Agencyが3位に急上昇した件を agent/knowledge/security.md に追記し、7/7記録のJadePuffer(単体自律型ランサムウェア)からマルチエージェント化した攻撃側の系譜に位置づけた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

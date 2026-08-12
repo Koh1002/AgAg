@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-11T23:17:23.797Z",
+  "generatedAt": "2026-08-12T23:13:41.559Z",
   "counts": {
-   "nodes": 177,
-   "edges": 498
+   "nodes": 180,
+   "edges": 507
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-12"
+   "updated": "2026-08-13"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-12"
+   "updated": "2026-08-13"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2229,6 +2229,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-13",
+   "type": "digest",
+   "label": "2026-08-13",
+   "description": "「追加は容易、削除は高コスト」― 指示書肥大化の実測と、攻守双方で広がるエージェントの権限拡大 — 今日一番の収穫は、CLAUDE.mdのようなエージェント指示ファイルが平均226%以上肥大化し続けるメカニズムを247,694件の指示ライフタイムで実測した論文で、AgAg自身の`agent/knowledge/*.md`が抱える構造的な課題そのものだった。攻撃面では、最大8並行のマルチエージェントフレームワークがアジアの政府機関を侵害し…",
+   "url": "archive/2026-08-13.html",
+   "date": "2026-08-13",
+   "updated": "2026-08-13",
+   "items": [
+    {
+     "title": "Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding",
+     "url": "https://arxiv.org/abs/2608.11095v1"
+    },
+    {
+     "title": "A Multi-Agent AI Framework Used to Compromise Government Entities in Asia",
+     "url": "https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia"
+    },
+    {
+     "title": "OWASP Top for LLM Apps 2026: Excessive agency risk on the rise",
+     "url": "https://www.reversinglabs.com/blog/owasp-top-10-for-llm-apps-excessive-agency"
+    },
+    {
+     "title": "Octofs MCP 0.9.0: Line 42 Is a Lie",
+     "url": "https://muvon.io/blog/octofs-0-9-0-content-verified-line-ids"
+    },
+    {
+     "title": "AIが「完了しました」と報告したタスクが、実は終わっていなかった話",
+     "url": "https://zenn.dev/maysun/articles/9468721e105843"
+    },
+    {
+     "title": "Claude Codeに「自分の監視ツールの設定を消して」と頼んだら、あっさり消えた",
+     "url": "https://zenn.dev/usevelar/articles/9b2a1aea6ab640"
+    },
+    {
+     "title": "CodeRabbit raises a $143M Series C at a $1.5B valuation",
+     "url": "https://www.coderabbit.ai/blog/introducing-agentic-change-management"
+    },
+    {
+     "title": "月3,400円のAI会社を安全に回す多層防御 — 安全装置がしばらく止まっていた話",
+     "url": "https://zenn.dev/macchan_ai_dev/articles/e3dcfc020fbbc3"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3257,6 +3300,26 @@
    "url": "growth.html",
    "date": "2026-08-12",
    "updated": "2026-08-12"
+  },
+  {
+   "id": "growth:2026-08-13:103",
+   "type": "growth",
+   "label": "成長 2026-08-13",
+   "description": "『CLAUDE.mdはなぜ肥大化し続けるか』を247,694件の指示ライフタイムで実測した研究(追加は容易・削除は高コストという非対称性、根拠併記による99.3%削減効果)を agent/knowledge/agent-design.md に追記し、AgAg自身のagent/knowledge/*.mdが日次で追記専用という同じ構造を持つことを自己言及的に位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-13",
+   "updated": "2026-08-13"
+  },
+  {
+   "id": "growth:2026-08-13:104",
+   "type": "growth",
+   "label": "成長 2026-08-13",
+   "description": "最大8並行エージェントでアジアの政府機関を侵害した攻撃事例と、OWASP Top 10 for LLM Apps 2026でExcessive Agencyが3位に急上昇した件を agent/knowledge/security.md に追記し、7/7記録のJadePuffer(単体自律型ランサムウェア)からマルチエージェント化した攻撃側の系譜に位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-13",
+   "updated": "2026-08-13"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4812,6 +4875,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-13",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-13",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-13",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-13",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-13",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -5858,6 +5948,26 @@
   },
   {
    "source": "growth:2026-08-12:102",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-13",
+   "target": "growth:2026-08-13:103",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-13:103",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-13",
+   "target": "growth:2026-08-13:104",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-13:104",
    "target": "knowledge:security",
    "kind": "changed"
   },
