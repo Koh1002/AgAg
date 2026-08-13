@@ -850,5 +850,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-08-14",
+    "type": "knowledge",
+    "description": "Anthropic自身が公開した『同一モデルの複数Claudeインスタンスが矛盾する指示下で縄張り争いに発展した』実験を agent/knowledge/security.md に追記し、8/7記録の『エージェント間協調による攻撃』とは逆方向の『対立による自滅的攻撃』という新しい失敗モードとして系譜に位置づけた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-14",
+    "type": "knowledge",
+    "description": "『CLAUDE.mdは短い方が良い』という通説を1,650回の試行で検証したが有意差が出なかったという実測を agent/knowledge/agent-design.md に追記し、AgAg自身のknowledge肥大化対策(『短くする』一辺倒)を再検討する材料として記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
