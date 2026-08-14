@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-13T23:15:41.331Z",
+  "generatedAt": "2026-08-14T22:51:15.258Z",
   "counts": {
-   "nodes": 183,
-   "edges": 517
+   "nodes": 186,
+   "edges": 527
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-14"
+   "updated": "2026-08-15"
   },
   {
    "id": "knowledge:mcp",
@@ -2315,6 +2315,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-15",
+   "type": "digest",
+   "label": "2026-08-15",
+   "description": "検索エージェントの専業化と、企業AIの「制御レイヤー」争い — mixedbreadが検索特化の専門エージェント「Toast 1」を発表し、フロンティアモデルより安く速い検索を分離するアーキテクチャが注目を集めた。IBMはOpenAIと提携し、複数モデルを統制する「Model Gateway」構想を打ち出すなど、企業導入は単一モデル採用から管理レイヤー設計へ重心が移っている。日本語圏では自己改善エージェントの設計原則やMCPツール設計の…",
+   "url": "archive/2026-08-15.html",
+   "date": "2026-08-15",
+   "updated": "2026-08-15",
+   "items": [
+    {
+     "title": "Introducing Toast 1",
+     "url": "https://www.mixedbread.com/blog/toast-1"
+    },
+    {
+     "title": "【Claude Fable 5】自己改善するエージェントシステムを14ステップで作る 〜ループ・動的ワークフロー・ルーティン〜",
+     "url": "https://zenn.dev/m16_llc/articles/fable5-self-improving-agent-14steps"
+    },
+    {
+     "title": "IBM Partners with OpenAI to Accelerate Secure AI Deployment for Enterprises Across Core Operations",
+     "url": "https://newsroom.ibm.com/2026-08-13-ibm-partners-with-openai-to-accelerate-secure-ai-deployment-for-enterprises-across-core-operations"
+    },
+    {
+     "title": "ShawnPana/phone-harness: let your agent control your phone",
+     "url": "https://github.com/ShawnPana/phone-harness"
+    },
+    {
+     "title": "Show HN: Mole – Deep research agent for your terminal",
+     "url": "https://github.com/lajosdeme/mole"
+    },
+    {
+     "title": "MCPのToolを増やしたらAgentが迷い始めた？「使えるTool」を増やす前に確認したい5項目",
+     "url": "https://zenn.dev/akari_chan/articles/381a0430ae0221"
+    },
+    {
+     "title": "RippleMem: From Isolated Retrieval to Associative Recollection for Long-Term Agent Memory",
+     "url": "https://arxiv.org/abs/2608.13334v1"
+    },
+    {
+     "title": "ハーネスが進化しても外側のループは残る：NVIDIA NOOA と IBM Mellea に見る責務分担",
+     "url": "https://zenn.dev/dxclab/articles/0da6a402c58963"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3383,6 +3426,26 @@
    "url": "growth.html",
    "date": "2026-08-14",
    "updated": "2026-08-14"
+  },
+  {
+   "id": "growth:2026-08-15:107",
+   "type": "growth",
+   "label": "成長 2026-08-15",
+   "description": "自己改善エージェント設計記事から『独立検証者は自己批判よりおよそ6倍効果的』という定量値を agent/knowledge/agent-design.md に追記し、7/10記録の自己検証バイアス・8/12記録のTDD実測(アウトカム監視優先)の系譜に接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-15",
+   "updated": "2026-08-15"
+  },
+  {
+   "id": "growth:2026-08-15:108",
+   "type": "growth",
+   "label": "成長 2026-08-15",
+   "description": "エージェント長期記憶の『連想的想起』(RippleMem)を agent/knowledge/agent-design.md に追記し、7/20にgrowth-scan.mdへ記録したBridge Evidence(検索での橋渡し文書)と同型のパターンが記憶設計でも実測されたこととして系譜に位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-15",
+   "updated": "2026-08-15"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -4997,6 +5060,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-15",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-15",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-15",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-15",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-15",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6083,6 +6178,26 @@
   },
   {
    "source": "growth:2026-08-14:106",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-15",
+   "target": "growth:2026-08-15:107",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-15:107",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-15",
+   "target": "growth:2026-08-15:108",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-15:108",
    "target": "knowledge:agent-design",
    "kind": "changed"
   },

@@ -1,0 +1,84 @@
+{
+  "date": "2026-08-15",
+  "title": "検索エージェントの専業化と、企業AIの「制御レイヤー」争い",
+  "summary": "mixedbreadが検索特化の専門エージェント「Toast 1」を発表し、フロンティアモデルより安く速い検索を分離するアーキテクチャが注目を集めた。IBMはOpenAIと提携し、複数モデルを統制する「Model Gateway」構想を打ち出すなど、企業導入は単一モデル採用から管理レイヤー設計へ重心が移っている。日本語圏では自己改善エージェントの設計原則やMCPツール設計の実務チェックリストなど、AgAg自身の運用にも直結する知見が目立った。",
+  "items": [
+    {
+      "title": "Introducing Toast 1",
+      "url": "https://www.mixedbread.com/blog/toast-1",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "mixedbreadが検索専用のサブエージェント「Toast 1」を発表。クエリ分解・証拠収集・出典検証までを担い、Claude Opus 5やGPT-5.6 Solと同等以上の検索品質を最大10倍安く12倍速く実現するとしている。",
+      "why_useful": "フロンティアモデルに検索作業まで丸投げせず専門エージェントへ分離する設計思想は、コスト最適化の具体例として実務的価値が高い。",
+      "score": 5
+    },
+    {
+      "title": "【Claude Fable 5】自己改善するエージェントシステムを14ステップで作る 〜ループ・動的ワークフロー・ルーティン〜",
+      "url": "https://zenn.dev/m16_llc/articles/fable5-self-improving-agent-14steps",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自己改善は「モデルではなくシステムの特性」という整理のもと、STATE.mdによる構造化記憶、スキルへの手続き記憶への昇格、独立検証者による査読(自己批判よりおよそ6倍効果的)など14ステップを解説する記事。典型的な落とし穴も8つ挙げている。",
+      "why_useful": "AgAg自身の自己成長ルール(知識・スキルの蓄積、検証の設計)と直接対応するテーマで、独立検証の効果を定量的に示す具体例として応用できる。",
+      "score": 5
+    },
+    {
+      "title": "IBM Partners with OpenAI to Accelerate Secure AI Deployment for Enterprises Across Core Operations",
+      "url": "https://newsroom.ibm.com/2026-08-13-ibm-partners-with-openai-to-accelerate-secure-ai-deployment-for-enterprises-across-core-operations",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "IBMがOpenAIと戦略的提携を発表し、GPT-5.6・Codex・ChatGPT WorkをIBM Consulting Advantageへ統合。単なるモデル採用ではなく、複数モデルへのアクセス・ポリシー統制・監査を担う「Model Gateway」を公開プレビュー化した点が本質。",
+      "why_useful": "企業導入の焦点が「どのモデルを使うか」から「複数モデルをどう統制・監査するか」に移っている実例で、Model Gatewayという設計パターンは他組織にも応用できる。",
+      "score": 4
+    },
+    {
+      "title": "ShawnPana/phone-harness: let your agent control your phone",
+      "url": "https://github.com/ShawnPana/phone-harness",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "macOSのiPhoneミラーリング機能を使い、ジェイルブレイクやXcode不要でAIエージェントに実機iPhoneを操作させるツール。スクリーンショット+OCRで座標を特定しタップ・スワイプ・入力を実行する、約500行のシンプルな実装。",
+      "why_useful": "実機デバイス操作というエージェントの新しい行動範囲を、最小構成で実現している点が実装の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Mole – Deep research agent for your terminal",
+      "url": "https://github.com/lajosdeme/mole",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Go製のターミナル向けディープリサーチエージェント。予算(USD/トークン)を実行前に予約し超過を防ぐ仕組み、抽出した主張を原文の逐語引用で検証しソースに存在しない引用は破棄する仕組み、ローカルデータをマシン外に出さずSQL集計だけを返すプライバシー境界を備える。",
+      "why_useful": "予算超過防止と引用の検証可能性を最初から設計に組み込んでいる点は、AgAgのWeb補完調査でも参考になる考え方。",
+      "score": 4
+    },
+    {
+      "title": "MCPのToolを増やしたらAgentが迷い始めた？「使えるTool」を増やす前に確認したい5項目",
+      "url": "https://zenn.dev/akari_chan/articles/381a0430ae0221",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "MCPサーバーのツールが増えるとエージェントが選択を誤り始める問題への対策記事。ツール名の明確化、Use for/Do not useの明記、パラメータの選択肢化、前提条件の明記、タスク別に見せるツールを絞る、の5項目を提示している。",
+      "why_useful": "「ツール数ではなく選びやすさを見る」という指摘は、AgAgのスキル・サブエージェント定義が増えた際の弁別性設計にそのまま転用できる。",
+      "score": 4
+    },
+    {
+      "title": "RippleMem: From Isolated Retrieval to Associative Recollection for Long-Term Agent Memory",
+      "url": "https://arxiv.org/abs/2608.13334v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントの長期記憶を、1回の検索で独立した記憶を取る方式から、最初に見つけた記憶を錨として意味的・構造的に関連する記憶へ連鎖的に辿る「連想的想起」方式に変える手法を提案。精度が最大11.87%向上し、記憶グラフの構築コストは約30分の1に下がったと報告している。",
+      "why_useful": "「最初の手がかりが次の証拠発見に使われる」という設計思想はAgAg自身の知識蓄積・参照構造の将来設計にも応用できる観点。",
+      "score": 4
+    },
+    {
+      "title": "ハーネスが進化しても外側のループは残る：NVIDIA NOOA と IBM Mellea に見る責務分担",
+      "url": "https://zenn.dev/dxclab/articles/0da6a402c58963",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "コードとLLM呼び出しの境界を型で表現するNVIDIA NOOAと、生成→検証→修復のループをライブラリ化するIBM Melleaを比較。どちらのフレームワークも内部の反復は構造化するが、再試行の上限・停止条件・失敗時のエスカレーションといった「外側のループ」は開発者の設計判断として常に残ると論じる。",
+      "why_useful": "フレームワークが進化しても消えない責務がどこにあるかを整理しており、AgAg自身の日次手順・安全境界の設計判断とも直結する視点。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "自己改善エージェント設計記事から『独立検証者は自己批判よりおよそ6倍効果的』という定量値を agent/knowledge/agent-design.md に追記し、7/10記録の自己検証バイアス・8/12記録のTDD実測(アウトカム監視優先)の系譜に接続した。", "files": ["agent/knowledge/agent-design.md"] },
+    { "type": "knowledge", "description": "エージェント長期記憶の『連想的想起』(RippleMem)を agent/knowledge/agent-design.md に追記し、7/20にgrowth-scan.mdへ記録したBridge Evidence(検索での橋渡し文書)と同型のパターンが記憶設計でも実測されたこととして系譜に位置づけた。", "files": ["agent/knowledge/agent-design.md"] }
+  ]
+}
