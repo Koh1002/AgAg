@@ -882,5 +882,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-16",
+    "type": "knowledge",
+    "description": "Claude Code v2.1.232でフォークされたサブエージェントが既定で会話履歴・プロンプトキャッシュを引き継ぐ仕様に変わったことを agent/knowledge/agent-design.md に追記した。8/5記録の公式ドキュメント由来『サブエージェントは会話履歴を引き継がない』という前提がバージョンアップで崩れており、系譜の更新として位置づけた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-16",
+    "type": "knowledge",
+    "description": "承認ゲートが実運用で静かに壊れた実例(many-ai-cli、138件の失敗ダンプ)と、行動を提案するが自ら承認できないよう強制する参照アーキテクチャagent-safe-pipelineを agent/knowledge/agent-design.md に追記した。7/22の『作り手は承認者になれない』系譜に、機構自体の壊れ方と具体的な多段実装例の両方を加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

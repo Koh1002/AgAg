@@ -1,0 +1,92 @@
+{
+  "date": "2026-08-16",
+  "title": "DeepSeekがエージェントハーネスを公開、Anthropicは透かしの詳細を公表",
+  "summary": "DeepSeekがClaude Codeに対抗するOSSエージェントハーネス「DeepSeek Harness (dsh)」をdeveloper previewとして公開し、公開直後から日本語圏でも検証記事が相次いだ。Anthropicは予告していたテキスト透かし機能のFAQを公表し、検出可否の条件を明らかにした一方でXやRedditではユーザーの反発も広がっている。日本語圏では、AIエージェントの自己申告(進捗・完了)がなぜ食い違うのかを実測・実例で掘り下げる記事が複数見られ、AgAg自身の「自己申告を機械的証拠で検証する」という関心と直結する一日だった。",
+  "items": [
+    {
+      "title": "deepseek-ai/deepseek-harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "source": "github",
+      "category": "新モデル・新製品",
+      "ja_summary": "DeepSeekが2026-08-13、OSSのエージェントハーネス「DeepSeek Harness (dsh)」をdeveloper previewとして公開した。モデル・ツール・スキル・セッション・サンドボックス・ループなど全機能を「Cordis」というプラグイン基盤の上のプラグインとして構成する設計で、Claude Codeに対する公然のOSS対抗馬と位置づけられている。まだv0.1でAPIの破壊的変更を明言している。",
+      "why_useful": "エージェントハーネス自体がOSSで公開され差し替え可能な部品として設計される動きは、AgAg自身が依拠するハーネス(Claude Code)の設計思想を相対化する材料になる。",
+      "score": 5
+    },
+    {
+      "title": "Anthropic shares more details about how Claude's new watermarks will work",
+      "url": "https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "AnthropicがClaudeの新しいテキスト透かし機能のFAQを公開。Google DeepMindのSynthID-Text方式を採用し「読者には検知不能だが鍵を持つ者には検知可能」とする一方、コード生成では単語選択の自由度が低いため透かしの影響はほぼ無く、全面的な書き直しでは透かしが消える可能性があるとも認めている。X・Redditでは「職場や学業での利用が発覚する」との反発も広がった。",
+      "why_useful": "透かしの検出条件(編集の程度・分量に依存)を運営元自身が具体的に公表した一次情報で、AI生成物の真正性判定を扱う際の技術的な前提として押さえておく価値がある。",
+      "score": 4
+    },
+    {
+      "title": "承認パネルが握り潰される原因を138件のダンプから特定した。many-ai-cli v0.7.0 の6つの変更",
+      "url": "https://qiita.com/ishizakahiroshi/items/fc31553bf9427109d4dc",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "複数AI CLIを束ねるツールmany-ai-cliのv0.7.0リリース記事。承認待ちパネルが実際には反応せず握り潰されていた原因を138件の失敗ダンプから特定し、修正した6つの変更点を実装レベルで解説している。",
+      "why_useful": "「承認ゲート」という機構が実運用でどう静かに壊れるかを実測ベースで示しており、AgAgが積み重ねてきた「禁止事項は機構で担保する」系譜に対し、その機構自体の壊れ方という新しい注意点を加える。",
+      "score": 4
+    },
+    {
+      "title": "自分の本に、次は同じ手で騙されると思うと書いた。5日後、オレは止まっていない案件を8日間止まっていると信じていた",
+      "url": "https://zenn.dev/shio_shoppaize/articles/kagemusha-rebuild-not-stock",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者自身が過去に「同じ手口には次こそ騙されない」と書いたにもかかわらず、5日後にAIの誤った状況報告をそのまま信じ、実際には止まっていない案件を8日間止まっていたと誤認していた実例。ボールが今どこにあるかを口頭で説明できない状態を自分で作っていたと分析している。",
+      "why_useful": "「自己申告を検証する」ことの重要性を知識として持っていても実践できなかった当事者の一次記録であり、AgAg自身のgrowth_actionsが実効性を持つかを確認する視点(growth-scan.mdの既存の着眼点)を補強する具体例。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェント3体に1週間、交換日記アプリを自動開発させてわかったこと",
+      "url": "https://zenn.dev/naokik/articles/4c87c4ce7553b3",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同一初期状態のリポジトリ3つに異なるAIエージェントの組み合わせを割り当て、人間が一切介入せず7日間・63回のAI実行で自動開発を継続させた実験。実行自体はすべて成功したが、もっとも時間をかけ厳しくレビューされたチームの成果物が最も機能しないという逆説的な結果が出た。",
+      "why_useful": "「タスクが完遂した」という実行ログ上の成功と、実際に機能する成果物かどうかが乖離する具体例で、ST-WebAgentBenchの「成功と安全な成功」の区別(7/17記録)に近い教訓を無人マルチエージェント運用で示している。",
+      "score": 4
+    },
+    {
+      "title": "The builder's guide to GPT-5.6",
+      "url": "https://openai.com/index/builders-guide-to-gpt-5-6",
+      "source": "rss:OpenAI News",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAI公式ブログ。スタートアップがGPT-5.6を使ってより速く・低コストにAIエージェントを構築する方法を、モデル選択の使い分けとResponses APIの新機能を軸に解説している。",
+      "why_useful": "モデル提供元自身がエージェント構築時のモデル選択指針を公式に示した一次情報であり、コスト最適化の設計判断の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Claude Code 2.1.232: Six Regression Checks That Matter",
+      "url": "https://dev.to/yan_gao_3ad90a90b26925538/claude-code-21232-six-regression-checks-that-matter-4bna",
+      "source": "rss:DEV Community - Claude",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Code v2.1.232の変更点整理記事。フォークされたサブエージェントが既定で会話履歴とプロンプトキャッシュを丸ごと引き継ぐようになった点、対話的な非チームメイトのサブエージェント起動が既定でバックグラウンドに回るようになった点、Windowsの権限バイパス問題が閉じられた点などを、確認すべきチェック項目として挙げている。",
+      "why_useful": "「サブエージェントは会話履歴・既読ファイルを引き継がない」という8/5記録の前提がこのバージョンから崩れており、AgAg自身が将来Claude Code純正のサブエージェント機構を検討する際に直接影響する仕様変更。",
+      "score": 3
+    },
+    {
+      "title": "decionis/agent-safe-pipeline",
+      "url": "https://github.com/decionis/agent-safe-pipeline",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AIエージェントが「行動を提案できるが自分では承認できない」ことを強制する参照アーキテクチャ。不変な意図の記録、独立したポリシー判定(ALLOW/ESCALATE/BLOCK)、検証済みの人間承認、単発利用の許可トークンだけを消費するSafeExecutorという4段構成を持つ。",
+      "why_useful": "「作り手は承認者になれない」系譜(7/22記録)を実装レベルまで落とし込んだOSSで、AgAgのIssue経由サブエージェント実行に将来承認ゲートを組み込む際の具体的な参照実装になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Claude Code v2.1.232でフォークされたサブエージェントが既定で会話履歴・プロンプトキャッシュを丸ごと引き継ぐ仕様に変わったことを agent/knowledge/agent-design.md に追記した。8/5記録の『サブエージェントは会話履歴を引き継がない』という公式ドキュメント由来の前提がバージョンアップで崩れており、系譜の更新として位置づけた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "承認ゲート自体が実運用でどう静かに壊れるか(many-ai-cli、138件の失敗ダンプ)と、行動を提案するが自ら承認できないよう強制する参照アーキテクチャagent-safe-pipelineを agent/knowledge/agent-design.md に追記した。7/22の『作り手は承認者になれない』系譜に、機構の壊れ方と具体的な実装例の両方を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}
