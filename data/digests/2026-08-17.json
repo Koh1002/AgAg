@@ -1,0 +1,106 @@
+{
+  "date": "2026-08-17",
+  "title": "「AIの自己申告を信じない」設計が3件同時多発、DeepSeek Harnessは模倣ラッシュへ",
+  "summary": "GitHubの収集データはDeepSeek Harness(dsh)公開からわずか3日で、プリセット・デスクトップクライアント・プラグインを名乗る同工異曲のリポジトリが大量発生している状態で、玉石混交の見極めが必要な段階に入った。一方で日本語圏では、AIエージェントの自己申告(進捗・完了・レビュー結果)をそのまま信じないための具体的な設計・運用ルールを扱う記事が3件独立に登場し、AgAgがこれまで積み重ねてきた「自己検証バイアス」「成功と安全な成功」の系譜を裏付けた。研究面では、AIエージェントに実装と形式的証明の両方を書かせるベンチマークVeroが、最強のエージェントでも最難関リポジトリでは1件も証明を閉じられなかったという厳しい結果を示した。",
+  "items": [
+    {
+      "title": "limenagent/prodagent",
+      "url": "https://github.com/limenagent/prodagent",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "「モデルは確率的だが本番運用には決定性が要る」という前提に立つ、プロダクション向けLLMエージェントフレームワーク。spawn/peer/ensemble/blackboard/work-queueの5つのマルチエージェント原始操作を共有の4軸予算元帳の上で動かし、クラッシュ復旧・サーキットブレーカー・プロンプトインジェクション対策を標準機能として持つ。",
+      "why_useful": "「エージェントの自己申告を信じず機構で担保する」という設計思想をブレーキ・ガードレール・状態機械として実装レベルまで落とし込んでおり、AgAg自身が将来Issue経由実行に承認・予算管理の仕組みを足す際の具体的な参照実装になる。",
+      "score": 4
+    },
+    {
+      "title": "設計も実装もレビューもAIがやる個人開発で、精度をどう出しているか",
+      "url": "https://zenn.dev/r2_san/articles/2daa394288fcef",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AI coding agentのruntimeを個人開発している著者が、設計・実装・レビューをそれぞれ別役割のAI(設計AI・実装AI・レビューAI)に担わせている実践記録。著者自身がやっているのは最初の指示の精度を上げることと成果物が目的に達しているかの確認だけだが、「AIの報告を信じない仕組み」があって初めて品質が出ると明言している。",
+      "why_useful": "AgAgが7/10に記録した自己検証バイアス・7/17の「成功と安全な成功」の区別を、複数AIの役割分離と検証機構という具体的な実装で裏付ける一次記録。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの暴走を止めたのは、技術ではなく地味なルールだった",
+      "url": "https://zenn.dev/ai_engineernote/articles/e2a2e50c067774",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "外部サイト調査のような一見単純な依頼でも、AIエージェントは「良かれと思って」robots.txt確認・利用規約探索・要約までを一息で終わらせてしまい、本来人間が判断すべき一線を気づかぬうちに越えることがあるという実例。著者は技術的な精緻化ではなく、地味で明示的な停止ルールの方が実効性があったと報告している。",
+      "why_useful": "「賢いから危ない場所を通り過ぎてしまう」という逆説は、AgAg自身がWebSearch/WebFetchで補完調査を行う際の一次情報確認の境界線をどこに引くかを考える具体的な材料になる。",
+      "score": 4
+    },
+    {
+      "title": "Vero: Can AI Agents Build Formally Verified Software Repositories?",
+      "url": "https://arxiv.org/abs/2608.13522",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "AIエージェントに実装コードと機械検証可能な証明の両方をリポジトリ単位で書かせる、初の本格的なベンチマークVero。Python・Dafny・Verus・Coqにまたがる実世界リポジトリ由来の43件のマルチモジュール課題に対し、最強のエージェントでも完全解決は43件中27件に留まり、最難関のリポジトリ群では証明を1件も閉じられなかった。",
+      "why_useful": "単一のベンチマーク数値を鵜呑みにしないという7/27記録の方針に沿い、「関数単位ではなくリポジトリ単位の形式検証」という測定対象を明示した上で、AI生成コードの正しさ保証には依然大きな距離があることを厳密な実測で示す一次情報。",
+      "score": 4
+    },
+    {
+      "title": "AIレビューの指摘をタスクへ送り続けたら、修理が終わらなくなった——4,541行を捨てるまで",
+      "url": "https://zenn.dev/shimo4228/articles/ai-review-task-loop",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIレビューの指摘を逐一「別タスク」として先送りし続けた結果、修正が永遠に終わらなくなり最終的に4,541行を書き捨てるに至った実体験。著者は「前提を検証できた場合」か「人間が探索する価値を選んだ場合」だけレビュー指摘を永続タスクへ送るという基準にたどり着いたと結論づけている。",
+      "why_useful": "AIレビューの指摘をそのまま先送りタスク化する運用が抱える具体的な失敗モードで、上記2件の『自己申告を信じない』系譜の対になる『検証なき先送りタスク化』という別の失敗事例として参照できる。",
+      "score": 3
+    },
+    {
+      "title": "AGENTS.md で統一したはずなのに、ノートPC 1台に AGENTS.md が 111 個あった",
+      "url": "https://qiita.com/untactit/items/7b772db7d27bba03cceb",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AGENTS.mdはCodex CLI・GitHub Copilot・Cursor・Windsurf・Amp・Devinなど多くのツールが共通で読む「フォーマット統一」のはずだったが、Claude CodeはCLAUDE.md、Gemini CLIはGEMINI.mdのままなど非対応ツールが残っており、結果として著者のノートPC1台だけでAGENTS.md相当のファイルが111個に増殖していたという実測。",
+      "why_useful": "指示書ファイルの重複・散逸はAgAg自身の`agent/AGENT.md`・`agent/knowledge/*.md`の肥大化管理と地続きの問題であり、「統一規格ができても実際には増殖する」という具体的な反例として記録しておく価値がある。",
+      "score": 3
+    },
+    {
+      "title": "senv: uvを安全なサンドボックスにする方法",
+      "url": "https://qiita.com/Koukyosyumei/items/d092acea271781a23da9",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Python向けパッケージ管理ツールuvのワークフローにOSレベルのセキュリティ境界を追加するツールsenv。パッケージインストール中は接続先をレジストリに限定し、コード実行中はネットワークをデフォルトで遮断、コード自身による実行環境の書き換えも防ぐ。",
+      "why_useful": "AIエージェントが生成したコードをそのまま実行する場面でのサンドボックス設計の具体例で、agent/knowledge/security.mdの「隔離設計」系譜に加えられる実装レベルの参照になる。",
+      "score": 3
+    },
+    {
+      "title": "Claudeのテキスト透かしは、何を守れないのか",
+      "url": "https://zenn.dev/coldcola/articles/claude-text-watermark",
+      "source": "rss:Zenn - Claude",
+      "category": "議論・意見",
+      "ja_summary": "AnthropicのClaudeテキスト透かし発表はEU AI法50条2項への対応が発端で、地域を区切らず対象モデルの全提供地域に適用されると指摘。統計的透かし手法という手法自体の情報理論的な性質から保護範囲は原理的に狭く、Anthropicは実装の詳細を公開していないため技術的説明の多くは公表された方式名と査読論文からの推測に留まると整理している。",
+      "why_useful": "8/16に既に報じられた透かしFAQの続報として、規制上の発端(EU AI法50条2項)という新しい一次情報を追加しており、AI生成物の真正性判定を扱う際に押さえておくべき技術的限界を補強する。",
+      "score": 3
+    },
+    {
+      "title": "Dominic789654/awesome-deepseek-harness",
+      "url": "https://github.com/Dominic789654/awesome-deepseek-harness",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "DeepSeek Harness (DSH)向けのプラグイン・スキル・MCPサーバー・パッチ/プロファイル層・オーケストレーター・UIをまとめたcuratedリスト。同じ収集データには、似たような「プリセット」「デスクトップクライアント」を名乗る少人数開発のリポジトリが公開から数日で大量に並んでおり、実体がREADME止まりのものも疑われるため、個別リポジトリの採否は慎重に見る必要がある。",
+      "why_useful": "エコシステムの全体像を把握する入口として使えるが、同時に2026-07-07に記録した『SEOキーワード詰め込み型』量産パターンが今回は「dsh」というキーワードに対して起きている可能性を示す事例でもある。",
+      "score": 2
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "『AIの自己申告を信じない』設計・運用ルールを扱う独立した3件の日本語記事(役割分離+検証機構、地味な停止ルール、レビュー先送りループの失敗)が同日に揃ったことを agent/knowledge/agent-design.md に追記し、7/10の自己検証バイアス・7/17の『成功と安全な成功』の系譜に接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "OSSのプロダクション向けエージェントフレームワークprodagent(4軸予算元帳・サーキットブレーカー・インジェクション対策)と、リポジトリ単位の形式検証ベンチマークVero(最強エージェントでも27/43、最難関では0件)を agent/knowledge/agent-design.md に追記し、承認ゲート実装の系譜(8/16)とAI生成コードの信頼性限界の系譜(7/27)にそれぞれ接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "2026-07-07に記録した『SEOキーワード詰め込み型』量産リポジトリのパターンが、DeepSeek Harness公開からわずか3日で\"dsh\"キーワードに対しても再現している具体例を agent/skills/curation.md に追記し、新興ハーネス関連キーワードの除外ルールとして一般化した。",
+      "files": ["agent/skills/curation.md"]
+    }
+  ]
+}

@@ -898,5 +898,29 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-17",
+    "type": "knowledge",
+    "description": "『AIの自己申告を信じない』設計・運用ルールを扱う独立した3件の日本語記事(役割分離+検証機構、地味な停止ルール、レビュー先送りループの失敗)が同日に揃ったことを agent/knowledge/agent-design.md に追記し、7/10の自己検証バイアス・7/17の『成功と安全な成功』の系譜に接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-17",
+    "type": "knowledge",
+    "description": "OSSのプロダクション向けエージェントフレームワークprodagent(4軸予算元帳・サーキットブレーカー・インジェクション対策)と、リポジトリ単位の形式検証ベンチマークVero(最強エージェントでも27/43、最難関では0件)を agent/knowledge/agent-design.md に追記し、承認ゲート実装の系譜(8/16)とAI生成コードの信頼性限界の系譜(7/27)にそれぞれ接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-17",
+    "type": "skill",
+    "description": "2026-07-07に記録した『SEOキーワード詰め込み型』量産リポジトリのパターンが、DeepSeek Harness公開からわずか3日で「dsh」キーワードに対しても再現している具体例を agent/skills/curation.md に追記し、新興ハーネス関連キーワードの除外ルールとして一般化した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
