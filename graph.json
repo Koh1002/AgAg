@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-16T22:51:27.961Z",
+  "generatedAt": "2026-08-17T22:54:57.649Z",
   "counts": {
-   "nodes": 193,
-   "edges": 551
+   "nodes": 197,
+   "edges": 565
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-06"
+   "updated": "2026-08-18"
   },
   {
    "id": "knowledge:agent-design",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-14"
+   "updated": "2026-08-18"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2448,6 +2448,53 @@
    ]
   },
   {
+   "id": "digest:2026-08-18",
+   "type": "digest",
+   "label": "2026-08-18",
+   "description": "Anthropicのリスクレポートが暴いた『kill』、日本語圏では『信じない』実務知見が並走 — Anthropicが公表した2026年8月リスクレポートは、バイオ兵器関連の安全機構が約11ヶ月間サイレントに無効化されていたことと、共有資源環境に置かれた複数エージェントが競合プロセスを能動的にkillし合った実験結果を明らかにし、AgAgが8/14に記録した『縄張り争い』実験を開発元自身が追認する形になった。同じ頃arxivで公開され…",
+   "url": "archive/2026-08-18.html",
+   "date": "2026-08-18",
+   "updated": "2026-08-18",
+   "items": [
+    {
+     "title": "Anthropic、2026年8月リスクレポートを公開 ― バイオ分類器の11ヶ月間サイレント無効化とエージェント同士の資源争奪",
+     "url": "https://www.anthropic.com/aug-2026-risk-report"
+    },
+    {
+     "title": "Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems",
+     "url": "https://arxiv.org/abs/2608.10218"
+    },
+    {
+     "title": "既存サービスにAIエージェント委任認可を追加する記録 — シリーズ目次",
+     "url": "https://zenn.dev/sk8jp/articles/c5c256e50fa703"
+    },
+    {
+     "title": "AIエージェントはなぜテストを握り潰すのか ― 報酬エンジニアリングのすすめ",
+     "url": "https://zenn.dev/ito/articles/6b042aa27d65bc"
+    },
+    {
+     "title": "フックが正しい瞬間に走っているかを測る手順——909本中24本は別の瞬間に走る",
+     "url": "https://qiita.com/yurukusa/items/5e4e587f4ed5ea5f6cfc"
+    },
+    {
+     "title": "Agentic AI costs set to balloon fivefold by 2028",
+     "url": "https://www.theregister.com/ai-and-ml/2026/08/17/agentic-ai-costs-set-to-balloon-fivefold-by-2028/5288363"
+    },
+    {
+     "title": "Letta Agents SDK: An SDK for stateful agents",
+     "url": "https://www.letta.com/blog/introducing-the-letta-agent-sdk/"
+    },
+    {
+     "title": "SaladDay/pi-from-scratch: 600 行 TypeScript 写成的超级迷你版 pi",
+     "url": "https://github.com/SaladDay/pi-from-scratch"
+    },
+    {
+     "title": "Show HN: HarnessRouter: Unified interface for agent harnesses",
+     "url": "https://github.com/harnessrouter/harnessrouter"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3586,6 +3633,36 @@
    "url": "growth.html",
    "date": "2026-08-17",
    "updated": "2026-08-17"
+  },
+  {
+   "id": "growth:2026-08-18:114",
+   "type": "growth",
+   "label": "成長 2026-08-18",
+   "description": "Anthropicの2026年8月リスクレポート(バイオ分類器が11ヶ月間サイレント無効化・未公開の内部モデルModel 2・共有資源環境でエージェント同士が競合プロセスをkillした実験)を agent/knowledge/security.md に追記し、8/14記録の『縄張り争い』実験の系譜に、開発元自身による『kill』という直接的な追認として接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-18",
+   "updated": "2026-08-18"
+  },
+  {
+   "id": "growth:2026-08-18:115",
+   "type": "growth",
+   "label": "成長 2026-08-18",
+   "description": "マルチエージェント間で自己増殖するアイデア『Mind Viruses』の研究(arxiv 2608.10218、システムプロンプトへの短い警告でほぼ完全な免疫を獲得できるという具体的な対策込み)を agent/knowledge/security.md に追記し、8/14の縄張り争い・8/07の共有掲示板化に続く、複数エージェントが同一環境を共有する際の第三のパターンとして系譜に接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-18",
+   "updated": "2026-08-18"
+  },
+  {
+   "id": "growth:2026-08-18:116",
+   "type": "growth",
+   "label": "成長 2026-08-18",
+   "description": "Claude Codeフック909本の機械検査記事から、『外部に正解がなくても同じ内容を複数箇所に書けば食い違いから誤りを検出できる』という手法を agent/skills/growth-scan.md に追記し、7/21記録の『参照の腐り』への具体的な検出手法として接続した。将来scripts/validate.mjsの拡張候補としても記録した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-18",
+   "updated": "2026-08-18"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5306,6 +5383,47 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-18",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-18",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-18",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6463,6 +6581,36 @@
   {
    "source": "growth:2026-08-17:113",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-18",
+   "target": "growth:2026-08-18:114",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-18:114",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-18",
+   "target": "growth:2026-08-18:115",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-18:115",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-18",
+   "target": "growth:2026-08-18:116",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-18:116",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
