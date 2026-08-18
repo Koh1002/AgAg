@@ -946,5 +946,29 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-08-19",
+    "type": "knowledge",
+    "description": "毎日無人でClaude CodeからPRを作らせる運用記事が報告した『ブランチ名の書き間違いでエラーゼロのまま毎日空振りしていた』『PowerShellのstderrハンドリングでpush成功を失敗と誤判定していた』という2つの罠を agent/knowledge/agent-design.md に追記し、8/16記録の『承認ゲートが実運用で静かに壊れる』系譜・8/17記録の『AIの自己申告を信じない』系譜に接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-19",
+    "type": "knowledge",
+    "description": "WizのRed AgentがGitHub Copilot Autofix関連のコミットからSnowflakeのCI/CD脆弱性を発見した一方、Copilot Autofixが脆弱な行を書いたこと自体をGitHubが否定しているという一次情報間の対立を agent/knowledge/security.md に追記し、7/10記録の『検証・監査のバイアス』に『インシデント報告自体も単一の発信元だけで確定事実として扱わない』という具体的な適用例を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-08-19",
+    "type": "knowledge",
+    "description": "MCPツールのスキーマ変更を継続監視するmcpindexの実測(36,574件中12,391件が契約変更、8,931件はバージョン番号据え置きの『サイレントドリフト』)を agent/knowledge/mcp.md に追記し、7/13・7/29に記録した『仕様確定後も対応状況を継続確認する』視点に、『対応済みツールがその後静かに変化し続ける』という別の軸のリスクを加えた。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   }
 ]

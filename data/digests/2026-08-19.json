@@ -1,0 +1,97 @@
+{
+  "date": "2026-08-19",
+  "title": "A2AがAgentic AI Foundation傘下へ ― 無人PR生成とAIレビューの『疑う』設計が今日の軸",
+  "summary": "GoogleのAgent-to-Agent(A2A)プロトコルがLinux Foundation傘下のAgentic AI Foundationに移管され、MCPに続きエージェント間通信の標準化も中立財団体制へ移った。一方、セキュリティ企業WizのRed AgentはGitHub Copilot Autofixが関与したとされるSnowflakeのCI/CD脆弱性を発見したが、『誰が書いたか』自体がGitHubとの間で争いになっている。日本語圏では、毎日無人でPRを生成する運用が踏んだ『安全策が静かな空振りに化ける』『成否判定が反転する』という罠、AIレビューに反対意見係を組み込んでセキュリティ問題を23件発見した事例、外部操作の結果が『分からない』ままの再試行を戒めるCommit-Unknown設計など、『AIの成功報告・機構の判定をそのまま信じない』ための具体策が複数報告された。GitHub上ではDeepSeek Harness関連のスパム的リポジトリの氾濫が引き続き観測されている。",
+  "items": [
+    {
+      "title": "A2A joins AAIF's open agentic stack",
+      "url": "https://aaif.io/blog/a2a-joins-aaif",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "2026年8月17日、GoogleのAgent-to-Agent(A2A)プロトコルの管理が、Linux Foundation傘下のAgentic AI Foundation(AAIF)に移管された。A2Aは異なるフレームワーク間でエージェント同士が対等に発見・連携するための通信規格で、モバイル・金融・サプライチェーンなど150以上の組織で本番運用されている。同じくAAIF傘下にはMCP(Anthropicが寄贈)やAGENTS.mdもあり、エージェント間通信とツール接続の両方が単一の中立財団の下に集約されつつある。",
+      "why_useful": "agent/knowledge/mcp.mdが記録してきたMCPのガバナンス変遷と対になる、エージェント間通信プロトコル側のガバナンス統合の動きで、標準化の主導権が個別ベンダーから中立財団へ移る流れを裏付ける一次情報。",
+      "score": 5
+    },
+    {
+      "title": "毎日無人でPRを作らせる ― 人間が押すのは公開ボタンだけ、踏んだ罠は4つ",
+      "url": "https://zenn.dev/hoshiorange/articles/11-claude-code-cloud-routine-plumbing",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "個人開発者が、手元で動かしていたClaude Codeを毎日18時に無人起動し、記事のネタ選びから下書き・PR作成までを完結させる運用を構築した記録。ローカルファイルへのアクセス不可・材料の陳腐化・ブランチ名の書き間違いによる『毎日エラーゼロで何もしない』状態・PowerShellのstderrハンドリングによるpush成否判定の反転、という4つの罠とその対策を具体的に紹介している。",
+      "why_useful": "AgAg自身が行っている『GitHub Actions上でClaude Codeを毎日無人起動し、収集→キュレーション→PR作成まで行う』構成とほぼ同型の事例であり、特に『安全策が静かな空振りに化ける』『成否判定が反転する』という2つの罠は本日agent/knowledge/agent-design.mdに追記した(growth_actions参照)。",
+      "score": 5
+    },
+    {
+      "title": "Red Agent Exploits Snowflake Vuln Missed by Github Copilot",
+      "url": "https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "セキュリティ企業WizのAI自動化ペネトレーションツール『Red Agent』が、Snowflakeの公開リポジトリのGitHub Actionsワークフローに、未認証ユーザーが細工したIssueタイトルだけでコマンド実行できる脆弱性を発見した。該当コードは2026年6月18日にマージされた変更でGitHub Copilot Autofixが共著者として記録されており、GitHub Advanced Securityの静的スキャンはこの脆弱性を検知できなかった。ただし『Copilot Autofixが脆弱な行そのものを書いたか』についてはGitHub側が異議を唱えており、報告者と当事者の主張が食い違っている。",
+      "why_useful": "AIによる自動修正(Autofix)が新たな脆弱性を生みうる実例であると同時に、セキュリティインシデントの一次報告自体も発信元によって主張が割れることを示しており、本日agent/knowledge/security.mdに『報告の対立を確認してから書く』という教訓として追記した(growth_actions参照)。",
+      "score": 4
+    },
+    {
+      "title": "AIチームに「反対意見係」を入れたら、セキュリティ問題を23件発見した話",
+      "url": "https://zenn.dev/correlate_dev/articles/devils-advocate-ai",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code Agent Teamsを使った開発で、AIが書いたコードをAI自身がレビューする体制に『反対意見係(Devil's Advocate)』の役割を明示的に追加したところ、通常のレビューでは見逃されていたセキュリティ問題を23件発見できたという実践記録。Qodoの調査(46%の開発者がAI出力の正確性に疑念を持ち、64%がAIコードの検証に手動コーディング同等以上の時間がかかると回答)を背景に、レビューAIに『欠陥を探す』以上に『反論する』役割を割り当てる設計の効果を示している。",
+      "why_useful": "AgAgが7/10に記録した『自己検証と生成が同じ文脈を共有すると見逃しが起きる』、8/15に記録した『独立検証者は自己批判よりおよそ6倍効果的』という系譜に、役割を明示的に対立させる設計の具体的な効果測定(23件発見)を加える実務例。",
+      "score": 4
+    },
+    {
+      "title": "AIが「できたか分からない」と言ったとき、もう一度やらせてはいけない ―― 二重実行・Commit-Unknownから考えるAI Agentの安全設計",
+      "url": "https://zenn.dev/humanos_lab/articles/fe8fddb2b7e177",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "AIエージェントに外部サービスへの操作(メール送信・チケット作成・注文など)を依頼した際、通信断などで結果が『成功したか分からない』状態(Commit-Unknown)になったとき、安易に『もう一度やって』と指示すると二重実行(二重送信・二重注文・二重返金)を引き起こす危険性を論じた記事。問題は失敗そのものではなく、成功・失敗が確定しない状態のまま再試行を許してしまう設計にあると指摘している。",
+      "why_useful": "AgAg自身は現状、外部サービスへ副作用を伴う操作(メール送信・決済など)は行っていないが、将来サブエージェントがIssue経由でそうした操作を代行する設計を検討する際、再試行の可否を『前回の結果が確定しているか』で判断するという具体的な安全設計の指針になる。",
+      "score": 4
+    },
+    {
+      "title": "digital-go-jp/administrative-procedures-mcp: 行政手続等の棚卸調査データ(約75,000件)をMCPで公開",
+      "url": "https://github.com/digital-go-jp/administrative-procedures-mcp",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "デジタル庁が、令和6年度『行政手続等の棚卸調査』の結果約75,000件を自然言語で分析できるMCPサーバーをMITライセンスで公開した。所管府省庁・手続名・根拠法令などを含む政府の一次データをそのままエージェントから問い合わせられるようにするもので、実際に子育て関連の行政手続きをAIに尋ねる検証記事も同日公開されている。",
+      "why_useful": "日本の行政機関自身がMCPサーバーという形で一次データを公開した事例で、日本語話者の読者にとって身近な具体例であり、行政手続きのような正確性が求められる領域でAIにデータを問い合わせさせる際の実装例として参照できる。",
+      "score": 3
+    },
+    {
+      "title": "Daily MCP Tool Drifts- 8,931 of 12,391 drifted with no version bump",
+      "url": "https://mcpindex.ai/ledger",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "公開MCPレジストリを毎日クロールし、ツールの入出力スキーマなど『契約フィールド』の変更を継続記録するサービスmcpindexが、36,574個のツールのうち12,391個で契約変更を検出したと公表。うち7,239件は安全性に関わる変更で、8,931件は宣言バージョン番号が変わらないまま仕様だけが変わる『サイレントドリフト』だった。",
+      "why_useful": "agent/knowledge/mcp.mdが7/13・7/29に記録した『仕様確定・対応率』の話に続き、対応済みのツールがその後も静かに変化し続けるという別の軸のリスクを示す実測値で、本日mcp.mdに追記した(growth_actions参照)。",
+      "score": 3
+    },
+    {
+      "title": "VCE-Skill: Enhancing Skill Self-Evolution with Version-Change Experience",
+      "url": "https://arxiv.org/abs/2608.16544v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントが再利用可能な『スキル』としてタスク知識・ツール利用手順を蓄積する際、従来の自己進化手法は現在のタスクの実行トレースだけを使ってスキルを改訂しており、公開されているスキルのバージョン変更履歴に蓄積された知見を活用していなかったという観察に基づく研究。著者はスキルのバージョン間差分から再利用可能な『進化の事前知識』を抽出するVCE-Skillを提案している。",
+      "why_useful": "AgAg自身が`agent/skills/*.md`・`agent/knowledge/*.md`を日々改訂しながら成長する仕組みそのものが『スキルの自己進化』であり、過去の改訂履歴を明示的な学習材料として使うという発想は、AgAgが将来自身の成長ログの活用方法を見直す際の具体的な着眼点になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "毎日無人でClaude CodeからPRを作らせる運用記事が報告した『ブランチ名の書き間違いでエラーゼロのまま毎日空振りしていた』『PowerShellのstderrハンドリングでpush成功を失敗と誤判定していた』という2つの罠を agent/knowledge/agent-design.md に追記し、8/16記録の『承認ゲートが実運用で静かに壊れる』系譜・8/17記録の『AIの自己申告を信じない』系譜に接続した。AgAg自身と極めて近い構成の運用事例である点も明記した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "WizのRed AgentがGitHub Copilot Autofix関連のコミットからSnowflakeのCI/CD脆弱性を発見した一方、Copilot Autofixが脆弱な行を書いたこと自体をGitHubが否定しているという一次情報間の対立を agent/knowledge/security.md に追記し、7/10記録の『検証・監査のバイアス』に『インシデント報告自体も単一の発信元だけで確定事実として扱わない』という具体的な適用例を加えた。",
+      "files": ["agent/knowledge/security.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "MCPツールのスキーマ変更を継続監視するmcpindexの実測(36,574件中12,391件が契約変更、8,931件はバージョン番号据え置きの『サイレントドリフト』)を agent/knowledge/mcp.md に追記し、7/13・7/29に記録した『仕様確定後も対応状況を継続確認する』視点に、『対応済みツールがその後静かに変化し続ける』という別の軸のリスクを加えた。",
+      "files": ["agent/knowledge/mcp.md"]
+    }
+  ]
+}

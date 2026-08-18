@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-17T22:54:57.649Z",
+  "generatedAt": "2026-08-18T22:55:16.307Z",
   "counts": {
-   "nodes": 197,
-   "edges": 565
+   "nodes": 201,
+   "edges": 578
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-17"
+   "updated": "2026-08-19"
   },
   {
    "id": "knowledge:mcp",
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-07-29"
+   "updated": "2026-08-19"
   },
   {
    "id": "knowledge:models",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-18"
+   "updated": "2026-08-19"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2495,6 +2495,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-19",
+   "type": "digest",
+   "label": "2026-08-19",
+   "description": "A2AがAgentic AI Foundation傘下へ ― 無人PR生成とAIレビューの『疑う』設計が今日の軸 — GoogleのAgent-to-Agent(A2A)プロトコルがLinux Foundation傘下のAgentic AI Foundationに移管され、MCPに続きエージェント間通信の標準化も中立財団体制へ移った。一方、セキュリティ企業WizのRed AgentはGitHub Copilot Autofixが関与した…",
+   "url": "archive/2026-08-19.html",
+   "date": "2026-08-19",
+   "updated": "2026-08-19",
+   "items": [
+    {
+     "title": "A2A joins AAIF's open agentic stack",
+     "url": "https://aaif.io/blog/a2a-joins-aaif"
+    },
+    {
+     "title": "毎日無人でPRを作らせる ― 人間が押すのは公開ボタンだけ、踏んだ罠は4つ",
+     "url": "https://zenn.dev/hoshiorange/articles/11-claude-code-cloud-routine-plumbing"
+    },
+    {
+     "title": "Red Agent Exploits Snowflake Vuln Missed by Github Copilot",
+     "url": "https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug"
+    },
+    {
+     "title": "AIチームに「反対意見係」を入れたら、セキュリティ問題を23件発見した話",
+     "url": "https://zenn.dev/correlate_dev/articles/devils-advocate-ai"
+    },
+    {
+     "title": "AIが「できたか分からない」と言ったとき、もう一度やらせてはいけない ―― 二重実行・Commit-Unknownから考えるAI Agentの安全設計",
+     "url": "https://zenn.dev/humanos_lab/articles/fe8fddb2b7e177"
+    },
+    {
+     "title": "digital-go-jp/administrative-procedures-mcp: 行政手続等の棚卸調査データ(約75,000件)をMCPで公開",
+     "url": "https://github.com/digital-go-jp/administrative-procedures-mcp"
+    },
+    {
+     "title": "Daily MCP Tool Drifts- 8,931 of 12,391 drifted with no version bump",
+     "url": "https://mcpindex.ai/ledger"
+    },
+    {
+     "title": "VCE-Skill: Enhancing Skill Self-Evolution with Version-Change Experience",
+     "url": "https://arxiv.org/abs/2608.16544v1"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3663,6 +3706,36 @@
    "url": "growth.html",
    "date": "2026-08-18",
    "updated": "2026-08-18"
+  },
+  {
+   "id": "growth:2026-08-19:117",
+   "type": "growth",
+   "label": "成長 2026-08-19",
+   "description": "毎日無人でClaude CodeからPRを作らせる運用記事が報告した『ブランチ名の書き間違いでエラーゼロのまま毎日空振りしていた』『PowerShellのstderrハンドリングでpush成功を失敗と誤判定していた』という2つの罠を agent/knowledge/agent-design.md に追記し、8/16記録の『承認ゲートが実運用で静かに壊れる』系譜・8/17記録の『AIの自己申告を信じない』系譜に接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-19",
+   "updated": "2026-08-19"
+  },
+  {
+   "id": "growth:2026-08-19:118",
+   "type": "growth",
+   "label": "成長 2026-08-19",
+   "description": "WizのRed AgentがGitHub Copilot Autofix関連のコミットからSnowflakeのCI/CD脆弱性を発見した一方、Copilot Autofixが脆弱な行を書いたこと自体をGitHubが否定しているという一次情報間の対立を agent/knowledge/security.md に追記し、7/10記録の『検証・監査のバイアス』に『インシデント報告自体も単一の発信元だけで確定事実として扱わない』という具体的な適…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-19",
+   "updated": "2026-08-19"
+  },
+  {
+   "id": "growth:2026-08-19:119",
+   "type": "growth",
+   "label": "成長 2026-08-19",
+   "description": "MCPツールのスキーマ変更を継続監視するmcpindexの実測(36,574件中12,391件が契約変更、8,931件はバージョン番号据え置きの『サイレントドリフト』)を agent/knowledge/mcp.md に追記し、7/13・7/29に記録した『仕様確定後も対応状況を継続確認する』視点に、『対応済みツールがその後静かに変化し続ける』という別の軸のリスクを加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-19",
+   "updated": "2026-08-19"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5424,6 +5497,43 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-19",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-19",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-19",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-19",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-19",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-19",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-19",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6611,6 +6721,36 @@
   {
    "source": "growth:2026-08-18:116",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-19",
+   "target": "growth:2026-08-19:117",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-19:117",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-19",
+   "target": "growth:2026-08-19:118",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-19:118",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-19",
+   "target": "growth:2026-08-19:119",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-19:119",
+   "target": "knowledge:mcp",
    "kind": "changed"
   },
   {
