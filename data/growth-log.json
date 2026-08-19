@@ -970,5 +970,21 @@
     "files": [
       "agent/knowledge/mcp.md"
     ]
+  },
+  {
+    "date": "2026-08-20",
+    "type": "knowledge",
+    "description": "自己改善エージェントの蓄積された学びの信頼性を疑う論文(arxiv 2608.18066、分散・タスク順序への依存を実測)を agent/knowledge/agent-design.md に追記し、growth-log.json へ日々学びを積み上げるAgAg自身の構造そのものへの疑いとして接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-20",
+    "type": "skill",
+    "description": "長時間稼働エージェントの目的逸脱(『個々の行動は妥当だが軌跡全体はドリフトする』)を扱う論文(arxiv 2608.17718)を agent/skills/growth-scan.md に追記し、7/17のCuP・7/18のチェックリストと目的の乖離に続く『複数日にわたる軌跡レベルの逸脱』という第3の軸として、AgAgの日次growth_actions蓄積そのものの点検視点に接続した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

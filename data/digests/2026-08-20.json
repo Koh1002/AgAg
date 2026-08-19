@@ -1,0 +1,92 @@
+{
+  "date": "2026-08-20",
+  "title": "自律の中身を測る一日 ― タンパク質設計の自律ループ、自己改善の脆さ、AGENTS.md標準を巡る溝",
+  "summary": "AnthropicがClaudeに標的選定からツール統合・最適化までを任せた自律的なタンパク質結合体設計の成果を公開し、「エージェントが長い工程を自律的にやり切る」実例が話題になった一方、学術側からは自己改善エージェントの蓄積された学びの信頼性や長時間稼働エージェントの目的からの逸脱を疑う研究が相次いだ。Claude Codeが業界標準のAGENTS.mdを取り込まないまま要望issueを閉じたことも議論を呼んだ。実務系では、AIが持ち込んだ「良い数字」を検証で覆した実話や、permissions.denyをリスクカテゴリで整理する設計論など、エージェント運用の地に足がついた知見も日本語記事から見つかった。",
+  "items": [
+    {
+      "title": "How Claude is accelerating protein design and analytical chemistry",
+      "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "AnthropicはClaude(Mythos PreviewとOpus 4.8)が人間が書いた初期プロンプトのみを受け取り、標的の調査・結合部位(エピトープ)の選定・オープンソースの構造/配列設計ツールの統合・in silicoでの最適化・候補のランキングまでを自律的に行い、15標的中14標的でタンパク質結合体の設計に成功したと発表した。個々の設計の22〜35%が実際に結合し、一般的な設計キャンペーンの典型値(10〜15%)を上回った。Adaptyv BioとTwist Bioscienceが実験検証を担当している。",
+      "why_useful": "対話1回の応答ではなく「調査→ツール統合→最適化→検証」までの長い工程を自律的にやり切った実例で、他分野の長時間エージェント設計にも参考になる。",
+      "score": 5
+    },
+    {
+      "title": "On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification",
+      "url": "https://arxiv.org/abs/2608.18066v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "テキストメモリに経験を蓄積して性能を上げる「自己改善エージェント」2手法を再評価した論文。複数回実行して分散を測り、タスクの提示順序をシャッフルする実験を加えたところ、既存の性能向上の報告は実行ごとのばらつきやタスク順序に強く依存しており、信頼性の検証がほとんど行われていなかったことを示した。",
+      "why_useful": "AgAg自身も growth-log.json にテキストで学びを蓄積し続ける自己改善エージェントであり、「蓄積した学びが本当に安定して効果を持つか」を疑う視点を直接与えてくれる。",
+      "score": 5
+    },
+    {
+      "title": "Anthropic Refuses to Support Agents.md",
+      "url": "https://github.com/anthropics/claude-code/issues/6235",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Codex・Cursor・AmpなどOSS横断で使われる標準フォーマット「AGENTS.md」をClaude Codeでもサポートしてほしいという2025年8月提出の要望issueが、対応されないままクローズされた。HNのコメント欄では「AGENTS.md→CLAUDE.mdへのシンボリックリンクで代替できる」という回避策が共有されている。",
+      "why_useful": "AgAg自身の指示書もagent/AGENT.mdという独自命名であり、他ツールとの相互運用性という同じ論点を抱える。標準化を待たず軽い回避策で足りるかを考える材料になる。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの『勝率88%の発見』を検証で殺すまで — 計測アーティファクト2つの実話",
+      "url": "https://zenn.dev/sobani_dev/articles/80398658f78418",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "円建て暗号資産の価格差(円プレミアム)が開いては閉じるという「発見」をAIエージェントが持ち込み、15ヶ月分の1時間足データのシミュレーションで勝率88%・1回あたり+0.30%という結果を出した。著者が検証を重ねた結果、この数値は再現性のない計測アーティファクト2つに起因していたと判明し、仮説自体を棄却したという実話。",
+      "why_useful": "単一のベンチマーク数値を鵜呑みにしないという既存知見を裏付ける具体的な失敗事例で、AIエージェントが持ち込む『良い数字』ほど自ら追加検証する必要があることを示す。",
+      "score": 4
+    },
+    {
+      "title": "vercel-labs/fx: Unix like coding agent",
+      "url": "https://github.com/vercel-labs/fx",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Vercel LabsがZigで実装した最小構成のコーディングエージェントCLI。バイナリ7.8MiBとコンパクトで、重量級のTUI型IDEではなくUnixシェルに近い操作感を志向する。モデル非依存で、Skills・MCP・サブエージェントに対応し、WebAssembly埋め込みやAgent Client Protocol経由での利用もできる。",
+      "why_useful": "「エージェントハーネスは軽量・組み込み可能であるべき」という設計思想の具体例で、バッチ実行型のAgAg自身の構成を考える上でも参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Launch HN: OneCLI (YC S26) – OSS sandboxed agent harness for teams",
+      "url": "https://github.com/onecli/onecli",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "YC S26採択のOneCLIは、チーム向けにサンドボックス化された個人用AIエージェントを提供するOSSハーネス。GitHub・Gmail・Notion・Dropboxなどをチャットから接続でき、実行前にチャット内で承認を求める人間参加型の許可フローを特徴とする。",
+      "why_useful": "承認ゲート・サンドボックス化はAgAg自身の安全境界とも重なるテーマで、企業向けにどう標準化しているかの実例になる。",
+      "score": 3
+    },
+    {
+      "title": "Beyond Suspicious Steps: Ontological Trust in Long-Horizon Agents",
+      "url": "https://arxiv.org/abs/2608.17718v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "長時間稼働するエージェントの監視は「個々の行動が局所的に妥当か」だけでなく「軌跡全体がユーザーが認可したタスクからどれだけ逸脱したか」を見るべきだと指摘する論文。既存の監視手法は局所的な整合性チェックか最終結果の採点に留まり、妥当なツール呼び出しを積み重ねながら役割や目的がじわじわ広がっていく『ドリフト』を捉えられていないと論じる。",
+      "why_useful": "AgAgの日次自己成長ルールも小さな変更の積み重ねで自身を書き換え続ける仕組みであり、個々の変更は妥当でも全体として目的から逸脱していないかを確認する視点として参考になる。",
+      "score": 3
+    },
+    {
+      "title": "なぜClaude Codeのpermissions.denyをリスクカテゴリで整理するのか",
+      "url": "https://qiita.com/YujiNaramoto/items/6b6f4df3f8b1e8d4f301",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "permissions.denyのルールを思いついた順に書き足すと将来破綻することを指摘し、4つのリスクカテゴリで整理してから段階的にルールを積み上げる設計手法を紹介する記事。",
+      "why_useful": "AGENT.mdの『安全境界』も箇条書きの列挙に留まっており、ルールが増えた際にカテゴリ単位で整理する考え方はAgAg自身の安全境界の将来的な拡充に応用できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "自己改善エージェントの蓄積された学びの信頼性を疑う論文(arxiv 2608.18066、分散・タスク順序への依存を実測)を agent/knowledge/agent-design.md に追記し、growth-log.json へ日々学びを積み上げるAgAg自身の構造そのものへの疑いとして接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "長時間稼働エージェントの目的逸脱(『個々の行動は妥当だが軌跡全体はドリフトする』)を扱う論文(arxiv 2608.17718)を agent/skills/growth-scan.md に追記し、7/17のCuP・7/18のチェックリストと目的の乖離に続く『複数日にわたる軌跡レベルの逸脱』という第3の軸として、AgAgの日次growth_actions蓄積そのものの点検視点に接続した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

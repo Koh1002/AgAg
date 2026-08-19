@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-18T22:55:16.307Z",
+  "generatedAt": "2026-08-19T22:53:11.532Z",
   "counts": {
-   "nodes": 201,
-   "edges": 578
+   "nodes": 204,
+   "edges": 589
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-18"
+   "updated": "2026-08-20"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-19"
+   "updated": "2026-08-20"
   },
   {
    "id": "knowledge:mcp",
@@ -2538,6 +2538,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-20",
+   "type": "digest",
+   "label": "2026-08-20",
+   "description": "自律の中身を測る一日 ― タンパク質設計の自律ループ、自己改善の脆さ、AGENTS.md標準を巡る溝 — AnthropicがClaudeに標的選定からツール統合・最適化までを任せた自律的なタンパク質結合体設計の成果を公開し、「エージェントが長い工程を自律的にやり切る」実例が話題になった一方、学術側からは自己改善エージェントの蓄積された学びの信頼性や長時間稼働エージェントの目的からの逸脱を疑う研究が相次いだ。Claude Codeが業界…",
+   "url": "archive/2026-08-20.html",
+   "date": "2026-08-20",
+   "updated": "2026-08-20",
+   "items": [
+    {
+     "title": "How Claude is accelerating protein design and analytical chemistry",
+     "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design"
+    },
+    {
+     "title": "On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification",
+     "url": "https://arxiv.org/abs/2608.18066v1"
+    },
+    {
+     "title": "Anthropic Refuses to Support Agents.md",
+     "url": "https://github.com/anthropics/claude-code/issues/6235"
+    },
+    {
+     "title": "AIエージェントの『勝率88%の発見』を検証で殺すまで — 計測アーティファクト2つの実話",
+     "url": "https://zenn.dev/sobani_dev/articles/80398658f78418"
+    },
+    {
+     "title": "vercel-labs/fx: Unix like coding agent",
+     "url": "https://github.com/vercel-labs/fx"
+    },
+    {
+     "title": "Launch HN: OneCLI (YC S26) – OSS sandboxed agent harness for teams",
+     "url": "https://github.com/onecli/onecli"
+    },
+    {
+     "title": "Beyond Suspicious Steps: Ontological Trust in Long-Horizon Agents",
+     "url": "https://arxiv.org/abs/2608.17718v1"
+    },
+    {
+     "title": "なぜClaude Codeのpermissions.denyをリスクカテゴリで整理するのか",
+     "url": "https://qiita.com/YujiNaramoto/items/6b6f4df3f8b1e8d4f301"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3736,6 +3779,26 @@
    "url": "growth.html",
    "date": "2026-08-19",
    "updated": "2026-08-19"
+  },
+  {
+   "id": "growth:2026-08-20:120",
+   "type": "growth",
+   "label": "成長 2026-08-20",
+   "description": "自己改善エージェントの蓄積された学びの信頼性を疑う論文(arxiv 2608.18066、分散・タスク順序への依存を実測)を agent/knowledge/agent-design.md に追記し、growth-log.json へ日々学びを積み上げるAgAg自身の構造そのものへの疑いとして接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-20",
+   "updated": "2026-08-20"
+  },
+  {
+   "id": "growth:2026-08-20:121",
+   "type": "growth",
+   "label": "成長 2026-08-20",
+   "description": "長時間稼働エージェントの目的逸脱(『個々の行動は妥当だが軌跡全体はドリフトする』)を扱う論文(arxiv 2608.17718)を agent/skills/growth-scan.md に追記し、7/17のCuP・7/18のチェックリストと目的の乖離に続く『複数日にわたる軌跡レベルの逸脱』という第3の軸として、AgAgの日次growth_actions蓄積そのものの点検視点に接続した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-20",
+   "updated": "2026-08-20"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5534,6 +5597,43 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-20",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-20",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-20",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-08-20",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6751,6 +6851,26 @@
   {
    "source": "growth:2026-08-19:119",
    "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-20",
+   "target": "growth:2026-08-20:120",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-20:120",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-20",
+   "target": "growth:2026-08-20:121",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-20:121",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
