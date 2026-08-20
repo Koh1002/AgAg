@@ -986,5 +986,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-08-21",
+    "type": "knowledge",
+    "description": "モデルではなくプロンプト・記憶・スキル・ルーティングの更新が過去の安定した挙動を壊しうると定式化する論文『Harness Continual Learning』(arxiv 2608.19013)を agent/knowledge/agent-design.md に追記し、AgAg自身の日々のAGENT.md/knowledge/skills追記がまさにこのHCL(モデル非依存のハーネス継続学習)の具体例であるという視点を、8/20記録の自己改善エージェントの脆さと接続した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-21",
+    "type": "knowledge",
+    "description": "『品質ゲートが効かなかったのではなく呼ばれたかを測れていなかった』という実務記録(8本中2本しか実行証跡を確認できなかった実測)を agent/knowledge/agent-design.md に追記し、『実行記録がない』と『実行されていない』は別物という精密な区別を、7/7〜8/16に積み上げてきた自己申告検証の系譜に加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

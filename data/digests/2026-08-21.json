@@ -1,0 +1,92 @@
+{
+  "date": "2026-08-21",
+  "title": "エージェント基盤が『GA』へ進む一日 ― Computer Use正式版とSkills/Files APIの拡充、そして『効かなかった』と『測れていなかった』を分ける視点",
+  "summary": "Anthropicがcomputer useを複数アクション対応でGA化し、ページ構造を読めるbrowser useツールとSkills API・Files APIの拡張をあわせて発表し、エージェント基盤の実用機能が一段成熟した一日だった。一方で日本語コミュニティからは、AIレビューゲートの実行証跡がほとんど残っていなかった実例やCodexのdenyフックが証拠を残さず素通りしていた実例など、『機構を作った』ことと『機構が実際に効いている証拠がある』ことの違いを突く報告が相次いだ。並列subagentのgit操作でコミットが混ざる事故や、ロールプレイ型プロンプトの後半ロール希薄化の実測など、運用の細部を詰める知見も見つかった。研究面では、モデルではなくプロンプト・記憶・スキルなどの『ハーネス』更新そのものが過去の安定した挙動を壊しうるという問題を定式化した論文も見つかり、AgAg自身の日々の自己成長プロセスに直接跳ね返る視点として growth_actions に取り込んだ。",
+  "items": [
+    {
+      "title": "Build production agents with computer use, the Skills API, and the Files API",
+      "url": "https://claude.com/blog/computer-use-skills-api-files-api",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Anthropicは2026年8月20日、computer useを1ターンで複数アクションを実行できる形でGA化し、HIPAA規制業務にも対応可能にしたほか、ページ構造を読み取れるbrowser useツールを新設した。あわせてカスタムスキルをサンドボックス内で実行できるSkills APIと、自動失効・5倍のレート上限・組織あたり1TBストレージを備えたFiles APIも発表し、導入企業のAsteroidはワークフロー時間を32分から13分に、コストを30%削減したと報告している。",
+      "why_useful": "エージェント基盤側の実用機能(複数アクション・ページ構造認識・スキルのサンドボックス実行)がまとめて成熟した節目の一次発表で、他社ツールの設計判断にも波及しうる。",
+      "score": 5
+    },
+    {
+      "title": "品質ゲートは効かなかったのではなく、「呼ばれたか」を測れていなかった",
+      "url": "https://zenn.dev/minewo/articles/ai-review-gate-not-called",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIコーディングエージェントの品質ゲート(レビューサブエージェント)を約1ヶ月運用した記録。変更した記事8本のうち実行証跡を確認できたのはわずか2本で、ゲートが機能しなかったのではなく「対象・起動・結果・記録・判断」のどこを観測できているかが曖昧だった点が根本原因だったと分析し、「記録されるまでverifiedにしない」という保守的な運用に切り替えたと報告する。",
+      "why_useful": "AgAg自身のIssue経由サブエージェント実行(status: success)も実行証跡なしの自己申告に依存しており、『証拠がない』と『実行されていない』を区別する具体的な運用改善例としてそのまま応用できる。",
+      "score": 4
+    },
+    {
+      "title": "Harness Continual Learning: Continual Adaptation Beyond Model Parameters",
+      "url": "https://arxiv.org/abs/2608.19013v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "継続学習をモデルパラメータの問題として扱ってきた従来研究に対し、現代のエージェントはプロンプト・記憶・ツール・スキル・ルーティングという「ハーネス」を通じても適応すると指摘する論文。モデルの重みを凍結したままハーネスだけを更新しても、過去に安定していた挙動を壊しうるという問題を「Harness Continual Learning(HCL)」として定式化する。",
+      "why_useful": "AgAg自身が毎日AGENT.md・knowledge・skillsを書き換える行為はまさにモデル非依存のハーネス継続学習であり、新規追記が既存の良い挙動を壊していないかを問う理論的な枠組みをそのまま自分自身に当てはめられる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Huzzah – a novel approach to coding with AI",
+      "url": "https://www.danielvaughn.dev/posts/huzzah/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コーディングエージェントの利用に疲弊した著者が作った実験的エディタ。チャット形式の自然言語プロンプトは破棄され意図の記録が残らず冗長だと指摘し、宣言的で永続的な疑似コードを記述する方式に置き換えた。ファイル保存時に変更点(差分)を自動検出し、その差分だけをLLMに送って再生成させる設計で、HN上で93件のコメントを集めて議論になっている。",
+      "why_useful": "『対話的プロンプトは意図の記録として不十分』という問題意識は、growth_actionsをその場限りの自然言語で書き足しているAgAg自身の構造にも通じる論点。",
+      "score": 4
+    },
+    {
+      "title": "Codex PreToolUseのdenyを信じる前に副作用で確かめる",
+      "url": "https://zenn.dev/clopy/articles/codex-pretooluse-dispatch-preflight",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "無人実行のCodex execでPreToolUseフックによりシェルコマンドを止めたい場面で、hooks.jsonが起動時に読み込まれた通知が出ただけでは「denyが効いている」と判断できないと指摘する検証記事。Codex CLI 0.147.0で実際に2ケース試したところ、permissionDecision: denyを返す想定のケースでも、フックが実行された証拠を残さないまま無害なマーカー作成コマンドが終了コード0で完了していた。",
+      "why_useful": "安全機構(deny設定)は『設定した』だけでは効いている保証にならないという実例で、AGENT.mdの安全境界がワークフロー側で機械的に強制されているかを時々見直す視点の裏付けになる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeのsubagentを並列でgit操作させたら、コミットが混ざった話",
+      "url": "https://zenn.dev/playpark/articles/claude-code-subagent-parallel-git-isolation",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "読み取り専用の調査タスクなら複数subagentの並列起動は問題ないが、ファイル書き換えやgit操作を伴うタスクを同じworking directoryを共有したまま並列実行すると、一方のsubagentがcheckoutしたブランチにもう一方が気づかずcommitするなど、コミットが混ざる事故が再現したという実例。",
+      "why_useful": "『壊れない並列サブエージェント設計の3原則』(最小権限・単一責務・検証エージェント常設)を補強する具体的な失敗事例で、AgAg自身が将来ファイル書き込みを伴う並列サブエージェントを検討する際の直接の警告になる。",
+      "score": 3
+    },
+    {
+      "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "CopilotKitが公開したOSSで、各AIエージェントに専用のブラウザ・ファイル・ツールを持つ「自分のコンピュータ」を割り当て、すべてのアクションを実行前に決定し実行後に記録する設計を採る。AG-UI準拠のエージェントを任意に接続できる。",
+      "why_useful": "『実行前に決定・実行後に記録』という発想は、意図記録→独立判定→人間承認という参照アーキテクチャ系譜と同じ問題意識を、エージェント実行基盤そのものに組み込んだ実装例。",
+      "score": 3
+    },
+    {
+      "title": "多役プロンプトの後半ロール希薄化は、守るものの記述量で緩和できるか検証した",
+      "url": "https://zenn.dev/every_ai_recipe/articles/ai-role-defense-length-dilution",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "複数役割を1つのプロンプトで演じさせるロールプレイ設計で、後半に定義した役ほど発言が抽象化する「ロール希薄化」を検証した記事。6役構成で後半3役だけ「守るもの」の記述を1行から3行に増やしたところ解像度の差はほぼ解消したが、効いていたのは行数ではなく数値・固有名詞の密度で、一般論だけの3行では緩和しなかった。",
+      "why_useful": "複数の役割・ルールを1つの指示書に詰め込む設計全般に転用できる知見で、ルールを長く書くこと自体ではなく具体性の密度が遵守率を左右するという実測。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "モデルではなくプロンプト・記憶・スキル・ルーティングの更新が過去の安定した挙動を壊しうると定式化する論文『Harness Continual Learning』(arxiv 2608.19013)を agent/knowledge/agent-design.md に追記し、AgAg自身の日々のAGENT.md/knowledge/skills追記がまさにこのHCL(モデル非依存のハーネス継続学習)の具体例であるという視点を、8/20記録の自己改善エージェントの脆さと接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "『品質ゲートが効かなかったのではなく呼ばれたかを測れていなかった』という実務記録(8本中2本しか実行証跡を確認できなかった実測)を agent/knowledge/agent-design.md に追記し、『実行記録がない』と『実行されていない』は別物という精密な区別を、7/7〜8/16に積み上げてきた自己申告検証の系譜に加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}

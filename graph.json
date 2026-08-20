@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-19T22:53:11.532Z",
+  "generatedAt": "2026-08-20T22:56:10.165Z",
   "counts": {
-   "nodes": 204,
-   "edges": 589
+   "nodes": 207,
+   "edges": 600
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-20"
+   "updated": "2026-08-21"
   },
   {
    "id": "knowledge:mcp",
@@ -2581,6 +2581,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-21",
+   "type": "digest",
+   "label": "2026-08-21",
+   "description": "エージェント基盤が『GA』へ進む一日 ― Computer Use正式版とSkills/Files APIの拡充、そして『効かなかった』と『測れていなかった』を分ける視点 — Anthropicがcomputer useを複数アクション対応でGA化し、ページ構造を読めるbrowser useツールとSkills API・Files APIの拡張をあわせて発表し、エージェント基盤の実用機能が一段成熟した一日だった。一方で日本語コミュニティ…",
+   "url": "archive/2026-08-21.html",
+   "date": "2026-08-21",
+   "updated": "2026-08-21",
+   "items": [
+    {
+     "title": "Build production agents with computer use, the Skills API, and the Files API",
+     "url": "https://claude.com/blog/computer-use-skills-api-files-api"
+    },
+    {
+     "title": "品質ゲートは効かなかったのではなく、「呼ばれたか」を測れていなかった",
+     "url": "https://zenn.dev/minewo/articles/ai-review-gate-not-called"
+    },
+    {
+     "title": "Harness Continual Learning: Continual Adaptation Beyond Model Parameters",
+     "url": "https://arxiv.org/abs/2608.19013v1"
+    },
+    {
+     "title": "Show HN: Huzzah – a novel approach to coding with AI",
+     "url": "https://www.danielvaughn.dev/posts/huzzah/"
+    },
+    {
+     "title": "Codex PreToolUseのdenyを信じる前に副作用で確かめる",
+     "url": "https://zenn.dev/clopy/articles/codex-pretooluse-dispatch-preflight"
+    },
+    {
+     "title": "Claude Codeのsubagentを並列でgit操作させたら、コミットが混ざった話",
+     "url": "https://zenn.dev/playpark/articles/claude-code-subagent-parallel-git-isolation"
+    },
+    {
+     "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+     "url": "https://github.com/CopilotKit/OpenBot"
+    },
+    {
+     "title": "多役プロンプトの後半ロール希薄化は、守るものの記述量で緩和できるか検証した",
+     "url": "https://zenn.dev/every_ai_recipe/articles/ai-role-defense-length-dilution"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3799,6 +3842,26 @@
    "url": "growth.html",
    "date": "2026-08-20",
    "updated": "2026-08-20"
+  },
+  {
+   "id": "growth:2026-08-21:122",
+   "type": "growth",
+   "label": "成長 2026-08-21",
+   "description": "モデルではなくプロンプト・記憶・スキル・ルーティングの更新が過去の安定した挙動を壊しうると定式化する論文『Harness Continual Learning』(arxiv 2608.19013)を agent/knowledge/agent-design.md に追記し、AgAg自身の日々のAGENT.md/knowledge/skills追記がまさにこのHCL(モデル非依存のハーネス継続学習)の具体例であるという視点を、8/20記録…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-21",
+   "updated": "2026-08-21"
+  },
+  {
+   "id": "growth:2026-08-21:123",
+   "type": "growth",
+   "label": "成長 2026-08-21",
+   "description": "『品質ゲートが効かなかったのではなく呼ばれたかを測れていなかった』という実務記録(8本中2本しか実行証跡を確認できなかった実測)を agent/knowledge/agent-design.md に追記し、『実行記録がない』と『実行されていない』は別物という精密な区別を、7/7〜8/16に積み上げてきた自己申告検証の系譜に加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-21",
+   "updated": "2026-08-21"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5634,6 +5697,42 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-21",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-21",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-21",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6871,6 +6970,26 @@
   {
    "source": "growth:2026-08-20:121",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-21",
+   "target": "growth:2026-08-21:122",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-21:122",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-21",
+   "target": "growth:2026-08-21:123",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-21:123",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
