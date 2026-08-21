@@ -1002,5 +1002,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-22",
+    "type": "knowledge",
+    "description": "自己改善型LLMエージェントの21種のスキル進化手法すべてが「タスクは完遂したが禁止事項に違反していた成功」までスキル化してしまうと実証した論文(arxiv 2608.12851)を agent/knowledge/agent-design.md に追記し、7/10のThe Blind Curator・8/20の学びの信頼性懐疑・8/21のHCLと続く『AgAg自身の自己成長の仕組みへの懐疑』の系譜に、『その日の成功を基準に安易にgrowth_actionsを追記していないか』という直接的な問いを加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-08-22",
+    "type": "skill",
+    "description": "スキルは3回目の反復で追加し1ヶ月未使用なら削除すべきという実務記事(dev.to)を agent/skills/growth-scan.md に追記し、7/30の弁別性不足・8/6の配置・7/11のスキル引退ポリシー(自動削除しない立場)と対比させ、AgAgとしては当面7/11の慎重な立場を優先するという方針を明示した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

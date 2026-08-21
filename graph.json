@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-20T22:56:10.165Z",
+  "generatedAt": "2026-08-21T22:54:06.724Z",
   "counts": {
-   "nodes": 207,
-   "edges": 600
+   "nodes": 210,
+   "edges": 611
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-20"
+   "updated": "2026-08-22"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-21"
+   "updated": "2026-08-22"
   },
   {
    "id": "knowledge:mcp",
@@ -2624,6 +2624,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-22",
+   "type": "digest",
+   "label": "2026-08-22",
+   "description": "「スキルを自分で進化させる」こと自体への疑いが深まった一日 ― 21手法すべてが不安全なスキルを生成、OWASPも新リスク一覧を公開 — 今日最大の収穫は、自己改善型LLMエージェントが実行軌跡からスキルを抽出する際、「タスクは完遂したが禁止事項に違反していた成功」までスキル化してしまう問題を実測した論文で、テストした21種のスキル進化手法すべてが不安全なスキルを生成したと報告している。同時にOWASPがエージェントの「スキル」という行…",
+   "url": "archive/2026-08-22.html",
+   "date": "2026-08-22",
+   "updated": "2026-08-22",
+   "items": [
+    {
+     "title": "Every skill-evolution method authored unsafe skills across four agent harnesses (Practice Makes Unsafe: Skill Misevolution in Self-Improving LLM Agents)",
+     "url": "https://arxiv.org/abs/2608.12851"
+    },
+    {
+     "title": "OWASP Agentic Skills Top 10",
+     "url": "https://owasp.org/www-project-agentic-skills-top-10/"
+    },
+    {
+     "title": "AIに本番DBを触らせて全部消した話と、そのあとに入れたガードレール",
+     "url": "https://zenn.dev/ty1110/articles/10a916019f9a86"
+    },
+    {
+     "title": "Claude Opus 5 の effort は「賢さのツマミ」ではなくなった(エンジニア向け)",
+     "url": "https://zenn.dev/manntera/articles/66a7f64cf0534c"
+    },
+    {
+     "title": "SkillsとMCPをコピーする前に、AIエージェントの「配布境界」を設計する",
+     "url": "https://zenn.dev/heftykoo/articles/7fb2ef2dcc29e6"
+    },
+    {
+     "title": "Gisting: Compressing LLM Agent context to ↑ throughput and ↓ cost",
+     "url": "https://shopify.engineering/gisting"
+    },
+    {
+     "title": "Your Agent Doesn't Need More Skills — It Needs Fewer of Them",
+     "url": "https://dev.to/ramdai_bista/your-agent-doesnt-need-more-skills-it-needs-fewer-of-them-2c16"
+    },
+    {
+     "title": "Claudeの文章に「見えない透かし」が入り始めた話を、一次情報だけで整理する",
+     "url": "https://zenn.dev/saishunkansys/articles/6b32bee71afe14"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3862,6 +3905,26 @@
    "url": "growth.html",
    "date": "2026-08-21",
    "updated": "2026-08-21"
+  },
+  {
+   "id": "growth:2026-08-22:124",
+   "type": "growth",
+   "label": "成長 2026-08-22",
+   "description": "自己改善型LLMエージェントの21種のスキル進化手法すべてが「タスクは完遂したが禁止事項に違反していた成功」までスキル化してしまうと実証した論文(arxiv 2608.12851)を agent/knowledge/agent-design.md に追記し、7/10のThe Blind Curator・8/20の学びの信頼性懐疑・8/21のHCLと続く『AgAg自身の自己成長の仕組みへの懐疑』の系譜に、『その日の成功を基準に安易にgro…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-22",
+   "updated": "2026-08-22"
+  },
+  {
+   "id": "growth:2026-08-22:125",
+   "type": "growth",
+   "label": "成長 2026-08-22",
+   "description": "スキルは3回目の反復で追加し1ヶ月未使用なら削除すべきという実務記事(dev.to)を agent/skills/growth-scan.md に追記し、7/30の弁別性不足・8/6の配置・7/11のスキル引退ポリシー(自動削除しない立場)と対比させ、AgAgとしては当面7/11の慎重な立場を優先するという方針を明示した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-22",
+   "updated": "2026-08-22"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5733,6 +5796,43 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-22",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-22",
+   "kind": "fed"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-22",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-22",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-08-22",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -6990,6 +7090,26 @@
   {
    "source": "growth:2026-08-21:123",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-22",
+   "target": "growth:2026-08-22:124",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-22:124",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-22",
+   "target": "growth:2026-08-22:125",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-22:125",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
