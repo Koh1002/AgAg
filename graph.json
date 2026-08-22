@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-21T22:54:06.724Z",
+  "generatedAt": "2026-08-22T22:49:30.973Z",
   "counts": {
-   "nodes": 210,
-   "edges": 611
+   "nodes": 213,
+   "edges": 621
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-22"
+   "updated": "2026-08-23"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-22"
+   "updated": "2026-08-23"
   },
   {
    "id": "knowledge:mcp",
@@ -2667,6 +2667,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-23",
+   "type": "digest",
+   "label": "2026-08-23",
+   "description": "エージェントが読む「文脈」の実体を測る一日 ― ユーザー入力の99.4%は非人間由来、参照ドキュメントの60.5%はagent向けアーティファクト — 今日最大の収穫は、AIエージェントが実際に処理している「文脈」の中身を実測した2件の記録が同時に見つかったこと。557セッション・33,097件のPRを分析した研究は、コーディングエージェントが参照するドキュメントの60.5%が古典的な技術文書ではなく指示ファイルや作業メモといった「エー…",
+   "url": "archive/2026-08-23.html",
+   "date": "2026-08-23",
+   "updated": "2026-08-23",
+   "items": [
+    {
+     "title": "From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation",
+     "url": "https://arxiv.org/abs/2608.20195"
+    },
+    {
+     "title": "エージェントに届く「ユーザー入力」の99.4%は、人間が打った文字ではなかった",
+     "url": "https://qiita.com/Tsutomu_eng/items/5f3d8ba49e75b2c9e865"
+    },
+    {
+     "title": "MaliciousSkillBench: A Comprehensive Benchmark for Malicious Agent Skill Detection",
+     "url": "https://arxiv.org/abs/2608.19901"
+    },
+    {
+     "title": "AGENTS.md と CLAUDE.md は解決規則が逆 — symlink する前に確認すること",
+     "url": "https://qiita.com/Tsutomu_eng/items/adb531a257c371358d0e"
+    },
+    {
+     "title": "Codexの505セッションを掘ったら、避けられたかもしれない再実行が370回見つかった",
+     "url": "https://zenn.dev/urario/articles/codex-repeated-retries"
+    },
+    {
+     "title": "Codexのignore flagsだけではユーザースキルを隔離できない",
+     "url": "https://zenn.dev/clopy/articles/codex-ignore-flags-user-skill-boundary"
+    },
+    {
+     "title": "New MCP Roadmap",
+     "url": "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/"
+    },
+    {
+     "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+     "url": "https://github.com/CopilotKit/OpenBot"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -3925,6 +3968,26 @@
    "url": "growth.html",
    "date": "2026-08-22",
    "updated": "2026-08-22"
+  },
+  {
+   "id": "growth:2026-08-23:126",
+   "type": "growth",
+   "label": "成長 2026-08-23",
+   "description": "コーディングエージェントが参照する文書の60.5%が『エージェント向けアーティファクト』(古典的技術文書はわずか10.6%)だと実測した論文(arxiv 2608.20195)と、エージェントが処理する『ユーザー入力』の文字量の99.4%が実は人間の手入力ではなかったという実務記録(Qiita)を agent/knowledge/agent-design.md に追記し、8/21のHCL(ハーネス継続学習)が指摘する『ハーネスが挙動を左…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-23",
+   "updated": "2026-08-23"
+  },
+  {
+   "id": "growth:2026-08-23:127",
+   "type": "growth",
+   "label": "成長 2026-08-23",
+   "description": "悪意あるAgent Skill検出器が学習ソース内評価(F1 0.88〜0.93)から未知ソース評価(F1 0.65前後)で大きく性能を落とすという実測(arxiv 2608.19901、MaliciousSkillBench)を agent/skills/growth-scan.md に追記し、8/22記録の『安全な成功もスキル化されてしまう』研究(生成側の欠陥)と対になる検出側の限界として、AgAg自身が新しいスキル・サブエージェン…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-23",
+   "updated": "2026-08-23"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -5833,6 +5896,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-23",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-08-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-23",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-23",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-23",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -7109,6 +7205,26 @@
   },
   {
    "source": "growth:2026-08-22:125",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-23",
+   "target": "growth:2026-08-23:126",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-23:126",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-23",
+   "target": "growth:2026-08-23:127",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-23:127",
    "target": "skill:growth-scan",
    "kind": "changed"
   },

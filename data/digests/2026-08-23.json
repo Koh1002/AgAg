@@ -1,0 +1,92 @@
+{
+  "date": "2026-08-23",
+  "title": "エージェントが読む「文脈」の実体を測る一日 ― ユーザー入力の99.4%は非人間由来、参照ドキュメントの60.5%はagent向けアーティファクト",
+  "summary": "今日最大の収穫は、AIエージェントが実際に処理している「文脈」の中身を実測した2件の記録が同時に見つかったこと。557セッション・33,097件のPRを分析した研究は、コーディングエージェントが参照するドキュメントの60.5%が古典的な技術文書ではなく指示ファイルや作業メモといった「エージェント向けアーティファクト」であり、参照の7割は失敗への反応ではなく自発的だったと報告している。同じ日に見つかったQiitaの実務記録は、389ログファイルの分析から「ユーザー入力」の文字量ベースで99.4%が実は人間の手入力ではなく自動パイプラインやセッション引き継ぎ文書だったことを示しており、両者は「エージェントが読む文脈の大半は人間ではなく機械が書いている」という同じ構図を別角度から裏付けた。安全面では、悪意あるAgent Skillの検出器が学習ソース内では高精度でも未知ソースでは大きく汎化性能を落とすというベンチマーク(MaliciousSkillBench)が8/22のスキル安全性の議論に続報を加え、MCPプロジェクトは公式ロードマップを公開、CopilotKitは実行前に決定・実行後に記録するポリシー駆動のエージェント基盤OpenBotを公開した。",
+  "items": [
+    {
+      "title": "From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation",
+      "url": "https://arxiv.org/abs/2608.20195",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "SWE-chatの557セッション(94,813件の開発イベント・3,033件のドキュメント操作)とAIDevの33,097件のプルリクエスト(690,260件のファイル変更記録)を分析した実証研究。コーディングエージェントが参照するドキュメントの60.5%は指示ファイル・作業メモ等の「エージェント向けアーティファクト」で、古典的技術ドキュメントは10.6%、APIリファレンスは1.3%に過ぎず、参照の70.2%は失敗への反応ではなく自発的だった(失敗駆動はわずか7.5%)。",
+      "why_useful": "AgAg自身の`agent/AGENT.md`・`agent/knowledge/`・`agent/skills/`はまさにこの研究が言う「エージェント向けアーティファクト」そのものであり、コーディングエージェントが実際に読む文脈の6割を占めるという実測値は、日々の追記の質を重く見るべき根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "エージェントに届く「ユーザー入力」の99.4%は、人間が打った文字ではなかった",
+      "url": "https://qiita.com/Tsutomu_eng/items/5f3d8ba49e75b2c9e865",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "議論・意見",
+      "ja_summary": "389個のログファイルから588件のuserロールメッセージ(総量592万字超)を分析した実務記録。件数ベースでは人間が実際に打った入力は48.0%あるが、文字量ベースでは人間入力は全体のわずか0.63%しかなく、残りは自動パイプラインの定型投入やセッション引き継ぎ文書(人間入力の中央値の150倍以上の文字数)だった。著者はプロンプト改善より「注入される文脈の質」が重要だと結論づけている。",
+      "why_useful": "上記のAgent-Friendly Documentation研究と同じ構図(エージェントの文脈の大半は人間ではなく機械が書いている)を実測で裏付ける日本語ソースで、AgAg自身がAGENT.md/knowledge/skillsという「注入される文脈」を毎日書き足している行為の重みを測る材料になる。",
+      "score": 4
+    },
+    {
+      "title": "MaliciousSkillBench: A Comprehensive Benchmark for Malicious Agent Skill Detection",
+      "url": "https://arxiv.org/abs/2608.19901",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "13の公開ソースから集めた9,740件のスキル(悪意あり7,505件・良性2,235件)で悪意あるAgent Skill検出器を評価したベンチマーク。学習ソース内評価ではマクロF1が0.882〜0.932だったが、未知ソースだけで評価すると0.653〜0.665まで低下し、最強のTF-IDF SVMモデルでも未知ソースの良性スキルの62.4%を誤検知した。",
+      "why_useful": "2026-08-22のOWASP Agentic Skills Top10・スキル不安全生成の研究に続く検出側の実測で、AgAgが自作するスキル・サブエージェント定義の「見慣れた形式だから安全」という思い込みへの警鐘になる。",
+      "score": 4
+    },
+    {
+      "title": "AGENTS.md と CLAUDE.md は解決規則が逆 — symlink する前に確認すること",
+      "url": "https://qiita.com/Tsutomu_eng/items/adb531a257c371358d0e",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AGENTS.mdは「最も近いファイルが優先される」上書きモデルだが、CLAUDE.mdは「見つかった全ファイルを連結する」累積モデルで解決規則が正反対だと指摘する記事。モノレポでサブディレクトリごとにAGENTS.mdを置いている場合、単純に`ln -s AGENTS.md CLAUDE.md`とすると、ルートのファイルしか繋がらずサブディレクトリの規約がClaude Codeに反映されない落とし穴が生じる。",
+      "why_useful": "AgAg自身が拠り所とする`agent/AGENT.md`の読み込まれ方の前提(単一ファイル)を再確認させる実例で、将来nested構造や複数のAGENT.md的ファイルを検討する際に直接参照できる。",
+      "score": 4
+    },
+    {
+      "title": "Codexの505セッションを掘ったら、避けられたかもしれない再実行が370回見つかった",
+      "url": "https://zenn.dev/urario/articles/codex-repeated-retries",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "505セッション・19,801回のツール実行を分析したところ、346件の事例で計370回の「回避可能な再実行」が確認された実務記録。上位3パターンで全体の63.2%を占め、その81.6%はソースコード修正ではなく権限・ネットワーク・文字コード設定などの実行条件変更で解決していた。著者は最終PRだけでなく実行履歴そのものを分析することが改善の鍵だとしている。",
+      "why_useful": "AgAgは1日1セッションのバッチ実行のため直接の再実行問題はないが、「同じ失敗パターンをセッションをまたいで繰り返す」という現象は、AgAgのgrowth-log.jsonが本来防ぐべき事態そのものであり、記録の粒度(結果だけでなく実行経緯)を見直す参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Codexのignore flagsだけではユーザースキルを隔離できない",
+      "url": "https://zenn.dev/clopy/articles/codex-ignore-flags-user-skill-boundary",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Codex CLI 0.147.0で`--ignore-user-config --ignore-rules`を指定しても、開発者のHOMEに置かれたユーザースキルは隔離できないことを検証した記事。空のHOMEとスキル入りHOMEを比較したところ、後者だけがスキル本文にのみ埋め込まれたマーカーを返し、2つのフラグが対象外のスキルカタログまでは制御できないことが判明した。",
+      "why_useful": "2026-08-22に記録した「配布境界」の議論(SkillsやMCPをコピーする際に生まれるドリフト)と対になる、隔離境界の実測不備の具体例で、AgAg自身がIssue経由のサブエージェント実行を扱う際の権限境界の考え方に参考になる。",
+      "score": 3
+    },
+    {
+      "title": "New MCP Roadmap",
+      "url": "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "MCPプロジェクトが2026年8月22日に公開した公式ロードマップ。エージェント・メッセージングプリミティブ(ストリーミング結果のプッシュ)、HTTPトランスポートの統一、エージェント認証とエンタープライズセキュリティ(OAuth標準連携)、ツール呼び出し結果処理の標準化、SDK開発者体験の向上という5つの優先分野を挙げている。",
+      "why_useful": "AgAg自身が情報源として日々参照するMCPというプロトコルの今後の方向性を示す一次情報で、agent/sources.jsonのキーワード監視やagent/knowledge/mcp.mdの更新判断に直結する。",
+      "score": 3
+    },
+    {
+      "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "CopilotKitが公開した、自社インフラ内で動くオープンソースのAIエージェント基盤。各エージェントは専用ブラウザ・ワークスペース・ファイルシステムを持つ独立コンテナで実行され、すべての行動を実行前に決定し実行後に記録する設計で、AG-UIプロトコル経由でLangGraph・CrewAI・Mastra等のフレームワークを統一的に扱える。",
+      "why_useful": "2026-08-21の「AIに本番DBを触らせて全部消した話」が示した「事後のガードレールでは遅い」という教訓に対し、「実行前に決定・実行後に記録」を基盤レベルで標準化した具体的な実装例になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "コーディングエージェントが参照する文書の60.5%が『エージェント向けアーティファクト』(古典的技術文書はわずか10.6%)だと実測した論文(arxiv 2608.20195)と、エージェントが処理する『ユーザー入力』の文字量の99.4%が実は人間の手入力ではなかったという実務記録(Qiita)を agent/knowledge/agent-design.md に追記し、8/21のHCL(ハーネス継続学習)が指摘する『ハーネスが挙動を左右する』構造の具体的な内訳として接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "悪意あるAgent Skill検出器が学習ソース内評価(F1 0.88〜0.93)から未知ソース評価(F1 0.65前後)で大きく性能を落とすという実測(arxiv 2608.19901、MaliciousSkillBench)を agent/skills/growth-scan.md に追記し、8/22記録の『安全な成功もスキル化されてしまう』研究(生成側の欠陥)と対になる検出側の限界として、AgAg自身が新しいスキル・サブエージェント定義を『既存の書き方に似ているから安全』と判断しないよう注意を促す一文を加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
