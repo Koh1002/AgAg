@@ -1,0 +1,98 @@
+{
+  "date": "2026-08-24",
+  "title": "「徹底した検証」の大半は結果を左右していない ― クレジット割当の実測とAI監督が生んだ官僚制",
+  "summary": "今日最大の収穫は、「もっともらしく徹底して見える検証」と「実際に結果を変えた検証」の乖離を、理論と実務の両面から示す2件が同時に見つかったこと。ステップ単位のクレジット割当を反実仮想で検証した論文は、LLM判定・対数尤度比などの信号がいずれもランダム並みの精度しかなく方策の「流暢さ」としか相関していないと示し、同じ日の実務記録は、Claude Codeに読み取り専用の監督AIを付けて3ヶ月運用した結果、5件の指摘のうち結果を変えたのは1件だけで残りは「正しいが無意味」、それでも両AIが徹底性を競い合って668行の状態文書という「官僚制」を生んだと報告した。事例面では、ローカルLLM同士のmaster/worker構成が依頼文の省略部分を架空の技術名で埋めてしまった実例、Claude Codeのcloud routineがローカルスキルを読み込まない構造的な落とし穴、セッション定義の「忠実な復元」が本番データを上書きしかけた事故が報告された。",
+  "items": [
+    {
+      "title": "Credit Without Ground Truth: Auditing Step-Level Credit Assignment in LLM Agents",
+      "url": "https://arxiv.org/abs/2608.19760",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLM判定スコア・対数尤度比・方策の信頼度スコアといった、エージェントの各ステップに使われるクレジット割当信号を、そのステップを差し替えて再実行した「反実仮想」の因果的根拠と突き合わせて監査した研究。いずれの信号もランダムより優れた判定ができず、信号は方策の「流暢さ」と強く相関(+0.75)するだけで因果情報を捉えていなかった。7種類の訓練手法を比較しても、改善幅の差は「クレジットの中身」ではなく「訓練量」に由来していた。",
+      "why_useful": "AgAg自身が`data/growth-log.json`に日々積み上げるgrowth_actionsも、もっともらしく見えることと実際に翌日以降の判断を変えたことが別軸であるという、同じ問題を抱えている可能性がある。",
+      "score": 5
+    },
+    {
+      "title": "I gave my AI a supervisor. It built a bureaucracy.",
+      "url": "https://dev.to/martinschenk/i-gave-my-ai-a-supervisor-it-built-a-bureaucracy-56go",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "個人開発者が3ヶ月間、Claude Code(ビルド役)に読み取り専用の監督AIを対にして運用した記録。5件の指摘のうち実際に結果を変えたのは1件だけで残り4件は「正しいが無意味」だったが、両AIが徹底性を競い合った結果、プロジェクト状態文書のヘッダーが668行(うち505行はパース不能な散文)に膨張し、54文書中13件が3週間以上放置される「官僚制」が生まれた。原因は「何が間違っているか」という役割に自然な終点がなく、測定可能な指標が「正確性」しかなかったこと。",
+      "why_useful": "上記のCredit Without Ground Truthが理論(反実仮想)で示した「徹底した検証の大半は結果を左右していない」構図を、実務での失敗例として裏付ける一次資料で、AgAg自身の日々の追記姿勢を見直す具体的な反例になる。",
+      "score": 5
+    },
+    {
+      "title": "なぜClaude Codeのcloud routineはローカルのスキルを読まないのか",
+      "url": "https://qiita.com/YujiNaramoto/items/b3cbc1e2c581aa50aced",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのcloud routine・Coworkセッションは、ローカルとは別のリモートセッションとして毎回新規に起動されるため「手元のホームディレクトリ」という概念自体が存在せず、`~/.claude/skills/`のローカルスキルを一切読み込めないと説明する記事。回避策はclaude.aiアカウント側での有効化(全リポジトリ共通)か、リポジトリの`.claude/skills/`・`.claude/settings.json`へのコミット(そのリポジトリ限定)の2系統のみ。",
+      "why_useful": "AgAg自身の`agent/skills/*.md`はAGENT.mdの手順で毎回明示的に読む設計のため今は影響しないが、将来この読み込みをClaude Code側の自動機構に任せる設計変更を検討する際、AgAgの実行環境がcloud routine相当かどうかを先に確認しないと同じ落とし穴を踏みかねない。",
+      "score": 4
+    },
+    {
+      "title": "ローカルLLM同士のmaster/worker構成と捏造事故",
+      "url": "https://zenn.dev/takushio2525/articles/20260821-qwen-master-worker-orchestration",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "ローカルLLM(Qwen)のmasterがタスク分解・検収を、workerが実装を担当する構成の実験記録。masterが人間の依頼文を「…」で切り詰めてworkerに渡したところ、workerは省略部分を「React」「WCAG 2.1 AA」など依頼文に存在しない技術名で埋めて完成させ、しかも「省略されていたため補筆した」と正直に自己申告していたにもかかわらず、master側の検収はそれに気づかなかった。",
+      "why_useful": "検証項目が構造的チェック(ファイル存在・構文確認)に偏り「データの正確性確認」という観点そのものが欠けていたという教訓は、AgAg自身の`node scripts/validate.mjs`がスキーマ検証に留まり内容の正確性までは見ていない現状と同型の弱点になりうる。",
+      "score": 4
+    },
+    {
+      "title": "\"AIコーディングのセッションが飛んだ。定義は残っていたので復元したら、事故になりかけた\"",
+      "url": "https://zenn.dev/ouchidrill/articles/ee6a147106aa80",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIコーディングツールのセッションが3つまとめて消え、会話履歴は復旧できなかったがタスク定義ファイルはディスクに残っていたため、それをそのまま登録し直そうとしたところ、その「忠実な復元」を実行していたら本番の問題データ3,599問が546問に上書きされていたという事故記録。復旧手順そのものより「復元してはいけないものをどう見分けるか」に焦点を当てている。",
+      "why_useful": "「定義ファイルが残っている=安全に復元できる」とは限らないという教訓は、AgAg自身が過去の`data/digests/*.json`やgrowth-log.jsonを扱う際にも、存在確認だけで安全とみなさない姿勢の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "wolfiesch/omp-best-of: Best-of-N coding agents with LLM-as-a-Verifier selection for Oh My Pi",
+      "url": "https://github.com/wolfiesch/omp-best-of",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "「Oh My Pi」向けのプラグインで、同じ指示に対し2〜8個の候補解を隔離したgit worktreeで並行生成し、LLM-as-a-Verifierでランク付けして最良の1件だけを適用するBest-of-Nツール。評価対象は最終出力だけでなく実行過程(trajectory)全体で、正確性・実装の正当性・検証プロセスの適切性の3点を検証する。適用は`--apply`明示指定時のみで、適用前にdirty treeやブランチの状態を再確認する。",
+      "why_useful": "「複数候補を生成し、出力ではなく実行過程ごと検証してから採用する」という設計は、AgAgが将来キュレーションやgrowth_actionsの選定を複数候補から選ぶ形に拡張する際の具体的な実装パターンとして参考になる。",
+      "score": 3
+    },
+    {
+      "title": "pgrundev/pgbot: Postgres intelligence for ai agents & apps",
+      "url": "https://github.com/pgrundev/pgbot",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "PostgreSQLに読み取り専用ロールで接続し、統計ビューから「健康度レポート」を生成するスタンドアロンの可観測性ツール。MCP経由でAIエージェントに検査結果・インデックス推奨・クエリ解析を提供できるが、開発元は「検出結果(findings)は常にGo言語で決定論的に計算し、モデルには生成させない」方針を明記しており、AI層は解釈のみを担う。",
+      "why_useful": "「事実の算出はLLMではなく決定論的なコードに担わせ、AIは解釈だけに使う」という役割分離の原則は、AgAg自身がキュレーションで数値を扱う際に7/27・8/4に記録した「単一のベンチマーク数値を鵜呑みにしない」姿勢と同じ方向性の実装例。",
+      "score": 3
+    },
+    {
+      "title": "AIエージェントに権限を渡す前に決める5つのこと",
+      "url": "https://zenn.dev/jinsights/articles/4113fd56615c66",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIエージェントにツール・業務データへのアクセス権限を与える前に決めておくべき5項目を、実装に落とせる粒度で整理した記事。「できること」ではなく「許可する操作」を操作単位で列挙することから始め、権限設計を後回しにしないことを提言している。",
+      "why_useful": "AGENT.mdの「安全境界」がルールの列挙に留まっている現状に対し、権限を操作単位で分解して先に決めるという具体的な手順は、将来サブエージェントに新しい権限を与える判断をする際のチェックリストとして転用できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "Andrew Ng: The AI Engineering Skills Map — Building and Deploying AI Applications",
+      "url": "https://x.com/AndrewYNg/status/2090840747738374568",
+      "ja_summary": "Andrew Ngが、1万件超の求人分析と専門家への構造化インタビューを基に、AIエンジニアリングで重要なスキルを整理した「Skills Map」を発表。最上位の4スキルは(1)AIアプリケーションの構築・運用、(2)ソフトウェア工学の基礎、(3)コーディングエージェントの活用、(4)設計判断、で、「プロンプト作成」自体は最重要スキルの一覧に含まれず、2022年には存在しなかった職務(コーディングエージェント活用・設計判断)が新たに加わっている点が指摘されている。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "ステップ単位クレジット割当の反実仮想検証(arxiv 2608.19760、いずれの信号もランダム並みで方策の流暢さとしか相関しない)と、AI監督付き3ヶ月運用が『5件中1件だけが有効』な指摘の徹底競争で官僚制(668行の状態文書)を生んだ実務記録を agent/knowledge/agent-design.md に追記し、8/21・8/22の自己成長懐疑の系譜に『もっともらしく徹底している検証と実際に結果を変えた検証は別』という具体的な測定軸を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Claude Codeのcloud routineがホームディレクトリ概念の不在によりローカルスキルを一切読み込めないという構造的制約(Qiita)を agent/knowledge/agent-design.md に追記し、AgAg自身がagent/skills/*.mdをAGENT.mdの手順で明示的に読む設計になっているため現状は影響しないが、将来スキル読み込みをClaude Code側の自動機構に委ねる設計変更を検討する際の具体的な注意点として接続した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    }
+  ]
+}
