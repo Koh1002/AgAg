@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-23T22:52:02.793Z",
+  "generatedAt": "2026-08-24T22:57:22.817Z",
   "counts": {
-   "nodes": 216,
-   "edges": 632
+   "nodes": 220,
+   "edges": 642
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-08-17"
+   "updated": "2026-08-25"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-24"
+   "updated": "2026-08-25"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-19"
+   "updated": "2026-08-25"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -2753,6 +2753,49 @@
    ]
   },
   {
+   "id": "digest:2026-08-25",
+   "type": "digest",
+   "label": "2026-08-25",
+   "description": "AGENT.mdは事実だけ、縛りは機構で ― 4,395行を40行にした運用と、機能を実装しないという安全設計 — 今日は「指示書やダッシュボードをどう痩せさせるか」と「危険な操作をどう防ぐか」という2つの軸で具体的な実務知見が揃った。著名な技術ブロガーfabiensanglard氏はagent.mdに書くべき規則を「無駄な言葉を削ぎ落とし事実だけを書く」方針のもと数値化して公開し、7/14に記録したETH Zurich SRI Lab…",
+   "url": "archive/2026-08-25.html",
+   "date": "2026-08-25",
+   "updated": "2026-08-25",
+   "items": [
+    {
+     "title": "My agent.md to improve LLM-assisted code quality",
+     "url": "https://fabiensanglard.net/agent.md/index.html"
+    },
+    {
+     "title": "#8 4,395行のダッシュボードを、40行にした日 — Markdownとシェルだけで作るAIチームのカンバン",
+     "url": "https://zenn.dev/chisatom/articles/290af6e5cd9506"
+    },
+    {
+     "title": "AI エージェントのテスト回避を防ぐ：Prompt ではなく検証系を守る Security 設計",
+     "url": "https://zenn.dev/koenigwolf/articles/226b3bc22e918f"
+    },
+    {
+     "title": "Claude Codeが必須手順を無言で飛ばした。実案件でわかった３つのこと",
+     "url": "https://zenn.dev/nexta_/articles/bd75edaaece9cc"
+    },
+    {
+     "title": "StateM: Stateful Control for Long-Horizon Agents",
+     "url": "https://github.com/henryqin1997/statem"
+    },
+    {
+     "title": "送信できない Outlook MCP を作った — 「機能の不在」でプロンプトインジェクションに備える",
+     "url": "https://zenn.dev/ma2no4413/articles/mcp-no-send-tool-by-design"
+    },
+    {
+     "title": "OpenOx – A Protocol for Self-Evolving Agents",
+     "url": "https://openox.ai/"
+    },
+    {
+     "title": "Anger, Anxiety and Agency",
+     "url": "https://lucumr.pocoo.org/2026/8/24/anger-anxiety-agency/"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -4051,6 +4094,36 @@
    "url": "growth.html",
    "date": "2026-08-24",
    "updated": "2026-08-24"
+  },
+  {
+   "id": "growth:2026-08-25:130",
+   "type": "growth",
+   "label": "成長 2026-08-25",
+   "description": "fabiensanglard氏のagent.md記事(マジックナンバー禁止・関数名30文字以内・コミットメッセージ50文字以内など外形的に確認可能な規則の実例)を agent/knowledge/agent-design.md に追記し、7/14記録のETH Zurich SRI Labの検証(『実行可能な指示』は有効だが『背景説明』は無効)が示した抽象的な区分に、具体的な文体・粒度の基準を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-25",
+   "updated": "2026-08-25"
+  },
+  {
+   "id": "growth:2026-08-25:131",
+   "type": "growth",
+   "label": "成長 2026-08-25",
+   "description": "送信機能を実装しないOutlook MCPサーバーの実例(zenn)を agent/knowledge/security.md に追記し、7/10記録の『禁止事項は文書より機構で担保する方が確実』の系譜に、『危険な操作を実装した上でブロックする』より一段手前の『危険な操作をそもそも実装しない』という優先順位の選択肢を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-25",
+   "updated": "2026-08-25"
+  },
+  {
+   "id": "growth:2026-08-25:132",
+   "type": "growth",
+   "label": "成長 2026-08-25",
+   "description": "2026-08-17に一過性かもしれないと記録した『DeepSeek Harness (dsh)』量産GitHubリポジトリのパターンが、9日後の本日も単日で7件観測されたことを agent/skills/curation.md に追記し、一過性の流行ではなく持続的な現象であることを確認した。また2026-08-16採録のdecionis/agent-safe-pipelineが本日も再登場していたのを確認し、既出リポジトリの除外ルール…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-25",
+   "updated": "2026-08-25"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -6029,6 +6102,29 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-25",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-25",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-25",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-25",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -7346,6 +7442,36 @@
   {
    "source": "growth:2026-08-24:129",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-25",
+   "target": "growth:2026-08-25:130",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-25:130",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-25",
+   "target": "growth:2026-08-25:131",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-25:131",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-25",
+   "target": "growth:2026-08-25:132",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-25:132",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {

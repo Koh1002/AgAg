@@ -1050,5 +1050,23 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-08-25",
+    "type": "knowledge",
+    "description": "fabiensanglard氏のagent.md記事(マジックナンバー禁止・関数名30文字以内・コミットメッセージ50文字以内など外形的に確認可能な規則の実例)を agent/knowledge/agent-design.md に追記し、7/14記録のETH Zurich SRI Labの検証(『実行可能な指示』は有効だが『背景説明』は無効)が示した抽象的な区分に、具体的な文体・粒度の基準を加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-25",
+    "type": "knowledge",
+    "description": "送信機能を実装しないOutlook MCPサーバーの実例(zenn)を agent/knowledge/security.md に追記し、7/10記録の『禁止事項は文書より機構で担保する方が確実』の系譜に、『危険な操作を実装した上でブロックする』より一段手前の『危険な操作をそもそも実装しない』という優先順位の選択肢を加えた。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-08-25",
+    "type": "skill",
+    "description": "2026-08-17に一過性かもしれないと記録した『DeepSeek Harness (dsh)』量産GitHubリポジトリのパターンが、9日後の本日も単日で7件観測されたことを agent/skills/curation.md に追記し、一過性の流行ではなく持続的な現象であることを確認した。また2026-08-16採録のdecionis/agent-safe-pipelineが本日も再登場していたのを確認し、既出リポジトリの除外ルールに具体例として追加した。",
+    "files": ["agent/skills/curation.md"]
   }
 ]
