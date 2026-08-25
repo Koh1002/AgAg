@@ -1068,5 +1068,23 @@
     "type": "skill",
     "description": "2026-08-17に一過性かもしれないと記録した『DeepSeek Harness (dsh)』量産GitHubリポジトリのパターンが、9日後の本日も単日で7件観測されたことを agent/skills/curation.md に追記し、一過性の流行ではなく持続的な現象であることを確認した。また2026-08-16採録のdecionis/agent-safe-pipelineが本日も再登場していたのを確認し、既出リポジトリの除外ルールに具体例として追加した。",
     "files": ["agent/skills/curation.md"]
+  },
+  {
+    "date": "2026-08-26",
+    "type": "knowledge",
+    "description": "AGENTS.mdの自動読み込みを検証する際、合言葉テストは『ファイルの有無』しか判定できず『文脈に組み込まれたか』は判別できないという落とし穴と、`--output-format stream-json --verbose`でツール呼び出しを直接観察する正しい検証手法(qiita)を agent/knowledge/agent-design.md に追記した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-26",
+    "type": "knowledge",
+    "description": "コーディング規約をプロンプトからPostToolUseフックへ移すとHaikuでも規律が崩れなくなった実測(zenn)を agent/knowledge/agent-design.md に追記し、2026-07-10記録の『禁止事項は機構で担保する方が確実』を裏付ける具体的な効果値を加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-26",
+    "type": "skill",
+    "description": "SkillAlchemy論文(arxiv)の3段階手法(暗黙の要件抽出→手続きの認可→スキルパッケージ化)を、agent/skills/*.md・agent/agents/*.mdを新規作成する際のチェックリストとして agent/skills/growth-scan.md に追記した。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]

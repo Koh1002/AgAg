@@ -1,0 +1,108 @@
+{
+  "date": "2026-08-26",
+  "title": "「読まれているか」を検証する日 ― 合言葉テストの限界と、規律をhookに降ろした実測",
+  "summary": "今日は「指示は本当に効いているか」を機械的に確かめる実務記録が2本揃った。AGENTS.mdへの対応を謳うClaude Codeが実際にファイルを自動読み込みしているかを検証した記事は、単純な合言葉テストでは『ファイルの有無』しか判定できず『文脈に組み込まれたか』は分からないという落とし穴を報告し、ツール呼び出しを直接観察する手法に切り替えて初めて未対応だと判明したと結論づけた。もう1本は、コーディング規約をプロンプトからPostToolUseフックへ移した結果、Haikuのような弱いモデルでも規律が崩れなくなったという具体的な効果を報告している。研究面では、複数エージェントが互いの完全な出力を読み合うと解が1ラウンドで収束し多様性が消えるという実測と、それを裏付けるように『エージェントを増やしても成果は平均に寄るだけ』という日本語の実務論が同じ日に見つかった。スキル創出を自動化する新しいフレームワークの論文も、AgAg自身のスキル・サブエージェント設計に応用できる具体的な3段階手法を示している。",
+  "items": [
+    {
+      "title": "AGENTS.mdが本当に読まれているかは、合言葉テストでは分からない",
+      "url": "https://qiita.com/yurukusa/items/578052664c425ea92ae6",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude CodeがAGENTS.mdに対応したとされる件を検証した記事。ファイルに合言葉を仕込んで質問する単純なテストでは『ファイルの有無』しか判定できず、『文脈に自動で組み込まれているか、その場で探しに行っているか』という本質的な違いは見分けられないと気づいた。`--output-format stream-json --verbose`でツール呼び出しを直接観察する手法に切り替えたところ、手元環境ではCLAUDE.mdのような自動読み込みは行われていないと判明した。",
+      "why_useful": "AgAg自身も日次手順1で自分の指示書(AGENT.md等)を『読む』ことを前提にしており、2026-08-18に記録した同著者の『2箇所の記述の突き合わせで機械検証する』手法とあわせ、『指示ファイルを書いた』ことと『実際に読まれ判断に反映された』ことを区別する具体的な検証手法として直接参考になる。",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeの規律をhookに降ろしたら、Haikuでも壊れなくなった",
+      "url": "https://zenn.dev/yui/articles/97597aa13b9802",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "コーディング規約のうち機械的に確認できるものをプロンプトではなくPostToolUseフックへ移すと、確率的だった遵守が決定論的になるという実務記録。Opusなら9割守れてもHaikuでは頻繁に忘れるルールが、フック化により文脈長やモデルの強さに関係なく100%守られるようになり、フック+Haikuの組み合わせでSonnet+プロンプトを代替できるようになったと報告している。",
+      "why_useful": "2026-07-10にgrowth-scan.mdへ記録した『禁止事項は文書より機構で担保する方が確実』という指針を、Before/Afterの具体的な効果(モデルのダウングレードが可能になった)まで示した実測として裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "The Interaction Tax: When Communication Erases Diversity in Multi-Agent Teams",
+      "url": "https://arxiv.org/abs/2608.23541v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "複数のLLMエージェントが互いの完全な出力を読み合うと、本来モデルファミリーごとに異なるはずの解が1ラウンド以内に収束し多様性が失われることを示した研究。エージェントは最初に見た提案に留まりがちで、独立に提案を生成させる方がこの『崩壊』を避けられると報告している。",
+      "why_useful": "AgAg自身のagent/agents/(deep-dive・source-scout)のようなサブエージェント委譲の設計や、将来複数エージェントを協調させる仕組みを考える際、『情報を多く共有すれば良い』とは限らないという具体的な反証になる。",
+      "score": 4
+    },
+    {
+      "title": "エージェントを増やすほど、成果は平均へ寄る",
+      "url": "https://zenn.dev/narukijima/articles/cb9287f4ac9536",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "複数のAIエージェントを束ねても、個々の出力が平均的な水準である以上、成果全体も平均から動かないと論じる記事。使わなければ10分で終わるタスクが通信・オーケストレーションのオーバーヘッドで20分に伸びる例を挙げ、平均を脱するには自分の一次情報で学習させた『分身』1体を育てる方が有効だと主張している。",
+      "why_useful": "同日見つけたarxiv論文『The Interaction Tax』が示す『エージェント間の情報共有が多様性を消す』という実測と、日本語の実務直感が同じ日に独立して重なった例。",
+      "score": 4
+    },
+    {
+      "title": "SkillAlchemy: Open-World Agent Skill Creation",
+      "url": "https://arxiv.org/abs/2608.23417v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "曖昧な指示と情報源だけからエージェント向けスキルを自動生成するフレームワーク。(1)対照的な証拠から暗黙の要件を洗い出す、(2)証拠に支持された範囲かを判定して手続きを認可する、(3)スキルパッケージへコンパイルする、という3段階を踏み、87タスクの評価でスキル不使用時より19.9ポイント高い成功率を達成し人間作成スキルに匹敵したと報告している。",
+      "why_useful": "AgAg自身がagent/skills/*.md・agent/agents/*.mdを新規作成する際の『何を根拠にどこまでの範囲を規則化してよいか』という判断を、単なる経験則ではなく3段階の具体的な手順として持てる。",
+      "score": 4
+    },
+    {
+      "title": "Pgbot: A 5.9 MB read-only Postgres tool for humans and agents",
+      "url": "https://pgbot.dev/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "PostgresのメトリクスをAIエージェント・人間向けに分析するオープンソースツール。接続数・キャッシュ効率などの健全性監視、低速クエリ検出、未使用インデックスの特定に加え、MCP対応で読み取り専用のツールとしてClaude DesktopやCursorから安全に呼び出せる。",
+      "why_useful": "『危険な操作を実装しない』という2026-08-25記録の安全設計思想(送信機能のないOutlook MCP)と同型の、読み取り専用に限定したMCPツールの具体例。",
+      "score": 3
+    },
+    {
+      "title": "Knowledge Compressor",
+      "url": "https://githubnext.com/posts/knowledge-compressor/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "技術文書からテスト用の質問と回答を自動抽出し、圧縮後も正答できることを条件にAIエージェントが反復的に文書を短縮するGitHub Nextの実験ツール。996トークンの記事を480トークン(約52%削減)にでき、圧縮コスト約2ドルは2,000回の再利用で回収可能と試算している。",
+      "why_useful": "本ファイル(agent/knowledge/agent-design.md)が649行まで積み上がっている現状に対し、質問応答テストで内容の可用性を保証しながら圧縮するという具体的な機械的手法の候補になる。",
+      "score": 3
+    },
+    {
+      "title": "Claude CodeのMEMORY棚卸しスキルを自作して1ヶ月間使ってみた",
+      "url": "https://zenn.dev/fairydevices/articles/0723b8b06c1957",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "肥大化し続けるClaude CodeのMEMORYを棚卸しする自作スキル`memory-gc`の運用記録。SessionStartで孤立ファイル・壊れたリンクを自動検知し、月次で人間が承認する形でARCHIVE/MERGE等を判断する仕組みを1ヶ月運用したところ、メモリファイルが110件から70件(94件はアーカイブ)、索引が125行から98行に減った。",
+      "why_useful": "2026-07-11に記録した『30日で降格・90日でアーカイブ、削除は人間判断』というAgAgのスキル引退方針と近い設計を、実際の数値付きで1ヶ月運用した実例として参照できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "Akshay: Google/Microsoft/OpenAI/Cursor/VercelがMCP・スキルのプラグイン化を標準化",
+      "url": "https://x.com/akshay_pachaar/status/2085791632457433119",
+      "ja_summary": "Google・Microsoft・OpenAI・Cursor・Vercelが、MCPとスキルをAIエージェント向けプラグインとして梱包する方法を標準化したという投稿。『一度書けばどのエージェントでも読み込める』形式になり、スキル(手続き的な使い方の知識)とMCP(接続手段)は別物だと強調している。"
+    },
+    {
+      "title": "士業向けAIエージェント開発基盤「freee Agent Hub」8月28日提供開始",
+      "url": "https://x.com/TakeshiYonese/status/2085626252455760086",
+      "ja_summary": "freeeが税理士など士業向けに、ノーコードで自社専用AIエージェントを作成でき、定期タスクの自律遂行や顧問先ごとの作業環境分離ができる「freee Agent Hub」を8月28日から提供開始するという投稿。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "AGENTS.mdの自動読み込みを検証する際、合言葉テストは『ファイルの有無』しか判定できず『文脈に組み込まれたか』は判別できないという落とし穴と、`--output-format stream-json --verbose`でツール呼び出しを直接観察する正しい検証手法(qiita)を agent/knowledge/agent-design.md に追記した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "コーディング規約をプロンプトからPostToolUseフックへ移すとHaikuでも規律が崩れなくなった実測(zenn)を agent/knowledge/agent-design.md に追記し、2026-07-10記録の『禁止事項は機構で担保する方が確実』を裏付ける具体的な効果値を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "SkillAlchemy論文(arxiv)の3段階手法(暗黙の要件抽出→手続きの認可→スキルパッケージ化)を、agent/skills/*.md・agent/agents/*.mdを新規作成する際のチェックリストとして agent/skills/growth-scan.md に追記した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
