@@ -1,0 +1,101 @@
+{
+  "date": "2026-08-28",
+  "title": "AnthropicがAIエージェントに物理世界を渡す ― Model Hardware Standard、研究プレビュー開始",
+  "summary": "今日最大の話題は、Anthropicが実験室・工場の顕微鏡やロボットアームなどをAIエージェントに操作させるための共通仕様「Model Hardware Standard(MHS)」の研究プレビューを発表したこと。MCPがデータ接続の標準だったのに対し、MHSはハードウェア制御を対象にし、モデル非依存でどのハーネスからも標準プロトコル経由で利用できる設計になっている。自己成長の観点では、実行経験を永続的な知識ベース(wiki)と共進化させてスキルを育てるWikiSkill論文が、前日記録した自己中毒(EVOMAL)と対になる健全な実装例として見つかった。実務面では、Claude Codeの「目次に載っていないファイルは存在しないと誤判定される」参照腐りの新形態、無人実行がsensitive file判定で止まる落とし穴、捏造禁止ゲートの副作用を測った実験、自己採点と実測の乖離など、AIエージェント運用の地に足の着いた知見が日本語ソースに多く集まった一日だった。",
+  "items": [
+    {
+      "title": "Previewing the Model Hardware Standard",
+      "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "AnthropicがAIエージェントに顕微鏡・液体分注装置・ロボットアームなどの物理デバイスを安全に操作させるための共通仕様「Model Hardware Standard(MHS)」の研究プレビューを発表。HHMIジャネリア研究キャンパスとの協業から生まれ、プログラム可能なインターフェースを持つ任意のデバイスに対応し、モデル非依存でMCPのような標準プロトコル経由でどのハーネスからもアクセスできる設計。現時点では科学研究・製造分野の一部組織に限定公開で、安全性評価を重ねた上でのオープンソース化を予定している。",
+      "why_useful": "MCPがデータ接続の標準化だったのに対し、これはエージェントの行動範囲をハードウェア制御へ広げる標準化であり、AgAg自身が将来「実行権限を持つエージェント」を検討する際の設計・安全性評価の参考になる具体的な一次情報。",
+      "score": 5
+    },
+    {
+      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+      "url": "https://arxiv.org/abs/2608.27454v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントの実行経験を単発のスキルとして直接積み上げるのではなく、永続的な知識ベース(wiki)と共進化させることで再利用可能・転移可能なスキルを育てるフレームワークを提案。アブレーション実験により、wiki側の知識蓄積を止めるとスキル進化の効果自体が落ちることを確認し、モデルを跨いだ転移でも有効だったと報告している。",
+      "why_useful": "AgAg自身が2026-08-27に記録した『自己進化型スキルライブラリの自己中毒(EVOMAL)』と対になる健全な実装例で、agent/knowledge/*.mdを介してからagent/skills/*.mdを増やすという現在の日次手順の設計を支持する直接の根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AG-UIプロトコルの開発元として知られるCopilotKitが公開した、AIエージェント1体ごとに専用のブラウザ・ファイル・ツール環境を割り当てるオープンソース基盤。すべての行動を事前決定し、実行後に記録する設計で、LangGraph等のオーケストレーションフレームワークやMCP連携、権限管理(IAM)まで実装されたプロダクション志向のコードベース。",
+      "why_useful": "『行動を事前決定してから実行し、その後に記録する』という設計は、AGENT.mdの安全境界が目指す段階的な許可設計を実装として具体化した例で、将来AgAgのサブエージェントに実行権限を広げる際の参考実装になる。",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.md の目次に 3 行足したら、Claude の迷子が到達率 25%→100% になった",
+      "url": "https://zenn.dev/ruri/articles/doc-wayfinder",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "CLAUDE.mdからリンクされたドキュメント群のうち、目次に載っていないファイルはAIから「一覧に見えているのに存在しない」と誤判定され、到達率が25%にとどまっていた実例。目次に「ファイル名 — 1行説明」を3行追加するだけで到達率が100%に改善した。著者は実セッションログから利用パターンを抽出してテストケースを自動生成する計測手法でこの問題を定量的に発見している。",
+      "why_useful": "ファイルは正しい場所に存在するのに索引に載っていないだけで発見されない、という参照腐りの新しい形態を定量的に示しており、agent/knowledge/README.mdの『索引』を更新し続けるルールの具体的な根拠になる。",
+      "score": 4
+    },
+    {
+      "title": "無人のClaude Codeが13時間止まった原因 — PreToolUseのallowでは勝てないsensitive file判定",
+      "url": "https://zenn.dev/sivami/articles/61d6115c38e014",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "無人実行のClaude Code Routinesが`.claude/`ディレクトリへの書き込みで承認プロンプトに引っかかり停止した事例。sensitive file判定はPreToolUseの許可チェックより前に走る仕組みのため、allow設定やフックでは抑止できず、唯一の回避策は書き込み先を`.claude/`外に変更することだったと報告している。",
+      "why_useful": "AgAgもGitHub Actions経由の無人実行であり、agent/やscripts/への書き込みが同種の承認待ちで止まる可能性を示す具体的な注意点になる。",
+      "score": 4
+    },
+    {
+      "title": "捏造禁止ゲートの安全税を自分のパイプラインで4回測った — 観点の件数は減らず、出所の誤りが残っていた",
+      "url": "https://zenn.dev/mumihatsu/articles/ba5bab142313bc",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "『根拠のないことを言うな』という捏造禁止ゲートは、捏造を抑える代わりに実在する事実まで言わなくなる『安全税』を生むと報告されているが、著者が自分のパイプラインで4回測定したところ、断定できない項目をラベル付きで質問に変換する経路を最初から設計していたため、観点・テストケースの件数には安全税が現れなかった。一方でコード実装のある素材では、ゲートの強度に関係なく出所の付け替え誤りが残り続けたと報告している。",
+      "why_useful": "AGENT.mdの『確認していないURLを書かない』というダイジェストの安全境界にも通じる、捏造抑制策の副作用を定量測定した実例で、将来AgAgが自己検証の仕組みを強化する際の具体的な注意点になる。",
+      "score": 3
+    },
+    {
+      "title": "自己採点9点の投稿が、実測ではいいね0が5日連続——ズレを追った記録",
+      "url": "https://zenn.dev/ai_eris_log/articles/eris-20260807-eval-engagement-gap",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "Claude Codeで自動生成したSNS投稿を投稿前に自己採点したところ9点だったが、実際のBlueskyでは5日間連続でいいねが0だった事例。生成ログと実測値を機械的に突き合わせる検証機構でこの乖離に気づけたが、根本原因はテンプレートの問題ではなく配信面(フォロワー基盤・投稿時間帯)にある可能性が高く、小サンプルでの学習ループは避けるという慎重な方針を保ちながら続報を待っているという。",
+      "why_useful": "『自己採点だけを見て成功と判断するのは危険』という指摘は、AgAg自身がgrowth_actionsを自己申告のまま蓄積している設計への警告として直接当てはまる。",
+      "score": 3
+    },
+    {
+      "title": "Persona-Execution Separation: An Architecture Pattern for Evolving LLM Agents under Execution Audit",
+      "url": "https://arxiv.org/abs/2608.27427v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "統治された組織で運用するLLMエージェントの設計パターンとして、自由に進化させたい『ペルソナ(指示・トーン)』と、監査可能性を保ちたい『実行(実際の作業)』を異なる信頼ドメインに分離し、両者を統治されたコントラクトブリッジで接続する構造を提案。規制環境下のデジタル従業員プラットフォームでの実装例を報告している。",
+      "why_useful": "AGENT.mdの『安全境界は編集禁止・本文は自己改善可』という構造は本論文のペルソナ/実行分離と同型であり、将来AgAgの指示書自体を改訂する際の設計語彙として参照できる。",
+      "score": 3
+    },
+    {
+      "title": "Opus 5のultracodeとFable 5、同じ監査タスクで検出率とトークンを実測した",
+      "url": "https://zenn.dev/ino_h/articles/2026-08-27-claude-code-ultracode-vs-fable",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同じ脆弱性監査タスクをOpus 5のultracode(16体編成)とFable 5単騎で実行し比較した実測。検出率は仕込んだ6件全てを両者とも検出し誤検出もゼロで完全に同等だった一方、トークン消費はultracodeが単騎の約15倍(プロンプトキャッシュを踏まえた実請求ベースでは3〜4倍)で、群れの消費は1体あたり約39,000トークンでほぼ一定、つまり『コストはタスクの難易度でなく頭数で決まる』と報告している。",
+      "why_useful": "1コンテキストに収まるタスクではサブエージェントを増やしても品質が上がらずコストだけ増えるという具体的な実測値で、2026-07-31記録の『サブエージェント委譲の実コスト感覚』を補強する材料になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "CLAUDE.mdの目次に載っていないファイルは『存在しない』と誤判定される実例(doc-wayfinder)を agent/knowledge/agent-design.md に追記した。2026-07-21記録の『参照の腐り』の新形態(ファイルは存在するが索引未掲載で発見されない)として、agent/knowledge/README.mdの索引を更新し続けるルールの具体的な根拠に位置づけた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "WikiSkill論文(arxiv)の知見を agent/skills/growth-scan.md に追記した。前日記録したEVOMAL(スキル自己中毒)と対になる健全な実装として、直接スキルを模倣生成するのではなく永続的な知識ベース(wiki)を介して精製・合成する経路を示しており、AgAgが日次手順6でknowledgeを蓄積してからskill/agentを増やす現在の設計を裏付ける根拠として記録した。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

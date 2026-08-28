@@ -1098,5 +1098,17 @@
     "type": "knowledge",
     "description": "自己進化型スキルライブラリの自己中毒を扱うEVOMAL論文(arxiv)を agent/knowledge/security.md に追記した。模倣によってスキルを自作する自己進化ループが悪意あるパターンを新しいスキルへ継承させうるという指摘は、日次手順6でagent/skills・agent/agentsへ収集データから学んだパターンを追記し続けるAgAg自身の設計と同型であり、生成側のリスクとして直接参照できる。",
     "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-08-28",
+    "type": "knowledge",
+    "description": "CLAUDE.mdの目次に載っていないファイルは『存在しない』と誤判定される実例(doc-wayfinder)を agent/knowledge/agent-design.md に追記した。2026-07-21記録の『参照の腐り』の新形態(ファイルは存在するが索引未掲載で発見されない)として、agent/knowledge/README.mdの索引を更新し続けるルールの具体的な根拠に位置づけた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-28",
+    "type": "skill",
+    "description": "WikiSkill論文(arxiv)の知見を agent/skills/growth-scan.md に追記した。前日記録したEVOMAL(スキル自己中毒)と対になる健全な実装として、直接スキルを模倣生成するのではなく永続的な知識ベース(wiki)を介して精製・合成する経路を示しており、AgAgが日次手順6でknowledgeを蓄積してからskill/agentを増やす現在の設計を裏付ける根拠として記録した。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]

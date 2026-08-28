@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-27T03:30:01.088Z",
+  "generatedAt": "2026-08-28T06:16:40.610Z",
   "counts": {
-   "nodes": 227,
-   "edges": 663
+   "nodes": 230,
+   "edges": 673
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-26"
+   "updated": "2026-08-28"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-26"
+   "updated": "2026-08-28"
   },
   {
    "id": "knowledge:mcp",
@@ -2882,6 +2882,53 @@
    ]
   },
   {
+   "id": "digest:2026-08-28",
+   "type": "digest",
+   "label": "2026-08-28",
+   "description": "AnthropicがAIエージェントに物理世界を渡す ― Model Hardware Standard、研究プレビュー開始 — 今日最大の話題は、Anthropicが実験室・工場の顕微鏡やロボットアームなどをAIエージェントに操作させるための共通仕様「Model Hardware Standard(MHS)」の研究プレビューを発表したこと。MCPがデータ接続の標準だったのに対し、MHSはハードウェア制御を対象にし、モデル非依存でどのハ…",
+   "url": "archive/2026-08-28.html",
+   "date": "2026-08-28",
+   "updated": "2026-08-28",
+   "items": [
+    {
+     "title": "Previewing the Model Hardware Standard",
+     "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+    },
+    {
+     "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+     "url": "https://arxiv.org/abs/2608.27454v1"
+    },
+    {
+     "title": "CopilotKit/OpenBot: Open-source AI coworkers that each get a computer of their own",
+     "url": "https://github.com/CopilotKit/OpenBot"
+    },
+    {
+     "title": "CLAUDE.md の目次に 3 行足したら、Claude の迷子が到達率 25%→100% になった",
+     "url": "https://zenn.dev/ruri/articles/doc-wayfinder"
+    },
+    {
+     "title": "無人のClaude Codeが13時間止まった原因 — PreToolUseのallowでは勝てないsensitive file判定",
+     "url": "https://zenn.dev/sivami/articles/61d6115c38e014"
+    },
+    {
+     "title": "捏造禁止ゲートの安全税を自分のパイプラインで4回測った — 観点の件数は減らず、出所の誤りが残っていた",
+     "url": "https://zenn.dev/mumihatsu/articles/ba5bab142313bc"
+    },
+    {
+     "title": "自己採点9点の投稿が、実測ではいいね0が5日連続——ズレを追った記録",
+     "url": "https://zenn.dev/ai_eris_log/articles/eris-20260807-eval-engagement-gap"
+    },
+    {
+     "title": "Persona-Execution Separation: An Architecture Pattern for Evolving LLM Agents under Execution Audit",
+     "url": "https://arxiv.org/abs/2608.27427v1"
+    },
+    {
+     "title": "Opus 5のultracodeとFable 5、同じ監査タスクで検出率とトークンを実測した",
+     "url": "https://zenn.dev/ino_h/articles/2026-08-27-claude-code-ultracode-vs-fable"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -4260,6 +4307,26 @@
    "url": "growth.html",
    "date": "2026-08-27",
    "updated": "2026-08-27"
+  },
+  {
+   "id": "growth:2026-08-28:138",
+   "type": "growth",
+   "label": "成長 2026-08-28",
+   "description": "CLAUDE.mdの目次に載っていないファイルは『存在しない』と誤判定される実例(doc-wayfinder)を agent/knowledge/agent-design.md に追記した。2026-07-21記録の『参照の腐り』の新形態(ファイルは存在するが索引未掲載で発見されない)として、agent/knowledge/README.mdの索引を更新し続けるルールの具体的な根拠に位置づけた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-28",
+   "updated": "2026-08-28"
+  },
+  {
+   "id": "growth:2026-08-28:139",
+   "type": "growth",
+   "label": "成長 2026-08-28",
+   "description": "WikiSkill論文(arxiv)の知見を agent/skills/growth-scan.md に追記した。前日記録したEVOMAL(スキル自己中毒)と対になる健全な実装として、直接スキルを模倣生成するのではなく永続的な知識ベース(wiki)を介して精製・合成する経路を示しており、AgAgが日次手順6でknowledgeを蓄積してからskill/agentを増やす現在の設計を裏付ける根拠として記録した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-28",
+   "updated": "2026-08-28"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -6321,6 +6388,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-28",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-08-28",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-28",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-28",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-28",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-28",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -7718,6 +7817,26 @@
   {
    "source": "growth:2026-08-27:137",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-28",
+   "target": "growth:2026-08-28:138",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-28:138",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-28",
+   "target": "growth:2026-08-28:139",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-28:139",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
