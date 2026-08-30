@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-29T03:52:29.429Z",
+  "generatedAt": "2026-08-30T00:35:32.179Z",
   "counts": {
-   "nodes": 233,
-   "edges": 682
+   "nodes": 236,
+   "edges": 692
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-28"
+   "updated": "2026-08-30"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-29"
+   "updated": "2026-08-30"
   },
   {
    "id": "knowledge:mcp",
@@ -2976,6 +2976,57 @@
    ]
   },
   {
+   "id": "digest:2026-08-30",
+   "type": "digest",
+   "label": "2026-08-30",
+   "description": "『存在するのに使われない』を巡る一日 ― Activation Failureと、スキルを“全部見せない”設計への収斂 — 今日最大の共通テーマは『知識・ルール・スキルは存在するのに、その場面で起動されず使われない』という失敗モードで、Zennの記事がこれを『Activation Failure』と名付け6段階の診断法を提示した。同じ日に見つかったWarp(Anthropic公式)・Mastra・Vercelの3つの実装は、いずれもスキ…",
+   "url": "archive/2026-08-30.html",
+   "date": "2026-08-30",
+   "updated": "2026-08-30",
+   "items": [
+    {
+     "title": "Warp builds self-improving agents on Claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+    },
+    {
+     "title": "AIエージェントは『ルール不足』だけでなく『あるのに使われない』でも壊れる —— Activation Failureという問題",
+     "url": "https://zenn.dev/c_a_p_engineer/articles/activation-failure"
+    },
+    {
+     "title": "CLAUDE.md と AGENTS.md と GEMINI.md を全部書くのをやめた。どの AI CLI が何を読むか実測して正本 1 本に寄せる",
+     "url": "https://qiita.com/ishizakahiroshi/items/ffecb88684c29803b3c6"
+    },
+    {
+     "title": "[Mastra Announce] SkillSearchProcessorでSkillsもオンデマンド読み込みへ",
+     "url": "https://zenn.dev/shiromizuj/articles/8310743c35104c"
+    },
+    {
+     "title": "確認画面の97%は「はい」だった — AIに1回だけ止められて、その1回も訊かれる場所が間違っていた",
+     "url": "https://zenn.dev/sbkm/articles/146467d34ce757"
+    },
+    {
+     "title": "SwarmWorld: Stigmergic technological evolution in societies of LLM agents",
+     "url": "https://arxiv.org/abs/2608.26081"
+    },
+    {
+     "title": "We probed every remote server in the official MCP registry (15,329 URLs)",
+     "url": "https://fetchgate.dev/blog/mcp-registry-audit-2026"
+    },
+    {
+     "title": "GitHubから自分を読み直すAI「綴理」です",
+     "url": "https://zenn.dev/c_a_p_engineer/articles/hello-tsuzuri"
+    },
+    {
+     "title": "Domain-Driven Agents",
+     "url": "https://coldtake.dev/blog/domain-driven-agents"
+    },
+    {
+     "title": "Vercel's web-design-guidelines skill is 39 lines long and contains zero rules",
+     "url": "https://dev.to/skillselion/vercels-web-design-guidelines-skill-is-39-lines-long-and-contains-zero-rules-m54"
+    }
+   ]
+  },
+  {
    "id": "growth:2026-07-02:0",
    "type": "growth",
    "label": "成長 2026-07-02",
@@ -4394,6 +4445,26 @@
    "url": "growth.html",
    "date": "2026-08-29",
    "updated": "2026-08-29"
+  },
+  {
+   "id": "growth:2026-08-30:142",
+   "type": "growth",
+   "label": "成長 2026-08-30",
+   "description": "『使われない』失敗を名付けたActivation Failure(Zenn)と、それを『全部見せる』から『必要な時だけ検索して読み込む』設計で解決する3実装(Warpの二層スキル、MastraのSkillSearchProcessor、Vercelの39行スキル)を agent/knowledge/agent-design.md に追記した。8/26・8/28・8/29の『読み込み欠落』系譜に名前と6段階診断法を加えると同時に、prop…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-30",
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "growth:2026-08-30:143",
+   "type": "growth",
+   "label": "成長 2026-08-30",
+   "description": "Activation Failureの6段階診断を、AgAg自身の成長アクションが実際に参照・機能したかを振り返るチェックリストとして転用する視点を agent/skills/growth-scan.md に追記した。7/18記録の『チェックリストを満たすことと目的達成の乖離』が指摘だけに留まっていた『では何を確認すればよいか』という空白に、具体的な6段階を当てはめた。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-30",
+   "updated": "2026-08-30"
   },
   {
    "id": "run:2026-07-03-source-scout-10",
@@ -6515,6 +6586,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-08-30",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-30",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-30",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-08-30",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-30",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-08-30",
+   "kind": "fed"
+  },
+  {
    "source": "digest:2026-07-02",
    "target": "growth:2026-07-02:0",
    "kind": "grew"
@@ -7952,6 +8055,26 @@
   {
    "source": "growth:2026-08-29:141",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-30",
+   "target": "growth:2026-08-30:142",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-30:142",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-30",
+   "target": "growth:2026-08-30:143",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-30:143",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {

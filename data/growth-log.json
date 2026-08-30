@@ -1122,5 +1122,17 @@
     "type": "knowledge",
     "description": "CLAUDE.md/AGENT.mdが『従われない』6つの原因を整理したZenn記事を agent/knowledge/agent-design.md に追記した。8/26・8/28に記録した読み込み欠落の実例が6分類のうち1つに過ぎないことを示しており、agent/knowledge/*.mdが200行規模を超えて肥大化した際に『長すぎて埋もれる』失敗モードが本体以上に知識ファイル側で起こりうるという具体的な閾値を得た。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-30",
+    "type": "knowledge",
+    "description": "『使われない』失敗を名付けたActivation Failure(Zenn)と、それを『全部見せる』から『必要な時だけ検索して読み込む』設計で解決する3実装(Warpの二層スキル、MastraのSkillSearchProcessor、Vercelの39行スキル)を agent/knowledge/agent-design.md に追記した。8/26・8/28・8/29の『読み込み欠落』系譜に名前と6段階診断法を加えると同時に、proposals.mdが7/16に指摘した知識ファイル肥大化リスクを680行超という具体的な現状値で裏付けた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-08-30",
+    "type": "skill",
+    "description": "Activation Failureの6段階診断を、AgAg自身の成長アクションが実際に参照・機能したかを振り返るチェックリストとして転用する視点を agent/skills/growth-scan.md に追記した。7/18記録の『チェックリストを満たすことと目的達成の乖離』が指摘だけに留まっていた『では何を確認すればよいか』という空白に、具体的な6段階を当てはめた。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]
