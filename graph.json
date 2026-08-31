@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-30T00:35:32.179Z",
+  "generatedAt": "2026-08-31T00:48:16.378Z",
   "counts": {
-   "nodes": 236,
-   "edges": 692
+   "nodes": 237,
+   "edges": 703
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-30"
+   "updated": "2026-08-31"
   },
   {
    "id": "knowledge:agent-design",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-29"
+   "updated": "2026-08-31"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -327,43 +327,12 @@
    "description": "WebSearch による X(x.com)や Web の話題の補完調査"
   },
   {
-   "id": "digest:2026-07-02",
-   "type": "digest",
-   "label": "2026-07-02",
-   "description": "MCPが「プロトコル最大の改定」へ、エージェントは試験運用から本番段階に — MCP(Model Context Protocol)の2026-07-28版リリース候補が話題の中心。ステートレス化・MCP Apps・Tasks拡張という大改定で、本番運用の課題(スケーリング・認可)に正面から応える内容です。市場側ではGartnerが2026年のAIエージェント支出を約2,065億ドル(前年比+139%)と予測し、試験運用からROI実行段…",
-   "url": "archive/2026-07-02.html",
-   "date": "2026-07-02",
-   "updated": "2026-07-02",
-   "items": [
-    {
-     "title": "The 2026-07-28 MCP Specification Release Candidate",
-     "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"
-    },
-    {
-     "title": "MCP's biggest growing pains for production use will soon be solved",
-     "url": "https://thenewstack.io/model-context-protocol-roadmap-2026/"
-    },
-    {
-     "title": "AI Weekly: Agents Take Over, MCP Evolves, and Models Battle for Code",
-     "url": "https://dev.to/alexmercedcoder/ai-weekly-agents-take-over-mcp-evolves-and-models-battle-for-code-5cm0"
-    },
-    {
-     "title": "AI Updates Today (July 2026) – Latest AI Model Releases",
-     "url": "https://llm-stats.com/llm-updates"
-    },
-    {
-     "title": "The AI Agents Stack (2026 Edition)",
-     "url": "https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/"
-    },
-    {
-     "title": "2026年7月1日 AIニュース:エージェント運用、AI基盤、透明性対応が本番段階へ",
-     "url": "https://eguweb.jp/ai/81115/"
-    },
-    {
-     "title": "Best AI Agent Frameworks 2026: 7 Compared (LangGraph, CrewAI, AutoGen, Semantic Kernel)",
-     "url": "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026"
-    }
-   ]
+   "id": "archive:2026-07",
+   "type": "archive",
+   "label": "2026-07 のアーカイブ",
+   "description": "60日より前の活動(月単位に集約)",
+   "url": "archive.html",
+   "date": "2026-07-01"
   },
   {
    "id": "digest:2026-07-03",
@@ -3027,24 +2996,51 @@
    ]
   },
   {
-   "id": "growth:2026-07-02:0",
-   "type": "growth",
-   "label": "成長 2026-07-02",
-   "description": "初期構築: エージェントの指示書(AGENT.md)、キュレーションスキル、収集・サイト生成・検証スクリプト、日次ワークフローを整備した。",
-   "growthType": "prompt",
-   "url": "growth.html",
-   "date": "2026-07-02",
-   "updated": "2026-07-02"
-  },
-  {
-   "id": "growth:2026-07-02:1",
-   "type": "growth",
-   "label": "成長 2026-07-02",
-   "description": "MCPの2026-07-28大改定(ステートレスコア・MCP Apps・Tasks・OAuth整合)と、エージェントのセキュリティ知見(AutoJack攻撃、MCPツール記述のコンテキスト消費問題)を知識ベースに記録した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-02",
-   "updated": "2026-07-02"
+   "id": "digest:2026-08-31",
+   "type": "digest",
+   "label": "2026-08-31",
+   "description": "スキルは『集める』より『書く』―129種類中4種、6万スターでも9万トークンという実測の一日 — 今日は、AIエージェントの「スキル」が実際にどう使われているかを定量的に暴く記事が重なった日だった。129種類導入したスキルのうち呼ばれたのはわずか4種類(3.1%)、GitHubで6万スターを集めた人気スキルも起動のたびに9万トークンを要することが判明し、「量」と「実効性」の乖離が改めて可視化された。一方でSalesforceとAnthr…",
+   "url": "archive/2026-08-31.html",
+   "date": "2026-08-31",
+   "updated": "2026-08-31",
+   "items": [
+    {
+     "title": "Salesforce and Anthropic Announce Claudeforce: The #1 AI Meets the #1 AI CRM",
+     "url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx"
+    },
+    {
+     "title": "スキルを129種類インストールして、実際に呼ばれたのは4種類だった",
+     "url": "https://zenn.dev/tsutomusaito/articles/skill-catalog-vs-fired-ja"
+    },
+    {
+     "title": "スター6万のAgent Skillを入れたら、呼ぶたびに9万トークン必要だった",
+     "url": "https://qiita.com/jqit_suwa/items/817a26e02cd1f08c7edd"
+    },
+    {
+     "title": "PLCBench: Can Autonomous LLM Agents Turn PLC Access into Sustained Physical Damage?",
+     "url": "https://arxiv.org/abs/2608.26882"
+    },
+    {
+     "title": "「表示されない」は「秘密」ではない —— AIエージェントの来歴情報を公開物から分離する",
+     "url": "https://zenn.dev/c_a_p_engineer/articles/hidden-is-not-secret-provenance-boundary"
+    },
+    {
+     "title": "wang2122/sprix-sage-router",
+     "url": "https://github.com/wang2122/sprix-sage-router"
+    },
+    {
+     "title": "Six Agent Harness Capabilities for Higher Model Performance",
+     "url": "https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/"
+    },
+    {
+     "title": "permissions.allow検証をClaudeに頼んだら、許可判定の前でモデルに拒否された",
+     "url": "https://zenn.dev/clopy/articles/claude-bash-wildcard-probe-refusal-gap"
+    },
+    {
+     "title": "s1dashu/ip-as-logo-skill",
+     "url": "https://github.com/s1dashu/ip-as-logo-skill"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-03:2",
@@ -4467,6 +4463,26 @@
    "updated": "2026-08-30"
   },
   {
+   "id": "growth:2026-08-31:144",
+   "type": "growth",
+   "label": "成長 2026-08-31",
+   "description": "自作スキルの使用率が収集スキルの7倍・トークンコストが人気スキルの28分の1という実測記事2件を踏まえ、7/30弁別性・8/4定着・8/6配置に続く第4の軸『コスト可視化』を agent/skills/growth-scan.md に追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-08-31",
+   "updated": "2026-08-31"
+  },
+  {
+   "id": "growth:2026-08-31:145",
+   "type": "growth",
+   "label": "成長 2026-08-31",
+   "description": "『表示されないことと秘密であることは違う』という来歴情報の4層分類(公開物/公開してよい来歴/内部の来歴/秘密)を agent/knowledge/security.md に追記した。AgAgが生成・公開する data/digests/*.json に将来デバッグ情報を紛れ込ませないための判断基準として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-08-31",
+   "updated": "2026-08-31"
+  },
+  {
    "id": "run:2026-07-03-source-scout-10",
    "type": "run",
    "label": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zen…",
@@ -4640,12 +4656,12 @@
   },
   {
    "source": "agent",
-   "target": "digest:2026-07-02",
+   "target": "archive:2026-07",
    "kind": "owns"
   },
   {
    "source": "source:websearch",
-   "target": "digest:2026-07-02",
+   "target": "archive:2026-07",
    "kind": "fed",
    "weight": 7
   },
@@ -6618,42 +6634,80 @@
    "kind": "fed"
   },
   {
-   "source": "digest:2026-07-02",
-   "target": "growth:2026-07-02:0",
-   "kind": "grew"
+   "source": "agent",
+   "target": "digest:2026-08-31",
+   "kind": "owns"
   },
   {
-   "source": "growth:2026-07-02:0",
+   "source": "source:websearch",
+   "target": "digest:2026-08-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-08-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-08-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-08-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-08-31",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-08-31",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-08-31",
+   "kind": "fed"
+  },
+  {
+   "source": "archive:2026-07",
+   "target": "archive:2026-07",
+   "kind": "grew",
+   "weight": 2
+  },
+  {
+   "source": "archive:2026-07",
    "target": "agent",
    "kind": "changed"
   },
   {
-   "source": "growth:2026-07-02:0",
+   "source": "archive:2026-07",
    "target": "skill:curation",
    "kind": "changed"
   },
   {
-   "source": "growth:2026-07-02:0",
+   "source": "archive:2026-07",
    "target": "script:collect.mjs",
    "kind": "changed"
   },
   {
-   "source": "growth:2026-07-02:0",
+   "source": "archive:2026-07",
    "target": "script:build-site.mjs",
    "kind": "changed"
   },
   {
-   "source": "growth:2026-07-02:0",
+   "source": "archive:2026-07",
    "target": "script:validate.mjs",
    "kind": "changed"
   },
   {
-   "source": "digest:2026-07-02",
-   "target": "growth:2026-07-02:1",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-02:1",
+   "source": "archive:2026-07",
    "target": "knowledge:mcp",
    "kind": "changed"
   },
@@ -8075,6 +8129,26 @@
   {
    "source": "growth:2026-08-30:143",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-31",
+   "target": "growth:2026-08-31:144",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-31:144",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-08-31",
+   "target": "growth:2026-08-31:145",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-08-31:145",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

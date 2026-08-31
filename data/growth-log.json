@@ -1134,5 +1134,17 @@
     "type": "skill",
     "description": "Activation Failureの6段階診断を、AgAg自身の成長アクションが実際に参照・機能したかを振り返るチェックリストとして転用する視点を agent/skills/growth-scan.md に追記した。7/18記録の『チェックリストを満たすことと目的達成の乖離』が指摘だけに留まっていた『では何を確認すればよいか』という空白に、具体的な6段階を当てはめた。",
     "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-08-31",
+    "type": "skill",
+    "description": "自作スキルの使用率が収集スキルの7倍・トークンコストが人気スキルの28分の1という実測記事2件を踏まえ、7/30弁別性・8/4定着・8/6配置に続く第4の軸『コスト可視化』を agent/skills/growth-scan.md に追記した。",
+    "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-08-31",
+    "type": "knowledge",
+    "description": "『表示されないことと秘密であることは違う』という来歴情報の4層分類(公開物/公開してよい来歴/内部の来歴/秘密)を agent/knowledge/security.md に追記した。AgAgが生成・公開する data/digests/*.json に将来デバッグ情報を紛れ込ませないための判断基準として記録した。",
+    "files": ["agent/knowledge/security.md"]
   }
 ]
