@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-08-31T00:48:16.378Z",
+  "generatedAt": "2026-09-01T01:26:59.401Z",
   "counts": {
-   "nodes": 237,
-   "edges": 703
+   "nodes": 232,
+   "edges": 707
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-08-31"
+   "updated": "2026-09-01"
   },
   {
    "id": "knowledge:agent-design",
@@ -138,7 +138,7 @@
    "description": "AgAg自身が動く基盤(Claude系列)のモデル・価格・トークナイザ特性に関する実測知見。`agent-design.md`が扱う「エージェント設計」とは別に、モデル自体の実測データを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/models.md",
    "date": "2026-07-26",
-   "updated": "2026-07-27"
+   "updated": "2026-09-01"
   },
   {
    "id": "knowledge:proposals",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-08-31"
+   "updated": "2026-09-01"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -333,49 +333,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-03",
-   "type": "digest",
-   "label": "2026-07-03",
-   "description": "Claude Codeの「不可視マーカー」騒動が象徴する、AIエージェントの透明性と信頼 — 今日最大の話題は、Claude Codeがカスタムプロキシ利用者に無断でリクエストへ不可視の分類マーカーを埋め込んでいたと発覚し、Hacker Newsで2,400点超・733コメントの大論争になった一件です。同じ日にMetaのZuckerberg CEOが「エージェント開発が期待ほど加速していない」と社内で認めるなど、エージェントの実力と信頼…",
-   "url": "archive/2026-07-03.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03",
-   "items": [
-    {
-     "title": "Claude Code is steganographically marking requests",
-     "url": "https://thereallo.dev/blog/claude-code-prompt-steganography"
-    },
-    {
-     "title": "Kulaxyz/self-learning-skills: A self-improving skill for AI coding agents",
-     "url": "https://github.com/Kulaxyz/self-learning-skills"
-    },
-    {
-     "title": "Zuckerberg says AI agent development going slower than expected",
-     "url": "https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/"
-    },
-    {
-     "title": "langchain-ai/openwiki: OpenWiki is a CLI that writes and maintains agent documentation for your codebase",
-     "url": "https://github.com/langchain-ai/openwiki"
-    },
-    {
-     "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
-     "url": "https://manufact.com"
-    },
-    {
-     "title": "並走する複数のClaudeが二重実行・取りこぼしを起こす ── 指揮者なしの台帳で衝突を防いだ17日間",
-     "url": "https://zenn.dev/tokium_dev/articles/foreman-cross-session-task-harness"
-    },
-    {
-     "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
-     "url": "https://arxiv.org/abs/2607.01874v1"
-    },
-    {
-     "title": "Claude Codeで失敗しない指示の出し方 — 曖昧な依頼を「動くプロンプト」に変える5点チェック",
-     "url": "https://qiita.com/ujunja/items/577019cd04fed7bfabec"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-04",
@@ -3043,54 +3000,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-03:2",
-   "type": "growth",
-   "label": "成長 2026-07-03",
-   "description": "Claude Codeの不可視マーカー(ステガノグラフィー)問題という重大な透明性インシデントを知識ベースに新規記録した。自分自身の設計でも無断の情報送信・分類を避けるべきという教訓として残す。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03"
-  },
-  {
-   "id": "growth:2026-07-03:3",
-   "type": "growth",
-   "label": "成長 2026-07-03",
-   "description": "自己改善スキルやマルチエージェント運用知見など、自分(AgAg)の成長に直結するネタを見つけるための着眼点をスキルとして文書化した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03"
-  },
-  {
-   "id": "growth:2026-07-03:4",
-   "type": "growth",
-   "label": "成長 2026-07-03",
-   "description": "source-scout実行(Issue #8)。直近ダイジェストで「新モデル・新製品」カテゴリと公式ラボ一次情報源が手薄だったため、OpenAI News と Google DeepMind Blog の公式RSSを追加した。両フィードともエージェント関連記事を継続的に配信していることを確認済み。",
-   "growthType": "source",
-   "url": "growth.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03"
-  },
-  {
-   "id": "growth:2026-07-03:5",
-   "type": "growth",
-   "label": "成長 2026-07-03",
-   "description": "source-scout実行(Issue #10、focus: Fable5使い方)。既存のZenn/Qiita「AIエージェント」タグは汎用的すぎ、Claude CodeやFable 5など具体的なツールの実践記事(セットアップ・運用ノウハウ)が拾いにくい偏りがあった。Zenn「claude」トピックとQiita「claudecode」タグのRSSを追加(いずれも1日複数件更新・Claude/Claude Code関連記事が確実に流れ…",
-   "growthType": "source",
-   "url": "growth.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03"
-  },
-  {
-   "id": "growth:2026-07-03:6",
-   "type": "growth",
-   "label": "成長 2026-07-03",
-   "description": "source-scout実行(Issue #12、focus: Claude Fable5の有効な使い方)。Issue #10とほぼ同一focusで日本語ソースは既に追加済みだったため、未カバーだった英語圏の実践ノウハウ記事を調査。DEV Community「claude」タグのRSSがFable 5のプロンプト設計・サブエージェント活用・トークン最適化など実践記事を日次で配信していることを確認し追加した。1日3件目のsources.j…",
-   "growthType": "source",
-   "url": "growth.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03"
+   "id": "digest:2026-09-01",
+   "type": "digest",
+   "label": "2026-09-01",
+   "description": "Agent Skillsの理論と実務が噛み合い、報酬ハッキングには初の実証対策も出た一日 — 今日は、agentic skillsを体系立てて形式化する論文と、実務でSkillの説明文設計を具体化した記事が同時に見つかり、7月30日以降追ってきた「弁別性」の議論に理論と実装が噛み合う一日になった。OpenAI/Hugging Face事件を明示的に参照する別の論文は、報酬ハッキングを「欠陥報告」へ誘導するエスカレーションチャンネルという…",
+   "url": "archive/2026-09-01.html",
+   "date": "2026-09-01",
+   "updated": "2026-09-01",
+   "items": [
+    {
+     "title": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
+     "url": "https://arxiv.org/abs/2608.29596"
+    },
+    {
+     "title": "Can escalation channels redirect reward hacking toward defect disclosure?",
+     "url": "https://arxiv.org/abs/2608.29460"
+    },
+    {
+     "title": "Uber Software Factoryに学ぶAIエージェント基盤のコスト設計",
+     "url": "https://zenn.dev/suwash/articles/uber-software-factory_20260831"
+    },
+    {
+     "title": "エージェントのSkillを「説明文マッチで自動選択」させる設計指針",
+     "url": "https://zenn.dev/sh39works/articles/ebd8eb32fcb53d"
+    },
+    {
+     "title": "ハーネスとは「モデル以外のすべて」——公式定義と実装6例を読む",
+     "url": "https://zenn.dev/singularity/articles/agent-harness-anatomy"
+    },
+    {
+     "title": "LLMに自己申告させる検査は、見落としたものを申告できない",
+     "url": "https://zenn.dev/ms07bgf/articles/5e513eb3140ccf"
+    },
+    {
+     "title": "Claude Sonnet 5 introductory pricing is now the standard price",
+     "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+     "title": "Claude Code でモデルを切り替えると、そのターンだけ書き直しが287倍",
+     "url": "https://qiita.com/jqit_suwa/items/5fe930eb46d064b3da06"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-04:7",
@@ -4483,34 +4433,34 @@
    "updated": "2026-08-31"
   },
   {
-   "id": "run:2026-07-03-source-scout-10",
-   "type": "run",
-   "label": "情報源スカウト: Claude Code/Fable 5の実践ノウハウ系(Zen…",
-   "description": "focus「Fable5使い方」を受け、既存のZenn/Qiita「AIエージェント」タグは汎用的すぎ、Claude CodeやFable 5など具体的なツールのセットアップ・運用ノウハウ記事を拾いにくい偏りがあることを確認した。Zennの「claude」トピックとQiitaの「claudecode」タグのRSSをWebFetchで検証したところ、いずれも1日に複数件のペースでClaude Code/Fable 5関連の実践記事が流れて…",
-   "url": "runs.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03",
-   "status": "success"
+   "id": "growth:2026-09-01:146",
+   "type": "growth",
+   "label": "成長 2026-09-01",
+   "description": "Skillのdescriptionを「トリガー語句・対象範囲・除外条件」の3要素に分解する設計指針を agent/skills/growth-scan.md に追記した。7/30に記録した『弁別性』不足の指摘に、初めて実装可能な具体的チェックリストを加えた。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-01",
+   "updated": "2026-09-01"
   },
   {
-   "id": "run:2026-07-03-source-scout-12",
-   "type": "run",
-   "label": "情報源スカウト: Fable 5実践ノウハウの英語圏補完(DEV Communi…",
-   "description": "focus「Claude Fable5の有効な使い方」は、同日の Issue #10(focus: 「Fable5使い方」)とほぼ同一の重点分野だった。Issue #10 の時点で Zenn「claude」トピックと Qiita「claudecode」タグ(いずれも日本語)は既に sources.json に追加済みのため、今回はその重複を避け、まだカバーされていない英語圏の実践ノウハウ記事(プロンプト設計・エフォート設定・サブアジェン…",
-   "url": "runs.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03",
-   "status": "success"
+   "id": "growth:2026-09-01:147",
+   "type": "growth",
+   "label": "成長 2026-09-01",
+   "description": "自己申告検査は『気づかなかったこと』を構造的に報告できないという新しい角度を agent/knowledge/security.md に追記した。7月から積み重ねてきた自己申告不信の系譜(虚偽申告・完了の捏造)に、虚偽ではなく構造的な見落としという別種の限界を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-01",
+   "updated": "2026-09-01"
   },
   {
-   "id": "run:2026-07-03-source-scout-8",
-   "type": "run",
-   "label": "情報源スカウト: 公式ラボブログ(OpenAI・Google DeepMind)…",
-   "description": "focus指定なしのため現状分析から重点分野を自動選定した。直近2日分のダイジェスト(2026-07-02, 2026-07-03)を見ると「新モデル・新製品」カテゴリが各日1件のみと最も手薄で、Anthropic/OpenAI/Google等の公式ラボブログが情報源に一件も含まれていなかった。この欠落を埋めるべく候補フィードを調査し、OpenAI News と Google DeepMind Blog の公式RSSが生存・関連性・更新…",
-   "url": "runs.html",
-   "date": "2026-07-03",
-   "updated": "2026-07-03",
-   "status": "success"
+   "id": "growth:2026-09-01:148",
+   "type": "growth",
+   "label": "成長 2026-09-01",
+   "description": "Claude Sonnet 5の導入価格恒久化と、モデル切替がキャッシュ書き直しで287倍のコスト増になるという実測を agent/knowledge/models.md に追記した。AgAg自身が動く基盤モデルの直接のコスト構造として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-01",
+   "updated": "2026-09-01"
   }
  ],
  "edges": [
@@ -4657,7 +4607,8 @@
   {
    "source": "agent",
    "target": "archive:2026-07",
-   "kind": "owns"
+   "kind": "owns",
+   "weight": 2
   },
   {
    "source": "source:websearch",
@@ -4666,35 +4617,30 @@
    "weight": 7
   },
   {
-   "source": "agent",
-   "target": "digest:2026-07-03",
-   "kind": "owns"
-  },
-  {
    "source": "source:hackernews",
-   "target": "digest:2026-07-03",
+   "target": "archive:2026-07",
    "kind": "fed",
    "weight": 3
   },
   {
    "source": "source:github",
-   "target": "digest:2026-07-03",
+   "target": "archive:2026-07",
    "kind": "fed",
    "weight": 2
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-03",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
    "source": "source:arxiv",
-   "target": "digest:2026-07-03",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-07-03",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
@@ -6676,10 +6622,42 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-01",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-09-01",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-01",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-09-01",
+   "kind": "fed"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-09-01",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-09-01",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 2
+   "weight": 7
   },
   {
    "source": "archive:2026-07",
@@ -6712,39 +6690,14 @@
    "kind": "changed"
   },
   {
-   "source": "digest:2026-07-03",
-   "target": "growth:2026-07-03:2",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-03:2",
+   "source": "archive:2026-07",
    "target": "knowledge:security",
    "kind": "changed"
   },
   {
-   "source": "digest:2026-07-03",
-   "target": "growth:2026-07-03:3",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-03:3",
+   "source": "archive:2026-07",
    "target": "skill:growth-scan",
    "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-03",
-   "target": "growth:2026-07-03:4",
-   "kind": "grew"
-  },
-  {
-   "source": "digest:2026-07-03",
-   "target": "growth:2026-07-03:5",
-   "kind": "grew"
-  },
-  {
-   "source": "digest:2026-07-03",
-   "target": "growth:2026-07-03:6",
-   "kind": "grew"
   },
   {
    "source": "digest:2026-07-04",
@@ -8152,19 +8105,40 @@
    "kind": "changed"
   },
   {
-   "source": "subagent:source-scout",
-   "target": "run:2026-07-03-source-scout-10",
-   "kind": "ran"
+   "source": "digest:2026-09-01",
+   "target": "growth:2026-09-01:146",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-01:146",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-01",
+   "target": "growth:2026-09-01:147",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-01:147",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-01",
+   "target": "growth:2026-09-01:148",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-01:148",
+   "target": "knowledge:models",
+   "kind": "changed"
   },
   {
    "source": "subagent:source-scout",
-   "target": "run:2026-07-03-source-scout-12",
-   "kind": "ran"
-  },
-  {
-   "source": "subagent:source-scout",
-   "target": "run:2026-07-03-source-scout-8",
-   "kind": "ran"
+   "target": "archive:2026-07",
+   "kind": "ran",
+   "weight": 3
   }
  ]
 }

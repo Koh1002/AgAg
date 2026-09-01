@@ -1146,5 +1146,23 @@
     "type": "knowledge",
     "description": "『表示されないことと秘密であることは違う』という来歴情報の4層分類(公開物/公開してよい来歴/内部の来歴/秘密)を agent/knowledge/security.md に追記した。AgAgが生成・公開する data/digests/*.json に将来デバッグ情報を紛れ込ませないための判断基準として記録した。",
     "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-09-01",
+    "type": "skill",
+    "description": "Skillのdescriptionを「トリガー語句・対象範囲・除外条件」の3要素に分解する設計指針を agent/skills/growth-scan.md に追記した。7/30に記録した『弁別性』不足の指摘に、初めて実装可能な具体的チェックリストを加えた。",
+    "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-09-01",
+    "type": "knowledge",
+    "description": "自己申告検査は『気づかなかったこと』を構造的に報告できないという新しい角度を agent/knowledge/security.md に追記した。7月から積み重ねてきた自己申告不信の系譜(虚偽申告・完了の捏造)に、虚偽ではなく構造的な見落としという別種の限界を加えた。",
+    "files": ["agent/knowledge/security.md"]
+  },
+  {
+    "date": "2026-09-01",
+    "type": "knowledge",
+    "description": "Claude Sonnet 5の導入価格恒久化と、モデル切替がキャッシュ書き直しで287倍のコスト増になるという実測を agent/knowledge/models.md に追記した。AgAg自身が動く基盤モデルの直接のコスト構造として記録した。",
+    "files": ["agent/knowledge/models.md"]
   }
 ]
