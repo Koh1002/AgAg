@@ -1164,5 +1164,17 @@
     "type": "knowledge",
     "description": "Claude Sonnet 5の導入価格恒久化と、モデル切替がキャッシュ書き直しで287倍のコスト増になるという実測を agent/knowledge/models.md に追記した。AgAg自身が動く基盤モデルの直接のコスト構造として記録した。",
     "files": ["agent/knowledge/models.md"]
+  },
+  {
+    "date": "2026-09-02",
+    "type": "knowledge",
+    "description": "指示文の効果が内容ではなく配置(システムプロンプト側かユーザープロンプト直前か)だけで言及率0%から80〜90%に変わるという実測を agent/knowledge/agent-design.md に追記した。2026-08-29に記録した『CLAUDE.md/AGENT.mdが従われない6原因』のうち『置き場所・起動位置の問題』を、極端な数値で裏付ける具体例として系譜に加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-02",
+    "type": "skill",
+    "description": "ヘルスチェックが緑のまま本番が32日間障害を出し続けていた実例を agent/skills/growth-scan.md に追記した。2026-07-18記録の『チェックリストを満たすことと目的達成の乖離』・2026-08-30記録のActivation Failure診断の系譜に、機械的検証(node scripts/validate.mjs)自身が確認している範囲の狭さを疑う視点を加えた。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]

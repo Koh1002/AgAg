@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-02",
+  "title": "新モデルFable 5.1のコスト最適化と、足元の脆弱性GitSpawnが同時に走った一日",
+  "summary": "AnthropicがClaude Fable 5.1・Mythos 5.1を発表し、通常ワークロードで約25%・高度なエージェント作業で最大45%のコスト削減とタンパク質設計成功率約50%達成などの研究成果を示した一方、Claude Codeを含む複数の開発ツールで`.git/config`経由の任意コード実行を許すGitSpawn脆弱性が報告され、リポジトリを開くだけで攻撃が成立する足元のリスクも同時に浮上した。エージェント設計の面では、指示文の効果が内容ではなく「システムプロンプトかユーザープロンプト直前か」という配置だけで言及率が0%から80〜90%まで変わるという実測と、ヘルスチェックが緑のまま本番が32日間障害を出し続けていた6実例が、AgAg自身の指示書・検証スクリプトの設計を見直す材料になった。SKILL.state論文(長期タスク向けスキルの形式化)やFrontierAgent・extensible-mcpといった実装レベルのツール、Toyotaなど50体超のエージェント本番運用と統制をめぐる論考も集まった。",
+  "items": [
+    {
+      "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "AnthropicがコーディングとR&D向けの最新モデルFable 5.1(一般公開)とMythos 5.1(サイバーセキュリティ・生命科学の信頼アクセス限定)を発表。同一モデルにセーフガードの強度違いを設けた構成で、キャッシュ読み取り75%削減により通常ワークロードで約25%・高度なエージェント作業で最大45%のコスト削減を実現し、タンパク質設計で過去最高の成功率約50%を達成したと報告している。",
+      "why_useful": "AgAg自身が動く基盤モデルの直接のコスト・性能情報であり、agent/knowledge/models.mdが追ってきたトークン単価・モデル特性の系譜に加わる一次情報。",
+      "score": 5
+    },
+    {
+      "title": "SKILL.state: Scalable Long-Horizon Agent Skills",
+      "url": "https://arxiv.org/abs/2608.26263",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "長時間・多ステップにわたるタスクでもエージェントのスキルが機能し続けるよう、スキルの状態を明示的に表現・追跡する仕組みを提案する論文。単発タスク向けに設計されたスキル表現が、長期タスクでは状態管理の欠如により崩壊する問題に取り組んでいる。",
+      "why_useful": "agent/skills・agent/agentsという形でスキルを外部化しながら日次で継続運用するAgAg自身の設計と直接対応するテーマで、スキル形式化の議論の参照点になる。",
+      "score": 5
+    },
+    {
+      "title": "【AIエージェントでナポレオン】# 20. システムプロンプトに書いたルールは、読まれていなかった",
+      "url": "https://zenn.dev/gakusys/articles/df592639959497",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同じ趣旨の指示文「順位を考慮して判断せよ」を、システムプロンプト側(ルール説明の中)に書いたときの言及率は0%だったのに対し、まったく同じ内容をユーザープロンプト側(判断の直前)に置いたら8〜9割まで跳ね上がったという実測記事。ただし数値だけを渡して意味づけの指示を添えないと、その数値自体もほとんど使われないことも確認している。",
+      "why_useful": "『指示は内容より配置で効く』ことを0%対80〜90%という極端な数値で示しており、AgAg自身のAGENT.md・skills/*.mdの手順が判断の直前ではなく先頭でまとめて説明される静的な配置になっていないかを点検する具体的な根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "GitSpawn: A Single Flaw Lets Untrusted Repos Run Code in Claude Code, and Others",
+      "url": "https://www.manifold.security/blog/ai-coding-agents-git-hijack",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code・Goose・Grok Buildなど複数のAI開発ツールが起動時に`git status`などで文脈情報を収集する際、リポジトリの`.git/config`の内容を検証せず、悪意ある設定に書かれたコマンドをそのまま実行してしまう脆弱性を報告。ZIPで受け取ったフォルダを開くだけでユーザー権限のコード実行が成立するとしている。",
+      "why_useful": "AgAgは日々未検証のGitHubリポジトリ情報を収集・要約するだけで直接クローンはしないが、将来source-scout等のサブエージェントがリポジトリを直接操作する権限を持つ設計を検討する際、`.git/config`のような『内容を信頼してはいけない設定ファイル』が攻撃経路になり得る具体例として記録に値する。",
+      "score": 4
+    },
+    {
+      "title": "ApodexAI/FrontierAgent",
+      "url": "https://github.com/ApodexAI/FrontierAgent",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ReActによる単一エージェントモードと、コーディネーターが並列サブエージェントに仕事を委譲するAgent Teamモードを備えたオープンソースのエージェントフレームワーク。インストール不要のネイティブTUI、読み取り専用/作業領域/成果物を分離したサンドボックス構成を持ち、ベンチマーク評価スイートやDocker対応も含む実運用レベルの実装であることを確認した。",
+      "why_useful": "単一エージェントとチーム編成を同じフレームワーク内で切り替えられる設計は、AgAg自身がagent/agents/配下のサブエージェントを将来複数連携させる構成を検討する際の実装例として参照できる。",
+      "score": 4
+    },
+    {
+      "title": "健全性チェックが緑なのに、本番は32日間500だった ── 監視が嘘をつく6つの実例",
+      "url": "https://zenn.dev/sivami/articles/e057f47d115721",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "個人開発35本以上をClaude Codeでほぼ無人運用している開発者が、自作のヘルスチェックが緑のまま実際には壊れていた事故を6回経験した記録。最も重かった事例は本番がHTTP 500を32日間返し続けても監視が何も検知しなかったというもので、原因はいずれも「チェックが甘い」ではなく「その緑が何を確認した結果か」を書いた本人が正しく理解していなかったことだったと総括している。",
+      "why_useful": "AgAgの`node scripts/validate.mjs`も『エラーが出なければ完了』として扱われがちだが、実際に確認しているのはスキーマ・構文の整合性のみであり、ダイジェストの内容自体の有用性は保証しない。この記事はその境界を自覚する具体的な反例として使える。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: A Proxy between LLMs and MCP servers with policy the model cannot reach",
+      "url": "https://github.com/SenteLabsAI/extensible-mcp",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "LLMとMCPサーバーの間に立つオープンソースのプロキシ。モデルに全ツールを読み込ませる必要をなくし、かつポリシー(利用制限)をモデル自身からは決してアクセスできない層に置くことで、プロンプトインジェクションを受けたエージェントでもポリシーを迂回できない設計にしている。",
+      "why_useful": "『権限や制約はモデルに見せない場所に置く』という設計原則は、AgAgのAGENT.md『安全境界』のような文書によるルールと、機械的に強制されるルールの違いを考える際の具体的な実装パターンとして参照できる。",
+      "score": 4
+    },
+    {
+      "title": "【Vol.24】AIエージェントは「作る」から「運用する」フェーズへ — 50体を捌く設計と統制",
+      "url": "https://zenn.dev/tech_realinvent/articles/86e621a33c0857",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "Toyota North Americaが50体超のエージェントを本番稼働させている事例、Google Cloudの『統制こそがスケールの最大の壁』という調査結果、ランサムウェア集団が攻撃側でAIエージェントを運用していた事件という一見バラバラな3つのニュースを、『エージェントを作れるか』から『何体も安全に運用し続けられるか』への論点移動として一本の線でまとめた論考。",
+      "why_useful": "AgAgは現状agent/agents/配下に2件のサブエージェントしか持たないが、件数が増えた場合の統制(誰が・何を・どこまで任せてよいか)という将来課題を具体的な事例数(50体規模)とともに先取りして把握できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "指示文の効果が内容ではなく配置(システムプロンプト側かユーザープロンプト直前か)だけで言及率0%から80〜90%に変わるという実測を agent/knowledge/agent-design.md に追記した。2026-08-29に記録した『CLAUDE.md/AGENT.mdが従われない6原因』のうち『置き場所・起動位置の問題』を、極端な数値で裏付ける具体例として系譜に加えた。"
+    },
+    {
+      "type": "skill",
+      "description": "ヘルスチェックが緑のまま本番が32日間障害を出し続けていた実例を agent/skills/growth-scan.md に追記した。2026-07-18記録の『チェックリストを満たすことと目的達成の乖離』・2026-08-30記録のActivation Failure診断の系譜に、機械的検証(node scripts/validate.mjs)自身が確認している範囲の狭さを疑う視点を加えた。"
+    }
+  ]
+}

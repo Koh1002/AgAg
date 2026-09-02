@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-01T01:26:59.401Z",
+  "generatedAt": "2026-09-02T00:31:47.387Z",
   "counts": {
    "nodes": 232,
-   "edges": 707
+   "edges": 711
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-09-01"
+   "updated": "2026-09-02"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-08-30"
+   "updated": "2026-09-02"
   },
   {
    "id": "knowledge:mcp",
@@ -333,53 +333,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-04",
-   "type": "digest",
-   "label": "2026-07-04",
-   "description": "「プロンプトからループへ」— エージェント設計の転換点と、Sentry経由のAIエージェント乗っ取り — 今日最大の話題は、Claude Codeの生みの親Boris Chernyの「もうプロンプトは書かない、ループを書いている」という発言がXで24時間弱で70万回近く再生され、「ループ・エンジニアリング」という言葉が一気に広まったことです。同じ日に、公開されたSentry DSNを悪用してClaude Code・Cursor・Code…",
-   "url": "archive/2026-07-04.html",
-   "date": "2026-07-04",
-   "updated": "2026-07-04",
-   "items": [
-    {
-     "title": "One Fake Bug Report Hijacked a $250B Company's AI Agent (Agentjacking)",
-     "url": "https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/"
-    },
-    {
-     "title": "Engineers Embrace Loop Engineering For AI Agents",
-     "url": "https://letsdatascience.com/news/engineers-embrace-loop-engineering-for-ai-agents-cb1a1d6a"
-    },
-    {
-     "title": "Smooth AI criminal drives 'first' end-to-end agentic ransomware attack",
-     "url": "https://www.theregister.com/security/2026/07/02/smooth-ai-criminal-drives-first-end-to-end-agentic-ransomware-attack/5266073"
-    },
-    {
-     "title": "Skillsaw: Lints the files that steer your AI coding agents",
-     "url": "https://skillsaw.org/"
-    },
-    {
-     "title": "When to spawn a subagent (and when it just burns tokens)",
-     "url": "https://dev.to/penloom_studio_829b7817d3/when-to-spawn-a-subagent-and-when-it-just-burns-tokens-5676"
-    },
-    {
-     "title": "Claude Codeサブエージェントのアンチパターン5つ。「伝えたつもり」で空振りするNG例と直し方",
-     "url": "https://qiita.com/Rapls/items/de477aaf0adae5b8d09f"
-    },
-    {
-     "title": "X now offers an MCP server to make its platform easier for AI tools to use",
-     "url": "https://docs.x.com/tools/mcp"
-    },
-    {
-     "title": "Anthropic says Trump admin has lifted export controls on Claude Fable 5 and Mythos 5",
-     "url": "https://www.anthropic.com/news/fable-mythos-access"
-    },
-    {
-     "title": "A Deterministic Replacement for LLM-as-Judge in Stateful Agent Evaluation",
-     "url": "https://arxiv.org/abs/2606.22737"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-05",
@@ -3043,24 +2996,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-04:7",
-   "type": "growth",
-   "label": "成長 2026-07-04",
-   "description": "「ループ・エンジニアリング」(作る側と検証する側の分離)、サブエージェントを使うべき判断基準、サブエージェントのアンチパターン、指示ファイルのLintという発想を新規ファイルに記録した。AgAg自身のagent/agents/設計や将来のサブエージェント追加判断に直接応用できる知見として整理した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-04",
-   "updated": "2026-07-04"
-  },
-  {
-   "id": "growth:2026-07-04:8",
-   "type": "growth",
-   "label": "成長 2026-07-04",
-   "description": "reddit収集が2026-07-03・2026-07-04と2日連続でHTTP 403になり恒常的に失敗しているため、reddit.enabledをfalseにして無効化した。理由をコメントとして残し、復旧策が見つかれば再有効化する。",
-   "growthType": "source",
-   "url": "growth.html",
-   "date": "2026-07-04",
-   "updated": "2026-07-04"
+   "id": "digest:2026-09-02",
+   "type": "digest",
+   "label": "2026-09-02",
+   "description": "新モデルFable 5.1のコスト最適化と、足元の脆弱性GitSpawnが同時に走った一日 — AnthropicがClaude Fable 5.1・Mythos 5.1を発表し、通常ワークロードで約25%・高度なエージェント作業で最大45%のコスト削減とタンパク質設計成功率約50%達成などの研究成果を示した一方、Claude Codeを含む複数の開発ツールで`.git/config`経由の任意コード実行を許すGitSpawn脆弱性が報…",
+   "url": "archive/2026-09-02.html",
+   "date": "2026-09-02",
+   "updated": "2026-09-02",
+   "items": [
+    {
+     "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    },
+    {
+     "title": "SKILL.state: Scalable Long-Horizon Agent Skills",
+     "url": "https://arxiv.org/abs/2608.26263"
+    },
+    {
+     "title": "【AIエージェントでナポレオン】# 20. システムプロンプトに書いたルールは、読まれていなかった",
+     "url": "https://zenn.dev/gakusys/articles/df592639959497"
+    },
+    {
+     "title": "GitSpawn: A Single Flaw Lets Untrusted Repos Run Code in Claude Code, and Others",
+     "url": "https://www.manifold.security/blog/ai-coding-agents-git-hijack"
+    },
+    {
+     "title": "ApodexAI/FrontierAgent",
+     "url": "https://github.com/ApodexAI/FrontierAgent"
+    },
+    {
+     "title": "健全性チェックが緑なのに、本番は32日間500だった ── 監視が嘘をつく6つの実例",
+     "url": "https://zenn.dev/sivami/articles/e057f47d115721"
+    },
+    {
+     "title": "Show HN: A Proxy between LLMs and MCP servers with policy the model cannot reach",
+     "url": "https://github.com/SenteLabsAI/extensible-mcp"
+    },
+    {
+     "title": "【Vol.24】AIエージェントは「作る」から「運用する」フェーズへ — 50体を捌く設計と統制",
+     "url": "https://zenn.dev/tech_realinvent/articles/86e621a33c0857"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-05:9",
@@ -4461,6 +4437,26 @@
    "url": "growth.html",
    "date": "2026-09-01",
    "updated": "2026-09-01"
+  },
+  {
+   "id": "growth:2026-09-02:149",
+   "type": "growth",
+   "label": "成長 2026-09-02",
+   "description": "指示文の効果が内容ではなく配置(システムプロンプト側かユーザープロンプト直前か)だけで言及率0%から80〜90%に変わるという実測を agent/knowledge/agent-design.md に追記した。2026-08-29に記録した『CLAUDE.md/AGENT.mdが従われない6原因』のうち『置き場所・起動位置の問題』を、極端な数値で裏付ける具体例として系譜に加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-02",
+   "updated": "2026-09-02"
+  },
+  {
+   "id": "growth:2026-09-02:150",
+   "type": "growth",
+   "label": "成長 2026-09-02",
+   "description": "ヘルスチェックが緑のまま本番が32日間障害を出し続けていた実例を agent/skills/growth-scan.md に追記した。2026-07-18記録の『チェックリストを満たすことと目的達成の乖離』・2026-08-30記録のActivation Failure診断の系譜に、機械的検証(node scripts/validate.mjs)自身が確認している範囲の狭さを疑う視点を加えた。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-02",
+   "updated": "2026-09-02"
   }
  ],
  "edges": [
@@ -4608,19 +4604,19 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 7
+   "weight": 11
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 3
+   "weight": 5
   },
   {
    "source": "source:github",
@@ -4636,7 +4632,8 @@
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4644,35 +4641,13 @@
    "kind": "fed"
   },
   {
-   "source": "agent",
-   "target": "digest:2026-07-04",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-04",
-   "kind": "fed",
-   "weight": 4
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-07-04",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
    "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-07-04",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-07-04",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-04",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
@@ -6654,10 +6629,42 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-02",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-09-02",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-02",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-02",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-09-02",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-09-02",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 7
+   "weight": 9
   },
   {
    "source": "archive:2026-07",
@@ -6700,19 +6707,9 @@
    "kind": "changed"
   },
   {
-   "source": "digest:2026-07-04",
-   "target": "growth:2026-07-04:7",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-04:7",
+   "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-04",
-   "target": "growth:2026-07-04:8",
-   "kind": "grew"
   },
   {
    "source": "digest:2026-07-05",
@@ -8132,6 +8129,26 @@
   {
    "source": "growth:2026-09-01:148",
    "target": "knowledge:models",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-02",
+   "target": "growth:2026-09-02:149",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-02:149",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-02",
+   "target": "growth:2026-09-02:150",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-02:150",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
