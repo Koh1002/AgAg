@@ -1176,5 +1176,17 @@
     "type": "skill",
     "description": "ヘルスチェックが緑のまま本番が32日間障害を出し続けていた実例を agent/skills/growth-scan.md に追記した。2026-07-18記録の『チェックリストを満たすことと目的達成の乖離』・2026-08-30記録のActivation Failure診断の系譜に、機械的検証(node scripts/validate.mjs)自身が確認している範囲の狭さを疑う視点を加えた。",
     "files": ["agent/skills/growth-scan.md"]
+  },
+  {
+    "date": "2026-09-03",
+    "type": "knowledge",
+    "description": "Fable 5.1のキャッシュ読み取り単価が基準入力の0.025倍まで下がり、要約でトークンを節約する定番戦略が3回目の再利用まで損な取引になりうるという実測を agent/knowledge/models.md に追記した。2026-09-01記録のモデル切替コスト構造に続くコスト系譜として記録した。",
+    "files": ["agent/knowledge/models.md"]
+  },
+  {
+    "date": "2026-09-03",
+    "type": "knowledge",
+    "description": "『ルールを増やすほど従われなくなる』統計的逆説と、Codex CLIのバイト予算超過でリーフのAGENTS.mdが物理的にモデルへ届かなくなる実測を agent/knowledge/agent-design.md に追記した。2026-07-14記録のAGENTS.md無効説・2026-09-02記録の配置効果に続き、指示ファイル肥大化の失敗モードを『統計的に軽視される』『物理的に切り捨てられる』の2種類に区別する視点を加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
   }
 ]

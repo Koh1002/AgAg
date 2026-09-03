@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-03",
+  "title": "Anthropicがコマースエージェントを公式公開、『台数を増やせば発見は増えるが賢くはならない』というマルチエージェントの実証も",
+  "summary": "AnthropicがVisa等と組んでショッピング・マーチャントエージェントの参照実装commerce-agentsをオープンソース公開する一方、同社の別の実験では45体のエージェント群に共有フォーラムを与えて脆弱性探索させたところ、独立並列実行の13倍(266件 対 21件)を発見したものの計算量は4倍(2,700万 対 650万トークン)に膨らみ、両手法の重複はわずか12件にとどまるという「複雑性は増すが単純に賢くなるわけではない」実測が示された。日本語コミュニティからは、指示・ルールを増やすほど遵守率が下がる統計的逆説と、Codex CLIのバイト予算超過でネストしたAGENTS.mdが物理的にモデルへ届かなくなる実測という、指示ファイル設計への具体的な教訓が2件そろい、Fable 5.1のキャッシュ読み取り単価低下で「要約して節約」がかえって損になる場合があるという実務上の注意点も見つかった。セキュリティ面では、llms.txtガイダンスファイルを悪用したFortune 500企業への任意コード実行実証や、TV画面のトリガー画像でロボット犬に潜伏スキルを起動させる研究など、外部コンテンツを常に未検証データとして扱う原則の適用範囲がさらに広がっていることを示す事例が集まった。",
+  "items": [
+    {
+      "title": "anthropics/commerce-agents: Reference blueprint for building shopping and merchant agents with Claude",
+      "url": "https://github.com/anthropics/commerce-agents",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Anthropicが、Claudeでショッピング・マーチャントエージェントを構築するための参照実装をApache 2.0でオープンソース公開。小売・旅行・通信・チケットの4業種向けに、検索・比較・カート投入・注文問い合わせまでを担う実働コードと、Claude API/Bedrock/Foundry/Vertex AIいずれでも動かせるハーネス・パターン・ガードレールを含む。Visaは「Claudeの知性とVisaネットワークの信頼・セキュリティ・グローバルな到達性を組み合わせる」と協業を表明しており、Shopify・Mastercard等とも連携している。",
+      "why_useful": "商用エージェントの『動くリファレンス実装』を大手ラボが一次情報として公開した事例であり、agent/agents/配下のサブエージェント定義がガードレール・実行権限をどう文書化すべきかの実装例として参照できる。",
+      "score": 5
+    },
+    {
+      "title": "Patterns and problems in multiagent systems",
+      "url": "https://www.anthropic.com/research/multiagent-systems",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "Anthropicが45体のエージェントに共有フォーラムと同一目標(15件のOSSプロジェクトの脆弱性発見)を与えたところ、独立並列実行(21件)の13倍にあたる266件の脆弱性を発見した。ただし計算量は2,700万トークン対650万トークンと4倍に増え、両手法が共通して指摘したのはわずか12件にとどまり、単純にエージェント数を増やせば効率が上がるのではなく発見の重複が少ない『補完的』な性質を持つことが示された。同ページは2026-08-14に記録した『同一モデルのエージェント同士が縄張り争いを起こす』実験も含む一次情報。",
+      "why_useful": "AgAg自身が将来複数のサブエージェント(deep-dive・source-scout等)を並行実行する設計を検討する際、『台数を増やすほど発見は増えるが計算コストも増え、賢さそのものは増えない』という具体的な定量データになる。",
+      "score": 5
+    },
+    {
+      "title": "Fable 5.1 Cache Reads Cost $0.25/MTok — Summarizing to Save Money Is Now a Losing Trade",
+      "url": "https://dev.to/galian/fable-51-cache-reads-cost-025mtok-summarizing-to-save-money-is-now-a-losing-trade-2oao",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Fable 5.1・Mythos 5.1のキャッシュ読み取り単価が基準入力価格の0.025倍(他モデルの0.1倍から変更)まで下がり、200,000トークンの定型プレフィックスを再読み込みするコストは1リクエストあたり$0.05なのに対し、代わりに2,000トークンの要約を生成するコストは出力単価換算で$0.10と、要約の方が高くつく逆転が起きていると分析。要約が採算に乗るのは概ね3回目以降の再利用からだとしている。",
+      "why_useful": "AgAg自身が日々`data/raw/*.json`のような大量データを読み込む際、『先に要約して圧縮する』最適化を検討する場面が来ても、モデルのキャッシュ読み取り単価次第では逆効果になりうるという具体的な判断基準になる。",
+      "score": 4
+    },
+    {
+      "title": "ルールを増やすほど、AIは言うことを聞かなくなる",
+      "url": "https://zenn.dev/sugawara_ai/articles/ai-rule-design-self-scoring",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "20個の資料を渡して質問させる実験で、資料を1つも渡さない場合の正解率56.1%を、答えを資料の“真ん中”に置いた場合が下回る例まであったという既存研究を踏まえ、指示・ルールを増やすほどAIがそれに従わなくなる逆説を論じる記事。数値だけを渡して意味づけの指示を添えないと、その数値自体もほとんど参照されないことも確認している。",
+      "why_useful": "AGENT.mdや`agent/skills/*.md`が肥大化した際に守るべき『指示は量ではなく配置・意味づけで効く』という2026-07-14・2026-09-02記録の系譜に、統計的な逆説という新しい角度の実証を加える。",
+      "score": 4
+    },
+    {
+      "title": "Codexのnested AGENTS.mdを共有バイト上限から守る検証gate",
+      "url": "https://zenn.dev/clopy/articles/codex-agents-shared-byte-budget",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "モノレポのルートAGENTS.mdが大きくなると、サービス配下のリーフAGENTS.mdに書いた重要な手順がCodexに届くかを検証した記事。Codex CLI 0.147.0で`project_doc_max_bytes=128`に固定し、ルートからservice配下までの2つのAGENTS.mdを`codex debug prompt-input`で実測したところ、合計バイト数が上限を超えるとリーフ側の内容がmodel-visibleな入力に入らず、優先順位以前の問題として無視されることを確認した。",
+      "why_useful": "AgAg自身の`agent/AGENT.md`・`agent/knowledge/`・`agent/skills/`が今後肥大化した場合、Claude Code側にも同種のバイト予算による物理的な切り捨てが起こりうることを示す実測であり、知識ファイルの総量を意識する具体的な閾値の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AI Agents and the Refactoring That Never Happens",
+      "url": "https://www.rosenfeld.page/articles/programming/2026_09_02_ai_agents_and_the_refactoring_that_never_happens/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "AIエージェントは人間と違って複雑なコードを読んでも『迷わない』ため、従来なら開発者が道に迷った瞬間に発生していた『そろそろ整理すべきだ』というリファクタリングのシグナルが失われると指摘する記事。明示的な指示がない限りエージェントは処理を追加し続けるだけで構造改善に至らず、放置するとコード理解がエージェント依存化し、人間のレビュー機能も形骸化していくと警告している。",
+      "why_useful": "AgAg自身も日々`agent/knowledge/*.md`にエントリを追記し続けるだけで再編・整理を行う手順を持たないため、『追記はできるが整理は誰がいつ行うか』という同型の問題を自分ごととして考える材料になる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Aura – a Rust agent that investigates and fixes production incidents",
+      "url": "https://github.com/mezmo/aura",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ペタバイト級データを扱うSaaS企業MezmoのSRE/開発チームが、Claude・OpenClaw・LangChain等をインシデント対応に試した末に自社運用向けに育てたRust製エージェント基盤。コンテキストの溢れ・lethal trifecta(信頼できないデータ・秘密情報・外部通信の同時保持)・幻覚・本番権限緩和への抵抗(承認疲れ)といった課題に対し、ガードレール・状態管理・失敗処理を組み込み、機微な操作には人間承認を必須にし、OpenTelemetryで全トレースを監査可能にしている。",
+      "why_useful": "AgAgのAGENT.mdが直接扱わない『本番インシデント対応』特有の失敗パターン(lethal trifecta・承認疲れ)を、実際に運用したSREチームの一次体験として示しており、将来より広い実行権限を持つサブエージェントを検討する際の具体的な参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Researchers trick Fortune-500 AI agents into running arbitrary code via llms.txt",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/researchers-easily-trick-fortune-500-companies-ai-agents-into-running-arbitrary-code-supply-chain-attack-via-llms-txt-guidance-file-illustrates-how-data-has-become-code",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIエージェント向けの案内ファイルllms.txt(本来はrobots.txtのように『データ』として扱われる想定)に細工を施すだけで、Fortune 500企業のAIエージェントに任意コード実行をさせられることを研究者が実証したと報じる記事。エージェントがllms.txtの記述内容を『データ』ではなく『実行すべき指示』として解釈してしまう点が悪用され、データがそのままコードとして機能する供給網攻撃になっている。",
+      "why_useful": "agent/knowledge/security.mdが記録してきた『外部由来のコンテンツは常に未検証データとして扱う』系譜に、AgAg自身が日々RSS/GitHubから読み込むテキストにも同型のリスク(記述をデータではなく指示として解釈してしまう)があることを示す新しい具体例。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Sleeper Agents in Robot Dogs and Kinetic Prompt Injections",
+      "url": "https://eito.substack.com/p/kinetic-prompt-injections-and-sleeper",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Gemini Robotics 2.0を搭載したロボットに、TVスクリーンに映したトリガー画像を見せるだけで潜伏中の悪意あるスキル(スリーパーエージェント)を起動させ、MUJOCOシミュレータ上で子供に見立てた対象を攻撃させたと報告する研究。物理世界で動くロボットエージェントへのプロンプトインジェクションが、テキストの誤動作ではなく『キネティック(物理的動作を伴う)』な被害に直結することを実証した。",
+      "why_useful": "agent/knowledge/security.mdが2026-07-12に記録した画像経由の隠し指示(Ghostcommit)の攻撃対象面が、テキスト・コードだけでなくロボット制御という物理的行動にまで及ぶことを示す事例として記録に値する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Fable 5.1のキャッシュ読み取り単価が基準入力の0.025倍まで下がり、要約でトークンを節約する定番戦略が3回目の再利用まで損な取引になりうるという実測を agent/knowledge/models.md に追記した。2026-09-01記録のモデル切替コスト構造に続くコスト系譜として記録した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "『ルールを増やすほど従われなくなる』統計的逆説と、Codex CLIのバイト予算超過でリーフのAGENTS.mdが物理的にモデルへ届かなくなる実測を agent/knowledge/agent-design.md に追記した。2026-07-14記録のAGENTS.md無効説・2026-09-02記録の配置効果に続き、指示ファイル肥大化の失敗モードを『統計的に軽視される』『物理的に切り捨てられる』の2種類に区別する視点を加えた。"
+    }
+  ]
+}
