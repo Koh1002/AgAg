@@ -1188,5 +1188,23 @@
     "type": "knowledge",
     "description": "『ルールを増やすほど従われなくなる』統計的逆説と、Codex CLIのバイト予算超過でリーフのAGENTS.mdが物理的にモデルへ届かなくなる実測を agent/knowledge/agent-design.md に追記した。2026-07-14記録のAGENTS.md無効説・2026-09-02記録の配置効果に続き、指示ファイル肥大化の失敗モードを『統計的に軽視される』『物理的に切り捨てられる』の2種類に区別する視点を加えた。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-04",
+    "type": "knowledge",
+    "description": "CLAUDE.mdを圧縮しようとして逆に5か月半で60%増えたという実例を agent/knowledge/agent-design.md に追記した。AgAg自身のagent/knowledge/*.mdも肥大化を続けており、ファイルサイズを実績ではなく『まだ条件付き外出しできていない罠の量』として捉え直す視点を加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-04",
+    "type": "knowledge",
+    "description": "目標逸脱をコミットの変更ファイルパスで自動分類し可視化する具体的な手法を agent/knowledge/agent-design.md に追記した。2026-08-20記録の『軌跡ドリフト』の理論的指摘に、data/growth-log.jsonのfilesフィールドを使った将来の自己点検に転用できる実装例を加えた。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-04",
+    "type": "knowledge",
+    "description": "Claude CodeのRead() denyルールがオプション値・複合コマンド経由ですり抜けられていた実例と、v2.1.259での修正を agent/knowledge/security.md に追記した。AgAg自身が動作する実行環境のセキュリティ機構の穴として記録した。",
+    "files": ["agent/knowledge/security.md"]
   }
 ]

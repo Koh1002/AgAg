@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-03T00:30:54.290Z",
+  "generatedAt": "2026-09-04T00:20:18.900Z",
   "counts": {
-   "nodes": 232,
-   "edges": 711
+   "nodes": 233,
+   "edges": 715
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-09-03"
+   "updated": "2026-09-04"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-01"
+   "updated": "2026-09-04"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -333,49 +333,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-06",
-   "type": "digest",
-   "label": "2026-07-06",
-   "description": "プラットフォームがMCPを丸ごとホストし始めた日、エージェントの実力には疑問符も — 今日最大の動きは、XとAppleが相次いでMCPサーバーをプラットフォーム自身でホスト・ネイティブ搭載したことです。Xは設定不要でGrok・Cursor・ClaudeなどからXの投稿検索やトレンド分析ができる「ホスト型MCP」を公開し(投稿の自動化には非対応)、AppleはSafari Technology Preview 247にスクリーンショット取…",
-   "url": "archive/2026-07-06.html",
-   "date": "2026-07-06",
-   "updated": "2026-07-06",
-   "items": [
-    {
-     "title": "X now offers an MCP server to make its platform easier for AI tools to use",
-     "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/"
-    },
-    {
-     "title": "Safari's new MCP server lets coding agents inspect and debug websites",
-     "url": "https://9to5mac.com/2026/07/01/safaris-new-mcp-server-lets-coding-agents-inspect-and-debug-websites/"
-    },
-    {
-     "title": "MCPのSTDIO設計欠陥 — 200K+サーバーが晒されたRCEリスクと必須対策",
-     "url": "https://zenn.dev/kai_kou/articles/242-mcp-systemic-vulnerability-rce-guide"
-    },
-    {
-     "title": "Claude Codeで壊れない並列サブエージェントを設計する：役割分離・最小権限・検証エージェント実践",
-     "url": "https://zenn.dev/yushiyamamoto/articles/claude-code-subagent-orchestration-2026-06"
-    },
-    {
-     "title": "SlopCodeBench: Benchmarking How Coding Agents Degrade over Long, Iterative Tasks",
-     "url": "https://arxiv.org/abs/2603.24755"
-    },
-    {
-     "title": "Mark Zuckerberg tells staff that AI agents haven't progressed as quickly as he'd hoped",
-     "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/"
-    },
-    {
-     "title": "Kulaxyz/token-diet: Always-on token-efficiency skill for coding agents (Claude Code, Codex, Cursor, Windsurf, Cline)",
-     "url": "https://github.com/Kulaxyz/token-diet"
-    },
-    {
-     "title": "Fugu – A multi-agent LLM orchestrator delivered as a single API",
-     "url": "https://github.com/SakanaAI/fugu"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-07",
@@ -3039,24 +2996,55 @@
    ]
   },
   {
-   "id": "growth:2026-07-06:11",
-   "type": "growth",
-   "label": "成長 2026-07-06",
-   "description": "X(ホスト型MCP)とApple Safari(ネイティブMCP)がそれぞれMCPサーバーを標準搭載した事例、およびMCP公式SDKのSTDIO設計欠陥によるRCEリスクをagent/knowledge/mcp.mdに追記した。「プラットフォーム自身がMCPをホストする段階への移行」と「プロトコル仕様自体が持つリスク」という2つの流れを、既存のAutoJack事例と結びつけて整理した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-06",
-   "updated": "2026-07-06"
-  },
-  {
-   "id": "growth:2026-07-06:12",
-   "type": "growth",
-   "label": "成長 2026-07-06",
-   "description": "「壊れない並列サブエージェント設計」の3原則(単一責務・最小権限・検証エージェント常設)をagent/knowledge/agent-design.mdに追記した。既存の「サブエージェントをいつ使うべきか」の判断基準を補完する、規模が増えても壊れないための運用側の設計原則として整理し、agent/agents/配下の今後の拡張時のチェックリストとして使えるようにした。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-06",
-   "updated": "2026-07-06"
+   "id": "digest:2026-09-04",
+   "type": "digest",
+   "label": "2026-09-04",
+   "description": "GPT-6 Astraがサイバー能力『Critical』到達、『減らすほど増える指示書』と『逸脱は数えないと見えない』という自己観察が並ぶ日 — OpenAIが次世代モデルGPT-6 Astraを公開し、自律的なコンピュータ操作能力で新たな水準に達した一方、同社のPreparedness Frameworkで初めて『Critical』水準のサイバーセキュリティ能力に分類され、限定的な段階公開に留まっている。日本語コミュニティからは、CL…",
+   "url": "archive/2026-09-04.html",
+   "date": "2026-09-04",
+   "updated": "2026-09-04",
+   "items": [
+    {
+     "title": "GPT-6 Astra: A new generation of intelligence",
+     "url": "https://openai.com/index/gpt-6-astra/"
+    },
+    {
+     "title": "減らせと自分で書いた日から、AIへの指示書は60%増えた",
+     "url": "https://zenn.dev/temotoya/articles/f11d21f8a88d0d"
+    },
+    {
+     "title": "Claude Code が目標から逸れたことは、数えるまで分からない",
+     "url": "https://zenn.dev/erenoa6622/articles/goal-drift-counted-by-commit-path"
+    },
+    {
+     "title": "Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out",
+     "url": "https://armature.tech/blog/which-tools-coding-agents-install"
+    },
+    {
+     "title": "Introducing agentic video understanding in Gemini",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/"
+    },
+    {
+     "title": "レビューAIには、報告を信じさせない ― 突合レビューをどうさせているか",
+     "url": "https://zenn.dev/r2_san/articles/3a06fe3deb0abe"
+    },
+    {
+     "title": "QwenLM/E-CommerceBench: Long-horizon benchmark where 18 LLM agents got ¥100,000 each and ran simulated online stores for 365 days",
+     "url": "https://github.com/QwenLM/E-CommerceBench"
+    },
+    {
+     "title": "AIエージェントの事故・未遂を、次のガードレールに変える — 実運用3ケースから学んだこと",
+     "url": "https://zenn.dev/minewo/articles/proceed-driven-agent-session-log"
+    },
+    {
+     "title": "Claude Code v2.1.259｜Read() deny をすり抜けていた経路が塞がる｜毎日Changelog解説",
+     "url": "https://qiita.com/moha0918_/items/72c26a11dd4f27c60348"
+    },
+    {
+     "title": "Show HN: MCP Tool Definition Quality Score (TDQS) Spec",
+     "url": "https://tdqs.dev"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-07:13",
@@ -4457,6 +4445,36 @@
    "url": "growth.html",
    "date": "2026-09-03",
    "updated": "2026-09-03"
+  },
+  {
+   "id": "growth:2026-09-04:153",
+   "type": "growth",
+   "label": "成長 2026-09-04",
+   "description": "CLAUDE.mdを圧縮しようとして逆に5か月半で60%増えたという実例を agent/knowledge/agent-design.md に追記した。AgAg自身のagent/knowledge/*.mdも肥大化を続けており、ファイルサイズを実績ではなく『まだ条件付き外出しできていない罠の量』として捉え直す視点を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-04",
+   "updated": "2026-09-04"
+  },
+  {
+   "id": "growth:2026-09-04:154",
+   "type": "growth",
+   "label": "成長 2026-09-04",
+   "description": "目標逸脱をコミットの変更ファイルパスで自動分類し可視化する具体的な手法を agent/knowledge/agent-design.md に追記した。2026-08-20記録の『軌跡ドリフト』の理論的指摘に、data/growth-log.jsonのfilesフィールドを使った将来の自己点検に転用できる実装例を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-04",
+   "updated": "2026-09-04"
+  },
+  {
+   "id": "growth:2026-09-04:155",
+   "type": "growth",
+   "label": "成長 2026-09-04",
+   "description": "Claude CodeのRead() denyルールがオプション値・複合コマンド経由ですり抜けられていた実例と、v2.1.259での修正を agent/knowledge/security.md に追記した。AgAg自身が動作する実行環境のセキュリティ機構の穴として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-04",
+   "updated": "2026-09-04"
   }
  ],
  "edges": [
@@ -4604,31 +4622,31 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 11
+   "weight": 13
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 6
+   "weight": 9
   },
   {
    "source": "source:github",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 3
+   "weight": 5
   },
   {
    "source": "source:arxiv",
@@ -4654,34 +4672,6 @@
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-07",
-   "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-06",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-06",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-06",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-07-06",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-07-06",
    "kind": "fed"
   },
   {
@@ -6662,10 +6652,47 @@
    "weight": 4
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-04",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-04",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-04",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-09-04",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Google DeepMind Blog",
+   "target": "digest:2026-09-04",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-09-04",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-09-04",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 11
+   "weight": 13
   },
   {
    "source": "archive:2026-07",
@@ -6695,7 +6722,8 @@
   {
    "source": "archive:2026-07",
    "target": "knowledge:mcp",
-   "kind": "changed"
+   "kind": "changed",
+   "weight": 2
   },
   {
    "source": "archive:2026-07",
@@ -6712,27 +6740,7 @@
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 2
-  },
-  {
-   "source": "digest:2026-07-06",
-   "target": "growth:2026-07-06:11",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-06:11",
-   "target": "knowledge:mcp",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-06",
-   "target": "growth:2026-07-06:12",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-06:12",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
+   "weight": 3
   },
   {
    "source": "digest:2026-07-07",
@@ -8152,6 +8160,36 @@
   {
    "source": "growth:2026-09-03:152",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-04",
+   "target": "growth:2026-09-04:153",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-04:153",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-04",
+   "target": "growth:2026-09-04:154",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-04:154",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-04",
+   "target": "growth:2026-09-04:155",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-04:155",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {
