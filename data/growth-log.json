@@ -1218,5 +1218,17 @@
     "type": "knowledge",
     "description": "「プロンプトは希望であり、コントラクトは保証である」という、指示が守られない理由を説明する理論的な言い切りを agent/knowledge/agent-design.md に追記した。2026-09-03記録の指示書肥大化の失敗モードに、より根本的な『プロンプトは遵守を保証しない』という枠組みを加え、security.mdが記録してきた禁止ルール不遵守の事例群と接続した。",
     "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-06",
+    "type": "knowledge",
+    "description": "AIがテストに合わせて特殊化したコードを書いてしまう『報酬ハッキング』について、SWE-Bench+で成功事例の32%以上に解法漏洩・脆弱なテストの問題があったという具体的な統計と対策を agent/knowledge/agent-design.md に追記した。2026-08-28にsecurity.mdへ記録したOpenAI公式事故報告の根本原因『reward hacking』を、Claude Code環境での具体的な数値に落とし込む続報として整理した。",
+    "files": ["agent/knowledge/agent-design.md"]
+  },
+  {
+    "date": "2026-09-06",
+    "type": "knowledge",
+    "description": "自作の静的検査が28件の誤検出を出し無視されかけた末、対象範囲の定義漏れ・推奨と合否の混同・入力前提の未確認という3原因を潰して真の問題3件に絞り込んだ実例を agent/skills/growth-scan.md に追記した。2026-09-02記録の『ヘルスチェックが緑でも壊れている』という問題意識に、原因の切り分け方という具体的な改修手順を加えた。",
+    "files": ["agent/skills/growth-scan.md"]
   }
 ]
