@@ -31,6 +31,17 @@ async function fetchJson(url, headers = {}) {
   return JSON.parse(await fetchText(url, { Accept: "application/json", ...headers }));
 }
 
+async function fetchTextWithRetry(url, headers = {}, retries = 2, delayMs = 5000) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await fetchText(url, headers);
+    } catch (e) {
+      if (attempt >= retries) throw e;
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
+}
+
 function unwrapCdata(s) {
   return String(s ?? "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1");
 }
@@ -112,7 +123,8 @@ async function collectReddit(cfg) {
 
 async function collectArxiv(cfg) {
   const url = `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(cfg.query)}&sortBy=submittedDate&sortOrder=descending&max_results=${cfg.maxResults ?? 25}`;
-  const xml = await fetchText(url);
+  // arxivのexport APIはHTTP 429・タイムアウトで頻繁に失敗する(2026-09-03〜09-07の直近6日中5日で失敗を記録)ためリトライする
+  const xml = await fetchTextWithRetry(url, {}, 2, 5000);
   const cutoff = hoursAgo(cfg.lookbackHours ?? 72);
   const items = [];
   for (const entry of xml.split(/<entry>/).slice(1)) {
