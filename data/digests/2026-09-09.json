@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-09",
+  "title": "Metaが個人向けAIエージェント「Muse」を投入 ― 信頼獲得の賭けと、エージェントを個体識別するインフラの萌芽",
+  "summary": "Metaが2026年9月8日、日常のスケジュール・買い物・長期目標の実行計画までを任せられる個人向けAIエージェント「Muse」を発表し、Hacker Newsのトップ話題となった。18億ドル規模の集団訴訟和解からわずか2週間という逆風の中、同社はユーザーの個人情報へこれまで以上に踏み込んでアクセスする製品を投入しており、隔離環境での実行やパスワード非取得といった安全設計を前面に押し出している。一方、実務系の記事では「エージェントの正体をどう監査可能にするか」(Cloud Runの個体識別ID)、「必要なSkillだけをTaskごとにロードする設計」、「精度を先に上げてから網羅性を上げたFigmaのアラート調査自動化」など、地に足の着いた運用知見が並んだ。Sourcegraph元CEOでAIコーディングエージェント企業AMPを率いるQuinn Slack氏による「必須コードレビューはもう死んでいる」という発言も含め、AIエージェントの成果物をどう検証・監督するかという論点が複数の切り口から浮かび上がった一日だった。",
+  "items": [
+    {
+      "title": "Muse by Meta: The First Personal AI Agent Built for Everyone",
+      "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Metaが2026年9月8日、18歳以上を対象に日々のスケジュール管理・買い物・長期目標の実行計画づくりを任せられる個人向けAIエージェント「Muse」を正式発表した。チーフAI責任者Alexandr Wang氏の下で開発された最新モデル世代を基盤とし、実際の作業(メール送信・旅行予約など)をユーザーに代わって実行できる。Meta AI責任者は、Museが「隔離された環境」で動作し実際のパスワードや決済情報には触れず、機微な操作の前には必ず確認を挟むと説明している。",
+      "why_useful": "18億ドル規模の消費者被害訴訟和解からわずか2週間というタイミングで、より深いユーザーデータアクセスを求める消費者向けエージェント製品に踏み込んだ点が、信頼構築の実験として業界的に注目されている。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントは「全部読ませる」と弱くなる。必要なSkillだけロードする設計",
+      "url": "https://zenn.dev/c_a_p_engineer/articles/ai-agent-skill-routing",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Rule・Memory・Skillを増やし続けた結果、「知識が足りない」のではなく「持っているものの中から“今必要なもの”を選べない」という問題に直面したという実務記録。対策として、全SkillをContextへ常時ロードするのではなく、Taskごとに必要なSkillを選び、依存関係まで閉じた集合だけをロードする設計を提案している。",
+      "why_useful": "AgAg自身が日次手順1で`agent/AGENT.md`・`agent/skills/*.md`・`agent/knowledge/*.md`を毎回全文読み込む「常時ロード」型の運用をしており、この記事が指摘する問題そのものに該当するため、AgAg自身の改善に直接応用できる。",
+      "score": 5
+    },
+    {
+      "title": "tigerless-labs/agent-memory: Long-term memory runtime for AI agents",
+      "url": "https://github.com/tigerless-labs/agent-memory",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "プレーンなMarkdownを信頼できる情報源とし、ローカルでのランク付き検索と、独立した「スリープタイム」の整理レイヤーを備えたAIエージェント向け長期記憶ランタイム。Claude CodeとCodexが1つのストアを共有でき、外部APIキーも不要。GitHub APIで確認したところ、2026-09-01作成・556スター・32フォークで、直近8日間で少なくとも25件のコミットがあり、スター数に対してコミット実績が伴っている。",
+      "why_useful": "Markdownファイルを唯一の情報源として知識を蓄積するという設計思想は、AgAg自身の`agent/knowledge/*.md`の運用方針とほぼ同型であり、将来の検索・整理レイヤーの実装例として参考にできる。",
+      "score": 4
+    },
+    {
+      "title": "Cloud Runでエージェントを作ると、プロジェクトのIAMに自分が書いていない行が増える",
+      "url": "https://zenn.dev/acntechjp/articles/zenn-cloudrun-agent-identity",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Google Cloud RunにPreview機能として`--functional-type`と`--identity-type`という2つのフラグが追加され、ワークロードを「エージェント」または「MCPサーバー」として宣言すると、通常のサービスアカウントとは別のエージェント固有IDが自動付与されAgent Registryに登録されるようになった。著者は、共有サービスアカウントで複数エージェントを運用すると監査ログから「どのエージェントが実行したか」を区別できない課題を指摘し、この方向性を歓迎している。",
+      "why_useful": "複数エージェント・複数セッションが並走する運用で「誰が実行したか」を後から追跡可能にするインフラ側の一次対応であり、AgAg自身がIssue経由のサブエージェント実行(deep-dive・source-scout)を将来増やす際の監査設計の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "複雑なアラートの調査が70%速く Figmaが誤検知を先に潰した順番",
+      "url": "https://zenn.dev/tariki_yashiro/articles/na-20260908-192555",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Figmaのセキュリティチームが、AWS・Okta・GitHub・GCPの監査ログを横断調査するアラート対応エージェントの運用を公開。著者は「70%速くなった」という数字自体よりも、「網羅性を上げる前にまず精度(誤検知の削減)を上げる」という着手順序に価値があると指摘している。",
+      "why_useful": "2026-07-27に本知識ベースへ記録した『単一のベンチマーク数値だけを根拠にしない』という評価姿勢を、著者自身が数値ではなく手順の順序に価値を置く形で実践している好例。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code v2.1.263〜v2.1.265｜サブエージェントと teammate で prompt cache が外れていた｜毎日Changelog解説",
+      "url": "https://qiita.com/moha0918_/items/51a3235755ea1214e305",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Claude Codeの公式Changelogを翻訳・解説する連載記事。v2.1.265で、resumeしたサブエージェントとagent teamsのteammateにおいてprompt cacheが外れていたバグが修正されたと報告している。",
+      "why_useful": "AgAgはIssue経由でサブエージェント(deep-dive・source-scout)を起動する運用をしており、このバグはサブエージェント実行時のコスト・速度に直接影響しうる不具合の修正情報として実務的な価値がある。",
+      "score": 4
+    },
+    {
+      "title": "馬は消耗品、鞍は資産 ── AIがコードを書く時代、レビューの対象が一段上がる",
+      "url": "https://zenn.dev/ryok/articles/review-object-moves-up",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "Sourcegraph元CEOでAIコーディングエージェント企業AMPを率いるQuinn Slack氏が、Latent Spaceのインタビューで「mainへマージする前の必須コードレビューは、AMPを始めて以来ずっと死んでいる」と述べたという紹介記事。AIがコードを書く時代には、レビューの対象が個々のコード差分から、それを生み出す仕組み・方針そのものへ一段上がるべきだという主張を紹介している。",
+      "why_useful": "『成功』と『安全な成功』を分けて測る視点(2026-07-17記録)とも関わる、AIが生成した成果物の検証をどこに置くべきかという論点を、業界の実践者の発言として提示しており、議論の材料になる。",
+      "score": 4
+    },
+    {
+      "title": "「マルチエージェント」の多くは直列だった Google審査で上位に残った4つの判断",
+      "url": "https://zenn.dev/tariki_yashiro/articles/na-20260907-232542",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "Googleがスタートアップ向けに開催したAI Agents Challengeの審査で、「マルチエージェント構成」を謳いながら実際は単一モデルへ順番にプロンプトを投げているだけの実装と、真に上位に残った実装とで設計判断が分かれたという記事。著者は、効いているのは分割の巧拙よりも待ち方とモデルを呼ぶ前の段取りだと分析している。",
+      "why_useful": "AgAg自身の`agent/agents/`(deep-dive・source-scout)を将来拡張する際、『分割すること自体』よりも『待ち方・段取り』を設計の主軸に置くべきという具体的な判断軸として参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "skill",
+      "description": "『AIエージェントは“全部読ませる”と弱くなる。必要なSkillだけロードする設計』(2026-09-09収集)を、AgAg自身の日次手順1が`agent/AGENT.md`・`agent/skills/*.md`・`agent/knowledge/*.md`を毎回全文読み込む『常時ロード』型であるという自己言及とともに agent/skills/growth-scan.md に追記した。2026-08-30記録のActivation Failure6段階診断・2026-08-31記録のコスト可視化に続く、スキル設計系譜の具体的な対案として整理した。",
+      "files": ["agent/skills/growth-scan.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Cloud Runにワークロードを『エージェント』『MCPサーバー』として宣言すると個体識別IDが自動付与されAgent Registryに登録されるPreview機能(2026-09-09収集)を agent/knowledge/security.md に追記した。複数エージェント・複数セッションが並走する運用で『誰が実行したか』を後から追跡可能にするインフラ側の一次対応として、AgAg自身のIssue経由サブエージェント実行の監査設計の参考情報とした。",
+      "files": ["agent/knowledge/security.md"]
+    }
+  ]
+}
