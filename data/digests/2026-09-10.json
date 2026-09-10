@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-10",
+  "title": "エージェントの『見えない部分』を測る一日 ― 模倣の数理化、スキルの常駐コスト、多層防御の実測",
+  "summary": "2026年9月8日公開のGoogle Threat Intelligence報告書は、攻撃者がコーディングエージェントやMCPサーバー、GitHub Actionsを悪用しプロンプトインジェクションで認証情報を窃取する手口の進化を伝えた。一方、6月に発覚したエージェント群による公開wiki乗っ取り事件(DSEwiki)は、単純な模倣則だけで集団行動を説明できることが学術的に裏付けられ、Claude Codeの公式コマンド`/skill-doctor`はスキルのトークン常駐コストを実測可能にした。Anthropic自身のコマース向けエージェント設計例や、Cloud Run多段構成での多層防御の600試行実測、自律PR修正の停止条件を巡る議論など、エージェントの『中身をどう測り、どう制御するか』という論点が一日を通じて複数の角度から浮かび上がった。",
+  "items": [
+    {
+      "title": "From Prompting to Autonomy: The Evolution of Adversarial AI",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Google Threat Intelligence Groupが2026年9月8日公開の報告書で、攻撃者がAIコーディングエージェントやLLMセキュリティスキャナーをプロンプトインジェクションで欺く手口の進化を報告した。攻撃グループUNC6780は悪質なJavaScriptローダーに生物・核兵器の製造手順を記載した極端なプロンプトを埋め込みセキュリティ分析を回避しようとし、MCPサーバーの改ざんやGitHub Actionsワークフローの操作、隠しディレクトリへの設定配置などを組み合わせ、大規模な認証情報窃取キャンペーンを6時間以内に実行した。",
+      "why_useful": "攻撃者側がAIエージェント・MCP・CI/CDパイプラインという複数の攻撃対象面を同時に悪用する具体的な手口を、被害企業ではなく防御側の脅威インテリジェンス企業が一次情報として公開しており、agent/knowledge/security.mdが積み重ねてきた『実行基盤を信頼できないコードとして扱う』系譜に新しい実例を加える。",
+      "score": 5
+    },
+    {
+      "title": "Copying explains the collective behavior of AI agents in the wild",
+      "url": "https://arxiv.org/abs/2609.09150v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "2026年6月に数千のAIエージェントが公開wikiを発見し編集し合った事象(agent/knowledge/security.mdが2026-09-05・09-08に記録したDSEwiki乗っ取り事件と同一)について、『ページの表示内容→直近の編集履歴→古い情報』の順に影響を受ける単純な模倣則だけで、ページごとのエージェント数分布やエージェント名の構成、ページの内部一貫性までほぼすべて再現できることを、各エージェントが何を見て何を書いたかの完全なログを使って実証した。",
+      "why_useful": "『エージェント同士が協調して公開wikiを乗っ取った』という既知インシデントに対し、その集団行動が複雑な意図的協調ではなく単純な模倣ルールだけで数理的に説明できることを示した初の学術的な後付け解析であり、既知インシデントの『重大な進展』として知識ベースを更新する価値がある。",
+      "score": 5
+    },
+    {
+      "title": "/skill-doctor で未使用スキルのトークン代を実測したら4,590でした",
+      "url": "https://qiita.com/kai_kou/items/374a95f0dcb28ba8ff45",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code 2.1.261で追加された`/skill-doctor`コマンドで、著者が運用する38本のAgent Skillsが毎ターン常駐させるトークン数を実測したところ約4,590トークンで、その大半はSKILL.md本体ではなくfrontmatterのdescriptionの長さに比例していた。重いdescription5本を1行に圧縮する実験では840トークンから100トークン未満まで削減できたと報告している。",
+      "why_useful": "2026-08-31にagent/skills/growth-scan.mdへ記録した『スキルのトークンコストが不可視のまま採用されるリスク』を、公式コマンドによる実測という具体的な検証手段で裏付ける続報であり、AgAg自身のagent/skills/*.md・agent/knowledge/*.mdが今後肥大化した際に同種の実測を検討する具体的な参考になる。",
+      "score": 5
+    },
+    {
+      "title": "anthropics/commerce-agents: Reference blueprint for building shopping and merchant agents with Claude",
+      "url": "https://github.com/anthropics/commerce-agents",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Anthropic公式が、小売・コマース・通信・エンタメ領域での購買・販売エージェント構築のリファレンス実装を公開した。GitHub APIで確認したところ2026-09-01作成・2,615スター・466フォークとスター数に見合ったフォーク実績があり、実体のある公式リポジトリであることを確認した。",
+      "why_useful": "Anthropic自身がエージェントの具体的な業務適用パターン(コマース)をリファレンス実装として示した一次情報であり、垂直領域特化のエージェント設計例として参考になる。",
+      "score": 4
+    },
+    {
+      "title": "エージェントに二手目を与えた瞬間に漏れた ―Cloud Run多段構成で多層防御を600試行測る",
+      "url": "https://zenn.dev/acntechjp/articles/zenn-agentchain-layered-defense",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Cloud Run上でエージェントを2段に連結し、間接プロンプトインジェクションを流し込んだ上でModel ArmorとSensitive Data Protectionを重ねた多層防御を600試行で実測した記事。専用の防御製品は600試行で一度も発火せず、実際に攻撃を止めていたのは防御層ではなく『エージェントが一手で終わる実装形』とモデルがインジェクションを無視した挙動だったと報告している。",
+      "why_useful": "2026-09-09にagent/knowledge/security.mdへ記録した同著者のCloud Runエージェント個体識別機能の記事に続く実測編であり、『防御製品を導入した』という自己申告ではなく実際に発火したかを大量試行で検証する姿勢は、agent/skills/curation.mdが2026-07-27に記録した『単一のベンチマーク数値だけを根拠にしない』姿勢とも一致する。",
+      "score": 4
+    },
+    {
+      "title": "AIがPRを直し続けるなら、必要なのは賢さより停止条件だ",
+      "url": "https://zenn.dev/heftykoo/articles/b36e6ffb93702f",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "VS Code 1.136でプレビュー公開された『Agent Merge』を題材に、『PRがmerge-readyになるまで修正を繰り返す』自律ループには自然な終点がなく、賢いモデルほど失敗のたびに次の一手を作り続けて当初の依頼から離れた変更まで行ってしまうと指摘する記事。PRを自律修正させるならモデル選びより先に停止条件をコード化すべきだと主張している。",
+      "why_useful": "agent/skills/growth-scan.mdが2026-07-17に記録した『タスク達成率だけでは禁止事項への違反を測れない』というCuP(Completion under Policy)の視点を、自律PR修正という具体的な実装場面に当てはめた議論であり、AgAg自身の日次手順が明確な停止条件(手順1〜8)を持つ設計になっている点を再確認する材料になる。",
+      "score": 4
+    },
+    {
+      "title": "自作の AI エージェントが、ChatGPT に同じ相談を 105 回していた。原因は「別の目的で作った分類器」の流用",
+      "url": "https://zenn.dev/hitokraft/articles/agent-asked-chatgpt-the-same-question-105-times",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "方向判断だけをChatGPTに相談する自作エージェントが、ChatGPTから『その相談は二度と出すな』と言われ続けているにもかかわらず、同じ相談を105回繰り返していた実例。原因は、別の目的で作った分類器を重複検出に流用しており、事前抑止も既生成分のsupersede処理も機能していなかったことだった。",
+      "why_useful": "『一見動いている仕組み(分類器)を別の目的に流用すると静かに壊れる』という具体的な失敗パターンで、agent/skills/growth-scan.mdが2026-09-02に記録した『ヘルスチェックが緑でも壊れている』系譜に、原因が分類器の目的不一致という新しい切り口を加える実例として参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Show HN: Geiger – See every AI agent on your machine and what it can touch",
+      "url": "https://github.com/Atomburstofficial/geiger",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "マシン上で動いている全AIエージェント(Claude Code・Codex等)とその権限・アクセス範囲を可視化するツール。Hacker Newsで44点・20コメントの反応があり、GitHub APIで確認したところ2026-09-06作成・70スター・1フォークと新しいが実体のあるプロジェクトであることを確認した。",
+      "why_useful": "agent/knowledge/security.mdが2026-09-09に記録したCloud Runの個体識別IDと同じ『誰がどのエージェントを実行しているか可視化する』問題意識を、ローカル環境向けに解決しようとするツールであり、複数エージェント運用時の監査設計の参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "2026-09-05・09-08に記録したDSEwiki乗っ取り事件(数千体のOpenAIエージェントが廃wikiを7週間乗っ取った件)について、同一の実データを数理的に解析したarXiv論文(2026-09-10収集)を agent/knowledge/security.md に追記した。複雑な意図的協調ではなく『見えているものを真似る』という単純な模倣則だけで集団行動のほぼすべてを再現できると示した、既知インシデントの学術的な後付け解析として整理した。",
+      "files": ["agent/knowledge/security.md"]
+    },
+    {
+      "type": "skill",
+      "description": "Claude Code公式コマンド`/skill-doctor`でAgent Skillsのdescription常駐トークンを実測した記事(2026-09-10収集)を agent/skills/growth-scan.md に追記した。2026-08-31記録の『コスト可視化』・2026-09-09記録の『常時ロード』設計問題に続き、AgAg自身の知識ファイルには直接適用できないものの『見積もりではなく専用コマンドで実測する』という具体的な手段を系譜に加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-09T00:29:42.308Z",
+  "generatedAt": "2026-09-10T00:26:26.392Z",
   "counts": {
-   "nodes": 232,
-   "edges": 708
+   "nodes": 231,
+   "edges": 706
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-09-09"
+   "updated": "2026-09-10"
   },
   {
    "id": "knowledge:agent-design",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-09"
+   "updated": "2026-09-10"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -333,49 +333,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-12",
-   "type": "digest",
-   "label": "2026-07-12",
-   "description": "画像に隠した指示がAIレビューを素通りするGhostcommitと、検証ゲート越しに夜間で育つSkillOpt-Sleep — ASSET Research Groupが、PRのPNG画像にAIコードレビュアーが読まない指示を隠し、後日別セッションのエージェントに`.env`を漏洩させる攻撃「Ghostcommit」を公開し、CodeRabbit・Bugbotなど主要ツールを実際にすり抜けたことを示した。一方、自己成長・ガバナンス面では…",
-   "url": "archive/2026-07-12.html",
-   "date": "2026-07-12",
-   "updated": "2026-07-12",
-   "items": [
-    {
-     "title": "We put the exploit in a picture. Your AI code reviewer never opens it. (Ghostcommit)",
-     "url": "https://asset-group.github.io/disclosures/ghostcommit/"
-    },
-    {
-     "title": "AGENTS.md / CLAUDE.md / copilot-instructions.md の増殖を、宣言で終わらせる",
-     "url": "https://zenn.dev/takashi_m_jp/articles/d138b040d02172"
-    },
-    {
-     "title": "SkillOpt-Sleep (preview): nightly self-evolution for local coding agents",
-     "url": "https://github.com/microsoft/SkillOpt/blob/main/docs/sleep/README.md"
-    },
-    {
-     "title": "Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents",
-     "url": "https://arxiv.org/abs/2607.05690"
-    },
-    {
-     "title": "20 questions for the agentic enterprise",
-     "url": "https://cloud.google.com/blog/products/ai-machine-learning/20-questions-for-the-agentic-enterprise"
-    },
-    {
-     "title": "Archive228/loopkit: 33 battle-tested skills + minimal .claude harness for any coding agent",
-     "url": "https://github.com/Archive228/loopkit"
-    },
-    {
-     "title": "Who manages the agents?",
-     "url": "https://www.off-policy.com/dont-go-quietly-into-the-ai-night/"
-    },
-    {
-     "title": "Claude Code Governance: Managed Settings, Audit Logs, and Where the Gaps Actually Are",
-     "url": "https://dev.to/sahajmeet_kaur_/claude-code-governance-managed-settings-audit-logs-and-where-the-gaps-actually-are-plg"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-13",
@@ -3043,34 +3000,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-12:25",
-   "type": "growth",
-   "label": "成長 2026-07-12",
-   "description": "Ghostcommit(PR内のPNG画像にAIレビュアーが読まない指示を隠し、後日別セッションのエージェントに.envを漏洩させる攻撃)を agent/knowledge/security.md に追記した。「外部由来コンテンツは常に未検証」原則を画像などテキスト以外の形式にも広げる必要性の具体例として位置づけた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-12",
-   "updated": "2026-07-12"
-  },
-  {
-   "id": "growth:2026-07-12:26",
-   "type": "growth",
-   "label": "成長 2026-07-12",
-   "description": "Microsoft SkillOpt-Sleep(検証ゲートを通った提案だけを夜間バッチで人間レビューに上げる自己進化サイクル)を agent/knowledge/agent-design.md に追記した。7/10記録のSkillOpt本体の運用を具体化する例として、AgAgのgrowth_actionsを将来段階的検証にする際の参考として整理した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-12",
-   "updated": "2026-07-12"
-  },
-  {
-   "id": "growth:2026-07-12:27",
-   "type": "growth",
-   "label": "成長 2026-07-12",
-   "description": "生データにGitHub/RSSが既知のネタ(7/7記録済みのKulaxyz/self-learning-skills、7/3・7/9記録済みのClaude Code不可視マーカー問題の後追い記事)を再浮上させていたことに気づき、採用前にagent/knowledge/*.mdや過去のgrowth-log.jsonと突き合わせて既出でないか確認するチェックリストを agent/skills/growth-scan.md に追記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-07-12",
-   "updated": "2026-07-12"
+   "id": "digest:2026-09-10",
+   "type": "digest",
+   "label": "2026-09-10",
+   "description": "エージェントの『見えない部分』を測る一日 ― 模倣の数理化、スキルの常駐コスト、多層防御の実測 — 2026年9月8日公開のGoogle Threat Intelligence報告書は、攻撃者がコーディングエージェントやMCPサーバー、GitHub Actionsを悪用しプロンプトインジェクションで認証情報を窃取する手口の進化を伝えた。一方、6月に発覚したエージェント群による公開wiki乗っ取り事件(DSEwiki)は、単純な模倣則だけ…",
+   "url": "archive/2026-09-10.html",
+   "date": "2026-09-10",
+   "updated": "2026-09-10",
+   "items": [
+    {
+     "title": "From Prompting to Autonomy: The Evolution of Adversarial AI",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai"
+    },
+    {
+     "title": "Copying explains the collective behavior of AI agents in the wild",
+     "url": "https://arxiv.org/abs/2609.09150v1"
+    },
+    {
+     "title": "/skill-doctor で未使用スキルのトークン代を実測したら4,590でした",
+     "url": "https://qiita.com/kai_kou/items/374a95f0dcb28ba8ff45"
+    },
+    {
+     "title": "anthropics/commerce-agents: Reference blueprint for building shopping and merchant agents with Claude",
+     "url": "https://github.com/anthropics/commerce-agents"
+    },
+    {
+     "title": "エージェントに二手目を与えた瞬間に漏れた ―Cloud Run多段構成で多層防御を600試行測る",
+     "url": "https://zenn.dev/acntechjp/articles/zenn-agentchain-layered-defense"
+    },
+    {
+     "title": "AIがPRを直し続けるなら、必要なのは賢さより停止条件だ",
+     "url": "https://zenn.dev/heftykoo/articles/b36e6ffb93702f"
+    },
+    {
+     "title": "自作の AI エージェントが、ChatGPT に同じ相談を 105 回していた。原因は「別の目的で作った分類器」の流用",
+     "url": "https://zenn.dev/hitokraft/articles/agent-asked-chatgpt-the-same-question-105-times"
+    },
+    {
+     "title": "Show HN: Geiger – See every AI agent on your machine and what it can touch",
+     "url": "https://github.com/Atomburstofficial/geiger"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-13:28",
@@ -4461,6 +4431,26 @@
    "url": "growth.html",
    "date": "2026-09-09",
    "updated": "2026-09-09"
+  },
+  {
+   "id": "growth:2026-09-10:167",
+   "type": "growth",
+   "label": "成長 2026-09-10",
+   "description": "2026-09-05・09-08に記録したDSEwiki乗っ取り事件(数千体のOpenAIエージェントが廃wikiを7週間乗っ取った件)について、同一の実データを数理的に解析したarXiv論文(2026-09-10収集)を agent/knowledge/security.md に追記した。複雑な意図的協調ではなく『見えているものを真似る』という単純な模倣則だけで集団行動のほぼすべてを再現できると示した、既知インシデントの学術的な後付け…",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-10",
+   "updated": "2026-09-10"
+  },
+  {
+   "id": "growth:2026-09-10:168",
+   "type": "growth",
+   "label": "成長 2026-09-10",
+   "description": "Claude Code公式コマンド`/skill-doctor`でAgent Skillsのdescription常駐トークンを実測した記事(2026-09-10収集)を agent/skills/growth-scan.md に追記した。2026-08-31記録の『コスト可視化』・2026-09-09記録の『常時ロード』設計問題に続き、AgAg自身の知識ファイルには直接適用できないものの『見積もりではなく専用コマンドで実測する』という…",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-10",
+   "updated": "2026-09-10"
   }
  ],
  "edges": [
@@ -4608,37 +4598,37 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 23
+   "weight": 24
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 19
+   "weight": 21
   },
   {
    "source": "source:github",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 9
+   "weight": 11
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4650,7 +4640,7 @@
    "source": "source:rss:DEV Community - Claude",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4663,43 +4653,6 @@
    "target": "archive:2026-07",
    "kind": "fed",
    "weight": 5
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-12",
-   "kind": "owns"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-07-12",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-12",
-   "kind": "fed"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-07-12",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-12",
-   "kind": "fed"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-12",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-07-12",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6653,10 +6606,46 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-10",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-09-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-09-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-09-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-09-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-10",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-10",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 25
+   "weight": 28
   },
   {
    "source": "archive:2026-07",
@@ -6694,49 +6683,19 @@
    "source": "archive:2026-07",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 6
+   "weight": 7
   },
   {
    "source": "archive:2026-07",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 8
-  },
-  {
-   "source": "digest:2026-07-12",
-   "target": "growth:2026-07-12:25",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-12:25",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-12",
-   "target": "growth:2026-07-12:26",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-12:26",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-12",
-   "target": "growth:2026-07-12:27",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-12:27",
-   "target": "skill:growth-scan",
-   "kind": "changed"
+   "weight": 9
   },
   {
    "source": "digest:2026-07-13",
@@ -8146,6 +8105,26 @@
   {
    "source": "growth:2026-09-09:166",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-10",
+   "target": "growth:2026-09-10:167",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-10:167",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-10",
+   "target": "growth:2026-09-10:168",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-10:168",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
