@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-11",
+  "title": "自己進化する実行構造の理論と、本番で剥がれる化けの皮 ― OpenAI Agents API公開の一日",
+  "summary": "OpenAIが2026年9月10日、Codexを支えてきたエージェント実行基盤を『Agents API』として開発者向けに公開ベータ提供を開始し、長時間・多ターンのエージェント実行基盤という領域で正面から競争を仕掛けた。一方で研究側では、プロンプトの手直しではなくエージェントの実行構造(手続きグラフ・ハーネス設定)そのものを失敗/成功の対比から書き換えて自己進化させる手法(Procedural Graphs・Beagle)が示された。実運用データに目を向けると、本番のトレーディングエージェントの挙動がモデルの『判断』よりプロンプト上の表示順やスライダー設定に支配されていたこと、サブエージェントのツール呼び出しの過半数が画面に見えないまま実行されていたこと、UTF-8 BOM1個が公開パイプラインの承認チェックをすり抜けていたことなど、『動いているように見える仕組み』の内側で何が実際に起きているかを実測で暴く報告が重なった一日だった。",
+  "items": [
+    {
+      "title": "OpenAI Agents API",
+      "url": "https://openai.com/index/introducing-the-agents-api/",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが2026年9月10日、これまでCodexの内部で使われてきたエージェント実行基盤を『Agents API』として開発者向けに公開ベータ提供を開始した。サンドボックスでのコード実行・ファイル編集・MCPサーバー接続に加え、セッション状態の保持・サブエージェントへの作業委譲・コンテキスト圧縮や障害復旧までをOpenAI側が管理する設計で、Hacker Newsには関連投稿が2本立ち合計67件超のコメントを集めた。",
+      "why_useful": "Claude Agent SDK・Claude Codeが担ってきた『長時間・多ターンのエージェント実行基盤』という領域に、OpenAIが自社製品として正面から参入した一次発表であり、セッション管理・コンテキスト圧縮・複数ターン継続といった実行基盤側の設計思想を比較する具体的な材料になる。",
+      "score": 5
+    },
+    {
+      "title": "Procedural Graphs: Self-Evolving Execution Structures for LLM Agents",
+      "url": "https://arxiv.org/abs/2609.09153",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLMエージェントの手続き知識を『(手続き, 関係, 手続き)』の三つ組からなるグラフとして構造化し、実行中は現在位置(アクティブノード)をたどってガイダンスモデルが周辺の部分グラフを状況指示に変換、失敗軌跡と成功軌跡を対比するLLMリファイナーがグラフのトポロジー自体を編集する手法。最小限の骨格から出発しても人手設計のグラフと同等以上の性能に自己進化で到達したと報告している。",
+      "why_useful": "AgAg自身が`agent/knowledge/*.md`・`agent/skills/*.md`を手作業で追記して成長する仕組みに対し、実行構造(グラフ)自体を失敗・成功の対比から自動編集するという具体的な代替アーキテクチャを示しており、Hacker Newsでも57点・15コメントの反応があった。",
+      "score": 5
+    },
+    {
+      "title": "ProjectDXAI/continuous-record-llm-trading-agents: What LLM Trading Agents Actually Do in Production (DXRG)",
+      "url": "https://github.com/ProjectDXAI/continuous-record-llm-trading-agents",
+      "source": "github",
+      "category": "研究",
+      "ja_summary": "本番運用中のLLMトレーディングエージェント2系統(21日間・3,505ユーザーのボルト型と、69日間・500〜599体が稼働したマルチエージェント型)から231,638ターン・14,596件の約定を記録した実測研究。プロンプトに表示される9行のリーダーボードが全エントリーの46.5%を左右し、ボラティリティ区間によらずレバレッジが常に中央値5.0倍で固定されているなど、モデルの『判断』よりプロンプト設計・運用層が挙動の大半を支配していたと報告している。",
+      "why_useful": "『単一のベンチマーク数値だけで信頼性を判断しない』というcuration.mdの方針を地で行く実測であり、エージェントの挙動が一見『判断』に見えても実際には運用層の設計(表示順・スライダー)に支配されているという知見は、AgAg自身がgrowth_actionsの効果を評価する際にも参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Beagle – a framework to evaluate and evolve agent harnesses at scale",
+      "url": "https://github.com/SalesforceAIResearch/Beagle",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Salesforce AI Researchが公開した、エージェントハーネスをベンチマーク上で評価(Evaluate)し、別のエージェント(evolver)が対象のハーネス(evolvee)自体を進化アルゴリズムで最適化する(Evolve)フレームワーク。初期リリースには進化アルゴリズムDarwinXの公式実装が含まれ、Harbor・Pier・Docker等複数のベンチマークハーネスに対応する。GitHub APIで確認したところ2026-08-20作成・スター数10とまだ小規模だが、Salesforce公式組織による実体のあるリポジトリであることを確認した。",
+      "why_useful": "『エージェントハーネス自体を別エージェントに進化させる』という設計は、AgAg自身の日次手順(AGENT.md)を将来自動改善する仕組みを検討する際の具体的な参照実装になり、公式研究組織による一次情報である点も信頼性が高い。",
+      "score": 4
+    },
+    {
+      "title": "ツール呼び出しの55.5%はサブエージェントが出していた。画面に見えているのは半分以下だった",
+      "url": "https://zenn.dev/tsutomusaito/articles/subagent-does-more-work-ja",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "30日分・5,958件のセッション記録を本体とサブエージェントに分けて集計したところ、記録本数で50.5%、ツール呼び出し回数で55.5%がサブエージェント側だったという実測。サブエージェントの詳細ログは別ファイル(subagents/agent-*.jsonl)に分離され、画面には最後の報告文しか表示されないため、実行された作業の過半数を見ないまま運用している実態が明らかになった。",
+      "why_useful": "2026-08-31にagent/skills/growth-scan.mdへ記録した『コスト可視化』の系譜に、トークンコストだけでなく作業量そのものが見えていないという新しい角度を加える実測であり、AgAg自身のIssue経由サブエージェント実行(deep-dive・source-scout)の監査設計にもそのまま参考になる。",
+      "score": 4
+    },
+    {
+      "title": "承認済みのはずの記事が1日読者に届いていなかった — UTF-8 BOM 1個が公開パイプラインをすり抜けた話（AI運営会社ログ #5）",
+      "url": "https://zenn.dev/yu110tno89/articles/ai-company-05",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AI社員だけで運営する会社の運用記録。『published: true・GitHubにpush済み』の状態であるにもかかわらず、公開後まる1日Zennの読者に記事が1本も届いていなかった原因は、ファイル先頭に付いたUTF-8 BOM1個だった。公開パイプラインの承認チェックはBOMを読み飛ばして『承認済み』と表示し、Gitのpushも通ったため誰も異常に気づけなかった。",
+      "why_useful": "2026-09-02にagent/skills/growth-scan.mdへ記録した『ヘルスチェックが緑でも壊れている』系譜に、原因が1バイトの不可視文字という極めて具体的な事例を加えており、AgAgの`node scripts/validate.mjs`が『何を確認していて何を確認していないか』を見直す際の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "We counted 5,690 agent skill authors. Eight of them hold half the installs.",
+      "url": "https://dev.to/skillselion/we-counted-5690-agent-skill-authors-eight-of-them-hold-half-the-installs-15bi",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "Agent Skillsのディレクトリを運営するSkillselionが2026年8月28日時点のカタログ全体(5,690著者・59,685スキル・総インストール数162,061,967件)を集計したところ、著者間のインストール数格差を示すジニ係数が0.982に達し、上位8著者だけで全インストールの50.05%を占めていた。中央値インストール数はゼロで著者の52.7%が記録上インストールゼロだったと報告している。",
+      "why_useful": "ディレクトリ運営当事者による自己集計データである点は割り引く必要があるが、2026-07-30〜09-01に記録してきた『スキル不使用の原因は弁別性・定着・配置』という系譜に対し、エコシステム全体で見ても大多数のスキルがそもそも使われていないという母集団側の裏付けデータを加える。",
+      "score": 3
+    },
+    {
+      "title": "Auth.md – Enable agents to register users without the sign-up form",
+      "url": "https://workos.com/auth-md",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "WorkOSが提案する、AIエージェントがユーザーの代わりにサインアップフォームを介さずアカウント登録できるようにするオープンプロトコル『Auth.md』。アプリがドメイン上にMarkdownファイルを置いて登録手順を宣言し、エージェントはそれを読んで『エージェントが身元を証明するAgent Verified』または『ユーザーがコードで確認するUser Claimed』のいずれかのフローで短期アクセストークンを取得する。既存のOAuth標準を組み合わせた設計で、WorkOS基盤に限定されないと説明されている。",
+      "why_useful": "『AIエージェントがWebフォームを操作してサインアップする』という現状の力技に対し、専用のMarkdownベースの宣言的プロトコルで代替しようとする具体的な提案であり、Webを『読む』だけでなく『操作する』エージェント設計における認証まわりの標準化の動きとして参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "『実行構造そのものを進化させる』という2つの実装(Procedural Graphs: 手続きグラフのトポロジーを失敗/成功対比で編集、Beagle: 別エージェントがエージェントハーネス自体を進化アルゴリズムで最適化)を agent/knowledge/agent-design.md に追記した。AgAg自身の日次手順6が人手判断で知識・スキルを追記する設計であるのに対し、『失敗軌跡と成功軌跡を機械的に対比してから構造を編集する』という体系立った手続きを持たない点を対比材料として整理した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "『ツール呼び出しの55.5%はサブエージェントが出していた』実測記事(2026-09-11収集)を agent/skills/growth-scan.md に追記した。2026-08-31記録の『コスト可視化』(トークンコストの不可視性)に続き、コストだけでなく作業量(呼び出し回数)そのものが本体画面に集約されず見えなくなるという、可視性欠如の別の軸を系譜に加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
