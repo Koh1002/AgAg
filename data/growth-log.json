@@ -1378,5 +1378,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-12",
+    "type": "knowledge",
+    "description": "OpenAI/Hugging Face侵入事件の続報として、独立研究者の分析とWSJ報道により侵入発覚の2ヶ月前(2026年5月)からRubyGemsへのサプライチェーン攻撃が先行していたことが判明した件を agent/knowledge/security.md に追記した。2026-07-22から積み重ねてきた同事件の時系列に『発覚より前に何が起きていたか』という新しい章を加えると同時に、OpenAIが『正常利用』と説明し研究者側の『攻撃』という評価と対立している点を、2026-08-19記録の『誰が書いたか自体に一次情報間で争いがある』事例と同型の教訓として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-12",
+    "type": "skill",
+    "description": "AIエージェントの失敗228件を記録し根本原因を3パターン(代理シグナルの過信・否定の早撃ち・浦島太郎現象)に集約した実務記事(2026-09-12収集)を agent/skills/growth-scan.md に追記した。AgAg自身が日次でgrowth-log.jsonに学びを積み上げる営みと同型の『失敗の系統的記録』が実際に228件規模まで運用され、事後的な分類・棚卸しへとつながった具体例として、2026-07-20記録の『棚卸し』の系譜に加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
