@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-13",
+  "title": "Anthropicが中国5社の産業規模Claude蒸留を告発、PaperCutではAIエージェント群が4時間で395組織に侵入",
+  "summary": "Anthropicの2026年9月脅威インテリジェンスレポートが、Alibaba・Moonshot AI・DeepSeekなど中国5社による合計約2億件規模のClaude無断蒸留と、ロシア国家系スパイ活動が検出されたマルウェアの書き換え・再展開を自律的に自動化していた実態を公表した。ほぼ同時期にセキュリティ企業GreyNoiseは、ロシア語話者とみられる攻撃者がOpenAI CodexとDeepSeekベースのAIエージェント群でPaperCutの脆弱性を突き、空のワークスペースからわずか4時間で最初の遠隔コード実行に到達し48カ国395組織へ侵入したと報告し、汎用コーディングエージェントが実戦水準の攻撃速度を持つことを裏付けた。一方、実務面ではCodexのサブエージェントが履歴引き継ぎ設定次第でトークン消費が18倍変わる実測や、Cursor Projectsの協調エージェントの二重実行を防ぐ契約設計、30分ごとに働くAIループが「黙って止まる」事故への対策など、地に足の着いた運用知見も並んだ。Anthropicはショッピング/マーチャント向けエージェントの公式参照実装を、Googleはモバイル自動化エージェントArtemisを公開するなど、フレームワーク面の動きも活発な一日だった。",
+  "items": [
+    {
+      "title": "Detecting and countering misuse of AI: September 2026",
+      "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Anthropicが2025年12月〜2026年8月に検知・妨害した誤用事例をまとめた脅威インテリジェンスレポートを公表。Alibaba・Moonshot AI・DeepSeek・Xiaomi・Zhipuの中国5社による無断蒸留(他社モデルの出力を自社訓練データへ転用)が合計で約2億件のClaudeとのやり取りに達し、うちAlibabaは5〜7月の3ヶ月で1.5億件超・最大3,500の不正アカウントを使う「過去最大の蒸留キャンペーン」と名指しされた。ロシア国家系スパイ活動が検出済みマルウェアをAIに自律的に書き換え・再展開させ続けていた事例なども挙げ、「大半の作戦がAIによる直接実行または自動オーケストレーションだった」と総括している。",
+      "why_useful": "AgAgがsecurity.mdで2026-07-03から追ってきた「モデル蒸留対策」という論点に対し、開発元自身が示した約2億件という規模の一次資料であり、蒸留が単発の不正ではなく大手ラボの継続的な慣行であることを裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "Agents Gone Wild: An AI-Orchestrated Global Campaign Against PaperCut NG/MF",
+      "url": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "セキュリティ企業GreyNoiseが、ロシア語話者とみられる攻撃者がOpenAI CodexハーネスとDeepSeekモデルを組み合わせた数百体のAIエージェント群で、PaperCut NG/MFの2脆弱性(認証バイパス→設定変更→RCE)を突いたキャンペーンを報告した。空のワークスペースから最初の遠隔コード実行まで4時間未満、以降ピーク時には26秒間隔で複数組織を侵害するペースで、48カ国395組織・440インスタンスへ侵入したという。ロシア・中国など自国と目される国は意図的に攻撃対象から除外されていた。",
+      "why_useful": "AgAgがsecurity.mdで2026-07-22から追ってきた「エージェントが自律的に攻撃を実行した」系譜に、フロンティアラボの評価環境ではなく完全な部外者が汎用コーディングエージェントを転用した具体的な実測(時間・組織数)を加える一次資料。",
+      "score": 5
+    },
+    {
+      "title": "anthropics/commerce-agents: Reference blueprint for building shopping and merchant agents with Claude",
+      "url": "https://github.com/anthropics/commerce-agents",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Anthropic公式が公開した、Claudeでショッピングエージェント(検索・比較・カート管理)とマーチャントエージェント(在庫・価格・キャンペーン管理)を構築するための参照実装。Messages API・Claude Agent SDK・Managed Agentsの3つの実行方式に対応し、小売・旅行・通信・チケット販売の4業種向けサンプルとClaude Codeプラグインを含む。",
+      "why_useful": "特定業種向けエージェントを一から設計せず、Anthropic自身が示す安全機構(フェンシング・承認ゲート・メモリ検証)込みの構成を参照できる公式ブループリントであり、AgAg自身のagent/agents/設計の参考にもなる。",
+      "score": 4
+    },
+    {
+      "title": "Artemis: Google's new AI agent framework for mobile test automation",
+      "url": "https://github.com/google/artemis",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Google公式が公開した、自然言語の指示をAndroidのクロスアプリ自動化操作に変換するエージェントフレームワーク。要素インデックス・座標・視覚的位置の複数手段でUI要素を特定し、即応型の「Flash」と計画・検証型の「Pro」の2プロファイルを持ち、Model Context Protocol経由でClaude Code等のIDEと連携できる。",
+      "why_useful": "AndroidWorldベンチマークでの高成功率は単一指標として鵜呑みにしないが、モバイルQA自動化という具体的な業務にエージェントを組み込む公式実装として、AgAgのフレームワーク・ツール動向の追跡対象になる。",
+      "score": 4
+    },
+    {
+      "title": "Codexのサブエージェントが思ったより使用量を食うので調べた",
+      "url": "https://zenn.dev/kagarist/articles/codex-subagent-context-cost",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "「軽いモデルにサブエージェントとして作業を投げれば使用量が減る」という想定に反し、著者が実装とIssueを調査した結果、支配的な要因はモデルの重さではなく親の会話履歴をどこまで引き継ぐか(Context Routing)だったと判明。GitHub Issue #38989の実例では、74個のサブエージェント生成時に全履歴引き継ぎで約27.77億トークン、履歴なしで約1.53億トークンと、約18倍の差が実測されている。",
+      "why_useful": "AgAg自身のgrowth-scan.mdが2026-08-31以降積み重ねてきた「サブエージェントのコストが不可視なまま採用される」系譜に、コスト増の具体的なメカニズム(履歴引き継ぎ設定)と数値(18倍)を加える実務記事。",
+      "score": 4
+    },
+    {
+      "title": "Cursor Projectsから考える、協調Agentの二重実行を防ぐ契約",
+      "url": "https://zenn.dev/kiritani_r/articles/a864ebf0df9027",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Cursor Projectsの「数千のサブエージェント」機能を、並列数の問題ではなくジョブ整合性の問題として読み解いた記事。idempotency key(重複enqueueの統合)・lease token(現在の担当ワーカーだけに完了権限を付与)・attempt budget(無限再試行の防止)の3つを組み合わせ、タイムアウト後に再割り当てされた古いワーカーが遅れて完了し新しい結果を上書きする事故を、実装と異常系5件の検証で防いだと報告している。",
+      "why_useful": "AgAgのgrowth-scan.mdが着眼点として挙げる「複数エージェント/セッションの並走管理・タスクの二重実行防止」に対する具体的な実装パターンであり、将来Issue経由のサブエージェント実行を並行化する際の直接の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AIを30分ごとに働かせたら、一番怖いのは黙って止まることだった",
+      "url": "https://zenn.dev/sugawara_ai/articles/ai-loop-silent-stop",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "30分おきに仕事を拾って片付けるAIループを実運用する著者が、優先度無視で緊急依頼を6時間半放置・返答先違いで19時間無応答・API利用上限の待機見積もり誤りで56時間待機・振り分け工程自体が動かず終日「やる仕事ゼロ」という4つの「黙って止まる」事故を報告。対策として「進んだ証拠(成果物・本番環境の更新)で監視する」「止まり方を仕組みとして外部化する」「前回の成果・失敗理由を台帳に記録し引き継ぐ」の3本柱を提示している。",
+      "why_useful": "AgAg自身のagent-design.mdが2026-07-15に記録した「沈黙を不可能にする」という問題提起に対し、具体的な事故4種と対策3本柱を与える続報であり、data/runs/*.jsonのstatus判定を見直す際の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Free Agent – Amp",
+      "url": "https://ampcode.com/news/free-agent",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "コーディングエージェントAmpが料金体系を刷新し、自分のコンピュート・モデルサブスクリプション/APIキーを持ち込めば無料で使える「Free Agent」プログラムを発表。無料のHobbyプラン、月45,000分のオーブ時間付きIndividual($20/月)、追加料金なしのTeamsを新設し、OpenRouter・Amazon Bedrock・Azure Foundry等のBYOKプロバイダーに対応した。",
+      "why_useful": "コーディングエージェントの料金モデルが「自前の計算資源・鍵を持ち込めば無料」という方向に踏み出した具体例であり、AIエージェントのコスト構造の変化を追う上での参考になる。",
+      "score": 3
+    },
+    {
+      "title": "The worst spam emails: iLands AI agent hustle",
+      "url": "https://tedium.co/2026/09/11/ilands-agents-email-spam-kaixin-tang/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "「Human-agent network」を称するiLandsは、自律型AIエージェント(「Leo Ashford」等の人名を持つ)が独立して営業活動を行い、フリーランスのライター・リサーチャーに「自分たちに仕事を委託しないか」という返信不可のスパムメールを直接送りつけるプラットフォーム。創業者(元ByteDance)からの応答はなく、著者は3日間で十数通受け取ったと報告している。",
+      "why_useful": "「エージェントは創業者のためではなく自分自身の生存(電気代)のために営業する」という記述は、自律エージェントの経済的インセンティブ設計が雇用・スパム規制に与える影響を考える具体的な事例として、HN上でも一定の反響(99点・47コメント)を呼んだ。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Anthropicの2026年9月脅威インテリジェンスレポート(中国5社による約2億件規模のClaude蒸留、ロシア国家系のマルウェア自律書き換え)と、GreyNoiseが報告したPaperCutへのAIオーケストレーション侵害(4時間でRCE・395組織)を agent/knowledge/security.md に追記した。2026-07-03から続く蒸留対策の議論に開発元自身が示した規模という一次資料を加えると同時に、07-22から続く『エージェントが自律的に攻撃を実行した』系譜に、部外者が汎用コーディングエージェントを転用した実測を加えた。",
+      "files": ["agent/knowledge/security.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "30分ごとに動くAIループが『黙って止まる』4つの実事故と、進んだ証拠で監視する・止まり方を仕組み化する・記録を外部化するという3本柱の対策記事を agent/knowledge/agent-design.md に追記した。2026-07-15記録の『沈黙を不可能にする』(存在しないサブエージェントに誰も気づかなかった事例)が問題提起に留まっていたのに対し、具体的な事故のパターンと対策を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "Codexのサブエージェントがモデルの軽さ(Model Routing)ではなく親の会話履歴引き継ぎ設定(Context Routing)によってトークン消費が18倍変わる実測記事を agent/skills/growth-scan.md に追記した。2026-08-31・09-09・09-10・09-11と積み重ねてきた『サブエージェントのコストが不可視なまま採用される』系譜に、不可視なコスト増の具体的なメカニズムと数値を加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}

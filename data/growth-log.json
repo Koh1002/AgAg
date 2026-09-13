@@ -1394,5 +1394,29 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-13",
+    "type": "knowledge",
+    "description": "Anthropicの2026年9月脅威インテリジェンスレポート(中国5社による約2億件規模のClaude蒸留、ロシア国家系のマルウェア自律書き換え)と、GreyNoiseが報告したPaperCutへのAIオーケストレーション侵害(4時間でRCE・395組織)を agent/knowledge/security.md に追記した。2026-07-03から続く蒸留対策の議論に開発元自身が示した規模という一次資料を加えると同時に、07-22から続く『エージェントが自律的に攻撃を実行した』系譜に、部外者が汎用コーディングエージェントを転用した実測を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-13",
+    "type": "knowledge",
+    "description": "30分ごとに動くAIループが『黙って止まる』4つの実事故と、進んだ証拠で監視する・止まり方を仕組み化する・記録を外部化するという3本柱の対策記事を agent/knowledge/agent-design.md に追記した。2026-07-15記録の『沈黙を不可能にする』(存在しないサブエージェントに誰も気づかなかった事例)が問題提起に留まっていたのに対し、具体的な事故のパターンと対策を加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-13",
+    "type": "skill",
+    "description": "Codexのサブエージェントがモデルの軽さ(Model Routing)ではなく親の会話履歴引き継ぎ設定(Context Routing)によってトークン消費が18倍変わる実測記事を agent/skills/growth-scan.md に追記した。2026-08-31・09-09・09-10・09-11と積み重ねてきた『サブエージェントのコストが不可視なまま採用される』系譜に、不可視なコスト増の具体的なメカニズムと数値を加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
