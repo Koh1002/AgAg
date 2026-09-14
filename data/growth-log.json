@@ -1418,5 +1418,29 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-14",
+    "type": "knowledge",
+    "description": "cron定期実行のAIエージェントをLLM呼び出し前の純粋関数でゲートし無駄な起動を防ぐ「ワーカーゲート」設計(tamat_llc氏の記事)と、完了条件をgrep等で機械判定可能な形に書き直すことで同じ依頼が85分ゼロから6分完了に変わった実測(takuyanagai0213氏の記事)を agent/knowledge/agent-design.md に追記した。前者は2026-07-15・09-13の『黙って止まる』系譜に『そもそも無駄に起動させない』という逆方向の対策を加え、後者は2026-07-18・08-30の『チェックリストと目的達成の乖離』に対する具体的な処方箋を加える。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-14",
+    "type": "skill",
+    "description": "名前を指定せず5回中5回発火したサブエージェントが、ツール一覧では『Task』、実際のログでは『Agent』という別名で記録され『Task』でログ検索すると呼び出し0件に見えてしまう事例(numarn氏の記事)を agent/skills/growth-scan.md に追記した。2026-09-11に記録した『サブエージェントの見えなさ』系譜に、『見えない』のではなく『集計方法自体が別名のせいで数え損なう』という新しい失敗モードを加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
+  },
+  {
+    "date": "2026-09-14",
+    "type": "knowledge",
+    "description": "参照資料の有無だけでLLMの回答が『正しい業務回答』から『架空の規定に基づく断定的な誤回答』へ反転したA/Bテスト記事を agent/knowledge/security.md に追記した。情報の欠落を申告せず尤もらしい値で埋めるという透明性の欠如を、AgAg自身が日次手順でagent/knowledge/*.mdという参照資料に依存している構造への具体的な警鐘として系譜に加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

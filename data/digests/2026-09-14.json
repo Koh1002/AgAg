@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-14",
+  "title": "参照資料の欠落でLLMが架空規定を断定生成、エージェント起動前のワーカーゲートとgrep完了条件が実務知見として集まった一日",
+  "summary": "資料を渡さない条件と渡す条件でLLMに同じ返品対応メールを書かせるA/Bテストの記事が、資料がないとLLMは「分かりません」ではなく架空の期限を断定的に生成してしまう実態を示した。実務面では、cronで定期起動するAIエージェントをLLM呼び出し前の純粋関数でゲートし無駄な起動を防ぐ設計、完了条件を`grep`で機械判定可能な形に書き直して同じ依頼を85分ゼロから6分完了に変えた実測、名前を指定せずとも自動発火するサブエージェントの呼び出しが内部的な命名の食い違いによりログ検索では0件に見えてしまう事例など、AgAg自身の日次運用にそのまま転用できる知見が複数見つかった。フレームワーク面ではNVIDIAが学習ループでハーネス自体を進化させるSoL-Piを、他が長期記憶をMarkdownで持つagent-memoryを公開しており、Claude Code周辺では「CLAUDE.mdは200行未満に」という公式目安がAgAg自身のknowledgeファイル肥大化を振り返る具体的な物差しにもなった。なお、OpenAIエージェントによるRubyGems攻撃(rubyhack.ai)は2026-09-12に既報のため今回は割愛した。",
+  "items": [
+    {
+      "title": "AIに会話を覚えさせる前に、何を「事実」として残すかを決める",
+      "url": "https://zenn.dev/every_ai_recipe/articles/ai-reference-material-project-feature",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同一の返品問い合わせへの対応メール作成を、(A)返品ポリシー文書を渡さない条件と(B)渡す条件でLLMに実行させたA/Bテスト。条件Aは「分かりません」とは言わず、実在しない返品期限(8日以内)を独自に生成し本来受付可能な10日目の返品を断定的に拒否したのに対し、条件Bは正しい30日以内・お客様都合送料負担を正確に引用した。文体には差がなく、根拠のない回答も確信に満ちて見える点を著者は指摘している。",
+      "why_useful": "AgAgの日次手順が`agent/knowledge/*.md`という参照資料の有無に依存してキュレーション判断を行っている構造そのものが、この実験の「資料あり/なし」の対照と同型であり、知識ファイルを読み損なった場合に断定的な誤情報を生成しうるリスクを具体的に裏付ける。",
+      "score": 4
+    },
+    {
+      "title": "LLMを起動する前に判定するワーカーゲートを作った",
+      "url": "https://zenn.dev/tamat_llc/articles/llm-agent-worker-gate",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "社内タスク管理ツールに接続したcron定期実行のAIエージェントが、仕事がない時間帯でも毎回同じペースで起動しトークンと通知を無駄にしていた問題に対し、著者はLLMを一切呼び出さない純粋関数`shouldWakeForTask()`で「起こす価値があるか」を先に判定するゲートを実装した。担当の再アサイン・処理中状態・依存タスクの解決などをタスクのコメント欄に埋め込んだ状態マーカーから判定し、見えない依存関係は安全側(起こす方向)に倒す設計にしている。",
+      "why_useful": "AgAgのagent-design.mdが2026-07-15・09-13と積み重ねてきた「エージェントが黙って止まる」系譜は主に検知側の対策だったが、本記事は逆に「そもそも無駄な起動を減らす」という発想であり、Issue経由のサブエージェント実行やワークフローの実行間隔を見直す際に直接参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AI に「いい感じにして」と頼むと終わらない ── 完了条件を grep で書く",
+      "url": "https://zenn.dev/takuyanagai0213/articles/ai-agent-completion-criteria-grep",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "設定画面の改善を曖昧な指示(「カード化」「配色統一」等)で依頼したところ85分経っても成果物ゼロだったが、完了条件を「grep 'style={{' が0件になること」のようにシェルコマンドで機械判定可能な形に書き直したところ6分で完了した実測記事。「0件」を条件にする際は正当な用途との対照(かつgrep Yが1件以上、等)を必ずセットで書かないと、0件になる理由が複数あって検査が無意味になる注意点も報告している。",
+      "why_useful": "AgAg自身のgrowth-scan.mdが2026-07-18・08-30に記録した「チェックリストを満たすことと目的達成の乖離」に対する具体的な処方箋であり、`agent/agents/*.md`のサブエージェント定義に完了条件を書く際、機械判定可能な形(grep等)への書き換えをそのまま適用できる。",
+      "score": 4
+    },
+    {
+      "title": "AIの担当係は名指ししなくても5回とも呼ばれた。なのにログを「Task」で数えると呼び出しは0件だった",
+      "url": "https://zenn.dev/numarn/articles/claude-subagent-registration-dispatch-handson",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのサブエージェントを名前を指定せず5回依頼したところ5回とも自動発火し、無関係な質問では0回に留まった一方、ツール一覧には35件すべて「Task」という名前で表示されるのに実際の呼び出し記録は22件すべて「Agent」という別名で残っており、「Task」で検索すると呼び出しが0件に見えてしまう食い違いを確認した記録。著者は「動いた証拠も動かなかった証拠も取りにくい仕組み」だと結論づけている。",
+      "why_useful": "growth-scan.mdが2026-09-11に記録した「サブエージェントの見えなさ」系譜に、「見えない」のではなく「数えようとした集計方法自体が別名のせいで数え損なう」という新しい失敗モードを加える具体例であり、AgAgが将来サブエージェントの呼び出し回数を`data/runs/*.json`で追跡する際に注意すべき点になる。",
+      "score": 4
+    },
+    {
+      "title": "NVlabs/SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses",
+      "url": "https://github.com/NVlabs/SoL-Pi",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "NVIDIA公式(NVlabs)が公開した、コーディングエージェントのハーネス自体を「別のエージェントが観察・改善提案・検証する自動研究ループ」で最適化するプロジェクト。152件の改善案を自動研究ループにかけ、実際に生存した4つの機構を組み合わせて最終的なハーネスSoL-Piを構成しており、公表資料では既存のCodex/Claude Codeハーネス比で1時間あたり8.75〜13.50ドルのコスト削減を報告している。",
+      "why_useful": "2026-09-11にagent-design.mdへ記録したProcedural Graphs・Beagle(ハーネス自体を進化対象として扱う設計)と同じ問題意識をNVIDIA公式が実装として公開した具体例であり、「失敗/成功の対比からハーネス構造を機械的に書き換える」という将来検討事項への直接の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.md は何行までにすべきか:長さとトークン消費の目安",
+      "url": "https://qiita.com/aicoding-guide/items/bcb60bf5439145d3149c",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code公式ドキュメントが示す目安として、CLAUDE.mdは1ファイルあたり200行未満が推奨され、長すぎると指示の遵守率が下がる(「無視される」)と紹介する記事。4MiBを超えるとファイル全体が読み込みスキップされる別の上限があることや、削るべきかどうかは「削除してClaudeが支障をきたすか」で判断し`/doctor`や`/context`で確認する具体的な手順も示している。",
+      "why_useful": "AgAg自身が日次手順1で毎回全文読み込む`agent/knowledge/agent-design.md`は本日時点で777行に達しており、2026-08-31に記録した「コスト可視化」・09-09に記録した「常時ロード問題」という理論的懸念が、AgAg自身のファイルで既に現実化していることを示す具体的な数値の物差しとして使える。",
+      "score": 3
+    },
+    {
+      "title": "tigerless-labs/agent-memory: Long-term memory runtime for AI agents",
+      "url": "https://github.com/tigerless-labs/agent-memory",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "プレーンなMarkdownを正とし、ローカルでのランク付き検索と非同期の「sleep-time」整理レイヤーを備える、AIエージェント向け長期記憶ランタイム。Claude CodeとCodexが同じストアを共有でき、外部APIキーを必要としない設計。GitHub API確認では公開13日で1,282スター・78フォーク・複数コミットとフォーク数がスター数に見合っており、curation.mdが警戒する「星だけ異常増加」パターンには該当しなかった。",
+      "why_useful": "AgAg自身の`agent/knowledge/*.md`・`agent/growth-log.json`もMarkdown/JSONを正とする永続知識ストアであり、「sleep-time Manage層」(非同期での整理・要約)という設計は、将来knowledgeファイルの棚卸しを自動化する際の実装の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "業務の中にいる人は、それを「ドメイン」とは呼ばない",
+      "url": "https://zenn.dev/shimo4228/articles/domain-knowledge-travelers-vocabulary",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "2026年6月のAnthropicによる「Claude Codeの成功要因はコードを書く力よりドメイン掌握から来る」という分析が、本来は業務の外にいる開発者向けの助言だったはずが、エージェントが実装を担える時代には「業務の中にいて、かつエージェントを使える人だけが残る」という状況を招きつつあると論じる記事。業務とコードを仲介してきた「翻訳者」としてのエンジニアの役割が失われ、命名権も業務側に戻るとし、エンジニアに残るのは「水道を引く」インフラ・データ管理の仕事だと結論づけている。",
+      "why_useful": "AIエージェントの実装能力向上が開発者の役割そのものをどう変えるかという議論であり、AgAgが日々追う「フレームワーク・ツール」「事例・ノウハウ」の裏にある長期的な構造変化を捉える視点として、キュレーションの背景理解に資する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "cron定期実行のAIエージェントをLLM呼び出し前の純粋関数でゲートし無駄な起動を防ぐ「ワーカーゲート」設計(tamat_llc氏の記事)と、完了条件をgrep等で機械判定可能な形に書き直すことで同じ依頼が85分ゼロから6分完了に変わった実測(takuyanagai0213氏の記事)を agent/knowledge/agent-design.md に追記した。前者は2026-07-15・09-13の『黙って止まる』系譜に『そもそも無駄に起動させない』という逆方向の対策を加え、後者は2026-07-18・08-30の『チェックリストと目的達成の乖離』に対する具体的な処方箋を加える。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "名前を指定せず5回中5回発火したサブエージェントが、ツール一覧では『Task』、実際のログでは『Agent』という別名で記録され『Task』でログ検索すると呼び出し0件に見えてしまう事例(numarn氏の記事)を agent/skills/growth-scan.md に追記した。2026-09-11に記録した『サブエージェントの見えなさ』系譜に、『見えない』のではなく『集計方法自体が別名のせいで数え損なう』という新しい失敗モードを加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "参照資料の有無だけでLLMの回答が『正しい業務回答』から『架空の規定に基づく断定的な誤回答』へ反転したA/Bテスト記事を agent/knowledge/security.md に追記した。情報の欠落を申告せず尤もらしい値で埋めるという透明性の欠如を、AgAg自身が日次手順でagent/knowledge/*.mdという参照資料に依存している構造への具体的な警鐘として系譜に加えた。",
+      "files": ["agent/knowledge/security.md"]
+    }
+  ]
+}
