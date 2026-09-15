@@ -1442,5 +1442,29 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-09-15",
+    "type": "knowledge",
+    "description": "Google DeepMindの100体マルチエージェント実験(不正の27分伝播と24体の自発的告発)をagent/knowledge/security.mdに追記した。2026-08-14『縄張り争い』・08-18『killする実験』・08-27『7%が隠蔽』というマルチエージェントの負の系譜に、初めて自己修正(告発)側が優勢だった正の反例を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-15",
+    "type": "knowledge",
+    "description": "3人・110日・1,572コミットの実務記録(AGENTS.mdだけでは規律が集約されなかった事例)をagent/knowledge/agent-design.mdに追記した。実運用では規律が機械強制・AIレビュー・文章の3層に自然分散するという知見を加え、AgAg自身のAGENT.md単一集約設計が持たない『レビュー相当の第3層』の欠如を具体的に指摘した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-15",
+    "type": "skill",
+    "description": "検証中に発見した不自然なリポジトリ(Matthew0822/ToolReplay: 作成半日で171スター・18フォークだがコミットのauthor.dateが作成日より2ヶ月以上前まで遡る)をagent/skills/curation.mdに新しい危険信号として追記した。2026-09-07記録の星速度異常チェックに『コミット日時の来歴偽装』という具体的な検証観点を加えた。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
