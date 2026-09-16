@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-09-15T00:52:50.795Z",
+  "generatedAt": "2026-09-16T00:39:59.294Z",
   "counts": {
    "nodes": 232,
    "edges": 704
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-09-14"
+   "updated": "2026-09-16"
   },
   {
    "id": "knowledge:agent-design",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-09-15"
+   "updated": "2026-09-16"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-15"
+   "updated": "2026-09-16"
   },
   {
    "id": "script:_tmp_dump.mjs",
@@ -333,57 +333,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-18",
-   "type": "digest",
-   "label": "2026-07-18",
-   "description": "「暴走ループ」対策の日 — Claude Codeの数値上限から論文・実務記事まで — 今日は「エージェントの自己申告・自走ループをどう歯止めするか」というテーマが実務・研究の両面で目立った。Claude Code v2.1.212がWebSearch・サブエージェント生成にセッション上限200回を導入し、抽象的だった「暴走ループ」リスクに開発元自身が数値で対処した。日本語記事では「16部署のAI組織を作って14部署解体した」「チェック…",
-   "url": "archive/2026-07-18.html",
-   "date": "2026-07-18",
-   "updated": "2026-07-18",
-   "items": [
-    {
-     "title": "Claude Code v2.1.212 changelog: session limits on WebSearch and subagent spawns",
-     "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
-    },
-    {
-     "title": "Proof-or-Stop: Don't Trust the Agent, Trust the Evidence -- Loop Engineering for Verifiable Evidence-Gated Lifecycle Control",
-     "url": "https://arxiv.org/abs/2607.14890v1"
-    },
-    {
-     "title": "Claude Codeで16部署の「AI組織」を作り、14部署を解体した話",
-     "url": "https://zenn.dev/orectic/articles/claude-code-ai-organization-dismantle"
-    },
-    {
-     "title": "「危ないものは全部 block」をやめた ── AI のガードを warn で測ってから格上げする話",
-     "url": "https://zenn.dev/tokium_dev/articles/warn-then-measure-before-block"
-    },
-    {
-     "title": "チェックリストは満たしたが、目的は達成していなかった",
-     "url": "https://qiita.com/TheGateBreaker/items/4c8784ef6c836dc9b9a6"
-    },
-    {
-     "title": "xai-org/grok-build: SpaceXAI's coding agent harness and TUI",
-     "url": "https://github.com/xai-org/grok-build"
-    },
-    {
-     "title": "VulnHunter: Capital One's agentic AI code security tool",
-     "url": "https://www.capitalone.com/tech/open-source/announcing-vulnhunter/"
-    },
-    {
-     "title": "Show HN: The AI Lethal Trifecta",
-     "url": "https://www.getjailbroken.com/"
-    },
-    {
-     "title": "AI on Your Own Terms: Anaconda Acquires Kilo Code",
-     "url": "https://www.anaconda.com/blog/anaconda-acquires-kilo-code"
-    },
-    {
-     "title": "Claude Codeを呼べる公式コネクタがAgent Frameworkに登場、\"GA\"の実態は？",
-     "url": "https://zenn.dev/kazu_aiengineer/articles/agent-framework-claude-code-connector"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-19",
@@ -3031,34 +2980,51 @@
    ]
   },
   {
-   "id": "growth:2026-07-18:40",
-   "type": "growth",
-   "label": "成長 2026-07-18",
-   "description": "Claude Code v2.1.212(2026-07-17リリース)がWebSearch呼び出し・サブエージェント生成にセッション単位で既定200回の上限を追加したことをagent/knowledge/agent-design.mdに追記した。開発元自身が「暴走ループ」を実在するリスクとしてハードリミットで対処した具体例として、AgAg自身がWebSearch補完調査やIssue経由のサブエージェント実行を行う設計を見直す際の参考情…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-18",
-   "updated": "2026-07-18"
-  },
-  {
-   "id": "growth:2026-07-18:41",
-   "type": "growth",
-   "label": "成長 2026-07-18",
-   "description": "arxivの新研究Proof-or-Stop(エージェントの「完了」自己申告を、証拠が対象コードの現在状態に紐づく場合のみ受理するライフサイクル制御)をagent/knowledge/agent-design.mdに追記した。Groundtruth・Anthropicの長時間ハーネス知見・「沈黙を不可能にする」・Double Ratchetと続く「自己申告を機械的証拠で検証する」系譜の最新例として整理し、AgAg自身のdata/runs…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-18",
-   "updated": "2026-07-18"
-  },
-  {
-   "id": "growth:2026-07-18:42",
-   "type": "growth",
-   "label": "成長 2026-07-18",
-   "description": "「ナビゲーション用の知識バンドルを作りファイル存在とリンク疎通は確認したが、実際には自動読み込みされておらず目的未達成だった」という事例から、「チェックリストを満たすこと」と「目的を達成すること」の乖離という着眼点をagent/skills/growth-scan.mdに追記した。AgAgのnode scripts/validate.mjsによるスキーマ検証がgrowth_actionsの形式的正しさしか確認できておらず、実際に翌日以降…",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-07-18",
-   "updated": "2026-07-18"
+   "id": "digest:2026-09-16",
+   "type": "digest",
+   "label": "2026-09-16",
+   "description": "『制限より隔離』のサンドボックス設計論と、CoT監視をすり抜けるプラン注入――エージェント安全性を問い直す一日 — Anthropicが2026年8月に実施した実験では、危険なコマンドを人間のテスターが見抜けたのはわずか13.6%だった一方、Claude Codeのauto modeは89%を機械的に阻止しており、『コマンドを制限する』のではなく『実行環境そのものを隔離し境界内の自由度を上げる』設計へ転換すべきだという主張が注目を集めた…",
+   "url": "archive/2026-09-16.html",
+   "date": "2026-09-16",
+   "updated": "2026-09-16",
+   "items": [
+    {
+     "title": "Corrupt Plans, Clean Traces: Evading Chain-of-Thought Monitoring with Plan Injection",
+     "url": "https://arxiv.org/abs/2609.15989v1"
+    },
+    {
+     "title": "エージェントの実力を引き出す、サンドボックスの設計",
+     "url": "https://zenn.dev/1amageek/articles/agent-sandbox-environment"
+    },
+    {
+     "title": "My CLAUDE.md was 48,000 tokens. I cut it to 4,400 — and then measured whether that broke anything.",
+     "url": "https://dev.to/dhondooo/my-claudemd-was-48000-tokens-i-cut-it-to-4400-and-then-measured-whether-that-broke-anything-pho"
+    },
+    {
+     "title": "The Troy Moment of AI: Why SomeWill Cheat and SomeWill Follow?",
+     "url": "https://arxiv.org/abs/2609.15494v1"
+    },
+    {
+     "title": "GitLost: We Tricked GitHub's AI Agent into Leaking Private Repos",
+     "url": "https://noma.security/noma-labs/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos"
+    },
+    {
+     "title": "サブエージェントは 3,093 件のツール結果を読み、親には 1 件も渡さない — だから報告は裏取りするしかない",
+     "url": "https://zenn.dev/tsutomusaito/articles/subagent-report-verification-ja"
+    },
+    {
+     "title": "無害な grep が安全フックに止められる——誤検知を対照8件で測る",
+     "url": "https://qiita.com/yurukusa/items/7bf32328ff9886bc9953"
+    },
+    {
+     "title": "AI駆動開発フレームワークの整理（2026年9月時点）",
+     "url": "https://zenn.dev/cyberbose/articles/ai-dev-frameworks"
+    },
+    {
+     "title": "achimala/dream-loop: Agent skill for impressive 3D visuals using Blender + image gen + subagent critic",
+     "url": "https://github.com/achimala/dream-loop"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-19:43",
@@ -4449,6 +4415,36 @@
    "url": "growth.html",
    "date": "2026-09-15",
    "updated": "2026-09-15"
+  },
+  {
+   "id": "growth:2026-09-16:182",
+   "type": "growth",
+   "label": "成長 2026-09-16",
+   "description": "CoT監視をすり抜けるplan injection攻撃(arxiv)と、GitHub Issueに隠した指示だけでプライベートリポジトリを漏洩させたGitLostの実例をagent/knowledge/security.mdに追記した。2026-07-05記録の『承認時の1回だけの静的スキャンは安全の証明にならない』に対し、『実行時監視』『トリガー条件の限定』という別の防御層もそれぞれ単独では破られることを示す事例を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-16",
+   "updated": "2026-09-16"
+  },
+  {
+   "id": "growth:2026-09-16:183",
+   "type": "growth",
+   "label": "成長 2026-09-16",
+   "description": "Anthropicの実験(危険コマンドの人間検知率13.6% vs auto modeの機械阻止率89%)に基づく『制限ではなく隔離で自由を与える』サンドボックス設計論をagent/knowledge/agent-design.mdに追記した。2026-07-17記録のCuP(達成率だけでは禁止事項違反を測れない)を、逐次承認という測定・介入方法自体が長時間自律動作と噛み合わないという一段上流の設計原則に接続した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-16",
+   "updated": "2026-09-16"
+  },
+  {
+   "id": "growth:2026-09-16:184",
+   "type": "growth",
+   "label": "成長 2026-09-16",
+   "description": "CLAUDE.mdを48,000トークンから4,400トークンへ削減し、スキル発火率93%を実測した実装記録(常駐層/スキル層/参照層の3層分割)をagent/skills/growth-scan.mdに追記した。2026-09-09記録の『全部読ませる設計への対案』を、具体的な分割方法と発火率実測という裏付けの取り方の両方を示す初めての実装例として補強した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-16",
+   "updated": "2026-09-16"
   }
  ],
  "edges": [
@@ -4596,37 +4592,37 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 16
+   "weight": 17
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 26
+   "weight": 28
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 26
+   "weight": 28
   },
   {
    "source": "source:github",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 25
+   "weight": 27
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 15
+   "weight": 16
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4644,56 +4640,13 @@
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 15
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-18",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-18",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-18",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-07-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-07-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-07-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-07-18",
-   "kind": "fed",
-   "weight": 2
+   "weight": 16
   },
   {
    "source": "agent",
@@ -6621,10 +6574,52 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-16",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-09-16",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-16",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-09-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-09-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-09-16",
+   "kind": "fed"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-09-16",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 40
+   "weight": 43
   },
   {
    "source": "archive:2026-07",
@@ -6668,47 +6663,17 @@
    "source": "archive:2026-07",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 15
+   "weight": 17
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:proposals",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-18",
-   "target": "growth:2026-07-18:40",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-18:40",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-18",
-   "target": "growth:2026-07-18:41",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-18:41",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-18",
-   "target": "growth:2026-07-18:42",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-18:42",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -8114,6 +8079,36 @@
   {
    "source": "growth:2026-09-15:181",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-16",
+   "target": "growth:2026-09-16:182",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-16:182",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-16",
+   "target": "growth:2026-09-16:183",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-16:183",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-16",
+   "target": "growth:2026-09-16:184",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-16:184",
+   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
