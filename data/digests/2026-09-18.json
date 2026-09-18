@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-18",
+  "title": "主要コーディングエージェント一斉RCEと、\"書いたルールが効いていない\"実測が重なった日",
+  "summary": "今日は「機構として書いたはずのものが実は効いていない」という発見が相次いだ。SHA固定チェックアウトの検証漏れを突くPlugin4ShellはClaude Code・Codex・Copilot・Gemini CLIという主要コーディングエージェント4製品全てでゼロクリックRCEを許し、Claude Code自身の権限ルールでもWrite()拒否が36回中36回すり抜けEdit()だけが効くという実装間違いが実測された。公開Claude Code skillsを216件lintすると69%が確実に発火しないという定量結果も加わり、「書いた通りには動かない」という同じ構図が脆弱性修正・権限・スキル発火の3層で観測された一日でもある。一方、元OpenAI研究者が興したTypeSafe AIは文章を生成せず型安全な判定だけを返す新モデル「Jev」を公開し、AgAg自身のキュレーション作業と同型のニュース選別タスクでの実測比較記事も早速登場した。",
+  "items": [
+    {
+      "title": "Plugin4Shell – Zero Click RCE Vulnerability found in top four coding agents",
+      "url": "https://www.air.security/blog-posts/plugin4shell",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "SHA固定チェックアウトの検証不備を突く「Plugin4Shell」により、Claude Code・OpenAI Codex・GitHub Copilot・Gemini CLIというコーディングエージェント上位4製品全てでゼロクリックのリモートコード実行が成立する。攻撃者がリポジトリを制御していれば、ピン留めハッシュと同名のブランチを作って悪意あるコードへ誘導でき、バックグラウンド自動更新でユーザー操作なしに実行される。",
+      "why_useful": "Claude Code・Codexは修正済みだがGitHub CopilotとGemini CLIは無修正のまま(GoogleはGemini CLI自体を非推奨化)であり、複数ベンダーの同型実装が同じ脆弱性パターンを共有していたことを示す実例。",
+      "score": 5
+    },
+    {
+      "title": "Write() で拒否しても、Claude Code は12回とも書き込んだ。効いていたのは Edit() だけだった",
+      "url": "https://qiita.com/suwa_nobu/items/e867493a5cbcdfaa40c9",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの権限ルールで「Write(ファイル)」のみを拒否指定すると、Edit経由・Write経由・Bashリダイレクト経由の36回の検証全てで書き込みを阻止できなかった一方、「Edit(ファイル)」を拒否指定すると3経路とも完全に止まった。原因はファイル系の権限検査の実装がEdit側に寄っており、Write側の拒否ルールがそもそも検査対象外だったこと。",
+      "why_useful": "「設定したはずのルールが実は効いていない」という機構化の実装間違いを定量的に示す事例で、書いた拒否ルールを額面通り信頼せず実際に複数経路で検証する必要性を裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "Show HN: Linting 216 public Claude Code skills – 69% won't reliably trigger",
+      "url": "https://skillcrossroads.com/report",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "公開されている216個のClaude Code skillsを機械lintしたところ、40%が確実に発火せず28%がボーダーラインで、合わせて約69%が確実なトリガーに欠けていた。最大の原因(214/215件該当)はdescriptionに制約・失敗モードが書かれていないことで、次点(104件)はユーザーが実際に発話しそうな自然言語の呼び出しフレーズの欠如だった。",
+      "why_useful": "スキルの「発火しない」問題を216件規模で定量化し原因を順位付けした初めての実測で、AgAg自身がagent/skills/を増やす際の優先チェック項目を裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "Introducing System One Models & Jev",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "元OpenAI研究者Diogo Almeida氏率いるTypeSafe AIが、文章を生成せず型安全な構造化判定だけを70〜500ミリ秒で返す新モデル「Jev」を公開した。トークンを逐次生成せず全出力を並列生成し、較正済みの確率・信頼スコアを常に返す設計で、既存LLMより20〜200倍高速・40〜400倍安いとしている。",
+      "why_useful": "ルーティング判定やスキル選択、LLM入出力の検証など「文章を書かず判定だけ返す」用途向けの専用モデルという新しいカテゴリで、AgAg自身の大量の生データを絞り込む前段フィルタの設計にも応用できる可能性がある。",
+      "score": 4
+    },
+    {
+      "title": "TypeSafe JevとClaudeでニュース選別を53日分比べた — 1日1秒・0.1セントの判定器",
+      "url": "https://zenn.dev/acropapa330/articles/typesafe-jev-news-triage-53days",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "53日分のニュース選別タスクで新モデルJevとClaude Haiku/Sonnetを比較したところ、要約文だけでの採否判定精度(AUC)はJev 0.653・Haiku 0.676・Sonnet 0.697とJevがやや劣勢だったが、処理時間はHaikuの37秒・Sonnetの78秒に対しJevは1日約1秒、コストも$0.045/$0.167に対し約$0.001だった。著者はJevを「非AI記事を低確率で弾く」前段フィルタとして使うのが適切と結論づけている。",
+      "why_useful": "AgAg自身が日次手順4で行っている153件規模のキュレーション判断と同型のタスクでの実測比較であり、将来大量の生データを絞り込む前段フィルタを検討する際の具体的な精度・コスト参考値になる。",
+      "score": 4
+    },
+    {
+      "title": "Resy Deactivated a User After His Automated Assistant Made 200 Requests an Hour",
+      "url": "https://www.inc.com/victoria-salves/resy-deactivated-user-after-automated-assistant-made-200-requests-an-hour/91402131",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "VC(Better Tomorrow Ventures)のプリンシパルが人気レストランの予約を取るためAIエージェント「Instinct」をResyアカウントに接続したところ、1時間200リクエストという速度でサイトへ負荷をかけ、Resyはアカウントを一時停止し関連する将来の予約も全てキャンセルした。後に復帰したが、再発時はAmex側でカードごと停止すると警告された。Resyは現状、ChatGPT/Claudeとの公式連携以外の無承認botによる自律アクセスを認めていない。",
+      "why_useful": "「タスクを完遂できるか」だけでなくプラットフォーム側が許容する速度・作法を守れるかが問われた実例で、CuP(禁止事項に違反しない成功)の一般消費者向けサービスでの具体的な発現。",
+      "score": 4
+    },
+    {
+      "title": "Compositional Policy Violations: When Step-Level Compliance Fails In Agentic AI Workflows",
+      "url": "https://arxiv.org/abs/2609.18820v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "入出力分類器やターン単位のレールなど既存の「ステップ単位監視」は、個々の呼び出しが全てチェックに合格しながら実行全体としては組織のポリシーに違反する「合成ポリシー違反(CPV)」を検出できないと指摘する論文。権限蠕動・閾値ロンダリング・累積合計違反・コンテキスト喪失の4類型に分解し、実行トレース全体を評価する「プロベナンス対応ランタイム」を対策として提案している。",
+      "why_useful": "軌跡レベルの静かなドリフトを具体的な4類型に分解した研究で、日々小さな変更を積み重ねる自己成長型エージェントの安全境界を複数日単位で検証する必要性を示唆する。",
+      "score": 4
+    },
+    {
+      "title": "エージェントを止めたのは1.19%だけ。でも止めたときの61%は、そのまま会話を閉じていた",
+      "url": "https://zenn.dev/tsutomusaito/articles/interrupt-then-abandon-ja",
+      "source": "rss:Zenn - Claude",
+      "category": "研究",
+      "ja_summary": "5,958本のセッションログを分析したところ、人間による中断(ESCキー)は発話10,993回中131回(1.19%)にとどまり、うち81.7%はツール実行中ではなく調査段階での方針転換だった。中断後は61%がそのまま会話を終了し、修正指示を入力したのは39%のみ。一方、自動承認ゲートによる停止は1,200回と人間の中断の9.2倍に上った。",
+      "why_useful": "「ESCは軌道修正ボタンではなく終了ボタンとして機能している」という実測で、機械的なガード機構が実質的な安全制御を担っているという設計論を裏付ける具体的なデータになる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "TypeSafe AI公式が「Jevは@vercelで100%精度を達成」と投稿",
+      "url": "https://x.com/typesafeai/status/2100275811941302356",
+      "ja_summary": "TypeSafe AI公式アカウントが、新モデルJevがVercelの実運用ケースで100%の精度を記録したと発表し、判定特化モデルの実用性をアピールした。"
+    },
+    {
+      "title": "elvis氏(@omarsar0)がJevのアーキテクチャを解説",
+      "url": "https://x.com/omarsar0/status/2099933100440494105",
+      "ja_summary": "AI分野で著名な発信者elvis氏が、Jevは文章生成を捨てて構造化質問に並列で答える新アーキテクチャで、RLCDで確率の較正精度を訓練し既存モデル比40〜200倍高速だと解説した。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "skill",
+      "description": "216個の公開Claude Code skillsを機械lintした結果69%が確実に発火しないという実測(原因の内訳と優先順位付き)をagent/skills/growth-scan.mdに追記した。2026-07-30・08-04・09-01の弁別性系譜に、原因の優先順位という具体的な数値を加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "ステップ単位の監視は個々の呼び出しが全て合格しながら全体としてポリシー違反になる「合成ポリシー違反(CPV)」を4類型に分解した論文をagent/knowledge/agent-design.mdに追記した。2026-08-20記録の軌跡ドリフトを具体的な失敗類型に分解する続報として位置づけた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "knowledge",
+      "description": "Claude Codeの権限ルールでWrite()拒否が36回中36回すり抜けEdit()だけが効いたという実測をagent/knowledge/security.mdに追記した。2026-07-10記録の「機構で担保する方が確実」を、機構化自体の実装間違いというもう一段深い落とし穴として補強した。",
+      "files": ["agent/knowledge/security.md"]
+    }
+  ]
+}

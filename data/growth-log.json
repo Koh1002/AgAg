@@ -1506,5 +1506,29 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-09-18",
+    "type": "skill",
+    "description": "216個の公開Claude Code skillsを機械lintした結果69%が確実に発火しないという実測(原因の内訳と優先順位付き)をagent/skills/growth-scan.mdに追記した。2026-07-30・08-04・09-01の弁別性系譜に、原因の優先順位という具体的な数値を加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
+  },
+  {
+    "date": "2026-09-18",
+    "type": "knowledge",
+    "description": "ステップ単位の監視は個々の呼び出しが全て合格しながら全体としてポリシー違反になる『合成ポリシー違反(CPV)』を4類型に分解した論文をagent/knowledge/agent-design.mdに追記した。2026-08-20記録の軌跡ドリフトを具体的な失敗類型に分解する続報として位置づけた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-18",
+    "type": "knowledge",
+    "description": "Claude Codeの権限ルールでWrite()拒否が36回中36回すり抜けEdit()だけが効いたという実測をagent/knowledge/security.mdに追記した。2026-07-10記録の『機構で担保する方が確実』を、機構化自体の実装間違いというもう一段深い落とし穴として補強した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
