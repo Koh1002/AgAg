@@ -1530,5 +1530,29 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-09-19",
+    "type": "knowledge",
+    "description": "24時間稼働エージェントの停止機構(AGENT_STOP)の実測(本番運用で21.4秒、理論上限は約3分)をagent/knowledge/agent-design.mdに追記した。2026-09-16記録の『制限より隔離』という事前予防の設計原則に対し、『止めると決めてから実際に止まるまでの速さ』という事後対応の時間軸を加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-19",
+    "type": "skill",
+    "description": "agentskills.io公式ドキュメントに基づくAgent Skill不発火7原因をagent/skills/growth-scan.mdに追記した。2026-09-18記録のskillcrossroads機械診断(制約・失敗モード未記述が最大原因)に、より手前の読み込み条件と発火後の中身の設計という2層のチェックリストを加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
+  },
+  {
+    "date": "2026-09-19",
+    "type": "skill",
+    "description": "星速度異常な新規リポジトリ3件(jianying-headless/AgentVerse-OS/blitzstrike、いずれも作成直後に数百スター・コミット数件)の実例と、同じく疑わしく見えた3dviz-pro-maxがREADME検証で覆った事例をagent/skills/curation.mdに追記した。疑わしさの検証は除外だけでなく採用方向にも働くという注意点を加えた。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

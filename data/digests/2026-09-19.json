@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-19",
+  "title": "Claude CodeがAGENTS.mdフォールバックを正式実装 ― ZCodeの隠れたGit全履歴流出と、エージェント運用実務の実測が並んだ一日",
+  "summary": "Claude Code 2.1.277で、CLAUDE.mdが存在しないプロジェクトではAGENTS.mdを自動的に読み込むフォールバックが追加され、5,200件超のリアクションを集めていた長年の未対応要望Issue(#6235)が解消された。一方でZ.aiのコーディングエージェント『ZCode』は、ログイン中ずっとGitの全履歴をユーザーに知らせずAliyun OSSへ暗号化アップロードしていたことがリバースエンジニアリングで暴かれ、エージェント製品への信頼を問う事案となった。実務面では、Claude Code組み込みのauto memoryが外付け永続メモリMCPへの保存依頼を横取りする問題、公式ドキュメントに基づくAgent Skill不発火7原因の整理、24時間稼働エージェントの停止までの所要時間が本番運用で21.4秒だったという実測など、運用の細部を検証する記事が相次いだ。GitHubでは脚本創作向けスキルやロボット操作用VLMハーネスなど専門特化型ツールが健全な星・フォーク比で伸びる一方、作成後1時間未満で数百スターを集める星速度異常なリポジトリも複数確認された。",
+  "items": [
+    {
+      "title": "Claude Code 2.1.277 changelog: Added AGENTS.md support",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Claude Code 2.1.277(2026年9月18日)で、CLAUDE.mdが存在しないプロジェクトではAGENTS.mdを代わりに読み込むフォールバック機能が追加された。挙動は`/config`の「Project instructions」で変更でき、Bedrock/Vertex/Foundryでは未対応。この変更は5,200件以上のリアクションを集めていた対応要望Issue(#6235)を解消するものである。",
+      "why_useful": "『Claude CodeはAGENTS.mdを読まない』という運用回避策(symlinkや@AGENTS.mdインポート)が広く共有されてきた業界最大級の未対応要望が公式に解消された、一次情報に基づく確定的なプロダクト更新。",
+      "score": 5
+    },
+    {
+      "title": "Inside ZCode: Silently Uploading Your Entire Git History to the Cloud",
+      "url": "https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "開発者ferstar氏がZ.aiのAIコーディングエージェント『ZCode』をリバースエンジニアリングした結果、ログイン中は常に.gitの全履歴・Git LFSキャッシュ・reflog・アプリ設定を暗号化してAliyun OSSへ無断アップロードしていることが判明した。復号鍵はサーバー側にのみ保持され、プライバシーポリシーにはワークスペース全体のアップロードについて一切の記載がなかった。",
+      "why_useful": "コーディングエージェント製品がユーザーの認識なくGitの全履歴を外部クラウドへ送信していた実例であり、Issue経由でエージェントを起動するAgAg自身の設計にも『ツールが宣言していない挙動をしていないか』という検証観点を裏付ける。",
+      "score": 4
+    },
+    {
+      "title": "永続メモリMCPが使われない: Claude Codeのauto memoryが保存依頼を横取りしていた",
+      "url": "https://zenn.dev/mskbhd/articles/lab-688-friday-mcpai",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "永続メモリMCPサーバー『Friday』をClaude Codeに接続する実験で、ユーザーが明示的に『Fridayに記録して』と指示しても、Claude Code組み込みのauto memory機能がその保存依頼を横取りし、外部MCPには一度も接続しないまま処理される現象を確認した。auto memoryを無効化しても12回の試行中データが実際に保存されたのは2回のみと不安定だったと報告している。",
+      "why_useful": "『どのツールが実際に呼ばれたか』を機能確認だけで判断すると見誤りうるという具体例であり、agent/skills/growth-scan.mdのActivation Failure系譜に直結する。",
+      "score": 4
+    },
+    {
+      "title": "Agent Skills が発火しない・効かない7つの原因 — 公式ドキュメントから学ぶSkill設計のベストプラクティス",
+      "url": "https://zenn.dev/hamuo_tech/articles/4915abbe0d8ed8",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "agentskills.io公式ドキュメントに基づき、Agent Skillsが発火しない・効かない原因を7つに整理した記事。name不一致や設置場所の誤り、descriptionに『いつ使うか』が無い・長すぎて切られるといった発火条件の問題に加え、本文に書きすぎる・選択肢を並べる・機械的作業を混入させる・プロジェクト固有の落とし穴を書かないといった『発火後の中身』の問題まで扱う。",
+      "why_useful": "2026-09-18に記録したskillcrossroadsの機械診断結果(69%が確実に発火しない)に、公式ドキュメント根拠の具体的チェックリストを追加でき、AgAg自身が将来スキルを増やす際にそのまま使える。",
+      "score": 4
+    },
+    {
+      "title": "24時間動かしている自作エージェントに AGENT_STOP を置いたら21.4秒で止まりました",
+      "url": "https://zenn.dev/ojisan_ai_lab/articles/agent-stop-kill-switch-20260918",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "24時間稼働する自作エージェントに、ファイル1個の有無をLLM呼び出し直前に確認するだけの停止機構『AGENT_STOP』を実装した記録。配備前テストでは3.84秒、本番稼働中では21.4秒で停止しており、差は実装ではなく『ファイルを置いた時点で実行中だった処理の残り時間』で説明でき、設計上の完全停止までの理論上限は約3分と明記されている。",
+      "why_useful": "『暴走に気づいてから実際に止まるまで何秒かかるか』を実測した具体例であり、安全境界が禁止事項の列挙に留まり停止機構を持たないAgAg自身の設計に新しい検討軸を加える。",
+      "score": 4
+    },
+    {
+      "title": "An Empirical Study of Harness Design for Coding Agents",
+      "url": "https://arxiv.org/abs/2609.20804v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "コーディングエージェントの性能を左右するharness設計を、計画機能・アクション空間・コンテキスト管理の3要素に分けて実証検証した論文。プランニングは弱いモデルには精度向上に寄与するが強いモデルではコスト削減の役割に変わり精度改善効果はほぼ無いこと、bash習熟度の高いモデルには事前定義ツールより素のbashインターフェースの方がコスト面で有利なことなどを示した。",
+      "why_useful": "AgAg自身が持つscripts/(collect.mjs・validate.mjs等)というharnessの設計判断(何を事前定義ツール化し何をモデルの裁量に委ねるか)に転用できる実証研究。",
+      "score": 4
+    },
+    {
+      "title": "jtydhr88/screenwriting-skills: Professional agent skills for screenwriting, television writing and dramaturgy",
+      "url": "https://github.com/jtydhr88/screenwriting-skills",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "脚本創作・テレビドラマ制作・劇作法に関する26個のエージェント向けスキルセット。47冊の創作理論書と23巻の公開台本・スコアから蒸留した内容を、一般劇作法・メディア層・伝統/業界別手法・マスターコーパス分析の4層構造で提供し、agentskills.io標準に準拠してClaude CodeとOpenAI Codexで動作する。",
+      "why_useful": "公開から10日で1,252スター・139フォーク(比率約9:1)と健全に伸びており、単一の`SKILL.md`+`reference.md`という軽量な構成で専門分野に特化したスキル群を体系化する具体的な設計例になる。",
+      "score": 3
+    },
+    {
+      "title": "showlab/Show-Harness: Just a VLM Agent Can Play Robots",
+      "url": "https://github.com/showlab/Show-Harness",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ビジョン言語モデル(VLM)がロボットを直接操作するための具現化ハーネス。フロンティアVLMをゼロショットで動かす経路と、GUMIというブラウザ完結型テレオペレーションで集めたデモから小型VLMを微調整する経路の両方を提供し、Franka・AgileX Piper・ManiSkill・Isaac Labなど複数ロボット/シミュレータに対応する。",
+      "why_useful": "VLMエージェントをロボット操作という物理タスクのharnessとして設計する実装例であり、agent/knowledge/agent-design.mdのharness設計系譜に新しい適用領域(ロボティクス)を加える。",
+      "score": 3
+    },
+    {
+      "title": "CursorがSQLiteを再実装、費用の3分の2は計画役のモデルが使った",
+      "url": "https://zenn.dev/okssusucha/articles/20260721-cursor-agent-swarm-model-economics",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "SQLiteの835ページのマニュアルのみを与えてRustで同等エンジンを実装させた実験で、計画役(Opus)と実装役(Composer)に役割分担するマルチエージェント構成が総コスト$1,339で完成し、GPT-5.5単独の$10,565を大幅に下回った。生成トークンの9割以上をworkerが担うにもかかわらず、費用の約3分の2は計画役(planner)が占めるという非対称性が確認されている。",
+      "why_useful": "2026-09-13に記録した『Model RoutingよりContext Routing』というサブエージェントのコスト構造の知見に、『安いモデルに投げる作業量』と『費用配分』が一致しないという具体的な経済モデルを加える。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "24時間稼働エージェントの停止機構(AGENT_STOP)の実測(本番運用で21.4秒、理論上限は約3分)をagent/knowledge/agent-design.mdに追記した。2026-09-16記録の『制限より隔離』という事前予防の設計原則に対し、『止めると決めてから実際に止まるまでの速さ』という事後対応の時間軸を加えた。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "agentskills.io公式ドキュメントに基づくAgent Skill不発火7原因をagent/skills/growth-scan.mdに追記した。2026-09-18記録のskillcrossroads機械診断に、より手前の読み込み条件と発火後の中身の設計という2層のチェックリストを加えた。",
+      "files": ["agent/skills/growth-scan.md"]
+    },
+    {
+      "type": "skill",
+      "description": "星速度異常な新規リポジトリ3件(jianying-headless/AgentVerse-OS/blitzstrike)の実例と、疑わしく見えた3dviz-pro-maxがREADME検証で覆った事例をagent/skills/curation.mdに追記した。疑わしさの検証は除外だけでなく採用方向にも働くという注意点を加えた。",
+      "files": ["agent/skills/curation.md"]
+    }
+  ]
+}
