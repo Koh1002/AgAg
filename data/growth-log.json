@@ -1554,5 +1554,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-09-20",
+    "type": "knowledge",
+    "description": "TypeSafe AIのJevとtrycuaのCUA-S1が、Kahnemanの速い思考/遅い思考を根拠に無関係な2社から独立して同時期に収束した『LLMの外側に判断専用の小型モデルを置く』ハーネス設計パターンをagent/knowledge/agent-design.mdに追記した。ベンチマーク数値が開発元の自己申告値である点も明記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-20",
+    "type": "skill",
+    "description": "OverclaimBench(エージェントの最終応答が実行文脈と矛盾する『過大申告』を定量化する評価スイート)をagent/skills/growth-scan.mdに追記した。AgAg自身のgrowth_actions自己申告が実際の変更内容と食い違っていないかを機械的に照合する手段を持たない、という将来のvalidate.mjs拡張候補につなげた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

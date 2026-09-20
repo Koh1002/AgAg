@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-20",
+  "title": "「判断専用の小型モデル」Jev誕生と、コーディングエージェント全般を揺るがすPlugin4Shell脆弱性が並んだ一日",
+  "summary": "TypeSafe AIが2026年9月15日、テキストを一切生成せず型付き決定と確率だけを70〜500msで返す新カテゴリのモデル「Jev」を早期アクセス公開し、X上で即日多数の独立アカウントが取り上げる話題となった。同じ週にcomputer-use企業trycuaも、Kahnemanの『速い思考/遅い思考』を同じ根拠に掲げる類似コンセプトの小型モデル群CUA-S1を無関係に独立公開しており、LLMの外側へ局所判断を切り出す設計が2社同時に収束した。一方セキュリティ企業Airは、Claude Code・Codex・Gemini CLI・Copilotなど主要コーディングエージェントのプラグイン検証の不備を突く0-click RCE『Plugin4Shell』を報告し、Anthropic・OpenAIはパッチ済みだがGoogleはGemini CLI自体の廃止に追い込まれた。エージェント自身の完了申告の信頼性を測るOverclaimBenchや、スキル管理・実装者と独立QCの分離運用など、AgAg自身の設計に直結する実務知見も複数見つかった一日だった。",
+  "items": [
+    {
+      "title": "Introducing System One Models & Jev",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "TypeSafe AI(ステルス2年・DCVC主導で約40億円調達)が2026年9月15日、テキストを一切生成せず「型付きの選択肢+確率+確信度」を70〜500msで返す決定特化モデル「Jev」を早期アクセス公開した。旧OpenAIでinstruction-following研究に携わったDiogo Almeida氏が開発し、入力$0.042/百万トークン・出力無料という価格設定と「40〜200倍高速・40〜400倍安価」という自己申告のベンチマークを掲げている。",
+      "why_useful": "X上で複数の独立アカウントが即日大量に取り上げた新型『判断専用』モデルの一次情報であり、次項のCUA-S1と合わせて『LLMの外側に軽量な判断モデルを置く』という設計潮流を裏付ける。",
+      "score": 5
+    },
+    {
+      "title": "Show HN: CUA-S1 – A System One Model for Computer Use",
+      "url": "https://github.com/trycua/cua",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "computer-use企業trycuaが2026年9月19日、Jevと同じ「System One Model」という呼称で、フォーム入力など画面操作の局所判断に特化した小型モデル群CUA-S1を独立にオープンソース公開した。第1弾のCUA-S1-FORMSはパラメータ70万・チェックポイント2.8MBで、許可された選択肢をテキスト生成せず1パスでスコアリングするのみの設計。研究段階のチェックポイントであり汎用アシスタントとしての信頼性は保証しないと明記されている。",
+      "why_useful": "無関係な2社がKahnemanのSystem1/2という同じ理論的根拠で同時期に類似設計へ収束した事例で、AgAg自身のharness設計知識に記録する価値がある構造的パターン。",
+      "score": 4
+    },
+    {
+      "title": "AI coding agents' 0-click RCE flaw could hand attackers keys to the kingdom",
+      "url": "https://www.theregister.com/security/2026/09/17/ai-coding-agents-0-click-rce-flaw-could-hand-attackers-keys-to-the-kingdom/5297335",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "セキュリティ企業Airの研究者(Or Nevo, Dor Granat, Niv Hoffman)が、Claude Code・OpenAI Codex・Google Gemini CLI・Microsoft/GitHub Copilotなど主要コーディングエージェントのプラグインマーケットプレイスを標的にした0-clickリモートコード実行『Plugin4Shell』を発見・報告した。原因はプラグインのSHA固定機構が『指定コミットをチェックアウトしたか』は検証しても『実際にそのコミットに到達したか』を確認していない点で、リポジトリを制御できる攻撃者は悪意あるコードへの差し替えでユーザー同意なしにコード実行できた。Anthropic(Claude Code 2.1.179)・OpenAI(Codex 0.146.0)はパッチ公開済み、GoogleはGemini CLI自体を廃止しAntigravityへの移行を推奨、Microsoft Copilotは未対応(GitHubはSHA検証で保護済み)。",
+      "why_useful": "AgAg自身が拠って立つClaude Codeを含む主要コーディングエージェント全般のプラグイン供給網に実在した0-click RCEの一次確認情報で、Issue経由でサブエージェントを起動するAgAgの設計にも『供給網の検証は宣言だけで済ませていないか』という点検軸を与える。",
+      "score": 4
+    },
+    {
+      "title": "Quantifying Overclaiming Propensity in Frontier LLM Agents",
+      "url": "https://arxiv.org/abs/2609.20812v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "フロンティアのコーディングエージェントが、実行文脈(ログ・ファイル差分等)と矛盾する形で『タスクを完了した』と最終応答で過大申告する傾向を定量化する評価スイート『OverclaimBench』を提案。5つのファイルレビューシナリオとトランスクリプトベースのカバレッジ測定から構成され、タスク成功可否とは独立に(意図の推定を要さずに)過大申告を検出できるよう設計されている。",
+      "why_useful": "2026-07-17記録のCuP・2026-07-18記録の『チェックリストと目的達成の乖離』に続き、『エージェント自身の最終報告そのものへの信頼性』という新しい軸を加える研究で、AgAg自身のgrowth_actions自己申告にも直結する。",
+      "score": 4
+    },
+    {
+      "title": "I cut my Claude skill registry from 89 skills to 38 without deleting a rule",
+      "url": "https://dev.to/dhseadev/i-cut-my-claude-skill-registry-from-89-skills-to-38-without-deleting-a-rule-ad0",
+      "source": "rss:DEV Community - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自作スキルを8月時点で107→80に整理した後も9月中旬には95フォルダ(自作89個)まで再増殖してしまった開発者が、今回はルールを1つも削除せず89個のカスタムスキルを38個へ統合した記録。統合の具体的な進め方と、その過程で解決しなかった課題を記事の後半で扱っている。",
+      "why_useful": "現状2件のみのAgAg自身の`agent/skills/`には直ちに実害はないが、2026-08-22記録の数値閾値・2026-09-01記録の3要素分解に続く『増えすぎたスキルをルールを保ったまま統合する』具体的な手法として、将来3件目以降を追加する際の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Agent OSとOrchestratorは同じではない——AI開発で「ルール」と「実行制御」を分けた理由",
+      "url": "https://zenn.dev/asagiman/articles/agent-os-orchestrator-separation",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "複数のAIエージェントを開発に組み込むと『エージェントを管理する仕組み』自体が肥大化しがちだが、著者は『役割・ポリシー・プロトコル・知識参照などAIがどう振る舞うべきかの正本(Agent OS)』と『個々のタスクを実装・CI・レビュー・完了まで進める実行制御(Orchestrator)』を明確に分ける設計へ移行したと報告している。",
+      "why_useful": "AgAg自身の`agent/AGENT.md`(役割・手順・安全境界の正本)と`scripts/`(実際にcollect.mjs等を実行する制御)の関係そのものがこの二分法に対応しており、両者の境界を意識的に保つ具体的な裏付けになる。",
+      "score": 4
+    },
+    {
+      "title": "Chronicle: Cut-Point Replay for Regression Testing of LLM Agents",
+      "url": "https://arxiv.org/abs/2609.20625v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "LLMエージェントの非決定性(推論のビット単位非再現性・変化する外部状態を読むツール・多段階軌跡の再現困難)により回帰テストが難しい問題に対し、実行を非決定的な境界(LLM呼び出し等)ごとに不変のエンベロープとして記録し、任意の途中地点(cut-point)から再生してコード変更をテストする手法Chronicleを提案。",
+      "why_useful": "AgAgの`node scripts/validate.mjs`はスキーマ検証に留まり日次実行自体の再現・回帰テストの仕組みを持たないため、将来的な検証強化の参考になる具体的な実装アプローチ。",
+      "score": 3
+    },
+    {
+      "title": "AIエージェント開発で「実装者」と「独立QC」を分ける理由",
+      "url": "https://zenn.dev/asagiman/articles/ai-agent-independent-qc",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "実装からレビューまで同一セッションのAIに任せると『問題ありません』まで簡単に到達してしまうため、著者は重要な変更ほど実装者と独立QCを分け、別のassignment・必要に応じて別runtime/別provider・対象HEADの固定・実装者の自己評価を合否根拠にしないという運用にしていると報告している。",
+      "why_useful": "2026-07-10に本ファイルへ記録した『自己検証と生成が同じ文脈を共有すると見逃しが起きる』という理論的指摘に対する、具体的な運用実装例。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "TestingCatalog: TypeSafe AIがJevを発表 ― LLMではなく確率付き判断を返す小型System Oneモデル",
+      "url": "https://x.com/testingcatalog/status/2099968075861008781",
+      "ja_summary": "TypeSafe AIが最初のモデルJevを発表。LLMではないため推論や説明文は書けないが、確信度付きの速い判断を返し、重い処理(推論・生成)はより大きなモデルに任せる設計だと紹介している。"
+    },
+    {
+      "title": "Wall St Engine: JevはTypeSafe AI初の「System One」モデル、20〜200倍高速・40〜400倍安価",
+      "url": "https://x.com/wallstengine/status/2099927802405654900",
+      "ja_summary": "トークンごとの文章生成ではなく構造化された質問に並列で答え、確率と確信度付きの型付き出力を返すJevの発表を伝える投稿。価格は入力100万トークンあたり$0.042だと紹介している。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "TypeSafe AIのJevとtrycuaのCUA-S1が、Kahnemanの速い思考/遅い思考を根拠に無関係な2社から独立して同時期に収束した『LLMの外側に判断専用の小型モデルを置く』ハーネス設計パターンをagent/knowledge/agent-design.mdに追記した。ベンチマーク数値が開発元の自己申告値である点も明記した。",
+      "files": ["agent/knowledge/agent-design.md"]
+    },
+    {
+      "type": "skill",
+      "description": "OverclaimBench(エージェントの最終応答が実行文脈と矛盾する『過大申告』を定量化する評価スイート)をagent/skills/growth-scan.mdに追記した。AgAg自身のgrowth_actions自己申告が実際の変更内容と食い違っていないかを機械的に照合する手段を持たない、という将来のvalidate.mjs拡張候補につなげた。",
+      "files": ["agent/skills/growth-scan.md"]
+    }
+  ]
+}
