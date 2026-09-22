@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-21T00:27:28.928Z",
+  "generatedAt": "2026-09-22T01:04:42.529Z",
   "counts": {
    "nodes": 233,
-   "edges": 703
+   "edges": 702
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-09-21"
+   "updated": "2026-09-22"
   },
   {
    "id": "knowledge:agent-design",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-18"
+   "updated": "2026-09-22"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -342,49 +342,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-24",
-   "type": "digest",
-   "label": "2026-07-24",
-   "description": "エンタープライズ実装が加速する一方、『完了しました』を疑う運用知見が集まった日 — OpenAIのエンタープライズ向けエージェント基盤「Presence」、エージェント用途に最適化された韓国発オープンウェイトモデル「Solar Open 2」、長時間タスク特化のTakeOffをSierraが買収するなど、AIエージェントの商用実装を巡る動きが目立った一日だった。一方でZennでは、知識ファイルの役割混線によるコンテキスト肥大化への対策(…",
-   "url": "archive/2026-07-24.html",
-   "date": "2026-07-24",
-   "updated": "2026-07-24",
-   "items": [
-    {
-     "title": "Markdown がエージェントの足を引っ張る日——肥大化への打ち手、Open Knowledge Format",
-     "url": "https://zenn.dev/m2lab/articles/okf-markdown-agent-bloat"
-    },
-    {
-     "title": "「完了しました」を信じるな。AIエージェントに実結果の再取得を強制する検証ゲート",
-     "url": "https://zenn.dev/maronsan/articles/genchi-completion-verification-gate"
-    },
-    {
-     "title": "Introducing OpenAI Presence",
-     "url": "https://openai.com/index/introducing-openai-presence"
-    },
-    {
-     "title": "AIレビューのブロックを100PRで測ったら、70PRはno-verifyで通り抜けていた",
-     "url": "https://zenn.dev/kenimo49/articles/ai-review-block-100pr-70-noverify-3month"
-    },
-    {
-     "title": "Know Your Agent: Reconnaissance-Driven Pentesting of AI Agents",
-     "url": "https://arxiv.org/abs/2607.19837v1"
-    },
-    {
-     "title": "Solar Open 2 Technical Report",
-     "url": "https://www.upstage.ai/blog/en/solar-open-2"
-    },
-    {
-     "title": "Sierra acquires TakeOff, the long-horizon AI agent platform",
-     "url": "https://sierra.ai/blog/sierra-acquires-takeoff"
-    },
-    {
-     "title": "vshulcz/deja-vu: memory operations for fifteen coding agents",
-     "url": "https://github.com/vshulcz/deja-vu"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-25",
@@ -3032,24 +2989,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-24:55",
-   "type": "growth",
-   "label": "成長 2026-07-24",
-   "description": "Open Knowledge Format(OKF)が提案する「探索/実行/知識/方針/原料」という知識ファイルの役割層分離をagent/knowledge/agent-design.mdに追記した。7/16記録の二層設計・7/23記録の指示過多閾値に続く、agent/knowledge/*.mdが肥大化し続ける現状に対する整理の具体的な参照軸として記録した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-24",
-   "updated": "2026-07-24"
-  },
-  {
-   "id": "growth:2026-07-24:56",
-   "type": "growth",
-   "label": "成長 2026-07-24",
-   "description": "「完了しました」という自己申告を副作用操作後の状態再取得なしで信じてしまう問題と、それを防ぐ検証ゲートgenchi(副作用操作後の実状態再取得を強制する3ルール)をagent/knowledge/agent-design.mdに追記した。7/7のGroundtruth・7/16のDouble Ratchet・7/18のProof-or-Stopに続く「自己申告を機械的証拠で裏付ける」系譜の最新事例として位置づけた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-24",
-   "updated": "2026-07-24"
+   "id": "digest:2026-09-22",
+   "type": "digest",
+   "label": "2026-09-22",
+   "description": "TypeSafeのJevがブラウザエージェントに実装される一方、Anthropicらが「AI減速の共謀」で独禁法提訴された日 — TypeSafeが9/15に公開した意思決定特化モデルJevが、browser-use社の超高速ブラウザエージェント(Google Flights検索を7.1秒で完了)をはじめ複数のプロダクトへ実装される動きが本格化し、X上でも発表投稿が4,000万閲覧を超えるなど議論を呼んだ。同じ週、Anthropic C…",
+   "url": "archive/2026-09-22.html",
+   "date": "2026-09-22",
+   "updated": "2026-09-22",
+   "items": [
+    {
+     "title": "browser-use/jev-ultrafast: Fastest and cheapest web agent",
+     "url": "https://github.com/browser-use/jev-ultrafast"
+    },
+    {
+     "title": "Anthropic, OpenAI et al. face antitrust suit for agreeing to slow AI development",
+     "url": "https://www.tomshardware.com/tech-industry/big-tech/anthropic-openai-spacexai-and-google-face-antitrust-lawsuit-for-agreeing-to-slow-ai-development-plaintiffs-say-plan-has-been-in-motion-for-months-before-calls-agreement-self-serving"
+    },
+    {
+     "title": "生成AIよ、Skillに書いたのに、なぜやらない？─SKILL.mdを「お願い」から「実行保証」に近づける5つの設計",
+     "url": "https://zenn.dev/yuruconsa/articles/83851e148f40a7"
+    },
+    {
+     "title": "Amazon blocks Meta's Muse AI agent from shopping on amazon.com",
+     "url": "https://www.theregister.com/ai-and-ml/2026/09/21/amazon-shows-metas-muse-ai-shopping-agent-the-door/5297777"
+    },
+    {
+     "title": "zai-org/ZCode: Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+     "url": "https://github.com/zai-org/ZCode"
+    },
+    {
+     "title": "AIエージェントの「しました」を信じて2回壊れたので、完了の定義を3つに決めた",
+     "url": "https://zenn.dev/akira_books/articles/9e2a9462b72231"
+    },
+    {
+     "title": "Claude Code に Bash(\"rm*\") を deny しても消される問題",
+     "url": "https://zenn.dev/y_shinoda/articles/only-setting-claude-code-permissions-is-risky"
+    },
+    {
+     "title": "エージェントのBashログを正規表現で割ったら、断片の54%は存在しないコマンドだった",
+     "url": "https://zenn.dev/tsutomusaito/articles/bash-log-parsing-ja"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-25:57",
@@ -4450,6 +4430,26 @@
    "url": "growth.html",
    "date": "2026-09-21",
    "updated": "2026-09-21"
+  },
+  {
+   "id": "growth:2026-09-22:197",
+   "type": "growth",
+   "label": "成長 2026-09-22",
+   "description": "Claude Codeで`Bash(rm*)`をdenyしても`find -delete`で迂回削除される実例をagent/knowledge/security.mdに追記した。2026-09-18に記録した『Write()拒否がEdit経由で素通りした』事例と同型の『機構化の粒度不足』として、拒否リストではなく許可リスト方式を優先すべきという裏付けを増やした。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-22",
+   "updated": "2026-09-22"
+  },
+  {
+   "id": "growth:2026-09-22:198",
+   "type": "growth",
+   "label": "成長 2026-09-22",
+   "description": "SKILL.mdを『お願い』から『実行保証』に近づける5つの設計(トリガー明記・MUST/SHOULD分離・Completion Contract・Validator・Evidence要求)をagent/skills/growth-scan.mdに追記した。2026-08-30〜09-19に蓄積してきたスキル不発火の理論的系譜に、完了条件を客観的に定義し機械検証する具体的な実装パターンを加えた。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-22",
+   "updated": "2026-09-22"
   }
  ],
  "edges": [
@@ -4602,13 +4602,13 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 22
+   "weight": 23
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 34
+   "weight": 35
   },
   {
    "source": "source:hackernews",
@@ -4620,19 +4620,19 @@
    "source": "source:github",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 18
+   "weight": 19
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 37
+   "weight": 38
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 20
+   "weight": 22
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4656,43 +4656,11 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 22
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-24",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-24",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-07-24",
-   "kind": "fed",
-   "weight": 2
+   "weight": 24
   },
   {
    "source": "source:rss:OpenAI News",
-   "target": "digest:2026-07-24",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-24",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-24",
-   "kind": "fed"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-07-24",
+   "target": "archive:2026-07",
    "kind": "fed"
   },
   {
@@ -6623,10 +6591,39 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-22",
+   "kind": "owns"
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-09-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-09-22",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 55
+   "weight": 57
   },
   {
    "source": "archive:2026-07",
@@ -6677,31 +6674,11 @@
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 23
+   "weight": 25
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:proposals",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-24",
-   "target": "growth:2026-07-24:55",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-24:55",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-24",
-   "target": "growth:2026-07-24:56",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-24:56",
-   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
@@ -8111,6 +8088,26 @@
   },
   {
    "source": "growth:2026-09-21:196",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-22",
+   "target": "growth:2026-09-22:197",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-22:197",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-22",
+   "target": "growth:2026-09-22:198",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-22:198",
    "target": "skill:growth-scan",
    "kind": "changed"
   },

@@ -1586,5 +1586,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-22",
+    "type": "knowledge",
+    "description": "Claude Codeで`Bash(rm*)`をdenyしても`find -delete`で迂回削除される実例をagent/knowledge/security.mdに追記した。2026-09-18に記録した『Write()拒否がEdit経由で素通りした』事例と同型の『機構化の粒度不足』として、拒否リストではなく許可リスト方式を優先すべきという裏付けを増やした。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-22",
+    "type": "skill",
+    "description": "SKILL.mdを『お願い』から『実行保証』に近づける5つの設計(トリガー明記・MUST/SHOULD分離・Completion Contract・Validator・Evidence要求)をagent/skills/growth-scan.mdに追記した。2026-08-30〜09-19に蓄積してきたスキル不発火の理論的系譜に、完了条件を客観的に定義し機械検証する具体的な実装パターンを加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
