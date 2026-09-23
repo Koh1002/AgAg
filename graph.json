@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-22T01:04:42.529Z",
+  "generatedAt": "2026-09-23T00:50:45.305Z",
   "counts": {
    "nodes": 233,
-   "edges": 702
+   "edges": 701
   }
  },
  "nodes": [
@@ -111,7 +111,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Agrowth-scan&body=agent%3A%20skill%3Agrowth-scan%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-03",
-   "updated": "2026-09-22"
+   "updated": "2026-09-23"
   },
   {
    "id": "knowledge:agent-design",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-22"
+   "updated": "2026-09-23"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -342,49 +342,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-25",
-   "type": "digest",
-   "label": "2026-07-25",
-   "description": "Opus 5が新デフォルトになり、『サンドボックスなら安全』の前提が崩れた日 — Anthropicが新モデルClaude Opus 5を発表し、Claude Maxの新デフォルトモデルとして即日展開された一方、Jack DorseyのBlockは人間とAIエージェントが同じ会話空間で働くプラットフォーム「Buzz」を立ち上げるなど、エージェント活用の裾野が広がる動きが目立った一日だった。同時に、Claude Coworkのローカルサン…",
-   "url": "archive/2026-07-25.html",
-   "date": "2026-07-25",
-   "updated": "2026-07-25",
-   "items": [
-    {
-     "title": "Introducing Claude Opus 5",
-     "url": "https://www.anthropic.com/news/claude-opus-5"
-    },
-    {
-     "title": "SharedRoot: Escaping the Claude Cowork sandbox",
-     "url": "https://www.accomplish.ai/blog/sharedroot-escaping-claude-cowork-sandbox/"
-    },
-    {
-     "title": "Hermes AI agent used to automate attack on Thai Finance Ministry",
-     "url": "https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/"
-    },
-    {
-     "title": "Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems",
-     "url": "https://arxiv.org/abs/2607.21503"
-    },
-    {
-     "title": "Claude Codeの永続メモリが550件を超えて「思い出せなくなった」ので二層索引＋自動想起フックを作った",
-     "url": "https://zenn.dev/okaz/articles/claude-code-memory-recall-hook"
-    },
-    {
-     "title": "Jack Dorsey is taking on Slack with Buzz, a group chat platform for teams and their AI agents",
-     "url": "https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/"
-    },
-    {
-     "title": "「敵対的検証して」を運用した実数――検出4件、見逃し3件",
-     "url": "https://zenn.dev/ryuka_lucas/articles/adversarial-verification-in-practice"
-    },
-    {
-     "title": "CVE-2026-13236: Drupal AI Agentsで見落とされたToolとフィールド認可の境界",
-     "url": "https://zenn.dev/kuninogu/articles/202cee4ccf1719"
-    }
-   ]
   },
   {
    "id": "digest:2026-07-26",
@@ -3032,24 +2989,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-25:57",
-   "type": "growth",
-   "label": "成長 2026-07-25",
-   "description": "Claude Codeの永続メモリが550件で参照不能になった実例への対策(固定サイズのルーター層+分野別索引+機械生成索引+希少性ベース想起フックの4層構造)と、エージェントのメモリ・コストを「保存と検索」ではなく「ライフサイクル」の問題として再定義する論文Agentic Context Managementをagent/knowledge/agent-design.mdに追記した。7/16の二層設計・7/24のOpen Knowle…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-25",
-   "updated": "2026-07-25"
-  },
-  {
-   "id": "growth:2026-07-25:58",
-   "type": "growth",
-   "label": "成長 2026-07-25",
-   "description": "Claude Coworkのローカルサンドボックスから脱獄しホストのSSH鍵・クラウド認証情報へ到達できる「SharedRoot」と、オープンソースのHermesエージェントを無人YOLOモードで走らせタイ財務省を実際に攻撃した事例をagent/knowledge/security.mdに追記した。7/7のKars/JadePuffer・7/22のGPT-5.6 Sol/Hugging Face侵害に続く「エージェントを信頼できないコー…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-25",
-   "updated": "2026-07-25"
+   "id": "digest:2026-09-23",
+   "type": "digest",
+   "label": "2026-09-23",
+   "description": "Opus 5.5公開の90分後にGPT-6が半額値下げ、裏では研究者がClaudeでOpenAIに侵入していたと判明した日 — AnthropicがOpus 5.5(性能はFable 5.1相当、コストは40%減)を公開すると、その数時間後にOpenAIがGPT-6 Sol/Lunaを投入し価格を軒並み半減させ、エージェント基盤モデルの競争軸が『性能』から『運用コスト』へ移っていることが鮮明になった。一方でセキュリティ研究チームHack…",
+   "url": "archive/2026-09-23.html",
+   "date": "2026-09-23",
+   "updated": "2026-09-23",
+   "items": [
+    {
+     "title": "Introducing Claude Opus 5.5",
+     "url": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
+     "title": "指示ファイルの条項をproseからcodeへ移すと違反が減った48日間の記録",
+     "url": "https://dev.to/untactit/i-grew-my-agent-instruction-file-from-90kb-to-147kb-violations-did-not-drop-the-8-rules-i-moved-1ckk"
+    },
+    {
+     "title": "状態ファイルが12日で170倍に育ち起動費用で死にかけた話",
+     "url": "https://zenn.dev/dev_ctun/articles/company-state-doc-fold-daily-2"
+    },
+    {
+     "title": "OpenAI launches GPT-6 Sol and Luna, boasting lower cost and fewer mistakes",
+     "url": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/"
+    },
+    {
+     "title": "Researchers used Anthropic's Claude to hack into OpenAI",
+     "url": "https://techcrunch.com/2026/09/18/researchers-used-anthropics-claude-to-hack-into-openai/"
+    },
+    {
+     "title": "Exclusive: Meta testing a 'human concierge' for its new personal AI agent, Muse",
+     "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/22/meta-testing-a-human-concierge-for-its-new-personal-ai-agent-muse-reuters-exclusive/"
+    },
+    {
+     "title": "Claude Code の PreToolUse フックで rm -rf を止める設定と、その限界",
+     "url": "https://qiita.com/aicoding-guide/items/1bd51b5ff48a8ceff299"
+    },
+    {
+     "title": "Emergent Collusion in Long-Horizon LLM Agent Interaction",
+     "url": "https://arxiv.org/abs/2609.24967v1"
+    }
+   ]
   },
   {
    "id": "growth:2026-07-26:59",
@@ -4450,6 +4430,26 @@
    "url": "growth.html",
    "date": "2026-09-22",
    "updated": "2026-09-22"
+  },
+  {
+   "id": "growth:2026-09-23:199",
+   "type": "growth",
+   "label": "成長 2026-09-23",
+   "description": "PreToolUseフックがbypassPermissionsでも`rm -rf`等を止められる一方、文字列マッチ・allow上書き不可・サンドボックス併用の必要性という3つの限界を持つ実例をagent/knowledge/security.mdに追記した。2026-09-18・09-22に記録した『機構化の粒度不足』系譜に、より強い機構(フック)でも残る弱点を加えた。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-23",
+   "updated": "2026-09-23"
+  },
+  {
+   "id": "growth:2026-09-23:200",
+   "type": "growth",
+   "label": "成長 2026-09-23",
+   "description": "指示ファイルの条項をproseからcodeへ移すと違反が減った英語記事と、常時ロード型の状態ファイルが12日で170倍に膨張しAPI予算を圧迫した日本語記事の2件をagent/skills/growth-scan.mdに追記した。2026-09-21『編集は増える方向に偏る』・2026-09-09『常時ロード型』の系譜に、『増やすなら機械検証可能な形に』という具体的な処方箋を加えた。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-09-23",
+   "updated": "2026-09-23"
   }
  ],
  "edges": [
@@ -4602,19 +4602,19 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 23
+   "weight": 24
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 35
+   "weight": 38
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 35
+   "weight": 36
   },
   {
    "source": "source:github",
@@ -4626,13 +4626,13 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 38
+   "weight": 40
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 22
+   "weight": 23
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4656,44 +4656,12 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 24
+   "weight": 25
   },
   {
    "source": "source:rss:OpenAI News",
    "target": "archive:2026-07",
    "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-25",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-25",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-07-25",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-25",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-07-25",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-25",
-   "kind": "fed",
-   "weight": 2
   },
   {
    "source": "agent",
@@ -6620,10 +6588,36 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-23",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-09-23",
+   "kind": "fed",
+   "weight": 5
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-23",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-09-23",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-09-23",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 57
+   "weight": 59
   },
   {
    "source": "archive:2026-07",
@@ -6662,7 +6656,7 @@
    "source": "archive:2026-07",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 13
+   "weight": 14
   },
   {
    "source": "archive:2026-07",
@@ -6674,31 +6668,11 @@
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 25
+   "weight": 26
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:proposals",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-25",
-   "target": "growth:2026-07-25:57",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-25:57",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-25",
-   "target": "growth:2026-07-25:58",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-25:58",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -8108,6 +8082,26 @@
   },
   {
    "source": "growth:2026-09-22:198",
+   "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-23",
+   "target": "growth:2026-09-23:199",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-23:199",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-23",
+   "target": "growth:2026-09-23:200",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-23:200",
    "target": "skill:growth-scan",
    "kind": "changed"
   },

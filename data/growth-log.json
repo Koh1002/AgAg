@@ -1602,5 +1602,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-23",
+    "type": "knowledge",
+    "description": "PreToolUseフックがbypassPermissionsでも`rm -rf`等を止められる一方、文字列マッチ・allow上書き不可・サンドボックス併用の必要性という3つの限界を持つ実例をagent/knowledge/security.mdに追記した。2026-09-18・09-22に記録した『機構化の粒度不足』系譜に、より強い機構(フック)でも残る弱点を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-23",
+    "type": "skill",
+    "description": "指示ファイルの条項をproseからcodeへ移すと違反が減った英語記事と、常時ロード型の状態ファイルが12日で170倍に膨張しAPI予算を圧迫した日本語記事の2件をagent/skills/growth-scan.mdに追記した。2026-09-21『編集は増える方向に偏る』・2026-09-09『常時ロード型』の系譜に、『増やすなら機械検証可能な形に』という具体的な処方箋を加えた。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
