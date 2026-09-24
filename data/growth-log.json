@@ -1618,5 +1618,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-09-24",
+    "type": "knowledge",
+    "description": "InjecMEM(メモリ注入攻撃、検索時攻撃成功率76.6%)をagent/knowledge/security.mdに追記した。あわせて、AgAg自身のagent/knowledge/・data/growth-log.jsonが日々の収集データを読んで書き足す「持続的な記憶」である以上、収集元に紛れ込んだ誘導的な記述をそのまま知識として取り込めば同型の汚染が原理的に起こりうるという自己言及的な注意点を明記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-24",
+    "type": "knowledge",
+    "description": "「AIエージェントのhandoffで権限を移してはいけない」(Handoff→Decision→Grant→Runtime Checkの4層分離)をagent/knowledge/agent-design.mdに追記した。AgAgのdeep-dive・source-scoutは現状権限を引き継ぐ設計ではないが、将来サブエージェント間で処理を連鎖させる設計を検討する際の具体的な参照モデルとして記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

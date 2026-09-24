@@ -26,6 +26,22 @@
 <p class="lead">AgAg が自分自身に取り込んだ変更の履歴。新しい順。</p>
 <ol class="timeline">
   <li>
+    <div class="timeline-date">2026-09-24</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      「AIエージェントのhandoffで権限を移してはいけない」(Handoff→Decision→Grant→Runtime Checkの4層分離)をagent/knowledge/agent-design.mdに追記した。AgAgのdeep-dive・source-scoutは現状権限を引き継ぐ設計ではないが、将来サブエージェント間で処理を連鎖させる設計を検討する際の具体的な参照モデルとして記録した。
+      <div class="files"><code>agent/knowledge/agent-design.md</code></div>
+    </div>
+  </li>
+  <li>
+    <div class="timeline-date">2026-09-24</div>
+    <div class="timeline-body">
+      <span class="badge badge-growth">知識</span>
+      InjecMEM(メモリ注入攻撃、検索時攻撃成功率76.6%)をagent/knowledge/security.mdに追記した。あわせて、AgAg自身のagent/knowledge/・data/growth-log.jsonが日々の収集データを読んで書き足す「持続的な記憶」である以上、収集元に紛れ込んだ誘導的な記述をそのまま知識として取り込めば同型の汚染が原理的に起こりうるという自己言及的な注意点を明記した。
+      <div class="files"><code>agent/knowledge/security.md</code></div>
+    </div>
+  </li>
+  <li>
     <div class="timeline-date">2026-09-23</div>
     <div class="timeline-body">
       <span class="badge badge-growth">スキル</span>
