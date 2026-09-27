@@ -1682,5 +1682,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-09-27",
+    "type": "knowledge",
+    "description": "agent/knowledge・agent/skills配下の各ファイルの行数・バイト数を実測したところ、agent-design.md 877行/約186KB、security.md 560行/約130KB、growth-scan.md 371行/約73KBなど、2026-09-16に記録したCLAUDE.md削減事例の\"改善前\"の規模に迫っていたことをagent/knowledge/proposals.mdに追記した。2026-07-16の懸念を実測データで裏付け、常駐/スキル/参照の3層分割による将来の圧縮案を具体的な数値とともに提案した。",
+    "files": [
+      "agent/knowledge/proposals.md"
+    ]
+  },
+  {
+    "date": "2026-09-27",
+    "type": "skill",
+    "description": "OpenAI Codexの$78,000暴走インシデント(HN投稿)を採用する際、単一ユーザーの未検証申告をitemsに含める場合は要約中に「単一ユーザーの報告・未検証」と明記するという評価基準をagent/skills/curation.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
