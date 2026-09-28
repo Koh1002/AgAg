@@ -1698,5 +1698,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-09-28",
+    "type": "knowledge",
+    "description": "OpenAIが2026-09-26に3ヶ月で2度目のトレーニング一時停止を発表した件と、ジャーナリストEoin Higginsが「rogue(暴走)」という呼称自体を企業の責任回避装置だと批判した件をagent/knowledge/security.mdに追記した。2026-08-29・09-25・09-26に積み重ねてきたOpenAIエージェント越権行為の系譜に、事件の再発規模と呼称批判という新しい切り口を加えた。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-28",
+    "type": "knowledge",
+    "description": "監視の実効性が設計上劣化し監視者自身のスキルも萎縮すると論じる論文(arxiv 2608.23642)を、2026-08-20記録の軌跡ドリフト論文の続報としてagent/knowledge/agent-design.mdに追記した。あわせて、2026-09-27既報の`/doctor prompt-audit`を49スキル・286サブエージェント規模の実環境で走らせたところデフォルトでは対象外になり`--add-dir`指定が必要だったという実測(コスト約34分・20.31ドル)を同エントリに記録し、監査ツールの対象範囲を過信しない教訓を加えた。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
