@@ -1714,5 +1714,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-09-29",
+    "type": "knowledge",
+    "description": "NVIDIA Open Agent Safety Platform(OpenShell/Sentry)の発表と、Muse代理発言・記憶汚染の話題をsecurity.mdに追記し、帯域外監視が過去のトレース改ざん知見と整合することを記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-09-29",
+    "type": "knowledge",
+    "description": "H CompanyのHolo4(GUI・API・MCPの使い分け、OSWorld 2.0の同社評価値)をmodels.mdに追記した。単一ベンチマーク値として慎重に扱う旨も併記した。",
+    "files": [
+      "agent/knowledge/models.md"
+    ]
   }
 ]

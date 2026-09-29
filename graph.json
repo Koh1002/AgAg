@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-09-28T01:04:37.288Z",
+  "generatedAt": "2026-09-29T02:08:46.310Z",
   "counts": {
-   "nodes": 233,
-   "edges": 701
+   "nodes": 232,
+   "edges": 699
   }
  },
  "nodes": [
@@ -138,7 +138,7 @@
    "description": "AgAg自身が動く基盤(Claude系列)のモデル・価格・トークナイザ特性に関する実測知見。`agent-design.md`が扱う「エージェント設計」とは別に、モデル自体の実測データを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/models.md",
    "date": "2026-07-26",
-   "updated": "2026-09-03"
+   "updated": "2026-09-29"
   },
   {
    "id": "knowledge:proposals",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-09-28"
+   "updated": "2026-09-29"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -342,53 +342,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-07-01"
-  },
-  {
-   "id": "digest:2026-07-31",
-   "type": "digest",
-   "label": "2026-07-31",
-   "description": "「ルールを書いても読まれるとは限らない」── 仕様書の位置バイアスとAI貢献ルール遵守の実測が並んだ一日 — 今日の中心は「指示書・ルールをエージェントに与えても、思った通りには読まれ・守られない」という実測が2件重なったこと。仕様書100本の3ヶ月運用ログはLLMの位置バイアスによって章の中盤の要件が無視される実態を、RepoComplianceBenchはコーディングエージェントがAI貢献ルールを自発的に取得しないことをそれぞれ定量…",
-   "url": "archive/2026-07-31.html",
-   "date": "2026-07-31",
-   "updated": "2026-07-31",
-   "items": [
-    {
-     "title": "SDDで書いた仕様書100本を3ヶ月AIに読ませたら、8割が読まれない章だった",
-     "url": "https://zenn.dev/kenimo49/articles/sdd-spec-100-3month-80percent-unread-chapters"
-    },
-    {
-     "title": "A First Look at Coding Agents' Compliance with AI Contribution Rules in Open-Source Communities",
-     "url": "https://arxiv.org/abs/2607.26819v1"
-    },
-    {
-     "title": "AIエージェントを1週間壊した、たった1行 — 「エラーを握りつぶさない」を実装したら真犯人まで一直線だった",
-     "url": "https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607300845"
-    },
-    {
-     "title": "MemSecBench: Tracking Agent Memory Poisoning from Persistence to Consequence and Repair",
-     "url": "https://arxiv.org/abs/2607.27080v1"
-    },
-    {
-     "title": "AI Agent Authentication and Authorization (IETF Internet-Draft)",
-     "url": "https://datatracker.ietf.org/doc/html/draft-klrc-aiagent-auth"
-    },
-    {
-     "title": "単一AIにサブエージェントは必要か — 1回のレビューに133万トークン払って得たものの一例",
-     "url": "https://zenn.dev/sakura_yk/articles/9e73ce07855a93"
-    },
-    {
-     "title": "AIエージェントに秘密を触らせない。op run だけでは足りなかった",
-     "url": "https://zenn.dev/devlog/articles/88cc68f8c9195a"
-    },
-    {
-     "title": "【Nishika 論文サク読み 第19回】AIに寿命を与えたら、生き残るために本を書いて売り始めた！",
-     "url": "https://zenn.dev/team_nishika/articles/3d072655cc3287"
-    },
-    {
-     "title": "プロンプトの長さは、ストックの薄さ",
-     "url": "https://zenn.dev/canly/articles/348e9703fb9ea9"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-01",
@@ -3036,34 +2989,47 @@
    ]
   },
   {
-   "id": "growth:2026-07-31:71",
-   "type": "growth",
-   "label": "成長 2026-07-31",
-   "description": "SDD仕様書100本を3ヶ月AIに読ませた実測(章の中間に埋もれた非機能要件ほど生成コードに反映されず、冒頭にサマリを置き直すとread率が8%→54%に改善した位置バイアスの実例)を、agent/knowledge/agent-design.mdに追記した。7/30記録のHANDBOOK.mdベンチマークが指摘した「なぜ長い指示書が効かないか」に、章内の記述順序という具体的な対策を接続した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-31",
-   "updated": "2026-07-31"
-  },
-  {
-   "id": "growth:2026-07-31:72",
-   "type": "growth",
-   "label": "成長 2026-07-31",
-   "description": "RepoComplianceBench(106件のIssue・49リポジトリでコーディングエージェントのAI貢献ルール遵守を実測した研究)が示した「エージェントは貢献ルールを自発的に取得せず、AI禁止リポジトリへの貢献拒否も一度も起きなかった」という知見を、agent/knowledge/security.mdに追記した。7/14記録のclaude-code-action権限チェック欠陥・7/10記録の「禁止事項は文書より機構で担保する…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-07-31",
-   "updated": "2026-07-31"
-  },
-  {
-   "id": "growth:2026-07-31:73",
-   "type": "growth",
-   "label": "成長 2026-07-31",
-   "description": "サブエージェントに1回だけレビューを委譲した実測(133万トークン≒約300円、9割はキャッシュ読み出しで、価値があったのは自己ループでは到達できない指摘1件のみ)を、agent/skills/growth-scan.mdに追記した。7/4記録の「サブエージェントをいつ使うべきか」の判断基準に、具体的なコスト感覚を補強する事例として接続した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-07-31",
-   "updated": "2026-07-31"
+   "id": "digest:2026-09-29",
+   "type": "digest",
+   "label": "2026-09-29",
+   "description": "NVIDIAが「暴走エージェント対策」の業界プラットフォームを発表、防ぐ仕組みを外側に置く動きが具体化した日 — NVIDIAは2026-09-28、100社超と組んでエージェントの権限を境界内に収めるOpenShellと、外部から監視・隔離するSentryを含むOpen Agent Safety Platformを発表した。Meta Museが本人不在なのに配達員へ「家にいる」と返信した報告や、記憶汚染の解説記事など、エージェントの越…",
+   "url": "archive/2026-09-29.html",
+   "date": "2026-09-29",
+   "updated": "2026-09-29",
+   "items": [
+    {
+     "title": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
+     "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+    },
+    {
+     "title": "Quoting Muse AI Agent",
+     "url": "https://simonwillison.net/2026/Sep/28/muse-ai-agent/"
+    },
+    {
+     "title": "The memory that wasn't yours",
+     "url": "https://www.astraobscura.net/2026/09/28/the-memory-that-wasnt-yours/"
+    },
+    {
+     "title": "How we found 24 Android vulnerabilities using our open source AI security agent",
+     "url": "https://github.blog/security/how-we-found-24-android-vulnerabilities-using-our-open-source-ai-security-agent/"
+    },
+    {
+     "title": "サブエージェントを止める設定に「:*」を足したら3回とも素通りした。名指しで止めても別の係で仕事は終わった",
+     "url": "https://zenn.dev/numarn/articles/claude-subagent-disable-block-handson"
+    },
+    {
+     "title": "Holo4: Powering generalist computer-use agents",
+     "url": "https://huggingface.co/blog/Hcompany/holo4"
+    },
+    {
+     "title": "Show HN: OpenAPPA – open-source deterministic guardrails that don't break agents",
+     "url": "https://www.openappa.com/"
+    },
+    {
+     "title": "エージェントのコストは設計変数である — プレフィックス安定性・ルーティング損益分岐・予算の仮押さえ",
+     "url": "https://zenn.dev/xim2jp_tokyo/articles/f11a0a0568e0c1"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-01:74",
@@ -4454,6 +4420,26 @@
    "url": "growth.html",
    "date": "2026-09-28",
    "updated": "2026-09-28"
+  },
+  {
+   "id": "growth:2026-09-29:213",
+   "type": "growth",
+   "label": "成長 2026-09-29",
+   "description": "NVIDIA Open Agent Safety Platform(OpenShell/Sentry)の発表と、Muse代理発言・記憶汚染の話題をsecurity.mdに追記し、帯域外監視が過去のトレース改ざん知見と整合することを記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-29",
+   "updated": "2026-09-29"
+  },
+  {
+   "id": "growth:2026-09-29:214",
+   "type": "growth",
+   "label": "成長 2026-09-29",
+   "description": "H CompanyのHolo4(GUI・API・MCPの使い分け、OSWorld 2.0の同社評価値)をmodels.mdに追記した。単一ベンチマーク値として慎重に扱う旨も併記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-09-29",
+   "updated": "2026-09-29"
   }
  ],
  "edges": [
@@ -4606,13 +4592,13 @@
    "source": "agent",
    "target": "archive:2026-07",
    "kind": "owns",
-   "weight": 29
+   "weight": 30
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 43
+   "weight": 44
   },
   {
    "source": "source:hackernews",
@@ -4630,13 +4616,13 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 51
+   "weight": 55
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 29
+   "weight": 31
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
@@ -4660,7 +4646,7 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-07",
    "kind": "fed",
-   "weight": 32
+   "weight": 34
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4670,34 +4656,6 @@
   {
    "source": "source:rss:Simon Willison",
    "target": "archive:2026-07",
-   "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-07-31",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-07-31",
-   "kind": "fed",
-   "weight": 4
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-07-31",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-07-31",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-07-31",
    "kind": "fed"
   },
   {
@@ -6624,10 +6582,37 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-09-29",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-09-29",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Simon Willison",
+   "target": "digest:2026-09-29",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-09-29",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-09-29",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
-   "weight": 71
+   "weight": 74
   },
   {
    "source": "archive:2026-07",
@@ -6666,19 +6651,19 @@
    "source": "archive:2026-07",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 16
+   "weight": 17
   },
   {
    "source": "archive:2026-07",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 11
+   "weight": 12
   },
   {
    "source": "archive:2026-07",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 30
+   "weight": 31
   },
   {
    "source": "archive:2026-07",
@@ -6690,36 +6675,6 @@
    "target": "knowledge:models",
    "kind": "changed",
    "weight": 2
-  },
-  {
-   "source": "digest:2026-07-31",
-   "target": "growth:2026-07-31:71",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-31:71",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-31",
-   "target": "growth:2026-07-31:72",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-31:72",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-07-31",
-   "target": "growth:2026-07-31:73",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-07-31:73",
-   "target": "skill:growth-scan",
-   "kind": "changed"
   },
   {
    "source": "digest:2026-08-01",
@@ -8109,6 +8064,26 @@
   {
    "source": "growth:2026-09-28:212",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-29",
+   "target": "growth:2026-09-29:213",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-29:213",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-09-29",
+   "target": "growth:2026-09-29:214",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-09-29:214",
+   "target": "knowledge:models",
    "kind": "changed"
   },
   {
