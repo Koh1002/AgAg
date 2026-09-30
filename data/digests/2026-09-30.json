@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-30",
+  "title": "OpenAI DevDayで「判断特化API」登場、自己進化スキルの理論と監査が研究側で進む",
+  "summary": "OpenAI DevDay 2026で常時稼働エージェント dots、GPT-6.1 Sol、Decisions API、Ultrafast などが発表され、Jev 系の「有限の選択肢から選ぶ」小型判断モデルが大手APIの標準機能になり始めた。研究面では、スキルを蓄積して自己進化するエージェントについて、実行モデル依存性(EASE)・理論的限界(Harness Evolution)・悪意あるスキルの監査(SKILLLITE)と、AgAg自身の仕組みに直結する論文が並んだ。日本語ソースでは、Claude Codeのサブエージェントのmodel未指定による親モデル継承の実測や、Jevプラグインを1週間で外した体験談など実運用の知見が目立った。",
+  "items": [
+    {
+      "title": "DevDay 2026 Recap",
+      "url": "https://openai.com/index/devday-2026-recap/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが開発者会議DevDay 2026で、目標を与えると会話なしでも仕事を続ける常時稼働エージェント dots、GPT-6.1 Sol、ChatGPT Space、最大6倍高速化のUltrafastなどを発表した。特にDecisions APIは、固定の選択肢から1つを選ぶ判断に特化し、限定プレビューで提供される(報道ベース)。",
+      "why_useful": "Jev系の小型判断モデルが大手の公式APIになったことで、エージェントの分岐・ルーティング設計の前提が変わり得る。AgAg自身のキュレーション判定にも応用を検討できる。",
+      "score": 5
+    },
+    {
+      "title": "EASE: Behavior-Adaptive Skill Curation for Self-Evolving Agents",
+      "url": "https://arxiv.org/abs/2609.36746v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "パラメータ更新なしでスキルを蓄積して進化するエージェントでは、スキルの選別(キュレーション)が下流の実行モデルの挙動に依存することを示した。ある実行モデルで訓練したキュレータは、そのモデルと組み合わせたときが最良で、別モデルに替えると性能が系統的に落ちる。",
+      "why_useful": "AgAg自身の自己成長(スキル文書化)に直結し、AgAgに応用できる:スキルは書いたモデル以外で使うと効果が変わり得るため、モデル変更時に見直す視点になる。",
+      "score": 5
+    },
+    {
+      "title": "Harness Evolution as Learning: Approximation, Generalization, and Optimization Limits of Self-Improving Personal Agents",
+      "url": "https://arxiv.org/abs/2609.36892v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "モデルを固定したまま、周辺のハーネス(指示・スキル・記憶)を進化させて個人エージェントを適応させる営みを「学習」として捉え、近似・汎化・最適化の各面での限界を理論的に論じる論文。ハーネス改善がいつ頭打ちになるかの枠組みを与える。",
+      "why_useful": "AgAg自身がまさにハーネス進化の実例であり、日々の追記が肥大化につながる限界を考える材料になる。",
+      "score": 4
+    },
+    {
+      "title": "SKILLLITE: Evidence-Guided Malicious Skill Auditing with Compact LLMs",
+      "url": "https://arxiv.org/abs/2609.36879v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "サードパーティ製Agent Skillsはサプライチェーン攻撃の新しい入口になるとして、小型LLMを使い証拠に基づいて悪意あるスキルを監査する手法を提案する。スキルは指示と実行可能コンポーネントを束ねるため、エージェントの権限を悪用され得る。",
+      "why_useful": "スキルを外部から取り込む運用が増える中、導入前監査の具体的手法として参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Claudeのサブエージェントはmodelを書かないと親を継ぐ:未指定の3経路と部下1人9万トークンの実測",
+      "url": "https://zenn.dev/yuu_inaka/articles/claude-subagent-model-inherit",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのサブエージェントは、frontmatterでmodelを指定しないと親のモデルを継承する。その未指定になる3つの経路と、サブエージェント1体あたり約9万トークンを消費した実測を報告する(記事の記述ベース、追試はしていない)。",
+      "why_useful": "AgAgの`agent/agents/*.md`にもmodel指定はなく、コスト管理の観点で確認すべき具体的な落とし穴。",
+      "score": 4
+    },
+    {
+      "title": "Neuro-Symbolic Computer Use: Learning Reusable Policies for Reliable and Efficient Execution",
+      "url": "https://arxiv.org/abs/2609.36927v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "同じワークフローが繰り返し実行される場面で、コンピュータ操作エージェントが毎回全ステップを再計画するのはコストも信頼性も悪いと指摘。実行間で安定する判断(順序・変数・ループ・分岐)を学習済みポリシーに固定して再利用する方式を提案する。",
+      "why_useful": "繰り返しタスクを「毎回LLMで再導出しない」設計は、AgAgの日次手順のスクリプト化にも通じる。",
+      "score": 3
+    },
+    {
+      "title": "「これ意味あるかな?」Claude Codeに入れたJevのプラグインを1週間で外すまで",
+      "url": "https://zenn.dev/shimo4228/articles/jev-guard-blind-to-local-verify",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude CodeにJev(判断特化モデル)のガード用プラグインを導入したものの、ローカルでの検証を見落とす盲点があり、意味が薄いと判断して1週間で外すまでの体験記。タイトルと抜粋に基づく要約で、詳細は未確認。",
+      "why_useful": "Decisions APIなど判断特化モデルが流行する中で、導入効果を自分の環境で確かめる姿勢の実例として有用。",
+      "score": 3
+    },
+    {
+      "title": "AIエージェントのSafety Caseをコードと運用に落とす──Claim・Evidence・Assumptionの設計",
+      "url": "https://zenn.dev/jinsights/articles/9e1f1a1ebdc070",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "OpenAIが2026年9月22日に公表した第三者安全評価の原則にあるSafety Claim/Safety Caseを手掛かりに、業務エージェントの安全性を主張(Claim)・証拠(Evidence)・前提(Assumption)に構造化し、コード・テスト・監視・変更管理へ落とす設計を整理した記事。",
+      "why_useful": "「ガードレールを入れた」で終わらせず検証可能な形にする考え方は、安全境界の自己点検に応用できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "Elie Steinbock氏「Every OpenAI update today」",
+      "url": "https://x.com/elie2222/status/2104991927057748188",
+      "ja_summary": "DevDay当日にOpenAIの発表内容をまとめて紹介したとみられる投稿(検索結果のタイトルのみ確認、本文は未取得)。DevDayが開発者コミュニティで話題になっていることを示す。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "EASE(スキル選別の実行モデル依存)とHarness Evolution論文を agent/knowledge/agent-design.md に追記し、AgAgのスキル蓄積の限界を考える材料とした。"
+    },
+    {
+      "type": "knowledge",
+      "description": "OpenAI DevDay 2026のDecisions APIなどを agent/knowledge/models.md に追記し、Jev系判断特化モデルの大手API化を記録した。"
+    }
+  ]
+}

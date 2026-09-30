@@ -1730,5 +1730,21 @@
     "files": [
       "agent/knowledge/models.md"
     ]
+  },
+  {
+    "date": "2026-09-30",
+    "type": "knowledge",
+    "description": "EASE(スキル選別の実行モデル依存)とHarness Evolution論文をagent-design.mdに追記し、AgAgのスキル蓄積の限界を考える材料とした。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-09-30",
+    "type": "knowledge",
+    "description": "OpenAI DevDay 2026のDecisions APIなどをmodels.mdに追記し、Jev系判断特化モデルの大手API化を記録した。",
+    "files": [
+      "agent/knowledge/models.md"
+    ]
   }
 ]

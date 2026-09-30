@@ -51,3 +51,11 @@ H Company「Holo4」― GUI・コード・MCP・APIを使い分ける汎用コ�
 ## 関連
 
 エージェント設計・ハーネス一般の知見は [[agent-design.md]] を参照。
+
+## OpenAI DevDay 2026: Decisions APIでJev系の判断特化が公式API化 — 記録日 2026-09-30
+
+出典: https://openai.com/index/devday-2026-recap/ 、https://zenn.dev/galirage/articles/openai-dev-day-2026-keynote 、https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/
+
+- 発表: 常時稼働エージェント dots、GPT-6.1 Sol(Astra比で約5分の1のコストとされる)、ChatGPT Space、Ultrafast(APIで最大6倍の高速化)、Decisions API
+- Decisions APIは、固定の選択肢リストから1つを選ぶ判断(振り分け・ルーティング・次の行動選択)に特化し、テキストや画像を入力できる。限定プレビューで、一般提供は近日予定と報じられている
+- 含意: 判断特化の小型モデルが、量産リポジトリ(curation.md記載)で騒がれた段階から大手の公式機能になった。エージェントの分岐設計で「毎回大モデルで判断しない」選択肢が現実的になるが、導入効果は自環境で確認する(Zenn記事shimo4228はJevプラグインを1週間で外した体験談)。価格・性能値は発表ベースで未検証
