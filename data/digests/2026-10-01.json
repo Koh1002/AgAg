@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-01",
+  "title": "承認と実行のズレ、スキルの信頼連鎖――エージェントの「権限」が問われる日",
+  "summary": "今日は「人間が承認した操作と実際に実行される操作は同じか」「スキルに書いた制限は本当に効くのか」という権限・信頼の話題が複数の一次情報で重なった。arXivでは承認の差し替え(Approval Laundering)とスキル経由の脆弱性(TrustProbe)が体系化され、Zennの実測ではClaude Codeのskillのallowed-toolsが効かないことが報告された。ツール面ではPlaywright MCPのトークン消費問題と、Z.aiのコーディングエージェントharness ZCodeが注目を集めた。XではOpenAI DevDay前後の常時稼働エージェントが話題になっている。",
+  "items": [
+    {
+      "title": "Approval Laundering: Systematizing Approval--Execution Binding Failures in AI Coding-Agent Harnesses",
+      "url": "https://arxiv.org/abs/2609.38983",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "人間が承認した操作Aと、harnessが実際に実行する操作A'が一致しない失敗を「Approval Laundering」として体系化した論文。範囲・引数・時間・ツール・委譲・意味の6種類の失敗モードを整理し、暗号的なApproval Tokenで一部の攻撃クラスは排除できるが、フィールド検証では観測できない層の脆弱性が残ると示す。",
+      "why_useful": "承認ダイアログを信用するだけでは安全でないことを具体的な分類で示しており、エージェント運用の権限設計にそのまま使える。",
+      "score": 5
+    },
+    {
+      "title": "Can Agents Trust Their Skills? Uncovering Unsafe Chains of Trust in Skill-Based LLM Agents",
+      "url": "https://arxiv.org/abs/2609.39065",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "スキルが提供する内容の検証不足により、悪意あるスキルがエージェントの挙動を左右できることを示した論文。解析ツールTrustProbeでスキルから機密操作へ至る汚染データフローを追跡し、11のOSSエージェントで104件の脆弱性を発見、実在スキルとの相互作用の4分の1超が脆弱な経路を通っていた。",
+      "why_useful": "スキルを取り込む仕組み全般(AgAg自身を含む)の信頼境界を考える具体的な実測根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "AIの手順書に「使ってよい道具」を書いても、24回とも結果を動かさなかった",
+      "url": "https://zenn.dev/numarn/articles/claude-skill-allowed-tools-handson",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのskillファイルのallowed-toolsを変えながら27回の実験を行い、権限を決めているのはセッション側の--allowedToolsだけで、skill側の記述は結果に影響しなかったと報告する。存在しないツール名を書いても警告は出なかった。単一著者による実測であり、バージョン依存の可能性がある。",
+      "why_useful": "skillに書いた制限を安全策として当てにしている場合の落とし穴を、実験で具体的に示している。",
+      "score": 4
+    },
+    {
+      "title": "Why Playwright MCP Uses So Many Tokens",
+      "url": "https://www.stagehand.dev/blog/playwright-mcp-token-usage",
+      "source": "web",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Playwright MCPは操作のたびに新しいスナップショットを返し、古いものも会話履歴に残るため、複数ステップでコンテキストが膨張すると解説する。--snapshot-mode noneやbrowser_findなどの設定調整のほか、ブラウザ拡張方式のStagehandで約80%削減できると主張する(Stagehand自身の記事で製品宣伝を含む)。",
+      "why_useful": "ブラウザ操作系MCPのコスト構造を理解し、設定で抑える具体策が得られる。",
+      "score": 4
+    },
+    {
+      "title": "zai-org/ZCode: Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+      "url": "https://github.com/zai-org/ZCode",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Z.aiが公開するコーディングエージェントのharness。拡張性を打ち出し、GitHubで7,000超のスターを集めている。2026-09-22にも採録済みだが、収集データで引き続き上位に残っているため再注目として記録する。",
+      "why_useful": "主要ベンダーがharnessをOSSで出す流れの継続を示す(内容の詳細は未検証)。",
+      "score": 3
+    },
+    {
+      "title": "主要コーディングエージェントCLI6種の仕様比較：フック・権限・サブエージェント・MCP設定",
+      "url": "https://zenn.dev/yuuichie/articles/e430634357b226",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "主要なコーディングエージェントCLI6種を、フック・権限・サブエージェント・MCP設定の観点で比較した日本語記事。ツール間の設計の違いを横断的に把握できる。",
+      "why_useful": "複数CLIを使い分ける際の設定差分を日本語で一覧できる。",
+      "score": 3
+    },
+    {
+      "title": "プロンプトインジェクションでAIエージェントは騙せたが、認可は揺るがなかった",
+      "url": "https://zenn.dev/akring/articles/1c25b8f471f92d",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "プロンプトインジェクションでエージェント自体は騙せても、認可の仕組みが別にあれば被害は抑えられたという検証記録。モデルの判断ではなく外側の認可で守る設計の有効性を示す(要約はタイトルと一覧情報に基づく)。",
+      "why_useful": "今日の「承認・権限」テーマに対し、実装側の防御の考え方を補完する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [
+    {
+      "title": "OpenAI、DevDay 2026に向け常時稼働の永続エージェントをティーザー",
+      "url": "https://x.com/i/trending/2103729572348932378",
+      "ja_summary": "X上のトレンドとして、OpenAIがDevDay 2026(9/29)に先立ち、チャットを閉じても作業を続ける常時稼働アシスタントを示唆したことが話題になっている。長時間のコーディングや多段階タスク向けの永続エージェントが焦点(検索結果の要約に基づく・投稿本文は未確認)。"
+    }
+  ],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Approval Laundering(承認と実行の不一致の6類型)とTrustProbe(スキル経由の汚染フロー)、allowed-tools無効の実測をsecurity.mdに追記し、承認・スキルの信頼境界に関する知見として整理した。"
+    }
+  ]
+}

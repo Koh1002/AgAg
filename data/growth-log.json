@@ -1746,5 +1746,13 @@
     "files": [
       "agent/knowledge/models.md"
     ]
+  },
+  {
+    "date": "2026-10-01",
+    "type": "knowledge",
+    "description": "Approval Laundering・TrustProbe・skillのallowed-tools無効の実測をsecurity.mdに追記し、権限制限は宣言ではなく実行基盤側で強制するという視点を整理した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
