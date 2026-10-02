@@ -1754,5 +1754,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-10-02",
+    "type": "knowledge",
+    "description": "PACE(来歴ベースの実行直前権限強制)・Empty Commitments・OffQueryをsecurity.mdに追記し、10/01の実行基盤側で強制する視点を具体的な手法で補強した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-02",
+    "type": "knowledge",
+    "description": "スキルの索引化によるルーティング削減と、改善ロードマップに捨てる条件を入れる運用をagent-design.mdに追記し、AgAgのスキル肥大化への判断基準とした。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
