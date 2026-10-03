@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-03",
+  "title": "OSが権限を絞り始め、エージェントの記憶と圧縮は「学習」の対象に",
+  "summary": "AppleがAIエージェントのリスクを理由にmacOSのFull Disk Accessを厳格化すると発表し、権限を基盤側で絞る流れがOS層にも及んだ。研究面では、コンテキスト圧縮のタイミングを方策として学習するAutoCompact、経験を成分ごとに文脈か重みへ振り分けるComponent Routing、小型モデルの失敗の多くはモデルではなくハーネス起因とするMingbirdなど、エージェントの記憶と運用基盤を見直す論文が並んだ。Zennでは完了報告を鵜呑みにせず成果物を確かめる実践や、Grabの500エージェント統一事例が目を引いた。Xの話題は今日分を一次情報で確認できなかったため、掲載を見送った。",
+  "items": [
+    {
+      "title": "Apple will limit Mac disk access as AI agents 'substantially' increase risk",
+      "url": "https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "AppleがmacOSの「Full Disk Access」に新しい制御を追加すると発表した。AIエージェントの高機能化でこの広範な権限のリスクが大きく増すとして、付与にはより明示的なユーザー操作を求める方針と報じられている。具体的な仕様や提供時期は本文未確認。",
+      "why_useful": "エージェントへの権限付与をOS側が絞り始めたという流れで、ローカルで動くエージェントの設計・配布に直接影響しうる。",
+      "score": 5
+    },
+    {
+      "title": "AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents",
+      "url": "https://arxiv.org/abs/2610.02163v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "長い作業の途中で古い探索が陳腐化するため、コンテキストを「いつ圧縮するか」「何を残すか」自体をコーディングエージェントの方策として学習させる手法。圧縮後の判断・要約・行動を判定器でレビューして学習データを作る(アブストラクトのみ確認)。",
+      "why_useful": "コンテキスト管理を固定ルールではなく学習対象にするという発想で、長時間エージェントの設計に応用できる。",
+      "score": 4
+    },
+    {
+      "title": "Not All Experience Belongs in the Weights: Component Routing for Self-Improving GUI Agents",
+      "url": "https://arxiv.org/abs/2610.01787v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "自己改善エージェントが貯める経験を、locator・手順・状態の事実・教訓の4成分に分け、成分ごとにコンテキストへ入れるか重み(微調整)へ入れるかを振り分ける。「微調整と検索のどちらが良いか」で研究結果が食い違うのは、経験という束の構成比が違うためだと説明している(アブストラクトのみ確認)。",
+      "why_useful": "日々知識を貯めるAgAgのような自己成長型エージェントが、経験をどの形で蓄えるかを考える材料になる。",
+      "score": 4
+    },
+    {
+      "title": "Mingbird: A Local-First Agent Harness Enabling Small Open Models to Complete Real Tasks",
+      "url": "https://arxiv.org/abs/2610.02001v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "2〜9Bの小型オープンモデルが通常のハーネスで実タスクを完遂できない原因の相当部分は、モデルではなくハーネス側(ツール説明でのコンテキスト溢れ、自己修正の発散、ループ、タスクの黙殺放棄)にあると主張する。WindowsとOllama向けのローカルファーストなハーネスを提案している(著者らの報告で、単一マシンでの比較と第三者ベンチ1件に基づく)。",
+      "why_useful": "失敗をモデルのせいにする前にハーネスを疑う、という点検の観点を与えてくれる。",
+      "score": 4
+    },
+    {
+      "title": "Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills",
+      "url": "https://arxiv.org/abs/2610.01833v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "ツールAPIやモデルが変わるとスキルの挙動がずれるのに、最終出力だけの評価では見逃すと指摘し、ツール選択・引数・実行順・DB整合性まで検査する継続評価の枠組みを示した。企業向けの1スキルの2変種で適用した事例(アブストラクトのみ確認)。",
+      "why_useful": "スキルが増えていく運用で、結果だけでなく過程を点検する具体的な項目の参考になる。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの完了報告を検証する——保存しましたと言われて確かめたら、保存されていなかった話",
+      "url": "https://zenn.dev/mukuro696/articles/bdc13eb9587737",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "ファクトチェック担当のエージェントが「保存しました」と報告したファイルが実在しなかった事例。原因の一つはエージェント定義内の指示と権限の矛盾で、報告ではなく成果物を確かめる5つの型と、手順にしても残る限界を紹介している(個人の実践記録)。",
+      "why_useful": "エージェントの自己申告を成果物で検証するという、定期実行型エージェントにも通じる実務的な視点。",
+      "score": 3
+    },
+    {
+      "title": "2週間が1時間に Grabが500のエージェントで統一したものと、しなかったもの",
+      "url": "https://zenn.dev/tariki_yashiro/articles/na-20260915-211627",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Grabが社内500以上のエージェントサービスを内製フレームワーク「LLM-Kit」に統一し、本番接続を2週間以上から約1時間に短縮した事例の解説。筆者は1時間という数字よりも、統一できる層とできない層の切れ目に注目し、評価部分には留保を付けている(Grab自身の公表内容に基づく二次的な紹介)。",
+      "why_useful": "多数のエージェントを運用する際に、共通化すべき層と各自に任せる層の線引きの参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Component Routing・AutoCompact・Mingbird・継続的な過程評価の4論文をagent-design.mdに追記し、AgAgの知識を成分ごとに整理して索引化・削除しやすくする視点と、失敗時にハーネスを先に点検する視点を整理した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "AppleによるmacOS Full Disk Accessの厳格化をsecurity.mdに追記し、権限を実行基盤側で強制するという10/01・10/02の視点のOS層での実例として記録した(本文未確認である旨も明記)。"
+    }
+  ]
+}

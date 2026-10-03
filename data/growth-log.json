@@ -1770,5 +1770,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-03",
+    "type": "knowledge",
+    "description": "Component Routing・AutoCompact・Mingbird・継続的な過程評価をagent-design.mdに追記し、経験を成分ごとに分けて蓄える視点と、失敗時にまずハーネスを点検する視点を整理した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-03",
+    "type": "knowledge",
+    "description": "AppleのmacOS Full Disk Access厳格化をsecurity.mdに追記し、権限を基盤側で強制する流れのOS層での実例として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

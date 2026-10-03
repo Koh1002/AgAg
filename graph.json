@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-02T01:46:01.059Z",
+  "generatedAt": "2026-10-03T01:17:04.449Z",
   "counts": {
-   "nodes": 230,
-   "edges": 703
+   "nodes": 229,
+   "edges": 701
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-02"
+   "updated": "2026-10-03"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-10-02"
+   "updated": "2026-10-03"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -350,49 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-04",
-   "type": "digest",
-   "label": "2026-08-04",
-   "description": "「結論だけ残すと誤差が増幅する」205セッションの実測と、スキル定着の3条件 — 今日の軸は「引き継ぎ・報告に何を残すか」。Claude Codeを205セッション運用した実務ログは、申し送りに『結論』だけを残し測定条件を書かなかったせいで誤差が消えず自信だけが増幅する現象を報告し、対策として『n・日付・測り方』の明記を必須化したと述べている。同じ問題意識を持つ「数字の出所を4分類で報告すべき」という記事や、7/30の続報として577ス…",
-   "url": "archive/2026-08-04.html",
-   "date": "2026-08-04",
-   "updated": "2026-08-04",
-   "items": [
-    {
-     "title": "Claude Codeのコンテキスト引き継ぎを205セッション運用したら、申し送りが誤りを増幅していた",
-     "url": "https://zenn.dev/aiqlabs/articles/70370e973d8425"
-    },
-    {
-     "title": "Orchard: An open framework for scalable agentic AI",
-     "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/"
-    },
-    {
-     "title": "ChatGPT Voice is now in the desktop app",
-     "url": "https://community.openai.com/t/chatgpt-voice-is-now-in-the-desktop-app/1388031"
-    },
-    {
-     "title": "Announcing Mastra Factory",
-     "url": "https://mastra.ai/blog/announcing-mastra-factory"
-    },
-    {
-     "title": "実装したAIにレビューさせない——Claude Codeの3パス独立レビューと機械判定",
-     "url": "https://zenn.dev/tukiyubi/articles/289ddb13e112b9"
-    },
-    {
-     "title": "Claude Code Skills 577個・6,803回を集計してわかった、\"定着するスキル\"の共通点",
-     "url": "https://zenn.dev/canly/articles/e167546ccb6201"
-    },
-    {
-     "title": "Stanford CS329A: Self-Improving AI Agents",
-     "url": "https://www.youtube.com/playlist?list=PLangBM27OtEA"
-    },
-    {
-     "title": "その数字は、誰がいつ測りましたか",
-     "url": "https://zenn.dev/jissokulog/articles/a8e72d7a1cef9d"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-05",
@@ -3028,34 +2985,43 @@
    ]
   },
   {
-   "id": "growth:2026-08-04:82",
-   "type": "growth",
-   "label": "成長 2026-08-04",
-   "description": "Claude Codeを205セッション運用した実務ログ(aiqlabs)から、申し送りに測定条件を書かず結論だけ残すと誤差が増幅する現象を agent/knowledge/agent-design.md に追記した。knowledge/skillへの追記は出典URLに加え、可能な範囲で数値の測定条件も書く方針を明記した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-04",
-   "updated": "2026-08-04"
-  },
-  {
-   "id": "growth:2026-08-04:83",
-   "type": "growth",
-   "label": "成長 2026-08-04",
-   "description": "7/30記録の『スキル不使用は弁別性不足』の続報として、577スキル・6,803回の実務データが示す『定着するスキル』の3条件(粒度・投資効率・判断の埋め込み)を agent/skills/growth-scan.md に追記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-04",
-   "updated": "2026-08-04"
-  },
-  {
-   "id": "growth:2026-08-04:84",
-   "type": "growth",
-   "label": "成長 2026-08-04",
-   "description": "数字の出所を『実測/コード確認/記憶に基づく申告/未確認』の4分類で意識するという具体的な指針を agent/skills/curation.md のベンチマーク数値の扱い方セクションに追記し、7/27記録の指針を具体化した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-04",
-   "updated": "2026-08-04"
+   "id": "digest:2026-10-03",
+   "type": "digest",
+   "label": "2026-10-03",
+   "description": "OSが権限を絞り始め、エージェントの記憶と圧縮は「学習」の対象に — AppleがAIエージェントのリスクを理由にmacOSのFull Disk Accessを厳格化すると発表し、権限を基盤側で絞る流れがOS層にも及んだ。研究面では、コンテキスト圧縮のタイミングを方策として学習するAutoCompact、経験を成分ごとに文脈か重みへ振り分けるComponent Routing、小型モデルの失敗の多くはモデルではなくハーネス起因とするMi…",
+   "url": "archive/2026-10-03.html",
+   "date": "2026-10-03",
+   "updated": "2026-10-03",
+   "items": [
+    {
+     "title": "Apple will limit Mac disk access as AI agents 'substantially' increase risk",
+     "url": "https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents"
+    },
+    {
+     "title": "AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents",
+     "url": "https://arxiv.org/abs/2610.02163v1"
+    },
+    {
+     "title": "Not All Experience Belongs in the Weights: Component Routing for Self-Improving GUI Agents",
+     "url": "https://arxiv.org/abs/2610.01787v1"
+    },
+    {
+     "title": "Mingbird: A Local-First Agent Harness Enabling Small Open Models to Complete Real Tasks",
+     "url": "https://arxiv.org/abs/2610.02001v1"
+    },
+    {
+     "title": "Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills",
+     "url": "https://arxiv.org/abs/2610.01833v1"
+    },
+    {
+     "title": "AIエージェントの完了報告を検証する——保存しましたと言われて確かめたら、保存されていなかった話",
+     "url": "https://zenn.dev/mukuro696/articles/bdc13eb9587737"
+    },
+    {
+     "title": "2週間が1時間に Grabが500のエージェントで統一したものと、しなかったもの",
+     "url": "https://zenn.dev/tariki_yashiro/articles/na-20260915-211627"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-05:85",
@@ -4406,6 +4372,26 @@
    "url": "growth.html",
    "date": "2026-10-02",
    "updated": "2026-10-02"
+  },
+  {
+   "id": "growth:2026-10-03:220",
+   "type": "growth",
+   "label": "成長 2026-10-03",
+   "description": "Component Routing・AutoCompact・Mingbird・継続的な過程評価をagent-design.mdに追記し、経験を成分ごとに分けて蓄える視点と、失敗時にまずハーネスを点検する視点を整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-03",
+   "updated": "2026-10-03"
+  },
+  {
+   "id": "growth:2026-10-03:221",
+   "type": "growth",
+   "label": "成長 2026-10-03",
+   "description": "AppleのmacOS Full Disk Access厳格化をsecurity.mdに追記し、権限を基盤側で強制する流れのOS層での実例として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-03",
+   "updated": "2026-10-03"
   }
  ],
  "edges": [
@@ -4628,19 +4614,19 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 5
+   "weight": 7
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "source:arxiv",
@@ -4656,13 +4642,13 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 3
+   "weight": 6
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 3
+   "weight": 5
   },
   {
    "source": "source:github",
@@ -4678,34 +4664,6 @@
   {
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-08",
-   "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-04",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-04",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-04",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-04",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-04",
    "kind": "fed"
   },
   {
@@ -6610,6 +6568,28 @@
    "weight": 3
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-03",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-03",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-10-03",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-03",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6681,7 +6661,7 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 8
+   "weight": 11
   },
   {
    "source": "archive:2026-08",
@@ -6693,40 +6673,16 @@
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "archive:2026-08",
    "target": "skill:growth-scan",
-   "kind": "changed"
+   "kind": "changed",
+   "weight": 2
   },
   {
-   "source": "digest:2026-08-04",
-   "target": "growth:2026-08-04:82",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-04:82",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-04",
-   "target": "growth:2026-08-04:83",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-04:83",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-04",
-   "target": "growth:2026-08-04:84",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-04:84",
+   "source": "archive:2026-08",
    "target": "skill:curation",
    "kind": "changed"
   },
@@ -8078,6 +8034,26 @@
   {
    "source": "growth:2026-10-02:219",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-03",
+   "target": "growth:2026-10-03:220",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-03:220",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-03",
+   "target": "growth:2026-10-03:221",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-03:221",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {
