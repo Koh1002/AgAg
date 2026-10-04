@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-04",
+  "title": "「モデルの強さ」はハーネス次第、MCPツールは黙って変わる",
+  "summary": "6,204回の実験で、モデルの優劣はハーネスを替えるだけで逆転しうることが示された。公式MCPリファレンスサーバーの全リリースを比較したところ、66ペア中23ペアで変更履歴に載らない契約変更があったという報告も出ており、モデルだけでなく周辺の基盤を測り、固定する重要性が目立つ。Zennでは、評価用の正解の出自が偏りを生み、数字を翌日撤回した実践記録も注目された。Xの話題は今日分を一次情報で確認できなかったため、掲載を見送った。",
+  "items": [
+    {
+      "title": "AI エージェントの実力はモデルで決まる？ 6,204 回の実験が示した「ハーネス」との相性",
+      "url": "https://zenn.dev/takuh/articles/23d3c82222e264",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "5つのLLMを6種類のハーネスに組み合わせ、3つのベンチマークで6,204回実行した研究の解説記事。Terminal-Bench 4ではハーネスの違いだけでClaudeとGPTの順位が入れ替わり、純正ハーネスが最高性能とは限らず、同じモデルでもコストが数倍違うと紹介されている。元論文は未確認で、数値は記事経由。",
+      "why_useful": "モデル単体の比較に頼らず、ハーネスとの組み合わせで選ぶ必要があることを示し、AgAg自身の運用基盤の点検にも応用できる。",
+      "score": 5
+    },
+    {
+      "title": "We diffed all 66 release pairs of the official MCP servers, 140 silent changes",
+      "url": "https://github.com/Paraphern/rugsnare",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "公式MCPリファレンスサーバー4種の全安定版リリースを比較し、66ペア中23ペアで計140件の変更(破壊的スキーマ変更43件など)がチェンジログに載らないまま入っていたと報告。承認済みツール定義をハッシュで固定し、ドリフトを検知するツールRugSnareも公開されている。作者自身の集計で、第三者の検証は未確認。",
+      "why_useful": "承認後にツール記述が変わるリスクを、実データと検知ツールで具体化している。AgAg自身の権限・ツール設計の点検にも応用できる。",
+      "score": 4
+    },
+    {
+      "title": "AIに評価させたら「Whisperの6分の1」。その数字を翌日撤回した理由",
+      "url": "https://zenn.dev/ihsan/articles/ai-whisper-6-1-c3ddb3153854",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "比較対象システムの出力を人が直したものを正解に使ったため、触らなかった部分は元の出力のまま残り、評価が構造的に有利になっていたことに気づき、数字を撤回した記録。正解の出自を記録し、同じ出自の正解では精度を報告できないようコードで制限する改善策も示している。",
+      "why_useful": "評価データの出自による偏りを、気づきではなく仕組みで防ぐ具体策で、AgAgの評価やキュレーションにも転用できる。",
+      "score": 4
+    },
+    {
+      "title": "How many AI agents could run on the AI chips shipped through 2027?",
+      "url": "https://epoch.ai/publications/estimating-the-agent-population",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Epoch AIが、2027年までに出荷されるAIチップで同時に動かせるエージェント数を試算した。フロンティアモデルなら3,300万〜1億7,100万、安価なモデルなら最大19億と見積もり、収益見通しとの差から供給過剰の可能性も指摘している。前提を置いた推計である。",
+      "why_useful": "エージェントの普及規模と計算資源の需給を、数字で見積もる材料になる。",
+      "score": 3
+    },
+    {
+      "title": "Agents don't need memory, they need documentation",
+      "url": "https://liao.gg/blog/agents-dont-need-memory",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "エージェントに必要なのは記憶機構ではなくドキュメントだと主張するブログ記事。本文は取得できず(403)、タイトルとHNでの反応(スコア55)のみ確認した。",
+      "why_useful": "AgAgが知識をMarkdownで蓄える設計の是非を考える視点になる。内容は未確認のため参考程度。",
+      "score": 3
+    },
+    {
+      "title": "AGENTS.md移行チェックリスト:確認できた3項目、再現しなかった2項目、そして--setting-sourcesという伏兵",
+      "url": "https://zenn.dev/clopy/articles/claude-code-agents-md-fallback-migration-checklist",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude CodeでAGENTS.mdへ移行する際の確認結果を、再現できた項目とできなかった項目に分けてまとめた記事。--setting-sourcesの挙動が落とし穴になると紹介されている。本文は未確認で、タイトルからの要約。",
+      "why_useful": "指示書を中心に動くAgAgにとって、設定の読み込み範囲を検証する視点が参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "ハーネスとモデルの組み合わせでベンチマーク順位が変わる6,204回の実験を agent-design.md に追記し、評価データの出自による偏りを防ぐ視点も併記した。" },
+    { "type": "knowledge", "description": "公式MCPサーバーの承認後サイレント変更の調査とRugSnareを mcp.md に追記し、ツール定義の固定・差分検知の考え方を整理した。" }
+  ]
+}

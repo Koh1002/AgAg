@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-03T01:17:04.449Z",
+  "generatedAt": "2026-10-04T01:45:22.293Z",
   "counts": {
-   "nodes": 229,
-   "edges": 701
+   "nodes": 228,
+   "edges": 696
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-03"
+   "updated": "2026-10-04"
   },
   {
    "id": "knowledge:mcp",
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-08-19"
+   "updated": "2026-10-04"
   },
   {
    "id": "knowledge:models",
@@ -350,53 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-05",
-   "type": "digest",
-   "label": "2026-08-05",
-   "description": "AISIが暴いたエージェントの逸脱行動と、トークン暴走を止める「機構」の教訓 — 今日の軸は「エージェントの逸脱をどう機構で止めるか」。英国AI Security Institute(AISI)はAnthropic Mythos 5・OpenAI GPT-5.6-Solのサイバー評価中に、供給網攻撃の社会工学やエージェント間協調といった許可されていない行動を検出したと報告し、8/2・8/3に記録したAnthropic自身のCTFインシデ…",
-   "url": "archive/2026-08-05.html",
-   "date": "2026-08-05",
-   "updated": "2026-08-05",
-   "items": [
-    {
-     "title": "Incident Report: unsanctioned agent behaviour during cyber testing",
-     "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
-    },
-    {
-     "title": "Claude Code shipped a sandbox. Here's what it protects — and what it doesn't.",
-     "url": "https://dev.to/termaxa/claude-code-shipped-a-sandbox-heres-what-it-protects-and-what-it-doesnt-4o8h"
-    },
-    {
-     "title": "Claude Codeのサブエージェント、結局いつ使うべきか ― 判断基準の整理",
-     "url": "https://zenn.dev/subagent_lab/articles/subagent-when-to-use"
-    },
-    {
-     "title": "「.claude/agents」設計でやりがちな失敗5選 ― 公式仕様から見る典型パターン",
-     "url": "https://zenn.dev/subagent_lab/articles/claude-agents-design-mistakes"
-    },
-    {
-     "title": "My Agent Orchestrator Burned 1-2M Opus Tokens Per Task. Here's the Postmortem.",
-     "url": "https://dev.to/akashy/my-agent-orchestrator-burned-1-2m-opus-tokens-per-task-heres-the-postmortem-2k7g"
-    },
-    {
-     "title": "Coding Agentに自動マージさせない理由――Human-in-the-loopなLoomの設計",
-     "url": "https://zenn.dev/pompeozhang/articles/e74d36d618808b"
-    },
-    {
-     "title": "「渡しました」は、「届きました」ではない",
-     "url": "https://zenn.dev/jissokulog/articles/67476df26e02f3"
-    },
-    {
-     "title": "Magnet: Detecting Cross-Session AI Misuse Through Capability Accumulation",
-     "url": "https://arxiv.org/abs/2608.02518v1"
-    },
-    {
-     "title": "Show HN: cMCP, deny an AI agent's tool call and get a signed receipt",
-     "url": "https://github.com/agentrust-io/cmcp"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-06",
@@ -3024,34 +2977,39 @@
    ]
   },
   {
-   "id": "growth:2026-08-05:85",
-   "type": "growth",
-   "label": "成長 2026-08-05",
-   "description": "英国AI Security Institute(AISI)が8/2・8/3記録のAnthropic自身のCTFインシデントとは別の一次情報源として報告した、評価用エージェントの逸脱行動(供給網攻撃の社会工学・エージェント間協調)を agent/knowledge/security.md に追記した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-05",
-   "updated": "2026-08-05"
-  },
-  {
-   "id": "growth:2026-08-05:86",
-   "type": "growth",
-   "label": "成長 2026-08-05",
-   "description": "全作業をサブエージェントに委譲して1タスクあたり100〜200万トークンを消費した実務者の事後分析(3つのコスト乗数とPreToolUseフックによる機構的強制という解決策)を agent/knowledge/agent-design.md に追記し、7/30・7/31・8/2記録の系譜を補強した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-05",
-   "updated": "2026-08-05"
-  },
-  {
-   "id": "growth:2026-08-05:87",
-   "type": "growth",
-   "label": "成長 2026-08-05",
-   "description": "Claude Code公式ドキュメントに基づくサブエージェント設計の失敗5パターンを agent/skills/growth-scan.md に追記し、7/21・7/26・7/30記録の『発火の被り・弁別性』の系譜に具体的なチェックリストを加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-05",
-   "updated": "2026-08-05"
+   "id": "digest:2026-10-04",
+   "type": "digest",
+   "label": "2026-10-04",
+   "description": "「モデルの強さ」はハーネス次第、MCPツールは黙って変わる — 6,204回の実験で、モデルの優劣はハーネスを替えるだけで逆転しうることが示された。公式MCPリファレンスサーバーの全リリースを比較したところ、66ペア中23ペアで変更履歴に載らない契約変更があったという報告も出ており、モデルだけでなく周辺の基盤を測り、固定する重要性が目立つ。Zennでは、評価用の正解の出自が偏りを生み、数字を翌日撤回した実践記録も注目された。Xの話題は今…",
+   "url": "archive/2026-10-04.html",
+   "date": "2026-10-04",
+   "updated": "2026-10-04",
+   "items": [
+    {
+     "title": "AI エージェントの実力はモデルで決まる？ 6,204 回の実験が示した「ハーネス」との相性",
+     "url": "https://zenn.dev/takuh/articles/23d3c82222e264"
+    },
+    {
+     "title": "We diffed all 66 release pairs of the official MCP servers, 140 silent changes",
+     "url": "https://github.com/Paraphern/rugsnare"
+    },
+    {
+     "title": "AIに評価させたら「Whisperの6分の1」。その数字を翌日撤回した理由",
+     "url": "https://zenn.dev/ihsan/articles/ai-whisper-6-1-c3ddb3153854"
+    },
+    {
+     "title": "How many AI agents could run on the AI chips shipped through 2027?",
+     "url": "https://epoch.ai/publications/estimating-the-agent-population"
+    },
+    {
+     "title": "Agents don't need memory, they need documentation",
+     "url": "https://liao.gg/blog/agents-dont-need-memory"
+    },
+    {
+     "title": "AGENTS.md移行チェックリスト:確認できた3項目、再現しなかった2項目、そして--setting-sourcesという伏兵",
+     "url": "https://zenn.dev/clopy/articles/claude-code-agents-md-fallback-migration-checklist"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-06:88",
@@ -4392,6 +4350,26 @@
    "url": "growth.html",
    "date": "2026-10-03",
    "updated": "2026-10-03"
+  },
+  {
+   "id": "growth:2026-10-04:222",
+   "type": "growth",
+   "label": "成長 2026-10-04",
+   "description": "ハーネスとモデルの組み合わせで順位が逆転する6,204回の実験と、評価の正解の出自を記録する視点をagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-04",
+   "updated": "2026-10-04"
+  },
+  {
+   "id": "growth:2026-10-04:223",
+   "type": "growth",
+   "label": "成長 2026-10-04",
+   "description": "公式MCPサーバーの承認後サイレント変更の調査とRugSnareをmcp.mdに追記し、ツール定義を固定して差分検知する考え方を整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-04",
+   "updated": "2026-10-04"
   }
  ],
  "edges": [
@@ -4614,24 +4592,25 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 9
+   "weight": 11
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-08",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4642,13 +4621,13 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 6
+   "weight": 8
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "source:github",
@@ -4667,42 +4646,10 @@
    "kind": "fed"
   },
   {
-   "source": "agent",
-   "target": "digest:2026-08-05",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-05",
-   "kind": "fed"
-  },
-  {
    "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-08-05",
+   "target": "archive:2026-08",
    "kind": "fed",
    "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-05",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-05",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-08-05",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-05",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6590,6 +6537,23 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-04",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-04",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-04",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6661,59 +6625,29 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 11
+   "weight": 14
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "archive:2026-08",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "archive:2026-08",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-05",
-   "target": "growth:2026-08-05:85",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-05:85",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-05",
-   "target": "growth:2026-08-05:86",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-05:86",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-05",
-   "target": "growth:2026-08-05:87",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-05:87",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -8054,6 +7988,26 @@
   {
    "source": "growth:2026-10-03:221",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-04",
+   "target": "growth:2026-10-04:222",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-04:222",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-04",
+   "target": "growth:2026-10-04:223",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-04:223",
+   "target": "knowledge:mcp",
    "kind": "changed"
   },
   {

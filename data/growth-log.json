@@ -1786,5 +1786,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-10-04",
+    "type": "knowledge",
+    "description": "ハーネスとモデルの組み合わせで順位が逆転する6,204回の実験と、評価の正解の出自を記録する視点をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "type": "knowledge",
+    "description": "公式MCPサーバーの承認後サイレント変更の調査とRugSnareをmcp.mdに追記し、ツール定義を固定して差分検知する考え方を整理した。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   }
 ]
