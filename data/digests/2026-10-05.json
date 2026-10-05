@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-05",
+  "title": "効くスキルは「習慣の念押し」ではなく「手順」、読み込み量は安全に減らす",
+  "summary": "人気のAgent Skills 9本をA/Bテストしたところ4本は効果ゼロで、効いたのは作業の流れを変えるスキルだったという報告が出た。Zennでは、機能を消さずに自己改善時の初期読み込みを42%減らした記録や、評価をtrain/testに分けると直す場所が逆だったという実践記録が並んだ。Claude Code 2.1.289ではdeny規則の迂回4件が修正されたが、npmのstableチャンネルには未反映という注意点も出ている。Xの話題は今日分を一次情報で確認できなかったため、掲載を見送った。",
+  "items": [
+    {
+      "title": "I A/B-tested 9 popular AI agent skills. 4 of them did nothing.",
+      "url": "https://dev.to/menadirali/i-ab-tested-9-popular-ai-agent-skills-4-of-them-did-nothing-5ba5",
+      "source": "rss:DEV Community - Claude",
+      "category": "研究",
+      "ja_summary": "人気のAgent Skills 9本を、導入あり・なしで19ケース×3回、Sonnet 5.5とHaiku 4.5で比較した記事。質問を1つずつ投げるgrillは大きく改善し、バグ探しのレビュー系も効いたが、最小差分・標準ライブラリ優先・結論先出し・安全な既定値の4本は効果ゼロだった。小型モデルほど効果が出やすい傾向も示される。",
+      "why_useful": "「良い習慣の念押し」型の指示は文脈を消費するだけで、手順を変える型が効くという実測で、AgAg自身のskills・knowledgeの書き方に応用できる。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントの機能を消さず、自己改善で「最初に読む情報」を42%減らした",
+      "url": "https://zenn.dev/c_a_p_engineer/articles/tsuzuri-agent-core-honing-20261004",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自己改善を始めるときの初期読み込みを406,524バイトから234,865バイト(42.2%減)に減らしつつ、削除した機能は0件に保った記録。重複説明の統合、必要時取得への移行、軽量索引の導入を行い、索引は元データへ戻れることを必須条件にした。テストで速くても本番検証がない方式は採用を見送っている。",
+      "why_useful": "毎回全文を読み込むAgAgの手順1と同じ問題設定で、削減率より「元に戻れる安全性」を優先する具体的な設計指針になる。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェント運用に eval を入れたら、直すべき場所が逆だった — 6つの場面で train/test を分けて測った",
+      "url": "https://zenn.dev/mameresearcher/articles/ai-agent-ops-evals-six-scenes",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "約30の発信をエージェントに任せる運用で、失敗のたびに規則を1つ足す直し方そのものを測った記録。問題をtrainとtestに分け、両方で上がった修正だけ残すこと、失敗例の継ぎ足しは評価に過剰適合することが要点として挙げられている。本文全体は未確認で、冒頭の要約に基づく。",
+      "why_useful": "失敗のたびにルールを足す運用はAgAgの自己成長にも当てはまり、追記の効果を分けて確かめる視点が得られる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code 2.1.289 patched 4 deny-rule bypasses: your npm channel decides whether you have them",
+      "url": "https://dev.to/piekwerk/claude-code-21289-patched-4-deny-rule-bypasses-your-npm-channel-decides-whether-you-have-them-150a",
+      "source": "rss:DEV Community - Claude",
+      "category": "新モデル・新製品",
+      "ja_summary": "Claude Code 2.1.289で、入れ子の複合コマンド・シンボリックリンク経由の読み取り・環境変数の接頭辞・変数代入つきコマンドの4種のdeny規則迂回が修正された。ただしnpmのstableは2.1.285のままでlatestだけに修正が入っており、入れ子の複合コマンドの修正は管理対象マシンのみに適用される。",
+      "why_useful": "deny規則を入れていても、チャンネルやバージョンしだいで効かない場合があり、`claude --version`での確認が必要になる。",
+      "score": 4
+    },
+    {
+      "title": "MCP を直接呼ぶ版とコードで叩く版、同じ集計タスクで実際にトークンを数えてみた",
+      "url": "https://zenn.dev/ma2no4413/articles/mcp-code-execution-token-benchmark",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Anthropicが提案した「MCPをコード実行経由で呼ぶ」方式は、特定の例で150,000トークンから2,000トークンへ98.7%削減とされる。著者はこれが特定タスクの数字だと見て、より地味な複数顧客の注文集計タスクで実際にトークンを数え直している。結果の数値は冒頭の要約からは確認できていない。",
+      "why_useful": "公式ブログの派手な削減率が自分の用途でも成り立つかを、実測で確かめる姿勢の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Claude Code、Codex、Hermes、Piなど11のCoding Agentから見る「Agent Harness」の設計原則",
+      "url": "https://zenn.dev/ryodev/articles/3dbd9d26e3a094",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "同じLLMでもCoding Agentごとに使い勝手が違う理由を、モデルの外側のソフトウェア(Agent Harness)から整理した記事。2026年7月公開のBarbaste et al.の論文「Harness Engineering」を土台に、11のエージェントを比較している。",
+      "why_useful": "10/04のハーネス相性の知見の続報で、モデルでなくハーネス側を点検する視点を補強する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "スキル9本のA/Bテストと、初期読み込み42%削減の記録をagent-design.mdに追記し、手順を変える指示は効き、念押しは効かないこと、軽量化は元へ戻れる経路を条件にすることを整理した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "Claude Code 2.1.289のdeny規則迂回4件の修正と、npmのstableチャンネルに未反映という注意点をsecurity.mdに追記した。"
+    }
+  ]
+}

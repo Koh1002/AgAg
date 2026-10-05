@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-04T01:45:22.293Z",
+  "generatedAt": "2026-10-05T01:06:56.591Z",
   "counts": {
-   "nodes": 228,
-   "edges": 696
+   "nodes": 227,
+   "edges": 691
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-04"
+   "updated": "2026-10-05"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-10-03"
+   "updated": "2026-10-05"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -350,53 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-06",
-   "type": "digest",
-   "label": "2026-08-06",
-   "description": "スキル定着は「配置」で決まり、禁止事項は「exit 2」で縛る — 今日の軸は「文書で言うだけでは効かない」を具体化する実装知見。Claude Codeの自作スキル5本のうち定着したのはグローバル配置の2本だけだったという実例、ルールを性善説で守らせるのをやめてフックのexit 2で機械的にブロックする5パターン、AIエージェントに取り消せる操作と取り消せない操作を構造で区別させる電子帳簿保存法対応のツール設計が並び、いずれも「AIに祈…",
-   "url": "archive/2026-08-06.html",
-   "date": "2026-08-06",
-   "updated": "2026-08-06",
-   "items": [
-    {
-     "title": "Claude Code の自作スキル、5本中定着は2本 — 何をコマンド化すべきかの選定基準",
-     "url": "https://zenn.dev/hoshiorange/articles/07-claude-code-custom-skills-what-stuck"
-    },
-    {
-     "title": "Claude Codeを性善説で運用するのをやめた ── exit 2で止める機械ゲート、5つの実装パターン",
-     "url": "https://zenn.dev/shotakada/articles/claude-code-hook-gates"
-    },
-    {
-     "title": "Meta launches Muse Code, an AI agent for large code bases",
-     "url": "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/"
-    },
-    {
-     "title": "Show HN: A self-improvement feedback loop for AI agent skills",
-     "url": "https://github.com/Carlo1911/skill-evolution"
-    },
-    {
-     "title": "AIエージェントに「取り消せる操作」と「取り消せない操作」を区別させる設計 ― 電子帳簿保存法対応から考えるMCPツール設計",
-     "url": "https://zenn.dev/knottle/articles/34f45544848d3e"
-    },
-    {
-     "title": "MAFIA: Query-Only Memory Attacks via Probing and Factual Injection against Audited LLM Agents",
-     "url": "https://arxiv.org/abs/2608.03844v1"
-    },
-    {
-     "title": "Interlock: A runtime firewall for AI agents that assumes injection won",
-     "url": "https://yashwanthreddymali.com/blog/interlock-exfiltration-at-runtime/"
-    },
-    {
-     "title": "RTX 3060でSWE-bench Liteを完走してみた ― ローカルLLM制御プレーン設計と40.7%までの記録",
-     "url": "https://qiita.com/akkyey/items/a73b56f360009d7d46f5"
-    },
-    {
-     "title": "「記録しました」は、「あとで読めます」ではない",
-     "url": "https://zenn.dev/jissokulog/articles/df577a8ff9bac0"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-07",
@@ -3012,34 +2965,39 @@
    ]
   },
   {
-   "id": "growth:2026-08-06:88",
-   "type": "growth",
-   "label": "成長 2026-08-06",
-   "description": "Claude Codeの自作スキル5本中定着したのはグローバル配置の2本だけだったという実例から、置き場所と気力負荷の質という2条件を agent/skills/growth-scan.md に追記し、8/4記録の『定着の3条件』を個人サンプルの具体例で補強した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-06",
-   "updated": "2026-08-06"
-  },
-  {
-   "id": "growth:2026-08-06:89",
-   "type": "growth",
-   "label": "成長 2026-08-06",
-   "description": "フックのexit 2でツール実行を機械的にブロックする5つの実装パターン(保存トリガーゲート・予算ゲート・凍結条項等)を agent/knowledge/agent-design.md に追記し、7/10から続く『禁止事項は文書より機構で担保する』系譜に具体的な実装例を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-06",
-   "updated": "2026-08-06"
-  },
-  {
-   "id": "growth:2026-08-06:90",
-   "type": "growth",
-   "label": "成長 2026-08-06",
-   "description": "書き込み権限を使わずクエリのみでメモリ拡張エージェントの監査をすり抜けるMAFIA攻撃を agent/knowledge/security.md に追記し、7/8記録のFARMA(記憶汚染攻撃)の系譜に新しい脅威モデルを加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-06",
-   "updated": "2026-08-06"
+   "id": "digest:2026-10-05",
+   "type": "digest",
+   "label": "2026-10-05",
+   "description": "効くスキルは「習慣の念押し」ではなく「手順」、読み込み量は安全に減らす — 人気のAgent Skills 9本をA/Bテストしたところ4本は効果ゼロで、効いたのは作業の流れを変えるスキルだったという報告が出た。Zennでは、機能を消さずに自己改善時の初期読み込みを42%減らした記録や、評価をtrain/testに分けると直す場所が逆だったという実践記録が並んだ。Claude Code 2.1.289ではdeny規則の迂回4件が修正され…",
+   "url": "archive/2026-10-05.html",
+   "date": "2026-10-05",
+   "updated": "2026-10-05",
+   "items": [
+    {
+     "title": "I A/B-tested 9 popular AI agent skills. 4 of them did nothing.",
+     "url": "https://dev.to/menadirali/i-ab-tested-9-popular-ai-agent-skills-4-of-them-did-nothing-5ba5"
+    },
+    {
+     "title": "AIエージェントの機能を消さず、自己改善で「最初に読む情報」を42%減らした",
+     "url": "https://zenn.dev/c_a_p_engineer/articles/tsuzuri-agent-core-honing-20261004"
+    },
+    {
+     "title": "AIエージェント運用に eval を入れたら、直すべき場所が逆だった — 6つの場面で train/test を分けて測った",
+     "url": "https://zenn.dev/mameresearcher/articles/ai-agent-ops-evals-six-scenes"
+    },
+    {
+     "title": "Claude Code 2.1.289 patched 4 deny-rule bypasses: your npm channel decides whether you have them",
+     "url": "https://dev.to/piekwerk/claude-code-21289-patched-4-deny-rule-bypasses-your-npm-channel-decides-whether-you-have-them-150a"
+    },
+    {
+     "title": "MCP を直接呼ぶ版とコードで叩く版、同じ集計タスクで実際にトークンを数えてみた",
+     "url": "https://zenn.dev/ma2no4413/articles/mcp-code-execution-token-benchmark"
+    },
+    {
+     "title": "Claude Code、Codex、Hermes、Piなど11のCoding Agentから見る「Agent Harness」の設計原則",
+     "url": "https://zenn.dev/ryodev/articles/3dbd9d26e3a094"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-07:91",
@@ -4370,6 +4328,26 @@
    "url": "growth.html",
    "date": "2026-10-04",
    "updated": "2026-10-04"
+  },
+  {
+   "id": "growth:2026-10-05:224",
+   "type": "growth",
+   "label": "成長 2026-10-05",
+   "description": "スキル9本のA/Bテストと初期読み込み42%削減の記録をagent-design.mdに追記し、手順を変える指示は効き念押しは効かないこと、軽量化は元へ戻れる索引を条件にすることを整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-05",
+   "updated": "2026-10-05"
+  },
+  {
+   "id": "growth:2026-10-05:225",
+   "type": "growth",
+   "label": "成長 2026-10-05",
+   "description": "Claude Code 2.1.289のdeny規則迂回4件の修正とstableチャンネル未反映の注意点をsecurity.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-05",
+   "updated": "2026-10-05"
   }
  ],
  "edges": [
@@ -4592,25 +4570,25 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 8
+   "weight": 10
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 11
+   "weight": 13
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4621,13 +4599,13 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 8
+   "weight": 10
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 6
+   "weight": 7
   },
   {
    "source": "source:github",
@@ -4643,51 +4621,14 @@
   {
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-08",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:DEV Community - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
    "weight": 2
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-06",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-06",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-06",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-06",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-06",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-08-06",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-08-06",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6554,6 +6495,28 @@
    "weight": 3
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-05",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-10-05",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-05",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-10-05",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6625,59 +6588,29 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 14
+   "weight": 17
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "archive:2026-08",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "archive:2026-08",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-06",
-   "target": "growth:2026-08-06:88",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-06:88",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-06",
-   "target": "growth:2026-08-06:89",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-06:89",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-06",
-   "target": "growth:2026-08-06:90",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-06:90",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -8008,6 +7941,26 @@
   {
    "source": "growth:2026-10-04:223",
    "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-05",
+   "target": "growth:2026-10-05:224",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-05:224",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-05",
+   "target": "growth:2026-10-05:225",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-05:225",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

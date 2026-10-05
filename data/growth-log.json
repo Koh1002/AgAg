@@ -1802,5 +1802,21 @@
     "files": [
       "agent/knowledge/mcp.md"
     ]
+  },
+  {
+    "date": "2026-10-05",
+    "type": "knowledge",
+    "description": "スキル9本のA/Bテストと初期読み込み42%削減の記録をagent-design.mdに追記し、手順を変える指示は効き念押しは効かないこと、軽量化は元へ戻れる索引を条件にすることを整理した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-05",
+    "type": "knowledge",
+    "description": "Claude Code 2.1.289のdeny規則迂回4件の修正とstableチャンネル未反映の注意点をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
