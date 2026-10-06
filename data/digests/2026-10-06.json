@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-06",
+  "title": "「完了」を信じない設計:終了コード0・同時実行2つ・17Kトークンの実測",
+  "summary": "今日は、エージェント運用の「思い込み」を実測で崩す記事が目立った。サブエージェントは3つ頼んでも同時に走るのは2つだけ、claude -p は失敗しても終了コード0、挨拶1つに約1.65万トークンが送られていた。制約付きDSLがPythonの自由生成を上回った実験や、承認後に変わるMCPツール定義をハッシュで止めるmcp-pinも登場した。Opus 5.5エージェントの材料探索は計算予測のみで未検証という点も含め、検証の深さを見る日だった。",
+  "items": [
+    {
+      "title": "サブエージェントの開始と終了はフックで取れた。3つ同時に頼んでも、同時に走ったのは5回とも2つだった",
+      "url": "https://zenn.dev/numarn/articles/subagent-start-stop-hook-count-handson",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Code 2.1.283でフックを使い、サブエージェントの開始・終了と同時実行数を13回実測した記録。開始と終了は1つにつき1回ずつ取れたが、3つ同時を依頼しても実際に同時に走ったのは5回とも2つで、起動は0.75〜0.95秒ずつずれた。フックでツール名をTaskとAgent両方に指定すると1回の起動で2回発火し、綴り間違いは黙殺される。",
+      "why_useful": "並列度は依頼文では決まらないという実測で、AgAgのサブエージェント運用や進捗表示の前提を見直せる(一個人の環境・バージョンでの実測)。",
+      "score": 5
+    },
+    {
+      "title": "claude -p の定期実行が失敗しても終了コードは0。報告末尾の状態行で異常を拾う",
+      "url": "https://qiita.com/Kujira_AI/items/9fba279a3d3e6a6016ad",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "エージェントは「失敗しました」と文章で報告して正常終了するため、claude -p を定期実行しても終了コードだけでは失敗に気づけない。対策として報告の最終行に ROUTINE-STATUS: OK/ALERT の状態行を書かせ、ランチャー側で終了コード・状態行・成果物ファイルの欠損の3段階で判定する。",
+      "why_useful": "AgAgの日次ワークフローも同じ構造で、「機械が読む判定」と「人が読む報告」を分ける設計は検証ステップに直接応用できる。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントに「こんにちは」と送ったら1.7万トークン届いていた:OpenClawとモデルのやりとりを分析した話",
+      "url": "https://zenn.dev/petittomato/articles/openclaw-context-trace",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "OpenClawのフックでモデル送信直前の内容を記録したところ、5文字の挨拶に対し約16,501トークンが送られ、内訳はシステムプロンプト約3.6万字とツール定義27個(約2.7万字)が大半だった。同じチャンネルで2回目を送るとキャッシュで料金が約6分の1になり、スキルを31個から12個に絞ると入力が約1割減った。",
+      "why_useful": "初期コンテキストの大半が固定部分である点は、AgAgの知識・スキルの読み込み量を見直す根拠になる(一人の環境での実測)。",
+      "score": 4
+    },
+    {
+      "title": "AIにCAD設計を任せたら、自由なPythonより制約付きDSLの方が成功した",
+      "url": "https://zenn.dev/0xliclog/articles/093e202c66fdd3",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "センサー固定用ブラケットの設計を、検査機能付きのJSON操作(DSL)方式とFreeCADのPython直接操作方式で各15回実行。検証合格はDSLが10/15、Pythonが4/15で、合格時の平均トークンもDSL約17.3万に対しPython約28.0万だった。Python方式は修正履歴が積み上がって毎ターン再送され、長い設計ほど不利になった。",
+      "why_useful": "ツールを自由度の高いコードではなく検査付きの狭い操作に絞る設計の根拠になる(1タスク・各15回の個人実験で一般化は不可)。",
+      "score": 4
+    },
+    {
+      "title": "MCP-pin, block MCP tools that change after you approve them",
+      "url": "https://github.com/GautamTalksDev/mcp-pin",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "承認時点のMCPツール定義をハッシュで記録し、実行時に定義が変わっていたらブロックするローカルプロキシ。モデルの判断ではなくハッシュ比較による決定論的な検査で、全MCPサーバーの定義変更履歴の公開ログも持つ。v0.1.4でコミット63件・スター3の初期段階で、作者は10/15までに反応がなければアーカイブするとREADMEに明記している。",
+      "why_useful": "10/04に記録した承認後サイレント変更(RugSnare)への実装例だが、実績の乏しい初期プロジェクトである点に注意。",
+      "score": 4
+    },
+    {
+      "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+      "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Opus 5.5のエージェントが密度汎関数理論の計算で、室温で機能しうる磁性半導体の候補を2つ提示した(YBaMnFeO5とKV[Cr(CN)6])。ただし結果は計算予測のみで、バンドギャップもスピン選別も実測されておらず、次の段階は既存物質の再合成と測定だと著者自身が書いている。",
+      "why_useful": "エージェントによる科学探索の到達点と、「予測」と「検証済み」を区別すべき実例(HNスコア219)。",
+      "score": 4
+    },
+    {
+      "title": "yetone/magpie: Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
+      "url": "https://github.com/yetone/magpie",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "CodexをDeepSeekで、Claude CodeをKimiで動かすなど、各コーディングエージェントが使うモデルをメニューバーから切り替えるmacOSアプリ。2026-09-23作成で5,164スター・370フォークと、フォーク数もスターに見合っている。",
+      "why_useful": "エージェント本体とモデルを分離して差し替える流れの実例で、ハーネス次第でモデルの優劣が逆転する10/04の知見と接続する(動作は未検証)。",
+      "score": 3
+    },
+    {
+      "title": "ArtificialAnalysis/aa-agentperf-local: Benchmark local LLM serving by replaying real agent trajectories",
+      "url": "https://github.com/ArtificialAnalysis/aa-agentperf-local",
+      "source": "github",
+      "category": "研究",
+      "ja_summary": "実際のエージェント会話を再生して、手元のLLMサーバー(llama.cpp・vLLM・SGLangなど)のスループットとレイテンシを測るベンチマークツール。人工的な合成プロンプトではなく実軌跡を使う点が特徴。",
+      "why_useful": "ローカルでエージェントを動かす際の性能評価を、実運用に近い負荷で行える。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "サブエージェントの同時実行は2つ止まり、claude -pは失敗しても終了コード0、挨拶1つで約1.65万トークン、検査付きDSLの優位という運用の実測知見をagent/knowledge/agent-design.mdに追記した。"
+    }
+  ]
+}

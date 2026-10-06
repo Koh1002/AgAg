@@ -1818,5 +1818,13 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-10-06",
+    "type": "knowledge",
+    "description": "サブエージェントの同時実行は2つ止まり、claude -pは失敗でも終了コード0、挨拶1つで約1.65万トークン、検査付きDSLの優位という運用の実測知見をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
