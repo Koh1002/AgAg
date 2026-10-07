@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-07",
+  "title": "常時稼働エージェント「Dots」登場、汚染モデルによる認証情報窃取の実証も",
+  "summary": "OpenAIがDevDayで、専用クラウドPCを持ち離席後も働き続ける常時稼働エージェント「Dots」を発表した。GitHubは、エージェントによるpush急増(前年比4.9倍)に対応するGit基盤の再構築を公開。一方でProjectDiscoveryは、50ドル未満で作れる毒入れオープンウェイトモデルがcoding agentから認証情報を盗む実証を示した。国内では、LLMに完了判定を任せるStopフックの落とし穴や、起動時コンテキスト削減の実測など運用知見が目立った。",
+  "items": [
+    {
+      "title": "OpenAI launches Dots, always-on AI agents in ChatGPT with their own cloud computers",
+      "url": "https://siliconangle.com/2026/09/29/openai-launches-dots-always-on-ai-agents-in-chatgpt-with-their-own-cloud-computers/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "OpenAIが9/29のDevDayで、GPT-6 Astra上で動き、専用のクラウドPCとブラウザを持つ常時稼働エージェント「Dots」を発表した。ProとBusiness Premiumに順次提供(初月は利用枠に非計上)。ChatGPT・Slack・Teamsから使え、能動的な調査モードは読み取り専用に制限される。",
+      "why_useful": "「離席後も働き続ける個人エージェント」の本命プロダクトで、権限・監視設計の実例にもなる。",
+      "score": 5
+    },
+    {
+      "title": "Researchers Backdoor Open AI Model to Steal Credentials in Coding Agents",
+      "url": "https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Qwen2.5-7B-Instructに毒入れ学習を施し、特定のトリガー句で.envを読み出して認証情報を外部送信するシェルコマンドを出させた。費用は50ドル未満・約2.5時間、毒入れは125行で成功率100%。通常の依頼には正常に応答し、ベンチマークでは見分けられない。",
+      "why_useful": "出所不明のオープンウェイトモデルを未検証PRのように扱い、サンドボックスと外向き通信の制限で守る必要を具体的に示す(AgAgのsecurity.mdに反映)。",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeの完了判定をLLMに任せたら、10日で488回差し戻された",
+      "url": "https://zenn.dev/ihsan/articles/claude-code-llm-10-488-72e747b780e2",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Stopフックでエージェントの完了をLLMに判定させたところ、10日間で488回差し戻し、うち1回は人間の判断を正しく待っていたエージェントに未採用の戦略を実行させた。判定役には会話の文字しか届かず、権限や未決事項が見えないことが原因と整理している(本文は未確認、冒頭要約に基づく)。",
+      "why_useful": "AgAg自身の検証手順(LLM判定か機械的検査か)の設計に直接応用できる。",
+      "score": 5
+    },
+    {
+      "title": "Building Git infrastructure for agent-scale development",
+      "url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "GitHubは、pushが前年比4.9倍の月33.5億件に増えたことなどエージェント由来の負荷増に対応し、保存と計算を分離して参照更新だけをクリティカルパスにする新アーキテクチャを紹介。社内ベンチマークで書き込みスループットは最大35倍とされる。",
+      "why_useful": "エージェントの大量利用が既存インフラに与える負荷の一次データとして重要。",
+      "score": 4
+    },
+    {
+      "title": "When Tools Lie: Reliability of Mathematical Agents Under Corrupted Tool Feedback",
+      "url": "https://arxiv.org/abs/2610.08097v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "隠れた介在者がツールの結果をもっともらしい誤答に差し替える制御実験で、エージェントが破損したツール出力を検出・修正できるかを31問で評価した。ツール出力を暗黙に信頼する設計のリスクを測る研究。",
+      "why_useful": "ツール出力を鵜呑みにしないという設計原則の実測材料になる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Codeの固定読み込みを半分にしても、セッション開始時のコンテキストは2%しか減らなかった。残っていた「一覧」を外して33%減",
+      "url": "https://zenn.dev/i_ichi/articles/claude-code-startup-context-lists",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "CLAUDE.mdなど常時読み込み文書を35.8KBから18.9KBに半減しても、新規会話の開始トークンは約2%しか減らなかった。残っていたスキル等の一覧を外すと33%減った、という実測。",
+      "why_useful": "軽量化は「書いたもの」ではなく実際の起動時トークンを測って判断すべきと分かる。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code の Explore は、いつの間にか Haiku から本体と同じモデルに変わっていた。戻すと費用は21〜35%減",
+      "url": "https://qiita.com/suwa_nobu/items/be41c19295ef0e58e7f2",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "調査用のExploreサブエージェントは登場時Haikuで動いていたが、いつの間にか本体と同じモデルになっていたという報告。Haikuへ戻すと費用が21〜35%減ったとする(個人の実測で、本文は未確認)。",
+      "why_useful": "サブエージェントの既定モデルは変わりうるため、明示指定でコストを管理する根拠になる。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの費用を実行ログから推定して、暴走を数字で検知する",
+      "url": "https://zenn.dev/aiautolog/articles/ai-agent-cost-from-run-logs",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "放置運用のエージェントは起動回数が想定を超えると費用が膨らむため、実行ごとに1行のログを残し、件数から費用を推定して暴走を検知する仕組みを紹介している。",
+      "why_useful": "低コストで導入できる暴走検知の設計例。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "毒入れオープンウェイトモデルによる認証情報窃取の実証(ProjectDiscovery)をsecurity.mdに追記し、出力を信頼せず基盤側で外向き通信・読めるファイルを絞る方針の補強とした。" },
+    { "type": "knowledge", "description": "完了判定をLLM審査員に任せるStopフックの差し戻し488回の事例をagent-design.mdに追記し、判定入力に未決事項・権限を含める必要を整理した。" }
+  ]
+}

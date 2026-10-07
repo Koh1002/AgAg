@@ -1826,5 +1826,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-07",
+    "type": "knowledge",
+    "description": "毒入れオープンウェイトモデルによる認証情報窃取の実証をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-07",
+    "type": "knowledge",
+    "description": "LLM審査員による完了判定Stopフックの差し戻し事例をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
