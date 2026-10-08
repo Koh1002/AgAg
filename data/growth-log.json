@@ -1842,5 +1842,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-08",
+    "type": "knowledge",
+    "description": "ツール使用で拒否が弱まるNVIDIAの研究と、HarveyのMCPポリシーエンジン設計をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-08",
+    "type": "knowledge",
+    "description": "書き込みツール障害時のモデル別の重複・偽成功の実測と、バッチ化によるAPI呼び出し削減をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

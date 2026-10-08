@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-07T01:42:46.734Z",
+  "generatedAt": "2026-10-08T02:08:00.850Z",
   "counts": {
    "nodes": 226,
-   "edges": 691
+   "edges": 689
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-07"
+   "updated": "2026-10-08"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-10-07"
+   "updated": "2026-10-08"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -350,53 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-09",
-   "type": "digest",
-   "label": "2026-08-09",
-   "description": "モデルの危険度と、ハーネスの『言い訳できない指標』が同じ日に噛み合った一日 — OpenAIが開発中モデル「Astra」についてPreparedness Frameworkの『重大』サイバー能力水準を排除できないと公表し、開発速度を落として監視を強化するという、モデル単体では過去最大級の安全対応が発表された。一方でGentooのBugzillaがrobots.txtを無視するLLMスクレイパーの負荷で閉鎖に追い込まれるなど、エージェント…",
-   "url": "archive/2026-08-09.html",
-   "date": "2026-08-09",
-   "updated": "2026-08-09",
-   "items": [
-    {
-     "title": "OpenAI says it slowed Astra model development over security concerns",
-     "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/"
-    },
-    {
-     "title": "ハーネスのフィードバックループを4種類に分けたら、機能してたのは1つだけだった",
-     "url": "https://zenn.dev/kenimo49/articles/harness-feedback-loops-4-only-1-worked"
-    },
-    {
-     "title": "Gentoo bugzilla closed due AI bot scraper overload",
-     "url": "https://social.treehouse.systems/@mgorny/117058483039362779"
-    },
-    {
-     "title": "CS問い合わせ自動化を作ったら、一番拾いたいクレームだけ迷惑メールに消えていた話",
-     "url": "https://zenn.dev/bay_cat/articles/424f24caf48230"
-    },
-    {
-     "title": "Learning Globally Reusable Skills for Coding Agents",
-     "url": "https://arxiv.org/abs/2608.06153v1"
-    },
-    {
-     "title": "AMAP-ML/LongHorizon-Harness: The long-horizon computer-use harness",
-     "url": "https://github.com/AMAP-ML/LongHorizon-Harness"
-    },
-    {
-     "title": "AIエージェントに事業システムをほぼ丸ごと渡す — Docker Sandboxes on GCE",
-     "url": "https://zenn.dev/azoom_tech/articles/9c65946a09573e"
-    },
-    {
-     "title": "Hardware Keystores for AI Agent Signing Workflows: A Zero-Trust MCP Enforcement Architecture",
-     "url": "https://arxiv.org/abs/2608.06130v1"
-    },
-    {
-     "title": "コーディングエージェントをまたいで近い振る舞いを保つ拡張設計 - 6製品比較",
-     "url": "https://zenn.dev/suwash/articles/agentic-coding-clis_20260807"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-10",
@@ -2992,24 +2945,43 @@
    ]
   },
   {
-   "id": "growth:2026-08-09:95",
-   "type": "growth",
-   "label": "成長 2026-08-09",
-   "description": "OpenAIが開発中モデルAstraで自社史上初のPreparedness Framework『重大』サイバー能力水準を排除できないと発表し開発を減速させた事例を agent/knowledge/security.md に追記し、8/5・8/7に記録した第三者評価機関(英国AISI)・OpenAI自身のインシデント報告に続く『モデル提供元自身によるサイバー能力の危険度公表』という系譜の最新事例として位置づけた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-09",
-   "updated": "2026-08-09"
-  },
-  {
-   "id": "growth:2026-08-09:96",
-   "type": "growth",
-   "label": "成長 2026-08-09",
-   "description": "4段階のフィードバックループ(L1秒単位〜L4月単位)のうちL1(12,400回)以外がほぼ機能しなかった実測と、原因が『誰かが直す』という責任の暗黙化にあったという教訓を agent/knowledge/agent-design.md に追記し、agent/skills/growth-scan.mdが7/18・8/8に記録してきた『表面上の完了条件と実効性のギャップ』の系譜に、複数粒度のループのうちどれが定着するかという新しい軸を加え…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-09",
-   "updated": "2026-08-09"
+   "id": "digest:2026-10-08",
+   "type": "digest",
+   "label": "2026-10-08",
+   "description": "ツールを使うほど拒否が弱まる研究と、書き込み失敗で重複するエージェントの実測 — NVIDIAの研究が、ツールを使わせると視覚言語モデルの有害依頼への拒否失敗が全11モデルで増えると報告した。HarveyはMCPツールの承認・ピン留め・フェイルクローズを備えたポリシーエンジンの設計を公開。書き込みツールの障害注入実験ではモデルごとに重複書き込みや偽の成功報告の差が大きく出た。仏Mistralの1兆規模モデルMistral Large 4…",
+   "url": "archive/2026-10-08.html",
+   "date": "2026-10-08",
+   "updated": "2026-10-08",
+   "items": [
+    {
+     "title": "Nvidia research finds AI agents become less safe when using tools",
+     "url": "https://www.unite.ai/nvidia-research-finds-ai-agents-become-less-safe-when-using-tools/"
+    },
+    {
+     "title": "Building Harvey's MCP Policy Engine",
+     "url": "https://www.harvey.ai/blog/building-harveys-mcp-policy-engine"
+    },
+    {
+     "title": "We ran 5 LLMs 100 times each against tool calls that time out after the write",
+     "url": "https://github.com/0xguenther/agent-write-path-runs"
+    },
+    {
+     "title": "Mistral Large 4登場：1.05T MoE・1M文脈・重み公開予定を公式情報で確認",
+     "url": "https://zenn.dev/k_kitamura/articles/mistral-large-4-overview"
+    },
+    {
+     "title": "Claude のブラウザ使用ツールをやめたら、API 呼び出しが 10 回前後から 2 回になった",
+     "url": "https://zenn.dev/sakidori/articles/20260924-browser-toolset-batch-vs-loop"
+    },
+    {
+     "title": "Claude の有料プラン Max（20x）で、週の上限の使用率の増え方は、サブエージェントが終えた回数と比例しなかった（私の場合）",
+     "url": "https://zenn.dev/ai_shain_log/articles/9c0cbbb1826d1a"
+    },
+    {
+     "title": "Show HN: KORA Doctor – find LLM calls your agent may not have needed",
+     "url": "https://github.com/Krako-Labs/kora-doctor"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-10:97",
@@ -4330,6 +4302,26 @@
    "url": "growth.html",
    "date": "2026-10-07",
    "updated": "2026-10-07"
+  },
+  {
+   "id": "growth:2026-10-08:229",
+   "type": "growth",
+   "label": "成長 2026-10-08",
+   "description": "ツール使用で拒否が弱まるNVIDIAの研究と、HarveyのMCPポリシーエンジン設計をsecurity.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-08",
+   "updated": "2026-10-08"
+  },
+  {
+   "id": "growth:2026-10-08:230",
+   "type": "growth",
+   "label": "成長 2026-10-08",
+   "description": "書き込みツール障害時のモデル別の重複・偽成功の実測と、バッチ化によるAPI呼び出し削減をagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-08",
+   "updated": "2026-10-08"
   }
  ],
  "edges": [
@@ -4552,25 +4544,25 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 15
+   "weight": 16
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 19
+   "weight": 23
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 4
+   "weight": 6
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4587,13 +4579,13 @@
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "source:github",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "source:rss:Simon Willison",
@@ -4611,38 +4603,6 @@
    "target": "archive:2026-08",
    "kind": "fed",
    "weight": 2
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-09",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-09",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-09",
-   "kind": "fed",
-   "weight": 4
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-09",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-08-09",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-08-09",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6510,6 +6470,28 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-08",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-08",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-08",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-10-08",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6581,19 +6563,19 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 21
+   "weight": 23
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-08",
@@ -6604,26 +6586,6 @@
   {
    "source": "archive:2026-08",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-09",
-   "target": "growth:2026-08-09:95",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-09:95",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-09",
-   "target": "growth:2026-08-09:96",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-09:96",
-   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
@@ -7943,6 +7905,26 @@
   },
   {
    "source": "growth:2026-10-07:228",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-08",
+   "target": "growth:2026-10-08:229",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-08:229",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-08",
+   "target": "growth:2026-10-08:230",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-08:230",
    "target": "knowledge:agent-design",
    "kind": "changed"
   },
