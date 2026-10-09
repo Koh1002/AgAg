@@ -1858,5 +1858,13 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-09",
+    "type": "knowledge",
+    "description": "Temporalのpi-temporalに見る耐久実行パターンと、4エージェントPDFエディタ実験が示す人間検証の必要性をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

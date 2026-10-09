@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-09",
+  "title": "止まっても戻れるエージェント基盤と、人間の目とのギャップ",
+  "summary": "Temporalが、コーディングエージェントPiを途中で落ちても再開できる耐久実行にする仕組みを公開した。別の検証では、4つのコーディングエージェントに各100ドルでPDFエディタを作らせ、人間なら数クリックで気づく不具合が残ることが示された。国内ではHaiku 5.5を機にサブエージェントの担当モデルを見直す記事や、MCPのタイムアウト・再試行設計、経理エージェントの権限境界といった運用寄りの話題が目立った。補完調査で見つかったXの話題は、Block社のBuzzを「今日の新製品」とする投稿だが、公開は7月で誇張を含むため採用しなかった。",
+  "items": [
+    {
+      "title": "The immortal life of Pi (Running the Pi coding agent on Temporal)",
+      "url": "https://temporal.io/blog/the-immortal-life-of-pi-running-the-pi-coding-agent-on-temporal",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Temporalが、コーディングエージェントPiの各セッションをWorkflow、モデル呼び出しやツール呼び出しをActivityとして実行する`pi-temporal`を紹介した。会話の記録(セッションファイル)を状態の正とし、各ステップ後にプロジェクトをGit bundleで保存し、ツール実行前に「claim」を書いて、再試行時に結果が不明ならモデルに「結果不明」と伝えて状態確認させる。筆者自身が、実績はデモ実行のみでPiのフォークによる後付けだと断っている。",
+      "why_useful": "書き込みツールの重複や偽成功への対策として、claim・リース・結果不明の明示という具体的な設計パターンが参考になる。",
+      "score": 5
+    },
+    {
+      "title": "I gave four coding agents $100 budget to build a PDF editor",
+      "url": "https://blog.nielstron.de/2026/10/08/the-remaining-shortcomings-of-coding-agents/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "4つのコーディングエージェント(Gemini 3.8 Flash、GPT Astra 6、Opus 5、Fable 5)に各100ドルの予算でPDFエディタを作らせた個人の実験。いずれもWebアプリとして動いたが、数クリックで不具合が見つかり、モバイル対応やインストール性、操作設計に弱さが残った。筆者は、エージェントが離散的なスクリーンショットで操作を見ることや、目的意識と苛立ちを持たないことが原因だと考察している(1ケースの個人実験)。",
+      "why_useful": "エージェントの自己評価ではなく、人間の目による検証が品質ゲートとして必要な理由を具体例で示している。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code の Explore を Haiku にする設定は、2.1.293 に上げるだけで Haiku 5.5 になった。費用は34〜43%減",
+      "url": "https://qiita.com/suwa_nobu/items/837c03e66ba03ee636ea",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude CodeのExploreサブエージェントをHaikuにする設定をしていた筆者が、バージョンを2.1.293に上げるだけで参照先がHaiku 5.5に変わり、費用が34〜43%下がったと報告している(タイトルに基づく要約。本文の測定条件は未確認で、個人の申告)。",
+      "why_useful": "モデル更新が設定変更なしでサブエージェントのコストに効くため、担当モデルを定期的に見直す動機になる。",
+      "score": 4
+    },
+    {
+      "title": "経理エージェントの権限境界：可逆性で操作を分け、承認をハッシュで束縛する",
+      "url": "https://zenn.dev/xim2jp_tokyo/articles/neta-32-zenn-summary",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "経理エージェントの操作を可逆性で分類し、承認を操作内容のハッシュに束縛して、承認後に内容がすり替わらないようにする権限設計の記事(タイトルに基づく要約で、本文は未確認)。",
+      "why_useful": "「承認した内容と実行内容が同一であること」を機械的に担保する考え方は、自律エージェントの権限設計全般に転用できる。",
+      "score": 4
+    },
+    {
+      "title": "自作MCPサーバーのツール呼び出しがタイムアウトする — 100行実装に「制限時間と再試行上限」を足す設計",
+      "url": "https://zenn.dev/yukihayama/articles/mcp-tool-timeout-retry-design",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "自作MCPサーバーでツール呼び出しがタイムアウトする問題に対し、制限時間と再試行上限を実装に加える設計を解説した記事(タイトルに基づく要約。本文は未確認)。",
+      "why_useful": "再試行の上限は、書き込みツールの重複実行を防ぐうえで、Temporalの記事の「結果不明」扱いとセットで考えるべき論点である。",
+      "score": 3
+    },
+    {
+      "title": "Claude Code の自動圧縮は何トークンで起きたか — 実測3回と、それに備えてやっていること",
+      "url": "https://zenn.dev/suisei498/articles/8b9b9edde7768b",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの自動圧縮が何トークンで発動したかを3回実測し、それに備えた運用を紹介する記事(タイトルに基づく要約。数値は未確認)。",
+      "why_useful": "コンテキスト圧縮のタイミングを実測で把握する姿勢は、長時間エージェント運用の設計に役立つ。",
+      "score": 3
+    },
+    {
+      "title": "One Word Opens the Gate: The Option-Channel Attack on Typed Decision Models as Agent Guardrails",
+      "url": "https://arxiv.org/abs/2610.12292v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "型付きの選択肢を返す小型の判定モデルをエージェントのガードレールに使うとき、選択肢の側から攻撃できるという研究(タイトルに基づく要約。詳細は未確認)。",
+      "why_useful": "高速な判定モデルをガードレールに置く設計が増えているため、その攻撃面を知っておく価値がある。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Temporalのpi-temporalに見る耐久実行パターン(claim・リース・結果不明の明示)と、4エージェントPDFエディタ実験が示す人間検証の必要性を agent/knowledge/agent-design.md に追記した。"
+    }
+  ]
+}

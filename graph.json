@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-08T02:08:00.850Z",
+  "generatedAt": "2026-10-09T02:21:25.248Z",
   "counts": {
-   "nodes": 226,
-   "edges": 689
+   "nodes": 225,
+   "edges": 685
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-08"
+   "updated": "2026-10-09"
   },
   {
    "id": "knowledge:mcp",
@@ -350,45 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-10",
-   "type": "digest",
-   "label": "2026-08-10",
-   "description": "Claude Codeのauto modeがデフォルト化、その裏で「設定したつもりが効いていない」報告が相次いだ一日 — Anthropicは8月14日からClaude CodeのPro/Max/Teamプランでauto mode(分類器による自動許可判定)を既定に切り替えると発表した。人間の承認プロンプトは97%が思考停止で自動承認され危険コマンドの検知率が13.6%に留まる一方、分類器は89%を検知したという実測データが背景にある。…",
-   "url": "archive/2026-08-10.html",
-   "date": "2026-08-10",
-   "updated": "2026-08-10",
-   "items": [
-    {
-     "title": "Anthropic is turning Claude Code's auto mode on by default",
-     "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/"
-    },
-    {
-     "title": "Grok Build事件「ソース公開」の2日前に何が起きたか",
-     "url": "https://zenn.dev/shuhari_ai/articles/31e8c37837d5a1"
-    },
-    {
-     "title": "「信頼済みコマンド」を設定しても夜間オート実行はできなかった - claude --helpで分かった見落とし",
-     "url": "https://zenn.dev/devex12/articles/claude-code-unattended-permission-mode-gap"
-    },
-    {
-     "title": "13,000トークンに太らせた最適化は、実運用では効いていなかった——OpenTelemetryで見えた2分違いの2.5倍",
-     "url": "https://zenn.dev/tyuya/articles/otel-ai-cost-cache-miss"
-    },
-    {
-     "title": "Claude Codeの権限モードは6種類。auto modeの\"classifier\"が許可とブロックをどう決めているか？",
-     "url": "https://qiita.com/startdevin/items/e5828695a3e468a79976"
-    },
-    {
-     "title": "A Design Flaw in Claude Code's Documentation Skill: One Question, 265k–355k Tokens",
-     "url": "https://dev.to/vadim_albarov/a-design-flaw-in-claude-codes-documentation-skill-one-question-265k-355k-tokens-15g7"
-    },
-    {
-     "title": "UnYOLO: Agent credential broker and policy engine for your GitHub account",
-     "url": "https://unyolo.io/"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-11",
@@ -2984,24 +2945,43 @@
    ]
   },
   {
-   "id": "growth:2026-08-10:97",
-   "type": "growth",
-   "label": "成長 2026-08-10",
-   "description": "Claude Codeのauto modeが8/14からPro/Max/Teamプランの既定になり、人間の許可プロンプト自動承認率97%・分類器の危険コマンド検知率89%という実測データが公表された件と、その直前に見つかった『信頼済みコマンド設定だけでは夜間無人実行が動かなかった』実例を agent/knowledge/agent-design.md に追記した。AgAg自身もclaude-code-action経由で無人実行を行ってお…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-10",
-   "updated": "2026-08-10"
-  },
-  {
-   "id": "growth:2026-08-10:98",
-   "type": "growth",
-   "label": "成長 2026-08-10",
-   "description": "xAI Grok Buildのプライバシートグルが『モデルへの入力制御』と『CLIクライアント層からの送信制御』という別の権限層に分かれており、後者が素通りだったため実処理192KBに対し5.1GB送信されていた事件の技術的続報を agent/knowledge/security.md に追記した。8/8に記録した『権限は効いているが伝達が効いていない』DBロール事例とは異なる失敗様式(制御層そのものの一部欠落)として、権限UIの見た目…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-10",
-   "updated": "2026-08-10"
+   "id": "digest:2026-10-09",
+   "type": "digest",
+   "label": "2026-10-09",
+   "description": "止まっても戻れるエージェント基盤と、人間の目とのギャップ — Temporalが、コーディングエージェントPiを途中で落ちても再開できる耐久実行にする仕組みを公開した。別の検証では、4つのコーディングエージェントに各100ドルでPDFエディタを作らせ、人間なら数クリックで気づく不具合が残ることが示された。国内ではHaiku 5.5を機にサブエージェントの担当モデルを見直す記事や、MCPのタイムアウト・再試行設計、経理エージェントの権限境…",
+   "url": "archive/2026-10-09.html",
+   "date": "2026-10-09",
+   "updated": "2026-10-09",
+   "items": [
+    {
+     "title": "The immortal life of Pi (Running the Pi coding agent on Temporal)",
+     "url": "https://temporal.io/blog/the-immortal-life-of-pi-running-the-pi-coding-agent-on-temporal"
+    },
+    {
+     "title": "I gave four coding agents $100 budget to build a PDF editor",
+     "url": "https://blog.nielstron.de/2026/10/08/the-remaining-shortcomings-of-coding-agents/"
+    },
+    {
+     "title": "Claude Code の Explore を Haiku にする設定は、2.1.293 に上げるだけで Haiku 5.5 になった。費用は34〜43%減",
+     "url": "https://qiita.com/suwa_nobu/items/837c03e66ba03ee636ea"
+    },
+    {
+     "title": "経理エージェントの権限境界：可逆性で操作を分け、承認をハッシュで束縛する",
+     "url": "https://zenn.dev/xim2jp_tokyo/articles/neta-32-zenn-summary"
+    },
+    {
+     "title": "自作MCPサーバーのツール呼び出しがタイムアウトする — 100行実装に「制限時間と再試行上限」を足す設計",
+     "url": "https://zenn.dev/yukihayama/articles/mcp-tool-timeout-retry-design"
+    },
+    {
+     "title": "Claude Code の自動圧縮は何トークンで起きたか — 実測3回と、それに備えてやっていること",
+     "url": "https://zenn.dev/suisei498/articles/8b9b9edde7768b"
+    },
+    {
+     "title": "One Word Opens the Gate: The Option-Channel Attack on Typed Decision Models as Agent Guardrails",
+     "url": "https://arxiv.org/abs/2610.12292v1"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-11:99",
@@ -4322,6 +4302,16 @@
    "url": "growth.html",
    "date": "2026-10-08",
    "updated": "2026-10-08"
+  },
+  {
+   "id": "growth:2026-10-09:231",
+   "type": "growth",
+   "label": "成長 2026-10-09",
+   "description": "Temporalのpi-temporalに見る耐久実行パターンと、4エージェントPDFエディタ実験が示す人間検証の必要性をagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-09",
+   "updated": "2026-10-09"
   }
  ],
  "edges": [
@@ -4544,19 +4534,19 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 16
+   "weight": 17
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 23
+   "weight": 24
   },
   {
    "source": "source:arxiv",
@@ -4573,13 +4563,13 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 12
+   "weight": 14
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "source:github",
@@ -4596,49 +4586,13 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:rss:DEV Community - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-10",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-10",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-10",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-10",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-08-10",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-08-10",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-10",
-   "kind": "fed"
+   "weight": 3
   },
   {
    "source": "agent",
@@ -6492,6 +6446,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-09",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-09",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Qiita - ClaudeCode",
+   "target": "digest:2026-10-09",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-09",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-10-09",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6563,19 +6544,19 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 23
+   "weight": 25
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "archive:2026-08",
@@ -6586,26 +6567,6 @@
   {
    "source": "archive:2026-08",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-10",
-   "target": "growth:2026-08-10:97",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-10:97",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-10",
-   "target": "growth:2026-08-10:98",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-10:98",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -7925,6 +7886,16 @@
   },
   {
    "source": "growth:2026-10-08:230",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-09",
+   "target": "growth:2026-10-09:231",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-09:231",
    "target": "knowledge:agent-design",
    "kind": "changed"
   },
