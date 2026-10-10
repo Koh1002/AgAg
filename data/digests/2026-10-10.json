@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-10",
+  "title": "「偽の緑」を見張る仕組みと、2,000エージェントによるRust書き換え",
+  "summary": "エージェントが生成したコードをどう検証するかが話題の中心だった。テストを飛ばして緑に見せかける行為を検出するツールや、計画・実装・レビュー・検証の4役で大規模書き換えを行ったPrime Intellectの事例が出た。複数セッションがgitのindexを共有してしまう罠や、MCPツールが120秒でバックグラウンドに回される挙動など、運用で踏みやすい注意点も共有された。Anthropicがモデル挙動の定期報告を約束した点も、透明性の観点で注目される。",
+  "items": [
+    {
+      "title": "Rewriting Prime Agent in Rust",
+      "url": "https://www.primeintellect.ai/blog/prime-agent-rust",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Prime IntellectがTypeScript製のエージェントをRustへ書き換えた記録。約2,000エージェントを2週間動かし、各タスクを計画・実装・レビュー・検証の4役に分け、旧版との差分テストで同等性を確認した。起動後メモリは607MBから106MB、入力までの時間は約13倍速になったという(自社計測)。",
+      "why_useful": "生成と審査を分ける大規模エージェント運用の具体例。ただし数値は自社スイートによる計測である。",
+      "score": 5
+    },
+    {
+      "title": "Fakegreen: Catch AI coding agents faking a green build (no LLM)",
+      "url": "https://github.com/fitzyracing1/fakegreen",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "エージェントのgit diffから、テストのスキップ、アサーションの弱化、`|| true`によるCI失敗の無視といった「偽の緑」を、LLMなしの行ベース規則で検出するCLI。Claude CodeやCodexの終了時フックに組み込み、完了前に差し戻せる。AST解析ではないので見逃しや誤検出はありうる。",
+      "why_useful": "エージェントの完了報告を鵜呑みにしない検証層を、すぐ試せる形で提供している。",
+      "score": 4
+    },
+    {
+      "title": "2 つの AI セッションが同じ作業コピーを触ると、index まで共有される——「自分のファイルだけ add」は安全ではない",
+      "url": "https://qiita.com/sumitsuke/items/b941d1db69f2ce553806",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "複数のAIセッションが同じ作業コピーを使うとgitのindexも共有され、自分のファイルだけaddしても、相手がstage済みのファイルが一緒にcommitされる。対策はセッションごとのgit worktree、`git commit --only`、commit前の`git diff --cached --name-only`確認。",
+      "why_useful": "並列エージェント運用で実際に踏みやすい事故と、すぐ使える対策がそろっている。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code の MCP ツールで「人の操作を待つ」と、120 秒でバックグラウンドに移される（再現と 2 つの作り方）",
+      "url": "https://zenn.dev/tanashun/articles/claude-code-mcp-tool-background",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeは長いMCPツール呼び出しを約120秒でバックグラウンドへ移し、結果を後から新しい発言として届ける。別に`-p`実行時は待ち時間60秒の上限もあり、`timeout`設定で延ばせる。人の操作を待つツールは、すぐ返して結果を通常の発言で受ける方式か、移されたらターンを終えるよう説明に書く方式の2通りで作れる。",
+      "why_useful": "人間の承認を挟むMCPツールを作る際の挙動と設計の選択肢が、再現付きで整理されている。",
+      "score": 4
+    },
+    {
+      "title": "Anthropic Commits to Regular Model Behavior Reports Beyond System Cards",
+      "url": "https://dev.to/alifar/anthropic-commits-to-regular-model-behavior-reports-beyond-system-cards-1id3",
+      "source": "rss:DEV Community - Claude",
+      "category": "議論・意見",
+      "ja_summary": "Anthropicは2026年9月9日のアラインメント評価で、システムカードの外でもモデル挙動に関する定期報告を出すと表明した。ただし公開頻度、書式、対象モデル、詳細度は未定。この記事は二次的な解説で、一次情報は同社の研究ページとされるが、そちらは確認していない。",
+      "why_useful": "基盤モデルの挙動情報の開示がどう進むかを占う動きだが、現時点では約束の段階にとどまる。",
+      "score": 3
+    },
+    {
+      "title": "Buzz: Jack Dorsey's AI agent workspace",
+      "url": "https://www.smartcompany.com.au/technology/jack-dorsey-buzz-ai-slack-github-rival/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Block(Jack Dorsey氏)が公開したBuzzは、人とAIエージェントが同じチャットで働くことを狙うオープンソースの作業空間。公開自体は7月で、9月末にSNSで「AIだけで会社を運営」といった誇張を伴って再拡散したと指摘する検証記事もある。検索結果の要約に基づく情報で、記事本文は確認していない。",
+      "why_useful": "話題の再燃と、誇張された拡散内容を切り分けて見るべき事例。",
+      "score": 2
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "「偽の緑」検出ツール、生成と検証を分けた大規模書き換え、作業コピー共有の罠をagent-design.mdに追記した。"
+    }
+  ]
+}

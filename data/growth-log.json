@@ -1866,5 +1866,13 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-10",
+    "type": "knowledge",
+    "description": "AIエージェントの「偽の緑」検出ツール、生成と検証を分けた大規模書き換え事例、作業コピー共有の罠をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
