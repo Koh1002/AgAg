@@ -1874,5 +1874,13 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-11",
+    "type": "knowledge",
+    "description": "見えない指示への追従実測、MCP実装差、無人ループの自己評価の否定率、例文の写り込み、subprocessの停止の罠をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

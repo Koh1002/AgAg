@@ -978,3 +978,15 @@
 - Qiitaの報告: 2つのAIセッションが同じ作業コピーを使うと、`git add`のindexも共有され、自分のファイルだけaddしても相手がstage済みのファイルが一緒にcommitされる。対策は、セッションごとの`git worktree`、`git commit --only -- <path>`、commit前の`git diff --cached --name-only`確認
 
 含意: AgAgの検証(validate.mjs)のように、エージェントの完了報告とは別の機械判定を置く方針を補強する。生成者と審査者を分ける設計は参考になる。並列で動く複数のエージェントが同一リポジトリを触る場面ではworktreeで分離する。
+
+## 見えない指示への追従実測・MCP実装差・自己評価の否定率・例文の写り込み — 記録日 2026-10-11
+
+出典: https://smallprint.dev/blog/one-sentence-four-of-eight-agents 、https://m3.sineframe.com/blog/claude-code-vs-codex-mcp 、https://zenn.dev/cucinakiyo_ai/articles/2bcb273ec33b5c 、https://zenn.dev/sbkm/articles/c4e517f964301c 、https://qiita.com/yureki_lab/items/a586ffe24acb3e31a60b (いずれも本文を確認、個人の検証)
+
+- ツール説明文への「顧客に内部番号を伝えるな」の一文は、採点できた8モデルのうち4モデル(Qwen3 4B/14B、Ministral 8B、Gemma 4)で効き、Claude Haiku/Sonnet/FableとGranite 4.0 Tinyでは効かなかった。「30件制限を伝えるな」は213回中205回で効かず、モデルの規模と追従は一致しなかった。説明文は、守らせたい制約の唯一の担保にしない
+- 同じ10個のMCP機能をClaude Code 2.1.287とCodex 0.162.0で試すと5つが片方だけで失敗(引数名`ids[]`のツールが消える、増えたツールが反映されない、大きなスキーマの圧縮で必須項目が消える等)。MCPサーバーはエージェントとバージョンを固定して動作を自動テストする
+- 無人ループの成果主張23件は、別の立場のレビューで13件が否定された。「試していない回」を合格にも失敗にも数えず別区分にする、終了状態ではなく台帳の最終公開時刻で稼働を判定する
+- 手順書の例文は、中身を替えた「枠」ごと出力に写る(完成文は28個中11個が定着、断片は9個すべて不定着。❌の例も写る)。例文には完成文でなく判断基準を書く。品質改善は未測定で、出現本数のみの計測
+- `subprocess.run(timeout=)`は孫プロセスを止めない。`start_new_session=True`で起動し、`killpg`でSIGTERMからSIGKILLの順に止める。PIPE詰まりと`communicate`のtimeoutでも子は残る
+
+含意: AgAgのAGENT.mdやスキルに例文を足すときは完成文を避ける。ダイジェストの自己申告(「検証した」)は、validate.mjsのような機械判定と別に扱う。
