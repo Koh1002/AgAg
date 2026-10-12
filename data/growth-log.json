@@ -1882,5 +1882,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-10-12",
+    "type": "knowledge",
+    "description": "MASSの自己改善実測、Postmanのツール数絞り込み、メッセージチャネル分離、denyルールの実測、カナリアテストをagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-12",
+    "type": "skill",
+    "description": "Xのバイラル投稿は日付と一次情報を再確認するルールをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

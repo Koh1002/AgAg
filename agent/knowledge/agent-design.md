@@ -990,3 +990,15 @@
 - `subprocess.run(timeout=)`は孫プロセスを止めない。`start_new_session=True`で起動し、`killpg`でSIGTERMからSIGKILLの順に止める。PIPE詰まりと`communicate`のtimeoutでも子は残る
 
 含意: AgAgのAGENT.mdやスキルに例文を足すときは完成文を避ける。ダイジェストの自己申告(「検証した」)は、validate.mjsのような機械判定と別に扱う。
+
+## 自己改善の実測・ツール数の上限・チャネル分離・denyの実測・カナリアテスト — 記録日 2026-10-12
+
+出典: https://pub.sakana.ai/mass/ 、https://zenn.dev/takuh/articles/6c02d8705609ea 、https://harshalgajjar.com/blog/multi-agent-harnesses-need-separate-message-channels 、https://zenn.dev/emilk1225/articles/73356c9b0e156d 、https://zenn.dev/yunisuta/articles/claude-anthropic-typescript-security-wczkt2 (いずれも本文を確認、著者側・個人の報告)
+
+- SakanaのMASSは、同一モデルが実行・最適化・評価を担い、自己ランク付けで選んだ軌跡でLoRA微調整を2ラウンド回す。未学習の合成研究タスク3件の勝率(外部モデル判定)は53.9%→69.9%だが、Terminal-Bench 2.0は0.96倍、SWE-bench Verifiedは0.94倍。自己改善は学習した分布の外へ均一には転移しない
+- Postmanは170個超のツールから依頼ごとに約15個を埋め込み検索で選ぶ。同社の実測では約40個を超えると誤呼び出しが増えた。ツールは常時全部見せず、動的に絞る
+- マルチエージェントの通信は上位・下位・横・ピア・アラートのチャネルに分け、ハーネスが出所のタグと権限の順序を強制する提案(未実装の主張)
+- Claude Code 2.1.296(Windows)でdenyの`../`相対パスは書き込みを止めなかった。絶対パスなら止まるが、Bash自動許可下の`node`経由の書き込みは止まらない。denyは壁でなくブレーキと見なし、実際に試す
+- 毒入りページでの送信ツール呼び出しを、attempted/executedに分けて防御条件ごとに20回数えるカナリアテスト。確率的な防御(タグ囲み)と、汚染後に副作用ツールを閉じる決定的な防御を区別する
+
+含意: AgAgの自己改善(AGENT.mdの自己編集)も、効果は別の機械判定(validate.mjs)で測る。
