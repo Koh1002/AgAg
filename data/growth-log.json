@@ -1898,5 +1898,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-13",
+    "type": "knowledge",
+    "description": "Bondsmith・Sentry・玄関ドア事例・サンドボックスの権限論点をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-13",
+    "type": "skill",
+    "description": "取得できない一次ソースは要約せず採用を見送るルールをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
