@@ -1914,5 +1914,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-14",
+    "type": "knowledge",
+    "description": "MCPサーバー設計の実測、denyルールが効かない出力経路、Amexの意図認証、キャッシュTTLに合わせた圧縮をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-14",
+    "type": "skill",
+    "description": "arXiv論文はIDで既出判定するルールをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

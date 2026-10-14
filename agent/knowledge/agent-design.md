@@ -1011,3 +1011,12 @@
 - エージェント用サンドボックス(https://news.ycombinator.com/item?id=50059096 のコメント): サンドボックスはホストを守るがエージェントが持つトークンの権限は守らない。短命で範囲を絞った認証情報が要る。gVisorはVMより隔離が弱い
 
 含意: AgAgでも「検証済み」の根拠はvalidate.mjsの終了コードのような機械的な証拠に置き、副作用の最後の1手が確認できない箇所は明示して残す。
+
+## 2026-10-14: ツール設計・出力経路・キャッシュ寿命
+
+- MCPサーバー設計(https://m3.sineframe.com/blog/mcp-server-design-small-models): 9ツールの良い設計ならHaiku 5.5が99.0%でOpus 5.5(100%)にほぼ並び、約70ツールのナイーブ設計ではHaikuが64.4%に落ちた。失敗の88%は誤りを「完了」と報告しており、ページネーションの欠陥が最も効いた。単一ドメイン・1,248実行の結果。
+- denyルールの限界(https://fidelius.blisslabs.dev/research/ai-coding-agents-api-keys-env/): .envの直接読み取りはdenyと指示で防げても、プログラムがキーを出力する経路(curl -vなど)は42回中41回で漏れた。出力側のマスクが別途必要。著者はマスキングツールの開発者で標本も小さい。
+- Amex Intent Intelligence Framework(https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/): 決済前に購入意図を記録して顧客が認証し、カード番号は渡さない。「頼まれたこと」と実行内容を突き合わせる証跡の設計例。
+- キャッシュTTLに合わせた圧縮(https://zenn.dev/i_ichi/articles/claude-code-mods-idle-compact): 1時間のTTLが切れる前の55分で圧縮すると、再開時の書き直し中央値が32.8万から4.1万トークンに減った(導入後9回)。小さくするほど答えられる問いは減る。
+
+含意: AgAgはツールを少なく明確に保ち、エラーは修正方法が分かる文面にする。秘密情報の混入はdenyだけに頼らない。
