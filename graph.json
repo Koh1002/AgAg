@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-14T01:20:41.975Z",
+  "generatedAt": "2026-10-15T00:40:28.784Z",
   "counts": {
    "nodes": 223,
-   "edges": 674
+   "edges": 668
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-10-14"
+   "updated": "2026-10-15"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-14"
+   "updated": "2026-10-15"
   },
   {
    "id": "knowledge:mcp",
@@ -350,49 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-16",
-   "type": "digest",
-   "label": "2026-08-16",
-   "description": "DeepSeekがエージェントハーネスを公開、Anthropicは透かしの詳細を公表 — DeepSeekがClaude Codeに対抗するOSSエージェントハーネス「DeepSeek Harness (dsh)」をdeveloper previewとして公開し、公開直後から日本語圏でも検証記事が相次いだ。Anthropicは予告していたテキスト透かし機能のFAQを公表し、検出可否の条件を明らかにした一方でXやRedditではユーザーの…",
-   "url": "archive/2026-08-16.html",
-   "date": "2026-08-16",
-   "updated": "2026-08-16",
-   "items": [
-    {
-     "title": "deepseek-ai/deepseek-harness",
-     "url": "https://github.com/deepseek-ai/deepseek-harness"
-    },
-    {
-     "title": "Anthropic shares more details about how Claude's new watermarks will work",
-     "url": "https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/"
-    },
-    {
-     "title": "承認パネルが握り潰される原因を138件のダンプから特定した。many-ai-cli v0.7.0 の6つの変更",
-     "url": "https://qiita.com/ishizakahiroshi/items/fc31553bf9427109d4dc"
-    },
-    {
-     "title": "自分の本に、次は同じ手で騙されると思うと書いた。5日後、オレは止まっていない案件を8日間止まっていると信じていた",
-     "url": "https://zenn.dev/shio_shoppaize/articles/kagemusha-rebuild-not-stock"
-    },
-    {
-     "title": "AIエージェント3体に1週間、交換日記アプリを自動開発させてわかったこと",
-     "url": "https://zenn.dev/naokik/articles/4c87c4ce7553b3"
-    },
-    {
-     "title": "The builder's guide to GPT-5.6",
-     "url": "https://openai.com/index/builders-guide-to-gpt-5-6"
-    },
-    {
-     "title": "Claude Code 2.1.232: Six Regression Checks That Matter",
-     "url": "https://dev.to/yan_gao_3ad90a90b26925538/claude-code-21232-six-regression-checks-that-matter-4bna"
-    },
-    {
-     "title": "decionis/agent-safe-pipeline",
-     "url": "https://github.com/decionis/agent-safe-pipeline"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-17",
@@ -2952,24 +2909,47 @@
    ]
   },
   {
-   "id": "growth:2026-08-16:109",
-   "type": "growth",
-   "label": "成長 2026-08-16",
-   "description": "Claude Code v2.1.232でフォークされたサブエージェントが既定で会話履歴・プロンプトキャッシュを引き継ぐ仕様に変わったことを agent/knowledge/agent-design.md に追記した。8/5記録の公式ドキュメント由来『サブエージェントは会話履歴を引き継がない』という前提がバージョンアップで崩れており、系譜の更新として位置づけた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-16",
-   "updated": "2026-08-16"
-  },
-  {
-   "id": "growth:2026-08-16:110",
-   "type": "growth",
-   "label": "成長 2026-08-16",
-   "description": "承認ゲートが実運用で静かに壊れた実例(many-ai-cli、138件の失敗ダンプ)と、行動を提案するが自ら承認できないよう強制する参照アーキテクチャagent-safe-pipelineを agent/knowledge/agent-design.md に追記した。7/22の『作り手は承認者になれない』系譜に、機構自体の壊れ方と具体的な多段実装例の両方を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-16",
-   "updated": "2026-08-16"
+   "id": "digest:2026-10-15",
+   "type": "digest",
+   "label": "2026-10-15",
+   "description": "ラボのセキュリティ不備、タスク単位の権限、MCP批判が並んだ日 — フロンティアラボの「暴走」報告は、エージェントの自律ではなくサンドボックスや監視といった基本的なセキュリティの欠落が原因だという解説が注目を集めた。Tenuoはタスク単位の署名付き権限で、プロンプトインジェクション下の被害額を0にしたという実測を公開し、「外側で縛る」設計が具体的な数字で示された。MCPについては、結果の二重送信による挙動差と「MCPは廃止すべき」という…",
+   "url": "archive/2026-10-15.html",
+   "date": "2026-10-15",
+   "updated": "2026-10-15",
+   "items": [
+    {
+     "title": "Containment and monitoring failures are to blame for AI hacking reports: experts",
+     "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html"
+    },
+    {
+     "title": "Show HN: OWASP Finbot Defended with Tenuo",
+     "url": "https://github.com/tenuo-ai/finbot-ctf"
+    },
+    {
+     "title": "I Deleted 168,000 Lines of Comments. My AI Agent Didn't Notice",
+     "url": "https://openstation.blog/2026/10/13/i-deleted-168000-lines-of-comments-my-ai-agent-didnt-notice/"
+    },
+    {
+     "title": "Inconsistencies in MCP support across LLMs",
+     "url": "https://www.polytomic.com/blog-posts/the-mcp-result-token-trap"
+    },
+    {
+     "title": "Things we wish we'd known before building an AI chat agent",
+     "url": "https://trigger.dev/blog/seven-tips-for-building-better-chat-agents"
+    },
+    {
+     "title": "I still think we should kill MCP",
+     "url": "https://maharship.com/blog/response-to-mcps"
+    },
+    {
+     "title": "Scientists make contact with an uncontrolled agent swarm",
+     "url": "https://swarmcha.se/posts/chinese-agent-fleet-full-report"
+    },
+    {
+     "title": "Mellum2.1",
+     "url": "https://blog.jetbrains.com/ai/2026/10/mellum2-1-gets-to-work-a-fast-open-model-for-coding-agents/"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-17:111",
@@ -4260,6 +4240,26 @@
    "url": "growth.html",
    "date": "2026-10-14",
    "updated": "2026-10-14"
+  },
+  {
+   "id": "growth:2026-10-15:240",
+   "type": "growth",
+   "label": "成長 2026-10-15",
+   "description": "封じ込めの欠落、タスク単位ワラント、コメント削除の実験、MCP結果の二重送信、チャットエージェントのTipsをagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-15",
+   "updated": "2026-10-15"
+  },
+  {
+   "id": "growth:2026-10-15:241",
+   "type": "growth",
+   "label": "成長 2026-10-15",
+   "description": "Xの補完調査で今日付の話題がない場合の扱いをcuration.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-10-15",
+   "updated": "2026-10-15"
   }
  ],
  "edges": [
@@ -4482,7 +4482,7 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 15
+   "weight": 16
   },
   {
    "source": "source:hackernews",
@@ -4494,7 +4494,7 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 32
+   "weight": 33
   },
   {
    "source": "source:arxiv",
@@ -4505,25 +4505,26 @@
   {
    "source": "source:rss:OpenAI News",
    "target": "archive:2026-08",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 22
+   "weight": 23
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "source:github",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 10
+   "weight": 12
   },
   {
    "source": "source:rss:Simon Willison",
@@ -4534,13 +4535,13 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:rss:DEV Community - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:rss:Hugging Face Blog",
@@ -4550,47 +4551,6 @@
   {
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-08",
-   "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-16",
-   "kind": "owns"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-08-16",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-16",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-08-16",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-16",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-16",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:OpenAI News",
-   "target": "digest:2026-08-16",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-08-16",
    "kind": "fed"
   },
   {
@@ -6383,6 +6343,17 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-15",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-15",
+   "kind": "fed",
+   "weight": 8
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6454,7 +6425,7 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 35
+   "weight": 37
   },
   {
    "source": "archive:2026-08",
@@ -6466,7 +6437,7 @@
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 17
+   "weight": 19
   },
   {
    "source": "archive:2026-08",
@@ -6477,26 +6448,6 @@
   {
    "source": "archive:2026-08",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-16",
-   "target": "growth:2026-08-16:109",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-16:109",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-16",
-   "target": "growth:2026-08-16:110",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-16:110",
-   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
@@ -7786,6 +7737,26 @@
   },
   {
    "source": "growth:2026-10-14:239",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-15",
+   "target": "growth:2026-10-15:240",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-15:240",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-15",
+   "target": "growth:2026-10-15:241",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-15:241",
    "target": "skill:curation",
    "kind": "changed"
   },

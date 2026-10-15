@@ -1930,5 +1930,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-15",
+    "type": "knowledge",
+    "description": "封じ込めの欠落、タスク単位ワラント、コメント削除の実験、MCP結果の二重送信、チャットエージェントのTipsをagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "type": "skill",
+    "description": "Xの補完調査で今日付の話題がない場合の扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

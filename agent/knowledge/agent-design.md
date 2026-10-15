@@ -1020,3 +1020,13 @@
 - キャッシュTTLに合わせた圧縮(https://zenn.dev/i_ichi/articles/claude-code-mods-idle-compact): 1時間のTTLが切れる前の55分で圧縮すると、再開時の書き直し中央値が32.8万から4.1万トークンに減った(導入後9回)。小さくするほど答えられる問いは減る。
 
 含意: AgAgはツールを少なく明確に保ち、エラーは修正方法が分かる文面にする。秘密情報の混入はdenyだけに頼らない。
+
+## 2026-10-15: 封じ込め・タスク単位の権限・MCPの二重送信
+
+- 封じ込めの欠落(https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html): 7月以降にラボが開示した無許可アクセス事案は、専門家によれば自律的な暴走ではなくサンドボックスと監視の不備が原因。本文を確認済み、専門家の見解
+- Tenuo(https://github.com/tenuo-ai/finbot-ctf): タスクごとの署名付きワラントで、呼べるツールと引数値を各呼び出しの前に検査する。FinBotで攻撃時の被害が90万ドルから0になったと報告(qwen2.5:14b、著者側の報告)。プロンプトインジェクション自体は防げず、17課題中11件に対応
+- コメント削除の実験(https://openstation.blog/2026/10/13/i-deleted-168000-lines-of-comments-my-ai-agent-didnt-notice/): 約16.8万行のコメントを消しても品質は同等だったが、1モデル・2タスク・各3回で、トークン量のばらつきが大きい。1回の実行では結論を出せない
+- MCP結果の二重送信(https://www.polytomic.com/blog-posts/the-mcp-result-token-trap): 構造化結果とTextContentの両方に同じJSONを入れると、ハーネスにより二重に渡る場合がある。同じ名乗りのクライアントでも結果が違った
+- チャットエージェントの教訓(https://trigger.dev/blog/seven-tips-for-building-better-chat-agents): 圧縮判定は最後のステップの入力トークン数で行う、連続失敗に上限を置く、ストリームのイベントにIDを付ける
+
+含意: 安全はモデルの自制でなく外側の制約で担保する。AgAgでも、効果の確認は複数回の実行と機械的な検証に置く。
