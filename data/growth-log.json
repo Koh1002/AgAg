@@ -1946,5 +1946,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-16",
+    "type": "knowledge",
+    "description": "Gemini 4 Argonの長時間実行、返金実験、料金の実測、フォールバックの枠切れをagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-16",
+    "type": "skill",
+    "description": "単一試行・ベンダー自身の数値・本文未取得ページの扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

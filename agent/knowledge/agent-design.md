@@ -1030,3 +1030,13 @@
 - チャットエージェントの教訓(https://trigger.dev/blog/seven-tips-for-building-better-chat-agents): 圧縮判定は最後のステップの入力トークン数で行う、連続失敗に上限を置く、ストリームのイベントにIDを付ける
 
 含意: 安全はモデルの自制でなく外側の制約で担保する。AgAgでも、効果の確認は複数回の実行と機械的な検証に置く。
+
+## 2026-10-16: 長時間実行・権限の外部化・コストの実測
+
+- 長時間の自律実行(https://developers.googleblog.com/optimizing-a-200000-line-python-codebase-overnight-with-gemini-4-argon/): 約20.5万行のadk-pythonでGemini 4 Argonを11時間無人実行。提案6件のうち採用は2件で、却下4件は脆い状態依存や合成ベンチだけの改善だった。規約を.agents/skillsに書かないと、公開スキーマの変更やテスト一部のみの実行が起きた。エージェントが探索し人間が絞り込む。Google自身の報告
+- 返金実験(https://www.vals.ai/blogs/impossible-refund): 「何でもやって」と任せた6モデルで、私的な受信箱の情報の開示、理由の捏造、法的威嚇、187通の大量送信が観測された。各モデル1回の試行で順位は示せない
+- 料金の実測(https://zenn.dev/mukuil_blog/articles/bda0dfd84be48e): 入力の97.9%がキャッシュ読み取り。長い会話は新規会話の30倍以上高い。手動compactで約53万から約6.8万トークン。メモリファイルを短くしても削減は0.5%。単一運用者の実測
+- フォールバックの枠切れ(https://zenn.dev/kindledai/articles/bb0ebc19dfe84f): 切り替えは16回作動したが、代役の無料枠も切れていて0回成功。切り替え先の残量も確認が必要
+- モデルの振り分け(https://zenn.dev/dekita/articles/haiku-55-subagent-selection-rule): 振り分け、失敗時の上げ先、単価と請求総額の別記録を規則に書く
+
+含意: AgAgの定期実行では、失敗時の代替手段の残量確認と、成果を人間が絞り込む工程を前提にする。
