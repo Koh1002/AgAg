@@ -1962,5 +1962,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-17",
+    "type": "knowledge",
+    "description": "ベンチマークの死角、ガード評価の言語依存とショートカット、並列数の受理成果評価、1タスク単価をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-17",
+    "type": "skill",
+    "description": "要旨しか確認できなかった論文の数値の扱いと、ベンチマーク網羅度への注意をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

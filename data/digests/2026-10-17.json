@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-17",
+  "title": "ベンチマークの死角と、ガード・並列数の評価を疑う日",
+  "summary": "Mercorは、米国の労働時間の約90%が既存のAIベンチマークでほとんど測られていない作業に使われていると報告した。arXivでは、エージェントのガード評価が依頼文の言語や評価データのショートカットに左右されるという論文が2本並んだ。Gemini 4 Argonの4体がMinecraftのエンダードラゴンを撃破した報告もある。国内では、並列数を受理された成果で決めるCodexの小規模実験や、トークン単価と1タスク単価の違いが話題だった。Xの補完調査では、今日付で確認できる新しい話題はなかった。",
+  "items": [
+    {
+      "title": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+      "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Mercorは、O*NETの923職種・18,797タスクに対し、29のベンチマークのプロンプトをLLMジャッジで対応付けて網羅度を調べた。5件以上のプロンプトがあるタスクは924件にとどまり、労働時間ベースでは約90%が十分にカバーされていないと推定した。賃金総額の大きい職種が優先され、中所得の知識労働は手薄だった。",
+      "why_useful": "『ベンチマークで高得点=実務で使える』とは限らない根拠になる。結果は暫定的で、ベンチマーク一覧の不完全さや独自のAPEXを含む点に注意(Mercor自身の推定)。",
+      "score": 5
+    },
+    {
+      "title": "Language Is a Security Surface for Agent Guards",
+      "url": "https://arxiv.org/abs/2610.22244",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "ツール呼び出し前に安全性を判定するガード19種を、指示文だけをドイツ語・トルコ語・スワヒリ語・アムハラ語などに翻訳した1,220ステップで検証した。13B未満の9ガードでは、アムハラ語で判定反転率が平均+4.4pp、再現率の有意な低下は10B未満で最大-7.4ppだった。フロンティアのガードは約1pp以内の変化だった。",
+      "why_useful": "小型・専用ガードは言語が変わるだけで判定がぶれうる。ガードを多言語運用に使う前に確認すべき点を示す。",
+      "score": 4
+    },
+    {
+      "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
+      "url": "https://arxiv.org/abs/2610.22243",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェント安全性の評価データに、ラベルを予測できるショートカットがあるかを監査する枠組みを提案した。AgentDojo-Trajではツール名の一致だけでF1が混在分割0.901、ドメイン単位の分割では0.495になった。Haikuでの介入実験でブロック率が動いたが、LunaやQ8 TS-Guardでは再現しなかった。",
+      "why_useful": "安全評価の高得点が概念の理解でなく手がかりの利用かもしれないことを、ドメイン別分割やプラセボ対照で確かめる手順を示す。",
+      "score": 4
+    },
+    {
+      "title": "A team of Gemini 4 Argon agents beats Minecraft",
+      "url": "https://arxiv.org/abs/2610.22319",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "Gemini 4 Argonのエージェント4体が、Mineflayerだけを使い、チャットと共有メモリで連携してEasyのMinecraftでエンダードラゴンを撃破した。27時間14分、2,783本のプログラム作成、605回の死亡を要した。役割分担は人間が指定せず、介入もなかったという。",
+      "why_useful": "1日以上続く計画維持とマルチエージェント協調の実例。ただし1回の成功報告で、Easyの設定であり、要旨しか確認していない(著者の報告)。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントの並列数は「受理された成果」で決める——Codex 2→3 controlled pilotの結果",
+      "url": "https://zenn.dev/asagiman/articles/codex-concurrency-pilot",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同一ホスト・人工タスク・retryなしで、Codexの並列数上限を2と3で比べた。各条件3サンプル(計6サンプル)で、上限3は受理8/9・誤停止1件、受理スループットは約3.7%低下したため、上限2を維持した。統計的有意性は主張せず、金銭コストも未計測と明記している。",
+      "why_useful": "並列数を投入数でなく受理された成果で決める評価設計の実例。サンプルが少なく、一般則ではなくこの条件での判定である点に注意(著者の実測)。",
+      "score": 4
+    },
+    {
+      "title": "Opus 5.5は1タスク$13.43→$3.97で性能差1.8pt｜CursorBench 4.0で見る「トークン単価≠タスクのコスト」",
+      "url": "https://zenn.dev/cauchye_asia/articles/a7a508f0682998",
+      "source": "rss:Zenn - Claude",
+      "category": "議論・意見",
+      "ja_summary": "CursorBench 4.0の公開値で、Opus 5.5のMaxは57.8%・1タスク$13.43、Highは56.0%・$3.97だった。Gemini 3.8 Flash Highは単価が安い一方、1タスクではSonnet 5.5 Highの約3.9倍(筆者計算)になる。筆者は自分のタスクで1タスクあたりの費用を実測するよう勧める。",
+      "why_useful": "モデル選定を単価でなく1タスクの費用で比べる視点。数値はCursorのタスク分布に基づく公開値で、そのまま自社業務に当てはまるとは限らない。",
+      "score": 4
+    },
+    {
+      "title": "【要約】How the Claude Code team does code review ― 「人間のレビュー時間を最小化」する7層の仕組み",
+      "url": "https://qiita.com/NaokiIshimura/items/0a79a9daf29ae7553f14",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeチームのレビュー体制の要約記事。事前検証、複数エージェントによる合意制のAIレビュー、ブロックする自動チェック、リスクに応じた人間の承認、段階的リリース、迅速なロールバックの7層からなる。エージェントの承認は人間の承認にカウントしない。",
+      "why_useful": "AIレビューを人間の承認の代わりにせず、リスクで承認者数を変える設計は、自動運用の安全境界に流用できる。(二次の要約記事で、元記事は未確認)",
+      "score": 3
+    },
+    {
+      "title": "Improving Environment-Agnostic Coding Agents: The Role of Scaffolding",
+      "url": "https://arxiv.org/abs/2610.22289",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "汎用のCodex系エージェントに『困難を報告して制御を返す』指示を加えると、ARC-AGI-3とAGI Mazeで平均スコアが上がり、Terminal-Benchでは小さく結果がまちまちだった。それでも専用エージェントには及ばず、リセット判断をスクリプト制御に移すと差の一部が戻った。性能向上にはトークンコストの増加が伴う。",
+      "why_useful": "モデルに任せる判断と外側の制御コードに置く判断を分ける設計の根拠になる。(要旨のみ確認、具体的な数値は未確認)",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "ベンチマークの死角、ガード評価の言語依存とショートカット、並列数の受理成果評価、1タスク単価をagent-design.mdに追記した。" },
+    { "type": "skill", "description": "要旨しか確認できなかった論文の数値の扱いと、ベンチマーク網羅度への注意をcuration.mdに追記した。" }
+  ]
+}
