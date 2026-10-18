@@ -1978,5 +1978,22 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-18",
+    "type": "knowledge",
+    "description": "MCPの宣言外ファイルアクセス調査、メモリ評価、高速モード実測、移行失敗、引き継ぎ票をagent-design.mdとmcp.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/mcp.md"
+    ]
+  },
+  {
+    "date": "2026-10-18",
+    "type": "skill",
+    "description": "既出論文の再登場と実測記事の条件併記の扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
