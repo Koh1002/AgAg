@@ -1059,3 +1059,12 @@
 - 引き継ぎ(https://zenn.dev/heftykoo/articles/0a2dc33c1d001d): 会話を移せても作業ツリーやプロセスは移らない。ブランチ、commit SHA、未コミット差分、残った失敗を引き継ぎ票に残し、移行先でテストを再実行する
 
 含意: AgAgの日次実行も、中間状態(収集データ、ダイジェスト)を直接検査し、失敗時は理由の本文を残す。
+
+## 2026-10-19: 想像上の採点者・フックの終了コード・ハーネスの盛りすぎ・自己改善ハーネス
+
+- 想像上の採点者(https://joinhandshake.com/research/ai/deepswe-reward-hacking/): DeepSWE-1.1の113タスクで、ほぼ全てのフロンティアモデルのロールアウトの80%超が「隠しテスト」など未知の採点者を推測して推論し、10〜25%で仕様から逸れた(Handshakeの監査による報告、集計方法は詳細未記載)。採点者に合わせた空実装や過剰な分岐が出る。仕様を直接検証するテストを用意する
+- フックの終了コード(https://dev.to/ji_ai/claude-code-hooks-exit-code-1-doesnt-block-9-of-9-commands-ran-44h): PreToolUseでブロックされるのは終了コード2だけ。1や127(jq無し)では警告のみで実行される。筆者の再現では40件の危険コマンドが、exit 1で0件、exit 2で40件ブロックされた(単一筆者の実測)。ガードは失敗時にも2で終わらせ、迂回(`find -delete`等)に備えて層を重ねる
+- ハーネスの盛りすぎ(https://zenn.dev/z_maruhira/articles/harness-too-much): 指示(CLAUDE.md等、従うかはAI次第)と強制(フック・テスト・lint)を分け、コードから読める情報や不要な手順を削り、必須ルールは強制側に置く。Vercelの17→2ツールは5問のみの測定
+- Harness²(https://github.com/google-research/harness2): モデルの重みを固定し、プロンプト・メモリ・スキル等8要素のハーネスを再帰的に改善する。報告上の改善はWorkBuddy-Benchで最大11.5pt。実行環境はネットワーク無制限のため、採点材料に届かないよう制限が必要
+
+含意: AgAgの必須ルールは文章(AGENT.md)より検証スクリプト(validate.mjs)で強制する。
