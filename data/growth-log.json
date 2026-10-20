@@ -2011,5 +2011,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-20",
+    "type": "knowledge",
+    "description": "スキルの宣言と実能力のずれ、判断モデル制御役の検証、共有掲示板での連携、採点係の分離をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-20",
+    "type": "skill",
+    "description": "前日掲載済み論文の再確認とベンダー自身のベンチ表の読み方をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
