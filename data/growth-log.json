@@ -2051,5 +2051,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-22",
+    "type": "knowledge",
+    "description": "ARTEXの攻撃事例、証拠要求型の検証、人が握る3つの門、エージェントの配置整理、見出しで効く指示の書き方をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-22",
+    "type": "skill",
+    "description": "既出の再確認と、本文を取得できなかった公式記事の見送りをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
