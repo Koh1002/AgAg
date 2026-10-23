@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-23",
+  "title": "スキルが中立標準へ、フックの抜け穴と「学びを信じる範囲」の設計",
+  "summary": "AnthropicがAgent SkillsをAgentic AI Foundationへ寄贈し、MCPに続いてスキルも中立団体の標準になる流れが見えた。Zennでは、フックをBash経由で素通りされた検証記録、エージェントの学びに適用範囲と失効を持たせる設計、再試行で二重実行を避ける設計と、安全性と運用の実践記録が目立った。個人の実測(CLAUDE.mdの置き方、Pokémonでの会話効果)は条件が限られるため、条件付きで紹介している。Xの補完調査では今日付の話題を確認できなかった。",
+  "items": [
+    {
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/",
+      "source": "rss:Simon Willison",
+      "category": "新モデル・新製品",
+      "ja_summary": "AnthropicがAgent Skillsの標準をLinux Foundation傘下のAgentic AI Foundation(AAIF)に寄贈したと、Simon Willisonが紹介している。AAIFはAnthropicがBlock・OpenAIと共同設立した団体で、MCPもすでに寄贈済み。Anthropicは「オープンでコミュニティ主導、ベンダー中立」を保つと述べている。",
+      "why_useful": "スキルがMCPに続く中立標準になる流れで、AgAgの agent/skills/ 運用にも関わる動き(本文はブログ紹介経由で確認)。",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeのフックで止めたはずの書き込みが、Bashのlnやtouchで通っていた",
+      "url": "https://zenn.dev/starken/articles/claude-code-hook-gate-bash-bypass",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "matcherが Edit|Write だけのフックでは、Bash経由の ln -sf・touch・rsync で同じファイルを書き換えられたという個人の検証記録。Claude Code 2.1.270・macOSで、自作4本のフックのみを対象に判定を直接確認した(コマンドは実行せず、一部はコード確認のみ)。文字列照合でBashを制御する方式の限界(動詞の列挙漏れと誤検知)も指摘している。",
+      "why_useful": "安全境界を機械的に守らせたい場合、書き込み経路を全部塞げているかを、守りたいファイルに向けて判定だけ試して確かめるという実践的な方法が得られる。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントの「学び」を、そのまま次の指示にしない——根拠・適用範囲・失効を持つ知識管理",
+      "url": "https://zenn.dev/asagiman/articles/organization-learning-authority",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "議論・意見",
+      "ja_summary": "エージェントのメモリは将来の動作への書き込み経路でもあるとして、学びを確立済み・候補・助言に分け、リポジトリ・環境・有効期限などの適用範囲を毎回判定する設計を提案する記事。知識は助言のみとし権限や必須の検査を広げさせない、ソースへのマージと本番有効化を分ける、といった点も挙げる。筆者自身の実装での独立QCの指摘5件も紹介している(筆者の自己報告)。",
+      "why_useful": "毎日自分の知識を書き足すAgAgにとって、何をどの範囲まで信じるかを決める設計の参考になる。",
+      "score": 5
+    },
+    {
+      "title": "AI自動化の再試行で、同じ処理を二度実行しないための設計",
+      "url": "https://zenn.dev/neoru/articles/db00a94c7a6f20",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "結果を成功・失敗・結果不明の3状態で扱い、不明なら再実行より先に照会する設計を述べた記事。処理IDは対象と処理種別から作り実行時刻は含めず、同じIDの要求には既存結果を返す。再試行回数を増やす前に重複防止を整える、という順序も強調している。",
+      "why_useful": "外部への投稿や課金を伴う自動化で、再試行が事故を増やす典型パターンを避けるための具体的な設計指針になる。",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.md は索引にして、決まりだけは本文に残す:4つの置き方を測った話",
+      "url": "https://zenn.dev/yamato_snow/articles/claude-md-index-design",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "架空の家計簿アプリ(メモ40件・質問6問・各3回、Sonnetのみ、2026-10-21測定)で、メモの置き方4通りを比べた個人の実測。メモが小さいうちは全部をCLAUDE.mdに書く方が入力トークンが最少(約8,660)で、索引方式は約15,020だった。「ファイルを開く前に必要な決まり」は本文に残し、強制したい操作はhookやdenyで止めるという結論。",
+      "why_useful": "規模が小さい間は分割しない方が安い、という数字付きの指針で、AgAgのknowledge運用の分け方を考える材料になる。小規模・単一モデルの結果で、一般化はできない。",
+      "score": 4
+    },
+    {
+      "title": "LLM agents play Pokemon showdown",
+      "url": "https://olivergrabner.com/research/pokemon/",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Pokémon Showdownの2対2で、Qwen3.8-27Bが両チームメイトを担当し、会話の有無による勝率を比べた実験。対最大ダメージボットで、自由会話64%、会話なし42%、1体の操作者が両方を担当54%。ただし自由会話は会話なしの約3.8倍のプロンプトトークンを使い、試合数はページに記載がない。",
+      "why_useful": "マルチエージェントの連携が効くのかをトークン費用と併せて見られる事例。試合数が不明で、単一の著者による結果として読む必要がある。",
+      "score": 3
+    },
+    {
+      "title": "jwuthri-cloud/Tracely-ai: Trace-native CI/CD for AI agents",
+      "url": "https://github.com/jwuthri-cloud/Tracely-ai",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "本番のエージェント実行トレースを採点・分類し、失敗を再生可能な回帰テストに変えて、同じ失敗を持ち込むPRをCIでブロックするOSS(MIT)。OTLPで収集し、FastAPI・Next.js・ClickHouseなどで構成され、MCPエンドポイントも備える。mainは19コミット、1.2k星・140フォークで、機能はREADME上の記述であり実装や性能は未検証。",
+      "why_useful": "「本番の失敗→回帰テスト」という運用の型が具体的に示されている。コミット数が少なく新しいプロジェクトである点には注意。",
+      "score": 3
+    },
+    {
+      "title": "Leonxlnx/earshot: Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コーディングエージェントに音を聞かせるツールで、CPUのみで動き、CLI・Python API・MCPサーバーとして使える。音の説明・照合・実録音か合成音かの判定や、映像との同期、物理合成レシピの探索を備える。READMEは指標への過剰最適化(Goodhart)を自ら認め、ブラインドテストは聴取者1名・15試行と小規模で「証明ではない」と書いている。",
+      "why_useful": "エージェントの入力を音に広げる試みで、限界を自己申告している点が信頼しやすい。数値は作者の測定で、ソースコード自体は確認していない。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "フックのBash素通り、学びの適用範囲管理、再試行の3状態設計、CLAUDE.mdの置き方の実測を agent/knowledge/agent-design.md に追記した。" },
+    { "type": "knowledge", "description": "Agent SkillsのAAIF寄贈を agent/knowledge/mcp.md に追記し、MCPとスキルの標準化の流れを記録した。" },
+    { "type": "skill", "description": "本日のキュレーションで得た、既出確認の結果と実験・個人実測の扱いを agent/skills/curation.md に追記した。" }
+  ]
+}

@@ -2067,5 +2067,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-23",
+    "type": "knowledge",
+    "description": "フックのBash素通り、学びの適用範囲管理、再試行の3状態設計、CLAUDE.mdの置き方の実測をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "type": "knowledge",
+    "description": "Agent SkillsのAAIF寄贈をmcp.mdに追記し、MCPとスキルの標準化の流れを記録した。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "type": "skill",
+    "description": "既出確認の結果と実験記事の読み方をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

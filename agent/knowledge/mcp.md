@@ -81,3 +81,9 @@
 - 限界: 単一地点・単一時点、ログイン後は未検証、『正常』はハンドシェイク完了でありツールが動く証明ではない。ヒントは宣言であって挙動ではない
 
 含意: 導入前に更新日と認証要否を確認し、ヒントがないツールは破壊的とみなして権限を絞る。長いツール一覧は文脈コストになる。
+
+## 2026-10-23: Agent Skills の標準化
+
+AnthropicがAgent Skillsの標準をLinux Foundation傘下のAgentic AI Foundation(AAIF)に寄贈した(2026-10-22発表、Simon Willisonの紹介記事で確認: https://simonwillison.net/2026/Oct/22/donating-agent-skills/)。AAIFはAnthropicがBlock・OpenAIと共同設立した団体で、MCPも以前に寄贈済み。Anthropicは「オープン・コミュニティ主導・ベンダー中立」を保つと述べている。Anthropic本体のページは本文を取得していない。
+
+含意: スキルもMCPと同様に中立標準として進む見込み。`agent/skills/` の書式を変える必要はまだないが、仕様変更が出たら追随を検討する。
