@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-24",
+  "title": "エージェントの権限を「基盤・認証・購入上限」で絞る動きが一斉に出た日",
+  "summary": "NVIDIA Sentry、1Password for Agents、WalmartのAgent Profilesと、エージェントに権限を渡す側の仕組みが2日の間に相次いで発表された。共通点は、エージェントに秘密や決済手段を見せず、承認や上限額で外から縛る設計である。研究ではLLM集団の群集行動の暴走や、適応型フィッシングへの脆弱性が要旨で報告された。実務では、ガードの誤ブロックを減らす作り方や、DoorDashの大規模な実運用事例が出ている。Xでは今日付の確認できる話題がなかった。",
+  "items": [
+    {
+      "title": "誤って止めるガードは、無いより悪い。Claude Codeのhooksを止めすぎない作り方",
+      "url": "https://zenn.dev/waiteu/articles/guard-without-false-blocks",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのhooksで起きた誤ブロック5件(`2>&1`を引数と誤読、引用符内の文字を実行文と誤読など)と直し方をまとめた記事。判定できない部分は通し、ガード自身の異常やタイムアウトでは止める方針をとる。止まるケースと通るケースを対にしたテストを書き、設定ファイルとの配線も確かめる。筆者の自己報告で、pre-commitの設定漏れでガードが4日間動いていなかった例も挙げている。",
+      "why_useful": "安全境界を機械で守る設計の実例で、AgAgのvalidate.mjsの作り方にも直接使える。",
+      "score": 5
+    },
+    {
+      "title": "Inside NVIDIA Sentry: Secure AI Agents at Runtime",
+      "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "NVIDIAがBlueField-4 DPU上で動くエージェント向けセキュリティ基盤Sentryを説明した(2026-10-21公開)。エージェントごとのL4ファイアウォール、OPAのRegoポリシーによるL7検査、ホストメモリの解析、振る舞い分類モデルによる逸脱検知を、ホストから分離したハードウェア側で行う。製品版は来年初頭の予定で、現時点では個別ライブラリのみ試せる。",
+      "why_useful": "エージェントの権限制御をソフトウェアの外のハードウェア層で強制する動きで、ベンダー自身の説明のため振る舞い分類の精度は未記載である点に注意。",
+      "score": 4
+    },
+    {
+      "title": "Introducing 1Password for Agents",
+      "url": "https://1password.com/blog/1password-for-ai-agents",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "エージェントがログインを求めると、ユーザーが1Passwordで承認し、1Passwordが遷移先サイトへ直接自動入力する仕組み(2026-10-22公開)。エージェントはパスワードやワンタイムコードを見ない。個人・ファミリープランで追加料金なしだが、対応エージェントは提供中と近日対応予定が混在し、.euと.caのアカウントは未対応である。",
+      "why_useful": "秘密情報をエージェントに渡さず、人の承認を挟んで使わせる設計の製品化例。",
+      "score": 4
+    },
+    {
+      "title": "Walmart Makes It Possible for Agents to Shop on Behalf of Customers",
+      "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Walmartが、エージェント経由の購入を専用のAgent Profileで分けて管理する仕組みを発表した(2026-10-21)。購入ごとの承認か、上限額内の自動購入かを選べ、エージェントは決済カード情報を受け取れない。MCP接続のWalmart Agent Gatewayは企業・開発者向けベータから始まる。Agent Profilesの開始は発表から1か月以内の予定で、実際の提供はまだ。",
+      "why_useful": "小売の大手が、エージェントの購入を既定で承認制にし、規約違反のエージェントをブロックするという運用ルールまで公開した点が参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Automating Feature Flag Cleanup at Scale with Multi-Agent LLM Systems: An Industrial Experience at DoorDash",
+      "url": "https://arxiv.org/abs/2610.31351",
+      "source": "arxiv",
+      "category": "事例・ノウハウ",
+      "ja_summary": "DoorDashが、陳腐化したフィーチャーフラグの削除をマルチエージェントで自動化した事例。MCPでフラグの展開状況を照会し、Jiraチケットを読んでPRを作る。陳腐化フラグ50件の評価で、エンジニアが承認したPRは45件(90%)、1件あたり平均$4.79・13.8分で、手作業の見積もり1〜2時間と比べて短い。要旨のみ確認で、失敗5件の内訳は不明。",
+      "why_useful": "成功の基準を「エンジニアの承認」に置いた、コストと時間つきの大規模実運用の報告(企業自身による)。",
+      "score": 4
+    },
+    {
+      "title": "LLM Multi-Agent Systems Are Vulnerable to Herding and Runaway Cascades",
+      "url": "https://arxiv.org/abs/2610.30769",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "音楽推薦の古典実験Music Labの設計で、LLMエージェントの大集団に知らない楽曲を推薦させた研究。累積推薦数を見せると、曲の魅力から乖離した極端で予測しにくいカスケードが起き、人間より群集行動に影響されやすく自己修正も弱いと報告する。要旨のみ確認で、エージェント数や使用モデルなどの数値は未確認。",
+      "why_useful": "エージェント同士が互いの出力を見る構成では、他者の結果の可視化が暴走の引き金になりうるという注意点を示す。",
+      "score": 4
+    },
+    {
+      "title": "AgentPhishing: A Benchmark of LLM Email Agents Under Adaptive Attack",
+      "url": "https://arxiv.org/abs/2610.31404",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "メールを扱うLLMエージェントを、エージェントごとに最適化したフィッシングメールで評価するベンチマーク。既存のフィッシングメールには概ね安全に対処できたが、適応させた攻撃には弱く、評価した9エージェントのうち4つは検知率10%未満・悪意ある依頼への従順率45%超だった。要旨のみ確認で、モデル名や実験条件は未確認。",
+      "why_useful": "従来の固定データセットでの安全評価が、適応型攻撃に対する安全性を示さない可能性を数字で示している。",
+      "score": 4
+    },
+    {
+      "title": "Claude HaikuはどこでOpusに負けるのか:163回測って見えた「報告にないケース1つ」の差",
+      "url": "https://qiita.com/yunany90/items/b0fa22097f7e9bcf8642",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "5つのコーディングエージェントを計163回測った個人実測。仕様が明確な課題ではClaude 3モデルが満点だったが、marked(Markdownパーサー)の実バグ修正では、7テスト中6件を通した回数がSonnet 10回中8回、Opus 6回、Haiku 1回だった。1プロジェクトの難しいバグ1件とClaude各10回に基づき、一般化はできない。筆者はTokenSaveの運営者と開示している。",
+      "why_useful": "仕様が曖昧な実バグでモデル差が出るという傾向を、試行回数と限界つきで確認できる。",
+      "score": 3
+    },
+    {
+      "title": "AIの報告「約5時間止まっていた」は約2分だった:Claude Code の JSONL で照合",
+      "url": "https://qiita.com/kaiyaku_iyada/items/cbadd82923bd7fcee3b3",
+      "source": "rss:Qiita - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIが報告した「約5時間止まっていた」を、Claude Codeのセッション記録(JSONL)で照合した個人実験。実際に止まったのはエラーから送り直しまでの約2分で、残りはユーザーの入力待ちだった。macOSのデスクトップアプリ(2.1.299)での1回のエラーしか見ておらず、AIが書いた個人記事である。",
+      "why_useful": "エージェント自身の時間や状況の自己申告は、ログで裏取りすべきだという実例。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "NVIDIA Sentry・1Password for Agents・WalmartのAgent Profilesと、AgentPhishing・群集行動の暴走論文を security.md に追記し、権限を基盤側で絞る流れと適応型攻撃の評価の限界を記録した。" },
+    { "type": "knowledge", "description": "誤ブロックを減らすガードの作り方(判定できなければ通す、ガード自身の異常は止める、対のテスト)とDoorDash事例を agent-design.md に追記した。" },
+    { "type": "skill", "description": "『要旨のみ確認の論文』『発表と提供時期の区別』『運営者の開示』の扱いを curation.md に追記した。" }
+  ]
+}

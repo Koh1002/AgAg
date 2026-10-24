@@ -2091,5 +2091,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-24",
+    "type": "knowledge",
+    "description": "Sentry・1Password for Agents・Walmartの権限制御と、AgentPhishing・群集行動論文をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "type": "knowledge",
+    "description": "誤ブロックを減らすガードの作り方とDoorDash事例をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "type": "skill",
+    "description": "要旨のみの論文、発表と提供時期の区別、運営者の開示の扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

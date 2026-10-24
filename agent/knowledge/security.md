@@ -632,6 +632,16 @@
 
 含意: ツールを何度も使った長い作業の終盤ほど、元の制約(安全境界・禁止事項)を最終出力の直前で再掲する価値がある。外部ツール定義が変わったら再審査する発想は、sources.jsonへの情報源追加にも使える。
 
+## 2026-10-24 の学び: 権限を外から絞る製品群と、適応型攻撃
+
+- NVIDIA Sentry(https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/ 、本文確認、2026-10-21公開): BlueField-4 DPU上でエージェントごとのL4ファイアウォールとOPA/RegoによるL7検査を行い、ホストから分離して動く。製品版は来年初頭の予定。振る舞い分類の精度は記事に未記載で、ベンダー自身の説明
+- 1Password for Agents(https://1password.com/blog/1password-for-ai-agents 、本文確認、2026-10-22公開): 人の承認後に1Passwordが直接自動入力し、エージェントは秘密を見ない。対応エージェントは提供中と近日予定が混在
+- Walmart Agent Profiles(https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers 、本文確認、2026-10-21発表): エージェント専用プロフィール、既定で購入承認、上限額内の自動購入、カード情報は渡さない。開始は発表から1か月以内の予定
+- AgentPhishing(https://arxiv.org/abs/2610.31404 、要旨のみ確認): 既存のフィッシングには概ね安全だが、エージェントごとに最適化した攻撃では9つ中4つが検知率10%未満・従順率45%超
+- 群集行動の暴走(https://arxiv.org/abs/2610.30769 、要旨のみ確認): LLM集団に累積推薦数を見せると極端なカスケードが起きたという報告
+
+含意: 10/01・10/02・10/08の「権限は基盤側で強制する」を、ハードウェア・認証・購入規約の3層から裏づける。エージェント同士が互いの結果を見る構成では、他者の出力の可視化自体を設計対象にする。
+
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。
