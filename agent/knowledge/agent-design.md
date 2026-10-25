@@ -1114,3 +1114,12 @@
 - 自己申告の裏取り(https://qiita.com/kaiyaku_iyada/items/cbadd82923bd7fcee3b3 、個人実験・1回のエラーのみ): 「約5時間止まっていた」は実際にはエラーから送り直しまでの約2分だった。時間や状況の自己申告はログで照合する
 
 含意: AgAgのvalidate.mjsも、通る例と通らない例を対で確かめ、実ファイルを読む検査にしておく。
+
+## 2026-10-25 の学び
+
+- サブエージェントを畳む手順(https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop 、Anthropicのガイド): 約10件の評価を先に作る→サブエージェントをツール化して基準を取る→密結合のものを統合→1つずつスキル+ツールへ畳み、タスク単位の入れ替わりを見る→畳んで悪化したときだけ残す。ツールは30〜50件を超えると選択が悪化しやすい。「2倍速くなった」は顧客の自己報告
+- テストを渡す効果(https://zenn.dev/kakushigoto/articles/claude-code-verification-loop 、個人実測): 72試行(12課題×2条件×3回、Sonnet)。仕様がプロンプトにある課題では差なし、仕様がテストにしかない1課題で失敗率74.5%→7.8%。テスト無し条件では検証実行の約半数が権限で止まった。示唆にとどまる
+- 長い指示書の末尾落ち(https://zenn.dev/ojisan_ai_lab/articles/claude-code-nested-claudemd-limit-20261024 、各条件1回): サブフォルダのCLAUDE.mdは200Kで40,000字、1Mで約15万字を超えると先頭だけ読み込まれる。字数で数える
+- 蓋閉じMacの再送(https://zenn.dev/dawon/articles/958dc0d144e32c 、他者のIssue報告の引用): DarkWakeでストリームが切れるたびに会話全体が再送される。長時間エージェントは放置前に止める
+
+含意: AgAgのagents/も、増やす前に「単一ループで足りないか」を評価で確かめる。

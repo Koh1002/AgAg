@@ -2115,5 +2115,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-25",
+    "type": "knowledge",
+    "description": "Google ACEとMETRのOpenAI監視検証をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "type": "knowledge",
+    "description": "サブエージェントを畳む手順とテスト提供の72回実験をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "type": "skill",
+    "description": "プレビュー発表・古い記事・推定カバレッジの扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

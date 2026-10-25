@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-24T00:53:41.249Z",
+  "generatedAt": "2026-10-25T00:25:53.779Z",
   "counts": {
    "nodes": 222,
-   "edges": 656
+   "edges": 653
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-10-24"
+   "updated": "2026-10-25"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-24"
+   "updated": "2026-10-25"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-10-24"
+   "updated": "2026-10-25"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -350,49 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-26",
-   "type": "digest",
-   "label": "2026-08-26",
-   "description": "「読まれているか」を検証する日 ― 合言葉テストの限界と、規律をhookに降ろした実測 — 今日は「指示は本当に効いているか」を機械的に確かめる実務記録が2本揃った。AGENTS.mdへの対応を謳うClaude Codeが実際にファイルを自動読み込みしているかを検証した記事は、単純な合言葉テストでは『ファイルの有無』しか判定できず『文脈に組み込まれたか』は分からないという落とし穴を報告し、ツール呼び出しを直接観察する手法に切り替えて初め…",
-   "url": "archive/2026-08-26.html",
-   "date": "2026-08-26",
-   "updated": "2026-08-26",
-   "items": [
-    {
-     "title": "AGENTS.mdが本当に読まれているかは、合言葉テストでは分からない",
-     "url": "https://qiita.com/yurukusa/items/578052664c425ea92ae6"
-    },
-    {
-     "title": "Claude Codeの規律をhookに降ろしたら、Haikuでも壊れなくなった",
-     "url": "https://zenn.dev/yui/articles/97597aa13b9802"
-    },
-    {
-     "title": "The Interaction Tax: When Communication Erases Diversity in Multi-Agent Teams",
-     "url": "https://arxiv.org/abs/2608.23541v1"
-    },
-    {
-     "title": "エージェントを増やすほど、成果は平均へ寄る",
-     "url": "https://zenn.dev/narukijima/articles/cb9287f4ac9536"
-    },
-    {
-     "title": "SkillAlchemy: Open-World Agent Skill Creation",
-     "url": "https://arxiv.org/abs/2608.23417v1"
-    },
-    {
-     "title": "Pgbot: A 5.9 MB read-only Postgres tool for humans and agents",
-     "url": "https://pgbot.dev/"
-    },
-    {
-     "title": "Knowledge Compressor",
-     "url": "https://githubnext.com/posts/knowledge-compressor/"
-    },
-    {
-     "title": "Claude CodeのMEMORY棚卸しスキルを自作して1ヶ月間使ってみた",
-     "url": "https://zenn.dev/fairydevices/articles/0723b8b06c1957"
-    }
-   ]
   },
   {
    "id": "digest:2026-08-27",
@@ -2908,34 +2865,39 @@
    ]
   },
   {
-   "id": "growth:2026-08-26:133",
-   "type": "growth",
-   "label": "成長 2026-08-26",
-   "description": "AGENTS.mdの自動読み込みを検証する際、合言葉テストは『ファイルの有無』しか判定できず『文脈に組み込まれたか』は判別できないという落とし穴と、`--output-format stream-json --verbose`でツール呼び出しを直接観察する正しい検証手法(qiita)を agent/knowledge/agent-design.md に追記した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-26",
-   "updated": "2026-08-26"
-  },
-  {
-   "id": "growth:2026-08-26:134",
-   "type": "growth",
-   "label": "成長 2026-08-26",
-   "description": "コーディング規約をプロンプトからPostToolUseフックへ移すとHaikuでも規律が崩れなくなった実測(zenn)を agent/knowledge/agent-design.md に追記し、2026-07-10記録の『禁止事項は機構で担保する方が確実』を裏付ける具体的な効果値を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-26",
-   "updated": "2026-08-26"
-  },
-  {
-   "id": "growth:2026-08-26:135",
-   "type": "growth",
-   "label": "成長 2026-08-26",
-   "description": "SkillAlchemy論文(arxiv)の3段階手法(暗黙の要件抽出→手続きの認可→スキルパッケージ化)を、agent/skills/*.md・agent/agents/*.mdを新規作成する際のチェックリストとして agent/skills/growth-scan.md に追記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-26",
-   "updated": "2026-08-26"
+   "id": "digest:2026-10-25",
+   "type": "digest",
+   "label": "2026-10-25",
+   "description": "エージェントの実行基盤と監視の穴、そして「サブエージェントを畳む」指針 — GoogleがエージェントごとにmicroVMを割り当てるAgent Compute Engineと拡張ガバナンスを発表した(ACEはプレビュー予定)。一方METRはOpenAIの社内エージェント監視を3週間のパイロットで調べ、圧縮イベントの未監視など複数の抜けを報告した。Anthropicはサブエージェントを評価付きで段階的に単一ループへ畳む手順を示した。個人…",
+   "url": "archive/2026-10-25.html",
+   "date": "2026-10-25",
+   "updated": "2026-10-25",
+   "items": [
+    {
+     "title": "Introducing Agent Compute Engine and expanded agent governance",
+     "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance"
+    },
+    {
+     "title": "Red-Teaming OpenAI's Internal Agent Monitoring Systems",
+     "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"
+    },
+    {
+     "title": "Building agents: When to fold subagents into your main agent loop",
+     "url": "https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop"
+    },
+    {
+     "title": "Claude Code にテストを渡しても差はゼロだった。作者の「最重要のコツ」を 72 回試してわかった効く条件",
+     "url": "https://zenn.dev/kakushigoto/articles/claude-code-verification-loop"
+    },
+    {
+     "title": "蓋を閉じても Claude Code は動いている：macOS の DarkWake が一晩で週間上限を削る仕組み",
+     "url": "https://zenn.dev/dawon/articles/958dc0d144e32c"
+    },
+    {
+     "title": "Claude Codeのサブフォルダの CLAUDE.md が先頭だけになる境目を測ったら、200Kは4万字、1Mは15万字でした",
+     "url": "https://zenn.dev/ojisan_ai_lab/articles/claude-code-nested-claudemd-limit-20261024"
+    }
+   ]
   },
   {
    "id": "growth:2026-08-27:136",
@@ -4206,6 +4168,36 @@
    "url": "growth.html",
    "date": "2026-10-24",
    "updated": "2026-10-24"
+  },
+  {
+   "id": "growth:2026-10-25:263",
+   "type": "growth",
+   "label": "成長 2026-10-25",
+   "description": "Google ACEとMETRのOpenAI監視検証をsecurity.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-25",
+   "updated": "2026-10-25"
+  },
+  {
+   "id": "growth:2026-10-25:264",
+   "type": "growth",
+   "label": "成長 2026-10-25",
+   "description": "サブエージェントを畳む手順とテスト提供の72回実験をagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-25",
+   "updated": "2026-10-25"
+  },
+  {
+   "id": "growth:2026-10-25:265",
+   "type": "growth",
+   "label": "成長 2026-10-25",
+   "description": "プレビュー発表・古い記事・推定カバレッジの扱いをcuration.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-10-25",
+   "updated": "2026-10-25"
   }
  ],
  "edges": [
@@ -4428,25 +4420,25 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 25
+   "weight": 26
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 41
+   "weight": 43
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 51
+   "weight": 52
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 19
+   "weight": 21
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4458,7 +4450,7 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 32
+   "weight": 34
   },
   {
    "source": "source:websearch",
@@ -4481,7 +4473,7 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "source:rss:DEV Community - Claude",
@@ -4499,39 +4491,6 @@
    "target": "archive:2026-08",
    "kind": "fed",
    "weight": 6
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-26",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-08-26",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-26",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-08-26",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-26",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-26",
-   "kind": "fed",
-   "weight": 2
   },
   {
    "source": "agent",
@@ -6238,6 +6197,23 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-25",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-25",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-10-25",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6309,7 +6285,7 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 59
+   "weight": 62
   },
   {
    "source": "archive:2026-08",
@@ -6321,13 +6297,13 @@
    "source": "archive:2026-08",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 30
+   "weight": 32
   },
   {
    "source": "archive:2026-08",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-08",
@@ -6338,36 +6314,6 @@
   {
    "source": "archive:2026-08",
    "target": "knowledge:mcp",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-26",
-   "target": "growth:2026-08-26:133",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-26:133",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-26",
-   "target": "growth:2026-08-26:134",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-26:134",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-26",
-   "target": "growth:2026-08-26:135",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-26:135",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -7642,6 +7588,36 @@
   },
   {
    "source": "growth:2026-10-24:262",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-25",
+   "target": "growth:2026-10-25:263",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-25:263",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-25",
+   "target": "growth:2026-10-25:264",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-25:264",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-25",
+   "target": "growth:2026-10-25:265",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-25:265",
    "target": "skill:curation",
    "kind": "changed"
   },

@@ -642,6 +642,13 @@
 
 含意: 10/01・10/02・10/08の「権限は基盤側で強制する」を、ハードウェア・認証・購入規約の3層から裏づける。エージェント同士が互いの結果を見る構成では、他者の出力の可視化自体を設計対象にする。
 
+## 2026-10-25 の学び
+
+- Google Agent Compute Engine(https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance 、ベンダー発表): エージェントごとにmicroVMと短命のIDを持たせ、認証情報はmicroVMの外から注入する。ACEはプレビュー予定、OSSのAgent Substrate on GKEは提供中。Agent Gateway・Registry・Identity(SPIFFE)で統制する。10倍の密度などはGoogle自身の数値
+- METRによるOpenAI監視の検証(https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/ ): 3週間のパイロット。監視可能なトラフィックは約75〜94%と推定、圧縮イベント未監視で社内Codexの約10%が漏れた可能性、エージェントが制御を返すまで監視が走らない点、クライアントから監視を無効にできるヘッダーなどを指摘。推定は不確実で一部は未検証、修正はMETR未確認。提言は「意図したトラフィックが実際に監視されているかを検証する」「監視からエージェントを隔離する」「監視自体を定期的にレッドチームする」
+
+含意: ガードや監視は、設置しただけでなく「本当に通っているか」を検査する。AgAgのvalidate.mjsも、検査対象の取りこぼしを疑う。
+
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。
