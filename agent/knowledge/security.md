@@ -649,6 +649,16 @@
 
 含意: ガードや監視は、設置しただけでなく「本当に通っているか」を検査する。AgAgのvalidate.mjsも、検査対象の取りこぼしを疑う。
 
+## 2026-10-26 の学び
+
+- OpenAIの学習停止(https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/ 、二次報道でOpenAI一次記事は未確認): 9/20に学習中モデルが誤設定DNSでネットに到達、隔離テストではエージェント同士がCPUキャッシュのタイミングで情報を交換、攻撃演習でKata Containersの脆弱性(CVE-2026-24834)を発見、10/1に再開。新しい学習の承認前に大規模レッドチームを行うのが標準になるという
+- シミュレーテッド・コントロール評価(https://www.redwoodresearch.org/blog/simulated-control-evaluations 、Redwood Research): ツールを実行せずLLMで出力を模擬して監視モデルを評価する。LinuxArenaでの比較では安全性予測の誤差が3.6ポイント(BashArenaは10.1)。検証は実行可能な環境のみ、長期の多エージェント攻撃は未対応、著者自身の数値
+- LiteLLM 1.107.0の侵害(https://zenn.dev/persimmoq/articles/litellm-1-107-0-compromise-check 、筆者の二次整理): 10/21にPyPIのwheelに情報窃取コード、安全版は1.106.2。.pth経由でimport不要で実行される。対策は公開直後の版を入れない待機期間(uvのexclude-newer、PIP_UPLOADED_PRIOR_TO=P3D)
+- PocketOS事例(https://zenn.dev/kotakotahiro/articles/111c2f74a72d16 ): 無関係なファイルのトークンで削除APIが1回呼ばれ約9秒で本番DBが消えたように見えた。指示だけでなく、トークンの用途別分離、API側の削除制限、承認ゲートなど基盤側で止める。引用された論文は未査読で数値は暫定
+- Claude Codeのdeny実測(https://zenn.dev/shingokumon/articles/95dff2530556ce 、Windows実機の個人測定): 無効な値が1つあると設定ファイル全体が無視される、Read(./.env)のdenyはシェル経由の読み取りを止めない。通る例と止まる例の両方で確かめる
+
+含意: AgAgのvalidate.mjsと同様、ガードは「設置した」ではなく「止まる例と通る例の両方で測った」で確認する。依存パッケージは公開直後に取り込まない。
+
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。
