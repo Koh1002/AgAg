@@ -2163,5 +2163,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-27",
+    "type": "knowledge",
+    "description": "悪意あるAGENTS.md、ProbeID、ログ改ざん、承認ゲートの形骸化をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "type": "knowledge",
+    "description": "FlashScript、Toolflation、Skillの定型/推論分割の実測をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "type": "skill",
+    "description": "ベンダー自身の顧客統計、要旨のみの論文、既出確認の一括検索をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

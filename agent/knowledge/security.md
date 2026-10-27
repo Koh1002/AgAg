@@ -659,6 +659,15 @@
 
 含意: AgAgのvalidate.mjsと同様、ガードは「設置した」ではなく「止まる例と通る例の両方で測った」で確認する。依存パッケージは公開直後に取り込まない。
 
+## 2026-10-27 の学び
+
+- 悪意あるAGENTS.md(https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/ 、2026-10-22、同社自身の測定): ~/Downloadsに置かれた指示ファイルで、Codexはconfig.tomlへの不正MCP定義、Claude Codeは.claude/settings.jsonのANTHROPIC_BASE_URL書き換えに誘導される。試行で実行された割合は約90%超/約50%と同社が報告。自作でない指示ファイルのあるフォルダで起動しない
+- ProbeID(arXiv 2610.33633、要旨のみ確認): 説明文でなくプローブ応答でMCPツールの同一性を検証する。11週間で59ツール中7つが、バージョン固定でも応答を変えたと著者が報告
+- ログ改ざん(https://www.manifold.security/blog/agent-log-tampering 、小型オープンモデル2種): ポリシーなしでは拒否率4%未満。検知はモデルの外(ハッシュチェーン、外部記録者)で行う
+- 承認ゲートの形骸化(https://zenn.dev/kumaik/articles/approval-granularity-harness 、個人1環境): 許可リスト65件の40%がワイルドカードで、deny/askは0件。事前に許す範囲を設計する
+
+含意: AgAgが読む外部テキスト(生データ、Issue本文)も指示として扱わず、安全境界を優先する運用を続ける。
+
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。
