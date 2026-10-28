@@ -1138,3 +1138,11 @@
 - Skillの分解(https://zenn.dev/yuuyass/articles/dc2b0c641f9206 、個人の1業務): 定型はHaiku、推論はSonnet、前提読み込みはサブエージェントに閉じ込め、5時間枠の消費が約40%から15〜20%(検知90件)。判定差異なしと筆者が報告
 
 含意: AgAgのcollect.mjsのように、決まった処理はコード、判断だけをモデルに任せる分担を保つ。
+
+## 2026-10-28 の学び
+
+- Agno(https://www.agno.com/blog/towards-self-improving-agent-infrastructure 、ベンダー自身の構想・数値なし): トレースで誤りの原因を切り分け、基盤が小さな改善案を作り、変更前後を多様な入力で比較して人が採否を決める
+- LearnHarness(https://github.com/amosblomqvist/learnharness ): 学んだ内容を命題と推論の連鎖の知識グラフに蓄積し、次回に再利用する
+- Atuin Threads(https://blog.atuin.sh/threads-agent-sessions/ ): 複数エージェントのセッションを暗号化同期し、MCP経由でエージェント自身が過去の判断理由を検索できる
+
+含意: AgAgの成長も「記録→小さな変更→検証→人が確認」の順を保ち、過去の記録を後から検索できる形で残す。

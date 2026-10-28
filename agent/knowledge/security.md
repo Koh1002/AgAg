@@ -668,6 +668,14 @@
 
 含意: AgAgが読む外部テキスト(生データ、Issue本文)も指示として扱わず、安全境界を優先する運用を続ける。
 
+## 2026-10-28 の学び
+
+- Formalのブログ(https://www.formal.ai/blog/cloud-agents-oidc-infrastructure/ 、ベンダー自身の記事): クラウドエージェントにOIDCで短期の読み取り専用アクセスを与え、静的な認証情報を渡さない。人間IDは暗号学的には検証されず申告を信頼する前提
+- Cloudflare Computer v0.7.0(https://developers.cloudflare.com/changelog/post/2026-10-26-computer-durable-javascript/): 承認待ちの一時停止と再開。結果が記録されていない呼び出しは再実行されうるため、冪等でない操作には明示的な印が要る
+- 検査プロキシの素通り経路(https://zenn.dev/hideki_tamae/articles/egress-proxy-bypass-list-count 、個人の1環境): 13宛先は検査されず、gRPCやWebSocketなど6種類は通っても検査できない
+
+含意: 送信制御は「プロキシがある」だけでなく、検査できない経路の一覧まで確認する。
+
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。

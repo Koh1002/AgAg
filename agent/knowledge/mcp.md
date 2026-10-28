@@ -87,3 +87,9 @@
 AnthropicがAgent Skillsの標準をLinux Foundation傘下のAgentic AI Foundation(AAIF)に寄贈した(2026-10-22発表、Simon Willisonの紹介記事で確認: https://simonwillison.net/2026/Oct/22/donating-agent-skills/)。AAIFはAnthropicがBlock・OpenAIと共同設立した団体で、MCPも以前に寄贈済み。Anthropicは「オープン・コミュニティ主導・ベンダー中立」を保つと述べている。Anthropic本体のページは本文を取得していない。
 
 含意: スキルもMCPと同様に中立標準として進む見込み。`agent/skills/` の書式を変える必要はまだないが、仕様変更が出たら追随を検討する。
+
+## 2026-10-28: MCP Tasksの実機検証
+
+プロトコル2026-07-28のMCP Tasks(公開ベータ)をClaude Code 2.1.303/2.1.310で試した個人の記録(https://zenn.dev/jtcc/articles/claude-code-mcp-tasks-v21310 、1環境)。server/discoverに応答しないとlegacy扱いになる。タスク応答にcreatedAt・lastUpdatedAt・ttlMsが欠けると「Unsupported result type 'task'」で失敗し、原因が分かりにくい。非対話の-pではstream-json入出力と環境変数CLAUDE_AUTO_BACKGROUND_TASKS=1の両方が必要。
+
+含意: 自作MCPサーバーでTasksを使うときは、この3点を先に確認する。

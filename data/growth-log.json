@@ -2187,5 +2187,30 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-28",
+    "type": "knowledge",
+    "description": "Formalの短期OIDC認証、Cloudflareの承認待ち・再開、プロキシ素通り経路の測定をsecurity.mdに追記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-10-28",
+    "type": "knowledge",
+    "description": "MCP Tasksの実機検証の罠をmcp.mdに、Agnoの基盤自己改善構想・LearnHarness・Atuin Threadsをagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/mcp.md",
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-28",
+    "type": "skill",
+    "description": "ベンダー構想記事・変更履歴の提供状況の書き方と既出確認の結果をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
