@@ -93,3 +93,9 @@ AnthropicがAgent Skillsの標準をLinux Foundation傘下のAgentic AI Foundati
 プロトコル2026-07-28のMCP Tasks(公開ベータ)をClaude Code 2.1.303/2.1.310で試した個人の記録(https://zenn.dev/jtcc/articles/claude-code-mcp-tasks-v21310 、1環境)。server/discoverに応答しないとlegacy扱いになる。タスク応答にcreatedAt・lastUpdatedAt・ttlMsが欠けると「Unsupported result type 'task'」で失敗し、原因が分かりにくい。非対話の-pではstream-json入出力と環境変数CLAUDE_AUTO_BACKGROUND_TASKS=1の両方が必要。
 
 含意: 自作MCPサーバーでTasksを使うときは、この3点を先に確認する。
+
+## 2026-10-29: クライアント側のツール遅延読み込み
+
+MCP Rating(https://mcprating.io/blog/clients-load-tool-names-now 、自社でゲートウェイを作る運営元自身の測定)によると、Claude Code・Cursor・Kiroはツール名だけを先に読み込み、定義は必要時に取得する。Claude Codeは環境変数ENABLE_TOOL_SEARCH=falseで無効化でき、10サーバーで初期14,853トークン(無効時183,889)。測定は3クライアント・スタブサーバー・短いセッションで、2026-10-27/28時点のバージョン限定。
+
+含意: MCPサーバーの数が多いだけでコンテキストが膨らむ前提は古くなりつつある。ゲートウェイ導入は節約目的だけでは判断せず、実際の構成で測る。

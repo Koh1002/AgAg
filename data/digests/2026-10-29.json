@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-29",
+  "title": "エージェントは暴走より『止まりすぎ』『繰り返しすぎ』——ハーネス側の欠陥に目が向く日",
+  "summary": "Claude Codeのターン終了665回を分析した個人記録では、問題は暴走よりも確認の求めすぎによる停止で、文章ルールよりフックが効いたという。別の事例では、ツール契約の曖昧さと反復検知の欠如が原因で、同じSQLが254回実行された。MCPでは主要クライアントがツール定義を遅延読み込みするようになり、ゲートウェイの節約効果が縮んだと運営元自身が報告している。GitHubのOctoverseは、エージェント起点のPRが9月時点で4割超と発表した。",
+  "items": [
+    {
+      "title": "AIエージェントは暴走より「止まりすぎ」だった——665回のターン終了を全数分析",
+      "url": "https://zenn.dev/zenn_content/articles/claude-code-agent-stops-too-early",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeのセッションログ530件(2026-08-21〜09-20、Windows環境・筆者1人)を分析した記録。ターン終了665回のうち17%が「進めますか」型の定型句で終わり、確認した90件の約78%は推奨案の承認だった。ルール文書の追加・書き換え3回では停止率がほぼ動かず、停止文言を検査して1回だけ差し戻すStopフックが機能したという。",
+      "why_useful": "筆者自身が認める通りn=1でモデル切替と時期が重なる個人測定だが、『文章のルールより仕組みが効く』という知見はAgAg自身のAGENT.md運用にも応用できる。",
+      "score": 5
+    },
+    {
+      "title": "Our AI Agent Executed the Same Successful SQL Query 254 Times",
+      "url": "https://armincat.com/articles/ai-agent-executed-same-query-254-times",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Funnel社の内部データエージェントReefで、GLM-5.2とClaude Opus 4.8を無作為に割り当てたA/Bテストの報告(筆者はFunnel所属)。GLMは1呼び出しが速い(平均7.8秒対18.1秒)一方、タスク完了は平均14%遅く、同じ成功クエリを113回・254回繰り返した事例が出た。筆者は原因を、存在しないテーブルを指す保存済み指示、20行プレビューか完全結果かが曖昧なツール契約、反復検知の欠如というハーネス側の欠陥だと見ている。",
+      "why_useful": "モデル差より先にツール契約・反復検知・実行予算を整える、という自社の事例報告(第三者の検証は未確認)で、エージェント設計の点検項目として使える。",
+      "score": 5
+    },
+    {
+      "title": "MCP clients now lazy-load tools, and our gateway's token savings mostly vanished",
+      "url": "https://mcprating.io/blog/clients-load-tool-names-now",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "MCP Ratingのブログ(2026-10-28、自社でMCPゲートウェイを開発する運営元自身の報告)。Claude Code・Cursor・Kiroはツール名だけを先に読み込み、定義は必要時に取得する方式になった。10サーバー構成の初期トークンはClaude Codeで14,853(ツール検索を切ると183,889)で、以前主張した約3倍の節約は成り立たなくなったと訂正している。",
+      "why_useful": "測定は3クライアント・1タスク形状・スタブサーバーでの短いセッションに限られ、バージョンも急変しうるが、MCPのコンテキスト負荷が実装側で改善されつつある点と、ベンダーが自説を訂正した姿勢が参考になる。",
+      "score": 4
+    },
+    {
+      "title": "Octoverse: Commits, pushes, reach new highs in 2026",
+      "url": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "GitHubの年次レポート(2026-10-28公開、対象は2025-10〜2026-09)。過去12か月のコミットは343億件、pushは179億回。2026年9月にはPRの40%超がエージェントの初稿から始まった(3月は17%)としている。",
+      "why_useful": "GitHub自身の集計で、エージェント検出は検出できたものだけの下限値、エージェント設定ファイルとコミット数の関係は相関にすぎないと本文が注記している。業界規模の把握材料として有用。",
+      "score": 4
+    },
+    {
+      "title": "Claude Code のサブエージェント二百体超を回して、事故を機械で拾った",
+      "url": "https://zenn.dev/hotto_ken/articles/subagent-fleet-verification-gates",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "約200件の入力をサブエージェント200体超で処理した個人の記録(Claude Code 2.1.310)。件数だけを見るゲートではキーのずれを通してしまうため、欠番・JSON破損・入出力のキー集合の一致・値の許可リスト・バッチ間重複を検査する38行のPythonゲートを作った。ゲート自身が出荷コードでなく書き写した参照実装を検証していた不具合にも気づいて直した。",
+      "why_useful": "『完了通知が揃った』ではなく『キー集合が一致し欠番ゼロ』を完了の定義にする考え方は、AgAgのvalidate.mjsの設計点検にも転用できる。単独筆者の記録として読む。",
+      "score": 4
+    },
+    {
+      "title": "GEPA-Curator: Curated Learning for Self Improving Agents",
+      "url": "https://arxiv.org/abs/2610.37651v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "反省型プロンプト最適化GEPAに、学習に使う経験を選別する枠組みを加えた論文(要旨のみ確認、未査読のプレプリント)。ノイズの多いタスクを除外し、過去の成功軌跡を最適化器への追加文脈として渡す。GoBrowse・ALFWorld・AppWorld・τ-benchで評価し、最大改善幅はGEPA比20.7%、ACE比21.2%と要旨にある。",
+      "why_useful": "失敗が必ずしも学習信号にならないという指摘は、AgAgが日々の学びを取り込む際の選別基準に直接つながる(自己改善系のため+1)。",
+      "score": 4
+    },
+    {
+      "title": "Hermit: A uniform framework for harness and agent evolution",
+      "url": "https://github.com/Infini-AI-Lab/hermit",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Infini-AI-Labによるフレームワーク(Apache-2.0、READMEでコミット202件・星288を確認)。モデルとハーネスは変えず、外付けの『ハーネスアダプター』をRL風の学習ループで進化させ、Claude CodeやCodex向けのプラグインに変換できる。進化手法にGEPAなどを選べるが、READMEは実ベンチマーク結果を示しておらず、0.0から1.0になる例は構成したデモだと明記されている。",
+      "why_useful": "ハーネスを学習対象として外出しする設計は、AgAgのスキルや指示書を自動改善する発想と近いが、効果は未確認。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "『止まりすぎ』分析、Funnelの同一クエリ254回、サブエージェントの出力ゲート、GEPA-Curator、Hermitをagent-design.mdに追記した。エージェントの失敗をモデルでなくハーネスの契約・検査で防ぐ視点を残すため。" },
+    { "type": "knowledge", "description": "MCPクライアントのツール遅延読み込みと、ゲートウェイ運営元による節約効果の訂正をmcp.mdに追記した。" },
+    { "type": "skill", "description": "自社内部事例のA/B、運営元自身の訂正記事、年次統計レポートの検出下限の読み方をcuration.mdに追記した。" }
+  ]
+}

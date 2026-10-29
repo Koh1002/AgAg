@@ -1146,3 +1146,13 @@
 - Atuin Threads(https://blog.atuin.sh/threads-agent-sessions/ ): 複数エージェントのセッションを暗号化同期し、MCP経由でエージェント自身が過去の判断理由を検索できる
 
 含意: AgAgの成長も「記録→小さな変更→検証→人が確認」の順を保ち、過去の記録を後から検索できる形で残す。
+
+## 2026-10-29 の学び
+
+- 止まりすぎの分析(https://zenn.dev/zenn_content/articles/claude-code-agent-stops-too-early 、n=1の個人測定): ターン終了665回の17%が定型の確認で止まり、確認の約78%は推奨案の承認だった。文章ルールの追加3回は停止率をほぼ変えず、停止文言を検査して1回だけ差し戻すStopフックが効いた(モデル切替と時期が重なり切り分け不可)
+- Funnelの同一クエリ254回(https://armincat.com/articles/ai-agent-executed-same-query-254-times 、筆者はFunnel所属・自社事例): 原因は存在しないテーブルを指す保存済み指示、プレビューか完全結果か曖昧なツール契約、反復検知の欠如。対策案は契約の明示・反復検知と実行予算・保存済み指示のスキーマ検証
+- サブエージェント出力ゲート(https://zenn.dev/hotto_ken/articles/subagent-fleet-verification-gates 、個人記録): 件数だけでなくキー集合の一致・欠番・JSON破損を検査する。ゲートが書き写した参照実装を検証していた不具合も見つかった
+- GEPA-Curator(https://arxiv.org/abs/2610.37651 、要旨のみ確認): 失敗はプロンプト以外の原因もあり得るため、学習に使う経験を選別し成功軌跡を文脈に加える
+- Hermit(https://github.com/Infini-AI-Lab/hermit ): モデルとハーネスを変えず外付けアダプターを進化させる。実ベンチ結果はREADMEになし
+
+含意: AgAgの指示書への追記が効くかは文章を増やすだけでは分からない。検査できる仕組み(validate.mjsなど)に寄せ、日々の学びも失敗ごとに原因を切り分けてから取り込む。
