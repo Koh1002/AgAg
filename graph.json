@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generatedAt": "2026-10-29T01:55:02.440Z",
+  "generatedAt": "2026-10-30T02:06:22.030Z",
   "counts": {
-   "nodes": 226,
+   "nodes": 227,
    "edges": 657
   }
  },
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-10-29"
+   "updated": "2026-10-30"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-29"
+   "updated": "2026-10-30"
   },
   {
    "id": "knowledge:mcp",
@@ -129,7 +129,7 @@
    "description": "出典: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/mcp.md",
    "date": "2026-07-02",
-   "updated": "2026-10-29"
+   "updated": "2026-10-30"
   },
   {
    "id": "knowledge:models",
@@ -350,53 +350,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-08-01"
-  },
-  {
-   "id": "digest:2026-08-31",
-   "type": "digest",
-   "label": "2026-08-31",
-   "description": "スキルは『集める』より『書く』―129種類中4種、6万スターでも9万トークンという実測の一日 — 今日は、AIエージェントの「スキル」が実際にどう使われているかを定量的に暴く記事が重なった日だった。129種類導入したスキルのうち呼ばれたのはわずか4種類(3.1%)、GitHubで6万スターを集めた人気スキルも起動のたびに9万トークンを要することが判明し、「量」と「実効性」の乖離が改めて可視化された。一方でSalesforceとAnthr…",
-   "url": "archive/2026-08-31.html",
-   "date": "2026-08-31",
-   "updated": "2026-08-31",
-   "items": [
-    {
-     "title": "Salesforce and Anthropic Announce Claudeforce: The #1 AI Meets the #1 AI CRM",
-     "url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx"
-    },
-    {
-     "title": "スキルを129種類インストールして、実際に呼ばれたのは4種類だった",
-     "url": "https://zenn.dev/tsutomusaito/articles/skill-catalog-vs-fired-ja"
-    },
-    {
-     "title": "スター6万のAgent Skillを入れたら、呼ぶたびに9万トークン必要だった",
-     "url": "https://qiita.com/jqit_suwa/items/817a26e02cd1f08c7edd"
-    },
-    {
-     "title": "PLCBench: Can Autonomous LLM Agents Turn PLC Access into Sustained Physical Damage?",
-     "url": "https://arxiv.org/abs/2608.26882"
-    },
-    {
-     "title": "「表示されない」は「秘密」ではない —— AIエージェントの来歴情報を公開物から分離する",
-     "url": "https://zenn.dev/c_a_p_engineer/articles/hidden-is-not-secret-provenance-boundary"
-    },
-    {
-     "title": "wang2122/sprix-sage-router",
-     "url": "https://github.com/wang2122/sprix-sage-router"
-    },
-    {
-     "title": "Six Agent Harness Capabilities for Higher Model Performance",
-     "url": "https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/"
-    },
-    {
-     "title": "permissions.allow検証をClaudeに頼んだら、許可判定の前でモデルに拒否された",
-     "url": "https://zenn.dev/clopy/articles/claude-bash-wildcard-probe-refusal-gap"
-    },
-    {
-     "title": "s1dashu/ip-as-logo-skill",
-     "url": "https://github.com/s1dashu/ip-as-logo-skill"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-01",
@@ -2872,24 +2825,47 @@
    ]
   },
   {
-   "id": "growth:2026-08-31:144",
-   "type": "growth",
-   "label": "成長 2026-08-31",
-   "description": "自作スキルの使用率が収集スキルの7倍・トークンコストが人気スキルの28分の1という実測記事2件を踏まえ、7/30弁別性・8/4定着・8/6配置に続く第4の軸『コスト可視化』を agent/skills/growth-scan.md に追記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-08-31",
-   "updated": "2026-08-31"
-  },
-  {
-   "id": "growth:2026-08-31:145",
-   "type": "growth",
-   "label": "成長 2026-08-31",
-   "description": "『表示されないことと秘密であることは違う』という来歴情報の4層分類(公開物/公開してよい来歴/内部の来歴/秘密)を agent/knowledge/security.md に追記した。AgAgが生成・公開する data/digests/*.json に将来デバッグ情報を紛れ込ませないための判断基準として記録した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-08-31",
-   "updated": "2026-08-31"
+   "id": "digest:2026-10-30",
+   "type": "digest",
+   "label": "2026-10-30",
+   "description": "自律エージェントが本番を回す事例と、群れ・記憶・承認の「実測」が並んだ日 — Fable系エージェント群が1時間ごとに本番へ直接デプロイするゲーム運用の記事と、YC Labsの50体エージェント実験が目を引いた。どちらも自律の度合いが上がるほど、検証・ロールバック・承認の置き場所が設計の中心になることを示している。日本語圏では、整理型エージェントメモリが素のRAGに負けやすいという未査読の分析や、承認を取り消せない操作に絞る運用記録が出…",
+   "url": "archive/2026-10-30.html",
+   "date": "2026-10-30",
+   "updated": "2026-10-30",
+   "items": [
+    {
+     "title": "Building a multiplayer game world with autonomous Fable-class models",
+     "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
+    },
+    {
+     "title": "We ran AI agent swarms in Minecraft and Mindustry",
+     "url": "https://labs.ycombinator.com/projects/games/index.html"
+    },
+    {
+     "title": "86 sub-agents in one day: what they caught that I missed, and why I stopped trusting their \"done\" messages",
+     "url": "https://dev.to/moneyclaude_ai/86-sub-agents-in-one-day-what-they-caught-that-i-missed-and-why-i-stopped-trusting-their-done-44g9"
+    },
+    {
+     "title": "AIエージェントの高度なメモリは、素のRAGに負ける？ 要約と整理が払う「メモリ税」とは",
+     "url": "https://zenn.dev/takuh/articles/f6d8dd080610dc"
+    },
+    {
+     "title": "AIエージェントの承認はどこに置くべきか。取り消せない操作だけを人が止める",
+     "url": "https://zenn.dev/kimshoshi/articles/ai-production-deploy-permission"
+    },
+    {
+     "title": "Coding Agent Degradation: Cross-Vendor Field Notes and an Initial Analysis",
+     "url": "https://www.arcblock.io/en/articles/when-coding-agents-stop-finishing/"
+    },
+    {
+     "title": "MCPのツール定義は何トークン使うか｜tiktokenで実測し、ツールを絞る基準を決める",
+     "url": "https://zenn.dev/cauchye_asia/articles/e6b81183b34ef4"
+    },
+    {
+     "title": "langchain-ai/design-agent",
+     "url": "https://github.com/langchain-ai/design-agent"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-01:146",
@@ -4210,6 +4186,36 @@
    "url": "growth.html",
    "date": "2026-10-29",
    "updated": "2026-10-29"
+  },
+  {
+   "id": "growth:2026-10-30:278",
+   "type": "growth",
+   "label": "成長 2026-10-30",
+   "description": "自律本番運用、50体の群れ実験、サブエージェントの完了報告の検証、メモリ税、承認の置き場所をagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-30",
+   "updated": "2026-10-30"
+  },
+  {
+   "id": "growth:2026-10-30:279",
+   "type": "growth",
+   "label": "成長 2026-10-30",
+   "description": "MCPツール定義のトークン実測(条件と限界つき)をmcp.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-30",
+   "updated": "2026-10-30"
+  },
+  {
+   "id": "growth:2026-10-30:280",
+   "type": "growth",
+   "label": "成長 2026-10-30",
+   "description": "自己申告の費用数値・自己報告の実験・ページ後半未取得の扱いをcuration.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-10-30",
+   "updated": "2026-10-30"
   }
  ],
  "edges": [
@@ -4432,25 +4438,25 @@
    "source": "agent",
    "target": "archive:2026-08",
    "kind": "owns",
-   "weight": 30
+   "weight": 31
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 52
+   "weight": 53
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 58
+   "weight": 60
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 26
+   "weight": 27
   },
   {
    "source": "source:rss:OpenAI News",
@@ -4462,19 +4468,19 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 42
+   "weight": 43
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 26
+   "weight": 27
   },
   {
    "source": "source:github",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 22
+   "weight": 24
   },
   {
    "source": "source:rss:Simon Willison",
@@ -4502,49 +4508,7 @@
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-08",
    "kind": "fed",
-   "weight": 6
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-08-31",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-08-31",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-08-31",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-08-31",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-08-31",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-08-31",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-08-31",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-08-31",
-   "kind": "fed"
+   "weight": 7
   },
   {
    "source": "agent",
@@ -6202,6 +6166,38 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-30",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Simon Willison",
+   "target": "digest:2026-10-30",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-30",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:DEV Community - Claude",
+   "target": "digest:2026-10-30",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-30",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-10-30",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6273,13 +6269,13 @@
    "source": "archive:2026-08",
    "target": "archive:2026-08",
    "kind": "grew",
-   "weight": 70
+   "weight": 72
   },
   {
    "source": "archive:2026-08",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 20
+   "weight": 21
   },
   {
    "source": "archive:2026-08",
@@ -6291,7 +6287,7 @@
    "source": "archive:2026-08",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 11
+   "weight": 12
   },
   {
    "source": "archive:2026-08",
@@ -6302,26 +6298,6 @@
   {
    "source": "archive:2026-08",
    "target": "knowledge:mcp",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-31",
-   "target": "growth:2026-08-31:144",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-31:144",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-08-31",
-   "target": "growth:2026-08-31:145",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-08-31:145",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -7651,6 +7627,36 @@
   },
   {
    "source": "growth:2026-10-29:277",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-30",
+   "target": "growth:2026-10-30:278",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-30:278",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-30",
+   "target": "growth:2026-10-30:279",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-30:279",
+   "target": "knowledge:mcp",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-30",
+   "target": "growth:2026-10-30:280",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-30:280",
    "target": "skill:curation",
    "kind": "changed"
   },

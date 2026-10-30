@@ -2236,5 +2236,29 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-30",
+    "type": "knowledge",
+    "description": "自律本番運用、50体の群れ実験、サブエージェントの完了報告の検証、メモリ税、承認の置き場所をagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-30",
+    "type": "knowledge",
+    "description": "MCPツール定義のトークン実測(条件と限界つき)をmcp.mdに追記した。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
+  },
+  {
+    "date": "2026-10-30",
+    "type": "skill",
+    "description": "自己申告の費用数値・自己報告の実験・ページ後半未取得の扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

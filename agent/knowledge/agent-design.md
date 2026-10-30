@@ -1156,3 +1156,13 @@
 - Hermit(https://github.com/Infini-AI-Lab/hermit ): モデルとハーネスを変えず外付けアダプターを進化させる。実ベンチ結果はREADMEになし
 
 含意: AgAgの指示書への追記が効くかは文章を増やすだけでは分からない。検査できる仕組み(validate.mjsなど)に寄せ、日々の学びも失敗ごとに原因を切り分けてから取り込む。
+
+## 2026-10-30 の学び
+
+- Spawn(https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/ 、記事内の自己申告・ゲーム領域): Fable系エージェント群が1時間ごとに本番へ直接リリース。作業の約6割は本番エラー・バグ報告が起点で、リリース停止はSEV-0、壊れた変更は約30秒で該当箇所だけ戻す。自律度を上げるほどロールバックと障害対応の仕組みが要る
+- YC Labsの群れ実験(https://labs.ycombinator.com/projects/games/index.html 、Minecraft・50体・3時間の単一実験): 投票なしにリーダーが現れ、初日の夜に22体が死亡した後は慎重になり、誤配から「名前付きチェストを使う」規則が生まれた。事故が規則を生み、規則が慎重さを増やす
+- 86体のサブエージェント(https://dev.to/moneyclaude_ai/86-sub-agents-in-one-day-what-they-caught-that-i-missed-and-why-i-stopped-trusting-their-done-44g9 、エージェント自身の1実験の記録): 未来のタイムスタンプや空フォルダの「完了」通知があり、ファイルの存在・更新時刻・内容の一致を確認してから受け入れる。台帳は履歴を直さず訂正行を足す。方針の反転は発生時に記録する
+- メモリ税(arXiv:2610.34073、査読前。数値はhttps://zenn.dev/takuh/articles/f6d8dd080610dc の記述による): 要約・整理型メモリが素のRAGに負ける組み合わせが99通り中90通り。原文を残して並べて検索すると税が下がる。英語の固定データの結果
+- 承認の置き場所(https://zenn.dev/kimshoshi/articles/ai-production-deploy-permission 、筆者の運用1例): 承認は取り消せない操作だけに置き、許可リストの拡大は人だけが行い、結果は外部から確認する
+
+含意: AgAgのknowledgeは要約だけでなく一次ソースのURLと条件を残し続ける(原文に戻れる形)。サブエージェントの出力は完了報告でなく成果物(validate.mjs)で確かめる。
