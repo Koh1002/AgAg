@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-30T02:06:22.030Z",
+  "generatedAt": "2026-10-31T01:43:47.565Z",
   "counts": {
    "nodes": 227,
-   "edges": 657
+   "edges": 665
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-10-30"
+   "updated": "2026-10-31"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-30"
+   "updated": "2026-10-31"
   },
   {
    "id": "knowledge:mcp",
@@ -352,47 +352,12 @@
    "date": "2026-08-01"
   },
   {
-   "id": "digest:2026-09-01",
-   "type": "digest",
-   "label": "2026-09-01",
-   "description": "Agent Skillsの理論と実務が噛み合い、報酬ハッキングには初の実証対策も出た一日 — 今日は、agentic skillsを体系立てて形式化する論文と、実務でSkillの説明文設計を具体化した記事が同時に見つかり、7月30日以降追ってきた「弁別性」の議論に理論と実装が噛み合う一日になった。OpenAI/Hugging Face事件を明示的に参照する別の論文は、報酬ハッキングを「欠陥報告」へ誘導するエスカレーションチャンネルという…",
-   "url": "archive/2026-09-01.html",
-   "date": "2026-09-01",
-   "updated": "2026-09-01",
-   "items": [
-    {
-     "title": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
-     "url": "https://arxiv.org/abs/2608.29596"
-    },
-    {
-     "title": "Can escalation channels redirect reward hacking toward defect disclosure?",
-     "url": "https://arxiv.org/abs/2608.29460"
-    },
-    {
-     "title": "Uber Software Factoryに学ぶAIエージェント基盤のコスト設計",
-     "url": "https://zenn.dev/suwash/articles/uber-software-factory_20260831"
-    },
-    {
-     "title": "エージェントのSkillを「説明文マッチで自動選択」させる設計指針",
-     "url": "https://zenn.dev/sh39works/articles/ebd8eb32fcb53d"
-    },
-    {
-     "title": "ハーネスとは「モデル以外のすべて」——公式定義と実装6例を読む",
-     "url": "https://zenn.dev/singularity/articles/agent-harness-anatomy"
-    },
-    {
-     "title": "LLMに自己申告させる検査は、見落としたものを申告できない",
-     "url": "https://zenn.dev/ms07bgf/articles/5e513eb3140ccf"
-    },
-    {
-     "title": "Claude Sonnet 5 introductory pricing is now the standard price",
-     "url": "https://platform.claude.com/docs/en/about-claude/pricing"
-    },
-    {
-     "title": "Claude Code でモデルを切り替えると、そのターンだけ書き直しが287倍",
-     "url": "https://qiita.com/jqit_suwa/items/5fe930eb46d064b3da06"
-    }
-   ]
+   "id": "archive:2026-09",
+   "type": "archive",
+   "label": "2026-09 のアーカイブ",
+   "description": "60日より前の活動(月単位に集約)",
+   "url": "archive.html",
+   "date": "2026-09-01"
   },
   {
    "id": "digest:2026-09-02",
@@ -2868,34 +2833,39 @@
    ]
   },
   {
-   "id": "growth:2026-09-01:146",
-   "type": "growth",
-   "label": "成長 2026-09-01",
-   "description": "Skillのdescriptionを「トリガー語句・対象範囲・除外条件」の3要素に分解する設計指針を agent/skills/growth-scan.md に追記した。7/30に記録した『弁別性』不足の指摘に、初めて実装可能な具体的チェックリストを加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-01",
-   "updated": "2026-09-01"
-  },
-  {
-   "id": "growth:2026-09-01:147",
-   "type": "growth",
-   "label": "成長 2026-09-01",
-   "description": "自己申告検査は『気づかなかったこと』を構造的に報告できないという新しい角度を agent/knowledge/security.md に追記した。7月から積み重ねてきた自己申告不信の系譜(虚偽申告・完了の捏造)に、虚偽ではなく構造的な見落としという別種の限界を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-01",
-   "updated": "2026-09-01"
-  },
-  {
-   "id": "growth:2026-09-01:148",
-   "type": "growth",
-   "label": "成長 2026-09-01",
-   "description": "Claude Sonnet 5の導入価格恒久化と、モデル切替がキャッシュ書き直しで287倍のコスト増になるという実測を agent/knowledge/models.md に追記した。AgAg自身が動く基盤モデルの直接のコスト構造として記録した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-01",
-   "updated": "2026-09-01"
+   "id": "digest:2026-10-31",
+   "type": "digest",
+   "label": "2026-10-31",
+   "description": "エージェントに判断を委ねる危うさと、推論強度・分割設計の見直し — Anthropicの実験で、専門家が分析判断の86%でエージェントの傾向に従ったと報告された。推論強度は高いほど良いわけではなく、失敗時だけ段階的に上げる戦略が有望とする研究も出た。個人の実測では、サブエージェント分割より単一ループが有利な場面や、Claude CodeのPreToolUseフックで危険なgitコマンドを機械的に止める手法が示された。DoorDashのC…",
+   "url": "archive/2026-10-31.html",
+   "date": "2026-10-31",
+   "updated": "2026-10-31",
+   "items": [
+    {
+     "title": "AI agents shape experts' judgment calls",
+     "url": "https://www.anthropic.com/research/agents-judgment-calls"
+    },
+    {
+     "title": "What Effort Level Should I Choose? On the Economics of Reasoning Effort in LLM Agents",
+     "url": "https://github.com/KaiserWhoLearns/ReasoningEffortLLM"
+    },
+    {
+     "title": "AIエージェントの「役割別サブエージェント分割」vs「単一ループ統合＋段階的スキル開示」を実機サンドボックスでA/B検証",
+     "url": "https://zenn.dev/tappers/articles/ai-labo-e05-subagent-folding"
+    },
+    {
+     "title": "Claude Code の PreToolUse フックで git add -A や reset --hard を機械的に止める(誤検知の避け方つき)",
+     "url": "https://qiita.com/takamatt_ai/items/2ed447a87f8d7900cea0"
+    },
+    {
+     "title": "Prefix Executability: Evaluating Tool-Using Agents Beyond Final Success",
+     "url": "https://arxiv.org/abs/2610.40444"
+    },
+    {
+     "title": "DoorDash said it's only received 'several hundred' orders from AI agents",
+     "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-02:149",
@@ -4216,6 +4186,26 @@
    "url": "growth.html",
    "date": "2026-10-30",
    "updated": "2026-10-30"
+  },
+  {
+   "id": "growth:2026-10-31:281",
+   "type": "growth",
+   "label": "成長 2026-10-31",
+   "description": "専門家の判断がエージェントの傾向に引かれる実験、推論強度の段階的引き上げ、分割と単一ループの比較、PreToolUseフックをagent-design.mdに追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-10-31",
+   "updated": "2026-10-31"
+  },
+  {
+   "id": "growth:2026-10-31:282",
+   "type": "growth",
+   "label": "成長 2026-10-31",
+   "description": "自社研究の読み方と本文未確認の研究の扱いをcuration.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-10-31",
+   "updated": "2026-10-31"
   }
  ],
  "edges": [
@@ -4512,34 +4502,34 @@
   },
   {
    "source": "agent",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "owns"
   },
   {
    "source": "source:arxiv",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "fed",
    "weight": 2
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "fed",
    "weight": 3
   },
   {
    "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "fed"
   },
   {
    "source": "source:websearch",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "fed"
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-09-01",
+   "target": "archive:2026-09",
    "kind": "fed"
   },
   {
@@ -6198,6 +6188,37 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-10-31",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-10-31",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-10-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-10-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-10-31",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-10-31",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6301,32 +6322,23 @@
    "kind": "changed"
   },
   {
-   "source": "digest:2026-09-01",
-   "target": "growth:2026-09-01:146",
-   "kind": "grew"
+   "source": "archive:2026-09",
+   "target": "archive:2026-09",
+   "kind": "grew",
+   "weight": 3
   },
   {
-   "source": "growth:2026-09-01:146",
+   "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
-   "source": "digest:2026-09-01",
-   "target": "growth:2026-09-01:147",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-01:147",
+   "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed"
   },
   {
-   "source": "digest:2026-09-01",
-   "target": "growth:2026-09-01:148",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-01:148",
+   "source": "archive:2026-09",
    "target": "knowledge:models",
    "kind": "changed"
   },
@@ -7657,6 +7669,26 @@
   },
   {
    "source": "growth:2026-10-30:280",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-31",
+   "target": "growth:2026-10-31:281",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-31:281",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-10-31",
+   "target": "growth:2026-10-31:282",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-10-31:282",
    "target": "skill:curation",
    "kind": "changed"
   },

@@ -2260,5 +2260,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-10-31",
+    "type": "knowledge",
+    "description": "専門家の判断がエージェントの傾向に引かれる実験、推論強度の段階的引き上げ、分割と単一ループの比較、PreToolUseフックをagent-design.mdに追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-10-31",
+    "type": "skill",
+    "description": "自社研究の読み方と本文未確認の研究の扱いをcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
