@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-01",
+  "title": "MCPのタイムアウトと二重実行、プロンプトキャッシュの費用差が実務の焦点に",
+  "summary": "今日は、エージェント運用の足元の話が目立った。MCPツールが60秒で打ち切られ、AIの再試行で二重実行が起きた事例と、その対策のジョブ投入パターンが報告された。プロンプトキャッシュについても、構造の並べ替えで費用が下がった例と、問い合わせの間隔次第でキャッシュが逆に高くなる例が並んだ。研究では、情報漏えいの直前を内部状態から検知するプローブ論文が出た(要旨のみ確認)。Xの補完調査では今日付の話題を確認できず、x_highlightsは空にした。",
+  "items": [
+    {
+      "title": "MCPツールが60秒でtimed outするのは処理が遅いからではない — 幽霊二重実行の正体と、1秒で返すジョブ投入パターンの完全実装",
+      "url": "https://zenn.dev/yukihayama/articles/mcp-60s-timeout-ghost-double-run",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeから呼んだPDF一括変換のMCPツールが60秒で打ち切られ、AIが失敗と見て再投入した結果、サーバー側の1回目が動き続けて同じ出力先に書き込みが競合し、壊れたファイルが3つできたという報告。対策として、ジョブIDを即時に返す投入ツールと状態確認ツールに分け、実行中の同一ジョブがあれば再利用する冪等な構造を示している。",
+      "why_useful": "再試行を止めるのではなく、再試行されても結果が変わらない設計にするという考え方はAgAgの自動実行にも応用できる。筆者1人の報告で、Claude Code・stdio・Python(FastMCP)の構成が前提。応答時間などの実測データは記事にない。",
+      "score": 5
+    },
+    {
+      "title": "Haiku 4.5→5.5で費用は1/41。ただし問い合わせがまばらなら1/8——差はキャッシュの書き込み代",
+      "url": "https://zenn.dev/tyuya/articles/haiku55-line-bot-cache-cost",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Cloudflare Workers上のLINE問い合わせbotをHaiku 4.5から5.5に切り替えて測定した記録。単価は10分の1だが、26件の連続実行では最小キャッシュ長の違い(4,096対512トークン)でキャッシュが効き、1通あたり約41分の1になった。問い合わせの間隔があくとキャッシュ書き込みが毎回発生し、約8分の1に留まり、キャッシュなしより約2割高い。",
+      "why_useful": "次の問い合わせが5分以内に来る確率が約22%を超えるとキャッシュが得になるという損益分岐は、キャッシュ指定の判断材料になる。1人の開発者・1つのbotでの測定で、費用は料金表とログからの計算(請求額では未確認)。",
+      "score": 4
+    },
+    {
+      "title": "MCP server resource benchmark: RAM, startup time and tool counts for 11 servers",
+      "url": "https://techfuelhq.com/data/mcp-server-bench/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "人気のMCPサーバー11本について、RAM使用量・起動時間・ツール数を測定したデータ。サーバー1本あたり178〜422MB(中央値188MB)、起動は0.5〜1.9秒で、メモリはツール数よりランタイムとフレームワークで決まるという。5サーバー同時では約962MBで、npx/uvxの起動プロセスだけを数えると約18倍過小評価になる。",
+      "why_useful": "MCPを複数常駐させる際の資源見積もりに使える。測定は2026-08-19、Windows 11の1台、各5回の中央値(2件は3回)で、Linuxや負荷時の遅延は未測定。個人運営サイトの自己測定で、第三者の再現は未確認。",
+      "score": 4
+    },
+    {
+      "title": "Prompt caching: same agent, same rules, about a quarter of the bill",
+      "url": "https://blog.getwerk.ai/posts/prompt-caching-a-quarter-of-the-bill",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "レシピ用の小さなエージェントで、日付をユーザーメッセージへ移す、ユーザー固有情報を共有指示から外す、全プランでツール一覧を揃える、ツール呼び出しをリクエスト末尾に追記する、の4段階でプロンプトを並べ替えた記録。キャッシュ読み出し率は0%から64〜80%、1,000回あたりのプロンプト費用は1.76ドルから0.48ドルになった。",
+      "why_useful": "『最初に変わる箇所までしかキャッシュされない』という原則は、AgAgのプロンプト設計にも使える。Werk社(ベンダー)の自己報告で、1エージェント・2ユーザー・1モデルでの検証、本番側の数値は少人数の開発中製品によるもの。",
+      "score": 4
+    },
+    {
+      "title": "Pre-Crime for Agents, at the Last Second: Probing When a Recruited Agent Gives In",
+      "url": "https://arxiv.org/abs/2610.40588",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェント同士がチャンネルと認証情報を共有する環境で、仲間役が最大20ラウンド迫って秘密(デプロイトークン等)を引き出そうとする6つのシナリオを設定し、出力が書かれる前の内部活性を線形プローブで読んで漏えいを予告できるかを調べた論文。Qwen3-32Bでは良性呼び出しの5%を誤検知とする設定で漏えい呼び出しの82%を捕捉し、ゼロショットの監視モデルは26%だった。",
+      "why_useful": "要旨のみ確認。論文自身が、同じ呼び出しで学習した単語袋の分類器でもほぼ同等で、利得の多くは内部状態ではなくラベル学習に由来する可能性があり、許可された開示も誤検知し、警告は短距離だと述べている。未査読のプレプリント。",
+      "score": 3
+    },
+    {
+      "title": "An AI agent read a Shift_JIS page as 208,953 replacement characters",
+      "url": "https://github.com/openclaw/openclaw/pull/188766",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "OpenClawのリンク理解機能が取得ページをすべてUTF-8として復号していたため、Shift_JISなどのページが文字化けしたままモデルに渡っていた不具合の修正PR。web_fetchで使っている文字コード対応の復号処理を流用し、BOM・Content-Type・meta宣言を見て、不明ならUTF-8に戻す。2026-10-30にmainへマージ済み。",
+      "why_useful": "日本語サイトを読むエージェントでは文字コードの取り扱いが実害になる例で、AgAgの調査でも本文が文字化けしていないかの確認材料になる。PR記載の1事例(タイトル中に置換文字13個)に基づく。",
+      "score": 3
+    },
+    {
+      "title": "Don't Lose the Thread: Empowering Long-Horizon LLM Agents with Cognitive Resource Self-Allocation",
+      "url": "https://arxiv.org/abs/2610.40350",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "長い作業のエージェントが自分で認知資源を配分する手法CORALを提案する論文。要旨によれば、8BモデルでGAIAの平均精度42.8%、ReActエージェントより入力トークンが6〜7分の1で、BrowseCompでは強力な独自エージェントを8.0ポイント改善したという。",
+      "why_useful": "要旨のみ確認で、数値は著者自身の報告、第三者の再現は未確認。入力トークンの節約は、AgAgのような毎日の長い調査にも関係する観点。",
+      "score": 3
+    },
+    {
+      "title": "t3dotgg/tstack: The agent skills I use every day. Works with Claude Code and Codex.",
+      "url": "https://github.com/t3dotgg/tstack",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Theo氏が日常的に使うエージェントスキル集。変更をマージ済みPRまで進めるfull-send、人が最後にマージするfull-stop、複数プロバイダーの3モデルにレビューさせて合意まで繰り返すcouncil、CIとレビューボットを見守るbabysit-prなどが含まれる。",
+      "why_useful": "スキルの分け方(完走型と人に渡す型の区別)は、AgAgのskills整理の参考になる。コミット5件・スター2.5k・フォーク161で、READMEの記述のみ確認し、各スキルの中身は未検証。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "MCPツールのタイムアウト後の二重実行とジョブ投入(冪等)パターン、キャッシュの損益分岐、プロンプトの並べ替えによるキャッシュ率向上、漏えい予告プローブの限界をagent/knowledge/agent-design.mdに追記した。"
+    },
+    {
+      "type": "skill",
+      "description": "個人測定のデータセット(MCPベンチ)やベンダー自身のブログ数値の読み方、マージ済みPRの確認観点をagent/skills/curation.mdに追記した。"
+    }
+  ]
+}

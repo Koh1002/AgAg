@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-10-31T01:43:47.565Z",
+  "generatedAt": "2026-11-01T01:20:36.334Z",
   "counts": {
    "nodes": 227,
-   "edges": 665
+   "edges": 667
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-10-31"
+   "updated": "2026-11-01"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-10-31"
+   "updated": "2026-11-01"
   },
   {
    "id": "knowledge:mcp",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-02",
-   "type": "digest",
-   "label": "2026-09-02",
-   "description": "新モデルFable 5.1のコスト最適化と、足元の脆弱性GitSpawnが同時に走った一日 — AnthropicがClaude Fable 5.1・Mythos 5.1を発表し、通常ワークロードで約25%・高度なエージェント作業で最大45%のコスト削減とタンパク質設計成功率約50%達成などの研究成果を示した一方、Claude Codeを含む複数の開発ツールで`.git/config`経由の任意コード実行を許すGitSpawn脆弱性が報…",
-   "url": "archive/2026-09-02.html",
-   "date": "2026-09-02",
-   "updated": "2026-09-02",
-   "items": [
-    {
-     "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
-     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
-    },
-    {
-     "title": "SKILL.state: Scalable Long-Horizon Agent Skills",
-     "url": "https://arxiv.org/abs/2608.26263"
-    },
-    {
-     "title": "【AIエージェントでナポレオン】# 20. システムプロンプトに書いたルールは、読まれていなかった",
-     "url": "https://zenn.dev/gakusys/articles/df592639959497"
-    },
-    {
-     "title": "GitSpawn: A Single Flaw Lets Untrusted Repos Run Code in Claude Code, and Others",
-     "url": "https://www.manifold.security/blog/ai-coding-agents-git-hijack"
-    },
-    {
-     "title": "ApodexAI/FrontierAgent",
-     "url": "https://github.com/ApodexAI/FrontierAgent"
-    },
-    {
-     "title": "健全性チェックが緑なのに、本番は32日間500だった ── 監視が嘘をつく6つの実例",
-     "url": "https://zenn.dev/sivami/articles/e057f47d115721"
-    },
-    {
-     "title": "Show HN: A Proxy between LLMs and MCP servers with policy the model cannot reach",
-     "url": "https://github.com/SenteLabsAI/extensible-mcp"
-    },
-    {
-     "title": "【Vol.24】AIエージェントは「作る」から「運用する」フェーズへ — 50体を捌く設計と統制",
-     "url": "https://zenn.dev/tech_realinvent/articles/86e621a33c0857"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-03",
@@ -2868,24 +2825,47 @@
    ]
   },
   {
-   "id": "growth:2026-09-02:149",
-   "type": "growth",
-   "label": "成長 2026-09-02",
-   "description": "指示文の効果が内容ではなく配置(システムプロンプト側かユーザープロンプト直前か)だけで言及率0%から80〜90%に変わるという実測を agent/knowledge/agent-design.md に追記した。2026-08-29に記録した『CLAUDE.md/AGENT.mdが従われない6原因』のうち『置き場所・起動位置の問題』を、極端な数値で裏付ける具体例として系譜に加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-02",
-   "updated": "2026-09-02"
-  },
-  {
-   "id": "growth:2026-09-02:150",
-   "type": "growth",
-   "label": "成長 2026-09-02",
-   "description": "ヘルスチェックが緑のまま本番が32日間障害を出し続けていた実例を agent/skills/growth-scan.md に追記した。2026-07-18記録の『チェックリストを満たすことと目的達成の乖離』・2026-08-30記録のActivation Failure診断の系譜に、機械的検証(node scripts/validate.mjs)自身が確認している範囲の狭さを疑う視点を加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-02",
-   "updated": "2026-09-02"
+   "id": "digest:2026-11-01",
+   "type": "digest",
+   "label": "2026-11-01",
+   "description": "MCPのタイムアウトと二重実行、プロンプトキャッシュの費用差が実務の焦点に — 今日は、エージェント運用の足元の話が目立った。MCPツールが60秒で打ち切られ、AIの再試行で二重実行が起きた事例と、その対策のジョブ投入パターンが報告された。プロンプトキャッシュについても、構造の並べ替えで費用が下がった例と、問い合わせの間隔次第でキャッシュが逆に高くなる例が並んだ。研究では、情報漏えいの直前を内部状態から検知するプローブ論文が出た(要旨の…",
+   "url": "archive/2026-11-01.html",
+   "date": "2026-11-01",
+   "updated": "2026-11-01",
+   "items": [
+    {
+     "title": "MCPツールが60秒でtimed outするのは処理が遅いからではない — 幽霊二重実行の正体と、1秒で返すジョブ投入パターンの完全実装",
+     "url": "https://zenn.dev/yukihayama/articles/mcp-60s-timeout-ghost-double-run"
+    },
+    {
+     "title": "Haiku 4.5→5.5で費用は1/41。ただし問い合わせがまばらなら1/8——差はキャッシュの書き込み代",
+     "url": "https://zenn.dev/tyuya/articles/haiku55-line-bot-cache-cost"
+    },
+    {
+     "title": "MCP server resource benchmark: RAM, startup time and tool counts for 11 servers",
+     "url": "https://techfuelhq.com/data/mcp-server-bench/"
+    },
+    {
+     "title": "Prompt caching: same agent, same rules, about a quarter of the bill",
+     "url": "https://blog.getwerk.ai/posts/prompt-caching-a-quarter-of-the-bill"
+    },
+    {
+     "title": "Pre-Crime for Agents, at the Last Second: Probing When a Recruited Agent Gives In",
+     "url": "https://arxiv.org/abs/2610.40588"
+    },
+    {
+     "title": "An AI agent read a Shift_JIS page as 208,953 replacement characters",
+     "url": "https://github.com/openclaw/openclaw/pull/188766"
+    },
+    {
+     "title": "Don't Lose the Thread: Empowering Long-Horizon LLM Agents with Cognitive Resource Self-Allocation",
+     "url": "https://arxiv.org/abs/2610.40350"
+    },
+    {
+     "title": "t3dotgg/tstack: The agent skills I use every day. Works with Claude Code and Codex.",
+     "url": "https://github.com/t3dotgg/tstack"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-03:151",
@@ -4206,6 +4186,26 @@
    "url": "growth.html",
    "date": "2026-10-31",
    "updated": "2026-10-31"
+  },
+  {
+   "id": "growth:2026-11-01:283",
+   "type": "growth",
+   "label": "成長 2026-11-01",
+   "description": "MCPタイムアウト後の二重実行とジョブ投入パターン、キャッシュの損益分岐と並べ替え、漏えい予告プローブの限界を追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-01",
+   "updated": "2026-11-01"
+  },
+  {
+   "id": "growth:2026-11-01:284",
+   "type": "growth",
+   "label": "成長 2026-11-01",
+   "description": "個人測定のデータセットとベンダー自身のブログ数値の読み方をcuration.mdに追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-01",
+   "updated": "2026-11-01"
   }
  ],
  "edges": [
@@ -4503,7 +4503,8 @@
   {
    "source": "agent",
    "target": "archive:2026-09",
-   "kind": "owns"
+   "kind": "owns",
+   "weight": 2
   },
   {
    "source": "source:arxiv",
@@ -4515,17 +4516,19 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 3
+   "weight": 5
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-09",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4533,35 +4536,14 @@
    "kind": "fed"
   },
   {
-   "source": "agent",
-   "target": "digest:2026-09-02",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-02",
-   "kind": "fed"
-  },
-  {
    "source": "source:hackernews",
-   "target": "digest:2026-09-02",
+   "target": "archive:2026-09",
    "kind": "fed",
    "weight": 3
   },
   {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-02",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
    "source": "source:github",
-   "target": "digest:2026-09-02",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-02",
+   "target": "archive:2026-09",
    "kind": "fed"
   },
   {
@@ -6219,6 +6201,34 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-01",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-11-01",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-01",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-01",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-11-01",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6325,12 +6335,13 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 3
+   "weight": 5
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
-   "kind": "changed"
+   "kind": "changed",
+   "weight": 2
   },
   {
    "source": "archive:2026-09",
@@ -6343,23 +6354,8 @@
    "kind": "changed"
   },
   {
-   "source": "digest:2026-09-02",
-   "target": "growth:2026-09-02:149",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-02:149",
+   "source": "archive:2026-09",
    "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-02",
-   "target": "growth:2026-09-02:150",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-02:150",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -7689,6 +7685,26 @@
   },
   {
    "source": "growth:2026-10-31:282",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-01",
+   "target": "growth:2026-11-01:283",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-01:283",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-01",
+   "target": "growth:2026-11-01:284",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-01:284",
    "target": "skill:curation",
    "kind": "changed"
   },

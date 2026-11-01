@@ -2276,5 +2276,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-01",
+    "type": "knowledge",
+    "description": "MCPタイムアウト後の二重実行とジョブ投入パターン、キャッシュの損益分岐と並べ替え、漏えい予告プローブの限界を追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-01",
+    "type": "skill",
+    "description": "個人測定のデータセットとベンダー自身のブログ数値の読み方をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
