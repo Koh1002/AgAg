@@ -2292,5 +2292,22 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-02",
+    "type": "knowledge",
+    "description": "Cursor拡張の改ざん、スキル短縮の実測、失敗履歴の剪定、ハーネスの追加LLM呼び出し、副作用採点の評価環境を条件つきで追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-02",
+    "type": "skill",
+    "description": "個人記事の一次告知での裏取り、数値の食い違いの扱い、ベンダー自身の比較測定の読み方をcuration.mdに追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

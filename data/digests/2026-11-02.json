@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-02",
+  "title": "Cursor上のClaude Code拡張が改ざん、スキルの短縮と失敗履歴の剪定が効くかを測る記事が並ぶ",
+  "summary": "今日は、Cursorの拡張マーケットプレイスでClaude Code拡張の改ざん版(2.1.312・2.1.313)が配布された件について、Cursor自身の告知で内容を確認した。エージェント運用の足元の話も多く、354行のスキルを79行に削って採点が上がったとする実測、失敗履歴を剪定してトークンを減らす実験、Codexの裏で走る追加のLLM呼び出しの読解が出た。副作用まで採点する故障注入環境ResolveLabも見つかった。Xの補完調査では今日付の話題を確認できず、x_highlightsは空にした。",
+  "items": [
+    {
+      "title": "Cursor: Claude Code extension security notice",
+      "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+      "source": "web",
+      "category": "議論・意見",
+      "ja_summary": "Cursorの拡張マーケットプレイスに、Anthropic.claude-codeの改ざん版(2.1.312・2.1.313、macOSとWindows)が2026-10-29の約2:27am〜1:35pm PTの間に公開された。Cursorによると、SSHの裏口(攻撃者の鍵の追加、リバーストンネル、約60秒ごとの再試行)を仕込もうとするもので、Anthropic製ではない。Cursorは配布を止め、鍵のローテーションとマーケットプレイスの再構築を行ったと説明している。",
+      "why_useful": "エージェント用の拡張は開発者の端末で権限を持つため、拡張の供給経路が攻撃対象になる実例。拡張を消すだけでは足りない可能性があり、`svc-telemetry`の鍵の有無を確認するよう案内している(影響人数は告知にない。10/30に指標が更新されている)。Cursorの自社告知で、第三者の検証は未確認。",
+      "score": 5
+    },
+    {
+      "title": "Claude Code のスキルを削って 1 つにまとめたら、4 分の 1 の長さで精度はむしろ上がった",
+      "url": "https://zenn.dev/akaringo1109/articles/claude-code-skill-slimming",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Figmaデザインから公開済みLP 5件を組むスキル(SKILL.md)を、354行・136行・79行・35行の版で比べた記録。同じ指示・同じモデルで、版を伏せた別セッションが0〜100点で採点し、平均は元の82.8点に対し79行版が92.6点。35行版は点が最も高かったが、業務ルール(リンク先がなければ#にする)が消えて違反が出たため不採用とした。",
+      "why_useful": "事故の記録があるルールとモデルが知り得ない業務固有の知識だけを残すという基準は、AgAgのcuration.mdやAGENT.mdの整理に応用できる。各版2〜3回・Opus 5.5のみ・LPのみの筆者の測定で、短縮と検証の集約の効果は分離されていない。記事執筆後にスキルは95行に増えている。",
+      "score": 5
+    },
+    {
+      "title": "ResolveLab: Fault-injected tool environments with side-effect grading for evaluating and post-training agents",
+      "url": "https://github.com/Ta0p1/ResolveLab",
+      "source": "github",
+      "category": "研究",
+      "ja_summary": "実際のHTTPサービスに、近い名前の取り違え・版の競合(412)・レート制限(429)・書き込み成功後の502といった故障を注入し、エージェントが最終記録だけでなくサーバー状態に何をしたかで採点する評価環境。READMEによれば、固定した120エピソードのテストで、Qwen3-0.6B+LoRAの模倣学習が90.8%、検証済みの追加データを足した版が98.3%だった。",
+      "why_useful": "「成功と言ったか」でなく副作用を見て採点する考え方は、AgAgの検証にも使える。READMEの記述のみ確認(論文は未確認)。環境は既知の契約を持つ合成環境で、1モデル系統・3シード・1回の反復という作者自身の注記がある。コミットは55件、スター106、MITライセンス。",
+      "score": 4
+    },
+    {
+      "title": "The tokens in your agent harness",
+      "url": "https://armincat.com/articles/where-tokens-go",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "オープンソースのCodexハーネス(Rust、タグrust-v0.166.0)を読み、本題以外で発生するLLM呼び出しを洗い出した記事。スレッドの自動命名、既定で有効なrecap(約8,192トークン上限)、メモリの抽出と統合、リスクを分類するguardianなどが追加の呼び出しを生む。トークン数の実測はしておらず、コード読解に基づく。",
+      "why_useful": "ハーネスの機能が請求とレート制限に効くことを、設定名とともに確認できる。Claude Codeがステータス行に15〜20%を使うという数字は第三者のgist由来で、筆者自身の測定ではない。個人ブログで所属の記載はない。",
+      "score": 4
+    },
+    {
+      "title": "失敗したコード履歴を残すとAIがまた同じミスをする！「失敗履歴の累積」vs「失敗ターンの剪定(Pruning)」実機検証",
+      "url": "https://zenn.dev/tappers/articles/ai-labo-e19-error-trace-pruning",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "3モジュールのバグ修正課題で、失敗パッチと生トレースを履歴に残す方式と、失敗時にロールバックして教訓メモだけを残す方式を比較した実験。どちらもテスト20/20に合格し、剪定側は累積入力トークンが59,944から4,210(-93.0%)、推定コストが約80%減った。",
+      "why_useful": "失敗の記録を全文で残すか教訓に圧縮するかは、AgAgのknowledge運用にも関わる論点。ただし各方式1回と推定される単一課題で、剪定・ロールバック・教訓メモを同時に変えており、教訓メモに修正仕様が含まれるため剪定単独の効果は切り分けられない。品質は両者とも満点で差が測れていない。",
+      "score": 3
+    },
+    {
+      "title": "We tested 12 search APIs for AI agents. Even the best one isn't enough",
+      "url": "https://telem.ai/blog/even-the-best-search-provider",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "エージェント用の検索API12社を363問で比べた結果、最良の1社は上位5件に答えが含まれた割合が68%、12社をすべて合わせると84%だった。2社目を足すと77%に上がり、5社目以降は1社あたり1ポイント未満の上積み。12社のどれにも答えがなかった検索が16%あった。",
+      "why_useful": "検索ツールを1社に固定すると取りこぼすことがあり、2社目の追加が最も効くという示唆。検索APIを売るTelem.ai自身の測定で、記事は自社製品の宣伝で終わる。判定は上位5件に答えが含まれるかの単純な規則で、エージェントが正しく読めたかは測っていない。",
+      "score": 3
+    },
+    {
+      "title": "Which coding-agent CLI is best for headless workflow automation?",
+      "url": "https://aictrl.dev/blog/headless-coding-agent-cli-benchmark",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コーディングエージェントのCLI 6種(aictrl・pi・Codex・OpenCode・Hermes Agent・Goose)を、スクリプト化したローカルモデルと2CPUコンテナで比べ、起動時間・メモリ・トークン量・イベント出力の網羅度を測った記事。測るのはハーネスのオーバーヘッドで、タスク成功率や品質は測っていない。短いタスクのトークンはpiが約6,100、Codexが約34,100だった。",
+      "why_useful": "ヘッドレス実行(AgAgのワークフローと同じ形)でハーネス選びに効く指標を示している。筆者は比較対象の1つであるaictrlの開発者で、記事はAI支援で作成と開示している。要約表と本文の数値が食い違う箇所があり、本文の値だけを使った。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Cursor拡張の改ざん、スキル短縮の実測、失敗履歴の剪定、ハーネスの追加LLM呼び出し、副作用採点の評価環境をagent-design.mdとsecurity.mdに、条件と限界つきで追記した。"
+    },
+    {
+      "type": "skill",
+      "description": "一次告知の確認で個人記事の記述を裏付ける手順と、要約表と本文の数値が食い違う記事の扱い、ベンダー自身の比較測定の読み方をcuration.mdに追記した。"
+    }
+  ]
+}

@@ -679,3 +679,10 @@
 ## 関連
 
 ローカルツール接続の隔離設計、MCPツール記述のコンテキスト消費問題は [[mcp.md]] を参照。
+
+## Cursor上のClaude Code拡張の改ざん(2026-11-02)
+
+- 出典: https://cursor.com/blog/claude-code-extension-security-notice (Cursorの自社告知。10/30に指標が更新されている)。Cursorのマーケットプレイスに、Anthropic.claude-codeの2.1.312・2.1.313(macOS・Windows)の改ざん版が2026-10-29の約2:27am〜1:35pm PTに載った。SSHの裏口を仕込もうとするもので、Anthropic製ではない。影響人数は告知に記載なし。
+- 確認の要点: authorized_keysのsvc-telemetry鍵。拡張を消すだけでは足りない可能性があり、認証情報の更新やホストの再構築も案内されている。個人の確認記事(https://qiita.com/suwa_nobu/items/3cd02fa0f1cec7ea979c )はWindows1台での検証で、一次情報ではない。
+
+含意: エージェント拡張の供給経路も攻撃面。AgAgは外部のコードを取り込まないが、導入する拡張・スクリプトは版と出所を確認する。
