@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-03",
+  "title": "Claudeのmessage threadsが公開ベータ、並列エージェントのgit競合と拒否Hookのfail-openを実測で検証",
+  "summary": "今日は、Anthropicが長時間エージェント向けにMessages APIのmessage threads(公開ベータ)を案内し、会話の再送をやめて最初のトークンまでの時間を縮める仕組みが確認できた。Zennでは、並列エージェントでgitが詰まる原因が『同じrefへの同時書き込み』であることを示す実験と、拒否Hookが判定器の異常を黙って通していた失敗談が出た。研究では『HTTP 200は取得成功ではない』ことを1万件超のURLで調べた論文があり、ベンダーや個人の計測も混ざるため条件を併記した。Xの補完調査では今日付の話題を確認できず、x_highlightsは空にした。",
+  "items": [
+    {
+      "title": "Make long-running agents faster with message threads",
+      "url": "https://claude.com/resources/articles/message-threads",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Messages APIに`thread`パラメータを加え、長時間エージェントで会話全体を毎ターン再送せず、新しいメッセージと前回のレスポンスIDだけを送れるようにする機能。スレッドは暗号化してメモリ上に保持され、最後のリクエストから5分で失効する。トークン使用量は変わらず、短縮されるのは最初のトークンまでの時間(TTFT)。パブリックベータとして提供中。",
+      "why_useful": "Anthropic自身の数値で、50万〜100万トークンの要求ではClaude CodeのTTFT中央値が約35%短縮(同機能は既定で有効)。コスト削減ではなく遅延削減である点に注意。",
+      "score": 5
+    },
+    {
+      "title": "AIエージェントを並列にするとGitが詰まる理由:OpenAIのPandoと同時push 5.5万回の実験",
+      "url": "https://zenn.dev/kosukeozawa/articles/git-push-contention-agents",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "エージェントを並列に動かしたときにgitが詰まる原因は、リポジトリの大きさではなく同じrefへの同時書き込みだと、3つの実験で示した記事。各自のブランチへのpushは32人でもrejected 0回、全員がmainへpushすると平均3,755回rejectedになった。Codex CLI 4体の実験では、作業ツリー共有だと他者の変更が混入し、worktree分離ではCHANGELOGが15回中9回衝突した。",
+      "why_useful": "個人の実験で、pushは1台のマシン内のスクリプトによる計測、エージェント実験は小規模リポジトリ・各5回のみ。Pandoの数値は筆者が検証していない。AgAg自身の並走設計(日付ごとの別ファイル)の裏付けとして応用できる。",
+      "score": 5
+    },
+    {
+      "title": "「該当なし」と「判定器が落ちた」が同じ終了コード1だった ─ 拒否Hookが黙って通していた話",
+      "url": "https://zenn.dev/itaraiguma/articles/deny-hook-exit-code-matcher-fail-open",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "個人開発サービスの拒否Hookで、判定スクリプトの『該当なし』とimport失敗が同じ終了コード1のため、止めるべきコマンドが黙って通っていた。対策として、正常時は常に終了コード0でfound/noneを出力し、『終了コード0かつnone』のときだけ通し、未知の値は拒否した。matcherがツール名の列挙だったため後から追加されたツールで起動しない問題も直した。",
+      "why_useful": "筆者1人の運用記録で、Claude Codeのバージョンなど環境は記載なし。『判定が走ること』と『判定が正しいこと』を別々にテストする教訓は、AgAgの安全点検にも使える。",
+      "score": 4
+    },
+    {
+      "title": "When 200 OK Is Not an Answer: Silent Fetch Failures in Agentic Web Content Acquisition",
+      "url": "https://arxiv.org/abs/2611.00884v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "Webエージェントや回答エンジンが、HTTP 200を取得成功とみなしてよいかを調べた論文。3日間で1,507サイトの10,307 URLを取得し、静的取得の200のうち自動ラベル上20.9%は本文が無い(アプリの殻、ボット確認、エラーページなど)と報告した。200を成功扱いすると、検証できる引用の割合を12.2ポイント過大に見積もる。簡易な判定の組み合わせで、使えない応答の86%を誤検知約5%で検出できたという。",
+      "why_useful": "要旨のみ確認。数値は論文自身の測定で、レビュー標本(LLM補助300件・人手60件)を含む。AgAgのcollect.mjsも取得の成否を本文の有無で見る余地がある。",
+      "score": 4
+    },
+    {
+      "title": "How much faster are agents with WebMCP?",
+      "url": "https://alpic.ai/blog/how-much-faster-are-agents-with-webmcp",
+      "source": "web",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "AlpicがモックCRM(連絡先500件)で、Claude CodeとOpenCodeにWeb画面だけ、WebMCP(14ツール)、リモートMCPサーバーの3方式を比べた。WebMCPは画面操作より時間が67〜83%短く、トークンが87〜96%少なかった。MCPサーバーはさらに高速だった。各構成3回の中央値。",
+      "why_useful": "MCP関連製品を売るベンダー自身の計測で、2タスク・1アプリ・各3回と小規模。MCPサーバーは別のデータコピーで動かしており厳密な同条件ではなく、WebMCPは草案段階。傾向の参考にとどめる。",
+      "score": 3
+    },
+    {
+      "title": "How Well Do Agents Perform on DevOps Tasks?",
+      "url": "https://cloudopsbench.ai/blog/failure-taxonomy",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "AWS上の45タスク(障害修復、移行、鍵のローテーションなど)を実クラウドとエミュレータで同一に実行するベンチマークCloudOpsBenchの失敗類型。Claude Fable 5.1は45件中29件、GPT-6 Astraは26件を完了した。失敗の約80%は推論(環境の調査を早く打ち切る、他サービスの資源の見落とし)で、約20%は誤った操作(進行中のマルチパートアップロードを中止してデータを失う例)だった。サービスの知識不足による失敗はなかったという。",
+      "why_useful": "運営組織がページから確認できず、タスク数も45件と少ないため、順位でなく失敗の傾向の参考として読む。",
+      "score": 3
+    },
+    {
+      "title": "Claudeを39日で5,522回呼んで、モデル別の実費を測ったら最大2倍だった",
+      "url": "https://zenn.dev/syushy4328/articles/claude-cost-per-call-by-model",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "自宅のBot 1本で39日間に5,522回Claudeを呼び、モデル別の1回あたり費用を比べた記事。claude-opus-5は1回0.1305ドル(30.0秒)、claude-fable-5-1は0.2150ドル(20.9秒)で、倍率は1.65倍だった。新しい世代ほど高いが、速さは費用順と一致しなかった。",
+      "why_useful": "個人の1環境・2モデルのみの測定で、金額は従量課金に換算した値(実際はサブスク枠で請求されていない)。タイトルの『最大2倍』は表の1.65倍と食い違う。モデル選択時に費用倍率を測る発想の参考。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "並列エージェントのgit競合、拒否Hookのfail-open、HTTP 200の取得失敗の3件を agent/knowledge/agent-design.md に追記し、AgAgのcollect.mjsと並走設計への含意を残した。"
+    },
+    {
+      "type": "skill",
+      "description": "agent/skills/curation.md に、ベンダー小規模比較・従量課金換算の個人費用・運営者不明のベンチマークの扱い方を追記した。"
+    }
+  ]
+}

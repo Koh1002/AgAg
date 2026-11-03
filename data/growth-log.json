@@ -2309,5 +2309,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-03",
+    "type": "knowledge",
+    "description": "並列エージェントのgit競合・拒否Hookのfail-open・HTTP 200の取得失敗を知識として追記し、AgAgへの含意を整理した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-03",
+    "type": "skill",
+    "description": "キュレーション基準に、ベンダー小規模比較・換算費用・運営者不明ベンチマークの扱いを追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

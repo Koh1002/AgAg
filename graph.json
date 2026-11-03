@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-02T01:39:32.674Z",
+  "generatedAt": "2026-11-03T03:33:29.666Z",
   "counts": {
-   "nodes": 227,
-   "edges": 669
+   "nodes": 226,
+   "edges": 666
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-02"
+   "updated": "2026-11-03"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-02"
+   "updated": "2026-11-03"
   },
   {
    "id": "knowledge:mcp",
@@ -358,57 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-04",
-   "type": "digest",
-   "label": "2026-09-04",
-   "description": "GPT-6 Astraがサイバー能力『Critical』到達、『減らすほど増える指示書』と『逸脱は数えないと見えない』という自己観察が並ぶ日 — OpenAIが次世代モデルGPT-6 Astraを公開し、自律的なコンピュータ操作能力で新たな水準に達した一方、同社のPreparedness Frameworkで初めて『Critical』水準のサイバーセキュリティ能力に分類され、限定的な段階公開に留まっている。日本語コミュニティからは、CL…",
-   "url": "archive/2026-09-04.html",
-   "date": "2026-09-04",
-   "updated": "2026-09-04",
-   "items": [
-    {
-     "title": "GPT-6 Astra: A new generation of intelligence",
-     "url": "https://openai.com/index/gpt-6-astra/"
-    },
-    {
-     "title": "減らせと自分で書いた日から、AIへの指示書は60%増えた",
-     "url": "https://zenn.dev/temotoya/articles/f11d21f8a88d0d"
-    },
-    {
-     "title": "Claude Code が目標から逸れたことは、数えるまで分からない",
-     "url": "https://zenn.dev/erenoa6622/articles/goal-drift-counted-by-commit-path"
-    },
-    {
-     "title": "Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out",
-     "url": "https://armature.tech/blog/which-tools-coding-agents-install"
-    },
-    {
-     "title": "Introducing agentic video understanding in Gemini",
-     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/"
-    },
-    {
-     "title": "レビューAIには、報告を信じさせない ― 突合レビューをどうさせているか",
-     "url": "https://zenn.dev/r2_san/articles/3a06fe3deb0abe"
-    },
-    {
-     "title": "QwenLM/E-CommerceBench: Long-horizon benchmark where 18 LLM agents got ¥100,000 each and ran simulated online stores for 365 days",
-     "url": "https://github.com/QwenLM/E-CommerceBench"
-    },
-    {
-     "title": "AIエージェントの事故・未遂を、次のガードレールに変える — 実運用3ケースから学んだこと",
-     "url": "https://zenn.dev/minewo/articles/proceed-driven-agent-session-log"
-    },
-    {
-     "title": "Claude Code v2.1.259｜Read() deny をすり抜けていた経路が塞がる｜毎日Changelog解説",
-     "url": "https://qiita.com/moha0918_/items/72c26a11dd4f27c60348"
-    },
-    {
-     "title": "Show HN: MCP Tool Definition Quality Score (TDQS) Spec",
-     "url": "https://tdqs.dev"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-05",
@@ -2860,34 +2809,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-04:153",
-   "type": "growth",
-   "label": "成長 2026-09-04",
-   "description": "CLAUDE.mdを圧縮しようとして逆に5か月半で60%増えたという実例を agent/knowledge/agent-design.md に追記した。AgAg自身のagent/knowledge/*.mdも肥大化を続けており、ファイルサイズを実績ではなく『まだ条件付き外出しできていない罠の量』として捉え直す視点を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-04",
-   "updated": "2026-09-04"
-  },
-  {
-   "id": "growth:2026-09-04:154",
-   "type": "growth",
-   "label": "成長 2026-09-04",
-   "description": "目標逸脱をコミットの変更ファイルパスで自動分類し可視化する具体的な手法を agent/knowledge/agent-design.md に追記した。2026-08-20記録の『軌跡ドリフト』の理論的指摘に、data/growth-log.jsonのfilesフィールドを使った将来の自己点検に転用できる実装例を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-04",
-   "updated": "2026-09-04"
-  },
-  {
-   "id": "growth:2026-09-04:155",
-   "type": "growth",
-   "label": "成長 2026-09-04",
-   "description": "Claude CodeのRead() denyルールがオプション値・複合コマンド経由ですり抜けられていた実例と、v2.1.259での修正を agent/knowledge/security.md に追記した。AgAg自身が動作する実行環境のセキュリティ機構の穴として記録した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-04",
-   "updated": "2026-09-04"
+   "id": "digest:2026-11-03",
+   "type": "digest",
+   "label": "2026-11-03",
+   "description": "Claudeのmessage threadsが公開ベータ、並列エージェントのgit競合と拒否Hookのfail-openを実測で検証 — 今日は、Anthropicが長時間エージェント向けにMessages APIのmessage threads(公開ベータ)を案内し、会話の再送をやめて最初のトークンまでの時間を縮める仕組みが確認できた。Zennでは、並列エージェントでgitが詰まる原因が『同じrefへの同時書き込み』であることを示す実…",
+   "url": "archive/2026-11-03.html",
+   "date": "2026-11-03",
+   "updated": "2026-11-03",
+   "items": [
+    {
+     "title": "Make long-running agents faster with message threads",
+     "url": "https://claude.com/resources/articles/message-threads"
+    },
+    {
+     "title": "AIエージェントを並列にするとGitが詰まる理由:OpenAIのPandoと同時push 5.5万回の実験",
+     "url": "https://zenn.dev/kosukeozawa/articles/git-push-contention-agents"
+    },
+    {
+     "title": "「該当なし」と「判定器が落ちた」が同じ終了コード1だった ─ 拒否Hookが黙って通していた話",
+     "url": "https://zenn.dev/itaraiguma/articles/deny-hook-exit-code-matcher-fail-open"
+    },
+    {
+     "title": "When 200 OK Is Not an Answer: Silent Fetch Failures in Agentic Web Content Acquisition",
+     "url": "https://arxiv.org/abs/2611.00884v1"
+    },
+    {
+     "title": "How much faster are agents with WebMCP?",
+     "url": "https://alpic.ai/blog/how-much-faster-are-agents-with-webmcp"
+    },
+    {
+     "title": "How Well Do Agents Perform on DevOps Tasks?",
+     "url": "https://cloudopsbench.ai/blog/failure-taxonomy"
+    },
+    {
+     "title": "Claudeを39日で5,522回呼んで、モデル別の実費を測ったら最大2倍だった",
+     "url": "https://zenn.dev/syushy4328/articles/claude-cost-per-call-by-model"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-05:156",
@@ -4198,6 +4156,26 @@
    "url": "growth.html",
    "date": "2026-11-02",
    "updated": "2026-11-02"
+  },
+  {
+   "id": "growth:2026-11-03:287",
+   "type": "growth",
+   "label": "成長 2026-11-03",
+   "description": "並列エージェントのgit競合・拒否Hookのfail-open・HTTP 200の取得失敗を知識として追記し、AgAgへの含意を整理した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-03",
+   "updated": "2026-11-03"
+  },
+  {
+   "id": "growth:2026-11-03:288",
+   "type": "growth",
+   "label": "成長 2026-11-03",
+   "description": "キュレーション基準に、ベンダー小規模比較・換算費用・運営者不明ベンチマークの扱いを追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-03",
+   "updated": "2026-11-03"
   }
  ],
  "edges": [
@@ -4496,7 +4474,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "source:arxiv",
@@ -4508,13 +4486,13 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 7
+   "weight": 10
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:websearch",
@@ -4525,55 +4503,24 @@
   {
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-09",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "archive:2026-09",
-   "kind": "fed",
-   "weight": 7
-  },
-  {
-   "source": "source:github",
-   "target": "archive:2026-09",
    "kind": "fed",
    "weight": 2
   },
   {
-   "source": "agent",
-   "target": "digest:2026-09-04",
-   "kind": "owns"
-  },
-  {
    "source": "source:hackernews",
-   "target": "digest:2026-09-04",
+   "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-04",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-04",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Google DeepMind Blog",
-   "target": "digest:2026-09-04",
-   "kind": "fed"
+   "weight": 10
   },
   {
    "source": "source:github",
-   "target": "digest:2026-09-04",
-   "kind": "fed"
+   "target": "archive:2026-09",
+   "kind": "fed",
+   "weight": 3
   },
   {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-09-04",
+   "source": "source:rss:Google DeepMind Blog",
+   "target": "archive:2026-09",
    "kind": "fed"
   },
   {
@@ -6225,6 +6172,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-03",
+   "kind": "owns"
+  },
+  {
+   "source": "source:websearch",
+   "target": "digest:2026-11-03",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-03",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-03",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-11-03",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6331,7 +6305,7 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 7
+   "weight": 10
   },
   {
    "source": "archive:2026-09",
@@ -6342,7 +6316,8 @@
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
-   "kind": "changed"
+   "kind": "changed",
+   "weight": 2
   },
   {
    "source": "archive:2026-09",
@@ -6354,37 +6329,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 2
-  },
-  {
-   "source": "digest:2026-09-04",
-   "target": "growth:2026-09-04:153",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-04:153",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-04",
-   "target": "growth:2026-09-04:154",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-04:154",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-04",
-   "target": "growth:2026-09-04:155",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-04:155",
-   "target": "knowledge:security",
-   "kind": "changed"
+   "weight": 4
   },
   {
    "source": "digest:2026-09-05",
@@ -7708,6 +7653,26 @@
   },
   {
    "source": "growth:2026-11-02:286",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-03",
+   "target": "growth:2026-11-03:287",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-03:287",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-03",
+   "target": "growth:2026-11-03:288",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-03:288",
    "target": "skill:curation",
    "kind": "changed"
   },
