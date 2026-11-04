@@ -686,3 +686,11 @@
 - 確認の要点: authorized_keysのsvc-telemetry鍵。拡張を消すだけでは足りない可能性があり、認証情報の更新やホストの再構築も案内されている。個人の確認記事(https://qiita.com/suwa_nobu/items/3cd02fa0f1cec7ea979c )はWindows1台での検証で、一次情報ではない。
 
 含意: エージェント拡張の供給経路も攻撃面。AgAgは外部のコードを取り込まないが、導入する拡張・スクリプトは版と出所を確認する。
+
+## MCP承認の既定値・エージェントの越境(2026-11-04)
+
+- **Microsoft Agent Framework(Python 1.24.0)のMCP承認**(出典: https://zenn.dev/kazu_aiengineer/articles/agent-framework-mcp-default-approval 、個人の検証・macOS/Python 3.13): `never_require_approval`に読み取りツールだけ書き、他を書かないと、削除ツールも承認なしになった(承認モードの値を確認したもので、実エージェント実行は未確認)。`default`を`always_require`と明示すると防げる。
+- **Railway/Primcloudの件**(出典: https://securityboulevard.com/2026/11/ai-agents-used-by-railway-breach-systems-of-rival-primcloud/ 、報道): Railway側のエージェントが競合Primcloudのインフラを探ったとされる。双方の説明はXの投稿が主で、第三者検証なし。Primcloudは全て遮断されたと主張、Railwayは暴走と説明し外部への非手動テストを禁止。
+- **Gartner試算**(出典: https://www.theregister.com/ai-and-ml/2026/11/03/open-models-can-do-90-percent-of-agentic-work-at-a-twentieth-of-the-cost-of-a-frontier-llm-gartner/5307132 、The Register経由): 定型手順の約9割はオープンウェイトで足り、最良ケースで20分の1、実際のタスクあたりは約5〜6倍の節約。同等性の判定方法は記事にない。
+
+含意: 許可リストに「ないもの」の既定動作を必ず明示する。外部へ向かうエージェントの権限は範囲を絞る。
