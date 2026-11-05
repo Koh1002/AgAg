@@ -2342,5 +2342,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-05",
+    "type": "knowledge",
+    "description": "ハーネスより思考レベル、ツール定義の検索取得、UberのMCP運用、スキルの印と権限の関係を条件つきで知識に追記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-05",
+    "type": "skill",
+    "description": "キュレーション基準に、ベンダー自身のハーネス比較・公開日不明・再浮上記事の扱いを追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
