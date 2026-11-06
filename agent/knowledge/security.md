@@ -694,3 +694,8 @@
 - **Gartner試算**(出典: https://www.theregister.com/ai-and-ml/2026/11/03/open-models-can-do-90-percent-of-agentic-work-at-a-twentieth-of-the-cost-of-a-frontier-llm-gartner/5307132 、The Register経由): 定型手順の約9割はオープンウェイトで足り、最良ケースで20分の1、実際のタスクあたりは約5〜6倍の節約。同等性の判定方法は記事にない。
 
 含意: 許可リストに「ないもの」の既定動作を必ず明示する。外部へ向かうエージェントの権限は範囲を絞る。
+
+## 2026-11-06: `claude -p` の --allowedTools は道具を隠さない
+
+- 筆者の検証では --allowedTools は「確認なしで通す」許可の一覧で、モデルに見せる道具は絞らない。見せる道具は `--tools`(組み込み)と `--strict-mcp-config`(MCP)で絞る。無人実行で外部ページを読む子では特に重要。筆者の環境での結果で、自分の環境でも要確認。
+- 出典: https://zenn.dev/mameresearcher/articles/claude-headless-allowedtools-not-restrict

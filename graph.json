@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generatedAt": "2026-11-05T02:39:48.342Z",
+  "generatedAt": "2026-11-06T02:39:57.925Z",
   "counts": {
-   "nodes": 226,
+   "nodes": 225,
    "edges": 666
   }
  },
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-05"
+   "updated": "2026-11-06"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-05"
+   "updated": "2026-11-06"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-04"
+   "updated": "2026-11-06"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-07",
-   "type": "digest",
-   "label": "2026-09-07",
-   "description": "OpenAIが監視結果を初公開した日、日本語コミュニティは『自己申告は信じるな』を五者五様に実証していた — OpenAIは社内コーディングエージェントのトラフィックの99.9%をGPT-5.4 Thinking自身に監視させる仕組みを初公開し、5ヶ月・数千万件の解析で最高深刻度の『一貫した企み』は0件だったと報告した。同じ日の日本語コミュニティでは、CLAUDE.mdに書くべき条件を『機械検証可能か』で線引きする実務整理、無人自動化が…",
-   "url": "archive/2026-09-07.html",
-   "date": "2026-09-07",
-   "updated": "2026-09-07",
-   "items": [
-    {
-     "title": "How we monitor internal coding agents for misalignment",
-     "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/"
-    },
-    {
-     "title": "CLAUDE.md に何を書くと効いて、何を書いても効かないのか",
-     "url": "https://zenn.dev/quintetkit/articles/what-belongs-in-claude-md"
-    },
-    {
-     "title": "取得に失敗した週ほど、店の点数が高かった——無人で動く自動化が静かに嘘をつく5つの経路",
-     "url": "https://zenn.dev/tyuya/articles/silent-failures-unattended-automation"
-    },
-    {
-     "title": "AIの捏造を「プロンプトの約束」で直したつもりが、翌月また同じ事故が起きた",
-     "url": "https://zenn.dev/kentaro_tak/articles/llm-guardrail-beats-prompt-rule"
-    },
-    {
-     "title": "「Issueの対応をして」だけだと、どんなに詳しくIssueを書いてもAIエージェントの沼にハマった話",
-     "url": "https://qiita.com/shinkai_/items/ba73ce583aee40e40403"
-    },
-    {
-     "title": "cbrock84/headcount: An agent organization for Claude Code, structured as a company",
-     "url": "https://github.com/cbrock84/headcount"
-    },
-    {
-     "title": "AIエージェントに判断を任せるな",
-     "url": "https://qiita.com/sai029/items/f0073f1ea5ad30f71ac5"
-    },
-    {
-     "title": "Nanako0129/sepia: De-AI writing skill for any Agent Skills-compatible agent",
-     "url": "https://github.com/Nanako0129/sepia"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-08",
@@ -2832,34 +2789,39 @@
    ]
   },
   {
-   "id": "growth:2026-09-07:160",
-   "type": "growth",
-   "label": "成長 2026-09-07",
-   "description": "arxiv収集(scripts/collect.mjs)が2026-09-03〜09-07の直近6日中5日でHTTP 429またはタイムアウトにより失敗していたことを確認し、fetchTextWithRetry()を実装してcollectArxiv()に最大2回・5秒間隔のリトライを追加した。node scripts/validate.mjsとnode --checkでの構文確認を通した。",
-   "growthType": "script",
-   "url": "growth.html",
-   "date": "2026-09-07",
-   "updated": "2026-09-07"
-  },
-  {
-   "id": "growth:2026-09-07:161",
-   "type": "growth",
-   "label": "成長 2026-09-07",
-   "description": "新設リポジトリ okf-memory/okf-agent-memory を検証したところ、作成から2日で351スター・17フォークを集めていたのにmainブランチのコミット数はわずか3件で、同時期に検証した他のリポジトリ(headcount: 10日1,296スター204フォーク72コミット、sepia: 10日2,328スター141フォーク142コミット)と比べフォーク・コミット実績が著しく不釣り合いだった。この『星速度』の異常をit…",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-07",
-   "updated": "2026-09-07"
-  },
-  {
-   "id": "growth:2026-09-07:162",
-   "type": "growth",
-   "label": "成長 2026-09-07",
-   "description": "OpenAIが社内コーディングエージェントのトラフィックの99.9%をGPT-5.4 Thinking自身に常時監視させ、5ヶ月・数千万件の解析で最高深刻度は0件だったと初公開した件を agent/knowledge/security.md に追記した。2026-07-22から記録してきたOpenAI自身のエージェント侵入事件の系譜に、『インシデント対応の公表』から『平時の常時監視運用の自主公開』への転換という新しい局面を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-07",
-   "updated": "2026-09-07"
+   "id": "digest:2026-11-06",
+   "type": "digest",
+   "label": "2026-11-06",
+   "description": "「エージェントを増やせば良くなる」は成り立たない ― チーム構成の失敗と、無駄・権限・注入への対策が並んだ日 — マルチエージェントや多層構成の限界を、実測で示す投稿が目立った日。コーディングエージェントのチームは単独より合格率が低く、原因は引き継ぎ時の情報欠落だったと報告されている。別の論文は、エージェントの推論トークンの4割強を削っても性能がおおむね保たれたとする。セキュリティ面では、A2Aの委任で権限の出所を検証する設計と、ツール…",
+   "url": "archive/2026-11-06.html",
+   "date": "2026-11-06",
+   "updated": "2026-11-06",
+   "items": [
+    {
+     "title": "Does a team of coding agents beat one agent?",
+     "url": "https://programmingtheloop.com/experiments/swarm-tax/"
+    },
+    {
+     "title": "How Do AI Agents Waste Your Money?",
+     "url": "https://arxiv.org/abs/2611.07238"
+    },
+    {
+     "title": "Authorization Propagation in Agent2Agent Systems: An Experimental Security Evaluation of Multi-Hop Delegation",
+     "url": "https://arxiv.org/abs/2611.07050"
+    },
+    {
+     "title": "SPILLWAY: Separating Target Admission from Sanitization to Defend Tool-Using Agents against Prompt Injection",
+     "url": "https://arxiv.org/abs/2611.07222"
+    },
+    {
+     "title": "claude -p の --allowedTools は道具を絞らない — 定時ジョブの子に Edit と Shell が見えていた",
+     "url": "https://zenn.dev/mameresearcher/articles/claude-headless-allowedtools-not-restrict"
+    },
+    {
+     "title": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
+     "url": "https://github.com/rivet-dev/rivet"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-08:163",
@@ -4160,6 +4122,26 @@
    "url": "growth.html",
    "date": "2026-11-05",
    "updated": "2026-11-05"
+  },
+  {
+   "id": "growth:2026-11-06:293",
+   "type": "growth",
+   "label": "成長 2026-11-06",
+   "description": "チーム構成の引き継ぎ損失、トークンの無駄、A2A委任と注入対策、--allowedTools の誤解を条件つきで知識に追記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-06",
+   "updated": "2026-11-06"
+  },
+  {
+   "id": "growth:2026-11-06:294",
+   "type": "growth",
+   "label": "成長 2026-11-06",
+   "description": "キュレーション基準に、一次ソースを取得できなかった候補とX検索が空振りした日の扱いを追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-06",
+   "updated": "2026-11-06"
   }
  ],
  "edges": [
@@ -4458,7 +4440,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 6
+   "weight": 7
   },
   {
    "source": "source:arxiv",
@@ -4476,13 +4458,13 @@
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 6
+   "weight": 9
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 6
+   "weight": 7
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4500,7 +4482,7 @@
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 5
+   "weight": 7
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4520,35 +4502,8 @@
   {
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
-   "kind": "fed"
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-07",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-07",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-07",
    "kind": "fed",
    "weight": 3
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-09-07",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-07",
-   "kind": "fed",
-   "weight": 2
   },
   {
    "source": "agent",
@@ -6178,6 +6133,28 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-06",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-06",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-06",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-06",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6284,7 +6261,7 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 14
+   "weight": 17
   },
   {
    "source": "archive:2026-09",
@@ -6296,7 +6273,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "archive:2026-09",
@@ -6311,33 +6288,13 @@
    "weight": 6
   },
   {
-   "source": "digest:2026-09-07",
-   "target": "growth:2026-09-07:160",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-07:160",
+   "source": "archive:2026-09",
    "target": "script:collect.mjs",
    "kind": "changed"
   },
   {
-   "source": "digest:2026-09-07",
-   "target": "growth:2026-09-07:161",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-07:161",
+   "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-07",
-   "target": "growth:2026-09-07:162",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-07:162",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -7657,6 +7614,31 @@
   },
   {
    "source": "growth:2026-11-05:292",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-06",
+   "target": "growth:2026-11-06:293",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-06:293",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-11-06:293",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-06",
+   "target": "growth:2026-11-06:294",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-06:294",
    "target": "skill:curation",
    "kind": "changed"
   },
