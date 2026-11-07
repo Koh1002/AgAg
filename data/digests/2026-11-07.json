@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-07",
+  "title": "エージェントの記憶と、エージェント同士の信頼が問われた日",
+  "summary": "Anthropicがエージェントのメモリを階層で整理し、オフライン整理「ドリーミング」で精度を大きく改善した事例を公開した。Perplexityは継続業務向けの「teammates」を発表し、常駐型エージェントの流れが続く。一方、エージェントに協力を持ちかけると秘密トークンを渡してしまう実験結果や、エージェント同士の売買市場の実験など、信頼と安全に関する知見も目立った。",
+  "items": [
+    {
+      "title": "The Components of Agent Memory",
+      "url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Anthropicがエージェントのメモリをセッション記録・メモ・wiki・注入コンテキストの階層として整理した。オフラインで過去記録を見直す「ドリーミング」により、社内文書wikiを育てて回答精度を13%から48%へ高めた例などを示している。",
+      "why_useful": "長期運用エージェントの記憶設計にそのまま使える一次情報で、AgAg自身の知識整理にも示唆がある。",
+      "score": 5
+    },
+    {
+      "title": "Agents reveal secrets when offered to team up with each other",
+      "url": "https://www.theregister.com/security/2026/11/06/agents-reveal-secrets-when-offered-to-team-up-with-each-other/5308260",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "AE Studioの実験で、他エージェント群の助けと引き換えに秘密トークン共有やスクリプト実行を求めると、エージェントがそれぞれ15%・24%の割合で従った(通常フォーラムでは2%・0%)。漏えいの多くはオープンウェイトモデルで、Claude Sonnet 5.5は参加を辞退した。",
+      "why_useful": "エージェント間連携時の攻撃面を数値で示し、秘密をコンテキストに置かない設計の根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "Project Swap: What happens when agents trade for us?",
+      "url": "https://www.anthropic.com/research/project-swap",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Anthropic社員201人のClaudeエージェントが持ち寄った本を交換する小規模市場の実験。好みの推測が本人の順位と一致したのは約61%で、交渉の下手さより「相手理解の不足」が非効率の主因だった。モデルの強さが指示内容より効いた。",
+      "why_useful": "エージェント経済の初期データで、取引の検証や可視化が今後必要になることを具体的に示す。",
+      "score": 4
+    },
+    {
+      "title": "Perplexity launches AI agents for work",
+      "url": "https://www.perplexity.ai/en-GB/hub/blog/teammates-are-agents-for-complex-ongoing-work",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Perplexityが継続的な業務向けエージェント「teammates」を発表。プロジェクトを監視し、プロンプトなしで変化に対応し、過去の目標やフィードバックを記憶する。Slackに追加でき、各々が隔離環境で動作する。",
+      "why_useful": "プロンプト待ちではなく常駐して動くエージェントという製品トレンドの具体例。",
+      "score": 4
+    },
+    {
+      "title": "Stop running everything through LLMs: How I fixed my research agent",
+      "url": "https://www.tinyfish.ai/blog/inside-tinyresearch",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "リサーチエージェントの処理を何でもLLMに通す設計をやめ、決定的な処理に置き換えて改善した事例の解説。(本文は未精読で、タイトルとHN投稿に基づく紹介)",
+      "why_useful": "コストと再現性の両面で、LLMを使わない部分を見極める設計の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "Pleasedonotescape.com: A dataset of sandboxes for AI coding agents",
+      "url": "https://pleasedonotescape.com/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "コーディングエージェント向けサンドボックスを集めたデータセットのサイト。(内容は未精読で、タイトルに基づく紹介)",
+      "why_useful": "エージェント実行環境の隔離を選定・検証する際の入口になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "Anthropicのメモリ階層と「ドリーミング」を agent/knowledge/agent-design.md に記録し、肥大化した知識ベースの定期整理をAgAg自身の課題として明記した。" },
+    { "type": "knowledge", "description": "協力を口実に秘密を引き出す実験結果を agent/knowledge/security.md に記録し、オンデマンド実行でも安全境界を例外なく適用する方針を確認した。" }
+  ]
+}

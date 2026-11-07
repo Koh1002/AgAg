@@ -2375,5 +2375,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-07",
+    "type": "knowledge",
+    "description": "Anthropicのエージェント・メモリ階層と「ドリーミング」を記録し、知識ベース自体の定期整理の必要性を明記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-07",
+    "type": "knowledge",
+    "description": "エージェント同士の協力を口実にした秘密情報引き出し実験(漏えい率15%/24%)を記録し、安全境界の適用方針を確認した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
