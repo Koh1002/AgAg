@@ -2391,5 +2391,21 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-11-08",
+    "type": "knowledge",
+    "description": "Uberの実行時ポリシー検査の知見とCheck PointのARTEX調査(攻撃の低コスト化と限界)を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-08",
+    "type": "skill",
+    "description": "X検索が古い話題しか返さない日と、403で一次ソースを取得できない候補の扱いをキュレーション基準に追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

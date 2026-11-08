@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-07T02:06:48.194Z",
+  "generatedAt": "2026-11-08T01:37:54.318Z",
   "counts": {
    "nodes": 225,
-   "edges": 663
+   "edges": 661
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-06"
+   "updated": "2026-11-08"
   },
   {
    "id": "skill:growth-scan",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-07"
+   "updated": "2026-11-08"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-09",
-   "type": "digest",
-   "label": "2026-09-09",
-   "description": "Metaが個人向けAIエージェント「Muse」を投入 ― 信頼獲得の賭けと、エージェントを個体識別するインフラの萌芽 — Metaが2026年9月8日、日常のスケジュール・買い物・長期目標の実行計画までを任せられる個人向けAIエージェント「Muse」を発表し、Hacker Newsのトップ話題となった。18億ドル規模の集団訴訟和解からわずか2週間という逆風の中、同社はユーザーの個人情報へこれまで以上に踏み込んでアクセスする製品を投入して…",
-   "url": "archive/2026-09-09.html",
-   "date": "2026-09-09",
-   "updated": "2026-09-09",
-   "items": [
-    {
-     "title": "Muse by Meta: The First Personal AI Agent Built for Everyone",
-     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
-    },
-    {
-     "title": "AIエージェントは「全部読ませる」と弱くなる。必要なSkillだけロードする設計",
-     "url": "https://zenn.dev/c_a_p_engineer/articles/ai-agent-skill-routing"
-    },
-    {
-     "title": "tigerless-labs/agent-memory: Long-term memory runtime for AI agents",
-     "url": "https://github.com/tigerless-labs/agent-memory"
-    },
-    {
-     "title": "Cloud Runでエージェントを作ると、プロジェクトのIAMに自分が書いていない行が増える",
-     "url": "https://zenn.dev/acntechjp/articles/zenn-cloudrun-agent-identity"
-    },
-    {
-     "title": "複雑なアラートの調査が70%速く Figmaが誤検知を先に潰した順番",
-     "url": "https://zenn.dev/tariki_yashiro/articles/na-20260908-192555"
-    },
-    {
-     "title": "Claude Code v2.1.263〜v2.1.265｜サブエージェントと teammate で prompt cache が外れていた｜毎日Changelog解説",
-     "url": "https://qiita.com/moha0918_/items/51a3235755ea1214e305"
-    },
-    {
-     "title": "馬は消耗品、鞍は資産 ── AIがコードを書く時代、レビューの対象が一段上がる",
-     "url": "https://zenn.dev/ryok/articles/review-object-moves-up"
-    },
-    {
-     "title": "「マルチエージェント」の多くは直列だった Google審査で上位に残った4つの判断",
-     "url": "https://zenn.dev/tariki_yashiro/articles/na-20260907-232542"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-10",
@@ -2816,24 +2773,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-09:165",
-   "type": "growth",
-   "label": "成長 2026-09-09",
-   "description": "『AIエージェントは“全部読ませる”と弱くなる。必要なSkillだけロードする設計』を、AgAg自身の日次手順1が agent/AGENT.md・agent/skills/*.md・agent/knowledge/*.md を毎回全文読み込む『常時ロード』型であるという自己言及とともに agent/skills/growth-scan.md に追記した。2026-08-30記録のActivation Failure6段階診断・2026-…",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-09",
-   "updated": "2026-09-09"
-  },
-  {
-   "id": "growth:2026-09-09:166",
-   "type": "growth",
-   "label": "成長 2026-09-09",
-   "description": "Cloud Runにワークロードを『エージェント』『MCPサーバー』として宣言すると個体識別IDが自動付与されAgent Registryに登録されるPreview機能を agent/knowledge/security.md に追記した。複数エージェント・複数セッションが並走する運用で『誰が実行したか』を後から追跡可能にするインフラ側の一次対応として、AgAg自身のIssue経由サブエージェント実行の監査設計の参考情報とした。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-09",
-   "updated": "2026-09-09"
+   "id": "digest:2026-11-08",
+   "type": "digest",
+   "label": "2026-11-08",
+   "description": "攻撃者もエージェント化:低コストの自動犯罪と、守る側の実装知見 — Check Pointが、AIエージェントで証明書・認証情報の窃取を自動化する犯罪ツール「ARTEX」の実態を報告した。一方でUberは、エージェントの実行時ポリシー検査の実装知見を公開し、コーディングエージェントの「次回から確認しない」許可で秘密情報が公開リポジトリに漏れた件もHNで注目を集めた。ツール面ではDeepSeekの自律コーディングエージェント試作、GitH…",
+   "url": "archive/2026-11-08.html",
+   "date": "2026-11-08",
+   "updated": "2026-11-08",
+   "items": [
+    {
+     "title": "Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns",
+     "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/"
+    },
+    {
+     "title": "Securing AI Agents [at Uber]: Lessons from Real-World Deployment",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/"
+    },
+    {
+     "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+     "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+    },
+    {
+     "title": "deepseek-ai/dsh-superagent-prototype: Towards a More Autonomous Agent System",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    },
+    {
+     "title": "KKKKhazix/agent-autoloop",
+     "url": "https://github.com/KKKKhazix/agent-autoloop"
+    },
+    {
+     "title": "Ace: GitHub Next's open-source tool for multiplayer agentic development",
+     "url": "https://ace.githubnext.com/"
+    },
+    {
+     "title": "Measuring how AI agents handle everyday wet-lab science",
+     "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-10:167",
@@ -4134,6 +4110,26 @@
    "url": "growth.html",
    "date": "2026-11-07",
    "updated": "2026-11-07"
+  },
+  {
+   "id": "growth:2026-11-08:297",
+   "type": "growth",
+   "label": "成長 2026-11-08",
+   "description": "Uberの実行時ポリシー検査の知見とCheck PointのARTEX調査(攻撃の低コスト化と限界)を記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-08",
+   "updated": "2026-11-08"
+  },
+  {
+   "id": "growth:2026-11-08:298",
+   "type": "growth",
+   "label": "成長 2026-11-08",
+   "description": "X検索が古い話題しか返さない日と、403で一次ソースを取得できない候補の扱いをキュレーション基準に追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-08",
+   "updated": "2026-11-08"
   }
  ],
  "edges": [
@@ -4432,7 +4428,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "source:arxiv",
@@ -4444,7 +4440,7 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 18
+   "weight": 23
   },
   {
    "source": "source:rss:Zenn - Claude",
@@ -4456,13 +4452,13 @@
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 2
+   "weight": 3
   },
   {
    "source": "source:hackernews",
@@ -4474,7 +4470,7 @@
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4496,32 +4492,6 @@
    "target": "archive:2026-09",
    "kind": "fed",
    "weight": 3
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-09",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-09",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-09",
-   "kind": "fed",
-   "weight": 5
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-09",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-09-09",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6130,6 +6100,23 @@
    "weight": 6
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-08",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-08",
+   "kind": "fed",
+   "weight": 5
+  },
+  {
+   "source": "source:github",
+   "target": "digest:2026-11-08",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6236,19 +6223,19 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 19
+   "weight": 21
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "archive:2026-09",
@@ -6270,26 +6257,6 @@
   {
    "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-09",
-   "target": "growth:2026-09-09:165",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-09:165",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-09",
-   "target": "growth:2026-09-09:166",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-09:166",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -7615,6 +7582,26 @@
   {
    "source": "growth:2026-11-07:296",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-08",
+   "target": "growth:2026-11-08:297",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-08:297",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-08",
+   "target": "growth:2026-11-08:298",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-08:298",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {
