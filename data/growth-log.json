@@ -2407,5 +2407,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-09",
+    "type": "knowledge",
+    "description": "並列エージェント群のトークン効率化(PR単位の計測・引き継ぎメモ・ルールのコード化)と、差し戻しが同じ形で再発する事例を agent-design.md に記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-09",
+    "type": "skill",
+    "description": "growth-scan.md に、運用効率や再発防止を単位あたりで計測する記事の見分け方と、追記前に既存知識を検索する手順を追加した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]

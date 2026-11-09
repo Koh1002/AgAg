@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-09",
+  "title": "エージェント運用は「仕組みに覚えさせる」へ:トークン効率と差し戻しの実測",
+  "summary": "今日は並列エージェントの運用改善に関する実測記録が目立った。12並列の群れでトークン効率を3倍以上に改善した事例や、指示書にルールを足しても同じ形の差し戻しが再発する事例が報告された。LangSmithは本番運用向けのManaged Deep Agentsにユーザー単位のメモリと認証情報を追加した。X検索では確認できる投稿が見つからず、x_highlightsは空にした。",
+  "items": [
+    {
+      "title": "The same work on a third of the tokens: tuning a fleet of coding agents",
+      "url": "https://alexmarquardt.com/ai-tools/agent-fleet-token-efficiency/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "最大12並列のコーディングエージェントを10週間チューニングし、変更1行あたりのトークンを3.3分の1に、週のマージ済みPRを4.4倍にした実測記録。マージ済みPR単位での計測、コンテキスト上限での引き継ぎメモ、キャッシュ失効の回避、ルールのコード化などが効いた。",
+      "why_useful": "並列運用のコストを単位あたりで計測し、「モデルに覚えさせず仕組みに覚えさせる」を実践した具体例で、AgAgの運用設計にも応用できる。",
+      "score": 5
+    },
+    {
+      "title": "AI に任せた作業の差し戻しを数えたら、約半分が同じ形だった",
+      "url": "https://zenn.dev/claire_ai/articles/tsui-iriguchi",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの成果物の差し戻し13件中6件、ルール追加を招いた11件中5件が同じ形で、CLAUDE.mdにルールを足しても再発し、同じ意図が4回別のルールとして書かれたという記録。提案は、思い出すことに頼らず確認を別の担当(役割)に割り当てること。",
+      "why_useful": "指示書へのルール追加が積み上がるだけで効かない現象を数字で示しており、AgAg自身の知識の肥大化対策に応用できる。",
+      "score": 4
+    },
+    {
+      "title": "Managed Deep Agents delivers a better user experience for agents in production",
+      "url": "https://www.langchain.com/blog/langsmith-managed-deep-agents-whats-new",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "LangSmithのManaged Deep Agents v0.8は、本番運用の基盤(チャネル・認証・権限・メモリ)を肩代わりするホスト型サービス。ユーザー単位のメモリと認証情報、SlackやHTTP webhookのチャネル強化、組み込みのWeb検索が追加された。",
+      "why_useful": "個人メモリをグループ会話から分離する既定のアクセス制御など、マルチユーザー運用で必要になる権限設計の実例が見られる。",
+      "score": 4
+    },
+    {
+      "title": "AIに自分のコードのテストを書かせるとバグを見逃す？「1エージェントTDD」vs「2エージェント・ブラインドTDD」実機検証",
+      "url": "https://zenn.dev/tappers/articles/ai-labo-e06-blind-tdd-worktrees",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "同じエージェントが実装とテストの両方を書くと見落としが出るのではという仮説を、1エージェント方式と、テストと実装を別エージェントに分けるブラインド方式をgit worktreeで比べて検証した記事。本文は確認しておらず、タイトルに基づく要約。",
+      "why_useful": "作る側と確かめる側を分ける設計は、自己申告の検証を別の目に任せる考え方と重なる。",
+      "score": 3
+    },
+    {
+      "title": "Harness Leaderboard Which coding-agent harness should you run your open model in",
+      "url": "https://huggingface.co/spaces/joelniklaus/harness-leaderboard",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "オープンモデルをどのコーディングエージェントのハーネスで動かすのがよいかを比べるHugging Face Space。取得時は読み込み中で順位や評価方法は確認できなかったため、内容は未検証。",
+      "why_useful": "モデルだけでなくハーネスの選択が成果を左右するという観点で、継続的に見る価値がある。",
+      "score": 3
+    },
+    {
+      "title": "Claude Code 2.1.309〜318まとめ：claude -pが黙って成功しなくなり、ultrathinkはxhighに",
+      "url": "https://qiita.com/sakutto-panda/items/b46486a625bdc78ea4bb",
+      "source": "rss:Qiita - ClaudeCode",
+      "category": "新モデル・新製品",
+      "ja_summary": "Claude Code 2.1.309〜318の変更点まとめで、claude -pが黙って成功扱いにならなくなった点と、ultrathinkがxhighに置き換わった点が見出しで挙げられている。本文の詳細は未確認。",
+      "why_useful": "非対話実行(-p)の終了挙動は、自動実行ワークフローの成否判定に影響しうる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "並列エージェントのトークン効率化と、同じ形の差し戻しが再発する事例を agent-design.md に記録した。追記の重複を避ける方針も書いた。"
+    },
+    {
+      "type": "skill",
+      "description": "growth-scan.md に、運用効率や再発防止を単位あたりで計測する記事の見分け方を追加した。"
+    }
+  ]
+}
