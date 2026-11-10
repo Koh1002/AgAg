@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-09T01:50:12.055Z",
+  "generatedAt": "2026-11-10T04:14:33.313Z",
   "counts": {
    "nodes": 225,
-   "edges": 658
+   "edges": 656
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-09"
+   "updated": "2026-11-10"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-08"
+   "updated": "2026-11-10"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-11",
-   "type": "digest",
-   "label": "2026-09-11",
-   "description": "自己進化する実行構造の理論と、本番で剥がれる化けの皮 ― OpenAI Agents API公開の一日 — OpenAIが2026年9月10日、Codexを支えてきたエージェント実行基盤を『Agents API』として開発者向けに公開ベータ提供を開始し、長時間・多ターンのエージェント実行基盤という領域で正面から競争を仕掛けた。一方で研究側では、プロンプトの手直しではなくエージェントの実行構造(手続きグラフ・ハーネス設定)そのものを失敗/…",
-   "url": "archive/2026-09-11.html",
-   "date": "2026-09-11",
-   "updated": "2026-09-11",
-   "items": [
-    {
-     "title": "OpenAI Agents API",
-     "url": "https://openai.com/index/introducing-the-agents-api/"
-    },
-    {
-     "title": "Procedural Graphs: Self-Evolving Execution Structures for LLM Agents",
-     "url": "https://arxiv.org/abs/2609.09153"
-    },
-    {
-     "title": "ProjectDXAI/continuous-record-llm-trading-agents: What LLM Trading Agents Actually Do in Production (DXRG)",
-     "url": "https://github.com/ProjectDXAI/continuous-record-llm-trading-agents"
-    },
-    {
-     "title": "Beagle – a framework to evaluate and evolve agent harnesses at scale",
-     "url": "https://github.com/SalesforceAIResearch/Beagle"
-    },
-    {
-     "title": "ツール呼び出しの55.5%はサブエージェントが出していた。画面に見えているのは半分以下だった",
-     "url": "https://zenn.dev/tsutomusaito/articles/subagent-does-more-work-ja"
-    },
-    {
-     "title": "承認済みのはずの記事が1日読者に届いていなかった — UTF-8 BOM 1個が公開パイプラインをすり抜けた話（AI運営会社ログ #5）",
-     "url": "https://zenn.dev/yu110tno89/articles/ai-company-05"
-    },
-    {
-     "title": "We counted 5,690 agent skill authors. Eight of them hold half the installs.",
-     "url": "https://dev.to/skillselion/we-counted-5690-agent-skill-authors-eight-of-them-hold-half-the-installs-15bi"
-    },
-    {
-     "title": "Auth.md – Enable agents to register users without the sign-up form",
-     "url": "https://workos.com/auth-md"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-12",
@@ -2804,24 +2761,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-11:169",
-   "type": "growth",
-   "label": "成長 2026-09-11",
-   "description": "『実行構造そのものを進化させる』という2つの実装(Procedural Graphs: 手続きグラフのトポロジーを失敗/成功対比で編集、Beagle: 別エージェントがエージェントハーネス自体を進化アルゴリズムで最適化)を agent/knowledge/agent-design.md に追記した。AgAg自身の日次手順6が人手判断で知識・スキルを追記する設計であるのに対し、『失敗軌跡と成功軌跡を機械的に対比してから構造を編集する』とい…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-11",
-   "updated": "2026-09-11"
-  },
-  {
-   "id": "growth:2026-09-11:170",
-   "type": "growth",
-   "label": "成長 2026-09-11",
-   "description": "『ツール呼び出しの55.5%はサブエージェントが出していた』実測記事(2026-09-11収集)を agent/skills/growth-scan.md に追記した。2026-08-31記録の『コスト可視化』(トークンコストの不可視性)に続き、コストだけでなく作業量(呼び出し回数)そのものが本体画面に集約されず見えなくなるという、可視性欠如の別の軸を系譜に加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-11",
-   "updated": "2026-09-11"
+   "id": "digest:2026-11-10",
+   "type": "digest",
+   "label": "2026-11-10",
+   "description": "エージェントの安全は「止め方」と「過剰拒否」まで測る日 — OpenAI Codexのハーネスをソースから読み解く記事や、無害な依頼がツール実行に拡大する様子を測るErosionBench、ツール呼び出しの意図グラフ監査など、エージェントの権限設計と評価方法に関する話題が目立った。画面操作AIが確認せず送信を押す実測や、承認ゲートの実践記事も並んだ。一方、失敗トレースからの自己改善には限界があるとする論文も出ており、仕組みで守る設計と効…",
+   "url": "archive/2026-11-10.html",
+   "date": "2026-11-10",
+   "updated": "2026-11-10",
+   "items": [
+    {
+     "title": "OpenAI Codex のハーネスをソースコードで読んだ —— 重要なのはモデルの賢さではなく、権限と「止め方」の設計だった",
+     "url": "https://qiita.com/hisashi-ito/items/1d5db448fb6002ed478e"
+    },
+    {
+     "title": "ErosionBench: Probing Alignment Decay in Enterprise Multi-Agent Systems",
+     "url": "https://arxiv.org/abs/2611.11266v1"
+    },
+    {
+     "title": "Least-Privilege Auditing of Agent Tool Calls with Intent Graphs and Reasoning-Guided Escalation",
+     "url": "https://arxiv.org/abs/2611.11305v1"
+    },
+    {
+     "title": "Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces",
+     "url": "https://arxiv.org/abs/2611.11342v1"
+    },
+    {
+     "title": "画面を操作するAIに「先方に連絡しておいて」と頼んだら、5回中2回は確認せずに送信ボタンを押した",
+     "url": "https://zenn.dev/eight_blog/articles/f8e27e323e5989"
+    },
+    {
+     "title": "AIエージェントに「危ない操作」をさせない — 承認ゲートという仕組み",
+     "url": "https://zenn.dev/growl/articles/b380aa71914cb6"
+    },
+    {
+     "title": "Claude Code 2.1.309〜318まとめ：claude -pが黙って成功しなくなり、ultrathinkはxhighに",
+     "url": "https://zenn.dev/sktt_panda/articles/claude-code-2026-11-headless-exit-ultrathink"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-12:171",
@@ -4122,6 +4098,26 @@
    "url": "growth.html",
    "date": "2026-11-09",
    "updated": "2026-11-09"
+  },
+  {
+   "id": "growth:2026-11-10:301",
+   "type": "growth",
+   "label": "成長 2026-11-10",
+   "description": "ErosionBenchと意図グラフ監査の知見を記録し、攻撃成功率だけでなく過剰拒否率も併記して評価する方針を明記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-10",
+   "updated": "2026-11-10"
+  },
+  {
+   "id": "growth:2026-11-10:302",
+   "type": "growth",
+   "label": "成長 2026-11-10",
+   "description": "失敗トレースによる自己改善の効果と限界を記録し、教訓に適用範囲を併記して効果を後日確認する方針を明記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-10",
+   "updated": "2026-11-10"
   }
  ],
  "edges": [
@@ -4420,25 +4416,25 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 3
+   "weight": 4
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 26
+   "weight": 27
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 11
+   "weight": 12
   },
   {
    "source": "source:websearch",
@@ -4456,13 +4452,13 @@
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 11
+   "weight": 14
   },
   {
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 12
+   "weight": 13
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4477,49 +4473,14 @@
   {
    "source": "source:rss:DEV Community - Claude",
    "target": "archive:2026-09",
-   "kind": "fed"
+   "kind": "fed",
+   "weight": 2
   },
   {
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
    "weight": 3
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-11",
-   "kind": "owns"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-11",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-09-11",
-   "kind": "fed"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-11",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-11",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-11",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:DEV Community - Claude",
-   "target": "digest:2026-09-11",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6095,6 +6056,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-10",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-11-10",
+   "kind": "fed"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-10",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-10",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-11-10",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6201,13 +6189,13 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 23
+   "weight": 25
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 5
+   "weight": 6
   },
   {
    "source": "archive:2026-09",
@@ -6225,7 +6213,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "archive:2026-09",
@@ -6235,26 +6223,6 @@
   {
    "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-11",
-   "target": "growth:2026-09-11:169",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-11:169",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-11",
-   "target": "growth:2026-09-11:170",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-11:170",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -7580,6 +7548,26 @@
   {
    "source": "growth:2026-11-09:300",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-10",
+   "target": "growth:2026-11-10:301",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-10:301",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-10",
+   "target": "growth:2026-11-10:302",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-10:302",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {

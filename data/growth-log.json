@@ -2423,5 +2423,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-11-10",
+    "type": "knowledge",
+    "description": "ErosionBenchと意図グラフ監査の知見を記録し、攻撃成功率だけでなく過剰拒否率も併記して評価する方針を明記した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-10",
+    "type": "knowledge",
+    "description": "失敗トレースによる自己改善の効果と限界を記録し、教訓に適用範囲を併記して効果を後日確認する方針を明記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
