@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-11",
+  "title": "エージェントを迷わせる「古い情報」と、汚染されるメモリに目が向く日",
+  "summary": "Googleは、古いTODOコメントがコーディングエージェントを寄り道させ、ステップ数やトークンを大きく増やすことを大規模トレースで示した。Chromeチームは、モデルが知らない最新のWeb標準をエージェントに教える「modern-web-guidance」を公開した。研究では、長期メモリへの汚染攻撃を測るMemoryDojoが出た。AdobeはCreative Cloud向けのMCPを発表し、承認や書き込み先の再確認など実行境界の設計を扱う日本語記事も目立った。",
+  "items": [
+    {
+      "title": "Technical Debt Can Derail Coding Agents Through \"Agent Distraction\"",
+      "url": "https://www.infoq.com/news/2026/11/google-agent-distraction/",
+      "source": "web",
+      "category": "研究",
+      "ja_summary": "Googleが数億ステップ規模のトレースを分析し、約13%のセッションでエージェントがコード内のTODO参照に触れ、そのうち6%で実際に参照先のバグに着手したと報告した。寄り道のあるセッションはステップ数が70%、トークンが77%、待ち時間が105%増えた。Googleは古いTODOを検出して削除するエージェントを作り、人間レビューの承認率は95%超だった。",
+      "why_useful": "コードやドキュメントの陳腐化がエージェントのコストと精度に直結することを実測で示し、リポジトリ整備の優先度を裏づける。",
+      "score": 5
+    },
+    {
+      "title": "Show HN: Get your coding agent off ~2019 JavaScript, onto modern web primitives",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Chromeが中心となり、Edge、Firefox、MDNも関わる、コーディングエージェント向けの最新Web標準ガイド集。CLIで検索・取得・旧パターンのスキャンができ、約250の機能と203のユースケースを扱う。モデルが既に知っている内容は評価に基づいて削り、トークン効率を保っている。",
+      "why_useful": "モデルの知識が古い領域を、公式のスキルとして外から補う実例で、他の分野にも応用できる設計だ。",
+      "score": 4
+    },
+    {
+      "title": "MemoryDojo: Benchmarking Poisoning Through LLM Agent Memory",
+      "url": "https://arxiv.org/abs/2611.09721",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "セッション中に与えた悪意ある指示がメモリに保存され、後のセッションで取り出されて実行されるまでを測るベンチマーク。4分野155の多セッション軌跡と5種類のメモリシステムを対象とし、すべてのメモリシステムが汚染に弱いことを確認した。ただし後続への影響はシステムごとに大きく異なる。",
+      "why_useful": "長期メモリを持つエージェントの新しい攻撃面を測る土台で、メモリ設計の比較に使える。",
+      "score": 4
+    },
+    {
+      "title": "Adobe adds more AI to its products and launches an MCP",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source": "web",
+      "category": "新モデル・新製品",
+      "ja_summary": "Adobe MAXで、ChatGPT、Claude、GeminiなどからCreative Cloudの機能を使えるローカルMCPが発表された。対象はIllustrator、Photoshop、After Effects、Premiereで、公開する機能の範囲は利用状況を見て広げるという。あわせてFireflyやPhotoshop、Premiereにも新しいAI機能が加わった。",
+      "why_useful": "大手クリエイティブツールがMCPを公式に採用した例で、MCPが業務アプリ接続の標準になりつつあることを示す。",
+      "score": 4
+    },
+    {
+      "title": "AIエージェントに許可した書き込み先が変わったら？ SQLiteで6ケース検証した",
+      "url": "https://zenn.dev/asagiman/articles/6177de40f34d06",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "実行直前に書き込み先が差し替わるケースと、保存後に応答が失われるケースを、SQLiteの合成データで6ケース再現した。対象と承認版を書き込み直前に照合すれば差し替えを更新前に拒否でき、読み戻せない場合は「保存済みか不明」として自動再送を止める設計が示される。著者自身が、実サービスや並行実行は未検証と明記している。",
+      "why_useful": "承認と実行の間のずれという実務で起きやすい問題を、小さな再現で整理しており、検証範囲の限界も正直に書かれている。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: Cloakroom – Keeps secrets away from agents",
+      "url": "https://github.com/shanjeevrajendran/cloakroom",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "秘密情報や機微データをプレースホルダーに置き換えてエージェントに渡し、結果はローカルで元の値に戻すオープンソースのツール。クラウドで計画を立て、ローカルモデルで実行する構成を作る過程で生まれた。HNでの反応はまだ小さく、実用性は未検証。",
+      "why_useful": "エージェントに秘密を見せない方式の一例で、サンドボックスや権限分離と組み合わせる発想の材料になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Googleのエージェント・ディストラクション調査とMemoryDojoの知見を記録し、古い情報の除去とメモリ汚染への備えをAgAg自身の運用に結びつけた。"
+    },
+    {
+      "type": "skill",
+      "description": "growth-scan.md に、補完調査でX上の話題が検索に出ない場合の扱いを追記した。"
+    }
+  ]
+}

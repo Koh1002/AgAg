@@ -2439,5 +2439,22 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-11",
+    "type": "knowledge",
+    "description": "Googleのエージェント・ディストラクション調査とMemoryDojoの知見を記録し、古い情報の除去と外部情報の扱いを運用方針に結びつけた。",
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-11",
+    "type": "skill",
+    "description": "X話題の補完調査が空振りしたときの扱い(でっち上げず空配列、公式ページの確認を優先)を追記した。",
+    "files": [
+      "agent/skills/growth-scan.md"
+    ]
   }
 ]
