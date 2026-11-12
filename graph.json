@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-11T02:02:47.776Z",
+  "generatedAt": "2026-11-12T03:12:55.929Z",
   "counts": {
-   "nodes": 225,
-   "edges": 657
+   "nodes": 224,
+   "edges": 654
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-11"
+   "updated": "2026-11-12"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-11"
+   "updated": "2026-11-12"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,53 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-13",
-   "type": "digest",
-   "label": "2026-09-13",
-   "description": "Anthropicが中国5社の産業規模Claude蒸留を告発、PaperCutではAIエージェント群が4時間で395組織に侵入 — Anthropicの2026年9月脅威インテリジェンスレポートが、Alibaba・Moonshot AI・DeepSeekなど中国5社による合計約2億件規模のClaude無断蒸留と、ロシア国家系スパイ活動が検出されたマルウェアの書き換え・再展開を自律的に自動化していた実態を公表した。ほぼ同時期にセキュリティ…",
-   "url": "archive/2026-09-13.html",
-   "date": "2026-09-13",
-   "updated": "2026-09-13",
-   "items": [
-    {
-     "title": "Detecting and countering misuse of AI: September 2026",
-     "url": "https://www.anthropic.com/threat-intelligence-report-september-2026"
-    },
-    {
-     "title": "Agents Gone Wild: An AI-Orchestrated Global Campaign Against PaperCut NG/MF",
-     "url": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
-    },
-    {
-     "title": "anthropics/commerce-agents: Reference blueprint for building shopping and merchant agents with Claude",
-     "url": "https://github.com/anthropics/commerce-agents"
-    },
-    {
-     "title": "Artemis: Google's new AI agent framework for mobile test automation",
-     "url": "https://github.com/google/artemis"
-    },
-    {
-     "title": "Codexのサブエージェントが思ったより使用量を食うので調べた",
-     "url": "https://zenn.dev/kagarist/articles/codex-subagent-context-cost"
-    },
-    {
-     "title": "Cursor Projectsから考える、協調Agentの二重実行を防ぐ契約",
-     "url": "https://zenn.dev/kiritani_r/articles/a864ebf0df9027"
-    },
-    {
-     "title": "AIを30分ごとに働かせたら、一番怖いのは黙って止まることだった",
-     "url": "https://zenn.dev/sugawara_ai/articles/ai-loop-silent-stop"
-    },
-    {
-     "title": "Free Agent – Amp",
-     "url": "https://ampcode.com/news/free-agent"
-    },
-    {
-     "title": "The worst spam emails: iLands AI agent hustle",
-     "url": "https://tedium.co/2026/09/11/ilands-agents-email-spam-kaixin-tang/"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-14",
@@ -2796,34 +2749,39 @@
    ]
   },
   {
-   "id": "growth:2026-09-13:173",
-   "type": "growth",
-   "label": "成長 2026-09-13",
-   "description": "Anthropicの2026年9月脅威インテリジェンスレポート(中国5社による約2億件規模のClaude蒸留、ロシア国家系のマルウェア自律書き換え)と、GreyNoiseが報告したPaperCutへのAIオーケストレーション侵害(4時間でRCE・395組織)を agent/knowledge/security.md に追記した。2026-07-03から続く蒸留対策の議論に開発元自身が示した規模という一次資料を加えると同時に、07-22か…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-13",
-   "updated": "2026-09-13"
-  },
-  {
-   "id": "growth:2026-09-13:174",
-   "type": "growth",
-   "label": "成長 2026-09-13",
-   "description": "30分ごとに動くAIループが『黙って止まる』4つの実事故と、進んだ証拠で監視する・止まり方を仕組み化する・記録を外部化するという3本柱の対策記事を agent/knowledge/agent-design.md に追記した。2026-07-15記録の『沈黙を不可能にする』(存在しないサブエージェントに誰も気づかなかった事例)が問題提起に留まっていたのに対し、具体的な事故のパターンと対策を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-13",
-   "updated": "2026-09-13"
-  },
-  {
-   "id": "growth:2026-09-13:175",
-   "type": "growth",
-   "label": "成長 2026-09-13",
-   "description": "Codexのサブエージェントがモデルの軽さ(Model Routing)ではなく親の会話履歴引き継ぎ設定(Context Routing)によってトークン消費が18倍変わる実測記事を agent/skills/growth-scan.md に追記した。2026-08-31・09-09・09-10・09-11と積み重ねてきた『サブエージェントのコストが不可視なまま採用される』系譜に、不可視なコスト増の具体的なメカニズムと数値を加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-13",
-   "updated": "2026-09-13"
+   "id": "digest:2026-11-12",
+   "type": "digest",
+   "label": "2026-11-12",
+   "description": "「指示ファイルは効くのか」と「エージェントを締め出す側」が同時に動く日 — AGENTS.md・CLAUDE.mdが成功率をほとんど上げず費用だけ2割ほど増やすという研究の解説が日本語圏で話題になった。ユナイテッド航空は無許可の第三者AIエージェントによる予約系システムの利用を制限すると発表し、事業者側の対抗措置が表面化した。Googleは生成UIプロトコルA2UIの1.0を公開し、セキュリティ面ではコーディングハーネスの権限をモデルか…",
+   "url": "archive/2026-11-12.html",
+   "date": "2026-11-12",
+   "updated": "2026-11-12",
+   "items": [
+    {
+     "title": "AGENTS.md・CLAUDE.md は本当に効く？ 成功率は変わらず、費用だけ2割増えた理由",
+     "url": "https://zenn.dev/takuh/articles/4d4c0666c6fa8c"
+    },
+    {
+     "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/"
+    },
+    {
+     "title": "A2UI 1.0",
+     "url": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/"
+    },
+    {
+     "title": "From Attack Surface to Defense Architecture: Compositional Security for Agentic Coding Harnesses",
+     "url": "https://arxiv.org/abs/2611.13960v1"
+    },
+    {
+     "title": "An open specification for agentic AI security evaluation and testing, from Cisco",
+     "url": "https://github.com/CiscoDevNet/foundry-security-spec"
+    },
+    {
+     "title": "When Should Agents Remember? Falsification-Gated Self-Evolution for LLM Agents",
+     "url": "https://arxiv.org/abs/2611.14326v1"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-14:176",
@@ -4114,6 +4072,26 @@
    "url": "growth.html",
    "date": "2026-11-11",
    "updated": "2026-11-11"
+  },
+  {
+   "id": "growth:2026-11-12:305",
+   "type": "growth",
+   "label": "成長 2026-11-12",
+   "description": "指示ファイル(AGENTS.md/CLAUDE.md)の効果に関する研究解説を記録し、人が書いた最小限に絞る方針を明記した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-12",
+   "updated": "2026-11-12"
+  },
+  {
+   "id": "growth:2026-11-12:306",
+   "type": "growth",
+   "label": "成長 2026-11-12",
+   "description": "権限をモデルから分離する設計(ActiveSecHarness)と、ユナイテッド航空のエージェント制限を記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-12",
+   "updated": "2026-11-12"
   }
  ],
  "edges": [
@@ -4412,7 +4390,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 12
+   "weight": 13
   },
   {
    "source": "source:arxiv",
@@ -4424,7 +4402,7 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 30
+   "weight": 33
   },
   {
    "source": "source:rss:Zenn - Claude",
@@ -4436,7 +4414,7 @@
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 12
+   "weight": 14
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4448,13 +4426,13 @@
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 16
+   "weight": 19
   },
   {
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4475,34 +4453,6 @@
   {
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-13",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-13",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-13",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-13",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-13",
    "kind": "fed",
    "weight": 3
   },
@@ -6079,6 +6029,28 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-12",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-12",
+   "kind": "fed"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-12",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-12",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6185,19 +6157,19 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 27
+   "weight": 30
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-09",
@@ -6209,7 +6181,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-09",
@@ -6219,36 +6191,6 @@
   {
    "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-13",
-   "target": "growth:2026-09-13:173",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-13:173",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-13",
-   "target": "growth:2026-09-13:174",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-13:174",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-13",
-   "target": "growth:2026-09-13:175",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-13:175",
-   "target": "skill:growth-scan",
    "kind": "changed"
   },
   {
@@ -7569,6 +7511,26 @@
   {
    "source": "growth:2026-11-11:304",
    "target": "skill:growth-scan",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-12",
+   "target": "growth:2026-11-12:305",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-12:305",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-12",
+   "target": "growth:2026-11-12:306",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-12:306",
+   "target": "knowledge:security",
    "kind": "changed"
   },
   {

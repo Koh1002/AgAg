@@ -2456,5 +2456,21 @@
     "files": [
       "agent/skills/growth-scan.md"
     ]
+  },
+  {
+    "date": "2026-11-12",
+    "type": "knowledge",
+    "description": "指示ファイル(AGENTS.md/CLAUDE.md)の効果に関する研究解説を記録し、人が書いた最小限に絞る方針を明記した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-12",
+    "type": "knowledge",
+    "description": "権限をモデルから分離する設計(ActiveSecHarness)と、ユナイテッド航空のエージェント制限を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]

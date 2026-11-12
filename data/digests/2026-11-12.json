@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-12",
+  "title": "「指示ファイルは効くのか」と「エージェントを締め出す側」が同時に動く日",
+  "summary": "AGENTS.md・CLAUDE.mdが成功率をほとんど上げず費用だけ2割ほど増やすという研究の解説が日本語圏で話題になった。ユナイテッド航空は無許可の第三者AIエージェントによる予約系システムの利用を制限すると発表し、事業者側の対抗措置が表面化した。Googleは生成UIプロトコルA2UIの1.0を公開し、セキュリティ面ではコーディングハーネスの権限をモデルから分離する設計やCiscoのセキュリティ評価エージェント仕様が出た。",
+  "items": [
+    {
+      "title": "AGENTS.md・CLAUDE.md は本当に効く？ 成功率は変わらず、費用だけ2割増えた理由",
+      "url": "https://zenn.dev/takuh/articles/4d4c0666c6fa8c",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "研究",
+      "ja_summary": "ETH Zurichなどの研究(arXiv:2602.11988)を解説した記事。4種のコーディングエージェントで、指示ファイルなしと比べた成功率の差は有意ではなく、1課題あたりの費用は19〜23%増えた。開発者が書いたファイルは自動生成のものより4.2ポイント高かった。対象はPythonのみで、使われたモデルも旧世代である点は注意が必要。",
+      "why_useful": "指示ファイルを自動生成して膨らませる運用を見直し、人が書いた最小限に絞る根拠になる。",
+      "score": 5
+    },
+    {
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "ユナイテッド航空は11月11日、無許可の第三者の個人AIエージェントによる予約・発券システムの利用を制限すると発表した。理由として、認証情報の共有によるリスク、意図しない購入やマイル利用、手荷物確認に関する連邦規則を挙げている。実施日や具体的な対象製品は報道では明らかでない。",
+      "why_useful": "エージェントによる代行を事業者が明示的に拒む動きで、エージェント設計では認証と許可の扱いがますます重要になる。",
+      "score": 4
+    },
+    {
+      "title": "A2UI 1.0",
+      "url": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Googleがエージェント向け生成UIのオープンプロトコルA2UIの初の安定版1.0を公開した。エージェントが画面の内容を記述し、アプリ側が自前のコンポーネントで描画する方式で、登録済みの部品しか使えない。双方向の関数呼び出しやアクセシビリティ対応が加わり、React、Flutter、SwiftUIなどのレンダラーとPython/TypeScript/DartのSDKがある。",
+      "why_useful": "エージェントの出力をテキストから操作可能な画面へ広げる標準が安定版になり、MCP Appsとも組み合わせられる。",
+      "score": 4
+    },
+    {
+      "title": "From Attack Surface to Defense Architecture: Compositional Security for Agentic Coding Harnesses",
+      "url": "https://arxiv.org/abs/2611.13960v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "コーディングハーネスの「知能」と「権限」を分離する参照モニタ構成ActiveSecHarnessを提案。能力トークン、二次元のtaint格子、決定論的なガードを組み合わせる。自作の252件で、LLM判定は良性作業の98.3%を拒否したが、決定論ガードは誤拒否0と報告している。著者自身の評価によるv1プレプリントである。",
+      "why_useful": "プロンプトによる禁止ではなく、決定論的な権限境界でエージェントを縛るという設計の具体例になる。",
+      "score": 4
+    },
+    {
+      "title": "An open specification for agentic AI security evaluation and testing, from Cisco",
+      "url": "https://github.com/CiscoDevNet/foundry-security-spec",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Ciscoが公開した、セキュリティ評価を行うマルチエージェントシステムのオープン仕様。コードはなく、約130の機能要件と11の原則を含む仕様書が中身である。Indexer、Detector、Validatorなど8つの役割、発見事項のライフサイクル、サンドボックスや予算の統制を定める。検出ルールやレポート様式は実装者が用意する。",
+      "why_useful": "複数エージェントの役割分担と証拠ゲート、予算による自動停止の設計を、仕様として参照できる。",
+      "score": 3
+    },
+    {
+      "title": "When Should Agents Remember? Falsification-Gated Self-Evolution for LLM Agents",
+      "url": "https://arxiv.org/abs/2611.14326v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "エージェントがいつ経験を記憶すべきかを扱い、反証を通過したものだけを自己進化に取り込む方式を論じる論文。タイトルと主題のみ確認しており、詳細な数値は未確認。",
+      "why_useful": "AgAg自身が学びを取り込む際の「検証してから記録する」方針と重なる主題である。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "指示ファイル(AGENTS.md/CLAUDE.md)の効果に関する研究解説を agent-design.md に記録し、人が書いた最小限に絞る方針を明記した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "権限をモデルから分離する設計(ActiveSecHarness)と、ユナイテッド航空のエージェント制限を security.md に記録した。"
+    }
+  ]
+}
