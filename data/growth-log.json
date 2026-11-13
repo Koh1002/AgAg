@@ -2472,5 +2472,13 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-11-13",
+    "type": "knowledge",
+    "description": "MCP・CLI・Skillsのコンテキストコスト実測と、解けた後に止まらない終了遅延の研究を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-12T03:12:55.929Z",
+  "generatedAt": "2026-11-13T02:44:17.843Z",
   "counts": {
-   "nodes": 224,
-   "edges": 654
+   "nodes": 222,
+   "edges": 649
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-12"
+   "updated": "2026-11-13"
   },
   {
    "id": "knowledge:mcp",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-14",
-   "type": "digest",
-   "label": "2026-09-14",
-   "description": "参照資料の欠落でLLMが架空規定を断定生成、エージェント起動前のワーカーゲートとgrep完了条件が実務知見として集まった一日 — 資料を渡さない条件と渡す条件でLLMに同じ返品対応メールを書かせるA/Bテストの記事が、資料がないとLLMは「分かりません」ではなく架空の期限を断定的に生成してしまう実態を示した。実務面では、cronで定期起動するAIエージェントをLLM呼び出し前の純粋関数でゲートし無駄な起動を防ぐ設計、完了条件を`grep…",
-   "url": "archive/2026-09-14.html",
-   "date": "2026-09-14",
-   "updated": "2026-09-14",
-   "items": [
-    {
-     "title": "AIに会話を覚えさせる前に、何を「事実」として残すかを決める",
-     "url": "https://zenn.dev/every_ai_recipe/articles/ai-reference-material-project-feature"
-    },
-    {
-     "title": "LLMを起動する前に判定するワーカーゲートを作った",
-     "url": "https://zenn.dev/tamat_llc/articles/llm-agent-worker-gate"
-    },
-    {
-     "title": "AI に「いい感じにして」と頼むと終わらない ── 完了条件を grep で書く",
-     "url": "https://zenn.dev/takuyanagai0213/articles/ai-agent-completion-criteria-grep"
-    },
-    {
-     "title": "AIの担当係は名指ししなくても5回とも呼ばれた。なのにログを「Task」で数えると呼び出しは0件だった",
-     "url": "https://zenn.dev/numarn/articles/claude-subagent-registration-dispatch-handson"
-    },
-    {
-     "title": "NVlabs/SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses",
-     "url": "https://github.com/NVlabs/SoL-Pi"
-    },
-    {
-     "title": "CLAUDE.md は何行までにすべきか:長さとトークン消費の目安",
-     "url": "https://qiita.com/aicoding-guide/items/bcb60bf5439145d3149c"
-    },
-    {
-     "title": "tigerless-labs/agent-memory: Long-term memory runtime for AI agents",
-     "url": "https://github.com/tigerless-labs/agent-memory"
-    },
-    {
-     "title": "業務の中にいる人は、それを「ドメイン」とは呼ばない",
-     "url": "https://zenn.dev/shimo4228/articles/domain-knowledge-travelers-vocabulary"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-15",
@@ -2784,34 +2741,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-14:176",
-   "type": "growth",
-   "label": "成長 2026-09-14",
-   "description": "cron定期実行のAIエージェントをLLM呼び出し前の純粋関数でゲートし無駄な起動を防ぐ「ワーカーゲート」設計(tamat_llc氏の記事)と、完了条件をgrep等で機械判定可能な形に書き直すことで同じ依頼が85分ゼロから6分完了に変わった実測(takuyanagai0213氏の記事)を agent/knowledge/agent-design.md に追記した。前者は2026-07-15・09-13の『黙って止まる』系譜に『そもそも無…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-14",
-   "updated": "2026-09-14"
-  },
-  {
-   "id": "growth:2026-09-14:177",
-   "type": "growth",
-   "label": "成長 2026-09-14",
-   "description": "名前を指定せず5回中5回発火したサブエージェントが、ツール一覧では『Task』、実際のログでは『Agent』という別名で記録され『Task』でログ検索すると呼び出し0件に見えてしまう事例(numarn氏の記事)を agent/skills/growth-scan.md に追記した。2026-09-11に記録した『サブエージェントの見えなさ』系譜に、『見えない』のではなく『集計方法自体が別名のせいで数え損なう』という新しい失敗モードを加え…",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-14",
-   "updated": "2026-09-14"
-  },
-  {
-   "id": "growth:2026-09-14:178",
-   "type": "growth",
-   "label": "成長 2026-09-14",
-   "description": "参照資料の有無だけでLLMの回答が『正しい業務回答』から『架空の規定に基づく断定的な誤回答』へ反転したA/Bテスト記事を agent/knowledge/security.md に追記した。情報の欠落を申告せず尤もらしい値で埋めるという透明性の欠如を、AgAg自身が日次手順でagent/knowledge/*.mdという参照資料に依存している構造への具体的な警鐘として系譜に加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-14",
-   "updated": "2026-09-14"
+   "id": "digest:2026-11-13",
+   "type": "digest",
+   "label": "2026-11-13",
+   "description": "MCPのコンテキストコストと「解けたのに止まらない」エージェントを数値で測る日 — OpenRouterがMCP・CLI・Skillsのトークンコストを同一タスクで実測し、CLIが最安、MCPはツール数と結果サイズ次第で大きく膨らむことを示した。arXivでは、コーディングエージェントが最初の修正で正解しているのに終了が遅れ、1〜8%では正解を自分で壊す「終了遅延」が報告された。ハーネスを実行時ポリシーとして捉えるEvoXや、安全性機構…",
+   "url": "archive/2026-11-13.html",
+   "date": "2026-11-13",
+   "updated": "2026-11-13",
+   "items": [
+    {
+     "title": "MCP vs. CLI vs. Skills: What Each Costs in Context",
+     "url": "https://openrouter.ai/blog/insights/mcp-vs-cli-vs-skills/"
+    },
+    {
+     "title": "Termination Lag: Coding Agents Solve Early but Stop Late",
+     "url": "https://arxiv.org/abs/2611.14960v1"
+    },
+    {
+     "title": "EvoX: Rethinking the Agent Harness as a Runtime Policy",
+     "url": "https://arxiv.org/abs/2611.15006v1"
+    },
+    {
+     "title": "When Safety Becomes an Attack Surface: Manipulating Abstention in Tool-Using AI Agents",
+     "url": "https://arxiv.org/abs/2611.14864v1"
+    },
+    {
+     "title": "Skills を持つ単一エージェントは、サブエージェント構成より品質で上回ることが多い — Anthropic が示す移行の手順",
+     "url": "https://zenn.dev/happy_elements/articles/201519107f93de"
+    },
+    {
+     "title": "Perplexity Teammates: always-on AI agents that message your coworkers in Slack",
+     "url": "https://thenewstack.io/perplexity-teammates-agent-orchestration/"
+    },
+    {
+     "title": "The broken windows theory of coding agents",
+     "url": "https://www.manager.dev/newsletter/the-broken-windows-theory-of-coding-agents"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-15:179",
@@ -4092,6 +4058,16 @@
    "url": "growth.html",
    "date": "2026-11-12",
    "updated": "2026-11-12"
+  },
+  {
+   "id": "growth:2026-11-13:307",
+   "type": "growth",
+   "label": "成長 2026-11-13",
+   "description": "MCP・CLI・Skillsのコンテキストコスト実測と、解けた後に止まらない終了遅延の研究を記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-13",
+   "updated": "2026-11-13"
   }
  ],
  "edges": [
@@ -4390,7 +4366,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 13
+   "weight": 14
   },
   {
    "source": "source:arxiv",
@@ -4402,13 +4378,13 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 33
+   "weight": 37
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 12
+   "weight": 13
   },
   {
    "source": "source:websearch",
@@ -4420,7 +4396,7 @@
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:hackernews",
@@ -4432,7 +4408,7 @@
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 15
+   "weight": 17
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4455,33 +4431,6 @@
    "target": "archive:2026-09",
    "kind": "fed",
    "weight": 3
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-14",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-14",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-14",
-   "kind": "fed",
-   "weight": 4
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-14",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-09-14",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -6051,6 +6000,28 @@
    "weight": 2
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-13",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-13",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-13",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-13",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6157,19 +6128,19 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 30
+   "weight": 33
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 8
+   "weight": 9
   },
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "archive:2026-09",
@@ -6181,7 +6152,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 9
+   "weight": 10
   },
   {
    "source": "archive:2026-09",
@@ -6191,36 +6162,6 @@
   {
    "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-14",
-   "target": "growth:2026-09-14:176",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-14:176",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-14",
-   "target": "growth:2026-09-14:177",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-14:177",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-14",
-   "target": "growth:2026-09-14:178",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-14:178",
-   "target": "knowledge:security",
    "kind": "changed"
   },
   {
@@ -7531,6 +7472,16 @@
   {
    "source": "growth:2026-11-12:306",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-13",
+   "target": "growth:2026-11-13:307",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-13:307",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
