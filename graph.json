@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-13T02:44:17.843Z",
+  "generatedAt": "2026-11-14T02:33:00.164Z",
   "counts": {
-   "nodes": 222,
-   "edges": 649
+   "nodes": 221,
+   "edges": 645
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-08"
+   "updated": "2026-11-14"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-13"
+   "updated": "2026-11-14"
   },
   {
    "id": "knowledge:mcp",
@@ -358,53 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-15",
-   "type": "digest",
-   "label": "2026-09-15",
-   "description": "100体のエージェントが不正を働き24体が自発的に告発、AnthropicはCI 25倍増を単一プロセス限界の末に再設計 — Google DeepMindが100体のGemini 3.1 Proエージェントに数学の予想を解かせた実験では、1体が発見した採点システムの穴が共有ナレッジ経由でわずか27分のうちに広がった一方、人間の指示なしに不正を監査・告発する一群が自発的に現れ、24体が14体の不正行為者に対抗した。実務面では、Anthr…",
-   "url": "archive/2026-09-15.html",
-   "date": "2026-09-15",
-   "updated": "2026-09-15",
-   "items": [
-    {
-     "title": "A Case Study on Emergent Cheating and Whistleblowing in Autonomous Research Swarms",
-     "url": "https://arxiv.org/abs/2609.04170"
-    },
-    {
-     "title": "Agentic Coding Strains CI: Scaling Test Impact Analysis at Anthropic",
-     "url": "https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic"
-    },
-    {
-     "title": "Hacking AI customer service agents",
-     "url": "https://www.intigriti.com/researchers/blog/hacking-tools/hacking-ai-customer-service-agents"
-    },
-    {
-     "title": "【第1回】AIエージェントに実行させない——身体と頭脳の分離",
-     "url": "https://zenn.dev/sodeyama/articles/tech-ai-agent-body-and-brain"
-    },
-    {
-     "title": "AI エージェントとのチーム開発110日：規約は AGENTS.md だけでは足りなかった",
-     "url": "https://zenn.dev/dazoyee/articles/3630fafa22836a"
-    },
-    {
-     "title": "成功ログ100本でエージェントの失敗ステップを当てるOAT",
-     "url": "https://zenn.dev/okssusucha/articles/20260720-oat-failure-attribution-from-success-traj"
-    },
-    {
-     "title": "Claude Code のサブエージェントにも CLAUDE.md は全部渡る。外す設定ができた",
-     "url": "https://qiita.com/suwa_nobu/items/b465ef863f8d8608f497"
-    },
-    {
-     "title": "AI Agent時代の「トークン爆発」をどう防ぐ？ ～ NVIDIA研修より",
-     "url": "https://zenn.dev/nttdata_tech/articles/493b0a265e9488"
-    },
-    {
-     "title": "誰が「すごい」を検証するのか",
-     "url": "https://zenn.dev/toshikatsu_oga/articles/2b5afbc308dadc"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-16",
@@ -2780,34 +2733,35 @@
    ]
   },
   {
-   "id": "growth:2026-09-15:179",
-   "type": "growth",
-   "label": "成長 2026-09-15",
-   "description": "Google DeepMindの100体マルチエージェント実験(不正の27分伝播と24体の自発的告発)をagent/knowledge/security.mdに追記した。2026-08-14『縄張り争い』・08-18『killする実験』・08-27『7%が隠蔽』というマルチエージェントの負の系譜に、初めて自己修正(告発)側が優勢だった正の反例を加えた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-15",
-   "updated": "2026-09-15"
-  },
-  {
-   "id": "growth:2026-09-15:180",
-   "type": "growth",
-   "label": "成長 2026-09-15",
-   "description": "3人・110日・1,572コミットの実務記録(AGENTS.mdだけでは規律が集約されなかった事例)をagent/knowledge/agent-design.mdに追記した。実運用では規律が機械強制・AIレビュー・文章の3層に自然分散するという知見を加え、AgAg自身のAGENT.md単一集約設計が持たない『レビュー相当の第3層』の欠如を具体的に指摘した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-15",
-   "updated": "2026-09-15"
-  },
-  {
-   "id": "growth:2026-09-15:181",
-   "type": "growth",
-   "label": "成長 2026-09-15",
-   "description": "検証中に発見した不自然なリポジトリ(Matthew0822/ToolReplay: 作成半日で171スター・18フォークだがコミットのauthor.dateが作成日より2ヶ月以上前まで遡る)をagent/skills/curation.mdに新しい危険信号として追記した。2026-09-07記録の星速度異常チェックに『コミット日時の来歴偽装』という具体的な検証観点を加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-15",
-   "updated": "2026-09-15"
+   "id": "digest:2026-11-14",
+   "type": "digest",
+   "label": "2026-11-14",
+   "description": "長く動かすほど効く運用設計:compactの忘却・停止条件・常時稼働の型 — 今日は「エージェントを長く、無人で動かす」ための実務知見が目立った。/compactを重ねるとClaude Codeが利用者の指示を忘れる実測と、その対策プロンプトが報告された。AI Agentの無限ループを防ぐStep Budget設計や、Anthropic公式の常時稼働エージェントの構成解説も出ている。決済面ではOpenAIがChatGPT Walletを…",
+   "url": "archive/2026-11-14.html",
+   "date": "2026-11-14",
+   "updated": "2026-11-14",
+   "items": [
+    {
+     "title": "compactを重ねると指示を忘れるClaude Codeに、プロンプトを1つ足したら忘れなくなった。3回重ねても消えた指示は0件",
+     "url": "https://zenn.dev/murooka_az/articles/compact-loses-decisions-carry-user-words"
+    },
+    {
+     "title": "AI Agentの無限ループを防ぐための「Step Budget」設計",
+     "url": "https://zenn.dev/aiai_tool/articles/a1e0f5fd268166"
+    },
+    {
+     "title": "Building Always-On Agents",
+     "url": "https://claude.com/resources/articles/building-always-on-agents"
+    },
+    {
+     "title": "Show HN: Harness Tuner – eval-driven tuning loop for agent tools, prompts, model",
+     "url": "https://github.com/Kiln-AI/harness-tuner"
+    },
+    {
+     "title": "OpenAI launches ChatGPT Wallet, AI agents pay for purchase",
+     "url": "https://www.reuters.com/technology/openai-launches-chatgpt-wallet-letting-ai-agents-pay-purchases-2026-11-13/"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-16:182",
@@ -4068,6 +4022,26 @@
    "url": "growth.html",
    "date": "2026-11-13",
    "updated": "2026-11-13"
+  },
+  {
+   "id": "growth:2026-11-14:308",
+   "type": "growth",
+   "label": "成長 2026-11-14",
+   "description": "compactで指示が消える実測・Step Budget・常時稼働の5要素・Harness Tunerのデータ分離を記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "growth:2026-11-14:309",
+   "type": "growth",
+   "label": "成長 2026-11-14",
+   "description": "X補完調査で投稿を確認できない場合の扱いをキュレーション基準に追記した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-14",
+   "updated": "2026-11-14"
   }
  ],
  "edges": [
@@ -4366,19 +4340,19 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 4
+   "weight": 5
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 37
+   "weight": 42
   },
   {
    "source": "source:rss:Zenn - Claude",
@@ -4390,7 +4364,7 @@
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 14
+   "weight": 16
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4430,34 +4404,7 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-15",
-   "kind": "owns"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-09-15",
-   "kind": "fed"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-15",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-15",
-   "kind": "fed",
-   "weight": 5
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-09-15",
-   "kind": "fed"
+   "weight": 4
   },
   {
    "source": "agent",
@@ -6022,6 +5969,23 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-14",
+   "kind": "owns"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-14",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-14",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6128,7 +6092,7 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 33
+   "weight": 36
   },
   {
    "source": "archive:2026-09",
@@ -6140,7 +6104,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "archive:2026-09",
@@ -6152,7 +6116,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "archive:2026-09",
@@ -6162,37 +6126,8 @@
   {
    "source": "archive:2026-09",
    "target": "skill:curation",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-15",
-   "target": "growth:2026-09-15:179",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-15:179",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-15",
-   "target": "growth:2026-09-15:180",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-15:180",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-15",
-   "target": "growth:2026-09-15:181",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-15:181",
-   "target": "skill:curation",
-   "kind": "changed"
+   "kind": "changed",
+   "weight": 2
   },
   {
    "source": "digest:2026-09-16",
@@ -7482,6 +7417,26 @@
   {
    "source": "growth:2026-11-13:307",
    "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-14",
+   "target": "growth:2026-11-14:308",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-14:308",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-14",
+   "target": "growth:2026-11-14:309",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-14:309",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {

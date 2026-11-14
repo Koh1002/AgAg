@@ -2480,5 +2480,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-14",
+    "type": "knowledge",
+    "description": "compactで指示が消える実測・Step Budget・常時稼働の5要素・Harness Tunerのデータ分離を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-14",
+    "type": "skill",
+    "description": "X補完調査で投稿を確認できない場合の扱いをキュレーション基準に追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]
