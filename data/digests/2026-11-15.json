@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-15",
+  "title": "権限は連携で合成されない — 既定値と強制の設計が問われる日",
+  "summary": "マルチエージェントでは各エージェントが権限を守っても連携で情報が漏れ得るとする「推移的ポリシー」の議論が出た。承認設定のdefault書き忘れで削除ツールが無承認で動いた事例や、長文規約よりPre-Commit Hookの強制が遵守・コストとも優れていたという実測も並んだ。モデル分業がトークンを約2.7倍にした報告もあり、エージェント設計では既定値・機械的強制・コストの実測が共通の論点だった。Xの話題は今日分を確認できなかったため掲載していない。",
+  "items": [
+    {
+      "title": "Transitive Policies for Agents: Agent Permissions Don't Automatically Compose",
+      "url": "https://glthr.com/transitive-policies-for-ai-agents",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "各エージェントが自分のツール権限を守っていても、連携すると機密データが漏えいし得ると指摘する。委任の連鎖で権限・情報フロー制約・行動履歴を引き継ぐ「推移的ポリシー」を提唱し、その強制はモデル外の信頼できるランタイムが、文面ではなくポリシーのメタデータに基づいて行うべきだとする。",
+      "why_useful": "マルチエージェント構成で権限が合成されない問題を整理しており、AgAgの安全境界をサブエージェントに適用する際の設計指針になる。",
+      "score": 5
+    },
+    {
+      "title": "承認設定の「default」、書き忘れたツールが承認なしで動いていた話",
+      "url": "https://zenn.dev/dekita/articles/maf-mcp-approval-default-gap",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Microsoft Agent Framework 1.24.0 のMCPツール承認設定で、読み取り系だけを never_require_approval に書くと、どちらにも載らない削除ツールが承認なしで実行された。名前が一致しないツールは default を書かない限り承認不要になる既定値が原因で、\"default\": \"always_require\" の明示が対策。単一環境での検証結果である点に注意。",
+      "why_useful": "許可リスト方式のつもりが実は拒否リスト方式になっていた、という既定値の落とし穴は他のフレームワークにも当てはまる。",
+      "score": 4
+    },
+    {
+      "title": "CLAUDE.mdの長文ルールは無視される？「プロンプト規約」vs「決定論的Pre-Commit Hook強制」実機サンドボックス検証",
+      "url": "https://zenn.dev/tappers/articles/ai-labo-e11-architecture-guardrail-hooks",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "同一モデルで、長文プロンプト規約のみの方式と、AST診断の注入+Pre-Commit Hook強制の方式を比較した。機能テストはどちらも20/20だが、規約遵守は前者が5項目中4、後者が5/5。後者は生成コードが138行から113行(-18.1%)、出力トークン-10.8%、推定コスト-6.6%だった。",
+      "why_useful": "「書いて頼む」より「機械的に強制する」ほうが遵守もコストも改善するという実測で、AgAgのvalidate.mjs強化の方向性を裏付ける。",
+      "score": 4
+    },
+    {
+      "title": "【Claude Code】モデル分業したら、Opus 1体の約2.7倍トークンかかった",
+      "url": "https://zenn.dev/teradhiro1257/articles/20261113_claude-code-model-split-pipeline",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "記事制作を4つに分業すると198,658トークンで、Opus 1体の74,381トークンの約2.7倍だった。Opus 1体は事実の誤り0件、分業版は誤り2件が残り、1本あたり約$0.57対$0.42と分業のほうが高く品質も劣った。",
+      "why_useful": "「安いモデルに分担すれば安くなる」という通説を実測で覆しており、マルチエージェント化の判断材料になる。",
+      "score": 4
+    },
+    {
+      "title": "janestreet/agent_skills: Agent skills",
+      "url": "https://github.com/janestreet/agent_skills",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Jane Streetが公開したAIエージェント向けスキル集。各スキルは SKILL.md に指示を書いたディレクトリ構成で、現在は厳格な家庭教師としてソクラテス式問答で教える socratic-tutor が収録されている。",
+      "why_useful": "大手企業が自社のスキルをSKILL.md形式で公開した例で、AgAgのagent/skills設計の参考になる(現時点では収録1件と小規模)。",
+      "score": 3
+    },
+    {
+      "title": "Claude asked to renumber pages deletes professor's syllabus, year of notes",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/rogue-claude-ai-tasked-with-renumbering-pages-accidentally-deletes-law-professors-entire-syllabus-one-year-of-lecture-notes-youre-right-to-be-angry-i-deleted-your-files-through-my-own-carelessness-humbled-agent-admits",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "ページ番号の振り直しを頼まれたClaudeが、法学教授のシラバスと1年分の講義ノートを削除したとTom's Hardwareが報じた。エージェントは自らの不注意を謝罪したという。報道ベースで、詳細な再現条件は未確認。",
+      "why_useful": "破壊的操作に対する確認・バックアップがない環境でエージェントを動かす危険を示す実例。",
+      "score": 3
+    },
+    {
+      "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
+      "url": "https://arxiv.org/abs/2611.17115v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "小型言語モデルを使うエージェント向けに、モデル自身に防御用の成果物を書かせずにプロンプトインジェクションを防ぐ手法CapLiteを提案する論文。タイトルと概要の範囲の確認に留まり、評価結果は未精査。",
+      "why_useful": "防御をモデルの出力に頼らず外側で行う流れは、今日の推移的ポリシーの議論とも一致する。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "推移的ポリシー(権限は連携で合成されない)、承認設定のdefault落とし穴、規約vsHook強制の実測、モデル分業の2.7倍トークンを agent-design.md と security.md に記録した。"
+    }
+  ]
+}

@@ -2496,5 +2496,14 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-15",
+    "type": "knowledge",
+    "description": "推移的ポリシー・承認設定のdefault落とし穴・規約vsHook強制の実測・モデル分業の2.7倍トークンを記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md",
+      "agent/knowledge/security.md"
+    ]
   }
 ]
