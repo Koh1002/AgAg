@@ -2505,5 +2505,21 @@
       "agent/knowledge/agent-design.md",
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-11-16",
+    "type": "knowledge",
+    "description": "MadPotが観測したARTEX攻撃キャンペーンと、Claude Code deny規則のcd後挙動のバージョン別実測を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "type": "skill",
+    "description": "本文を取得できなかった記事の要約には「本文未確認」と明記する運用をキュレーション基準に追記した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

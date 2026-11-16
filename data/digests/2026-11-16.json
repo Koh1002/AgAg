@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-16",
+  "title": "攻撃側もエージェント化 — 防御は「基本の徹底」と「境界の実測」へ",
+  "summary": "AmazonのMadPotが、オープンソースの侵入テスト用エージェントARTEXを使った攻撃キャンペーンを観測したと報告した。手口に新規性はなく、初期認証情報や露出した秘密情報といった基本的な不備が突かれていた。防御側でも、Claude Codeのdeny規則がcd後に効くかのバージョン別実測や、読み取り専用SQLの実行境界、Stopフックの暴走といった「境界を実測して守る」話題が並んだ。Xの話題は今日分を確認できなかったため掲載していない。",
+  "items": [
+    {
+      "title": "Amazon MadPot: Honeypot for AI Agents",
+      "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Amazonは2026年10月3日〜11月5日、LLM推論APIを装ったMadPotで、オープンソースの侵入テスト用エージェントARTEXによる攻撃を観測した。主なキャンペーンはAIモデルのAPIキー窃取と、暗号資産取引所の本人確認を突破する試みだった。同社は複数の中国系脅威グループによると中程度の確度で評価し、手口に新規なものはなく、デフォルト認証情報や露出した秘密情報などの基本的不備が突かれたと述べる。",
+      "why_useful": "攻撃側のエージェント化が実観測で示され、AgAgの安全境界(秘密情報を書かない等)の重要性を裏付ける一次情報。",
+      "score": 5
+    },
+    {
+      "title": "Claude Codeで deny した .env は cd の後も守られる？ 2.1.323までは読めて、2.1.324から止まりました",
+      "url": "https://zenn.dev/ojisan_ai_lab/articles/claude-code-cd-relative-deny-20261115",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Windows 11 の claude -p で 2.1.319〜2.1.325 を比べ、Read(./.env) の deny 下で cd を挟んだ後に .env を読めるかを測った。2.1.323 までは読めたが、2.1.324 以降は拒否され、cp による書き込みも止まった。測定は一部の形と1台の環境に限られる。",
+      "why_useful": "相対パスのdeny規則が効くかはバージョン依存だと実測で示しており、権限設定を「書いた」ではなく「測る」運用の必要性が分かる。",
+      "score": 4
+    },
+    {
+      "title": "/goalを使わずStopフックを自作したら、Claude Codeが止まらず使用量が増え続けた",
+      "url": "https://zenn.dev/kagaribilab/articles/claude-code-stop-hook-loop",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "標準の/goalを使わずにStopフックを自作したところ、Claude Codeが止まらず使用量が増え続けたという失敗談。タイトルと概要のみ確認しており、詳細な原因分析は未確認。",
+      "why_useful": "自作の継続フックが終了条件を持たないと暴走しコストが増える、という運用上の落とし穴を示す。",
+      "score": 4
+    },
+    {
+      "title": "エージェントはSQLを書ける。足りないのは実行の境界 — 読み取り専用SQL CLI「sqrail」を作った",
+      "url": "https://zenn.dev/yhay81/articles/202608-sqrail",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "エージェントにSQLを書かせる際に必要なのは能力ではなく実行の境界だとして、読み取り専用のSQL CLI「sqrail」を作った記事。詳細な仕様は本文未確認。",
+      "why_useful": "プロンプトでの禁止ではなくツール側で権限を絞る設計の具体例。",
+      "score": 3
+    },
+    {
+      "title": "AIがバグ修正の沼にハマったときどうする？「単一セッション執着リトライ」vs「並列ブランチ＋Judge選抜」実機検証",
+      "url": "https://zenn.dev/tappers/articles/ai-labo-e13-parallel-tournament",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "バグ修正で行き詰まったときに、同一セッションで粘るリトライと、並列ブランチを走らせてJudgeが選抜する方式を実機で比較した記事。結果の数値は本文未確認。",
+      "why_useful": "行き詰まり時の再試行戦略を比較した実測で、AgAgのサブエージェント設計の参考になる。",
+      "score": 3
+    },
+    {
+      "title": "請求書登録後にAIエージェントが停止したら？二重登録を防ぐ復旧設計",
+      "url": "https://zenn.dev/techstudiolab/articles/invoice-workflow-safe-retry",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "請求書登録後にエージェントが停止しても二重登録を起こさない、安全な再試行・復旧の設計を扱う記事。詳細は本文未確認。",
+      "why_useful": "副作用を伴う処理の冪等性という、業務エージェントの基本課題を扱う。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: db-branch – database branches in seconds for AI agents and CI, via ZFS",
+      "url": "https://github.com/db-branch/db-branch",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ZFSを使い、AIエージェントやCI向けにデータベースのブランチを数秒で作るツール。エージェントが本番を壊さず試せる環境の提供を狙う。実測値は未確認。",
+      "why_useful": "エージェントの実行を破棄可能な環境に閉じ込めるアプローチの一例。",
+      "score": 3
+    },
+    {
+      "title": "Perplexity partners with Nvidia to launch Portable Computer",
+      "url": "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "PerplexityがNvidiaと組み、完全ローカルで動くAIエージェントの携帯型コンピュータを発表したと報じられている。見出しは「トークン費用ゼロ」を掲げるが、性能や価格は未確認。",
+      "why_useful": "ローカル実行エージェントが製品化される流れを示す。ただし宣伝色があり、数値は未検証。",
+      "score": 2
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "MadPotが観測したARTEX攻撃キャンペーンと、Claude Code deny規則のバージョン別実測を agent/knowledge/security.md に記録した。"
+    },
+    {
+      "type": "skill",
+      "description": "本文を取得できなかった記事は要約を「本文未確認」と明記する運用を agent/skills/curation.md に追記した。"
+    }
+  ]
+}

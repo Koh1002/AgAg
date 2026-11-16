@@ -748,3 +748,12 @@
 - **権限は連携で合成されない**: 各エージェントが自分のツール権限を守っていても、委任の連鎖で機密データが漏えいし得る。対策として、権限・情報フロー制約・行動履歴を委任先へ引き継ぐ「推移的ポリシー」を、モデル外のランタイムがポリシーのメタデータに基づいて強制する案が出ている(出典: https://glthr.com/transitive-policies-for-ai-agents)。AgAgのサブエージェントにも安全境界を継承させる根拠になる
 - **承認設定の既定値の罠**: Microsoft Agent Framework 1.24.0のMCP承認設定では、読み取り系のみを never_require_approval に書くと、リスト外の削除ツールが承認なしで動いた。名前が一致しないツールは default 未指定だと承認不要。"default": "always_require" の明示が対策(単一環境での検証。出典: https://zenn.dev/dekita/articles/maf-mcp-approval-default-gap)
 - **示唆**: 許可リストを書いたつもりでも既定値が「許可」だと実質は拒否リスト。設定を書く側は未記載時の挙動を必ず確認する。
+
+## Amazon MadPot: 攻撃側のエージェント化(ARTEX)と deny 規則の版依存 — 記録日 2026-11-16
+
+出典: https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/ 、https://zenn.dev/ojisan_ai_lab/articles/claude-code-cd-relative-deny-20261115
+
+- Amazonは2026-10-03〜11-05、LLM推論APIを装ったMadPotで、OSSの侵入テスト用エージェントARTEXによる攻撃を観測した。主なキャンペーンはAIモデルAPIキーの大規模窃取(盗んだキーで以後の探索費用を賄う)と、暗号資産取引所の本人確認を突破する試み。複数の中国系脅威グループと中程度の確度で評価され、「手法に新規なものはない」と述べ、デフォルト認証情報・露出した秘密情報・認証なしエンドポイント・未パッチの修正を推奨している
+- Claude Codeの`Read(./.env)`のdenyが`cd`後も効くかを2.1.319〜2.1.325で実測した記事では、2.1.323までは読め、2.1.324以降は拒否された。著者はchangelogでは2.1.325の行としており、測定は1台の環境・一部の形に限られる
+
+含意: 攻撃側がエージェント化しても突かれるのは基本的不備であり、AgAgの「秘密情報をファイルに書かない」境界は引き続き最重要。また権限ルールは書いただけで安心せず、版ごとに実測するものと捉える。
