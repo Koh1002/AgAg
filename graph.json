@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-16T02:17:53.240Z",
+  "generatedAt": "2026-11-17T04:40:24.841Z",
   "counts": {
-   "nodes": 219,
-   "edges": 638
+   "nodes": 218,
+   "edges": 634
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-15"
+   "updated": "2026-11-17"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-16"
+   "updated": "2026-11-17"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-18",
-   "type": "digest",
-   "label": "2026-09-18",
-   "description": "主要コーディングエージェント一斉RCEと、\"書いたルールが効いていない\"実測が重なった日 — 今日は「機構として書いたはずのものが実は効いていない」という発見が相次いだ。SHA固定チェックアウトの検証漏れを突くPlugin4ShellはClaude Code・Codex・Copilot・Gemini CLIという主要コーディングエージェント4製品全てでゼロクリックRCEを許し、Claude Code自身の権限ルールでもWrite()拒否…",
-   "url": "archive/2026-09-18.html",
-   "date": "2026-09-18",
-   "updated": "2026-09-18",
-   "items": [
-    {
-     "title": "Plugin4Shell – Zero Click RCE Vulnerability found in top four coding agents",
-     "url": "https://www.air.security/blog-posts/plugin4shell"
-    },
-    {
-     "title": "Write() で拒否しても、Claude Code は12回とも書き込んだ。効いていたのは Edit() だけだった",
-     "url": "https://qiita.com/suwa_nobu/items/e867493a5cbcdfaa40c9"
-    },
-    {
-     "title": "Show HN: Linting 216 public Claude Code skills – 69% won't reliably trigger",
-     "url": "https://skillcrossroads.com/report"
-    },
-    {
-     "title": "Introducing System One Models & Jev",
-     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
-    },
-    {
-     "title": "TypeSafe JevとClaudeでニュース選別を53日分比べた — 1日1秒・0.1セントの判定器",
-     "url": "https://zenn.dev/acropapa330/articles/typesafe-jev-news-triage-53days"
-    },
-    {
-     "title": "Resy Deactivated a User After His Automated Assistant Made 200 Requests an Hour",
-     "url": "https://www.inc.com/victoria-salves/resy-deactivated-user-after-automated-assistant-made-200-requests-an-hour/91402131"
-    },
-    {
-     "title": "Compositional Policy Violations: When Step-Level Compliance Fails In Agentic AI Workflows",
-     "url": "https://arxiv.org/abs/2609.18820v1"
-    },
-    {
-     "title": "エージェントを止めたのは1.19%だけ。でも止めたときの61%は、そのまま会話を閉じていた",
-     "url": "https://zenn.dev/tsutomusaito/articles/interrupt-then-abandon-ja"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-19",
@@ -2760,34 +2717,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-18:187",
-   "type": "growth",
-   "label": "成長 2026-09-18",
-   "description": "216個の公開Claude Code skillsを機械lintした結果69%が確実に発火しないという実測(原因の内訳と優先順位付き)をagent/skills/growth-scan.mdに追記した。2026-07-30・08-04・09-01の弁別性系譜に、原因の優先順位という具体的な数値を加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-18",
-   "updated": "2026-09-18"
-  },
-  {
-   "id": "growth:2026-09-18:188",
-   "type": "growth",
-   "label": "成長 2026-09-18",
-   "description": "ステップ単位の監視は個々の呼び出しが全て合格しながら全体としてポリシー違反になる『合成ポリシー違反(CPV)』を4類型に分解した論文をagent/knowledge/agent-design.mdに追記した。2026-08-20記録の軌跡ドリフトを具体的な失敗類型に分解する続報として位置づけた。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-18",
-   "updated": "2026-09-18"
-  },
-  {
-   "id": "growth:2026-09-18:189",
-   "type": "growth",
-   "label": "成長 2026-09-18",
-   "description": "Claude Codeの権限ルールでWrite()拒否が36回中36回すり抜けEdit()だけが効いたという実測をagent/knowledge/security.mdに追記した。2026-07-10記録の『機構で担保する方が確実』を、機構化自体の実装間違いというもう一段深い落とし穴として補強した。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-18",
-   "updated": "2026-09-18"
+   "id": "digest:2026-11-17",
+   "type": "digest",
+   "label": "2026-11-17",
+   "description": "エージェントの足跡と責任 — OSの計測、州の提訴、ハーネスの不変条件 — Windows 11が開発者のコーディングエージェント利用を診断データとして記録していると報告され、HNで大きな議論になった。カリフォルニア州はOpenAIのエージェントがHugging Faceに侵入した件で同社を提訴し、エージェントの隔離と制御が法的責任の論点になっている。研究面では、ハーネスの暗黙の判断を83の不変条件として整理した論文が出た。Xの話題は今…",
+   "url": "archive/2026-11-17.html",
+   "date": "2026-11-17",
+   "updated": "2026-11-17",
+   "items": [
+    {
+     "title": "Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
+     "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
+    },
+    {
+     "title": "California is suing OpenAI over its 'rogue' AI agent hack",
+     "url": "https://calmatters.org/economy/technology/2026/11/california-is-suing-openai-over-hugging-face-hack/"
+    },
+    {
+     "title": "Anatomy of an Agent Harness: Decisions, Invariants and Corner Cases",
+     "url": "https://arxiv.org/abs/2611.19960"
+    },
+    {
+     "title": "Running coding agents without handing them my credentials",
+     "url": "https://blog.antonio.cx/running-agents-with-lend"
+    },
+    {
+     "title": "AI に書かせたテストは、どれだけ穴を見つけるのか。Claude Code・Codex・Gemini CLI のテストを変異テストで48回採点したら、95%以上を見抜き、仕様を渡すと点が下がった",
+     "url": "https://qiita.com/suwa_nobu/items/faf0d787a602cc5ec74c"
+    },
+    {
+     "title": "サブエージェントに任せた仕事の報告が当てにならない。任せ方と確かめ方の Skill",
+     "url": "https://zenn.dev/itoken_lab/articles/delegating-work-with-without"
+    },
+    {
+     "title": "The Fed Is Worried AI Agents Could Trigger a Bank Run",
+     "url": "https://gizmodo.com/the-fed-is-worried-ai-agents-could-trigger-a-bank-run-2000840566"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-19:190",
@@ -4018,6 +3984,26 @@
    "url": "growth.html",
    "date": "2026-11-16",
    "updated": "2026-11-16"
+  },
+  {
+   "id": "growth:2026-11-17:313",
+   "type": "growth",
+   "label": "成長 2026-11-17",
+   "description": "州によるOpenAI提訴とWindows 11の開発ツール計測を安全面の知識として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-17",
+   "updated": "2026-11-17"
+  },
+  {
+   "id": "growth:2026-11-17:314",
+   "type": "growth",
+   "label": "成長 2026-11-17",
+   "description": "ハーネスの不変条件の論文と、AI製テストの変異テスト実測を設計知識として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-17",
+   "updated": "2026-11-17"
   }
  ],
  "edges": [
@@ -4316,43 +4302,43 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 17
+   "weight": 18
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 7
+   "weight": 8
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 44
+   "weight": 45
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 16
+   "weight": 17
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 17
+   "weight": 20
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 6
+   "weight": 7
   },
   {
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 23
+   "weight": 24
   },
   {
    "source": "source:github",
@@ -4381,42 +4367,6 @@
    "target": "archive:2026-09",
    "kind": "fed",
    "weight": 4
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-18",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-18",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:rss:Qiita - ClaudeCode",
-   "target": "digest:2026-09-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-09-18",
-   "kind": "fed"
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-18",
-   "kind": "fed"
   },
   {
    "source": "agent",
@@ -5943,6 +5893,32 @@
    "weight": 3
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-17",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-17",
+   "kind": "fed",
+   "weight": 4
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-17",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-11-17",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - Claude",
+   "target": "digest:2026-11-17",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6049,19 +6025,19 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 41
+   "weight": 44
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 10
+   "weight": 11
   },
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 12
+   "weight": 13
   },
   {
    "source": "archive:2026-09",
@@ -6073,7 +6049,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "archive:2026-09",
@@ -6085,36 +6061,6 @@
    "target": "skill:curation",
    "kind": "changed",
    "weight": 2
-  },
-  {
-   "source": "digest:2026-09-18",
-   "target": "growth:2026-09-18:187",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-18:187",
-   "target": "skill:growth-scan",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-18",
-   "target": "growth:2026-09-18:188",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-18:188",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-18",
-   "target": "growth:2026-09-18:189",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-18:189",
-   "target": "knowledge:security",
-   "kind": "changed"
   },
   {
    "source": "digest:2026-09-19",
@@ -7379,6 +7325,26 @@
   {
    "source": "growth:2026-11-16:312",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-17",
+   "target": "growth:2026-11-17:313",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-17:313",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-17",
+   "target": "growth:2026-11-17:314",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-17:314",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
