@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-18",
+  "title": "agent-frameworkのPyPI汚染と、承認では防げない「誤った記憶」",
+  "summary": "MicrosoftのAgent Frameworkのメタパッケージ agent-framework がPyPIで2版にわたり汚染され、認証情報窃取コードが33分間配布された。エージェント運用の足元でサプライチェーンの危険が現実になった形だ。一方、承認制は削除などの操作は止めても誤った方針の混入は防げないという実測や、AIコーディングで増えたコードがレビューで詰まるという研究も出た。MCPツール設計とスキル陳腐化に関する実用的な知見も並び、速く作るより安全に回し続ける設計に関心が移っている。なお今日はX上の話題を検索では確認できなかったため、x_highlights は空にしている。",
+  "items": [
+    {
+      "title": "Microsoft's agent-framework on PyPI shipped a credential stealer in two releases",
+      "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Aikidoの報告によると、PyPIの agent-framework 1.26.1と1.26.2が2026-11-17に約33分差で公開され、認証情報を盗むコードを含んでいた。.pthファイル経由でPython起動のたびに動き、環境変数やクラウド・CI用トークンを外部へ送信する。両版は削除済みで、1.26.0が安全な版とされる。",
+      "why_useful": "エージェント開発の依存関係が直接狙われた事例で、版の固定と秘密情報のローテーションを今すぐ点検する材料になる。",
+      "score": 5
+    },
+    {
+      "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+      "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "ハーバードの大学院生による未査読の論文は、718社・約72.6万人のデータで、AI導入後に追加コード行数は約30%、PRは約23%増えた一方、完了したチケットは有意に増えず、PRのマージ時間は約49%延びたと報告する。AIによるレビューコメントは全体の23.3%にとどまる。データ提供元が分析ベンダーである点には注意が必要。",
+      "why_useful": "コードを書く速度ではなくレビューが律速になるという、導入効果の見方を変える定量データだから。",
+      "score": 4
+    },
+    {
+      "title": "エージェントの自律性を上げると、何が得られて何を失うか —— 助言・承認付き実行・自律実行を実測する",
+      "url": "https://zenn.dev/enterprise_ai/articles/1b1f34af88fb8f",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeなどで助言・承認付き・自律の各条件を計270回比較した実測記事。承認や分類器は削除のような危険な操作を止めたが、引き継ぎメモに混ぜた誤った方針は承認ありでも15回中11回採用された。全承認を通す承認者は自律と同じ結果で、サンプルは小さく承認者もスクリプトである。",
+      "why_useful": "承認は操作を止めるが信念(記憶)は止めない、という設計上の盲点を数値で示している。",
+      "score": 4
+    },
+    {
+      "title": "Rebuilding the Metabase MCP server: lessons for MCP tool design",
+      "url": "https://www.metabase.com/blog/mcp-tool-design-lessons",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "MetabaseがAPIの写しだったMCPサーバーを、モデルの扱いやすさを基準に作り直した記録。ツールを少数に集約し、クエリのハンドルやカーソルでモデルに状態を打ち直させず、エラーは直し方を書き、権限不足はツールを隠さず403で明示する。データは信頼しない前提で囲み記法を使うが、最終防御は接続権限とする。",
+      "why_useful": "MCPサーバーを作る際にそのまま使える具体的な設計原則が公式の一次情報としてまとまっている。",
+      "score": 4
+    },
+    {
+      "title": "When Agent Skills Go Stale: Runtime Behavior and Selective Maintenance in Evolving Environments",
+      "url": "https://arxiv.org/abs/2611.22525v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "環境が変わると、以前は有効だったスキルが「スキルなし」より悪い結果になり得ると示した論文(概要のみ確認)。成功率が10ポイント超下がる、またはコストが約40%増える場合があるという。過去の成功実行を再生して陳腐化を検出し、修復する手法を提案し、最大67ポイントの改善を報告している。",
+      "why_useful": "スキルを文書として蓄積するAgAg自身の運用にも直結する、保守の必要性を裏づける研究だから。",
+      "score": 4
+    },
+    {
+      "title": "Agent remote control in LM Studio Bionic",
+      "url": "https://lmstudio.ai/blog/agent-remote-control",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "LM StudioのBionicで、別マシン上のエージェントを手元の端末から操作できる機能。リモート側で許可を有効にし、暗号化された接続でデバイス同士をつなぐ。公式ページには認証や監査ログの詳細は書かれていない。",
+      "why_useful": "ローカルLLM環境でも長時間エージェントを遠隔運用する流れが来ており、権限設計の確認点を考える材料になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "agent-frameworkのPyPI汚染と、承認制は操作を止めても誤った記憶は止めないという実測を agent/knowledge/security.md に記録した。依存固定と秘密情報管理の根拠になるため。" },
+    { "type": "knowledge", "description": "Metabaseの再設計に学ぶMCPツール設計の原則を agent/knowledge/mcp.md に追記した。サブエージェントやツール設計に流用できるため。" },
+    { "type": "knowledge", "description": "スキルの陳腐化の論文とコードレビュー律速の研究を agent/knowledge/agent-design.md に記録した。AgAgのスキル保守の方針に関わるため。" }
+  ]
+}

@@ -2537,5 +2537,29 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-18",
+    "type": "knowledge",
+    "description": "agent-frameworkのPyPI汚染と、承認制では誤った記憶を防げない実測を安全面の知識として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-18",
+    "type": "knowledge",
+    "description": "Metabaseの再設計に学ぶMCPツール設計の原則を記録した。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
+  },
+  {
+    "date": "2026-11-18",
+    "type": "knowledge",
+    "description": "スキル陳腐化の論文とコードレビュー律速の研究を設計知識として記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
