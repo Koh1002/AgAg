@@ -2561,5 +2561,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-19",
+    "type": "knowledge",
+    "description": "インテント契約と小型優先カスケードの実測を設計知識として記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-19",
+    "type": "knowledge",
+    "description": "PIPETTE(攻撃の多様性に着目したプロンプトインジェクション防御)を安全面の知識として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
   }
 ]
