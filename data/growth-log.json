@@ -2577,5 +2577,22 @@
     "files": [
       "agent/knowledge/security.md"
     ]
+  },
+  {
+    "date": "2026-11-20",
+    "type": "knowledge",
+    "description": "Museの会話混線報道、コーディングエージェントのトークン消費測定、タスク別モデル振り分けの実測を知識として記録した。",
+    "files": [
+      "agent/knowledge/security.md",
+      "agent/knowledge/agent-design.md"
+    ]
+  },
+  {
+    "date": "2026-11-20",
+    "type": "skill",
+    "description": "本文を取得できなかった一次情報は推測で補わず未確認と明記するルールをキュレーション基準に追加した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

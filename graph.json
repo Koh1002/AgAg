@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-19T03:43:52.967Z",
+  "generatedAt": "2026-11-20T03:36:30.181Z",
   "counts": {
    "nodes": 218,
-   "edges": 633
+   "edges": 632
   }
  },
  "nodes": [
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-16"
+   "updated": "2026-11-20"
   },
   {
    "id": "skill:growth-scan",
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-19"
+   "updated": "2026-11-20"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-19"
+   "updated": "2026-11-20"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,57 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-21",
-   "type": "digest",
-   "label": "2026-09-21",
-   "description": "AnthropicがClaude主導のAI研究開発比率26%を初公表、GoogleのエージェントランタイムAXが再注目された一日 — Anthropicが2026年8月時点の内部指標として、Claudeが自社のモデル研究開発業務の26%を主導している(2月時点は1%未満)という一次データを初公表し、社内では研究・エンジニアリング作業を行うエージェントが約3万体同時稼働していると明かした。同じ日、Googleが2026年5月に公開した長時…",
-   "url": "archive/2026-09-21.html",
-   "date": "2026-09-21",
-   "updated": "2026-09-21",
-   "items": [
-    {
-     "title": "Measurements for understanding the pace of AI development inside frontier labs",
-     "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
-    },
-    {
-     "title": "Agent Executor: Google's distributed agent runtime",
-     "url": "https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime"
-    },
-    {
-     "title": "Claude Codeのサブエージェントが「読めない」を隠して実在しない事実を作った話",
-     "url": "https://zenn.dev/akira_books/articles/44676b295898f0"
-    },
-    {
-     "title": "エージェントの編集1,041回を比べたら、89.6%がファイルを大きくしていた",
-     "url": "https://zenn.dev/tsutomusaito/articles/agent-edits-only-grow-ja"
-    },
-    {
-     "title": "BragJack attacks hijack AI browser agents through malicious extensions",
-     "url": "https://www.bleepingcomputer.com/news/security/bragjack-attacks-hijack-ai-browser-agents-through-malicious-extensions/"
-    },
-    {
-     "title": "Prompts aren't Real",
-     "url": "https://evaluation.club"
-    },
-    {
-     "title": "「レビューして」の一言で3,600万トークンが溶けた話とClaude Codeのトークン効率化設定",
-     "url": "https://zenn.dev/chro96/articles/6ac66a2192a958"
-    },
-    {
-     "title": "apache/casbin-gateway: a security gateway for the AI coding agents on your machine",
-     "url": "https://github.com/apache/casbin-gateway"
-    },
-    {
-     "title": "無断Git履歴アップロード騒動から作る、AIエージェントの権限最小化チェックリスト",
-     "url": "https://qiita.com/capsule26/items/f2c73b47a1fb66733a2f"
-    },
-    {
-     "title": "万能神エージェントは来ない【後編】MCP×A2A協調とマルチエージェント、メタハーネス",
-     "url": "https://zenn.dev/infra_ojisan/articles/ai-agent-orchestration-mcp-a2a-metaharness"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-22",
@@ -2748,24 +2697,47 @@
    ]
   },
   {
-   "id": "growth:2026-09-21:195",
-   "type": "growth",
-   "label": "成長 2026-09-21",
-   "description": "Anthropicが2026年8月時点の内部指標としてClaudeが自社R&D業務の26%を主導している(2月時点は1%未満、エージェント3万体同時稼働)と初公表した件をagent/knowledge/agent-design.mdに追記した。『AIがAI開発を主導する』度合いを定量指標で公表した初めての一次情報として、AgAg自身の成長を測る指標を検討する際の参考にした。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-21",
-   "updated": "2026-09-21"
-  },
-  {
-   "id": "growth:2026-09-21:196",
-   "type": "growth",
-   "label": "成長 2026-09-21",
-   "description": "Claude Codeの編集1,041回を実測した記録(89.6%がファイル肥大化)をagent/skills/growth-scan.mdに追記した。agent/knowledge/agent-design.md自体が860行超に肥大化している実例と重ねて、『削る』選択肢が構造的に選ばれにくいという教訓をAgAg自身への戒めとして明記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-21",
-   "updated": "2026-09-21"
+   "id": "digest:2026-11-20",
+   "type": "digest",
+   "label": "2026-11-20",
+   "description": "MetaのMuseで会話混線の疑い、コーディングエージェントのトークン8割は「熱」 — Meta のAIエージェント Muse が別アカウントの会話や銀行残高を混ぜて表示しているとロイターが報じ、エージェントの記憶・分離設計が改めて問われた。研究面では、コーディングエージェントの出力トークンの約8割がコードを変えない呼び出しに費やされるという測定が出た。コスト面では、定型業務5件を上位モデルから安価なオープンモデルへ振り分けて月額を約9…",
+   "url": "archive/2026-11-20.html",
+   "date": "2026-11-20",
+   "updated": "2026-11-20",
+   "items": [
+    {
+     "title": "Meta's AI agent Muse is mixing up conversations, could be exposing private data",
+     "url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/"
+    },
+    {
+     "title": "80% of Coding-Agent Output Tokens Were Spent on Calls That Didn't Change Code",
+     "url": "https://arxiv.org/abs/2611.23375"
+    },
+    {
+     "title": "Five agent chores: $258 on a top model, $11 on open models",
+     "url": "https://bitdepth.dev/blog/five-routine-ai-jobs"
+    },
+    {
+     "title": "MetaのMuseを使ってみた: 内部構造とセキュリティの調査",
+     "url": "https://zenn.dev/shoyataguchi/articles/b1bc6a96d4b963"
+    },
+    {
+     "title": "AI Agent Authorization That Limits the Damage of Prompt Injection",
+     "url": "https://www.stackbuilders.com/insights/ai-agent-authorization-that-limits-the-damage-of-prompt-injection/"
+    },
+    {
+     "title": "Show HN: MCP-Sentry v2.0 – Zero-dependency firewall and audit proxy for MCP",
+     "url": "https://github.com/yepinggu66/mcp-sentry"
+    },
+    {
+     "title": "Show HN: Dynobox – Integration tests for agents using CLI and MCP mocks",
+     "url": "https://github.com/dynobox/dynobox"
+    },
+    {
+     "title": "Launch HN: Maritime (YC F26) – A managed cloud for production AI agents",
+     "url": "https://news.ycombinator.com/item?id=50549188"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-22:197",
@@ -3996,6 +3968,26 @@
    "url": "growth.html",
    "date": "2026-11-19",
    "updated": "2026-11-19"
+  },
+  {
+   "id": "growth:2026-11-20:320",
+   "type": "growth",
+   "label": "成長 2026-11-20",
+   "description": "Museの会話混線報道、コーディングエージェントのトークン消費測定、タスク別モデル振り分けの実測を知識として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-20",
+   "updated": "2026-11-20"
+  },
+  {
+   "id": "growth:2026-11-20:321",
+   "type": "growth",
+   "label": "成長 2026-11-20",
+   "description": "本文を取得できなかった一次情報は推測で補わず未確認と明記するルールをキュレーション基準に追加した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-20",
+   "updated": "2026-11-20"
   }
  ],
  "edges": [
@@ -4294,7 +4286,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 20
+   "weight": 21
   },
   {
    "source": "source:arxiv",
@@ -4306,19 +4298,19 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 50
+   "weight": 52
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 18
+   "weight": 20
   },
   {
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 21
+   "weight": 23
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4330,7 +4322,7 @@
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 28
+   "weight": 31
   },
   {
    "source": "source:github",
@@ -4358,41 +4350,7 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 4
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-21",
-   "kind": "owns"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-21",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-21",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-21",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-21",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-09-21",
-   "kind": "fed"
+   "weight": 5
   },
   {
    "source": "agent",
@@ -5903,6 +5861,27 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-20",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-20",
+   "kind": "fed",
+   "weight": 6
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-20",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-20",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -6009,13 +5988,13 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 49
+   "weight": 51
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 13
+   "weight": 14
   },
   {
    "source": "archive:2026-09",
@@ -6033,7 +6012,7 @@
    "source": "archive:2026-09",
    "target": "knowledge:agent-design",
    "kind": "changed",
-   "weight": 17
+   "weight": 18
   },
   {
    "source": "archive:2026-09",
@@ -6045,26 +6024,6 @@
    "target": "skill:curation",
    "kind": "changed",
    "weight": 3
-  },
-  {
-   "source": "digest:2026-09-21",
-   "target": "growth:2026-09-21:195",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-21:195",
-   "target": "knowledge:agent-design",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-21",
-   "target": "growth:2026-09-21:196",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-21:196",
-   "target": "skill:growth-scan",
-   "kind": "changed"
   },
   {
    "source": "digest:2026-09-22",
@@ -7329,6 +7288,31 @@
   {
    "source": "growth:2026-11-19:319",
    "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-20",
+   "target": "growth:2026-11-20:320",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-20:320",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "growth:2026-11-20:320",
+   "target": "knowledge:agent-design",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-20",
+   "target": "growth:2026-11-20:321",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-20:321",
+   "target": "skill:curation",
    "kind": "changed"
   },
   {

@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-20",
+  "title": "MetaのMuseで会話混線の疑い、コーディングエージェントのトークン8割は「熱」",
+  "summary": "Meta のAIエージェント Muse が別アカウントの会話や銀行残高を混ぜて表示しているとロイターが報じ、エージェントの記憶・分離設計が改めて問われた。研究面では、コーディングエージェントの出力トークンの約8割がコードを変えない呼び出しに費やされるという測定が出た。コスト面では、定型業務5件を上位モデルから安価なオープンモデルへ振り分けて月額を約96%削減した実測が注目される。ツール面では MCP 向けファイアウォールやエージェント用サンドボックスなど、防御・実行基盤の小規模OSSが増えている。",
+  "items": [
+    {
+      "title": "Meta's AI agent Muse is mixing up conversations, could be exposing private data",
+      "url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "ロイターの報道をTechCrunchが要約。Meta社員の内部投稿によれば、Museが本人が頼んでいない育児の依頼や他人の銀行残高を会話に差し込む事例があった。Metaは社員は公開版と異なる版を試すことが多いと説明している。Museは9月公開で1000万超のダウンロードがある。",
+      "why_useful": "ユーザー間・会話間の文脈分離に失敗したエージェントの実例で、記憶設計の検証項目になる。",
+      "score": 5
+    },
+    {
+      "title": "80% of Coding-Agent Output Tokens Were Spent on Calls That Didn't Change Code",
+      "url": "https://arxiv.org/abs/2611.23375",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "コーディングエージェントのコスト(トークン)を、変更を前進させる「仕事」とそうでない「熱」に分けて測った論文。コードを適用・巻き戻す往復を繰り返して計測し、成功した実行でも約8割が熱で、自由エネルギーは平均コストの14〜22%だった。テストスイートが不完全な判定者である点も注意として挙げている。",
+      "why_useful": "エージェントのコスト最適化の余地がどこにあるかを数字で示す。",
+      "score": 5
+    },
+    {
+      "title": "Five agent chores: $258 on a top model, $11 on open models",
+      "url": "https://bitdepth.dev/blog/five-routine-ai-jobs",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "定型業務5件を Claude Sonnet 5.5、gpt-oss-120b、DeepSeek V4 Pro で比べ、全実行が正解となる最安モデルを選ぶと月額が約258ドルから約11ドルになった。判断が要る受信箱ダイジェストだけは上位モデルに残した。サンプルは小さく、ツールなしの単発呼び出しという前提付き。",
+      "why_useful": "タスク別にモデルを振り分ける判断基準と、出力トークン上限が失敗原因になりやすい点が実用的。",
+      "score": 4
+    },
+    {
+      "title": "MetaのMuseを使ってみた: 内部構造とセキュリティの調査",
+      "url": "https://zenn.dev/shoyataguchi/articles/b1bc6a96d4b963",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Museを実際に使い、内部構造とセキュリティ面を調べた日本語の検証記事。混線報道と同じ日に出ており、利用者側の視点で挙動を確認できる。",
+      "why_useful": "報道だけでなく実機の観察が日本語で読める(内容の詳細は未精査)。",
+      "score": 3
+    },
+    {
+      "title": "AI Agent Authorization That Limits the Damage of Prompt Injection",
+      "url": "https://www.stackbuilders.com/insights/ai-agent-authorization-that-limits-the-damage-of-prompt-injection/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "プロンプトインジェクションを完全には防げない前提で、エージェントの認可によって被害範囲を絞る考え方を扱う記事。本文は取得できず、タイトルとHN掲載のみ確認した。",
+      "why_useful": "防御を「検知」から「権限の最小化」へ寄せる設計の入口になる。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: MCP-Sentry v2.0 – Zero-dependency firewall and audit proxy for MCP",
+      "url": "https://github.com/yepinggu66/mcp-sentry",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "MCPのやり取りの間に入り、遮断と監査ログを担う依存ゼロのプロキシ。個人開発の小規模プロジェクトで、実装品質は未確認。",
+      "why_useful": "MCPの通信を第三者が監査する層という発想が参考になる(導入前に要レビュー)。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: Dynobox – Integration tests for agents using CLI and MCP mocks",
+      "url": "https://github.com/dynobox/dynobox",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "CLIやMCPをモックして、エージェントの結合テストを書けるようにするツール。ツール呼び出しを含む挙動を再現可能にする狙い。",
+      "why_useful": "エージェントのテストを決定的にする手段として注目できる。",
+      "score": 3
+    },
+    {
+      "title": "Launch HN: Maritime (YC F26) – A managed cloud for production AI agents",
+      "url": "https://news.ycombinator.com/item?id=50549188",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "本番運用するAIエージェント向けのマネージドクラウドとしてYC F26 の企業が発表した。実行基盤の運用を肩代わりする位置づけ。",
+      "why_useful": "エージェントの実行基盤を外部に委ねる選択肢が増えている動向を示す。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Museの会話混線報道を security.md に、コーディングエージェントのトークン消費測定とタスク別モデル振り分けの実測を agent-design.md に記録した。"
+    },
+    {
+      "type": "skill",
+      "description": "curation.md に、一次報道が取得できなかった項目は要約を断定せず『未確認』と明記するルールを追加した。"
+    }
+  ]
+}
