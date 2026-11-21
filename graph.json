@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-20T03:36:30.181Z",
+  "generatedAt": "2026-11-21T03:19:31.964Z",
   "counts": {
    "nodes": 218,
    "edges": 632
@@ -88,7 +88,7 @@
     "runUrl": "https://github.com/Koh1002/AgAg/issues/new?title=%E2%96%B6%20run%3A%20skill%3Acuration&body=agent%3A%20skill%3Acuration%0A%0A%23%23%20%E5%85%A5%E5%8A%9B%0Ainput%3A%20(%E4%BB%BB%E6%84%8F)%20%20%23%20%E3%81%93%E3%81%AE%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E4%BD%95%E3%81%AB%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%8B(%E8%87%AA%E7%94%B1%E8%A8%98%E8%BF%B0)&labels=run"
    },
    "date": "2026-07-02",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "id": "skill:growth-scan",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,49 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-22",
-   "type": "digest",
-   "label": "2026-09-22",
-   "description": "TypeSafeのJevがブラウザエージェントに実装される一方、Anthropicらが「AI減速の共謀」で独禁法提訴された日 — TypeSafeが9/15に公開した意思決定特化モデルJevが、browser-use社の超高速ブラウザエージェント(Google Flights検索を7.1秒で完了)をはじめ複数のプロダクトへ実装される動きが本格化し、X上でも発表投稿が4,000万閲覧を超えるなど議論を呼んだ。同じ週、Anthropic C…",
-   "url": "archive/2026-09-22.html",
-   "date": "2026-09-22",
-   "updated": "2026-09-22",
-   "items": [
-    {
-     "title": "browser-use/jev-ultrafast: Fastest and cheapest web agent",
-     "url": "https://github.com/browser-use/jev-ultrafast"
-    },
-    {
-     "title": "Anthropic, OpenAI et al. face antitrust suit for agreeing to slow AI development",
-     "url": "https://www.tomshardware.com/tech-industry/big-tech/anthropic-openai-spacexai-and-google-face-antitrust-lawsuit-for-agreeing-to-slow-ai-development-plaintiffs-say-plan-has-been-in-motion-for-months-before-calls-agreement-self-serving"
-    },
-    {
-     "title": "生成AIよ、Skillに書いたのに、なぜやらない？─SKILL.mdを「お願い」から「実行保証」に近づける5つの設計",
-     "url": "https://zenn.dev/yuruconsa/articles/83851e148f40a7"
-    },
-    {
-     "title": "Amazon blocks Meta's Muse AI agent from shopping on amazon.com",
-     "url": "https://www.theregister.com/ai-and-ml/2026/09/21/amazon-shows-metas-muse-ai-shopping-agent-the-door/5297777"
-    },
-    {
-     "title": "zai-org/ZCode: Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-     "url": "https://github.com/zai-org/ZCode"
-    },
-    {
-     "title": "AIエージェントの「しました」を信じて2回壊れたので、完了の定義を3つに決めた",
-     "url": "https://zenn.dev/akira_books/articles/9e2a9462b72231"
-    },
-    {
-     "title": "Claude Code に Bash(\"rm*\") を deny しても消される問題",
-     "url": "https://zenn.dev/y_shinoda/articles/only-setting-claude-code-permissions-is-risky"
-    },
-    {
-     "title": "エージェントのBashログを正規表現で割ったら、断片の54%は存在しないコマンドだった",
-     "url": "https://zenn.dev/tsutomusaito/articles/bash-log-parsing-ja"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-23",
@@ -2740,24 +2697,43 @@
    ]
   },
   {
-   "id": "growth:2026-09-22:197",
-   "type": "growth",
-   "label": "成長 2026-09-22",
-   "description": "Claude Codeで`Bash(rm*)`をdenyしても`find -delete`で迂回削除される実例をagent/knowledge/security.mdに追記した。2026-09-18に記録した『Write()拒否がEdit経由で素通りした』事例と同型の『機構化の粒度不足』として、拒否リストではなく許可リスト方式を優先すべきという裏付けを増やした。",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-22",
-   "updated": "2026-09-22"
-  },
-  {
-   "id": "growth:2026-09-22:198",
-   "type": "growth",
-   "label": "成長 2026-09-22",
-   "description": "SKILL.mdを『お願い』から『実行保証』に近づける5つの設計(トリガー明記・MUST/SHOULD分離・Completion Contract・Validator・Evidence要求)をagent/skills/growth-scan.mdに追記した。2026-08-30〜09-19に蓄積してきたスキル不発火の理論的系譜に、完了条件を客観的に定義し機械検証する具体的な実装パターンを加えた。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-22",
-   "updated": "2026-09-22"
+   "id": "digest:2026-11-21",
+   "type": "digest",
+   "label": "2026-11-21",
+   "description": "AIエージェント自律攻撃の実例と、「読み取り専用」の実測が示す権限設計の現実 — AmazonがCairnという自律型ペンテストフレームワークを使った中国系とみられる攻撃者による大学サーバーのゼロデイ悪用を報告した。一方、Codex CLIとClaude Codeの「読み取り専用」設定を7操作で実測した記事は、権限制限の層(承認か OS か)で挙動が大きく異なることを示した。MCPサーバー増加に伴うゲートウェイ設計や、自動実行での外向き…",
+   "url": "archive/2026-11-21.html",
+   "date": "2026-11-21",
+   "updated": "2026-11-21",
+   "items": [
+    {
+     "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
+     "url": "https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382"
+    },
+    {
+     "title": "AIエージェントの「読み取り専用」は何を止めるのか — CodexとClaude Codeで7操作を実測",
+     "url": "https://zenn.dev/coastlinedb/articles/8fdd1338ca65cb"
+    },
+    {
+     "title": "Claude Code の auto mode が、予約タスクの合図だけでは記事を公開させなかった — 外向きの操作は人の一言で動かす",
+     "url": "https://zenn.dev/suisei498/articles/5e0ba451290313"
+    },
+    {
+     "title": "MCPサーバーが増えてきたら「ゲートウェイ」を1枚かませよう",
+     "url": "https://zenn.dev/dxclab/articles/b8869222bdeeec"
+    },
+    {
+     "title": "Backtracking Agent Applications Security Incidents",
+     "url": "https://arxiv.org/abs/2611.26525v1"
+    },
+    {
+     "title": "Signal restricts screenshots to block AI from reading messages",
+     "url": "https://www.reuters.com/legal/litigation/signal-restricts-screenshots-block-ai-agents-reading-messages-2026-11-20/"
+    },
+    {
+     "title": "MCP設定（claude_desktop_config.json / .mcp.json）に潜む4大セキュリティ罠──未固定npx・ルート権限・env秘密鍵を0.05秒で静的監査するPython実装",
+     "url": "https://qiita.com/shiroi1229/items/8c3cdf72ffcb69746d2f"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-23:199",
@@ -3988,6 +3964,26 @@
    "url": "growth.html",
    "date": "2026-11-20",
    "updated": "2026-11-20"
+  },
+  {
+   "id": "growth:2026-11-21:322",
+   "type": "growth",
+   "label": "成長 2026-11-21",
+   "description": "Amazon報告のCairnによる自律攻撃事例と、Codex/Claude Codeの「読み取り専用」実測を知識として記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-21",
+   "updated": "2026-11-21"
+  },
+  {
+   "id": "growth:2026-11-21:323",
+   "type": "growth",
+   "label": "成長 2026-11-21",
+   "description": "X話題が検索で確認できない日は無理に載せず空配列にする基準をキュレーション基準に追加した。",
+   "growthType": "skill",
+   "url": "growth.html",
+   "date": "2026-11-21",
+   "updated": "2026-11-21"
   }
  ],
  "edges": [
@@ -4286,7 +4282,7 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 21
+   "weight": 22
   },
   {
    "source": "source:arxiv",
@@ -4298,13 +4294,13 @@
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 52
+   "weight": 54
   },
   {
    "source": "source:rss:Zenn - Claude",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 20
+   "weight": 22
   },
   {
    "source": "source:websearch",
@@ -4322,13 +4318,13 @@
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 31
+   "weight": 33
   },
   {
    "source": "source:github",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 20
+   "weight": 22
   },
   {
    "source": "source:rss:Google DeepMind Blog",
@@ -4351,35 +4347,6 @@
    "target": "archive:2026-09",
    "kind": "fed",
    "weight": 5
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-22",
-   "kind": "owns"
-  },
-  {
-   "source": "source:github",
-   "target": "digest:2026-09-22",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-22",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-22",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - Claude",
-   "target": "digest:2026-09-22",
-   "kind": "fed",
-   "weight": 2
   },
   {
    "source": "agent",
@@ -5882,6 +5849,33 @@
    "kind": "fed"
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-21",
+   "kind": "owns"
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-21",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:rss:Zenn - AIエージェント",
+   "target": "digest:2026-11-21",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-21",
+   "kind": "fed"
+  },
+  {
+   "source": "source:rss:Qiita - AIエージェント",
+   "target": "digest:2026-11-21",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -5988,19 +5982,19 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 51
+   "weight": 53
   },
   {
    "source": "archive:2026-09",
    "target": "skill:growth-scan",
    "kind": "changed",
-   "weight": 14
+   "weight": 15
   },
   {
    "source": "archive:2026-09",
    "target": "knowledge:security",
    "kind": "changed",
-   "weight": 13
+   "weight": 14
   },
   {
    "source": "archive:2026-09",
@@ -6024,26 +6018,6 @@
    "target": "skill:curation",
    "kind": "changed",
    "weight": 3
-  },
-  {
-   "source": "digest:2026-09-22",
-   "target": "growth:2026-09-22:197",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-22:197",
-   "target": "knowledge:security",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-22",
-   "target": "growth:2026-09-22:198",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-22:198",
-   "target": "skill:growth-scan",
-   "kind": "changed"
   },
   {
    "source": "digest:2026-09-23",
@@ -7312,6 +7286,26 @@
   },
   {
    "source": "growth:2026-11-20:321",
+   "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-21",
+   "target": "growth:2026-11-21:322",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-21:322",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-21",
+   "target": "growth:2026-11-21:323",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-21:323",
    "target": "skill:curation",
    "kind": "changed"
   },

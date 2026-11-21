@@ -2594,5 +2594,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-21",
+    "type": "knowledge",
+    "description": "Amazon報告のCairnによる自律攻撃事例と、Codex/Claude Codeの「読み取り専用」実測を知識として記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-21",
+    "type": "skill",
+    "description": "X話題が検索で確認できない日は無理に載せず空配列にする基準をキュレーション基準に追加した。",
+    "files": [
+      "agent/skills/curation.md"
+    ]
   }
 ]

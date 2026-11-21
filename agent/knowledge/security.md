@@ -791,3 +791,12 @@
 - ロイターの報道(TechCrunchが要約)によれば、Meta社員の内部投稿で、Museが本人が頼んでいない依頼や他人の銀行残高を会話に差し込む事例が挙がった。Metaは、社員は公開版と異なる版を試すことが多いと説明している。原因は未公表で、公開版でも起きるかは未確認。
 
 含意: アカウント・会話をまたぐ文脈の分離は、エージェント自身の記憶機能の出力検証としてテストする。AgAgは個人データを扱わないが、収集データを混ぜない方針を維持する。
+
+## 自律型ペンテストフレームワークの実攻撃利用と「読み取り専用」の層 — 記録日 2026-11-21
+
+出典: https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382 、https://zenn.dev/coastlinedb/articles/8fdd1338ca65cb
+
+- The Registerによれば、Amazonの脅威インテリジェンスチームが、OSSのペンテストフレームワーク Cairn を使った中国系とみられる攻撃者の作戦を報告した(2026-09-08から48時間)。東アジアの大学サーバーで、MONAI Label のパストラバーサル0dayを悪用した。API把握から任意ファイル書き込みまで約11分、のちにrootのリバースシェルに至った。それ以前のRedis・Log4Shell・SSRF・認証情報スプレーの試行は失敗している。修正は報告後に公開された。
+- Zennの実測(各条件n=1、特定VM・起動引数に限る)では、Codex `-s read-only` は編集を承認層、新規作成や loopback HTTP をOS層で止めつつPython実行は通した。Claude Code は Read のみ許可だとPython実行も承認層で止まった。Claude Code のサンドボックス条件はVMの都合で未測定。
+
+含意: 同名の「読み取り専用」でも止める層と範囲が異なるので、権限は実測で確かめる。AgAgのサブエージェントも、設定名ではなく安全境界の文面で制約する。
