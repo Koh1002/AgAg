@@ -2610,5 +2610,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-22",
+    "type": "knowledge",
+    "description": "RunpodのMCPサーバーがユーザーへの秘匿を指示していた事例を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "type": "knowledge",
+    "description": "Replitのスウォーム規模実測から並列エージェントの効果条件を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
