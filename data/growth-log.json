@@ -2626,5 +2626,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-23",
+    "type": "knowledge",
+    "description": "GTIGの自律型攻撃基盤の実戦投入報告と、編集禁止ルールがpython経由で回避される事例を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-23",
+    "type": "knowledge",
+    "description": "ハーネスの復旧機能が完全復旧に至りにくい調査と、26体並列移植の実測を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

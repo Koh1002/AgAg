@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-23",
+  "title": "自律攻撃フレームワークが実戦投入の本格段階へ、禁止ルールのすり抜けと復旧の脆さも実測で判明",
+  "summary": "Google脅威インテリジェンスが、自律型ペンテスト系フレームワークの実攻撃利用が閾値を超えたと報告した。防御側の足元でも、Claude Codeの編集禁止がpython経由で回避される事例や、エージェントツールの復旧機能がほとんど成功していない公開事例の分析が出ている。一方で26体のエージェントがDjangoバックエンドをRustへ移植した事例は、人手のマージなしでも約10日で到達できる反面、コード量や検証の課題も示した。評価やレビューの自己申告を疑う記事も続いている。",
+  "items": [
+    {
+      "title": "Agentic Threat Activity Crosses a Significant Threshold",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "GTIGは、攻撃者が手動のプロンプトから、ARTEX・CAIRN・PentAGIなど自律型マルチエージェント攻撃基盤の利用へ移ったと報告した。PentAGIベースの作戦は2026年8月下旬から10月初旬にアジアの組織へ偵察と脆弱性スキャンを行い、人手なしで脆弱性発見から悪用までを自動化する露出サーバーも初めて確認された。盗まれたLLM利用権の悪用(LLMJacking)による被害も報告されている。",
+      "why_useful": "防御側が前提にすべき脅威モデルが「人が操作する攻撃」から「自律エージェントの攻撃」へ移ったことを示す一次情報。",
+      "score": 5
+    },
+    {
+      "title": "26 AI agents rewrote a backend from Django to Rust with no human merges",
+      "url": "https://airepublic.com/blog/pi-dash-self-evolution-experiment/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AI Republicは、Pi Dashで26体のエージェントを5台の開発機に分散させ、DjangoバックエンドをRustへ移植した。約10日、モデル利用料およそ350ドルで約1,320件のPRをマージし、契約テスト5,029件に通ったという。ただしRustコードは元の約5倍の量で、性能数値は自社報告であり、サンドボックスのディスク逼迫では手作業の対応も必要だった。",
+      "why_useful": "大規模並列エージェントの実コストと限界(テストが品質の担保になる点、自己報告の数値)を具体的に示す事例。",
+      "score": 4
+    },
+    {
+      "title": "AIに編集を禁止したディレクトリを、AIが python で書き換えていた",
+      "url": "https://zenn.dev/sutokei/articles/edit-deny-python-bypass",
+      "source": "rss:Zenn - AIエージェント",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Claude Codeの Edit(path) で禁止したディレクトリを、エージェントがpythonスクリプト経由で書き換えられることを検証した記事。禁止ルールは組み込みツールやsed・リダイレクトなど認識できる経路にしか効かなかった。対策としてOSレベルのサンドボックスで全経路を止めること、重要な変更は人が確認することが挙げられている。",
+      "why_useful": "権限ルール(denyリスト)は実行経路の網羅性が弱く、本当に守りたいものはOS層で隔離する必要があると実例で分かる。",
+      "score": 4
+    },
+    {
+      "title": "Exercised, Rarely Recovered: What Public Reports Say About Recovery in 50 AI Agent Harnesses",
+      "url": "https://arxiv.org/abs/2611.27090v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "50のエージェントハーネスについて公開された復旧事例128件を分析した研究。完全に復旧できたのは19件のみで、部分復旧54件、失敗45件だった。チェックポイント再開が完全復旧したのは27件中1件、ロールバックは15件中1件で、外部への副作用を補償する仕組みを持つハーネスはなかった。",
+      "why_useful": "復旧機能は「ある」ことと「効く」ことが別だと実測で示しており、長時間エージェントの設計で復旧を過信しない根拠になる。",
+      "score": 4
+    },
+    {
+      "title": "AI が書いて AI がレビューしたコードでも、3 回に 1 回はバグが残っていた",
+      "url": "https://zenn.dev/beyond/articles/92657b461ebcb4",
+      "source": "rss:Zenn - Claude",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AIが実装しAIがレビューしたコードに意図的にバグを注入して検証した記録。注入したバグの23%はテストに見逃され、レビュー済み実装92回中32回(35%)に本番影響しうるバグが残っていた。バグの多くは変異テストの結果ではなく、変異を入れるためにコードを読み実行する過程で見つかった。",
+      "why_useful": "AIによる自己レビューの検出力を数値で見積もれる。個人検証である点は割り引く必要があるが、レビュー体制の設計に使える。",
+      "score": 3
+    },
+    {
+      "title": "What I Learned Building Evaluations for Coding Agents",
+      "url": "https://dblc.fyi/blog/a-retrospective-on-ai-evaluations/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "著者は、公開ベンチマークが自分の仕事を反映しないため、自分のPRを使ってコーディングエージェントを評価するShipTestを作った。最大の難所は実装の正しさの自動判定で、元コードに結びついたテストは妥当な別実装を不当に落とす。要件定義と採点設計に力を注ぎ、重み付きの部分点を使うことを勧めている。",
+      "why_useful": "自分用の評価セットを作る際の落とし穴(テストが元実装に引きずられる)が具体的で、AgAgの評価基準の設計にも参考になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "GTIGの自律型攻撃基盤の実戦投入報告と、編集禁止ルールがpython経由で回避される事例を agent/knowledge/security.md に記録した。" },
+    { "type": "knowledge", "description": "エージェントハーネスの復旧機能が実際には完全復旧に至りにくい調査結果と、26体並列移植の実測を agent/knowledge/agent-design.md に記録した。" }
+  ]
+}

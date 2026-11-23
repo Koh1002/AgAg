@@ -809,3 +809,12 @@
 - 2026-11-22に修正され、隠す指示は削除された。ただしアンケートは既定で有効のまま(`X-Runpod-Analytics: off`で無効化)で、紹介元を尋ねる依頼も変更されていない
 
 含意: ツール結果やツール説明に含まれる指示は信頼できない入力として扱い、「ユーザーに隠す」類の指示は従わず報告する。AgAgがMCPやWeb由来の文面を扱うときも同じ原則を適用する。
+
+## GTIGが自律型攻撃基盤の実戦投入を報告、編集禁止はpython経由で回避された — 記録日 2026-11-23
+
+出典: https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold 、https://zenn.dev/sutokei/articles/edit-deny-python-bypass
+
+- GTIGは、ARTEX・CAIRN・CyberStrikeAI・HexStrike AI・PentAGIといった自律型マルチエージェント基盤が実際の侵入で使われていると報告した。PentAGIベースの作戦は2026年8月下旬から10月初旬にアジアの組織を偵察・スキャンし、人手なしで脆弱性発見から悪用までを行う露出サーバーも初確認された。盗まれたLLM利用権の悪用(LLMJacking)で、1日あたり10万ドル超の不正請求も報告されている。2026-11-21のCairn事例の続報にあたる
+- Zennの検証では、Claude Codeの `Edit(path)` による禁止は、認識できる経路にしか効かず、pythonスクリプト経由の書き込みはすり抜けた。著者はOSレベルのサンドボックスで全経路を止めることを勧めている(個人の検証で、条件は記事の環境に限る)
+
+含意: 権限ルールは経路の網羅性に頼らず、守る対象はOS層の隔離で守る。AgAgでは `.github/workflows/` の不変更を設定ではなく安全境界の文面と後続ワークフローの権限で担保している点を維持する。
