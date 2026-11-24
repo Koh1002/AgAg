@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-24",
+  "title": "レビューも承認もエージェントへ ― Claude Ship 登場と、ツール呼び出しを検問する防御の具体化",
+  "summary": "Anthropicがコードのレビュー・修正・承認までを担うClaude Shipを発表し、エージェントの役割が「書く」から「出荷可否を決める」へ広がった。一方でGoogleはツール呼び出しごとにLLMが「ユーザーが頼んだことか」を判定するセマンティック・ガバナンスを公開し、arXivでもツール更新による権限拡大や引数の越権を扱う研究が並んだ。Stripeは実務的なエージェント評価の方法論を公開し、厳格採点では成績が大きく下がることを示した。権限を広げる動きと、それを縛る仕組みが同時に進んでいる日だった。",
+  "items": [
+    {
+      "title": "Anthropic launches Claude Ship, agents review, fix, & approve code changes now",
+      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Anthropicは2026-11-23、コード変更のレビュー・修正・承認を担うエージェント群Claude Shipを発表した。Code Reviewは一般提供、CI失敗やマージ競合を直すPR Stewardと、リポジトリ内のポリシーファイルに沿って自動承認するClaude Approvalsはベータで、GitHub上のTeam/Enterpriseプランに順次提供される。",
+      "why_useful": "エージェントが承認まで担う設計(観察のみモードから開始、人へのエスカレーション条件)は、自律度を段階的に上げる実例として参考になる。",
+      "score": 5
+    },
+    {
+      "title": "Did the user ask for this? Securing AI agents against intent hijacking with Semantic governance policies",
+      "url": "https://developers.googleblog.com/did-the-user-ask-for-this-securing-ai-agents-against-intent-hijacking-with-semantic-governance-policies/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "GoogleはAgent Gatewayで、エージェントが出すツール呼び出しを実行前にLLM判定者が検査し、「ユーザーが頼んだことか」を確かめる仕組みをプレビュー公開した。ツール出力は命令ではなくデータとして扱う。AgentDojoでの攻撃成功率は48.7%から0.9%に下がり、通常タスクの有用性低下は約2.6ポイントだった。",
+      "why_useful": "間接プロンプトインジェクション対策を数値付きで示した一次情報で、ドライランから始められる導入手順も具体的。",
+      "score": 5
+    },
+    {
+      "title": "Stripe evals: Measuring real-world coding agent performance",
+      "url": "https://stripe.dev/blog/stripe-integration-evals-methodology",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "Stripeは、決済・サブスク・Connectの69シナリオを14組のモデルとハーネスで評価する手法を公開した。LLMが隠れた要件を持つ開発者を演じ、別の判定者が基準ごとに採点する。Stripeのエージェントプラグインを使うと全組み合わせで約3〜8ポイント向上し、Web検索は約96%減った。全基準必須の厳格採点では平均が78.1%から29.4%に低下した。",
+      "why_useful": "「ほぼ正しいが最後の詳細を外す」というエージェントの弱点を、採点の厳しさの違いで定量化している。",
+      "score": 4
+    },
+    {
+      "title": "SchemaCaps: When a Compatible Tool Update Silently Widens an AI Agent's Authority",
+      "url": "https://arxiv.org/abs/2611.30750v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "タイトルによれば、互換性のあるツール更新がエージェントの権限を黙って広げてしまう問題を扱う研究。要約本文までは確認しておらず、詳細は論文を参照してほしい。",
+      "why_useful": "MCPなどのツール定義が更新される運用で、権限の差分を検知する必要性を示す題材。",
+      "score": 3
+    },
+    {
+      "title": "Intent-Conditioned Argument Mediation for Tool-Using LLM Agents: Blocking Trusted-but-Unauthorized Arguments",
+      "url": "https://arxiv.org/abs/2611.30745v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "タイトルによれば、信頼できるツールに渡す引数が、ユーザー意図に照らして未承認でも通ってしまう問題を、意図に基づく引数の仲介で防ぐ研究。要約本文までは確認していない。",
+      "why_useful": "Googleのセマンティック・ガバナンスと同じ「呼び出し単位で意図を検査する」方向の学術側の動き。",
+      "score": 3
+    },
+    {
+      "title": "ThreatDefence/agentic-attack-detections",
+      "url": "https://github.com/ThreatDefence/agentic-attack-detections",
+      "source": "github",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "ARTEX、Cairn、PentAGI、HexStrikeなど、AIエージェント型の攻撃基盤に対する検知ルールとIOCを集めたリポジトリ。リポジトリの中身までは確認していない。",
+      "why_useful": "先日報告された自律型攻撃基盤の実戦投入に対し、防御側が使える素材になりうる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "Googleのセマンティック・ガバナンス(呼び出し前のLLM判定、攻撃成功率48.7%→0.9%)とClaude Shipの段階導入を agent/knowledge/security.md に記録した。"
+    },
+    {
+      "type": "knowledge",
+      "description": "Stripeのエージェント評価で厳格採点により平均が78.1%から29.4%に下がった結果を agent/knowledge/agent-design.md に記録した。"
+    }
+  ]
+}

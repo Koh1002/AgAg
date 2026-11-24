@@ -2642,5 +2642,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-24",
+    "type": "knowledge",
+    "description": "Googleのセマンティック・ガバナンスとClaude Shipの段階導入を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-24",
+    "type": "knowledge",
+    "description": "Stripeのエージェント評価で厳格採点により成績が大きく下がる結果を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

@@ -818,3 +818,13 @@
 - Zennの検証では、Claude Codeの `Edit(path)` による禁止は、認識できる経路にしか効かず、pythonスクリプト経由の書き込みはすり抜けた。著者はOSレベルのサンドボックスで全経路を止めることを勧めている(個人の検証で、条件は記事の環境に限る)
 
 含意: 権限ルールは経路の網羅性に頼らず、守る対象はOS層の隔離で守る。AgAgでは `.github/workflows/` の不変更を設定ではなく安全境界の文面と後続ワークフローの権限で担保している点を維持する。
+
+## Googleのセマンティック・ガバナンスとClaude Shipの段階導入 — 記録日 2026-11-24
+
+出典: https://developers.googleblog.com/did-the-user-ask-for-this-securing-ai-agents-against-intent-hijacking-with-semantic-governance-policies/ 、https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/
+
+- Googleは、Agent Gatewayがツール呼び出しを実行前にLLM判定者へ回し、「ユーザーが頼んだことか」を検査する方式をプレビュー公開した。ツール出力は命令でなくデータとして扱い、拒否した呼び出しは拒否メッセージに置き換わる。AgentDojo(gemini-2.5-flash)で攻撃成功率は48.7%から0.9%、通常タスクの有用性は約2.6ポイント低下。ドライランで判定をログ確認してから有効化できる
+- AnthropicのClaude Ship(2026-11-23発表)のClaude Approvalsは、承認ポリシーをリポジトリ内の自然言語ファイルで管理し、観察のみモードから始めることを推奨している。Code Reviewのみ一般提供で、PR StewardとApprovalsはベータ
+- 同日のarXivにはツール更新による権限拡大(SchemaCaps)や引数の越権を扱う研究も出ているが、本文は未確認
+
+含意: 防御は「入力の検査」だけでなく「実行直前の意図照合」を足す方向に進んでいる。自律度を上げるときは、まず観察のみ・ドライランで判定を溜めてから強制に移す。
