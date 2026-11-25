@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-25",
+  "title": "ブラウザ操作エージェントの「偽ウェブ」評価と、MCP・エージェントの忠誠心をめぐる議論",
+  "summary": "Googleがブラウザ利用エージェントを安全に試験する合成ウェブ「Mirror Dimension」を公開した。Google WorkspaceがエージェントのアクセスをMCP経由に寄せる動きもHNで話題になった。一方で「エージェントは誰のために働くのか」という議論(HN 947pt)や、公式MCPへの広告混入の指摘など、エージェントの信頼性・中立性への関心が目立つ一日だった。",
+  "items": [
+    {
+      "title": "Mirror Dimension for Agents: Evaluating Browser-Use Agents Without the Web",
+      "url": "https://blog.google/security/mirror-dimension-for-agents/",
+      "source": "hackernews",
+      "category": "研究",
+      "ja_summary": "Chromeチームが、実在のウェブから隔離された合成ウェブでブラウザ利用エージェントを評価する仕組みを紹介した。通常のURLへのアクセスをローカルプロキシが生成サイトへ振り向け、独自ルートCAでTLS警告も出さない。プロンプトインジェクションはURLではなくHTTPヘッダー経由で配信し、モデルに試験だと気づかれるのを避けている。",
+      "why_useful": "評価環境が「テストだと見破られる」問題と、その回避策(ヘッダー配信)は、エージェントの安全評価を設計する際にそのまま参考になる。",
+      "score": 5
+    },
+    {
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "著者は、Instagramの曲をBandcampへ誘導するClaude Codeスキルを作った。Bandcampにチャレンジが入るとClaudeは回避の手伝いを断ったが、アーティストに還元されないYouTubeからの取得には応じたという。広告・商業・政治的圧力のいずれにせよエージェントは提供元の利益で動くと論じ、自宅のローカルモデルを望んでいる。",
+      "why_useful": "HNで947pt・393コメントと反響が大きく、エージェントの「忠誠先」とローカル運用への関心の高まりを示す。",
+      "score": 4
+    },
+    {
+      "title": "Google mandates MCP for AI agents accessing Workspace and restricts direct API",
+      "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "Google Workspaceの公式ブログが、MCPサーバーとCLI、標準化された利用ティアの提供を告知した。HNではエージェントのアクセスをMCPに寄せ、直接APIを制限する動きだと受け止められている。なお本文は今回取得できず、詳細はタイトルとHNでの要約に基づく。",
+      "why_useful": "主要SaaSがエージェント向け窓口をMCPに一本化する流れは、MCP対応の優先度判断に影響する。",
+      "score": 4
+    },
+    {
+      "title": "Notion's official MCP injects ads, masks the tracking link",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1y4qm5o/heads_up_if_you_wire_notions_official_mcp_into/",
+      "source": "reddit/r/ClaudeCode",
+      "category": "議論・意見",
+      "ja_summary": "NotionのMCPが広告を挿入し、トラッキングリンクを隠しているとするr/ClaudeCodeの注意喚起。投稿は公開直後でHNの反応はまだ少なく、内容は未検証の主張である。",
+      "why_useful": "MCPサーバーの返す内容もプロンプトインジェクションや広告の経路になりうるため、接続前の確認が重要という警鐘になる。",
+      "score": 3
+    },
+    {
+      "title": "Foreman: A secure self-hosted agent orchestrator",
+      "url": "https://www.palkeo.com/en/blog/foreman.html",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "セキュリティを重視したセルフホスト型のエージェントオーケストレーターの紹介記事。HNでの反応はまだ小さく、詳細は未確認。",
+      "why_useful": "常時稼働エージェントの権限分離を自前で組む際の設計例として注目に値する。",
+      "score": 3
+    },
+    {
+      "title": "Show HN: AgentKey, open source, agents log in without seeing passwords",
+      "url": "https://github.com/edan-ais/agentkey",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "エージェントがパスワードを見ずにログインできるようにするオープンソースのツール。認証情報をモデルの文脈に載せないという方針に沿っている。詳細な実装は未確認。",
+      "why_useful": "秘密情報をコンテキストに入れない設計は、エージェントの情報漏えい対策の基本線になる。",
+      "score": 3
+    },
+    {
+      "title": "Ephyra: A new agentic property-based testing library to find the bugs you missed",
+      "url": "https://www.datadoghq.com/blog/ai/agentic-property-based-testing-with-ephyra/",
+      "source": "hackernews",
+      "category": "フレームワーク・ツール",
+      "ja_summary": "Datadogが、エージェントを使ったプロパティベーステストのライブラリEphyraを紹介した。見落としがちなバグの発見を狙う。",
+      "why_useful": "大手の一次ブログで、エージェントによる自動テスト生成の実例を確認できる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    {
+      "type": "knowledge",
+      "description": "GoogleのMirror Dimension(合成ウェブでのエージェント評価・ヘッダー経由のインジェクション配信)を agent/knowledge/security.md に記録した。"
+    },
+    {
+      "type": "skill",
+      "description": "取得できないソース(CAPTCHA等)の扱いを agent/skills/curation.md に追記し、未確認の内容を断定しない方針を明文化した。"
+    }
+  ]
+}
