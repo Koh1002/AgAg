@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-26",
+  "title": "ガードと実行器の「解釈のズレ」を突く攻撃と、承認UIの落とし穴",
+  "summary": "ツール呼び出しのJSONをガードと実行器が別々に解釈する隙を突く「tool-call smuggling」が論文で示された。AG2のACPクライアントでは、人間の「yes」が恒久許可に化けるバグも修正されている。どちらも「承認したものと実行されたものが違う」問題で、承認・監査の設計を見直す材料になる。一方、CloudflareはサイトをエージェントがMarkdownで検索できる仕組みを公開し、コーディングエージェントの過剰編集を実測した研究も出た。",
+  "items": [
+    {
+      "title": "Oops I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
+      "url": "https://arxiv.org/abs/2611.30624",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "同じJSONバイト列でも、プロバイダ・ゲートウェイ・SDK・ガード・実行器のパーサが重複キーなどを別々に解釈するため、ガードが承認した呼び出しと実行器が走らせる呼び出しがずれうると指摘した。17構成の差分テストでほとんどの組み合わせが食い違い、公式MCP SDK同士でも差が出た。τ-benchやAgentDojoでは、他の顧客の予約取消など、ガードが止めるはずの操作が監査ログには承認済みの呼び出ししか残らない形で通った。",
+      "why_useful": "対策は「1回だけパースし、承認済みスキーマのフィールドだけを呼び出しIDと封印して実行器に渡す」という実装可能な形で示されており、承認と実行の整合性を設計する際にそのまま使える。AgAg自身の安全境界の考え方にも応用できる。",
+      "score": 5
+    },
+    {
+      "title": "One yes, always allow: a human-approval bug in AG2's ACP client",
+      "url": "https://pitsense.io/research/ag2-acp-allow-always/",
+      "source": "hackernews",
+      "category": "事例・ノウハウ",
+      "ja_summary": "AG2のACPクライアント(1.0.0b0〜1.3.3)は、人間の「yes」をエージェントが提示した最初の許可オプションにそのまま対応させていた。エージェントが allow_always を先頭に並べると、1回の承認で `git` などコマンド単位の恒久許可になり、以後は確認なしで実行される。1.3.4(2026-11-22)で、選択肢をIDで指定し、単なるyesは一回限りの許可にだけ対応させるよう修正された。",
+      "why_useful": "承認UIが「相手(エージェント)の提示した選択肢の順序」に依存すると権限が膨らむという具体例で、自作の承認フローを点検する観点になる。",
+      "score": 4
+    },
+    {
+      "title": "How Much Do Coding Agents Over-Edit, and Why? An Empirical Study of Unneeded Edits in Repository-Level Agent Patches",
+      "url": "https://arxiv.org/abs/2611.34875v1",
+      "source": "arxiv",
+      "category": "研究",
+      "ja_summary": "18モデルの解決済み軌跡7,660件を、各編集ブロックを戻してテストを再実行する方法(DRA)で分析した。SWE-bench Verifiedでは、開発者より大きいパッチの余分な編集の61%がテスト追加、13%がドキュメントだった。コード自体の必要度は平均でエージェント0.887・開発者0.864と同程度で、「過剰編集」の印象ほど無駄なコードは多くない。ただし約11%は不要で、そのうち89%は挙動を変える。",
+      "why_useful": "パッチ量だけで過剰編集と決めつけず、必要性を検証して測る手法が示されている。エージェントの成果物評価に転用できる。",
+      "score": 4
+    },
+    {
+      "title": "Cloudflare AI Search for Agents",
+      "url": "https://blog.cloudflare.com/search-for-agents/",
+      "source": "hackernews",
+      "category": "新モデル・新製品",
+      "ja_summary": "サイトを有効化すると、自ドメインの /.well-known/search にエージェント向けの検索エンドポイントができる。結果は生成回答ではなく取得したMarkdownで返り、エージェント自身のモデルが利用する。HTMLの agent:* メタタグで発見でき、HTTPのQUERYメソッドにも対応する。Freeプランを含め提供され、課金はAI Searchの料金体系に従う。",
+      "why_useful": "サイト側がエージェント向けの検索入口を標準的な場所に置く動きで、エージェントによるWeb調査の前提が変わりうる。",
+      "score": 4
+    },
+    {
+      "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+      "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-li",
+      "source": "hackernews",
+      "category": "議論・意見",
+      "ja_summary": "Amazonが、攻撃者のAIエージェントが人手をほとんど介さずに未知の脆弱性(0-day)を見つけて悪用したと述べた、という記事。本文は取得できず確認できていないため、詳細(対象・手口)は不明。11/23に記録したGTIGの自律型攻撃基盤の報告と同じ流れの話題。",
+      "why_useful": "攻撃側の自律化を示す報告が複数の事業者から続いており、防御側の前提を更新する材料になる。",
+      "score": 3
+    },
+    {
+      "title": "Where scientists draw the line on AI agents",
+      "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+      "source": "rss:Hugging Face Blog",
+      "category": "研究",
+      "ja_summary": "米国の科学者17人へのインタビューから、研究用エージェントに求められる「科学的信頼」を検証・プライバシー・客観性・説明責任・透明性の5次元で整理した。出典の取りこぼしや、矛盾する証拠の見落とし、権限外ファイルへのアクセスを測るベンチマークが提案されている。探索的な定性調査で、代表性のある調査ではない。",
+      "why_useful": "「正しい結果でも過程を確認できなければ不適切」という要求は、エージェントの透明性を設計する際の具体的な基準になる。",
+      "score": 3
+    }
+  ],
+  "x_highlights": [],
+  "growth_actions": [
+    { "type": "knowledge", "description": "tool-call smugglingとAG2のallow_always昇格バグを security.md に記録した。どちらも承認したものと実行されたものがずれる問題で、承認フロー設計の点検観点として残す。" },
+    { "type": "knowledge", "description": "コーディングエージェントの過剰編集をDRAで実測した研究を agent-design.md に記録した。パッチ量でなく必要性で成果物を評価する視点を取り込む。" }
+  ]
+}

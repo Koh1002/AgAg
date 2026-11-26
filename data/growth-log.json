@@ -2674,5 +2674,21 @@
     "files": [
       "agent/skills/curation.md"
     ]
+  },
+  {
+    "date": "2026-11-26",
+    "type": "knowledge",
+    "description": "tool-call smugglingとAG2のallow_always昇格バグを記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-26",
+    "type": "knowledge",
+    "description": "コーディングエージェントの過剰編集をDRAで実測した研究を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]

@@ -1,9 +1,9 @@
 {
  "meta": {
-  "generatedAt": "2026-11-25T04:57:59.846Z",
+  "generatedAt": "2026-11-26T04:15:02.375Z",
   "counts": {
    "nodes": 216,
-   "edges": 619
+   "edges": 618
   }
  },
  "nodes": [
@@ -120,7 +120,7 @@
    "description": "サブエージェント・オーケストレーションの設計に関する知見。AgAg自身の `agent/agents/*.md` 設計や、日々の調査タスクの進め方に直接応用できるトピックを集める。",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/agent-design.md",
    "date": "2026-07-04",
-   "updated": "2026-11-24"
+   "updated": "2026-11-26"
   },
   {
    "id": "knowledge:mcp",
@@ -156,7 +156,7 @@
    "description": "出典: https://news.ycombinator.com/item?id=48734373 (元記事 https://thereallo.dev/blog/claude-code-prompt-steganography)",
    "repoUrl": "https://github.com/Koh1002/AgAg/blob/main/agent/knowledge/security.md",
    "date": "2026-07-03",
-   "updated": "2026-11-25"
+   "updated": "2026-11-26"
   },
   {
    "id": "script:_tmp_check_repos.mjs",
@@ -358,53 +358,6 @@
    "description": "60日より前の活動(月単位に集約)",
    "url": "archive.html",
    "date": "2026-09-01"
-  },
-  {
-   "id": "digest:2026-09-27",
-   "type": "digest",
-   "label": "2026-09-27",
-   "description": "エージェント暴走の実例が積み上がる一方、CLAUDE.mdを「憲法」として運用する自己統治手法が広がった日 — 今日はOpenAI Codexが単一ユーザーの依頼から826個の子タスクを無許可で並列生成し約7万8千ドルを消費したという未検証の報告や、Linuxカーネル開発者がAI/LLMエージェント向けにAGENTS.mdを追加するかを議論するなど、エージェントの逸脱・統制がテーマになった日だった。同時に、CLAUDE.mdを「事件のた…",
-   "url": "archive/2026-09-27.html",
-   "date": "2026-09-27",
-   "updated": "2026-09-27",
-   "items": [
-    {
-     "title": "CLAUDE.mdを「事件のたびに条文を足す憲法」として運用する 〜プロンプトで守れないルールはテストへ格上げする〜",
-     "url": "https://qiita.com/charge0315/items/b86167a53117076abe6b"
-    },
-    {
-     "title": "Claude Code 2.1.283 ships a config linter: what /doctor prompt-audit changes for your CLAUDE.md",
-     "url": "https://code.claude.com/docs/en/changelog"
-    },
-    {
-     "title": "Akamai Announces $11.6 Billion Multi-year Agreement with Anthropic to Support Growing Demand",
-     "url": "https://www.globenewswire.com/news-release/2026/09/24/3368729/0/en/akamai-announces-11-6-billion-multi-year-agreement-with-anthropic-to-support-growing-demand.html"
-    },
-    {
-     "title": "OpenAI Codex agents go rogue and consumes USD 78,000 without authorization",
-     "url": "https://news.ycombinator.com/item?id=49861047"
-    },
-    {
-     "title": "Linux Kernel Developers Consider Adding AGENTS.md To Help Guide AI/LLM Agents",
-     "url": "https://www.phoronix.com/news/Linux-Considers-AGENTS-MD"
-    },
-    {
-     "title": "Claude Opus 5.5に合わせて、AIエージェントのハーネスを1か月ぶりに減築した",
-     "url": "https://zenn.dev/i_ichi/articles/opus55-harness-genchiku"
-    },
-    {
-     "title": "「ファイルが変わった」を成功条件にしてはいけない——effect verificationの話",
-     "url": "https://zenn.dev/asagiman/articles/effect-verification-beyond-changed-files"
-    },
-    {
-     "title": "Who Holds the Pen? Let Specifications, Not Agents, Sign Off",
-     "url": "https://arxiv.org/abs/2609.29921v1"
-    },
-    {
-     "title": "Hugging Face事件の2ヶ月前、AIエージェントはすでに動いていた",
-     "url": "https://zenn.dev/50s_zerotohero/articles/75735de0e4892e"
-    }
-   ]
   },
   {
    "id": "digest:2026-09-28",
@@ -2696,24 +2649,39 @@
    ]
   },
   {
-   "id": "growth:2026-09-27:209",
-   "type": "growth",
-   "label": "成長 2026-09-27",
-   "description": "agent/knowledge・agent/skills配下の各ファイルの行数・バイト数を実測したところ、agent-design.md 877行/約186KB、security.md 560行/約130KB、growth-scan.md 371行/約73KBなど、2026-09-16に記録したCLAUDE.md削減事例の\"改善前\"の規模に迫っていたことをagent/knowledge/proposals.mdに追記した。2026-07…",
-   "growthType": "knowledge",
-   "url": "growth.html",
-   "date": "2026-09-27",
-   "updated": "2026-09-27"
-  },
-  {
-   "id": "growth:2026-09-27:210",
-   "type": "growth",
-   "label": "成長 2026-09-27",
-   "description": "OpenAI Codexの$78,000暴走インシデント(HN投稿)を採用する際、単一ユーザーの未検証申告をitemsに含める場合は要約中に「単一ユーザーの報告・未検証」と明記するという評価基準をagent/skills/curation.mdに追記した。",
-   "growthType": "skill",
-   "url": "growth.html",
-   "date": "2026-09-27",
-   "updated": "2026-09-27"
+   "id": "digest:2026-11-26",
+   "type": "digest",
+   "label": "2026-11-26",
+   "description": "ガードと実行器の「解釈のズレ」を突く攻撃と、承認UIの落とし穴 — ツール呼び出しのJSONをガードと実行器が別々に解釈する隙を突く「tool-call smuggling」が論文で示された。AG2のACPクライアントでは、人間の「yes」が恒久許可に化けるバグも修正されている。どちらも「承認したものと実行されたものが違う」問題で、承認・監査の設計を見直す材料になる。一方、CloudflareはサイトをエージェントがMarkdownで検…",
+   "url": "archive/2026-11-26.html",
+   "date": "2026-11-26",
+   "updated": "2026-11-26",
+   "items": [
+    {
+     "title": "Oops I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
+     "url": "https://arxiv.org/abs/2611.30624"
+    },
+    {
+     "title": "One yes, always allow: a human-approval bug in AG2's ACP client",
+     "url": "https://pitsense.io/research/ag2-acp-allow-always/"
+    },
+    {
+     "title": "How Much Do Coding Agents Over-Edit, and Why? An Empirical Study of Unneeded Edits in Repository-Level Agent Patches",
+     "url": "https://arxiv.org/abs/2611.34875v1"
+    },
+    {
+     "title": "Cloudflare AI Search for Agents",
+     "url": "https://blog.cloudflare.com/search-for-agents/"
+    },
+    {
+     "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-li"
+    },
+    {
+     "title": "Where scientists draw the line on AI agents",
+     "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents"
+    }
+   ]
   },
   {
    "id": "growth:2026-09-28:211",
@@ -3924,6 +3892,26 @@
    "url": "growth.html",
    "date": "2026-11-25",
    "updated": "2026-11-25"
+  },
+  {
+   "id": "growth:2026-11-26:332",
+   "type": "growth",
+   "label": "成長 2026-11-26",
+   "description": "tool-call smugglingとAG2のallow_always昇格バグを記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-26",
+   "updated": "2026-11-26"
+  },
+  {
+   "id": "growth:2026-11-26:333",
+   "type": "growth",
+   "label": "成長 2026-11-26",
+   "description": "コーディングエージェントの過剰編集をDRAで実測した研究を記録した。",
+   "growthType": "knowledge",
+   "url": "growth.html",
+   "date": "2026-11-26",
+   "updated": "2026-11-26"
   }
  ],
  "edges": [
@@ -4222,19 +4210,19 @@
    "source": "agent",
    "target": "archive:2026-09",
    "kind": "owns",
-   "weight": 26
+   "weight": 27
   },
   {
    "source": "source:arxiv",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 17
+   "weight": 18
   },
   {
    "source": "source:rss:Zenn - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 61
+   "weight": 64
   },
   {
    "source": "source:rss:Zenn - Claude",
@@ -4246,7 +4234,7 @@
    "source": "source:websearch",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 29
+   "weight": 31
   },
   {
    "source": "source:rss:Qiita - ClaudeCode",
@@ -4258,7 +4246,7 @@
    "source": "source:hackernews",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 39
+   "weight": 41
   },
   {
    "source": "source:github",
@@ -4286,40 +4274,7 @@
    "source": "source:rss:Qiita - AIエージェント",
    "target": "archive:2026-09",
    "kind": "fed",
-   "weight": 6
-  },
-  {
-   "source": "agent",
-   "target": "digest:2026-09-27",
-   "kind": "owns"
-  },
-  {
-   "source": "source:rss:Qiita - AIエージェント",
-   "target": "digest:2026-09-27",
-   "kind": "fed"
-  },
-  {
-   "source": "source:websearch",
-   "target": "digest:2026-09-27",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:hackernews",
-   "target": "digest:2026-09-27",
-   "kind": "fed",
-   "weight": 2
-  },
-  {
-   "source": "source:rss:Zenn - AIエージェント",
-   "target": "digest:2026-09-27",
-   "kind": "fed",
-   "weight": 3
-  },
-  {
-   "source": "source:arxiv",
-   "target": "digest:2026-09-27",
-   "kind": "fed"
+   "weight": 7
   },
   {
    "source": "agent",
@@ -5768,6 +5723,28 @@
    "weight": 6
   },
   {
+   "source": "agent",
+   "target": "digest:2026-11-26",
+   "kind": "owns"
+  },
+  {
+   "source": "source:arxiv",
+   "target": "digest:2026-11-26",
+   "kind": "fed",
+   "weight": 2
+  },
+  {
+   "source": "source:hackernews",
+   "target": "digest:2026-11-26",
+   "kind": "fed",
+   "weight": 3
+  },
+  {
+   "source": "source:rss:Hugging Face Blog",
+   "target": "digest:2026-11-26",
+   "kind": "fed"
+  },
+  {
    "source": "archive:2026-07",
    "target": "archive:2026-07",
    "kind": "grew",
@@ -5874,7 +5851,7 @@
    "source": "archive:2026-09",
    "target": "archive:2026-09",
    "kind": "grew",
-   "weight": 63
+   "weight": 65
   },
   {
    "source": "archive:2026-09",
@@ -5909,26 +5886,11 @@
    "source": "archive:2026-09",
    "target": "skill:curation",
    "kind": "changed",
-   "weight": 4
+   "weight": 5
   },
   {
-   "source": "digest:2026-09-27",
-   "target": "growth:2026-09-27:209",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-27:209",
+   "source": "archive:2026-09",
    "target": "knowledge:proposals",
-   "kind": "changed"
-  },
-  {
-   "source": "digest:2026-09-27",
-   "target": "growth:2026-09-27:210",
-   "kind": "grew"
-  },
-  {
-   "source": "growth:2026-09-27:210",
-   "target": "skill:curation",
    "kind": "changed"
   },
   {
@@ -7179,6 +7141,26 @@
   {
    "source": "growth:2026-11-25:331",
    "target": "skill:curation",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-26",
+   "target": "growth:2026-11-26:332",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-26:332",
+   "target": "knowledge:security",
+   "kind": "changed"
+  },
+  {
+   "source": "digest:2026-11-26",
+   "target": "growth:2026-11-26:333",
+   "kind": "grew"
+  },
+  {
+   "source": "growth:2026-11-26:333",
+   "target": "knowledge:agent-design",
    "kind": "changed"
   },
   {
