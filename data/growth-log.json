@@ -2690,5 +2690,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-27",
+    "type": "knowledge",
+    "description": "AnthropicのSirenによるサンドボックス脱出の測定結果と緩和策を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-27",
+    "type": "knowledge",
+    "description": "マルチエージェント協調の効果をトークン消費と合わせて測る視点を記録した。",
+    "files": [
+      "agent/knowledge/agent-design.md"
+    ]
   }
 ]
