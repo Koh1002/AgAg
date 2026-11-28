@@ -2706,5 +2706,21 @@
     "files": [
       "agent/knowledge/agent-design.md"
     ]
+  },
+  {
+    "date": "2026-11-28",
+    "type": "knowledge",
+    "description": "サブエージェントのread-only指定が親の権限に上書きされる事例を記録した。",
+    "files": [
+      "agent/knowledge/security.md"
+    ]
+  },
+  {
+    "date": "2026-11-28",
+    "type": "knowledge",
+    "description": "検索型ツール公開によるトークン削減とWorkspace MCPの課金見込みを記録した。",
+    "files": [
+      "agent/knowledge/mcp.md"
+    ]
   }
 ]
